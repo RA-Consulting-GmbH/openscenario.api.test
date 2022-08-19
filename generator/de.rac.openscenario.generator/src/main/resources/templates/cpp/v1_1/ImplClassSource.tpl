@@ -112,10 +112,7 @@ namespace NET_ASAM_OPENSCENARIO
 <%-if (property.isParameterizableProperty()){-%>
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
 <%-}-%>
-<%-if (property.lower == 0) {-%>
-			// set the indicator to true
-            isSet<%=property.name.toClassName()%> = true;          
-<%-}-%>
+			_isSet<%=property.name.toClassName()%> = true;
         }
 <%-}-%>
 
@@ -248,10 +245,12 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(parameterLiteralValue);
                 _<%=property.name.toMemberName()%> = std::dynamic_pointer_cast<INamedReference<I<%=property.type.name.toClassName()%>>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSet<%=property.name.toClassName()%> = true;
                 <%-} else if (property.type.isPrimitiveType()) {-%>
                 // Simple type
                 _<%=property.name.toMemberName()%> = ParserHelper::Parse<%=property.type.name.toClassName()%>(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSet<%=property.name.toClassName()%> = true;
                 <%-} else {-%>
                 // Enumeration Type
                 const auto kResult = <%=property.type.name.toClassName()%>::GetFromLiteral(parameterLiteralValue);
@@ -259,6 +258,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _<%=property.name.toMemberName()%> = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSet<%=property.name.toClassName()%> = true;
                 }
                 else
                 {
@@ -369,7 +369,7 @@ namespace NET_ASAM_OPENSCENARIO
             <%-}-%>
             // clone indicators
             <%-properties.findAll(){property -> property.lower == 0}.each{ property ->-%>          
-            	clonedObject->isSet<%=property.name.toClassName()%> = isSet<%=property.name.toClassName()%>;
+            	clonedObject->_isSet<%=property.name.toClassName()%> = _isSet<%=property.name.toClassName()%>;
             <%-}-%>
             // clone children
             <%-properties = element.getXmlElementProperties();-%>
@@ -546,7 +546,7 @@ namespace NET_ASAM_OPENSCENARIO
 <%-if (property.lower == 0) {-%>
        void <%=element.name.toClassName()%>Impl::Reset<%=property.name.toClassName()%>()
 	   {
-	   		isSet<%=property.name.toClassName()%> = false; 
+	   		_isSet<%=property.name.toClassName()%> = false; 
 	   		<%- if (property.isProxy() && !property.isList()){-%>
         	_<%=property.name.toMemberName()%> = nullptr;
 			<%-}else{-%>
@@ -554,11 +554,14 @@ namespace NET_ASAM_OPENSCENARIO
 			<%-}-%>
 			
 	   }
+<%-}-%>
        bool <%=element.name.toClassName()%>Impl::IsSet<%=property.name.toClassName()%>() const
 	   {
-			return isSet<%=property.name.toClassName()%>;
+			return _isSet<%=property.name.toClassName()%>;
 	   }
-<%-}}-%>
+<%-}-%>
+
+
 <%-}-%>
     }
 }
@@ -594,6 +597,7 @@ if (key.empty())
                 // Simple type
                 _<%=property.name.toMemberName()%> = value;
                 AddResolvedParameter(attributeKey);
+                _isSet<%=property.name.toClassName()%> = true;
             }
         <%-}-%>
 		

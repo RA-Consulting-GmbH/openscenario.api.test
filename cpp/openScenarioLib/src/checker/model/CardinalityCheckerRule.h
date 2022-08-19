@@ -28,11 +28,11 @@
  */
 namespace NET_ASAM_OPENSCENARIO
 {
-    class CardinalityCheckerRule:  public ModelCheckerRule
+    class CardinalityCheckerRule : public ModelCheckerRule
     {
     public:
         CardinalityCheckerRule();
-        virtual  ~CardinalityCheckerRule();
+        virtual ~CardinalityCheckerRule();
 
     protected:
         std::string GetTooManyMessage(std::string& property, int expected, int actual);
@@ -43,27 +43,28 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::string GetRequiredContentMessage();
 
-       
-
+        std::string GetRequiredXorMessage(std::vector<std::string> propertiesName);
     };
-	enum VIOLATION_TYPE
-	{
-		TOO_MANY,
-		TOO_FEW,
-		REQUIRED,
-		REQUIRED_SIMPLE_CONTENT
-	};
-	
-	class CardinalityViolation
-	{
-	public:
-		std::string propertyName;
-		int expected;
-		int actual;
-		VIOLATION_TYPE violationType;
 
-		CardinalityViolation(const std::string propertyName, const int expected, const int actual, const VIOLATION_TYPE violationType);
-	};
+    enum VIOLATION_TYPE
+    {
+        TOO_MANY,
+        TOO_FEW,
+        REQUIRED,
+        REQUIRED_SIMPLE_CONTENT,
+        REQUIRED_XOR
+    };
 
+    class CardinalityViolation
+    {
+    public:
+        std::string propertyName;
+        std::vector<std::string> propertiesName;
+        int expected;
+        int actual;
+        VIOLATION_TYPE violationType;
 
+        CardinalityViolation(const std::string propertyName, const int expected, const int actual, const VIOLATION_TYPE violationType);
+        CardinalityViolation(const std::vector<std::string> propertiesName, const int expected, const int actual, const VIOLATION_TYPE violationType);
+    };
 }

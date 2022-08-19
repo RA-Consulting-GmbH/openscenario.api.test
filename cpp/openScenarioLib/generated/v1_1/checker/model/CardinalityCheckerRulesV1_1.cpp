@@ -40,6 +40,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -53,20 +57,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        AbsoluteSpeedCardinalityCheckerRule::AbsoluteSpeedCardinalityCheckerRule() = default;
 
-         AbsoluteSpeedCardinalityCheckerRule::AbsoluteSpeedCardinalityCheckerRule() = default;
-
-        void AbsoluteSpeedCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteSpeed> object)
+        void AbsoluteSpeedCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteSpeed>(object));
             
             for (auto&& violation : violations)
             {
@@ -75,9 +81,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void AbsoluteSpeedCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteSpeed> object)
+        void AbsoluteSpeedCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteSpeed>(object));
 
             for (auto&& violation : violations)
             {
@@ -101,6 +107,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -114,20 +124,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue().empty())
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        AbsoluteTargetLaneCardinalityCheckerRule::AbsoluteTargetLaneCardinalityCheckerRule() = default;
 
-         AbsoluteTargetLaneCardinalityCheckerRule::AbsoluteTargetLaneCardinalityCheckerRule() = default;
-
-        void AbsoluteTargetLaneCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLane> object)
+        void AbsoluteTargetLaneCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteTargetLane>(object));
             
             for (auto&& violation : violations)
             {
@@ -136,9 +148,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void AbsoluteTargetLaneCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLane> object)
+        void AbsoluteTargetLaneCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteTargetLane>(object));
 
             for (auto&& violation : violations)
             {
@@ -162,6 +174,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -175,20 +191,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        AbsoluteTargetLaneOffsetCardinalityCheckerRule::AbsoluteTargetLaneOffsetCardinalityCheckerRule() = default;
 
-         AbsoluteTargetLaneOffsetCardinalityCheckerRule::AbsoluteTargetLaneOffsetCardinalityCheckerRule() = default;
-
-        void AbsoluteTargetLaneOffsetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLaneOffset> object)
+        void AbsoluteTargetLaneOffsetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteTargetLaneOffset>(object));
             
             for (auto&& violation : violations)
             {
@@ -197,9 +215,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void AbsoluteTargetLaneOffsetCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetLaneOffset> object)
+        void AbsoluteTargetLaneOffsetCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteTargetLaneOffset>(object));
 
             for (auto&& violation : violations)
             {
@@ -223,6 +241,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -236,20 +258,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        AbsoluteTargetSpeedCardinalityCheckerRule::AbsoluteTargetSpeedCardinalityCheckerRule() = default;
 
-         AbsoluteTargetSpeedCardinalityCheckerRule::AbsoluteTargetSpeedCardinalityCheckerRule() = default;
-
-        void AbsoluteTargetSpeedCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetSpeed> object)
+        void AbsoluteTargetSpeedCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteTargetSpeed>(object));
             
             for (auto&& violation : violations)
             {
@@ -258,9 +282,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void AbsoluteTargetSpeedCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAbsoluteTargetSpeed> object)
+        void AbsoluteTargetSpeedCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteTargetSpeed>(object));
 
             for (auto&& violation : violations)
             {
@@ -284,6 +308,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -297,26 +325,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        AccelerationConditionCardinalityCheckerRule::AccelerationConditionCardinalityCheckerRule() = default;
 
-         AccelerationConditionCardinalityCheckerRule::AccelerationConditionCardinalityCheckerRule() = default;
-
-        void AccelerationConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAccelerationCondition> object)
+        void AccelerationConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAccelerationCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -325,9 +355,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void AccelerationConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAccelerationCondition> object)
+        void AccelerationConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAccelerationCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -351,6 +381,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -364,20 +398,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        AcquirePositionActionCardinalityCheckerRule::AcquirePositionActionCardinalityCheckerRule() = default;
 
-         AcquirePositionActionCardinalityCheckerRule::AcquirePositionActionCardinalityCheckerRule() = default;
-
-        void AcquirePositionActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAcquirePositionAction> object)
+        void AcquirePositionActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAcquirePositionAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -386,9 +422,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void AcquirePositionActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAcquirePositionAction> object)
+        void AcquirePositionActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAcquirePositionAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -412,6 +448,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -425,7 +465,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
@@ -438,20 +478,22 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Check violation
             // Check required
-            if (object->GetStartTrigger() == nullptr)
+            if (!object->IsSetStartTrigger())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__START_TRIGGER, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ActCardinalityCheckerRule::ActCardinalityCheckerRule() = default;
 
-         ActCardinalityCheckerRule::ActCardinalityCheckerRule() = default;
-
-        void ActCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAct> object)
+        void ActCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAct>(object));
             
             for (auto&& violation : violations)
             {
@@ -460,9 +502,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ActCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAct> object)
+        void ActCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAct>(object));
 
             for (auto&& violation : violations)
             {
@@ -486,6 +528,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -499,20 +545,33 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetGlobalAction();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION );
+            oneElementDefined ^= object->IsSetUserDefinedAction();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION );
+            oneElementDefined ^= object->IsSetPrivateAction();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        ActionCardinalityCheckerRule::ActionCardinalityCheckerRule() = default;
 
-         ActionCardinalityCheckerRule::ActionCardinalityCheckerRule() = default;
-
-        void ActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAction> object)
+        void ActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -521,9 +580,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAction> object)
+        void ActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -547,6 +606,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -560,20 +623,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetSelectTriggeringEntities() == false)
+            if (!object->IsSetSelectTriggeringEntities())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ActorsCardinalityCheckerRule::ActorsCardinalityCheckerRule() = default;
 
-         ActorsCardinalityCheckerRule::ActorsCardinalityCheckerRule() = default;
-
-        void ActorsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IActors> object)
+        void ActorsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IActors>(object));
             
             for (auto&& violation : violations)
             {
@@ -582,9 +647,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ActorsCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IActors> object)
+        void ActorsCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IActors>(object));
 
             for (auto&& violation : violations)
             {
@@ -608,6 +673,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -621,20 +690,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        AddEntityActionCardinalityCheckerRule::AddEntityActionCardinalityCheckerRule() = default;
 
-         AddEntityActionCardinalityCheckerRule::AddEntityActionCardinalityCheckerRule() = default;
-
-        void AddEntityActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAddEntityAction> object)
+        void AddEntityActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAddEntityAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -643,9 +714,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void AddEntityActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAddEntityAction> object)
+        void AddEntityActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAddEntityAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -669,6 +740,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -682,44 +757,46 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetMaxSteering() == 0)
+            if (!object->IsSetMaxSteering())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPositionX() == 0)
+            if (!object->IsSetPositionX())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__POSITION_X, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPositionZ() == 0)
+            if (!object->IsSetPositionZ())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTrackWidth() == 0)
+            if (!object->IsSetTrackWidth())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetWheelDiameter() == 0)
+            if (!object->IsSetWheelDiameter())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        AxleCardinalityCheckerRule::AxleCardinalityCheckerRule() = default;
 
-         AxleCardinalityCheckerRule::AxleCardinalityCheckerRule() = default;
-
-        void AxleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAxle> object)
+        void AxleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAxle>(object));
             
             for (auto&& violation : violations)
             {
@@ -728,9 +805,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void AxleCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAxle> object)
+        void AxleCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAxle>(object));
 
             for (auto&& violation : violations)
             {
@@ -754,6 +831,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -767,26 +848,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetFrontAxle() == nullptr)
+            if (!object->IsSetFrontAxle())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__FRONT_AXLE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRearAxle() == nullptr)
+            if (!object->IsSetRearAxle())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__REAR_AXLE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        AxlesCardinalityCheckerRule::AxlesCardinalityCheckerRule() = default;
 
-         AxlesCardinalityCheckerRule::AxlesCardinalityCheckerRule() = default;
-
-        void AxlesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IAxles> object)
+        void AxlesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAxles>(object));
             
             for (auto&& violation : violations)
             {
@@ -795,9 +878,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void AxlesCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IAxles> object)
+        void AxlesCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IAxles>(object));
 
             for (auto&& violation : violations)
             {
@@ -821,6 +904,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -834,26 +921,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetCenter() == nullptr)
+            if (!object->IsSetCenter())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CENTER, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDimensions() == nullptr)
+            if (!object->IsSetDimensions())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIMENSIONS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        BoundingBoxCardinalityCheckerRule::BoundingBoxCardinalityCheckerRule() = default;
 
-         BoundingBoxCardinalityCheckerRule::BoundingBoxCardinalityCheckerRule() = default;
-
-        void BoundingBoxCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IBoundingBox> object)
+        void BoundingBoxCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IBoundingBox>(object));
             
             for (auto&& violation : violations)
             {
@@ -862,9 +951,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void BoundingBoxCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IBoundingBox> object)
+        void BoundingBoxCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IBoundingBox>(object));
 
             for (auto&& violation : violations)
             {
@@ -888,6 +977,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -901,26 +994,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetTriggeringEntities() == nullptr)
+            if (!object->IsSetTriggeringEntities())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRIGGERING_ENTITIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntityCondition() == nullptr)
+            if (!object->IsSetEntityCondition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ENTITY_CONDITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ByEntityConditionCardinalityCheckerRule::ByEntityConditionCardinalityCheckerRule() = default;
 
-         ByEntityConditionCardinalityCheckerRule::ByEntityConditionCardinalityCheckerRule() = default;
-
-        void ByEntityConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByEntityCondition> object)
+        void ByEntityConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IByEntityCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -929,9 +1024,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ByEntityConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByEntityCondition> object)
+        void ByEntityConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IByEntityCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -955,6 +1050,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -968,20 +1067,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetType() == ObjectType::UNKNOWN)
+            if (!object->IsSetType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ByObjectTypeCardinalityCheckerRule::ByObjectTypeCardinalityCheckerRule() = default;
 
-         ByObjectTypeCardinalityCheckerRule::ByObjectTypeCardinalityCheckerRule() = default;
-
-        void ByObjectTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByObjectType> object)
+        void ByObjectTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IByObjectType>(object));
             
             for (auto&& violation : violations)
             {
@@ -990,9 +1091,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ByObjectTypeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByObjectType> object)
+        void ByObjectTypeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IByObjectType>(object));
 
             for (auto&& violation : violations)
             {
@@ -1016,6 +1117,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1029,20 +1134,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetObjectType() == ObjectType::UNKNOWN)
+            if (!object->IsSetObjectType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ByTypeCardinalityCheckerRule::ByTypeCardinalityCheckerRule() = default;
 
-         ByTypeCardinalityCheckerRule::ByTypeCardinalityCheckerRule() = default;
-
-        void ByTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IByType> object)
+        void ByTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IByType>(object));
             
             for (auto&& violation : violations)
             {
@@ -1051,9 +1158,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ByTypeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IByType> object)
+        void ByTypeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IByType>(object));
 
             for (auto&& violation : violations)
             {
@@ -1077,6 +1184,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1090,20 +1201,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetCatalog() == nullptr)
+            if (!object->IsSetCatalog())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CATALOG, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        CatalogDefinitionCardinalityCheckerRule::CatalogDefinitionCardinalityCheckerRule() = default;
 
-         CatalogDefinitionCardinalityCheckerRule::CatalogDefinitionCardinalityCheckerRule() = default;
-
-        void CatalogDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICatalogDefinition> object)
+        void CatalogDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICatalogDefinition>(object));
             
             for (auto&& violation : violations)
             {
@@ -1112,9 +1225,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void CatalogDefinitionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICatalogDefinition> object)
+        void CatalogDefinitionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ICatalogDefinition>(object));
 
             for (auto&& violation : violations)
             {
@@ -1138,6 +1251,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1151,26 +1268,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetCatalogName().empty())
+            if (!object->IsSetCatalogName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntryName().empty())
+            if (!object->IsSetEntryName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        CatalogReferenceCardinalityCheckerRule::CatalogReferenceCardinalityCheckerRule() = default;
 
-         CatalogReferenceCardinalityCheckerRule::CatalogReferenceCardinalityCheckerRule() = default;
-
-        void CatalogReferenceCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICatalogReference> object)
+        void CatalogReferenceCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICatalogReference>(object));
             
             for (auto&& violation : violations)
             {
@@ -1179,9 +1298,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void CatalogReferenceCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICatalogReference> object)
+        void CatalogReferenceCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ICatalogReference>(object));
 
             for (auto&& violation : violations)
             {
@@ -1205,6 +1324,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1218,32 +1341,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetX() == 0)
+            if (!object->IsSetX())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__X, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetY() == 0)
+            if (!object->IsSetY())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__Y, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetZ() == 0)
+            if (!object->IsSetZ())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__Z, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        CenterCardinalityCheckerRule::CenterCardinalityCheckerRule() = default;
 
-         CenterCardinalityCheckerRule::CenterCardinalityCheckerRule() = default;
-
-        void CenterCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICenter> object)
+        void CenterCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICenter>(object));
             
             for (auto&& violation : violations)
             {
@@ -1252,9 +1377,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void CenterCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICenter> object)
+        void CenterCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ICenter>(object));
 
             for (auto&& violation : violations)
             {
@@ -1278,6 +1403,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1291,20 +1420,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        CentralSwarmObjectCardinalityCheckerRule::CentralSwarmObjectCardinalityCheckerRule() = default;
 
-         CentralSwarmObjectCardinalityCheckerRule::CentralSwarmObjectCardinalityCheckerRule() = default;
-
-        void CentralSwarmObjectCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICentralSwarmObject> object)
+        void CentralSwarmObjectCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICentralSwarmObject>(object));
             
             for (auto&& violation : violations)
             {
@@ -1313,9 +1444,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void CentralSwarmObjectCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICentralSwarmObject> object)
+        void CentralSwarmObjectCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ICentralSwarmObject>(object));
 
             for (auto&& violation : violations)
             {
@@ -1339,6 +1470,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1352,32 +1487,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetCurvature() == 0)
+            if (!object->IsSetCurvature())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CURVATURE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetLength() == 0)
+            if (!object->IsSetLength())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LENGTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ClothoidCardinalityCheckerRule::ClothoidCardinalityCheckerRule() = default;
 
-         ClothoidCardinalityCheckerRule::ClothoidCardinalityCheckerRule() = default;
-
-        void ClothoidCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IClothoid> object)
+        void ClothoidCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IClothoid>(object));
             
             for (auto&& violation : violations)
             {
@@ -1386,9 +1523,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ClothoidCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IClothoid> object)
+        void ClothoidCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IClothoid>(object));
 
             for (auto&& violation : violations)
             {
@@ -1412,6 +1549,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1425,32 +1566,43 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetConditionEdge() == ConditionEdge::UNKNOWN)
+            if (!object->IsSetConditionEdge())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDelay() == 0)
+            if (!object->IsSetDelay())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DELAY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetByEntityCondition();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__BY_ENTITY_CONDITION );
+            oneElementDefined ^= object->IsSetByValueCondition();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__BY_VALUE_CONDITION );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        ConditionCardinalityCheckerRule::ConditionCardinalityCheckerRule() = default;
 
-         ConditionCardinalityCheckerRule::ConditionCardinalityCheckerRule() = default;
-
-        void ConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICondition> object)
+        void ConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -1459,9 +1611,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICondition> object)
+        void ConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ICondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -1485,6 +1637,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1503,16 +1659,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CONDITION, 1, kConditionsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ConditionGroupCardinalityCheckerRule::ConditionGroupCardinalityCheckerRule() = default;
 
-         ConditionGroupCardinalityCheckerRule::ConditionGroupCardinalityCheckerRule() = default;
-
-        void ConditionGroupCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IConditionGroup> object)
+        void ConditionGroupCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IConditionGroup>(object));
             
             for (auto&& violation : violations)
             {
@@ -1521,9 +1679,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ConditionGroupCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IConditionGroup> object)
+        void ConditionGroupCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IConditionGroup>(object));
 
             for (auto&& violation : violations)
             {
@@ -1547,6 +1705,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1560,20 +1722,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ControlPointCardinalityCheckerRule::ControlPointCardinalityCheckerRule() = default;
 
-         ControlPointCardinalityCheckerRule::ControlPointCardinalityCheckerRule() = default;
-
-        void ControlPointCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControlPoint> object)
+        void ControlPointCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IControlPoint>(object));
             
             for (auto&& violation : violations)
             {
@@ -1582,9 +1746,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ControlPointCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControlPoint> object)
+        void ControlPointCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IControlPoint>(object));
 
             for (auto&& violation : violations)
             {
@@ -1608,6 +1772,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1621,26 +1789,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetProperties() == nullptr)
+            if (!object->IsSetProperties())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PROPERTIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ControllerCardinalityCheckerRule::ControllerCardinalityCheckerRule() = default;
 
-         ControllerCardinalityCheckerRule::ControllerCardinalityCheckerRule() = default;
-
-        void ControllerCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IController> object)
+        void ControllerCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IController>(object));
             
             for (auto&& violation : violations)
             {
@@ -1649,9 +1819,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ControllerCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IController> object)
+        void ControllerCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IController>(object));
 
             for (auto&& violation : violations)
             {
@@ -1675,6 +1845,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1688,20 +1862,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDirectory() == nullptr)
+            if (!object->IsSetDirectory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ControllerCatalogLocationCardinalityCheckerRule::ControllerCatalogLocationCardinalityCheckerRule() = default;
 
-         ControllerCatalogLocationCardinalityCheckerRule::ControllerCatalogLocationCardinalityCheckerRule() = default;
-
-        void ControllerCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerCatalogLocation> object)
+        void ControllerCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IControllerCatalogLocation>(object));
             
             for (auto&& violation : violations)
             {
@@ -1710,9 +1886,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ControllerCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerCatalogLocation> object)
+        void ControllerCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IControllerCatalogLocation>(object));
 
             for (auto&& violation : violations)
             {
@@ -1736,6 +1912,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1754,16 +1934,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION_ENTRY, 1, kControllerDistributionEntriesSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ControllerDistributionCardinalityCheckerRule::ControllerDistributionCardinalityCheckerRule() = default;
 
-         ControllerDistributionCardinalityCheckerRule::ControllerDistributionCardinalityCheckerRule() = default;
-
-        void ControllerDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerDistribution> object)
+        void ControllerDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IControllerDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -1772,9 +1954,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ControllerDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerDistribution> object)
+        void ControllerDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IControllerDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -1798,6 +1980,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1811,20 +1997,31 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetWeight() == 0)
+            if (!object->IsSetWeight())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetController();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__CONTROLLER );
+            oneElementDefined ^= object->IsSetCatalogReference();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        ControllerDistributionEntryCardinalityCheckerRule::ControllerDistributionEntryCardinalityCheckerRule() = default;
 
-         ControllerDistributionEntryCardinalityCheckerRule::ControllerDistributionEntryCardinalityCheckerRule() = default;
-
-        void ControllerDistributionEntryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object)
+        void ControllerDistributionEntryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IControllerDistributionEntry>(object));
             
             for (auto&& violation : violations)
             {
@@ -1833,9 +2030,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ControllerDistributionEntryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IControllerDistributionEntry> object)
+        void ControllerDistributionEntryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IControllerDistributionEntry>(object));
 
             for (auto&& violation : violations)
             {
@@ -1859,6 +2056,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1872,26 +2073,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetContent().empty())
+            if (!object->IsSetContent())
             {
                 violations.push_back( CardinalityViolation("", 0, 1, VIOLATION_TYPE::REQUIRED_SIMPLE_CONTENT) );
             }
             // Check violation
             // Check required
-            if (object->GetType().empty())
+            if (!object->IsSetType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        CustomCommandActionCardinalityCheckerRule::CustomCommandActionCardinalityCheckerRule() = default;
 
-         CustomCommandActionCardinalityCheckerRule::CustomCommandActionCardinalityCheckerRule() = default;
-
-        void CustomCommandActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ICustomCommandAction> object)
+        void CustomCommandActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICustomCommandAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -1900,9 +2103,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void CustomCommandActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ICustomCommandAction> object)
+        void CustomCommandActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ICustomCommandAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -1926,6 +2129,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -1939,20 +2146,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDeterministicMultiParameterDistributionType() == nullptr)
+            if (!object->IsSetDeterministicMultiParameterDistributionType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DETERMINISTIC_MULTI_PARAMETER_DISTRIBUTION_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        DeterministicMultiParameterDistributionCardinalityCheckerRule::DeterministicMultiParameterDistributionCardinalityCheckerRule() = default;
 
-         DeterministicMultiParameterDistributionCardinalityCheckerRule::DeterministicMultiParameterDistributionCardinalityCheckerRule() = default;
-
-        void DeterministicMultiParameterDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistribution> object)
+        void DeterministicMultiParameterDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicMultiParameterDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -1961,9 +2170,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DeterministicMultiParameterDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistribution> object)
+        void DeterministicMultiParameterDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicMultiParameterDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -1987,6 +2196,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2000,20 +2213,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValueSetDistribution() == nullptr)
+            if (!object->IsSetValueSetDistribution())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__VALUE_SET_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        DeterministicMultiParameterDistributionTypeCardinalityCheckerRule::DeterministicMultiParameterDistributionTypeCardinalityCheckerRule() = default;
 
-         DeterministicMultiParameterDistributionTypeCardinalityCheckerRule::DeterministicMultiParameterDistributionTypeCardinalityCheckerRule() = default;
-
-        void DeterministicMultiParameterDistributionTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistributionType> object)
+        void DeterministicMultiParameterDistributionTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicMultiParameterDistributionType>(object));
             
             for (auto&& violation : violations)
             {
@@ -2022,9 +2237,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DeterministicMultiParameterDistributionTypeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicMultiParameterDistributionType> object)
+        void DeterministicMultiParameterDistributionTypeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicMultiParameterDistributionType>(object));
 
             for (auto&& violation : violations)
             {
@@ -2048,6 +2263,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2059,28 +2278,27 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<CardinalityViolation> DeterministicParameterDistributionCardinalityCheckerRule::GetAllViolations(std::shared_ptr<IDeterministicParameterDistribution> object)
         {
             std::vector<CardinalityViolation> violations;
-            // Check violation
-            // Check required
-            if (object->GetDeterministicMultiParameterDistribution() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DETERMINISTIC_MULTI_PARAMETER_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetDeterministicSingleParameterDistribution() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DETERMINISTIC_SINGLE_PARAMETER_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetDeterministicMultiParameterDistribution();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DETERMINISTIC_MULTI_PARAMETER_DISTRIBUTION );
+            oneElementDefined ^= object->IsSetDeterministicSingleParameterDistribution();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DETERMINISTIC_SINGLE_PARAMETER_DISTRIBUTION );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        DeterministicParameterDistributionCardinalityCheckerRule::DeterministicParameterDistributionCardinalityCheckerRule() = default;
 
-         DeterministicParameterDistributionCardinalityCheckerRule::DeterministicParameterDistributionCardinalityCheckerRule() = default;
-
-        void DeterministicParameterDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicParameterDistribution> object)
+        void DeterministicParameterDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicParameterDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -2089,9 +2307,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DeterministicParameterDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicParameterDistribution> object)
+        void DeterministicParameterDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicParameterDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -2115,6 +2333,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2128,26 +2350,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetParameterName().empty())
+            if (!object->IsSetParameterName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDeterministicSingleParameterDistributionType() == nullptr)
+            if (!object->IsSetDeterministicSingleParameterDistributionType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DETERMINISTIC_SINGLE_PARAMETER_DISTRIBUTION_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        DeterministicSingleParameterDistributionCardinalityCheckerRule::DeterministicSingleParameterDistributionCardinalityCheckerRule() = default;
 
-         DeterministicSingleParameterDistributionCardinalityCheckerRule::DeterministicSingleParameterDistributionCardinalityCheckerRule() = default;
-
-        void DeterministicSingleParameterDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistribution> object)
+        void DeterministicSingleParameterDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicSingleParameterDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -2156,9 +2380,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DeterministicSingleParameterDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistribution> object)
+        void DeterministicSingleParameterDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicSingleParameterDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -2182,6 +2406,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2193,34 +2421,29 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<CardinalityViolation> DeterministicSingleParameterDistributionTypeCardinalityCheckerRule::GetAllViolations(std::shared_ptr<IDeterministicSingleParameterDistributionType> object)
         {
             std::vector<CardinalityViolation> violations;
-            // Check violation
-            // Check required
-            if (object->GetDistributionSet() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DISTRIBUTION_SET, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetDistributionRange() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DISTRIBUTION_RANGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetUserDefinedDistribution() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__USER_DEFINED_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetDistributionSet();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DISTRIBUTION_SET );
+            oneElementDefined ^= object->IsSetDistributionRange();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DISTRIBUTION_RANGE );
+            oneElementDefined ^= object->IsSetUserDefinedDistribution();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__USER_DEFINED_DISTRIBUTION );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        DeterministicSingleParameterDistributionTypeCardinalityCheckerRule::DeterministicSingleParameterDistributionTypeCardinalityCheckerRule() = default;
 
-         DeterministicSingleParameterDistributionTypeCardinalityCheckerRule::DeterministicSingleParameterDistributionTypeCardinalityCheckerRule() = default;
-
-        void DeterministicSingleParameterDistributionTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistributionType> object)
+        void DeterministicSingleParameterDistributionTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicSingleParameterDistributionType>(object));
             
             for (auto&& violation : violations)
             {
@@ -2229,9 +2452,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DeterministicSingleParameterDistributionTypeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDeterministicSingleParameterDistributionType> object)
+        void DeterministicSingleParameterDistributionTypeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicSingleParameterDistributionType>(object));
 
             for (auto&& violation : violations)
             {
@@ -2255,6 +2478,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2268,32 +2495,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetHeight() == 0)
+            if (!object->IsSetHeight())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__HEIGHT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetLength() == 0)
+            if (!object->IsSetLength())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LENGTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetWidth() == 0)
+            if (!object->IsSetWidth())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WIDTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        DimensionsCardinalityCheckerRule::DimensionsCardinalityCheckerRule() = default;
 
-         DimensionsCardinalityCheckerRule::DimensionsCardinalityCheckerRule() = default;
-
-        void DimensionsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDimensions> object)
+        void DimensionsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDimensions>(object));
             
             for (auto&& violation : violations)
             {
@@ -2302,9 +2531,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DimensionsCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDimensions> object)
+        void DimensionsCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDimensions>(object));
 
             for (auto&& violation : violations)
             {
@@ -2328,6 +2557,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2341,20 +2574,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetPath().empty())
+            if (!object->IsSetPath())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PATH, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        DirectoryCardinalityCheckerRule::DirectoryCardinalityCheckerRule() = default;
 
-         DirectoryCardinalityCheckerRule::DirectoryCardinalityCheckerRule() = default;
-
-        void DirectoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDirectory> object)
+        void DirectoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDirectory>(object));
             
             for (auto&& violation : violations)
             {
@@ -2363,9 +2598,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DirectoryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDirectory> object)
+        void DirectoryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDirectory>(object));
 
             for (auto&& violation : violations)
             {
@@ -2389,6 +2624,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2402,38 +2641,40 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetFreespace() == false)
+            if (!object->IsSetFreespace())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        DistanceConditionCardinalityCheckerRule::DistanceConditionCardinalityCheckerRule() = default;
 
-         DistanceConditionCardinalityCheckerRule::DistanceConditionCardinalityCheckerRule() = default;
-
-        void DistanceConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistanceCondition> object)
+        void DistanceConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDistanceCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -2442,9 +2683,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DistanceConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistanceCondition> object)
+        void DistanceConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDistanceCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -2468,6 +2709,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2479,28 +2724,27 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<CardinalityViolation> DistributionDefinitionCardinalityCheckerRule::GetAllViolations(std::shared_ptr<IDistributionDefinition> object)
         {
             std::vector<CardinalityViolation> violations;
-            // Check violation
-            // Check required
-            if (object->GetDeterministic() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DETERMINISTIC, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetStochastic() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STOCHASTIC, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetDeterministic();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DETERMINISTIC );
+            oneElementDefined ^= object->IsSetStochastic();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__STOCHASTIC );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        DistributionDefinitionCardinalityCheckerRule::DistributionDefinitionCardinalityCheckerRule() = default;
 
-         DistributionDefinitionCardinalityCheckerRule::DistributionDefinitionCardinalityCheckerRule() = default;
-
-        void DistributionDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionDefinition> object)
+        void DistributionDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionDefinition>(object));
             
             for (auto&& violation : violations)
             {
@@ -2509,9 +2753,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DistributionDefinitionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionDefinition> object)
+        void DistributionDefinitionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionDefinition>(object));
 
             for (auto&& violation : violations)
             {
@@ -2535,6 +2779,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2548,26 +2796,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetStepWidth() == 0)
+            if (!object->IsSetStepWidth())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRange() == nullptr)
+            if (!object->IsSetRange())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__RANGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        DistributionRangeCardinalityCheckerRule::DistributionRangeCardinalityCheckerRule() = default;
 
-         DistributionRangeCardinalityCheckerRule::DistributionRangeCardinalityCheckerRule() = default;
-
-        void DistributionRangeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionRange> object)
+        void DistributionRangeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionRange>(object));
             
             for (auto&& violation : violations)
             {
@@ -2576,9 +2826,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DistributionRangeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionRange> object)
+        void DistributionRangeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionRange>(object));
 
             for (auto&& violation : violations)
             {
@@ -2602,6 +2852,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2620,16 +2874,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ELEMENT, 1, kElementsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        DistributionSetCardinalityCheckerRule::DistributionSetCardinalityCheckerRule() = default;
 
-         DistributionSetCardinalityCheckerRule::DistributionSetCardinalityCheckerRule() = default;
-
-        void DistributionSetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionSet> object)
+        void DistributionSetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionSet>(object));
             
             for (auto&& violation : violations)
             {
@@ -2638,9 +2894,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DistributionSetCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionSet> object)
+        void DistributionSetCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionSet>(object));
 
             for (auto&& violation : violations)
             {
@@ -2664,6 +2920,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2677,20 +2937,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue().empty())
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        DistributionSetElementCardinalityCheckerRule::DistributionSetElementCardinalityCheckerRule() = default;
 
-         DistributionSetElementCardinalityCheckerRule::DistributionSetElementCardinalityCheckerRule() = default;
-
-        void DistributionSetElementCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IDistributionSetElement> object)
+        void DistributionSetElementCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionSetElement>(object));
             
             for (auto&& violation : violations)
             {
@@ -2699,9 +2961,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void DistributionSetElementCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IDistributionSetElement> object)
+        void DistributionSetElementCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionSetElement>(object));
 
             for (auto&& violation : violations)
             {
@@ -2725,6 +2987,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2738,20 +3004,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDuration() == 0)
+            if (!object->IsSetDuration())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DURATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        EndOfRoadConditionCardinalityCheckerRule::EndOfRoadConditionCardinalityCheckerRule() = default;
 
-         EndOfRoadConditionCardinalityCheckerRule::EndOfRoadConditionCardinalityCheckerRule() = default;
-
-        void EndOfRoadConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEndOfRoadCondition> object)
+        void EndOfRoadConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEndOfRoadCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -2760,9 +3028,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void EndOfRoadConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEndOfRoadCondition> object)
+        void EndOfRoadConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IEndOfRoadCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -2786,6 +3054,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2799,20 +3071,31 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetAddEntityAction();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__ADD_ENTITY_ACTION );
+            oneElementDefined ^= object->IsSetDeleteEntityAction();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DELETE_ENTITY_ACTION );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        EntityActionCardinalityCheckerRule::EntityActionCardinalityCheckerRule() = default;
 
-         EntityActionCardinalityCheckerRule::EntityActionCardinalityCheckerRule() = default;
-
-        void EntityActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityAction> object)
+        void EntityActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEntityAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -2821,9 +3104,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void EntityActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityAction> object)
+        void EntityActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IEntityAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -2847,6 +3130,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2860,20 +3147,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        EntityRefCardinalityCheckerRule::EntityRefCardinalityCheckerRule() = default;
 
-         EntityRefCardinalityCheckerRule::EntityRefCardinalityCheckerRule() = default;
-
-        void EntityRefCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntityRef> object)
+        void EntityRefCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEntityRef>(object));
             
             for (auto&& violation : violations)
             {
@@ -2882,9 +3171,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void EntityRefCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntityRef> object)
+        void EntityRefCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IEntityRef>(object));
 
             for (auto&& violation : violations)
             {
@@ -2908,6 +3197,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2921,26 +3214,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetMembers() == nullptr)
+            if (!object->IsSetMembers())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__MEMBERS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        EntitySelectionCardinalityCheckerRule::EntitySelectionCardinalityCheckerRule() = default;
 
-         EntitySelectionCardinalityCheckerRule::EntitySelectionCardinalityCheckerRule() = default;
-
-        void EntitySelectionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEntitySelection> object)
+        void EntitySelectionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEntitySelection>(object));
             
             for (auto&& violation : violations)
             {
@@ -2949,9 +3244,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void EntitySelectionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEntitySelection> object)
+        void EntitySelectionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IEntitySelection>(object));
 
             for (auto&& violation : violations)
             {
@@ -2975,6 +3270,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -2988,20 +3287,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        EnvironmentCardinalityCheckerRule::EnvironmentCardinalityCheckerRule() = default;
 
-         EnvironmentCardinalityCheckerRule::EnvironmentCardinalityCheckerRule() = default;
-
-        void EnvironmentCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEnvironment> object)
+        void EnvironmentCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEnvironment>(object));
             
             for (auto&& violation : violations)
             {
@@ -3010,9 +3311,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void EnvironmentCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEnvironment> object)
+        void EnvironmentCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IEnvironment>(object));
 
             for (auto&& violation : violations)
             {
@@ -3036,6 +3337,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3049,20 +3354,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDirectory() == nullptr)
+            if (!object->IsSetDirectory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        EnvironmentCatalogLocationCardinalityCheckerRule::EnvironmentCatalogLocationCardinalityCheckerRule() = default;
 
-         EnvironmentCatalogLocationCardinalityCheckerRule::EnvironmentCatalogLocationCardinalityCheckerRule() = default;
-
-        void EnvironmentCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEnvironmentCatalogLocation> object)
+        void EnvironmentCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEnvironmentCatalogLocation>(object));
             
             for (auto&& violation : violations)
             {
@@ -3071,9 +3378,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void EnvironmentCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEnvironmentCatalogLocation> object)
+        void EnvironmentCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IEnvironmentCatalogLocation>(object));
 
             for (auto&& violation : violations)
             {
@@ -3097,6 +3404,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3110,13 +3421,13 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPriority() == Priority::UNKNOWN)
+            if (!object->IsSetPriority())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PRIORITY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
@@ -3127,16 +3438,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ACTION, 1, kActionsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        EventCardinalityCheckerRule::EventCardinalityCheckerRule() = default;
 
-         EventCardinalityCheckerRule::EventCardinalityCheckerRule() = default;
-
-        void EventCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IEvent> object)
+        void EventCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEvent>(object));
             
             for (auto&& violation : violations)
             {
@@ -3145,9 +3458,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void EventCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IEvent> object)
+        void EventCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IEvent>(object));
 
             for (auto&& violation : violations)
             {
@@ -3171,6 +3484,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3184,20 +3501,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ExternalObjectReferenceCardinalityCheckerRule::ExternalObjectReferenceCardinalityCheckerRule() = default;
 
-         ExternalObjectReferenceCardinalityCheckerRule::ExternalObjectReferenceCardinalityCheckerRule() = default;
-
-        void ExternalObjectReferenceCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IExternalObjectReference> object)
+        void ExternalObjectReferenceCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IExternalObjectReference>(object));
             
             for (auto&& violation : violations)
             {
@@ -3206,9 +3525,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ExternalObjectReferenceCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IExternalObjectReference> object)
+        void ExternalObjectReferenceCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IExternalObjectReference>(object));
 
             for (auto&& violation : violations)
             {
@@ -3232,6 +3551,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3245,20 +3568,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetFilepath().empty())
+            if (!object->IsSetFilepath())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FILEPATH, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        FileCardinalityCheckerRule::FileCardinalityCheckerRule() = default;
 
-         FileCardinalityCheckerRule::FileCardinalityCheckerRule() = default;
-
-        void FileCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFile> object)
+        void FileCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IFile>(object));
             
             for (auto&& violation : violations)
             {
@@ -3267,9 +3592,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void FileCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFile> object)
+        void FileCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IFile>(object));
 
             for (auto&& violation : violations)
             {
@@ -3293,6 +3618,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3306,44 +3635,46 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetAuthor().empty())
+            if (!object->IsSetAuthor())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__AUTHOR, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDate() == DateTime())
+            if (!object->IsSetDate())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDescription().empty())
+            if (!object->IsSetDescription())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRevMajor() == 0)
+            if (!object->IsSetRevMajor())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRevMinor() == 0)
+            if (!object->IsSetRevMinor())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        FileHeaderCardinalityCheckerRule::FileHeaderCardinalityCheckerRule() = default;
 
-         FileHeaderCardinalityCheckerRule::FileHeaderCardinalityCheckerRule() = default;
-
-        void FileHeaderCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object)
+        void FileHeaderCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IFileHeader>(object));
             
             for (auto&& violation : violations)
             {
@@ -3352,9 +3683,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void FileHeaderCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFileHeader> object)
+        void FileHeaderCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IFileHeader>(object));
 
             for (auto&& violation : violations)
             {
@@ -3378,6 +3709,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3391,20 +3726,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetVisualRange() == 0)
+            if (!object->IsSetVisualRange())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        FogCardinalityCheckerRule::FogCardinalityCheckerRule() = default;
 
-         FogCardinalityCheckerRule::FogCardinalityCheckerRule() = default;
-
-        void FogCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFog> object)
+        void FogCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IFog>(object));
             
             for (auto&& violation : violations)
             {
@@ -3413,9 +3750,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void FogCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFog> object)
+        void FogCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IFog>(object));
 
             for (auto&& violation : violations)
             {
@@ -3439,6 +3776,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3452,26 +3793,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetTimeReference() == nullptr)
+            if (!object->IsSetTimeReference())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TIME_REFERENCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTrajectoryFollowingMode() == nullptr)
+            if (!object->IsSetTrajectoryFollowingMode())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAJECTORY_FOLLOWING_MODE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        FollowTrajectoryActionCardinalityCheckerRule::FollowTrajectoryActionCardinalityCheckerRule() = default;
 
-         FollowTrajectoryActionCardinalityCheckerRule::FollowTrajectoryActionCardinalityCheckerRule() = default;
-
-        void FollowTrajectoryActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IFollowTrajectoryAction> object)
+        void FollowTrajectoryActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IFollowTrajectoryAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -3480,9 +3823,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void FollowTrajectoryActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IFollowTrajectoryAction> object)
+        void FollowTrajectoryActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IFollowTrajectoryAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -3506,6 +3849,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3519,26 +3866,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetLatitude() == 0)
+            if (!object->IsSetLatitude())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LATITUDE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetLongitude() == 0)
+            if (!object->IsSetLongitude())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        GeoPositionCardinalityCheckerRule::GeoPositionCardinalityCheckerRule() = default;
 
-         GeoPositionCardinalityCheckerRule::GeoPositionCardinalityCheckerRule() = default;
-
-        void GeoPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IGeoPosition> object)
+        void GeoPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IGeoPosition>(object));
             
             for (auto&& violation : violations)
             {
@@ -3547,9 +3896,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void GeoPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IGeoPosition> object)
+        void GeoPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IGeoPosition>(object));
 
             for (auto&& violation : violations)
             {
@@ -3573,6 +3922,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3591,16 +3944,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__BIN, 1, kBinsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        HistogramCardinalityCheckerRule::HistogramCardinalityCheckerRule() = default;
 
-         HistogramCardinalityCheckerRule::HistogramCardinalityCheckerRule() = default;
-
-        void HistogramCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IHistogram> object)
+        void HistogramCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IHistogram>(object));
             
             for (auto&& violation : violations)
             {
@@ -3609,9 +3964,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void HistogramCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IHistogram> object)
+        void HistogramCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IHistogram>(object));
 
             for (auto&& violation : violations)
             {
@@ -3635,6 +3990,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3648,26 +4007,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetWeight() == 0)
+            if (!object->IsSetWeight())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRange() == nullptr)
+            if (!object->IsSetRange())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__RANGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        HistogramBinCardinalityCheckerRule::HistogramBinCardinalityCheckerRule() = default;
 
-         HistogramBinCardinalityCheckerRule::HistogramBinCardinalityCheckerRule() = default;
-
-        void HistogramBinCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IHistogramBin> object)
+        void HistogramBinCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IHistogramBin>(object));
             
             for (auto&& violation : violations)
             {
@@ -3676,9 +4037,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void HistogramBinCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IHistogramBin> object)
+        void HistogramBinCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IHistogramBin>(object));
 
             for (auto&& violation : violations)
             {
@@ -3702,6 +4063,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3715,20 +4080,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetTrafficSignalAction() == nullptr)
+            if (!object->IsSetTrafficSignalAction())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_ACTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        InfrastructureActionCardinalityCheckerRule::InfrastructureActionCardinalityCheckerRule() = default;
 
-         InfrastructureActionCardinalityCheckerRule::InfrastructureActionCardinalityCheckerRule() = default;
-
-        void InfrastructureActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IInfrastructureAction> object)
+        void InfrastructureActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IInfrastructureAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -3737,9 +4104,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void InfrastructureActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IInfrastructureAction> object)
+        void InfrastructureActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IInfrastructureAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -3763,6 +4130,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3776,20 +4147,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetActions() == nullptr)
+            if (!object->IsSetActions())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ACTIONS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        InitCardinalityCheckerRule::InitCardinalityCheckerRule() = default;
 
-         InitCardinalityCheckerRule::InitCardinalityCheckerRule() = default;
-
-        void InitCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IInit> object)
+        void InitCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IInit>(object));
             
             for (auto&& violation : violations)
             {
@@ -3798,9 +4171,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void InitCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IInit> object)
+        void InitCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IInit>(object));
 
             for (auto&& violation : violations)
             {
@@ -3824,6 +4197,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3837,20 +4214,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        KnotCardinalityCheckerRule::KnotCardinalityCheckerRule() = default;
 
-         KnotCardinalityCheckerRule::KnotCardinalityCheckerRule() = default;
-
-        void KnotCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IKnot> object)
+        void KnotCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IKnot>(object));
             
             for (auto&& violation : violations)
             {
@@ -3859,9 +4238,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void KnotCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IKnot> object)
+        void KnotCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IKnot>(object));
 
             for (auto&& violation : violations)
             {
@@ -3885,6 +4264,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3898,26 +4281,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetLaneChangeActionDynamics() == nullptr)
+            if (!object->IsSetLaneChangeActionDynamics())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__LANE_CHANGE_ACTION_DYNAMICS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetLaneChangeTarget() == nullptr)
+            if (!object->IsSetLaneChangeTarget())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__LANE_CHANGE_TARGET, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        LaneChangeActionCardinalityCheckerRule::LaneChangeActionCardinalityCheckerRule() = default;
 
-         LaneChangeActionCardinalityCheckerRule::LaneChangeActionCardinalityCheckerRule() = default;
-
-        void LaneChangeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneChangeAction> object)
+        void LaneChangeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILaneChangeAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -3926,9 +4311,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void LaneChangeActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneChangeAction> object)
+        void LaneChangeActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ILaneChangeAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -3952,6 +4337,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -3965,32 +4354,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetContinuous() == false)
+            if (!object->IsSetContinuous())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetLaneOffsetActionDynamics() == nullptr)
+            if (!object->IsSetLaneOffsetActionDynamics())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__LANE_OFFSET_ACTION_DYNAMICS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetLaneOffsetTarget() == nullptr)
+            if (!object->IsSetLaneOffsetTarget())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__LANE_OFFSET_TARGET, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        LaneOffsetActionCardinalityCheckerRule::LaneOffsetActionCardinalityCheckerRule() = default;
 
-         LaneOffsetActionCardinalityCheckerRule::LaneOffsetActionCardinalityCheckerRule() = default;
-
-        void LaneOffsetActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetAction> object)
+        void LaneOffsetActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILaneOffsetAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -3999,9 +4390,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void LaneOffsetActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetAction> object)
+        void LaneOffsetActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ILaneOffsetAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -4025,6 +4416,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4038,20 +4433,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDynamicsShape() == DynamicsShape::UNKNOWN)
+            if (!object->IsSetDynamicsShape())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        LaneOffsetActionDynamicsCardinalityCheckerRule::LaneOffsetActionDynamicsCardinalityCheckerRule() = default;
 
-         LaneOffsetActionDynamicsCardinalityCheckerRule::LaneOffsetActionDynamicsCardinalityCheckerRule() = default;
-
-        void LaneOffsetActionDynamicsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object)
+        void LaneOffsetActionDynamicsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILaneOffsetActionDynamics>(object));
             
             for (auto&& violation : violations)
             {
@@ -4060,9 +4457,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void LaneOffsetActionDynamicsCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILaneOffsetActionDynamics> object)
+        void LaneOffsetActionDynamicsCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ILaneOffsetActionDynamics>(object));
 
             for (auto&& violation : violations)
             {
@@ -4086,6 +4483,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4099,32 +4500,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetLaneId().empty())
+            if (!object->IsSetLaneId())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRoadId().empty())
+            if (!object->IsSetRoadId())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetS() == 0)
+            if (!object->IsSetS())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__S, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        LanePositionCardinalityCheckerRule::LanePositionCardinalityCheckerRule() = default;
 
-         LanePositionCardinalityCheckerRule::LanePositionCardinalityCheckerRule() = default;
-
-        void LanePositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILanePosition> object)
+        void LanePositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILanePosition>(object));
             
             for (auto&& violation : violations)
             {
@@ -4133,9 +4536,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void LanePositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILanePosition> object)
+        void LanePositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ILanePosition>(object));
 
             for (auto&& violation : violations)
             {
@@ -4159,6 +4562,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4172,32 +4579,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetContinuous() == false)
+            if (!object->IsSetContinuous())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetFreespace() == false)
+            if (!object->IsSetFreespace())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        LateralDistanceActionCardinalityCheckerRule::LateralDistanceActionCardinalityCheckerRule() = default;
 
-         LateralDistanceActionCardinalityCheckerRule::LateralDistanceActionCardinalityCheckerRule() = default;
-
-        void LateralDistanceActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILateralDistanceAction> object)
+        void LateralDistanceActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILateralDistanceAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -4206,9 +4615,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void LateralDistanceActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILateralDistanceAction> object)
+        void LateralDistanceActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ILateralDistanceAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -4232,6 +4641,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4245,20 +4658,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        LicenseCardinalityCheckerRule::LicenseCardinalityCheckerRule() = default;
 
-         LicenseCardinalityCheckerRule::LicenseCardinalityCheckerRule() = default;
-
-        void LicenseCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILicense> object)
+        void LicenseCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILicense>(object));
             
             for (auto&& violation : violations)
             {
@@ -4267,9 +4682,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void LicenseCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILicense> object)
+        void LicenseCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ILicense>(object));
 
             for (auto&& violation : violations)
             {
@@ -4293,6 +4708,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4306,32 +4725,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetContinuous() == false)
+            if (!object->IsSetContinuous())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetFreespace() == false)
+            if (!object->IsSetFreespace())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        LongitudinalDistanceActionCardinalityCheckerRule::LongitudinalDistanceActionCardinalityCheckerRule() = default;
 
-         LongitudinalDistanceActionCardinalityCheckerRule::LongitudinalDistanceActionCardinalityCheckerRule() = default;
-
-        void LongitudinalDistanceActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object)
+        void LongitudinalDistanceActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILongitudinalDistanceAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -4340,9 +4761,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void LongitudinalDistanceActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ILongitudinalDistanceAction> object)
+        void LongitudinalDistanceActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ILongitudinalDistanceAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -4366,6 +4787,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4379,7 +4804,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
@@ -4390,16 +4815,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__EVENT, 1, kEventsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ManeuverCardinalityCheckerRule::ManeuverCardinalityCheckerRule() = default;
 
-         ManeuverCardinalityCheckerRule::ManeuverCardinalityCheckerRule() = default;
-
-        void ManeuverCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IManeuver> object)
+        void ManeuverCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IManeuver>(object));
             
             for (auto&& violation : violations)
             {
@@ -4408,9 +4835,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ManeuverCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IManeuver> object)
+        void ManeuverCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IManeuver>(object));
 
             for (auto&& violation : violations)
             {
@@ -4434,6 +4861,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4447,20 +4878,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDirectory() == nullptr)
+            if (!object->IsSetDirectory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ManeuverCatalogLocationCardinalityCheckerRule::ManeuverCatalogLocationCardinalityCheckerRule() = default;
 
-         ManeuverCatalogLocationCardinalityCheckerRule::ManeuverCatalogLocationCardinalityCheckerRule() = default;
-
-        void ManeuverCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IManeuverCatalogLocation> object)
+        void ManeuverCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IManeuverCatalogLocation>(object));
             
             for (auto&& violation : violations)
             {
@@ -4469,9 +4902,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ManeuverCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IManeuverCatalogLocation> object)
+        void ManeuverCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IManeuverCatalogLocation>(object));
 
             for (auto&& violation : violations)
             {
@@ -4495,6 +4928,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4508,32 +4945,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetMaximumExecutionCount() == 0)
+            if (!object->IsSetMaximumExecutionCount())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetActors() == nullptr)
+            if (!object->IsSetActors())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ACTORS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ManeuverGroupCardinalityCheckerRule::ManeuverGroupCardinalityCheckerRule() = default;
 
-         ManeuverGroupCardinalityCheckerRule::ManeuverGroupCardinalityCheckerRule() = default;
-
-        void ManeuverGroupCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IManeuverGroup> object)
+        void ManeuverGroupCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IManeuverGroup>(object));
             
             for (auto&& violation : violations)
             {
@@ -4542,9 +4981,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ManeuverGroupCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IManeuverGroup> object)
+        void ManeuverGroupCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IManeuverGroup>(object));
 
             for (auto&& violation : violations)
             {
@@ -4568,6 +5007,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4581,44 +5024,46 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetMass() == 0)
+            if (!object->IsSetMass())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MASS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetMiscObjectCategory() == MiscObjectCategory::UNKNOWN)
+            if (!object->IsSetMiscObjectCategory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetBoundingBox() == nullptr)
+            if (!object->IsSetBoundingBox())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__BOUNDING_BOX, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetProperties() == nullptr)
+            if (!object->IsSetProperties())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PROPERTIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        MiscObjectCardinalityCheckerRule::MiscObjectCardinalityCheckerRule() = default;
 
-         MiscObjectCardinalityCheckerRule::MiscObjectCardinalityCheckerRule() = default;
-
-        void MiscObjectCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IMiscObject> object)
+        void MiscObjectCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IMiscObject>(object));
             
             for (auto&& violation : violations)
             {
@@ -4627,9 +5072,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void MiscObjectCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IMiscObject> object)
+        void MiscObjectCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IMiscObject>(object));
 
             for (auto&& violation : violations)
             {
@@ -4653,6 +5098,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4666,20 +5115,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDirectory() == nullptr)
+            if (!object->IsSetDirectory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        MiscObjectCatalogLocationCardinalityCheckerRule::MiscObjectCatalogLocationCardinalityCheckerRule() = default;
 
-         MiscObjectCatalogLocationCardinalityCheckerRule::MiscObjectCatalogLocationCardinalityCheckerRule() = default;
-
-        void MiscObjectCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IMiscObjectCatalogLocation> object)
+        void MiscObjectCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IMiscObjectCatalogLocation>(object));
             
             for (auto&& violation : violations)
             {
@@ -4688,9 +5139,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void MiscObjectCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IMiscObjectCatalogLocation> object)
+        void MiscObjectCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IMiscObjectCatalogLocation>(object));
 
             for (auto&& violation : violations)
             {
@@ -4714,6 +5165,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4727,26 +5182,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetExpectedValue() == 0)
+            if (!object->IsSetExpectedValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetVariance() == 0)
+            if (!object->IsSetVariance())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VARIANCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        NormalDistributionCardinalityCheckerRule::NormalDistributionCardinalityCheckerRule() = default;
 
-         NormalDistributionCardinalityCheckerRule::NormalDistributionCardinalityCheckerRule() = default;
-
-        void NormalDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<INormalDistribution> object)
+        void NormalDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<INormalDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -4755,9 +5212,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void NormalDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<INormalDistribution> object)
+        void NormalDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<INormalDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -4781,6 +5238,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4794,7 +5255,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetOrder() == 0)
+            if (!object->IsSetOrder())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ORDER, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
@@ -4812,16 +5273,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__KNOT, 2, kKnotsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        NurbsCardinalityCheckerRule::NurbsCardinalityCheckerRule() = default;
 
-         NurbsCardinalityCheckerRule::NurbsCardinalityCheckerRule() = default;
-
-        void NurbsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<INurbs> object)
+        void NurbsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<INurbs>(object));
             
             for (auto&& violation : violations)
             {
@@ -4830,9 +5293,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void NurbsCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<INurbs> object)
+        void NurbsCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<INurbs>(object));
 
             for (auto&& violation : violations)
             {
@@ -4856,6 +5319,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4869,20 +5336,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDuration() == 0)
+            if (!object->IsSetDuration())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DURATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        OffroadConditionCardinalityCheckerRule::OffroadConditionCardinalityCheckerRule() = default;
 
-         OffroadConditionCardinalityCheckerRule::OffroadConditionCardinalityCheckerRule() = default;
-
-        void OffroadConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOffroadCondition> object)
+        void OffroadConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOffroadCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -4891,9 +5360,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void OffroadConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOffroadCondition> object)
+        void OffroadConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IOffroadCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -4917,6 +5386,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4930,26 +5403,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetFileHeader() == nullptr)
+            if (!object->IsSetFileHeader())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__FILE_HEADER, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetOpenScenarioCategory() == nullptr)
+            if (!object->IsSetOpenScenarioCategory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__OPEN_SCENARIO_CATEGORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        OpenScenarioCardinalityCheckerRule::OpenScenarioCardinalityCheckerRule() = default;
 
-         OpenScenarioCardinalityCheckerRule::OpenScenarioCardinalityCheckerRule() = default;
-
-        void OpenScenarioCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> object)
+        void OpenScenarioCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOpenScenario>(object));
             
             for (auto&& violation : violations)
             {
@@ -4958,9 +5433,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void OpenScenarioCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenario> object)
+        void OpenScenarioCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IOpenScenario>(object));
 
             for (auto&& violation : violations)
             {
@@ -4984,6 +5459,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -4995,34 +5474,29 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<CardinalityViolation> OpenScenarioCategoryCardinalityCheckerRule::GetAllViolations(std::shared_ptr<IOpenScenarioCategory> object)
         {
             std::vector<CardinalityViolation> violations;
-            // Check violation
-            // Check required
-            if (object->GetScenarioDefinition() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__SCENARIO_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetCatalogDefinition() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CATALOG_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetParameterValueDistributionDefinition() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PARAMETER_VALUE_DISTRIBUTION_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetScenarioDefinition();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__SCENARIO_DEFINITION );
+            oneElementDefined ^= object->IsSetCatalogDefinition();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__CATALOG_DEFINITION );
+            oneElementDefined ^= object->IsSetParameterValueDistributionDefinition();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__PARAMETER_VALUE_DISTRIBUTION_DEFINITION );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        OpenScenarioCategoryCardinalityCheckerRule::OpenScenarioCategoryCardinalityCheckerRule() = default;
 
-         OpenScenarioCategoryCardinalityCheckerRule::OpenScenarioCategoryCardinalityCheckerRule() = default;
-
-        void OpenScenarioCategoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioCategory> object)
+        void OpenScenarioCategoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOpenScenarioCategory>(object));
             
             for (auto&& violation : violations)
             {
@@ -5031,9 +5505,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void OpenScenarioCategoryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioCategory> object)
+        void OpenScenarioCategoryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IOpenScenarioCategory>(object));
 
             for (auto&& violation : violations)
             {
@@ -5057,6 +5531,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5070,26 +5548,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetActive() == false)
+            if (!object->IsSetActive())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        OverrideBrakeActionCardinalityCheckerRule::OverrideBrakeActionCardinalityCheckerRule() = default;
 
-         OverrideBrakeActionCardinalityCheckerRule::OverrideBrakeActionCardinalityCheckerRule() = default;
-
-        void OverrideBrakeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideBrakeAction> object)
+        void OverrideBrakeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideBrakeAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -5098,9 +5578,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void OverrideBrakeActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideBrakeAction> object)
+        void OverrideBrakeActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideBrakeAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -5124,6 +5604,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5137,26 +5621,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetActive() == false)
+            if (!object->IsSetActive())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        OverrideClutchActionCardinalityCheckerRule::OverrideClutchActionCardinalityCheckerRule() = default;
 
-         OverrideClutchActionCardinalityCheckerRule::OverrideClutchActionCardinalityCheckerRule() = default;
-
-        void OverrideClutchActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideClutchAction> object)
+        void OverrideClutchActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideClutchAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -5165,9 +5651,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void OverrideClutchActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideClutchAction> object)
+        void OverrideClutchActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideClutchAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -5191,6 +5677,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5204,26 +5694,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetActive() == false)
+            if (!object->IsSetActive())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetNumber() == 0)
+            if (!object->IsSetNumber())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NUMBER, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        OverrideGearActionCardinalityCheckerRule::OverrideGearActionCardinalityCheckerRule() = default;
 
-         OverrideGearActionCardinalityCheckerRule::OverrideGearActionCardinalityCheckerRule() = default;
-
-        void OverrideGearActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideGearAction> object)
+        void OverrideGearActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideGearAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -5232,9 +5724,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void OverrideGearActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideGearAction> object)
+        void OverrideGearActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideGearAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -5258,6 +5750,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5271,26 +5767,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetActive() == false)
+            if (!object->IsSetActive())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        OverrideParkingBrakeActionCardinalityCheckerRule::OverrideParkingBrakeActionCardinalityCheckerRule() = default;
 
-         OverrideParkingBrakeActionCardinalityCheckerRule::OverrideParkingBrakeActionCardinalityCheckerRule() = default;
-
-        void OverrideParkingBrakeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object)
+        void OverrideParkingBrakeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideParkingBrakeAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -5299,9 +5797,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void OverrideParkingBrakeActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideParkingBrakeAction> object)
+        void OverrideParkingBrakeActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideParkingBrakeAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -5325,6 +5823,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5338,26 +5840,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetActive() == false)
+            if (!object->IsSetActive())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        OverrideSteeringWheelActionCardinalityCheckerRule::OverrideSteeringWheelActionCardinalityCheckerRule() = default;
 
-         OverrideSteeringWheelActionCardinalityCheckerRule::OverrideSteeringWheelActionCardinalityCheckerRule() = default;
-
-        void OverrideSteeringWheelActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideSteeringWheelAction> object)
+        void OverrideSteeringWheelActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideSteeringWheelAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -5366,9 +5870,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void OverrideSteeringWheelActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideSteeringWheelAction> object)
+        void OverrideSteeringWheelActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideSteeringWheelAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -5392,6 +5896,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5405,26 +5913,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetActive() == false)
+            if (!object->IsSetActive())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ACTIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        OverrideThrottleActionCardinalityCheckerRule::OverrideThrottleActionCardinalityCheckerRule() = default;
 
-         OverrideThrottleActionCardinalityCheckerRule::OverrideThrottleActionCardinalityCheckerRule() = default;
-
-        void OverrideThrottleActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOverrideThrottleAction> object)
+        void OverrideThrottleActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideThrottleAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -5433,9 +5943,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void OverrideThrottleActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOverrideThrottleAction> object)
+        void OverrideThrottleActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideThrottleAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -5459,6 +5969,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5472,20 +5986,31 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetParameterRef() == nullptr)
+            if (!object->IsSetParameterRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetSetAction();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__SET_ACTION );
+            oneElementDefined ^= object->IsSetModifyAction();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__MODIFY_ACTION );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        ParameterActionCardinalityCheckerRule::ParameterActionCardinalityCheckerRule() = default;
 
-         ParameterActionCardinalityCheckerRule::ParameterActionCardinalityCheckerRule() = default;
-
-        void ParameterActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAction> object)
+        void ParameterActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -5494,9 +6019,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAction> object)
+        void ParameterActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -5520,6 +6045,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5533,20 +6062,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ParameterAddValueRuleCardinalityCheckerRule::ParameterAddValueRuleCardinalityCheckerRule() = default;
 
-         ParameterAddValueRuleCardinalityCheckerRule::ParameterAddValueRuleCardinalityCheckerRule() = default;
-
-        void ParameterAddValueRuleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAddValueRule> object)
+        void ParameterAddValueRuleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterAddValueRule>(object));
             
             for (auto&& violation : violations)
             {
@@ -5555,9 +6086,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterAddValueRuleCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAddValueRule> object)
+        void ParameterAddValueRuleCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterAddValueRule>(object));
 
             for (auto&& violation : violations)
             {
@@ -5581,6 +6112,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5594,26 +6129,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetParameterRef() == nullptr)
+            if (!object->IsSetParameterRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue().empty())
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ParameterAssignmentCardinalityCheckerRule::ParameterAssignmentCardinalityCheckerRule() = default;
 
-         ParameterAssignmentCardinalityCheckerRule::ParameterAssignmentCardinalityCheckerRule() = default;
-
-        void ParameterAssignmentCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterAssignment> object)
+        void ParameterAssignmentCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterAssignment>(object));
             
             for (auto&& violation : violations)
             {
@@ -5622,9 +6159,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterAssignmentCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterAssignment> object)
+        void ParameterAssignmentCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterAssignment>(object));
 
             for (auto&& violation : violations)
             {
@@ -5648,6 +6185,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5661,32 +6202,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetParameterRef() == nullptr)
+            if (!object->IsSetParameterRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue().empty())
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ParameterConditionCardinalityCheckerRule::ParameterConditionCardinalityCheckerRule() = default;
 
-         ParameterConditionCardinalityCheckerRule::ParameterConditionCardinalityCheckerRule() = default;
-
-        void ParameterConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterCondition> object)
+        void ParameterConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -5695,9 +6238,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterCondition> object)
+        void ParameterConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -5721,6 +6264,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5734,32 +6281,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetParameterType() == ParameterType::UNKNOWN)
+            if (!object->IsSetParameterType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue().empty())
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ParameterDeclarationCardinalityCheckerRule::ParameterDeclarationCardinalityCheckerRule() = default;
 
-         ParameterDeclarationCardinalityCheckerRule::ParameterDeclarationCardinalityCheckerRule() = default;
-
-        void ParameterDeclarationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterDeclaration> object)
+        void ParameterDeclarationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterDeclaration>(object));
             
             for (auto&& violation : violations)
             {
@@ -5768,9 +6317,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterDeclarationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterDeclaration> object)
+        void ParameterDeclarationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterDeclaration>(object));
 
             for (auto&& violation : violations)
             {
@@ -5794,6 +6343,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5807,20 +6360,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRule() == nullptr)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ParameterModifyActionCardinalityCheckerRule::ParameterModifyActionCardinalityCheckerRule() = default;
 
-         ParameterModifyActionCardinalityCheckerRule::ParameterModifyActionCardinalityCheckerRule() = default;
-
-        void ParameterModifyActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterModifyAction> object)
+        void ParameterModifyActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterModifyAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -5829,9 +6384,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterModifyActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterModifyAction> object)
+        void ParameterModifyActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterModifyAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -5855,6 +6410,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5868,20 +6427,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ParameterMultiplyByValueRuleCardinalityCheckerRule::ParameterMultiplyByValueRuleCardinalityCheckerRule() = default;
 
-         ParameterMultiplyByValueRuleCardinalityCheckerRule::ParameterMultiplyByValueRuleCardinalityCheckerRule() = default;
-
-        void ParameterMultiplyByValueRuleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterMultiplyByValueRule> object)
+        void ParameterMultiplyByValueRuleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterMultiplyByValueRule>(object));
             
             for (auto&& violation : violations)
             {
@@ -5890,9 +6451,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterMultiplyByValueRuleCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterMultiplyByValueRule> object)
+        void ParameterMultiplyByValueRuleCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterMultiplyByValueRule>(object));
 
             for (auto&& violation : violations)
             {
@@ -5916,6 +6477,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5929,20 +6494,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue().empty())
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ParameterSetActionCardinalityCheckerRule::ParameterSetActionCardinalityCheckerRule() = default;
 
-         ParameterSetActionCardinalityCheckerRule::ParameterSetActionCardinalityCheckerRule() = default;
-
-        void ParameterSetActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterSetAction> object)
+        void ParameterSetActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterSetAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -5951,9 +6518,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterSetActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterSetAction> object)
+        void ParameterSetActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterSetAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -5977,6 +6544,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -5990,26 +6561,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetScenarioFile() == nullptr)
+            if (!object->IsSetScenarioFile())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__SCENARIO_FILE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDistributionDefinition() == nullptr)
+            if (!object->IsSetDistributionDefinition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DISTRIBUTION_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ParameterValueDistributionCardinalityCheckerRule::ParameterValueDistributionCardinalityCheckerRule() = default;
 
-         ParameterValueDistributionCardinalityCheckerRule::ParameterValueDistributionCardinalityCheckerRule() = default;
-
-        void ParameterValueDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistribution> object)
+        void ParameterValueDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterValueDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -6018,9 +6591,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterValueDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistribution> object)
+        void ParameterValueDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterValueDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -6044,6 +6617,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6057,20 +6634,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetParameterValueDistribution() == nullptr)
+            if (!object->IsSetParameterValueDistribution())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PARAMETER_VALUE_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ParameterValueDistributionDefinitionCardinalityCheckerRule::ParameterValueDistributionDefinitionCardinalityCheckerRule() = default;
 
-         ParameterValueDistributionDefinitionCardinalityCheckerRule::ParameterValueDistributionDefinitionCardinalityCheckerRule() = default;
-
-        void ParameterValueDistributionDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistributionDefinition> object)
+        void ParameterValueDistributionDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterValueDistributionDefinition>(object));
             
             for (auto&& violation : violations)
             {
@@ -6079,9 +6658,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterValueDistributionDefinitionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterValueDistributionDefinition> object)
+        void ParameterValueDistributionDefinitionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterValueDistributionDefinition>(object));
 
             for (auto&& violation : violations)
             {
@@ -6105,6 +6684,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6123,16 +6706,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENT, 1, kParameterAssignmentsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ParameterValueSetCardinalityCheckerRule::ParameterValueSetCardinalityCheckerRule() = default;
 
-         ParameterValueSetCardinalityCheckerRule::ParameterValueSetCardinalityCheckerRule() = default;
-
-        void ParameterValueSetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IParameterValueSet> object)
+        void ParameterValueSetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterValueSet>(object));
             
             for (auto&& violation : violations)
             {
@@ -6141,9 +6726,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ParameterValueSetCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IParameterValueSet> object)
+        void ParameterValueSetCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IParameterValueSet>(object));
 
             for (auto&& violation : violations)
             {
@@ -6167,6 +6752,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6180,44 +6769,46 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetMass() == 0)
+            if (!object->IsSetMass())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MASS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPedestrianCategory() == PedestrianCategory::UNKNOWN)
+            if (!object->IsSetPedestrianCategory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetBoundingBox() == nullptr)
+            if (!object->IsSetBoundingBox())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__BOUNDING_BOX, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetProperties() == nullptr)
+            if (!object->IsSetProperties())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PROPERTIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PedestrianCardinalityCheckerRule::PedestrianCardinalityCheckerRule() = default;
 
-         PedestrianCardinalityCheckerRule::PedestrianCardinalityCheckerRule() = default;
-
-        void PedestrianCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPedestrian> object)
+        void PedestrianCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPedestrian>(object));
             
             for (auto&& violation : violations)
             {
@@ -6226,9 +6817,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PedestrianCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPedestrian> object)
+        void PedestrianCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPedestrian>(object));
 
             for (auto&& violation : violations)
             {
@@ -6252,6 +6843,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6265,20 +6860,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDirectory() == nullptr)
+            if (!object->IsSetDirectory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PedestrianCatalogLocationCardinalityCheckerRule::PedestrianCatalogLocationCardinalityCheckerRule() = default;
 
-         PedestrianCatalogLocationCardinalityCheckerRule::PedestrianCatalogLocationCardinalityCheckerRule() = default;
-
-        void PedestrianCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPedestrianCatalogLocation> object)
+        void PedestrianCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPedestrianCatalogLocation>(object));
             
             for (auto&& violation : violations)
             {
@@ -6287,9 +6884,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PedestrianCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPedestrianCatalogLocation> object)
+        void PedestrianCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPedestrianCatalogLocation>(object));
 
             for (auto&& violation : violations)
             {
@@ -6313,6 +6910,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6326,32 +6927,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetMaxAcceleration() == 0)
+            if (!object->IsSetMaxAcceleration())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetMaxDeceleration() == 0)
+            if (!object->IsSetMaxDeceleration())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetMaxSpeed() == 0)
+            if (!object->IsSetMaxSpeed())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PerformanceCardinalityCheckerRule::PerformanceCardinalityCheckerRule() = default;
 
-         PerformanceCardinalityCheckerRule::PerformanceCardinalityCheckerRule() = default;
-
-        void PerformanceCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPerformance> object)
+        void PerformanceCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPerformance>(object));
             
             for (auto&& violation : violations)
             {
@@ -6360,9 +6963,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PerformanceCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPerformance> object)
+        void PerformanceCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPerformance>(object));
 
             for (auto&& violation : violations)
             {
@@ -6386,6 +6989,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6399,26 +7006,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDuration() == 0)
+            if (!object->IsSetDuration())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DURATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PhaseCardinalityCheckerRule::PhaseCardinalityCheckerRule() = default;
 
-         PhaseCardinalityCheckerRule::PhaseCardinalityCheckerRule() = default;
-
-        void PhaseCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPhase> object)
+        void PhaseCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPhase>(object));
             
             for (auto&& violation : violations)
             {
@@ -6427,9 +7036,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PhaseCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPhase> object)
+        void PhaseCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPhase>(object));
 
             for (auto&& violation : violations)
             {
@@ -6453,6 +7062,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6466,20 +7079,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetExpectedValue() == 0)
+            if (!object->IsSetExpectedValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PoissonDistributionCardinalityCheckerRule::PoissonDistributionCardinalityCheckerRule() = default;
 
-         PoissonDistributionCardinalityCheckerRule::PoissonDistributionCardinalityCheckerRule() = default;
-
-        void PoissonDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPoissonDistribution> object)
+        void PoissonDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPoissonDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -6488,9 +7103,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PoissonDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPoissonDistribution> object)
+        void PoissonDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPoissonDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -6514,6 +7129,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6532,16 +7151,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__VERTEX, 2, kVerticesSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PolylineCardinalityCheckerRule::PolylineCardinalityCheckerRule() = default;
 
-         PolylineCardinalityCheckerRule::PolylineCardinalityCheckerRule() = default;
-
-        void PolylineCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPolyline> object)
+        void PolylineCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPolyline>(object));
             
             for (auto&& violation : violations)
             {
@@ -6550,9 +7171,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PolylineCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPolyline> object)
+        void PolylineCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPolyline>(object));
 
             for (auto&& violation : violations)
             {
@@ -6576,6 +7197,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6589,26 +7214,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetLaneId().empty())
+            if (!object->IsSetLaneId())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LANE_ID, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPathS() == 0)
+            if (!object->IsSetPathS())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PATH_S, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PositionInLaneCoordinatesCardinalityCheckerRule::PositionInLaneCoordinatesCardinalityCheckerRule() = default;
 
-         PositionInLaneCoordinatesCardinalityCheckerRule::PositionInLaneCoordinatesCardinalityCheckerRule() = default;
-
-        void PositionInLaneCoordinatesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object)
+        void PositionInLaneCoordinatesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPositionInLaneCoordinates>(object));
             
             for (auto&& violation : violations)
             {
@@ -6617,9 +7244,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PositionInLaneCoordinatesCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPositionInLaneCoordinates> object)
+        void PositionInLaneCoordinatesCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPositionInLaneCoordinates>(object));
 
             for (auto&& violation : violations)
             {
@@ -6643,6 +7270,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6656,26 +7287,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetPathS() == 0)
+            if (!object->IsSetPathS())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PATH_S, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetT() == 0)
+            if (!object->IsSetT())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__T, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PositionInRoadCoordinatesCardinalityCheckerRule::PositionInRoadCoordinatesCardinalityCheckerRule() = default;
 
-         PositionInRoadCoordinatesCardinalityCheckerRule::PositionInRoadCoordinatesCardinalityCheckerRule() = default;
-
-        void PositionInRoadCoordinatesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPositionInRoadCoordinates> object)
+        void PositionInRoadCoordinatesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPositionInRoadCoordinates>(object));
             
             for (auto&& violation : violations)
             {
@@ -6684,9 +7317,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PositionInRoadCoordinatesCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPositionInRoadCoordinates> object)
+        void PositionInRoadCoordinatesCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPositionInRoadCoordinates>(object));
 
             for (auto&& violation : violations)
             {
@@ -6710,6 +7343,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6723,20 +7360,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PositionOfCurrentEntityCardinalityCheckerRule::PositionOfCurrentEntityCardinalityCheckerRule() = default;
 
-         PositionOfCurrentEntityCardinalityCheckerRule::PositionOfCurrentEntityCardinalityCheckerRule() = default;
-
-        void PositionOfCurrentEntityCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPositionOfCurrentEntity> object)
+        void PositionOfCurrentEntityCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPositionOfCurrentEntity>(object));
             
             for (auto&& violation : violations)
             {
@@ -6745,9 +7384,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PositionOfCurrentEntityCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPositionOfCurrentEntity> object)
+        void PositionOfCurrentEntityCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPositionOfCurrentEntity>(object));
 
             for (auto&& violation : violations)
             {
@@ -6771,6 +7410,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6784,20 +7427,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetPrecipitationType() == PrecipitationType::UNKNOWN)
+            if (!object->IsSetPrecipitationType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PrecipitationCardinalityCheckerRule::PrecipitationCardinalityCheckerRule() = default;
 
-         PrecipitationCardinalityCheckerRule::PrecipitationCardinalityCheckerRule() = default;
-
-        void PrecipitationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPrecipitation> object)
+        void PrecipitationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPrecipitation>(object));
             
             for (auto&& violation : violations)
             {
@@ -6806,9 +7451,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PrecipitationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPrecipitation> object)
+        void PrecipitationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPrecipitation>(object));
 
             for (auto&& violation : violations)
             {
@@ -6832,6 +7477,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6845,7 +7494,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
@@ -6856,16 +7505,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION, 1, kPrivateActionsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PrivateCardinalityCheckerRule::PrivateCardinalityCheckerRule() = default;
 
-         PrivateCardinalityCheckerRule::PrivateCardinalityCheckerRule() = default;
-
-        void PrivateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IPrivate> object)
+        void PrivateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPrivate>(object));
             
             for (auto&& violation : violations)
             {
@@ -6874,9 +7525,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PrivateCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IPrivate> object)
+        void PrivateCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IPrivate>(object));
 
             for (auto&& violation : violations)
             {
@@ -6900,6 +7551,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6918,16 +7573,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ELEMENT, 1, kElementsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ProbabilityDistributionSetCardinalityCheckerRule::ProbabilityDistributionSetCardinalityCheckerRule() = default;
 
-         ProbabilityDistributionSetCardinalityCheckerRule::ProbabilityDistributionSetCardinalityCheckerRule() = default;
-
-        void ProbabilityDistributionSetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSet> object)
+        void ProbabilityDistributionSetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IProbabilityDistributionSet>(object));
             
             for (auto&& violation : violations)
             {
@@ -6936,9 +7593,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ProbabilityDistributionSetCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSet> object)
+        void ProbabilityDistributionSetCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IProbabilityDistributionSet>(object));
 
             for (auto&& violation : violations)
             {
@@ -6962,6 +7619,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -6975,26 +7636,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue().empty())
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetWeight() == 0)
+            if (!object->IsSetWeight())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ProbabilityDistributionSetElementCardinalityCheckerRule::ProbabilityDistributionSetElementCardinalityCheckerRule() = default;
 
-         ProbabilityDistributionSetElementCardinalityCheckerRule::ProbabilityDistributionSetElementCardinalityCheckerRule() = default;
-
-        void ProbabilityDistributionSetElementCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSetElement> object)
+        void ProbabilityDistributionSetElementCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IProbabilityDistributionSetElement>(object));
             
             for (auto&& violation : violations)
             {
@@ -7003,9 +7666,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ProbabilityDistributionSetElementCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IProbabilityDistributionSetElement> object)
+        void ProbabilityDistributionSetElementCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IProbabilityDistributionSetElement>(object));
 
             for (auto&& violation : violations)
             {
@@ -7029,6 +7692,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7042,26 +7709,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue().empty())
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        PropertyCardinalityCheckerRule::PropertyCardinalityCheckerRule() = default;
 
-         PropertyCardinalityCheckerRule::PropertyCardinalityCheckerRule() = default;
-
-        void PropertyCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IProperty> object)
+        void PropertyCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IProperty>(object));
             
             for (auto&& violation : violations)
             {
@@ -7070,9 +7739,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void PropertyCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IProperty> object)
+        void PropertyCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IProperty>(object));
 
             for (auto&& violation : violations)
             {
@@ -7096,6 +7765,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7109,26 +7782,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetLowerLimit() == 0)
+            if (!object->IsSetLowerLimit())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__LOWER_LIMIT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetUpperLimit() == 0)
+            if (!object->IsSetUpperLimit())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__UPPER_LIMIT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RangeCardinalityCheckerRule::RangeCardinalityCheckerRule() = default;
 
-         RangeCardinalityCheckerRule::RangeCardinalityCheckerRule() = default;
-
-        void RangeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRange> object)
+        void RangeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRange>(object));
             
             for (auto&& violation : violations)
             {
@@ -7137,9 +7812,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RangeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRange> object)
+        void RangeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRange>(object));
 
             for (auto&& violation : violations)
             {
@@ -7163,6 +7838,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7176,26 +7855,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetTolerance() == 0)
+            if (!object->IsSetTolerance())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ReachPositionConditionCardinalityCheckerRule::ReachPositionConditionCardinalityCheckerRule() = default;
 
-         ReachPositionConditionCardinalityCheckerRule::ReachPositionConditionCardinalityCheckerRule() = default;
-
-        void ReachPositionConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IReachPositionCondition> object)
+        void ReachPositionConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IReachPositionCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -7204,9 +7885,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ReachPositionConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IReachPositionCondition> object)
+        void ReachPositionConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IReachPositionCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -7230,6 +7911,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7243,44 +7928,46 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetFreespace() == false)
+            if (!object->IsSetFreespace())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRelativeDistanceType() == RelativeDistanceType::UNKNOWN)
+            if (!object->IsSetRelativeDistanceType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RelativeDistanceConditionCardinalityCheckerRule::RelativeDistanceConditionCardinalityCheckerRule() = default;
 
-         RelativeDistanceConditionCardinalityCheckerRule::RelativeDistanceConditionCardinalityCheckerRule() = default;
-
-        void RelativeDistanceConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeDistanceCondition> object)
+        void RelativeDistanceConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeDistanceCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -7289,9 +7976,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RelativeDistanceConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeDistanceCondition> object)
+        void RelativeDistanceConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeDistanceCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -7315,6 +8002,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7328,26 +8019,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDLane() == 0)
+            if (!object->IsSetDLane())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__D_LANE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RelativeLanePositionCardinalityCheckerRule::RelativeLanePositionCardinalityCheckerRule() = default;
 
-         RelativeLanePositionCardinalityCheckerRule::RelativeLanePositionCardinalityCheckerRule() = default;
-
-        void RelativeLanePositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeLanePosition> object)
+        void RelativeLanePositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeLanePosition>(object));
             
             for (auto&& violation : violations)
             {
@@ -7356,9 +8049,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RelativeLanePositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeLanePosition> object)
+        void RelativeLanePositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeLanePosition>(object));
 
             for (auto&& violation : violations)
             {
@@ -7382,6 +8075,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7395,32 +8092,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDx() == 0)
+            if (!object->IsSetDx())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DX, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDy() == 0)
+            if (!object->IsSetDy())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RelativeObjectPositionCardinalityCheckerRule::RelativeObjectPositionCardinalityCheckerRule() = default;
 
-         RelativeObjectPositionCardinalityCheckerRule::RelativeObjectPositionCardinalityCheckerRule() = default;
-
-        void RelativeObjectPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeObjectPosition> object)
+        void RelativeObjectPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeObjectPosition>(object));
             
             for (auto&& violation : violations)
             {
@@ -7429,9 +8128,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RelativeObjectPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeObjectPosition> object)
+        void RelativeObjectPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeObjectPosition>(object));
 
             for (auto&& violation : violations)
             {
@@ -7455,6 +8154,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7468,32 +8171,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDs() == 0)
+            if (!object->IsSetDs())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDt() == 0)
+            if (!object->IsSetDt())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RelativeRoadPositionCardinalityCheckerRule::RelativeRoadPositionCardinalityCheckerRule() = default;
 
-         RelativeRoadPositionCardinalityCheckerRule::RelativeRoadPositionCardinalityCheckerRule() = default;
-
-        void RelativeRoadPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeRoadPosition> object)
+        void RelativeRoadPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeRoadPosition>(object));
             
             for (auto&& violation : violations)
             {
@@ -7502,9 +8207,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RelativeRoadPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeRoadPosition> object)
+        void RelativeRoadPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeRoadPosition>(object));
 
             for (auto&& violation : violations)
             {
@@ -7528,6 +8233,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7541,32 +8250,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RelativeSpeedConditionCardinalityCheckerRule::RelativeSpeedConditionCardinalityCheckerRule() = default;
 
-         RelativeSpeedConditionCardinalityCheckerRule::RelativeSpeedConditionCardinalityCheckerRule() = default;
-
-        void RelativeSpeedConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedCondition> object)
+        void RelativeSpeedConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeSpeedCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -7575,9 +8286,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RelativeSpeedConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedCondition> object)
+        void RelativeSpeedConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeSpeedCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -7601,6 +8312,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7614,26 +8329,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetSpeedTargetValueType() == SpeedTargetValueType::UNKNOWN)
+            if (!object->IsSetSpeedTargetValueType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RelativeSpeedToMasterCardinalityCheckerRule::RelativeSpeedToMasterCardinalityCheckerRule() = default;
 
-         RelativeSpeedToMasterCardinalityCheckerRule::RelativeSpeedToMasterCardinalityCheckerRule() = default;
-
-        void RelativeSpeedToMasterCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedToMaster> object)
+        void RelativeSpeedToMasterCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeSpeedToMaster>(object));
             
             for (auto&& violation : violations)
             {
@@ -7642,9 +8359,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RelativeSpeedToMasterCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeSpeedToMaster> object)
+        void RelativeSpeedToMasterCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeSpeedToMaster>(object));
 
             for (auto&& violation : violations)
             {
@@ -7668,6 +8385,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7681,26 +8402,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RelativeTargetLaneCardinalityCheckerRule::RelativeTargetLaneCardinalityCheckerRule() = default;
 
-         RelativeTargetLaneCardinalityCheckerRule::RelativeTargetLaneCardinalityCheckerRule() = default;
-
-        void RelativeTargetLaneCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLane> object)
+        void RelativeTargetLaneCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeTargetLane>(object));
             
             for (auto&& violation : violations)
             {
@@ -7709,9 +8432,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RelativeTargetLaneCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLane> object)
+        void RelativeTargetLaneCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeTargetLane>(object));
 
             for (auto&& violation : violations)
             {
@@ -7735,6 +8458,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7748,26 +8475,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RelativeTargetLaneOffsetCardinalityCheckerRule::RelativeTargetLaneOffsetCardinalityCheckerRule() = default;
 
-         RelativeTargetLaneOffsetCardinalityCheckerRule::RelativeTargetLaneOffsetCardinalityCheckerRule() = default;
-
-        void RelativeTargetLaneOffsetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLaneOffset> object)
+        void RelativeTargetLaneOffsetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeTargetLaneOffset>(object));
             
             for (auto&& violation : violations)
             {
@@ -7776,9 +8505,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RelativeTargetLaneOffsetCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetLaneOffset> object)
+        void RelativeTargetLaneOffsetCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeTargetLaneOffset>(object));
 
             for (auto&& violation : violations)
             {
@@ -7802,6 +8531,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7815,38 +8548,40 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetContinuous() == false)
+            if (!object->IsSetContinuous())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetSpeedTargetValueType() == SpeedTargetValueType::UNKNOWN)
+            if (!object->IsSetSpeedTargetValueType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RelativeTargetSpeedCardinalityCheckerRule::RelativeTargetSpeedCardinalityCheckerRule() = default;
 
-         RelativeTargetSpeedCardinalityCheckerRule::RelativeTargetSpeedCardinalityCheckerRule() = default;
-
-        void RelativeTargetSpeedCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetSpeed> object)
+        void RelativeTargetSpeedCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeTargetSpeed>(object));
             
             for (auto&& violation : violations)
             {
@@ -7855,9 +8590,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RelativeTargetSpeedCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeTargetSpeed> object)
+        void RelativeTargetSpeedCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeTargetSpeed>(object));
 
             for (auto&& violation : violations)
             {
@@ -7881,6 +8616,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7894,32 +8633,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDx() == 0)
+            if (!object->IsSetDx())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DX, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDy() == 0)
+            if (!object->IsSetDy())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RelativeWorldPositionCardinalityCheckerRule::RelativeWorldPositionCardinalityCheckerRule() = default;
 
-         RelativeWorldPositionCardinalityCheckerRule::RelativeWorldPositionCardinalityCheckerRule() = default;
-
-        void RelativeWorldPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRelativeWorldPosition> object)
+        void RelativeWorldPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeWorldPosition>(object));
             
             for (auto&& violation : violations)
             {
@@ -7928,9 +8669,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RelativeWorldPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRelativeWorldPosition> object)
+        void RelativeWorldPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeWorldPosition>(object));
 
             for (auto&& violation : violations)
             {
@@ -7954,6 +8695,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -7967,20 +8712,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetFrictionScaleFactor() == 0)
+            if (!object->IsSetFrictionScaleFactor())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RoadConditionCardinalityCheckerRule::RoadConditionCardinalityCheckerRule() = default;
 
-         RoadConditionCardinalityCheckerRule::RoadConditionCardinalityCheckerRule() = default;
-
-        void RoadConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoadCondition> object)
+        void RoadConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRoadCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -7989,9 +8736,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RoadConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoadCondition> object)
+        void RoadConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRoadCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -8015,6 +8762,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8028,32 +8779,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRoadId().empty())
+            if (!object->IsSetRoadId())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetS() == 0)
+            if (!object->IsSetS())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__S, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetT() == 0)
+            if (!object->IsSetT())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__T, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RoadPositionCardinalityCheckerRule::RoadPositionCardinalityCheckerRule() = default;
 
-         RoadPositionCardinalityCheckerRule::RoadPositionCardinalityCheckerRule() = default;
-
-        void RoadPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoadPosition> object)
+        void RoadPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRoadPosition>(object));
             
             for (auto&& violation : violations)
             {
@@ -8062,9 +8815,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RoadPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoadPosition> object)
+        void RoadPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRoadPosition>(object));
 
             for (auto&& violation : violations)
             {
@@ -8088,6 +8841,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8101,13 +8858,13 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetClosed() == false)
+            if (!object->IsSetClosed())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CLOSED, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
@@ -8118,16 +8875,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__WAYPOINT, 2, kWaypointsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RouteCardinalityCheckerRule::RouteCardinalityCheckerRule() = default;
 
-         RouteCardinalityCheckerRule::RouteCardinalityCheckerRule() = default;
-
-        void RouteCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoute> object)
+        void RouteCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRoute>(object));
             
             for (auto&& violation : violations)
             {
@@ -8136,9 +8895,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RouteCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoute> object)
+        void RouteCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRoute>(object));
 
             for (auto&& violation : violations)
             {
@@ -8162,6 +8921,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8175,20 +8938,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDirectory() == nullptr)
+            if (!object->IsSetDirectory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RouteCatalogLocationCardinalityCheckerRule::RouteCatalogLocationCardinalityCheckerRule() = default;
 
-         RouteCatalogLocationCardinalityCheckerRule::RouteCatalogLocationCardinalityCheckerRule() = default;
-
-        void RouteCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRouteCatalogLocation> object)
+        void RouteCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRouteCatalogLocation>(object));
             
             for (auto&& violation : violations)
             {
@@ -8197,9 +8962,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RouteCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRouteCatalogLocation> object)
+        void RouteCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRouteCatalogLocation>(object));
 
             for (auto&& violation : violations)
             {
@@ -8223,6 +8988,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8236,26 +9005,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRouteRef() == nullptr)
+            if (!object->IsSetRouteRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ROUTE_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetInRoutePosition() == nullptr)
+            if (!object->IsSetInRoutePosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__IN_ROUTE_POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        RoutePositionCardinalityCheckerRule::RoutePositionCardinalityCheckerRule() = default;
 
-         RoutePositionCardinalityCheckerRule::RoutePositionCardinalityCheckerRule() = default;
-
-        void RoutePositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IRoutePosition> object)
+        void RoutePositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRoutePosition>(object));
             
             for (auto&& violation : violations)
             {
@@ -8264,9 +9035,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void RoutePositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IRoutePosition> object)
+        void RoutePositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IRoutePosition>(object));
 
             for (auto&& violation : violations)
             {
@@ -8290,6 +9061,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8303,38 +9078,40 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetCatalogLocations() == nullptr)
+            if (!object->IsSetCatalogLocations())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CATALOG_LOCATIONS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRoadNetwork() == nullptr)
+            if (!object->IsSetRoadNetwork())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ROAD_NETWORK, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntities() == nullptr)
+            if (!object->IsSetEntities())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ENTITIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetStoryboard() == nullptr)
+            if (!object->IsSetStoryboard())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STORYBOARD, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ScenarioDefinitionCardinalityCheckerRule::ScenarioDefinitionCardinalityCheckerRule() = default;
 
-         ScenarioDefinitionCardinalityCheckerRule::ScenarioDefinitionCardinalityCheckerRule() = default;
-
-        void ScenarioDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IScenarioDefinition> object)
+        void ScenarioDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IScenarioDefinition>(object));
             
             for (auto&& violation : violations)
             {
@@ -8343,9 +9120,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ScenarioDefinitionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IScenarioDefinition> object)
+        void ScenarioDefinitionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IScenarioDefinition>(object));
 
             for (auto&& violation : violations)
             {
@@ -8369,6 +9146,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8382,26 +9163,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetEntityObject() == nullptr)
+            if (!object->IsSetEntityObject())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ENTITY_OBJECT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ScenarioObjectCardinalityCheckerRule::ScenarioObjectCardinalityCheckerRule() = default;
 
-         ScenarioObjectCardinalityCheckerRule::ScenarioObjectCardinalityCheckerRule() = default;
-
-        void ScenarioObjectCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IScenarioObject> object)
+        void ScenarioObjectCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IScenarioObject>(object));
             
             for (auto&& violation : violations)
             {
@@ -8410,9 +9193,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ScenarioObjectCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IScenarioObject> object)
+        void ScenarioObjectCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IScenarioObject>(object));
 
             for (auto&& violation : violations)
             {
@@ -8436,6 +9219,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8449,26 +9236,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        SimulationTimeConditionCardinalityCheckerRule::SimulationTimeConditionCardinalityCheckerRule() = default;
 
-         SimulationTimeConditionCardinalityCheckerRule::SimulationTimeConditionCardinalityCheckerRule() = default;
-
-        void SimulationTimeConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISimulationTimeCondition> object)
+        void SimulationTimeConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISimulationTimeCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -8477,9 +9266,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void SimulationTimeConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISimulationTimeCondition> object)
+        void SimulationTimeConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ISimulationTimeCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -8503,6 +9292,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8516,26 +9309,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetSpeedActionDynamics() == nullptr)
+            if (!object->IsSetSpeedActionDynamics())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__SPEED_ACTION_DYNAMICS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetSpeedActionTarget() == nullptr)
+            if (!object->IsSetSpeedActionTarget())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__SPEED_ACTION_TARGET, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        SpeedActionCardinalityCheckerRule::SpeedActionCardinalityCheckerRule() = default;
 
-         SpeedActionCardinalityCheckerRule::SpeedActionCardinalityCheckerRule() = default;
-
-        void SpeedActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISpeedAction> object)
+        void SpeedActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISpeedAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -8544,9 +9339,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void SpeedActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISpeedAction> object)
+        void SpeedActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ISpeedAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -8570,6 +9365,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8583,26 +9382,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        SpeedConditionCardinalityCheckerRule::SpeedConditionCardinalityCheckerRule() = default;
 
-         SpeedConditionCardinalityCheckerRule::SpeedConditionCardinalityCheckerRule() = default;
-
-        void SpeedConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISpeedCondition> object)
+        void SpeedConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISpeedCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -8611,9 +9412,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void SpeedConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISpeedCondition> object)
+        void SpeedConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ISpeedCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -8637,6 +9438,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8650,20 +9455,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDuration() == 0)
+            if (!object->IsSetDuration())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DURATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        StandStillConditionCardinalityCheckerRule::StandStillConditionCardinalityCheckerRule() = default;
 
-         StandStillConditionCardinalityCheckerRule::StandStillConditionCardinalityCheckerRule() = default;
-
-        void StandStillConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStandStillCondition> object)
+        void StandStillConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStandStillCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -8672,9 +9479,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void StandStillConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStandStillCondition> object)
+        void StandStillConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IStandStillCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -8698,6 +9505,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8709,28 +9520,27 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<CardinalityViolation> SteadyStateCardinalityCheckerRule::GetAllViolations(std::shared_ptr<ISteadyState> object)
         {
             std::vector<CardinalityViolation> violations;
-            // Check violation
-            // Check required
-            if (object->GetTargetDistanceSteadyState() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TARGET_DISTANCE_STEADY_STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetTargetTimeSteadyState() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TARGET_TIME_STEADY_STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetTargetDistanceSteadyState();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__TARGET_DISTANCE_STEADY_STATE );
+            oneElementDefined ^= object->IsSetTargetTimeSteadyState();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__TARGET_TIME_STEADY_STATE );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        SteadyStateCardinalityCheckerRule::SteadyStateCardinalityCheckerRule() = default;
 
-         SteadyStateCardinalityCheckerRule::SteadyStateCardinalityCheckerRule() = default;
-
-        void SteadyStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISteadyState> object)
+        void SteadyStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISteadyState>(object));
             
             for (auto&& violation : violations)
             {
@@ -8739,9 +9549,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void SteadyStateCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISteadyState> object)
+        void SteadyStateCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ISteadyState>(object));
 
             for (auto&& violation : violations)
             {
@@ -8765,6 +9575,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8778,7 +9592,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetNumberOfTestRuns() == 0)
+            if (!object->IsSetNumberOfTestRuns())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_TEST_RUNS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
@@ -8789,16 +9603,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STOCHASTIC_DISTRIBUTION, 1, kStochasticDistributionsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        StochasticCardinalityCheckerRule::StochasticCardinalityCheckerRule() = default;
 
-         StochasticCardinalityCheckerRule::StochasticCardinalityCheckerRule() = default;
-
-        void StochasticCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStochastic> object)
+        void StochasticCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStochastic>(object));
             
             for (auto&& violation : violations)
             {
@@ -8807,9 +9623,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void StochasticCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStochastic> object)
+        void StochasticCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IStochastic>(object));
 
             for (auto&& violation : violations)
             {
@@ -8833,6 +9649,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8846,26 +9666,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetParameterName().empty())
+            if (!object->IsSetParameterName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetStochasticDistributionType() == nullptr)
+            if (!object->IsSetStochasticDistributionType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STOCHASTIC_DISTRIBUTION_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        StochasticDistributionCardinalityCheckerRule::StochasticDistributionCardinalityCheckerRule() = default;
 
-         StochasticDistributionCardinalityCheckerRule::StochasticDistributionCardinalityCheckerRule() = default;
-
-        void StochasticDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStochasticDistribution> object)
+        void StochasticDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStochasticDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -8874,9 +9696,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void StochasticDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStochasticDistribution> object)
+        void StochasticDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IStochasticDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -8900,6 +9722,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -8911,52 +9737,35 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<CardinalityViolation> StochasticDistributionTypeCardinalityCheckerRule::GetAllViolations(std::shared_ptr<IStochasticDistributionType> object)
         {
             std::vector<CardinalityViolation> violations;
-            // Check violation
-            // Check required
-            if (object->GetProbabilityDistributionSet() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PROBABILITY_DISTRIBUTION_SET, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetNormalDistribution() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__NORMAL_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetUniformDistribution() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__UNIFORM_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetPoissonDistribution() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POISSON_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetHistogram() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__HISTOGRAM, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetUserDefinedDistribution() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__USER_DEFINED_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetProbabilityDistributionSet();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__PROBABILITY_DISTRIBUTION_SET );
+            oneElementDefined ^= object->IsSetNormalDistribution();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__NORMAL_DISTRIBUTION );
+            oneElementDefined ^= object->IsSetUniformDistribution();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__UNIFORM_DISTRIBUTION );
+            oneElementDefined ^= object->IsSetPoissonDistribution();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__POISSON_DISTRIBUTION );
+            oneElementDefined ^= object->IsSetHistogram();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__HISTOGRAM );
+            oneElementDefined ^= object->IsSetUserDefinedDistribution();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__USER_DEFINED_DISTRIBUTION );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        StochasticDistributionTypeCardinalityCheckerRule::StochasticDistributionTypeCardinalityCheckerRule() = default;
 
-         StochasticDistributionTypeCardinalityCheckerRule::StochasticDistributionTypeCardinalityCheckerRule() = default;
-
-        void StochasticDistributionTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStochasticDistributionType> object)
+        void StochasticDistributionTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStochasticDistributionType>(object));
             
             for (auto&& violation : violations)
             {
@@ -8965,9 +9774,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void StochasticDistributionTypeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStochasticDistributionType> object)
+        void StochasticDistributionTypeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IStochasticDistributionType>(object));
 
             for (auto&& violation : violations)
             {
@@ -8991,6 +9800,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9004,7 +9817,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
@@ -9015,16 +9828,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ACT, 1, kActsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        StoryCardinalityCheckerRule::StoryCardinalityCheckerRule() = default;
 
-         StoryCardinalityCheckerRule::StoryCardinalityCheckerRule() = default;
-
-        void StoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStory> object)
+        void StoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStory>(object));
             
             for (auto&& violation : violations)
             {
@@ -9033,9 +9848,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void StoryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStory> object)
+        void StoryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IStory>(object));
 
             for (auto&& violation : violations)
             {
@@ -9059,6 +9874,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9072,7 +9891,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetInit() == nullptr)
+            if (!object->IsSetInit())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__INIT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
@@ -9085,20 +9904,22 @@ namespace NET_ASAM_OPENSCENARIO
             }
             // Check violation
             // Check required
-            if (object->GetStopTrigger() == nullptr)
+            if (!object->IsSetStopTrigger())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__STOP_TRIGGER, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        StoryboardCardinalityCheckerRule::StoryboardCardinalityCheckerRule() = default;
 
-         StoryboardCardinalityCheckerRule::StoryboardCardinalityCheckerRule() = default;
-
-        void StoryboardCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStoryboard> object)
+        void StoryboardCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStoryboard>(object));
             
             for (auto&& violation : violations)
             {
@@ -9107,9 +9928,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void StoryboardCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStoryboard> object)
+        void StoryboardCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IStoryboard>(object));
 
             for (auto&& violation : violations)
             {
@@ -9133,6 +9954,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9146,32 +9971,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetState() == StoryboardElementState::UNKNOWN)
+            if (!object->IsSetState())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetStoryboardElementRef() == nullptr)
+            if (!object->IsSetStoryboardElementRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetStoryboardElementType() == StoryboardElementType::UNKNOWN)
+            if (!object->IsSetStoryboardElementType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        StoryboardElementStateConditionCardinalityCheckerRule::StoryboardElementStateConditionCardinalityCheckerRule() = default;
 
-         StoryboardElementStateConditionCardinalityCheckerRule::StoryboardElementStateConditionCardinalityCheckerRule() = default;
-
-        void StoryboardElementStateConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IStoryboardElementStateCondition> object)
+        void StoryboardElementStateConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStoryboardElementStateCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -9180,9 +10007,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void StoryboardElementStateConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IStoryboardElementStateCondition> object)
+        void StoryboardElementStateConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IStoryboardElementStateCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -9206,6 +10033,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9219,32 +10050,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetAzimuth() == 0)
+            if (!object->IsSetAzimuth())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetElevation() == 0)
+            if (!object->IsSetElevation())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ELEVATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetIntensity() == 0)
+            if (!object->IsSetIntensity())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__INTENSITY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        SunCardinalityCheckerRule::SunCardinalityCheckerRule() = default;
 
-         SunCardinalityCheckerRule::SunCardinalityCheckerRule() = default;
-
-        void SunCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISun> object)
+        void SunCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISun>(object));
             
             for (auto&& violation : violations)
             {
@@ -9253,9 +10086,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void SunCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISun> object)
+        void SunCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ISun>(object));
 
             for (auto&& violation : violations)
             {
@@ -9279,6 +10112,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9292,32 +10129,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetMasterEntityRef() == nullptr)
+            if (!object->IsSetMasterEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTargetPositionMaster() == nullptr)
+            if (!object->IsSetTargetPositionMaster())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TARGET_POSITION_MASTER, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTargetPosition() == nullptr)
+            if (!object->IsSetTargetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TARGET_POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        SynchronizeActionCardinalityCheckerRule::SynchronizeActionCardinalityCheckerRule() = default;
 
-         SynchronizeActionCardinalityCheckerRule::SynchronizeActionCardinalityCheckerRule() = default;
-
-        void SynchronizeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ISynchronizeAction> object)
+        void SynchronizeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISynchronizeAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -9326,9 +10165,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void SynchronizeActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ISynchronizeAction> object)
+        void SynchronizeActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ISynchronizeAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -9352,6 +10191,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9365,20 +10208,27 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDistance() == 0)
+            if (!object->IsSetDistance())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DISTANCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        TargetDistanceSteadyStateCardinalityCheckerRule::TargetDistanceSteadyStateCardinalityCheckerRule() = default;
 
-         TargetDistanceSteadyStateCardinalityCheckerRule::TargetDistanceSteadyStateCardinalityCheckerRule() = default;
-
-        void TargetDistanceSteadyStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITargetDistanceSteadyState> object)
+        void TargetDistanceSteadyStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITargetDistanceSteadyState>(object));
             
             for (auto&& violation : violations)
             {
@@ -9387,9 +10237,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TargetDistanceSteadyStateCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITargetDistanceSteadyState> object)
+        void TargetDistanceSteadyStateCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITargetDistanceSteadyState>(object));
 
             for (auto&& violation : violations)
             {
@@ -9413,6 +10263,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9426,20 +10280,27 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetTime() == 0)
+            if (!object->IsSetTime())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TIME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        TargetTimeSteadyStateCardinalityCheckerRule::TargetTimeSteadyStateCardinalityCheckerRule() = default;
 
-         TargetTimeSteadyStateCardinalityCheckerRule::TargetTimeSteadyStateCardinalityCheckerRule() = default;
-
-        void TargetTimeSteadyStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITargetTimeSteadyState> object)
+        void TargetTimeSteadyStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITargetTimeSteadyState>(object));
             
             for (auto&& violation : violations)
             {
@@ -9448,9 +10309,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TargetTimeSteadyStateCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITargetTimeSteadyState> object)
+        void TargetTimeSteadyStateCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITargetTimeSteadyState>(object));
 
             for (auto&& violation : violations)
             {
@@ -9474,6 +10335,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9487,20 +10352,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TeleportActionCardinalityCheckerRule::TeleportActionCardinalityCheckerRule() = default;
 
-         TeleportActionCardinalityCheckerRule::TeleportActionCardinalityCheckerRule() = default;
-
-        void TeleportActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITeleportAction> object)
+        void TeleportActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITeleportAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -9509,9 +10376,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TeleportActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITeleportAction> object)
+        void TeleportActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITeleportAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -9535,6 +10402,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9548,38 +10419,40 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetEntityRef() == nullptr)
+            if (!object->IsSetEntityRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetFreespace() == false)
+            if (!object->IsSetFreespace())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TimeHeadwayConditionCardinalityCheckerRule::TimeHeadwayConditionCardinalityCheckerRule() = default;
 
-         TimeHeadwayConditionCardinalityCheckerRule::TimeHeadwayConditionCardinalityCheckerRule() = default;
-
-        void TimeHeadwayConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeHeadwayCondition> object)
+        void TimeHeadwayConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITimeHeadwayCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -9588,9 +10461,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TimeHeadwayConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeHeadwayCondition> object)
+        void TimeHeadwayConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITimeHeadwayCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -9614,6 +10487,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9627,26 +10504,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetAnimation() == false)
+            if (!object->IsSetAnimation())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ANIMATION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDateTime() == DateTime())
+            if (!object->IsSetDateTime())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TimeOfDayCardinalityCheckerRule::TimeOfDayCardinalityCheckerRule() = default;
 
-         TimeOfDayCardinalityCheckerRule::TimeOfDayCardinalityCheckerRule() = default;
-
-        void TimeOfDayCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeOfDay> object)
+        void TimeOfDayCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITimeOfDay>(object));
             
             for (auto&& violation : violations)
             {
@@ -9655,9 +10534,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TimeOfDayCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeOfDay> object)
+        void TimeOfDayCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITimeOfDay>(object));
 
             for (auto&& violation : violations)
             {
@@ -9681,6 +10560,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9694,26 +10577,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDateTime() == DateTime())
+            if (!object->IsSetDateTime())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TimeOfDayConditionCardinalityCheckerRule::TimeOfDayConditionCardinalityCheckerRule() = default;
 
-         TimeOfDayConditionCardinalityCheckerRule::TimeOfDayConditionCardinalityCheckerRule() = default;
-
-        void TimeOfDayConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeOfDayCondition> object)
+        void TimeOfDayConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITimeOfDayCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -9722,9 +10607,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TimeOfDayConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeOfDayCondition> object)
+        void TimeOfDayConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITimeOfDayCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -9748,6 +10633,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9761,38 +10650,40 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetFreespace() == false)
+            if (!object->IsSetFreespace())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FREESPACE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTimeToCollisionConditionTarget() == nullptr)
+            if (!object->IsSetTimeToCollisionConditionTarget())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TIME_TO_COLLISION_CONDITION_TARGET, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TimeToCollisionConditionCardinalityCheckerRule::TimeToCollisionConditionCardinalityCheckerRule() = default;
 
-         TimeToCollisionConditionCardinalityCheckerRule::TimeToCollisionConditionCardinalityCheckerRule() = default;
-
-        void TimeToCollisionConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionCondition> object)
+        void TimeToCollisionConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITimeToCollisionCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -9801,9 +10692,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TimeToCollisionConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITimeToCollisionCondition> object)
+        void TimeToCollisionConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITimeToCollisionCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -9827,6 +10718,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9840,32 +10735,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDomainAbsoluteRelative() == ReferenceContext::UNKNOWN)
+            if (!object->IsSetDomainAbsoluteRelative())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetOffset() == 0)
+            if (!object->IsSetOffset())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__OFFSET, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetScale() == 0)
+            if (!object->IsSetScale())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SCALE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TimingCardinalityCheckerRule::TimingCardinalityCheckerRule() = default;
 
-         TimingCardinalityCheckerRule::TimingCardinalityCheckerRule() = default;
-
-        void TimingCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITiming> object)
+        void TimingCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITiming>(object));
             
             for (auto&& violation : violations)
             {
@@ -9874,9 +10771,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TimingCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITiming> object)
+        void TimingCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITiming>(object));
 
             for (auto&& violation : violations)
             {
@@ -9900,6 +10797,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9913,32 +10814,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetVehicleCategoryDistribution() == nullptr)
+            if (!object->IsSetVehicleCategoryDistribution())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetControllerDistribution() == nullptr)
+            if (!object->IsSetControllerDistribution())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CONTROLLER_DISTRIBUTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrafficDefinitionCardinalityCheckerRule::TrafficDefinitionCardinalityCheckerRule() = default;
 
-         TrafficDefinitionCardinalityCheckerRule::TrafficDefinitionCardinalityCheckerRule() = default;
-
-        void TrafficDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficDefinition> object)
+        void TrafficDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficDefinition>(object));
             
             for (auto&& violation : violations)
             {
@@ -9947,9 +10850,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrafficDefinitionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficDefinition> object)
+        void TrafficDefinitionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficDefinition>(object));
 
             for (auto&& violation : violations)
             {
@@ -9973,6 +10876,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -9986,26 +10893,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetState().empty())
+            if (!object->IsSetState())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrafficSignalConditionCardinalityCheckerRule::TrafficSignalConditionCardinalityCheckerRule() = default;
 
-         TrafficSignalConditionCardinalityCheckerRule::TrafficSignalConditionCardinalityCheckerRule() = default;
-
-        void TrafficSignalConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalCondition> object)
+        void TrafficSignalConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -10014,9 +10923,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrafficSignalConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalCondition> object)
+        void TrafficSignalConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -10040,6 +10949,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10053,20 +10966,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrafficSignalControllerCardinalityCheckerRule::TrafficSignalControllerCardinalityCheckerRule() = default;
 
-         TrafficSignalControllerCardinalityCheckerRule::TrafficSignalControllerCardinalityCheckerRule() = default;
-
-        void TrafficSignalControllerCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalController> object)
+        void TrafficSignalControllerCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalController>(object));
             
             for (auto&& violation : violations)
             {
@@ -10075,9 +10990,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrafficSignalControllerCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalController> object)
+        void TrafficSignalControllerCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalController>(object));
 
             for (auto&& violation : violations)
             {
@@ -10101,6 +11016,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10114,26 +11033,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetPhase().empty())
+            if (!object->IsSetPhase())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PHASE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTrafficSignalControllerRef() == nullptr)
+            if (!object->IsSetTrafficSignalControllerRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrafficSignalControllerActionCardinalityCheckerRule::TrafficSignalControllerActionCardinalityCheckerRule() = default;
 
-         TrafficSignalControllerActionCardinalityCheckerRule::TrafficSignalControllerActionCardinalityCheckerRule() = default;
-
-        void TrafficSignalControllerActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerAction> object)
+        void TrafficSignalControllerActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalControllerAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -10142,9 +11063,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrafficSignalControllerActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerAction> object)
+        void TrafficSignalControllerActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalControllerAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -10168,6 +11089,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10181,26 +11106,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetPhase().empty())
+            if (!object->IsSetPhase())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__PHASE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTrafficSignalControllerRef() == nullptr)
+            if (!object->IsSetTrafficSignalControllerRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrafficSignalControllerConditionCardinalityCheckerRule::TrafficSignalControllerConditionCardinalityCheckerRule() = default;
 
-         TrafficSignalControllerConditionCardinalityCheckerRule::TrafficSignalControllerConditionCardinalityCheckerRule() = default;
-
-        void TrafficSignalControllerConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerCondition> object)
+        void TrafficSignalControllerConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalControllerCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -10209,9 +11136,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrafficSignalControllerConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalControllerCondition> object)
+        void TrafficSignalControllerConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalControllerCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -10235,6 +11162,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10248,26 +11179,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetState().empty())
+            if (!object->IsSetState())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTrafficSignalId().empty())
+            if (!object->IsSetTrafficSignalId())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrafficSignalStateCardinalityCheckerRule::TrafficSignalStateCardinalityCheckerRule() = default;
 
-         TrafficSignalStateCardinalityCheckerRule::TrafficSignalStateCardinalityCheckerRule() = default;
-
-        void TrafficSignalStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalState> object)
+        void TrafficSignalStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalState>(object));
             
             for (auto&& violation : violations)
             {
@@ -10276,9 +11209,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrafficSignalStateCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalState> object)
+        void TrafficSignalStateCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalState>(object));
 
             for (auto&& violation : violations)
             {
@@ -10302,6 +11235,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10315,26 +11252,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetState().empty())
+            if (!object->IsSetState())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__STATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrafficSignalStateActionCardinalityCheckerRule::TrafficSignalStateActionCardinalityCheckerRule() = default;
 
-         TrafficSignalStateActionCardinalityCheckerRule::TrafficSignalStateActionCardinalityCheckerRule() = default;
-
-        void TrafficSignalStateActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalStateAction> object)
+        void TrafficSignalStateActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalStateAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -10343,9 +11282,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrafficSignalStateActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSignalStateAction> object)
+        void TrafficSignalStateActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalStateAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -10369,6 +11308,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10382,26 +11325,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRadius() == 0)
+            if (!object->IsSetRadius())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RADIUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrafficSinkActionCardinalityCheckerRule::TrafficSinkActionCardinalityCheckerRule() = default;
 
-         TrafficSinkActionCardinalityCheckerRule::TrafficSinkActionCardinalityCheckerRule() = default;
-
-        void TrafficSinkActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSinkAction> object)
+        void TrafficSinkActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSinkAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -10410,9 +11355,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrafficSinkActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSinkAction> object)
+        void TrafficSinkActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSinkAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -10436,6 +11381,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10449,38 +11398,40 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRadius() == 0)
+            if (!object->IsSetRadius())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RADIUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRate() == 0)
+            if (!object->IsSetRate())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RATE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTrafficDefinition() == nullptr)
+            if (!object->IsSetTrafficDefinition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrafficSourceActionCardinalityCheckerRule::TrafficSourceActionCardinalityCheckerRule() = default;
 
-         TrafficSourceActionCardinalityCheckerRule::TrafficSourceActionCardinalityCheckerRule() = default;
-
-        void TrafficSourceActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSourceAction> object)
+        void TrafficSourceActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSourceAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -10489,9 +11440,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrafficSourceActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSourceAction> object)
+        void TrafficSourceActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSourceAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -10515,6 +11466,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10528,56 +11483,58 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetInnerRadius() == 0)
+            if (!object->IsSetInnerRadius())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetNumberOfVehicles() == 0)
+            if (!object->IsSetNumberOfVehicles())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetOffset() == 0)
+            if (!object->IsSetOffset())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__OFFSET, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetSemiMajorAxis() == 0)
+            if (!object->IsSetSemiMajorAxis())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetSemiMinorAxis() == 0)
+            if (!object->IsSetSemiMinorAxis())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetCentralObject() == nullptr)
+            if (!object->IsSetCentralObject())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CENTRAL_OBJECT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTrafficDefinition() == nullptr)
+            if (!object->IsSetTrafficDefinition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAFFIC_DEFINITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrafficSwarmActionCardinalityCheckerRule::TrafficSwarmActionCardinalityCheckerRule() = default;
 
-         TrafficSwarmActionCardinalityCheckerRule::TrafficSwarmActionCardinalityCheckerRule() = default;
-
-        void TrafficSwarmActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrafficSwarmAction> object)
+        void TrafficSwarmActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSwarmAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -10586,9 +11543,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrafficSwarmActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrafficSwarmAction> object)
+        void TrafficSwarmActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSwarmAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -10612,6 +11569,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10625,32 +11586,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetClosed() == false)
+            if (!object->IsSetClosed())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CLOSED, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetShape() == nullptr)
+            if (!object->IsSetShape())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__SHAPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrajectoryCardinalityCheckerRule::TrajectoryCardinalityCheckerRule() = default;
 
-         TrajectoryCardinalityCheckerRule::TrajectoryCardinalityCheckerRule() = default;
-
-        void TrajectoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectory> object)
+        void TrajectoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectory>(object));
             
             for (auto&& violation : violations)
             {
@@ -10659,9 +11622,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrajectoryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectory> object)
+        void TrajectoryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectory>(object));
 
             for (auto&& violation : violations)
             {
@@ -10685,6 +11648,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10698,20 +11665,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDirectory() == nullptr)
+            if (!object->IsSetDirectory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrajectoryCatalogLocationCardinalityCheckerRule::TrajectoryCatalogLocationCardinalityCheckerRule() = default;
 
-         TrajectoryCatalogLocationCardinalityCheckerRule::TrajectoryCatalogLocationCardinalityCheckerRule() = default;
-
-        void TrajectoryCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryCatalogLocation> object)
+        void TrajectoryCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryCatalogLocation>(object));
             
             for (auto&& violation : violations)
             {
@@ -10720,9 +11689,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrajectoryCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryCatalogLocation> object)
+        void TrajectoryCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryCatalogLocation>(object));
 
             for (auto&& violation : violations)
             {
@@ -10746,6 +11715,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10759,20 +11732,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetFollowingMode() == FollowingMode::UNKNOWN)
+            if (!object->IsSetFollowingMode())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrajectoryFollowingModeCardinalityCheckerRule::TrajectoryFollowingModeCardinalityCheckerRule() = default;
 
-         TrajectoryFollowingModeCardinalityCheckerRule::TrajectoryFollowingModeCardinalityCheckerRule() = default;
-
-        void TrajectoryFollowingModeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryFollowingMode> object)
+        void TrajectoryFollowingModeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryFollowingMode>(object));
             
             for (auto&& violation : violations)
             {
@@ -10781,9 +11756,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrajectoryFollowingModeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryFollowingMode> object)
+        void TrajectoryFollowingModeCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryFollowingMode>(object));
 
             for (auto&& violation : violations)
             {
@@ -10807,6 +11782,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10820,26 +11799,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetS() == 0)
+            if (!object->IsSetS())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__S, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTrajectoryRef() == nullptr)
+            if (!object->IsSetTrajectoryRef())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAJECTORY_REF, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TrajectoryPositionCardinalityCheckerRule::TrajectoryPositionCardinalityCheckerRule() = default;
 
-         TrajectoryPositionCardinalityCheckerRule::TrajectoryPositionCardinalityCheckerRule() = default;
-
-        void TrajectoryPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryPosition> object)
+        void TrajectoryPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryPosition>(object));
             
             for (auto&& violation : violations)
             {
@@ -10848,9 +11829,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrajectoryPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryPosition> object)
+        void TrajectoryPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryPosition>(object));
 
             for (auto&& violation : violations)
             {
@@ -10874,6 +11855,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10885,28 +11870,27 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<CardinalityViolation> TrajectoryRefCardinalityCheckerRule::GetAllViolations(std::shared_ptr<ITrajectoryRef> object)
         {
             std::vector<CardinalityViolation> violations;
-            // Check violation
-            // Check required
-            if (object->GetTrajectory() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__TRAJECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-            // Check violation
-            // Check required
-            if (object->GetCatalogReference() == nullptr)
-            {
-                violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
-            }
-             return violations;
+
+            //Xor elements check
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            oneElementDefined ^= object->IsSetTrajectory();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__TRAJECTORY );
+            oneElementDefined ^= object->IsSetCatalogReference();
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE );
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+
+            return violations;
         }
 
 
+        TrajectoryRefCardinalityCheckerRule::TrajectoryRefCardinalityCheckerRule() = default;
 
-         TrajectoryRefCardinalityCheckerRule::TrajectoryRefCardinalityCheckerRule() = default;
-
-        void TrajectoryRefCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITrajectoryRef> object)
+        void TrajectoryRefCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryRef>(object));
             
             for (auto&& violation : violations)
             {
@@ -10915,9 +11899,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TrajectoryRefCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITrajectoryRef> object)
+        void TrajectoryRefCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryRef>(object));
 
             for (auto&& violation : violations)
             {
@@ -10941,6 +11925,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -10954,32 +11942,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDynamicsDimension() == DynamicsDimension::UNKNOWN)
+            if (!object->IsSetDynamicsDimension())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetDynamicsShape() == DynamicsShape::UNKNOWN)
+            if (!object->IsSetDynamicsShape())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TransitionDynamicsCardinalityCheckerRule::TransitionDynamicsCardinalityCheckerRule() = default;
 
-         TransitionDynamicsCardinalityCheckerRule::TransitionDynamicsCardinalityCheckerRule() = default;
-
-        void TransitionDynamicsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITransitionDynamics> object)
+        void TransitionDynamicsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITransitionDynamics>(object));
             
             for (auto&& violation : violations)
             {
@@ -10988,9 +11978,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TransitionDynamicsCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITransitionDynamics> object)
+        void TransitionDynamicsCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITransitionDynamics>(object));
 
             for (auto&& violation : violations)
             {
@@ -11014,6 +12004,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11027,20 +12021,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetValue() == 0)
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TraveledDistanceConditionCardinalityCheckerRule::TraveledDistanceConditionCardinalityCheckerRule() = default;
 
-         TraveledDistanceConditionCardinalityCheckerRule::TraveledDistanceConditionCardinalityCheckerRule() = default;
-
-        void TraveledDistanceConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITraveledDistanceCondition> object)
+        void TraveledDistanceConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITraveledDistanceCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -11049,9 +12045,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TraveledDistanceConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITraveledDistanceCondition> object)
+        void TraveledDistanceConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITraveledDistanceCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -11075,6 +12071,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11088,7 +12088,7 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetTriggeringEntitiesRule() == TriggeringEntitiesRule::UNKNOWN)
+            if (!object->IsSetTriggeringEntitiesRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
@@ -11099,16 +12099,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__ENTITY_REF, 1, kEntityRefsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        TriggeringEntitiesCardinalityCheckerRule::TriggeringEntitiesCardinalityCheckerRule() = default;
 
-         TriggeringEntitiesCardinalityCheckerRule::TriggeringEntitiesCardinalityCheckerRule() = default;
-
-        void TriggeringEntitiesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<ITriggeringEntities> object)
+        void TriggeringEntitiesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITriggeringEntities>(object));
             
             for (auto&& violation : violations)
             {
@@ -11117,9 +12119,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void TriggeringEntitiesCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<ITriggeringEntities> object)
+        void TriggeringEntitiesCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<ITriggeringEntities>(object));
 
             for (auto&& violation : violations)
             {
@@ -11143,6 +12145,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11156,20 +12162,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRange() == nullptr)
+            if (!object->IsSetRange())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__RANGE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        UniformDistributionCardinalityCheckerRule::UniformDistributionCardinalityCheckerRule() = default;
 
-         UniformDistributionCardinalityCheckerRule::UniformDistributionCardinalityCheckerRule() = default;
-
-        void UniformDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUniformDistribution> object)
+        void UniformDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IUniformDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -11178,9 +12186,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void UniformDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUniformDistribution> object)
+        void UniformDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IUniformDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -11204,6 +12212,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11222,16 +12234,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 2, kPositionsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        UsedAreaCardinalityCheckerRule::UsedAreaCardinalityCheckerRule() = default;
 
-         UsedAreaCardinalityCheckerRule::UsedAreaCardinalityCheckerRule() = default;
-
-        void UsedAreaCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUsedArea> object)
+        void UsedAreaCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IUsedArea>(object));
             
             for (auto&& violation : violations)
             {
@@ -11240,9 +12254,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void UsedAreaCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUsedArea> object)
+        void UsedAreaCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IUsedArea>(object));
 
             for (auto&& violation : violations)
             {
@@ -11266,6 +12280,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11279,20 +12297,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetCustomCommandAction() == nullptr)
+            if (!object->IsSetCustomCommandAction())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__CUSTOM_COMMAND_ACTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        UserDefinedActionCardinalityCheckerRule::UserDefinedActionCardinalityCheckerRule() = default;
 
-         UserDefinedActionCardinalityCheckerRule::UserDefinedActionCardinalityCheckerRule() = default;
-
-        void UserDefinedActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUserDefinedAction> object)
+        void UserDefinedActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IUserDefinedAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -11301,9 +12321,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void UserDefinedActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUserDefinedAction> object)
+        void UserDefinedActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IUserDefinedAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -11327,6 +12347,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11340,26 +12364,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetContent().empty())
+            if (!object->IsSetContent())
             {
                 violations.push_back( CardinalityViolation("", 0, 1, VIOLATION_TYPE::REQUIRED_SIMPLE_CONTENT) );
             }
             // Check violation
             // Check required
-            if (object->GetType().empty())
+            if (!object->IsSetType())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TYPE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        UserDefinedDistributionCardinalityCheckerRule::UserDefinedDistributionCardinalityCheckerRule() = default;
 
-         UserDefinedDistributionCardinalityCheckerRule::UserDefinedDistributionCardinalityCheckerRule() = default;
-
-        void UserDefinedDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUserDefinedDistribution> object)
+        void UserDefinedDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IUserDefinedDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -11368,9 +12394,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void UserDefinedDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUserDefinedDistribution> object)
+        void UserDefinedDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IUserDefinedDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -11394,6 +12420,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11407,32 +12437,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue().empty())
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        UserDefinedValueConditionCardinalityCheckerRule::UserDefinedValueConditionCardinalityCheckerRule() = default;
 
-         UserDefinedValueConditionCardinalityCheckerRule::UserDefinedValueConditionCardinalityCheckerRule() = default;
-
-        void UserDefinedValueConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IUserDefinedValueCondition> object)
+        void UserDefinedValueConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IUserDefinedValueCondition>(object));
             
             for (auto&& violation : violations)
             {
@@ -11441,9 +12473,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void UserDefinedValueConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IUserDefinedValueCondition> object)
+        void UserDefinedValueConditionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IUserDefinedValueCondition>(object));
 
             for (auto&& violation : violations)
             {
@@ -11467,6 +12499,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11480,26 +12516,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRule() == Rule::UNKNOWN)
+            if (!object->IsSetRule())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__RULE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetValue().empty())
+            if (!object->IsSetValue())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VALUE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ValueConstraintCardinalityCheckerRule::ValueConstraintCardinalityCheckerRule() = default;
 
-         ValueConstraintCardinalityCheckerRule::ValueConstraintCardinalityCheckerRule() = default;
-
-        void ValueConstraintCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IValueConstraint> object)
+        void ValueConstraintCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IValueConstraint>(object));
             
             for (auto&& violation : violations)
             {
@@ -11508,9 +12546,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ValueConstraintCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IValueConstraint> object)
+        void ValueConstraintCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IValueConstraint>(object));
 
             for (auto&& violation : violations)
             {
@@ -11534,6 +12572,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11552,16 +12594,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__VALUE_CONSTRAINT, 1, kConstraintsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ValueConstraintGroupCardinalityCheckerRule::ValueConstraintGroupCardinalityCheckerRule() = default;
 
-         ValueConstraintGroupCardinalityCheckerRule::ValueConstraintGroupCardinalityCheckerRule() = default;
-
-        void ValueConstraintGroupCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IValueConstraintGroup> object)
+        void ValueConstraintGroupCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IValueConstraintGroup>(object));
             
             for (auto&& violation : violations)
             {
@@ -11570,9 +12614,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ValueConstraintGroupCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IValueConstraintGroup> object)
+        void ValueConstraintGroupCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IValueConstraintGroup>(object));
 
             for (auto&& violation : violations)
             {
@@ -11596,6 +12640,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11614,16 +12662,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PARAMETER_VALUE_SET, 1, kParameterValueSetsSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        ValueSetDistributionCardinalityCheckerRule::ValueSetDistributionCardinalityCheckerRule() = default;
 
-         ValueSetDistributionCardinalityCheckerRule::ValueSetDistributionCardinalityCheckerRule() = default;
-
-        void ValueSetDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IValueSetDistribution> object)
+        void ValueSetDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IValueSetDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -11632,9 +12682,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void ValueSetDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IValueSetDistribution> object)
+        void ValueSetDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IValueSetDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -11658,6 +12708,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11671,50 +12725,52 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetName().empty())
+            if (!object->IsSetName())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__NAME, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetVehicleCategory() == VehicleCategory::UNKNOWN)
+            if (!object->IsSetVehicleCategory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetBoundingBox() == nullptr)
+            if (!object->IsSetBoundingBox())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__BOUNDING_BOX, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPerformance() == nullptr)
+            if (!object->IsSetPerformance())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PERFORMANCE, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetAxles() == nullptr)
+            if (!object->IsSetAxles())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__AXLES, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetProperties() == nullptr)
+            if (!object->IsSetProperties())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__PROPERTIES, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        VehicleCardinalityCheckerRule::VehicleCardinalityCheckerRule() = default;
 
-         VehicleCardinalityCheckerRule::VehicleCardinalityCheckerRule() = default;
-
-        void VehicleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicle> object)
+        void VehicleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVehicle>(object));
             
             for (auto&& violation : violations)
             {
@@ -11723,9 +12779,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void VehicleCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicle> object)
+        void VehicleCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IVehicle>(object));
 
             for (auto&& violation : violations)
             {
@@ -11749,6 +12805,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11762,20 +12822,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDirectory() == nullptr)
+            if (!object->IsSetDirectory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__DIRECTORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        VehicleCatalogLocationCardinalityCheckerRule::VehicleCatalogLocationCardinalityCheckerRule() = default;
 
-         VehicleCatalogLocationCardinalityCheckerRule::VehicleCatalogLocationCardinalityCheckerRule() = default;
-
-        void VehicleCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicleCatalogLocation> object)
+        void VehicleCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVehicleCatalogLocation>(object));
             
             for (auto&& violation : violations)
             {
@@ -11784,9 +12846,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void VehicleCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicleCatalogLocation> object)
+        void VehicleCatalogLocationCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IVehicleCatalogLocation>(object));
 
             for (auto&& violation : violations)
             {
@@ -11810,6 +12872,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11828,16 +12894,18 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__VEHICLE_CATEGORY_DISTRIBUTION_ENTRY, 1, kVehicleCategoryDistributionEntriesSize, VIOLATION_TYPE::TOO_FEW) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        VehicleCategoryDistributionCardinalityCheckerRule::VehicleCategoryDistributionCardinalityCheckerRule() = default;
 
-         VehicleCategoryDistributionCardinalityCheckerRule::VehicleCategoryDistributionCardinalityCheckerRule() = default;
-
-        void VehicleCategoryDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistribution> object)
+        void VehicleCategoryDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVehicleCategoryDistribution>(object));
             
             for (auto&& violation : violations)
             {
@@ -11846,9 +12914,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void VehicleCategoryDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistribution> object)
+        void VehicleCategoryDistributionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IVehicleCategoryDistribution>(object));
 
             for (auto&& violation : violations)
             {
@@ -11872,6 +12940,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11885,26 +12957,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetCategory() == VehicleCategory::UNKNOWN)
+            if (!object->IsSetCategory())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__CATEGORY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetWeight() == 0)
+            if (!object->IsSetWeight())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__WEIGHT, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        VehicleCategoryDistributionEntryCardinalityCheckerRule::VehicleCategoryDistributionEntryCardinalityCheckerRule() = default;
 
-         VehicleCategoryDistributionEntryCardinalityCheckerRule::VehicleCategoryDistributionEntryCardinalityCheckerRule() = default;
-
-        void VehicleCategoryDistributionEntryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object)
+        void VehicleCategoryDistributionEntryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVehicleCategoryDistributionEntry>(object));
             
             for (auto&& violation : violations)
             {
@@ -11913,9 +12987,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void VehicleCategoryDistributionEntryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVehicleCategoryDistributionEntry> object)
+        void VehicleCategoryDistributionEntryCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IVehicleCategoryDistributionEntry>(object));
 
             for (auto&& violation : violations)
             {
@@ -11939,6 +13013,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -11952,20 +13030,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        VertexCardinalityCheckerRule::VertexCardinalityCheckerRule() = default;
 
-         VertexCardinalityCheckerRule::VertexCardinalityCheckerRule() = default;
-
-        void VertexCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVertex> object)
+        void VertexCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVertex>(object));
             
             for (auto&& violation : violations)
             {
@@ -11974,9 +13054,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void VertexCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVertex> object)
+        void VertexCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IVertex>(object));
 
             for (auto&& violation : violations)
             {
@@ -12000,6 +13080,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -12013,32 +13097,34 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetGraphics() == false)
+            if (!object->IsSetGraphics())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetSensors() == false)
+            if (!object->IsSetSensors())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SENSORS, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetTraffic() == false)
+            if (!object->IsSetTraffic())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        VisibilityActionCardinalityCheckerRule::VisibilityActionCardinalityCheckerRule() = default;
 
-         VisibilityActionCardinalityCheckerRule::VisibilityActionCardinalityCheckerRule() = default;
-
-        void VisibilityActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IVisibilityAction> object)
+        void VisibilityActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVisibilityAction>(object));
             
             for (auto&& violation : violations)
             {
@@ -12047,9 +13133,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void VisibilityActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IVisibilityAction> object)
+        void VisibilityActionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IVisibilityAction>(object));
 
             for (auto&& violation : violations)
             {
@@ -12073,6 +13159,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -12086,26 +13176,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetRouteStrategy() == RouteStrategy::UNKNOWN)
+            if (!object->IsSetRouteStrategy())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetPosition() == nullptr)
+            if (!object->IsSetPosition())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__POSITION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        WaypointCardinalityCheckerRule::WaypointCardinalityCheckerRule() = default;
 
-         WaypointCardinalityCheckerRule::WaypointCardinalityCheckerRule() = default;
-
-        void WaypointCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IWaypoint> object)
+        void WaypointCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IWaypoint>(object));
             
             for (auto&& violation : violations)
             {
@@ -12114,9 +13206,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void WaypointCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IWaypoint> object)
+        void WaypointCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IWaypoint>(object));
 
             for (auto&& violation : violations)
             {
@@ -12140,6 +13232,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -12153,26 +13249,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetDirection() == 0)
+            if (!object->IsSetDirection())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__DIRECTION, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetSpeed() == 0)
+            if (!object->IsSetSpeed())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__SPEED, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        WindCardinalityCheckerRule::WindCardinalityCheckerRule() = default;
 
-         WindCardinalityCheckerRule::WindCardinalityCheckerRule() = default;
-
-        void WindCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IWind> object)
+        void WindCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IWind>(object));
             
             for (auto&& violation : violations)
             {
@@ -12181,9 +13279,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void WindCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IWind> object)
+        void WindCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IWind>(object));
 
             for (auto&& violation : violations)
             {
@@ -12207,6 +13305,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -12220,26 +13322,28 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
             // Check violation
             // Check required
-            if (object->GetX() == 0)
+            if (!object->IsSetX())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__X, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
             // Check violation
             // Check required
-            if (object->GetY() == 0)
+            if (!object->IsSetY())
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__Y, 0, 1, VIOLATION_TYPE::REQUIRED) );
             }
-             return violations;
+
+            //Xor elements check
+
+            return violations;
         }
 
 
+        WorldPositionCardinalityCheckerRule::WorldPositionCardinalityCheckerRule() = default;
 
-         WorldPositionCardinalityCheckerRule::WorldPositionCardinalityCheckerRule() = default;
-
-        void WorldPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IWorldPosition> object)
+        void WorldPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<IWorldPosition>(object));
             
             for (auto&& violation : violations)
             {
@@ -12248,9 +13352,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void WorldPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IWorldPosition> object)
+        void WorldPositionCardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<IWorldPosition>(object));
 
             for (auto&& violation : violations)
             {

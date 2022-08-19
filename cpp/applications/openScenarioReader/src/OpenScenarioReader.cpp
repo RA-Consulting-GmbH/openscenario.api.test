@@ -57,8 +57,8 @@
  */
 
 static NET_ASAM_OPENSCENARIO::ErrorLevel logLevel = NET_ASAM_OPENSCENARIO::ErrorLevel::INFO;
-static std::string VERSION_1_0 = "v1_1";
-static std::string VERSION_1_1 = "v1_0";
+static std::string VERSION_1_0 = "v1_0";
+static std::string VERSION_1_1 = "v1_1";
 
 
 std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl> ExecuteImportParsing(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger, std::map<std::string, std::string>& injectionParameters)
@@ -363,7 +363,7 @@ int wmain(int argc, wchar_t** argv)
             NET_ASAM_OPENSCENARIO::FileResourceLocator fileLocator;
             auto filePaths = fileLocator.GetSymbolicFilenamesInSymbolicDir(inputDirectoryName);
             for (auto file : filePaths)
-                result = CheckFile(file, paramFileName) == SUCCESS_RESULT ? result : ERROR_RESULT;
+                result = CheckFile(file, paramFileName, version) == SUCCESS_RESULT ? result : ERROR_RESULT;
         }
         catch (NET_ASAM_OPENSCENARIO::ResourceNotFoundException& e)
         {
