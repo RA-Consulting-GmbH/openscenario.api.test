@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>openscenario.generator</groupId>
 	<artifactId>de.rac.openscenario.generator</artifactId>
-	<version>1.2.1</version>
+	<version>1.2.2</version>
 	<name>OSC Generator</name>
 	<build>
 		<plugins>
@@ -80,11 +80,6 @@
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>${junit.jupiter.version}</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.9</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.googlejavaformat</groupId>

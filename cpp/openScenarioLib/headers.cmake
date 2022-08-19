@@ -341,3 +341,98 @@ set( HEADERS_GENERATED_1_1_XMLEXPORTER
     "generated/v1_1/export/xml/OpenScenarioXmlExporterV1_1.h"
 )
 set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_1_XMLEXPORTER} )
+
+################################################
+## V1_2
+################################
+# Headers hand crafted
+set( HEADERS_LOADER_1_2
+    "src/v1_2/loader/OpenScenarioProcessingHelperV1_2.h"
+    "src/v1_2/loader/XmlScenarioImportLoaderV1_2.h"
+    "src/v1_2/loader/XmlScenarioLoaderFactoryV1_2.h"
+    "src/v1_2/loader/XmlScenarioLoaderV1_2.h"
+    "src/v1_2/loader/XmlScenarioImportLoaderFactoryV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_LOADER_1_2} )
+
+set( HEADERS_EXPRESSION_1_2
+    "src/v1_2/expression/ExpressionResolverV1_2.h"
+    "src/v1_2/expression/ExpressionResolverStackV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_EXPRESSION_1_2} )
+
+set( HEADERS_PARSER_1_2
+    "src/v1_2/parser/CatalogReferenceParserContextV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_PARSER_1_2} )
+
+set( HEADERS_CHECKER_1_2
+    "src/v1_2/checker/VersionCheckerRuleV1_2.h"
+    "src/v1_2/checker/ParameterDeclarationCheckerV1_2.h"
+    "src/v1_2/checker/VariableCheckerV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_CHECKER_1_2} )
+
+################################
+# Headers generated
+set( HEADERS_GENERATED_1_2_API
+    "generated/v1_2/api/EnumerationsV1_2.h"
+    "generated/v1_2/api/ApiClassInterfacesV1_2.h"
+    "generated/v1_2/api/OscInterfacesV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_API} )
+
+set( HEADERS_GENERATED_1_2_API_WRITER
+    "generated/v1_2/api/writer/ApiClassWriterInterfacesV1_2.h"
+    "generated/v1_2/api/writer/ApiWriterInterfacesV1_2.h"
+    "generated/v1_2/api/writer/IOpenScenarioWriterFactoryV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_API_WRITER} )
+
+set( HEADERS_GENERATED_1_2_COMMON
+    "generated/v1_2/common/OscConstantsV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_COMMON} )
+
+set( HEADERS_GENERATED_1_2_CHECKER
+    "generated/v1_2/checker/IScenarioCheckerV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_CHECKER} )
+
+set( HEADERS_GENERATED_1_2_CHECKER_MODEL
+    "generated/v1_2/checker/model/CardinalityCheckerRulesV1_2.h"
+    "generated/v1_2/checker/model/UnionCheckerRulesV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_CHECKER_MODEL} )
+
+set( HEADERS_GENERATED_1_2_CHECKER_IMPL
+    "generated/v1_2/checker/impl/ScenarioCheckerImplV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_CHECKER_IMPL} )
+
+set( HEADERS_GENERATED_1_2_CHECKER_RANGE
+    "generated/v1_2/checker/range/RangeCheckerRulesV1_2.h"
+    "generated/v1_2/checker/range/RangeCheckerHelperV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_CHECKER_RANGE} )
+
+set( HEADERS_GENERATED_1_2_CATALOG
+    "generated/v1_2/catalog/CatalogHelperV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_CATALOG} )
+
+set( HEADERS_GENERATED_1_2_IMPL
+    "generated/v1_2/impl/ApiClassImplV1_2.h"
+    "generated/v1_2/impl/OpenScenarioWriterFactoryImplV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_IMPL} )
+
+set( HEADERS_GENERATED_1_2_XMLPARSER
+    "generated/v1_2/xmlParser/XmlParsersV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_XMLPARSER} )
+
+set( HEADERS_GENERATED_1_2_XMLEXPORTER
+    "generated/v1_2/export/xml/OpenScenarioXmlExporterV1_2.h"
+)
+set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_XMLEXPORTER} )

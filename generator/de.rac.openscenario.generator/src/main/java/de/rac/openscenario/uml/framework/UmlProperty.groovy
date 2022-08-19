@@ -18,7 +18,7 @@ package de.rac.openscenario.uml.framework;
 
 import groovy.transform.Memoized
 
-public class UmlProperty extends UmlNamedElement{
+public class UmlProperty extends UmlNamedElement {
 
 	public UmlProperty(String name) {
 		super(name);
