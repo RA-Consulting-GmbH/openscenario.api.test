@@ -385,7 +385,7 @@ int wmain(int argc, wchar_t** argv)
             NET_ASAM_OPENSCENARIO::FileResourceLocator fileLocator;
             auto filePaths = fileLocator.GetSymbolicFilenamesInSymbolicDir(inputDirectoryName);
             for (auto file : filePaths)
-                result = CheckFile(file, paramFileName) == SUCCESS_RESULT ? result : ERROR_RESULT;
+                result = CheckFile(file, paramFileName, version) == SUCCESS_RESULT ? result : ERROR_RESULT;
         }
         catch (NET_ASAM_OPENSCENARIO::ResourceNotFoundException& e)
         {

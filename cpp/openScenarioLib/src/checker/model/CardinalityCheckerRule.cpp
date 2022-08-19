@@ -26,49 +26,66 @@
  */
 namespace NET_ASAM_OPENSCENARIO
 {
-  
-	CardinalityCheckerRule::CardinalityCheckerRule() = default;
-	CardinalityCheckerRule::~CardinalityCheckerRule() = default;
+    CardinalityCheckerRule::CardinalityCheckerRule() = default;
+    CardinalityCheckerRule::~CardinalityCheckerRule() = default;
 
 
-	std::string CardinalityCheckerRule::GetTooManyMessage(std::string& property, int expected, int actual)
-	{
-		std::stringstream ss;
-		ss << "Too many children children are set (";
-		ss << property;
-		ss << "). max defined: ";
-		ss << expected;
-		ss << ". actual size: ";
-		ss << actual;
-		return ss.str();
-	}
+    std::string CardinalityCheckerRule::GetTooManyMessage(std::string& property, int expected, int actual)
+    {
+        std::stringstream ss;
+        ss << "Too many children children are set (";
+        ss << property;
+        ss << "). max defined: ";
+        ss << expected;
+        ss << ". actual size: ";
+        ss << actual;
+        return ss.str();
+    }
 
-	std::string CardinalityCheckerRule::GetTooFewMessage(std::string& property, int expected, int actual)
-	{
-		std::stringstream ss;
-		ss << "Too few children children are set (";
-		ss << property;
-		ss << "). min defined: ";
-		ss << expected;
-		ss << ". actual size: ";
-		ss << actual;
-		return ss.str();
-	}
+    std::string CardinalityCheckerRule::GetTooFewMessage(std::string& property, int expected, int actual)
+    {
+        std::stringstream ss;
+        ss << "Too few children children are set (";
+        ss << property;
+        ss << "). min defined: ";
+        ss << expected;
+        ss << ". actual size: ";
+        ss << actual;
+        return ss.str();
+    }
 
-	std::string CardinalityCheckerRule::GetRequiredMessage(std::string& property)
-	{
-		return "This property is required (" + property + ").";
-	}
+    std::string CardinalityCheckerRule::GetRequiredMessage(std::string& property)
+    {
+        return "This property is required (" + property + ").";
+    }
 
-	std::string CardinalityCheckerRule::GetRequiredContentMessage()
-	{
-		return "Content is required.";
-	}
+    std::string CardinalityCheckerRule::GetRequiredContentMessage()
+    {
+        return "Content is required.";
+    }
 
+    std::string CardinalityCheckerRule::GetRequiredXorMessage(std::vector<std::string> propertiesName)
+    {
+        std::stringstream ss;
+        ss << "One of these properties is required (";
+        for (unsigned int i = 0; i < propertiesName.size(); ++i)
+        {
+            ss << propertiesName[i];
+            if (i < propertiesName.size() - 1)
+                ss << "; ";
+        }
 
-	
-	CardinalityViolation::CardinalityViolation(const std::string propertyName, const int expected, const int actual, const VIOLATION_TYPE violationType) :
-			propertyName(propertyName), expected(expected), actual(actual), violationType(violationType) {}
+        ss << ")";
+        return ss.str();
+    }
 
+    CardinalityViolation::CardinalityViolation(const std::string propertyName, const int expected, const int actual, const VIOLATION_TYPE violationType) :
+        propertyName(propertyName), expected(expected), actual(actual), violationType(violationType)
+    {
+    }
 
+    CardinalityViolation::CardinalityViolation(const std::vector<std::string> propertiesName, const int expected, const int actual, const VIOLATION_TYPE violationType):
+        propertiesName(propertiesName), expected(expected), actual(actual), violationType(violationType)
+    {
+    }
 }

@@ -37,11 +37,9 @@ namespace NET_ASAM_OPENSCENARIO
 
        void OpenScenarioProcessingHelper::Resolve(std::shared_ptr<IParserMessageLogger>& logger, std::shared_ptr<OpenScenarioImpl> openScenario, std::map<std::string, std::string>& injectedParameters)
         {
-            if (!IsCatalog(openScenario))
-            {
-                ExpressionResolver expressionResolver;
-				expressionResolver.Resolve(logger, openScenario, injectedParameters, true);
-            }
+            //if (!IsCatalog(openScenario))
+            ExpressionResolver expressionResolver;
+			expressionResolver.Resolve(logger, openScenario, injectedParameters, true);
         }
 
 

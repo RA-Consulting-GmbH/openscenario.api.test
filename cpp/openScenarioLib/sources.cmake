@@ -241,6 +241,7 @@ set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_1_API} )
 set( SOURCES_GENERATED_1_1_CHECKER_MODEL
     "generated/v1_1/checker/model/UnionCheckerRulesV1_1.cpp"
     "generated/v1_1/checker/model/CardinalityCheckerRulesV1_1.cpp"
+    "generated/v1_1/checker/model/CardinalityCheckerHelperV1_1.cpp"
 )
 set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_1_CHECKER_MODEL} )
 

@@ -29,6 +29,7 @@ import de.rac.openscenario.generator.helper.ApiClassWriterFactoryInterfaceHelper
 import de.rac.openscenario.generator.helper.ApiClassWriterInterfaceHelper
 import de.rac.openscenario.generator.helper.ApiEnumerationHelper
 import de.rac.openscenario.generator.helper.ApiInterfaceHelper
+import de.rac.openscenario.generator.helper.CardinalityCheckerHelper
 import de.rac.openscenario.generator.helper.CardinalityCheckerRuleHelper
 import de.rac.openscenario.generator.helper.CatalogHelperHelper
 import de.rac.openscenario.generator.helper.ConstantClassHelper
@@ -314,6 +315,22 @@ public class GeneratorCpp {
 				return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
 			}
 
+			if (key == "v1_1") //only implemented for OSC 1.1 for now
+			{
+				System.out.println("-- Cardinality Checker Helper Header for ${key}");
+				binding["helper"] = new CardinalityCheckerHelper()
+				template = templateProcessor.getTemplate('CardinalityCheckerHelper');
+				processor("checker/model", "CardinalityCheckerHelper${versionProperties["fileSuffix"]}.h"){
+					return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
+				}
+				
+				System.out.println("-- Cardinality Checker Helper Source for ${key}");
+				binding["helper"] = new CardinalityCheckerHelper()
+				template = templateProcessor.getTemplate('CardinalityCheckerHelperSource');
+				processor("checker/model", "CardinalityCheckerHelper${versionProperties["fileSuffix"]}.cpp"){
+					return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
+				}
+			}
 			System.out.println("-- OSC Writer Interface for ${key}");
 			binding["helper"] = new ApiClassWriterInterfaceHelper();
 			template = templateProcessor.getTemplate('ApiWriterInterface');

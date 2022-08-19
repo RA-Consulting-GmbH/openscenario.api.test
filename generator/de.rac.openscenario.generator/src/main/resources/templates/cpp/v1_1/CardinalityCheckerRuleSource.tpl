@@ -44,6 +44,10 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 message = GetTooManyMessage(violation.propertyName, violation.expected, violation.actual);
             }
+            else if (violation.violationType ==  VIOLATION_TYPE::REQUIRED_XOR)
+            {
+                message = GetRequiredXorMessage(violation.propertiesName);
+            }
             else
             {
                 message = GetRequiredContentMessage();
@@ -55,51 +59,72 @@ namespace NET_ASAM_OPENSCENARIO
         std::vector<CardinalityViolation> <%=umlClass.name.toClassName()%>CardinalityCheckerRule::GetAllViolations(std::shared_ptr<I<%=umlClass.name.toClassName()%>> object)
         {
             std::vector<CardinalityViolation> violations;
-			<%-properties = umlClass.umlProperties;-%>
-			<%-properties.each{ property -> -%>
-			<%-if (!property.isOptional() && !property.isOptionalUnboundList() && !property.isTransient()){-%>
+            <%-properties = umlClass.umlProperties;-%>
+            <%-properties.each{ property -> -%>
+            <%-if (!property.isOptional() && !property.isOptionalUnboundList() && !property.isTransient() && !property.appliedStereotypes.find(){s -> s.getName() == "xor"}){-%>
             // Check violation
-			<%-if (property.isList() && (property.lower != 0 || property.upper > 0)){-%>
+            <%-if (property.isList() && (property.lower != 0 || property.upper > 0)){-%>
             const auto k<%=property.name.toClassName()%>Size = object->Get<%=property.name.toClassName()%>Size();
-			<%-if (property.lower != 0){-%>
+            <%-if (property.lower != 0){-%>
             // Check too few elements
             if (k<%=property.name.toClassName()%>Size < <%=property.lower%>)
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__<%=property.getXmlTagName().toUpperNameFromMemberName()%>, <%=property.lower%>, k<%=property.name.toClassName()%>Size, VIOLATION_TYPE::TOO_FEW) );
             }
-			<%-} -%>
-			<%- if (property.upper > 0 ){-%>
+            <%-} -%>
+            <%- if (property.upper > 0 ){-%>
             // Check too many elements
             if (k<%=property.name.toClassName()%>Size > <%=property.upper%>)
             {
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT_<%=property.getXmlTagName().toUpperNameFromMemberName()%>, <%=property.upper%>, k<%=property.name.toClassName()%>Size, VIOLATION_TYPE::TOO_MANY) );
             }
-			<%-}-%>
-			<%-}else{ -%>
+            <%-}-%>
+            <%-}else {-%>
             // Check required
-            if (object->Get<%=property.name.toClassName()%>()<%=property.type.toCppIsDefaultValue()%>)
+            if (!object->IsSet<%=property.name.toClassName()%>())
             {
-			<%- if (property.appliedStereotypes.find(){s -> s.getName() == "XSDattribute"}){-%>
+            <%- if (property.appliedStereotypes.find(){s -> s.getName() == "XSDattribute"}){-%>
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>, 0, 1, VIOLATION_TYPE::REQUIRED) );
-			<%-}else if (umlClass.isSimpleContent()) {-%>
+            <%-}else if (umlClass.isSimpleContent()) {-%>
                 violations.push_back( CardinalityViolation("", 0, 1, VIOLATION_TYPE::REQUIRED_SIMPLE_CONTENT) );
-			<%-} else {-%>
+            <%-} else {-%>
                 violations.push_back( CardinalityViolation(OSC_CONSTANTS::ELEMENT__<%=property.getXmlTagName().toUpperNameFromMemberName()%>, 0, 1, VIOLATION_TYPE::REQUIRED) );
-			<%-}-%>
+            <%-}-%>
             }
-			<%-}-%>
-			<%-}-%>
-			<%-}-%>
-             return violations;
+            <%-}-%>
+            <%-}-%>
+            <%-}-%>
+
+            //Xor elements check
+            <%-if (umlClass.isModelGroupChoice()){ -%>
+            bool oneElementDefined = false;
+            std::vector<std::string> propertiesName;
+            <%-properties.each{ property -> -%>
+            <%-if (property.appliedStereotypes.find(){s -> s.getName() == "xor"}){ -%>
+            oneElementDefined ^= object->IsSet<%=property.name.toClassName()%>();
+            <%- if (property.appliedStereotypes.find(){s -> s.getName() == "XSDattribute"}){-%>
+            propertiesName.push_back( OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%> );
+            <%-}else if (umlClass.isSimpleContent()) {-%>
+            propertiesName.push_back( "" );
+            <%-} else {-%>
+            propertiesName.push_back( OSC_CONSTANTS::ELEMENT__<%=property.getXmlTagName().toUpperNameFromMemberName()%> );
+            <%-}-%>
+            <%-}-%>
+            <%-}-%>	
+
+            if (!oneElementDefined)
+                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
+            <%-}-%>
+
+            return violations;
         }
 
 
+        <%=umlClass.name.toClassName()%>CardinalityCheckerRule::<%=umlClass.name.toClassName()%>CardinalityCheckerRule() = default;
 
-         <%=umlClass.name.toClassName()%>CardinalityCheckerRule::<%=umlClass.name.toClassName()%>CardinalityCheckerRule() = default;
-
-        void <%=umlClass.name.toClassName()%>CardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<I<%=umlClass.name.toClassName()%>> object)
+        void <%=umlClass.name.toClassName()%>CardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto  violations = GetAllViolations(object);
+            auto  violations = GetAllViolations(std::dynamic_pointer_cast<I<%=umlClass.name.toClassName()%>>(object));
             
             for (auto&& violation : violations)
             {
@@ -108,9 +133,9 @@ namespace NET_ASAM_OPENSCENARIO
             }
         }
 
-        void <%=umlClass.name.toClassName()%>CardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<I<%=umlClass.name.toClassName()%>> object)
+        void <%=umlClass.name.toClassName()%>CardinalityCheckerRule::ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
-            auto violations = GetAllViolations(object);
+            auto violations = GetAllViolations(std::dynamic_pointer_cast<I<%=umlClass.name.toClassName()%>>(object));
 
             for (auto&& violation : violations)
             {

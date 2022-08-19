@@ -126,6 +126,7 @@ set( HEADERS
   
   "src/TestDeprecatedV1_1.h"
   "src/TestExamplesV1_1.h"
+  "src/TestCardinalityV1_1.h"
   "src/TestBaseV1_1.h"
   "src/TestFilesV1_1.h"
   "src/TestReaderV1_1.h"
@@ -169,6 +170,8 @@ set( SOURCES
 	
 	"src/TestBaseV1_0.cpp"
     "src/TestExamplesV1_0.cpp"
+    "src/TestExamplesV1_1.cpp"
+    "src/TestCardinalityV1_1.cpp"
     "src/TestFilesV1_0.cpp"
     "src/TestFlexInterfaceV1_0.cpp"
     "src/TestImportsV1_0.cpp"
