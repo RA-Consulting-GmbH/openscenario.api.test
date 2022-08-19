@@ -14,6 +14,7 @@ RA Consulting GmbH, https://www-rac.de[www-rac.de]
 |1.0.0 |12/16/2020 |Andreas Hege |Initial Documentation
 |1.2.0 |07/05/2021 |Andreas Hege |Eliminated Java
 |1.2.1 |06/23/2021 |Andreas Hege |Changed sceenshots
+|1.2.3 |08/19/2021 |Andreas Hege |Added docker generation
 |====================================================
 
 Table : Change log
@@ -178,3 +179,75 @@ To run the generator from the command line we first have to package the results 
 * Run the main class with java and the command line arguments +
 `java de.rac.openscenario.generator.cpp.GeneratorCpp C:\temp\GenOut` +
 image:image12.png[image,width=604,height=316]
+
+== Running the generator from docker
+So far, we've learned how to install all the tools, that are needed to finally run the generator.
+Installation might be painful on local computers, including the need for admin rights, licenses, setting environment variables etc.
+Thererfore an recipe is provided how to run the generator without any tool installation beside docker application itself.
+
+=== Installation
+We need to https://docs.docker.com/get-docker/[install Docker] on our system.
+
+=== Usage
+To use the generator container, we have to build the image and run it.
+
+==== Building the image
+As long as the 'Dockerfile' does not change, this only needs to be done once.
+
+On Windows, we can use the  batch file './generator/build.bat'.
+
+Otherwise, run
+```
+:\> docker build --no-cache --tag openscenario/osc-generator 
+```
+
+within the 'generator' folder of this repo (where the 'Dockerfile' resides).
+
+If everything went well, we now will find an image called `openscenario/osc-generator` on our system:
+
+``` 
+:\> docker images
+REPOSITORY                       TAG                      IMAGE ID       CREATED         SIZE
+openscenario/osc-generator       latest                   baef5d341579   2 minutes ago   663MB
+```
+==== Running the image for generation
+
+Once the image has been built, we can run it in a fire-and-forget manner by calling:
+
+```
+:\> docker run --rm --volume LOCAL_OUTPUT_DIR:/outputDir openscenario/osc-generator ./generate.sh
+```
+
+Alternatively, on Windows, we might use the 'generator/runGenerator.bat'.
+This will create a temporary container from the image and run the shell script generate.sh within the container.
+The generated files are created in the volume that is mapped to the `/outputDir` container folder.
+As soon as the container has finished its job, it will exit and will be deleted completely.
+
+The most important argument in the above Docker commandline is the mapping to to the `/outputDir` volume.
+Here, you need to pass the absolute path of your output folder on the host machine (e.g. 'D:\osc-api\openscenario.api.test\cpp\openScenarioLib\generated') where your code is generated into.
+
+Here is an example command-line
+
+```
+:\> docker run --rm --volume "D:\osc-api\openscenario.api.test\cpp\openScenarioLib\generated":/outputDir openscenario/osc-generator ./generate.sh
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
