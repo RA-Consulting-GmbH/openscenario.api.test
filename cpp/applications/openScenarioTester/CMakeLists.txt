@@ -117,6 +117,9 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc)
 
 ################################################################
 # Header files
+set( HEADERS
+	"src/TestVersionOptionsWithReader.h"
+)
 
 if (SUPPORT_OSC_1_0)
 	set( HEADERS
@@ -202,6 +205,7 @@ endif (SUPPORT_OSC_1_2)
 set( SOURCES
     "../../externalLibs/TinyXML2/tinyxml2.cpp"
     "src/OpenScenarioTester.cpp"
+	"src/TestVersionOptionsWithReader.cpp"
 )
 
 if (SUPPORT_OSC_1_0)

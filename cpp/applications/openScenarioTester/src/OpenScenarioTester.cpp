@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+#include "TestVersionOptionsWithReader.h"
+
 #ifdef SUPPORT_OSC_1_0
 #include "TestExamplesV1_0.h"
 #include "TestRangeCheckerV1_0.h"
@@ -357,16 +359,25 @@ int main(int argc, char** argv)
 #endif
 
   std::string basePath = ".";
+  NET_ASAM_OPENSCENARIO::TestVersionOptionsWithReader testVersionOptionsWithReader(basePath);
+	
   auto result = true;
-
+ 
+	
 #ifdef SUPPORT_OSC_1_0
   result = TestV1_0(basePath) && result;
+#else
+  result = testVersionOptionsWithReader.TestOptionNotSetVersion1_0() && result;
 #endif
 #ifdef SUPPORT_OSC_1_1
   result = TestV1_1(basePath) && result;
+#else
+  result = testVersionOptionsWithReader.TestOptionNotSetVersion1_1() && result;
 #endif
 #ifdef SUPPORT_OSC_1_2
   result = TestV1_2(basePath) && result;
+#else
+  result = testVersionOptionsWithReader.TestOptionNotSetVersion1_2() && result;
 #endif
   if (result)
     return 0;
