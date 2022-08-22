@@ -375,6 +375,7 @@ set( HEADERS_CHECKER_1_2
     "src/v1_2/checker/VersionCheckerRuleV1_2.h"
     "src/v1_2/checker/ParameterDeclarationCheckerV1_2.h"
     "src/v1_2/checker/VariableCheckerV1_2.h"
+    "src/v1_2/checker/DeprecatedCheckerV1_2.h"
 )
 set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_CHECKER_1_2} )
 
