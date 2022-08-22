@@ -308,16 +308,16 @@ jobs:
   #   - uses: actions/checkout@v2
     
   #   - name: cmake generate solution Debug
-  #     run: cmake -S ./cpp --preset="VS2019-Win32-shared"
+  #     run: cmake -S ./cpp --preset="VS2022-Win32-shared"
       
   #   - name: build solution Debug
   #     run: |
   #       cd cpp
-  #       cmake --build --preset="Build-VS2019-Win32-shared" --config Debug
+  #       cmake --build --preset="Build-VS2022-Win32-shared" --config Debug
 
   #   - name: copy antlr
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2019Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/Win32_shared/Debug/
+  #     run:  cp ./cpp/build/cgMultiVS2022Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/Win32_shared/Debug/
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
@@ -333,16 +333,16 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-Win32-shared"
+      run: cmake -S ./cpp --preset="VS2022-Win32-shared"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-Win32-shared" --config Release
+        cmake --build --preset="Build-VS2022-Win32-shared" --config Release
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2019Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_shared/Release/
+      run:  cp ./cpp/build/cgMultiVS2022Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_shared/Release/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
@@ -359,16 +359,16 @@ jobs:
   #   - uses: actions/checkout@v2
     
   #   - name: cmake generate solution Debug
-  #     run: cmake -S ./cpp --preset="VS2019-Win32-static"
+  #     run: cmake -S ./cpp --preset="VS2022-Win32-static"
       
   #   - name: build solution Debug
   #     run: |
   #       cd cpp
-  #       cmake --build --preset="Build-VS2019-Win32-static" --config Debug
+  #       cmake --build --preset="Build-VS2022-Win32-static" --config Debug
 
   #   - name: copy antlr
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2019Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/Win32_static/Debug/
+  #     run:  cp ./cpp/build/cgMultiVS2022Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/Win32_static/Debug/
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
@@ -384,16 +384,16 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-Win32-static"
+      run: cmake -S ./cpp --preset="VS2022-Win32-static"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-Win32-static" --config Release
+        cmake --build --preset="Build-VS2022-Win32-static" --config Release
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2019Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_static/Release/
+      run:  cp ./cpp/build/cgMultiVS2022Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_static/Release/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
@@ -410,16 +410,16 @@ jobs:
   #   - uses: actions/checkout@v2
     
   #   - name: cmake generate solution Debug
-  #     run: cmake -S ./cpp --preset="VS2019-x64-shared"
+  #     run: cmake -S ./cpp --preset="VS2022-x64-shared"
       
   #   - name: build solution Debug
   #     run: |
   #       cd cpp
-  #       cmake --build --preset="Build-VS2019-x64-shared" --config Debug
+  #       cmake --build --preset="Build-VS2022-x64-shared" --config Debug
     
   #   - name: copy antlr
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2019x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/x64_shared/Debug/
+  #     run:  cp ./cpp/build/cgMultiVS2022x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/x64_shared/Debug/
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
@@ -435,16 +435,16 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-x64-shared"
+      run: cmake -S ./cpp --preset="VS2022-x64-shared"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-x64-shared" --config Release
+        cmake --build --preset="Build-VS2022-x64-shared" --config Release
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2019x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_shared/Release/
+      run:  cp ./cpp/build/cgMultiVS2022x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_shared/Release/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
@@ -461,16 +461,16 @@ jobs:
   #   - uses: actions/checkout@v2
     
   #   - name: cmake generate solution Debug
-  #     run: cmake -S ./cpp --preset="VS2019-x64-static"
+  #     run: cmake -S ./cpp --preset="VS2022-x64-static"
       
   #   - name: build solution Debug
   #     run: |
   #       cd cpp
-  #       cmake --build --preset="Build-VS2019-x64-static" --config Debug
+  #       cmake --build --preset="Build-VS2022-x64-static" --config Debug
 
   #   - name: copy antlr
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2019x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/x64_static/Debug/
+  #     run:  cp ./cpp/build/cgMultiVS2022x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/x64_static/Debug/
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
@@ -486,16 +486,16 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-x64-static"
+      run: cmake -S ./cpp --preset="VS2022-x64-static"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-x64-static" --config Release
+        cmake --build --preset="Build-VS2022-x64-static" --config Release
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2019x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_static/Release/
+      run:  cp ./cpp/build/cgMultiVS2022x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_static/Release/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
