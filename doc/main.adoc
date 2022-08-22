@@ -1328,7 +1328,56 @@ $ cd <your project files folder>            # Go to the re-generated project fil
 $ make                                      # Manually compile the sources
 ----
 
+== Build options for supported standard versions
+Compiling the whole project with every standard version (1.0, 1.1, 1.2) supported could spent an unnecessary amount of resources.
+To build on an exact standard version, or a set of standard versions, you may set the build options for these specific standard versions.
 
+- SUPPORT_OSC_1_0: Build and compile the sources to support the standard version 1.0
+- SUPPORT_OSC_1_1: Support the standard version 1.1
+- SUPPORT_OSC_1_2: Support the standard version 1.2
+
+The compile time and the package sizes of your build artifacts will be dramatically reduced, when building for a specific standard version.
+
+See the options below in the `cmake-guì`:
+
+image:images/buildOptionsSupportVersions.png[cmake_gui,width=720,float="center",align="center"]
+
+=== Implications on the library
+Only the supported version specific classes and function are exported and available in the library.
+E.g. when you build your project with `SUPPORT_OSC_1_2` and skip the `SUPPORT_OSC_1_1` and the `SUPPORT_OSC_1_0` options, the following namespace is available:
+
+* NET_ASAM_OPENSCENARIO::v1_2
+
+These namespaces are not available:
+
+* NET_ASAM_OPENSCENARIO::v1_0
+* NET_ASAM_OPENSCENARIO::v1_1
+
+=== Implications on the standalone checker
+If you build the standalone checker with an incomplete set of standard versions, you cannot check your files against he missing version. E.g. when you build your project with `SUPPORT_OSC_1_2` and skip the `SUPPORT_OSC_1_1` and the `SUPPORT_OSC_1_0` options, the following call will fail as the default option is version 1.0:
+
+```
+$ ./OpenScenarioReader -i examples/simpleExample/SimpleExample.xosc
+```
+```
+****************************************
+* ASAM OpenSCENARIO 1.2 Checker (2021) *
+****************************************
+Checking 'examples/simpleExample/SimpleExample.xosc'
+Standard Version 1.0 is not supported. Compile Reader with SUPPORT_OSC_1_0 option.
+```
+The same kind of error will show up when starting the reader with the `-v1_1` flag:
+
+```
+$ ./OpenScenarioReader -i examples/simpleExample/SimpleExample.xosc -v1_1
+```
+```
+****************************************
+* ASAM OpenSCENARIO 1.2 Checker (2021) *
+****************************************
+Checking 'examples/simpleExample/SimpleExample.xosc'
+Standard Version 1.1 is not supported. Compile Reader with SUPPORT_OSC_1_1 option.
+```
 
 == Using the release build artifacts
 For your own projects you can alternatively use our build artifacts--pre-compiled binaries--in your own projects.
