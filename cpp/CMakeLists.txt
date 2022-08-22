@@ -4,6 +4,23 @@ cmake_minimum_required(VERSION 3.8.2)
 project(OpenScenario-Cpp)
 message(STATUS "${PROJECT_NAME}")
 
+################################################################
+# Preprocessor settings
+option(SUPPORT_OSC_1_0 "Build the artifacts supporting OSC standard version 1.0" ON)
+option(SUPPORT_OSC_1_1 "Build the artifacts supporting OSC standard version 1.1" ON)
+option(SUPPORT_OSC_1_2 "Build the artifacts supporting OSC standard version 1.2" ON)
+
+if (SUPPORT_OSC_1_0)
+	add_definitions(-DSUPPORT_OSC_1_0)	
+endif (SUPPORT_OSC_1_0)
+if (SUPPORT_OSC_1_1)
+	add_definitions(-DSUPPORT_OSC_1_1)	
+endif (SUPPORT_OSC_1_1)
+if (SUPPORT_OSC_1_2)
+	add_definitions(-DSUPPORT_OSC_1_2)	
+endif (SUPPORT_OSC_1_2)
+
+
 
 ################################################################
 # Write msbuild.exe for Windows build

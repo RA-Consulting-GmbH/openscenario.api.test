@@ -25,12 +25,21 @@
 #include "IParserMessageLogger.h"
 #include "SimpleMessageLogger.h"
 #include "Textmarker.h"
+#ifdef SUPPORT_OSC_1_0
 #include "ApiClassImplV1_0.h"
-#include "XmlScenarioImportLoaderFactoryV1_1.h"
-#include "ApiClassImplV1_1.h"
-#include "XmlScenarioImportLoaderFactoryV1_2.h"
-#include "ApiClassImplV1_2.h"
 #include "XmlScenarioImportLoaderFactoryV1_0.h"
+#endif
+
+#ifdef SUPPORT_OSC_1_1
+#include "ApiClassImplV1_1.h"
+#include "XmlScenarioImportLoaderFactoryV1_1.h"
+#endif
+
+#ifdef SUPPORT_OSC_1_2
+#include "ApiClassImplV1_2.h"
+#include "XmlScenarioImportLoaderFactoryV1_2.h"
+#endif
+
 #include "ScenarioLoaderException.h"
 #include "FileResourceLocator.h"
 #include "../common/version.h"
@@ -59,31 +68,36 @@
  */
 
 static NET_ASAM_OPENSCENARIO::ErrorLevel logLevel = NET_ASAM_OPENSCENARIO::ErrorLevel::INFO;
-static std::string VERSION_1_0 = "v1_1";
-static std::string VERSION_1_1 = "v1_0";
+static std::string VERSION_1_0 = "v1_0";
+static std::string VERSION_1_1 = "v1_1";
 static std::string VERSION_1_2 = "v1_2";
 
-
+#ifdef SUPPORT_OSC_1_0
 std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl> ExecuteImportParsing(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger, std::map<std::string, std::string>& injectionParameters)
 {
 	auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_0::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
 	auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 	return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl).name()));
 }
+#endif
 
+#ifdef SUPPORT_OSC_1_1
 std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_1::OpenScenarioImpl> ExecuteImportParsingV1_1(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger, std::map<std::string, std::string>& injectionParameters)
 {
 	auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_1::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
 	auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 	return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_1::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_1::OpenScenarioImpl).name()));
 }
+#endif
 
+#ifdef SUPPORT_OSC_1_2
 std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl> ExecuteImportParsingV1_2(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger, std::map<std::string, std::string>& injectionParameters)
 {
 	auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_2::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
 	auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 	return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl).name()));
 }
+#endif
 
 std::string GetFilledString(const size_t length, const char charToFill) 
 {
@@ -226,14 +240,28 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
     {
         if (version == VERSION_1_2)
         {
-            ExecuteImportParsingV1_2(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+#ifdef SUPPORT_OSC_1_2
+        	ExecuteImportParsingV1_2(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+#else
+			std::cout << "Standard Version 1.2 is not supported. Compile Reader with SUPPORT_OSC_1_2 option." << std::endl;
+			result = ERROR_RESULT;
+#endif
         } else if(version == VERSION_1_1)
 		{
-			ExecuteImportParsingV1_1(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
-		}
-		else
+#ifdef SUPPORT_OSC_1_1
+    	ExecuteImportParsingV1_1(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+#else
+		std::cout << "Standard Version 1.1 is not supported. Compile Reader with SUPPORT_OSC_1_1 option." << std::endl;
+		result = ERROR_RESULT;
+#endif
+        } else
         {
-            ExecuteImportParsing(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+#ifdef SUPPORT_OSC_1_0
+			ExecuteImportParsing(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+#else
+			std::cout << "Standard Version 1.0 is not supported. Compile Reader with SUPPORT_OSC_1_0 option." << std::endl;
+			result = ERROR_RESULT;
+#endif
         }
 
         for (auto&& message : messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(logLevel))

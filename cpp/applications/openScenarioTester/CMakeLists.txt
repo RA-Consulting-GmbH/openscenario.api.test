@@ -42,26 +42,61 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem)
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/UtfCpp )
 
+if (SUPPORT_OSC_1_0)
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/checker )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/catalog )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/loader )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/parameter )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/checker )
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/checker )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/api )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/api/writer )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/common )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/checker )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/checker/impl )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/checker/range )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/catalog)
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/impl )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/export/xml )
+endif (SUPPORT_OSC_1_0)
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/expression )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/checker )
+if (SUPPORT_OSC_1_1)
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/checker )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/catalog )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/loader )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/parameter )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/expression )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/checker )
+	
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/api )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/api/writer )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/common )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker/impl )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker/range )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/catalog)
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/impl )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/export/xml )
+endif (SUPPORT_OSC_1_1)
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/expression )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/checker )
+if (SUPPORT_OSC_1_2)
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/checker )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/catalog )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/loader )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/parameter )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/expression )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_2/checker )
+	
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/api )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/api/writer )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/common )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/checker )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/checker/impl )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/checker/range )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/catalog)
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/impl )
+	include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/export/xml )
+endif (SUPPORT_OSC_1_2)
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/api )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/checker )
@@ -76,35 +111,6 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/parse
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/simple/struct )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/xmlIndexer )
 
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/api/writer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/catalog)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/export/xml )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/api/writer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/catalog)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/export/xml )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/api/writer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/catalog)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_2/export/xml )
 
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc)
 
@@ -112,62 +118,99 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc)
 ################################################################
 # Header files
 set( HEADERS
-  "src/TestExamplesV1_0.h"
-  "src/TestBaseV1_0.h"
-  "src/TestFilesV1_0.h"
-  "src/TestReaderV1_0.h"
-  "src/TestWriterApiV1_0.h"
-  "src/TestImportsV1_0.h"
-  "src/TestSimpleDemosV1_0.h"
-  "src/TestRangeCheckerV1_0.h"
-  "src/TestFlexInterfaceV1_0.h"
-  "src/TestVersionCheckerV1_0.h"
-  "src/TestInjectedParametersV1_0.h"
-  
-  "src/TestDeprecatedV1_1.h"
-  "src/TestExamplesV1_1.h"
-  "src/TestCardinalityV1_1.h"
-  "src/TestBaseV1_1.h"
-  "src/TestFilesV1_1.h"
-  "src/TestReaderV1_1.h"
-  "src/TestWriterApiV1_1.h"
-  "src/TestImportsV1_1.h"
-  "src/TestSimpleDemosV1_1.h"
-  "src/TestRangeCheckerV1_1.h"
-  "src/TestFlexInterfaceV1_1.h"
-  "src/TestVersionCheckerV1_1.h"
-  "src/TestInjectedParametersV1_1.h"
-  "src/TestAlksV1_1.h"
-  "src/TestParameterValidationV1_1.h"
-  
-  "src/TestDeprecatedV1_2.h"
-  "src/TestExamplesV1_2.h"
-  "src/TestBaseV1_2.h"
-  "src/TestFilesV1_2.h"
-  "src/TestReaderV1_2.h"
-  "src/TestWriterApiV1_2.h"
-  "src/TestImportsV1_2.h"
-  "src/TestSimpleDemosV1_2.h"
-  "src/TestRangeCheckerV1_2.h"
-  "src/TestFlexInterfaceV1_2.h"
-  "src/TestVersionCheckerV1_2.h"
-  "src/TestInjectedParametersV1_2.h"
-  "src/TestAlksV1_2.h"
-  "src/TestParameterValidationV1_2.h"  
-  "src/TestVariableValidationV1_2.h"  
+	"src/TestVersionOptionsWithReader.h"
 )
 
+if (SUPPORT_OSC_1_0)
+	set( HEADERS
+	  ${HEADERS}
+	  "src/TestExamplesV1_0.h"
+	  "src/TestBaseV1_0.h"
+	  "src/TestFilesV1_0.h"
+	  "src/TestReaderV1_0.h"
+	  "src/TestWriterApiV1_0.h"
+	  "src/TestImportsV1_0.h"
+	  "src/TestSimpleDemosV1_0.h"
+	  "src/TestRangeCheckerV1_0.h"
+	  "src/TestFlexInterfaceV1_0.h"
+	  "src/TestVersionCheckerV1_0.h"
+	  "src/TestInjectedParametersV1_0.h"
+	)
+endif (SUPPORT_OSC_1_0)
+
+if (SUPPORT_OSC_1_1)
+	set( HEADERS
+	  ${HEADERS}
+	  "src/TestDeprecatedV1_1.h"
+	  "src/TestExamplesV1_1.h"
+	  "src/TestCardinalityV1_1.h"
+	  "src/TestBaseV1_1.h"
+	  "src/TestFilesV1_1.h"
+	  "src/TestReaderV1_1.h"
+	  "src/TestWriterApiV1_1.h"
+	  "src/TestImportsV1_1.h"
+	  "src/TestSimpleDemosV1_1.h"
+	  "src/TestRangeCheckerV1_1.h"
+	  "src/TestFlexInterfaceV1_1.h"
+	  "src/TestVersionCheckerV1_1.h"
+	  "src/TestInjectedParametersV1_1.h"
+	  "src/TestAlksV1_1.h"
+	  "src/TestParameterValidationV1_1.h"  
+	)
+endif (SUPPORT_OSC_1_1)
+
+if (SUPPORT_OSC_1_2)
+	set( HEADERS
+	  ${HEADERS}
+	  "src/TestDeprecatedV1_2.h"
+	  "src/TestExamplesV1_2.h"
+	  "src/TestBaseV1_2.h"
+	  "src/TestFilesV1_2.h"
+	  "src/TestReaderV1_2.h"
+	  "src/TestWriterApiV1_2.h"
+	  "src/TestImportsV1_2.h"
+	  "src/TestSimpleDemosV1_2.h"
+	  "src/TestRangeCheckerV1_2.h"
+	  "src/TestFlexInterfaceV1_2.h"
+	  "src/TestVersionCheckerV1_2.h"
+	  "src/TestInjectedParametersV1_2.h"
+	  "src/TestAlksV1_2.h"
+	  "src/TestParameterValidationV1_2.h"  
+	  "src/TestVariableValidationV1_2.h"  
+	)
+endif (SUPPORT_OSC_1_2)
+
+if (SUPPORT_OSC_1_0)
 set( HEADERS_HELPER
-    "src/helper/EgoCheckerRuleV1_0.h"
-    "src/helper/EgoCheckerRuleV1_1.h"
-    "src/helper/EgoCheckerRuleV1_2.h"
+    ${HEADERS_HELPER}
+	"src/helper/EgoCheckerRuleV1_0.h"
 )
+endif (SUPPORT_OSC_1_0)
+
+if (SUPPORT_OSC_1_1)
+set( HEADERS_HELPER
+    ${HEADERS_HELPER}
+	"src/helper/EgoCheckerRuleV1_1.h"
+)
+endif (SUPPORT_OSC_1_1)
+
+if (SUPPORT_OSC_1_2)
+set( HEADERS_HELPER
+    ${HEADERS_HELPER}
+	"src/helper/EgoCheckerRuleV1_2.h"
+)
+endif (SUPPORT_OSC_1_2)
 
 # Source files
 set( SOURCES
     "../../externalLibs/TinyXML2/tinyxml2.cpp"
     "src/OpenScenarioTester.cpp"
-	
+	"src/TestVersionOptionsWithReader.cpp"
+)
+
+if (SUPPORT_OSC_1_0)
+set( SOURCES
+    ${SOURCES}
 	"src/TestBaseV1_0.cpp"
     "src/TestExamplesV1_0.cpp"
     "src/TestExamplesV1_1.cpp"
@@ -181,8 +224,14 @@ set( SOURCES
     "src/TestSimpleDemosV1_0.cpp"
     "src/TestVersionCheckerV1_0.cpp"
     "src/TestWriterApiV1_0.cpp"
+)
+endif (SUPPORT_OSC_1_0)
 
-    "src/TestBaseV1_1.cpp"
+if (SUPPORT_OSC_1_1)
+
+set( SOURCES
+    ${SOURCES}
+	"src/TestBaseV1_1.cpp"
     "src/TestExamplesV1_1.cpp"
     "src/TestFilesV1_1.cpp"
     "src/TestFlexInterfaceV1_1.cpp"
@@ -196,8 +245,13 @@ set( SOURCES
     "src/TestDeprecatedV1_1.cpp"
     "src/TestAlksV1_1.cpp"
 	"src/TestParameterValidationV1_1.cpp"
-	
-    "src/TestBaseV1_2.cpp"
+)
+endif (SUPPORT_OSC_1_1)
+
+if (SUPPORT_OSC_1_2)
+set( SOURCES
+    ${SOURCES}
+	"src/TestBaseV1_2.cpp"
     "src/TestExamplesV1_2.cpp"
     "src/TestFilesV1_2.cpp"
     "src/TestFlexInterfaceV1_2.cpp"
@@ -213,12 +267,28 @@ set( SOURCES
 	"src/TestParameterValidationV1_2.cpp"
 	"src/TestVariableValidationV1_2.cpp"
 )
+endif (SUPPORT_OSC_1_2)
 
+if (SUPPORT_OSC_1_0)
 set( SOURCES_HELPER
-    "src/helper/EgoCheckerRuleV1_0.cpp"
-    "src/helper/EgoCheckerRuleV1_1.cpp"
-    "src/helper/EgoCheckerRuleV1_2.cpp"
+    ${SOURCES_HELPER}
+	"src/helper/EgoCheckerRuleV1_0.cpp"
 )
+endif (SUPPORT_OSC_1_0)
+
+if (SUPPORT_OSC_1_1)
+set( SOURCES_HELPER
+    ${SOURCES_HELPER}
+	"src/helper/EgoCheckerRuleV1_1.cpp"
+)
+endif (SUPPORT_OSC_1_1)
+
+if (SUPPORT_OSC_1_2)
+set( SOURCES_HELPER
+    ${SOURCES_HELPER}
+	"src/helper/EgoCheckerRuleV1_2.cpp"
+)
+endif (SUPPORT_OSC_1_2)
 
 # Resource files
 if( MSVC )

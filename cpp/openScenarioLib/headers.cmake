@@ -146,10 +146,10 @@ set( HEADERS_EXPRESSIONS_LIB
 )
 set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_EXPRESSIONS_LIB} )
 
-
 ################################################
 ## V1_0
 ################################
+if (SUPPORT_OSC_1_0)
 # Headers hand crafted
 set( HEADERS_LOADER_1_0
     "src/v1_0/loader/OpenScenarioProcessingHelperV1_0.h"
@@ -246,10 +246,12 @@ set( HEADERS_GENERATED_1_0_XMLEXPORTER
 )
 set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_0_XMLEXPORTER} )
 
+endif (SUPPORT_OSC_1_0)
 
 ################################################
 ## V1_1
 ################################
+if (SUPPORT_OSC_1_1)
 # Headers hand crafted
 set( HEADERS_LOADER_1_1
     "src/v1_1/loader/OpenScenarioProcessingHelperV1_1.h"
@@ -342,9 +344,12 @@ set( HEADERS_GENERATED_1_1_XMLEXPORTER
 )
 set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_1_XMLEXPORTER} )
 
+endif (SUPPORT_OSC_1_1)
+
 ################################################
 ## V1_2
 ################################
+if (SUPPORT_OSC_1_2)
 # Headers hand crafted
 set( HEADERS_LOADER_1_2
     "src/v1_2/loader/OpenScenarioProcessingHelperV1_2.h"
@@ -436,3 +441,4 @@ set( HEADERS_GENERATED_1_2_XMLEXPORTER
     "generated/v1_2/export/xml/OpenScenarioXmlExporterV1_2.h"
 )
 set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_XMLEXPORTER} )
+endif (SUPPORT_OSC_1_2)
