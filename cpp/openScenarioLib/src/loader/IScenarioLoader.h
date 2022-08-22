@@ -17,7 +17,7 @@
 
 #pragma once
 #include "IParserMessageLogger.h"
-#include "ApiClassInterfacesV1_0.h"
+#include <map>
 #include "MemLeakDetection.h"
 
 namespace NET_ASAM_OPENSCENARIO

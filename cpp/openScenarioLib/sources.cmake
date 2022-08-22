@@ -119,6 +119,7 @@ set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_XMLINDEXER} )
 ################################################
 ## V1_0
 ################################
+if (SUPPORT_OSC_1_0)
 # Sources hand crafted
 set( SOURCES_V1_0_LOADER
     "src/v1_0/loader/OpenScenarioProcessingHelperV1_0.cpp"
@@ -196,10 +197,12 @@ set( SOURCES_GENERATED_1_0_XMLEXPORTER # SOURCES_GENERATED_1_0_XMLEXPORTER_
 )
 set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_0_XMLEXPORTER} )
 
+endif (SUPPORT_OSC_1_0)
 
 ################################################
 ## V1_1
 ################################
+if (SUPPORT_OSC_1_1)
 # Sources hand crafted
 set( SOURCES_V1_1_LOADER
     "src/v1_1/loader/OpenScenarioProcessingHelperV1_1.cpp"
@@ -277,9 +280,13 @@ set( SOURCES_GENERATED_1_1_XMLEXPORTER # SOURCES_GENERATED_1_1_XMLEXPORTER_
     "generated/v1_1/export/xml/OpenScenarioXmlExporterV1_1.cpp"
 )
 set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_1_XMLEXPORTER} )
+
+endif (SUPPORT_OSC_1_1)
+
 ################################################
 ## V1_2
 ################################
+if (SUPPORT_OSC_1_2)
 # Sources hand crafted
 set( SOURCES_V1_2_LOADER
     "src/v1_2/loader/OpenScenarioProcessingHelperV1_2.cpp"
@@ -357,3 +364,5 @@ set( SOURCES_GENERATED_1_2_XMLEXPORTER # SOURCES_GENERATED_1_2_XMLEXPORTER_
     "generated/v1_2/export/xml/OpenScenarioXmlExporterV1_2.cpp"
 )
 set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_2_XMLEXPORTER} )
+
+endif (SUPPORT_OSC_1_2)
