@@ -310,6 +310,7 @@ set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_V1_2_PARSER} )
 set( SOURCES_V1_2_CHECKER
     "src/v1_2/checker/ParameterDeclarationCheckerV1_2.cpp"
     "src/v1_2/checker/VariableCheckerV1_2.cpp"
+    "src/v1_2/checker/DeprecatedCheckerV1_2.cpp"
     "src/v1_2/checker/VersionCheckerRuleV1_2.cpp"
 )
 set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_V1_2_CHECKER} )

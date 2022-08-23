@@ -23,6 +23,7 @@
 #include "ScenarioCheckerImplV1_2.h"
 #include "XmlParsersV1_2.h"
 #include "CatalogReferenceParserContextV1_2.h"
+#include "DeprecatedCheckerV1_2.h"
 #include "ScenarioLoaderException.h"
 #include "VariableCheckerV1_2.h"
 #include "XmlToSimpleNodeConverter.h"
@@ -152,6 +153,11 @@ namespace NET_ASAM_OPENSCENARIO
 				{
 					VariableChecker variableChecker;
 					variableChecker.CheckScenarioInFileContext(messageLogger, openScenarioImpl);
+				}
+				if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel::ERROR).empty())
+				{
+					DeprecatedChecker deprecatedChecker;
+					deprecatedChecker.CheckScenarioInFileContext(messageLogger, openScenarioImpl);
 				}
                 return openScenarioImpl;
             }
