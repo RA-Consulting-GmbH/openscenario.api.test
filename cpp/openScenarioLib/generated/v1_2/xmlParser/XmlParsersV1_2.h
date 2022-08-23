@@ -7316,17 +7316,16 @@ namespace NET_ASAM_OPENSCENARIO
         };
 
 
+
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
          * Filling a GearImpl instance from an xml tree.
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class GearXmlParser: public XmlComplexTypeParser
+        class GearXmlParser: public XmlGroupParser
         {
 
-        protected:
-            std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         private:
             /**
             * Parser for all subelements

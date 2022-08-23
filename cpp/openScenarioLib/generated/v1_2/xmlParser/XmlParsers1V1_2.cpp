@@ -12118,12 +12118,6 @@ namespace NET_ASAM_OPENSCENARIO
             GearXmlParser::SubElementParser::SubElementParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): XmlChoiceParser(messageLogger, filename, parserOptions) {}
 
 
-        std::map<std::string, std::shared_ptr<IAttributeParser>> GearXmlParser::GetAttributeNameToAttributeParserMap()
-        {
-            std::map<std::string, std::shared_ptr<IAttributeParser>> result;
-
-            return result;
-        }
 
         std::vector<std::shared_ptr<IElementParser>> GearXmlParser::SubElementParser::CreateParserList()
         {
@@ -12215,7 +12209,7 @@ namespace NET_ASAM_OPENSCENARIO
         }
   
         GearXmlParser::GearXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
-        XmlComplexTypeParser(messageLogger, filename, parserOptions)
+        XmlGroupParser(messageLogger, filename, parserOptions)
         {
             _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
         }
@@ -18688,13 +18682,15 @@ namespace NET_ASAM_OPENSCENARIO
         bool OverrideGearActionXmlParser::SubElementGearParser::DoesMatch(std::string& elementName)
         {
             return
-                elementName == OSC_CONSTANTS::ELEMENT__GEAR ;
+                elementName == OSC_CONSTANTS::ELEMENT__MANUAL_GEAR || 
+                elementName == OSC_CONSTANTS::ELEMENT__AUTOMATIC_GEAR ;
         }
 
         std::vector<std::string> OverrideGearActionXmlParser::SubElementGearParser::GetExpectedTagNames()
         {
             return {
-                OSC_CONSTANTS::ELEMENT__GEAR
+                OSC_CONSTANTS::ELEMENT__MANUAL_GEAR,
+                OSC_CONSTANTS::ELEMENT__AUTOMATIC_GEAR
                     };
         }
   

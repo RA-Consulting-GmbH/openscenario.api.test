@@ -27177,6 +27177,8 @@ namespace NET_ASAM_OPENSCENARIO
         public:
 
 			virtual void ResolveStringExpression(std::string& attributeKey, std::string& value) override;		
+			virtual bool IsTypedStringAttribute(std::string& attributeKey) override;
+
             OPENSCENARIOLIB_EXP VariableSetActionImpl();
 
             IOpenScenarioFlexElement* GetOpenScenarioFlexElement() override;

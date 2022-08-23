@@ -51,6 +51,7 @@
 #ifdef SUPPORT_OSC_1_2
 #include <TestParameterValidationV1_2.h>
 #include <TestVariableValidationV1_2.h>
+#include <TestDeprecatedValidationV1_2.h>
 #include "TestAlksV1_2.h"
 #include "TestDeprecatedV1_2.h"
 #include "TestExamplesV1_2.h"
@@ -260,10 +261,11 @@ bool TestV1_2(std::string basePath)
 	NET_ASAM_OPENSCENARIO::v1_2::TestAlks testAlks(basePath);
 	NET_ASAM_OPENSCENARIO::v1_2::TestParameterValidation testParametervalidation(basePath);
 	NET_ASAM_OPENSCENARIO::v1_2::TestVariableValidation testVariableValidation(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestDeprecatedValidation testDeprecatedValidation(basePath);
 
 	auto result = true;
 
-	result = testFiles.TestUnicode() && result;
+	/*result = testFiles.TestUnicode() && result;
 
 	result = testAlks.TestScenarios() && result;
 	result = testInjectedParameters.TestInjectionsForSuccess() && result;
@@ -343,7 +345,8 @@ bool TestV1_2(std::string basePath)
 	result = testVariableValidation.TestValidationWrongDataTypes() && result;
 	result = testVariableValidation.TestVariableNotDefined() && result;
 	result = testVariableValidation.TestValidationWrongSetAction() && result;
-
+	*/
+	result = testDeprecatedValidation.TestValidation() && result;
 
 	return result;
 }

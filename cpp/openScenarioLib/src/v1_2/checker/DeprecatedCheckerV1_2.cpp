@@ -403,7 +403,7 @@ namespace NET_ASAM_OPENSCENARIO
 			// Do the checks
 			if (object->IsSetCurvatureDot() && object->IsSetCurvaturePrime())
 			{
-				result.push_back("Property 'curvatureDot' is deprecated and must not be used with property 'IsSetCurvaturePrime'");
+				result.push_back("Property 'curvatureDot' is deprecated and must not be used with property 'isSetCurvaturePrime'");
 			}
 			
 		}
@@ -498,7 +498,7 @@ namespace NET_ASAM_OPENSCENARIO
 			// Do the checks
 			if (object->IsSetIntensity() && object->IsSetPrecipitationIntensity())
 			{
-				result.push_back("Property 'alongRoute' is deprecated and must not be used with property 'precipitationIntensity'");
+				result.push_back("Property 'intensity' is deprecated and must not be used with property 'precipitationIntensity'");
 			}
 			
 		}
