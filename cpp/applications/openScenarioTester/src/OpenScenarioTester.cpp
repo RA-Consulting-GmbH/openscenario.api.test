@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+#include <TestExamplesOscV1_2.h>
+
 #include "TestVersionOptionsWithReader.h"
 
 #ifdef SUPPORT_OSC_1_0
@@ -262,6 +264,7 @@ bool TestV1_2(std::string basePath)
 	NET_ASAM_OPENSCENARIO::v1_2::TestParameterValidation testParametervalidation(basePath);
 	NET_ASAM_OPENSCENARIO::v1_2::TestVariableValidation testVariableValidation(basePath);
 	NET_ASAM_OPENSCENARIO::v1_2::TestDeprecatedValidation testDeprecatedValidation(basePath);
+	NET_ASAM_OPENSCENARIO::v1_2::TestExamplesOsc testExamplesOsc(basePath);
 
 	auto result = true;
 
@@ -348,6 +351,8 @@ bool TestV1_2(std::string basePath)
 
 	result = testDeprecatedValidation.TestValidation() && result;
 
+	result = testExamplesOsc.TestScenarios() && result;
+	
 	return result;
 }
 #endif
