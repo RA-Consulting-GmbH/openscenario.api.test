@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
+  <FileHeader revMajor="1" revMinor="2" date="2021-02-17T12:00:00+01:00" description="Determines parameter set for scenario" author="ASAM e.V." />
+  <ParameterValueDistribution>
+    <ScenarioFile filepath="SlowPrecedingVehicle.xosc" />
+    <Deterministic>
+      <DeterministicMultiParameterDistribution>
+        <ValueSetDistribution>
+          <ParameterValueSet>
+            <ParameterAssignment parameterRef="Road_Logics" value="Databases/AB_RQ31_R2000.xodr" />
+            <ParameterAssignment parameterRef="Road_SceneGraph" value="Databases/AB_RQ31_R2000.opt.osgb" />
+          </ParameterValueSet>
+        </ValueSetDistribution>
+      </DeterministicMultiParameterDistribution>
+      <DeterministicSingleParameterDistribution parameterName="Ego_Speed">
+        <DistributionSet>
+          <Element value="10.0" />
+          <Element value="22.0" />
+          <Element value="25.0" />
+          <Element value="27.0" />
+          <Element value="28.0" />
+          <Element value="40.0" />
+          <Element value="60.0" />
+        </DistributionSet>
+      </DeterministicSingleParameterDistribution>
+      <DeterministicSingleParameterDistribution parameterName="A1_Speed">
+        <DistributionRange stepWidth="1.0">
+          <Range lowerLimit="15.0" upperLimit="25.0" />
+        </DistributionRange>
+      </DeterministicSingleParameterDistribution>
+    </Deterministic>
+  </ParameterValueDistribution>
+</OpenSCENARIO>

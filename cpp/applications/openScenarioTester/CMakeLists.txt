@@ -178,6 +178,7 @@ if (SUPPORT_OSC_1_2)
 	  "src/TestParameterValidationV1_2.h"  
 	  "src/TestVariableValidationV1_2.h"  
 	  "src/TestDeprecatedValidationV1_2.h"
+	  "src/TestExamplesOscV1_2.h"
 	)
 endif (SUPPORT_OSC_1_2)
 
@@ -268,6 +269,7 @@ set( SOURCES
 	"src/TestParameterValidationV1_2.cpp"
 	"src/TestVariableValidationV1_2.cpp"
 	"src/TestDeprecatedValidationV1_2.cpp"
+	"src/TestExamplesOscV1_2.cpp"
 )
 endif (SUPPORT_OSC_1_2)
 

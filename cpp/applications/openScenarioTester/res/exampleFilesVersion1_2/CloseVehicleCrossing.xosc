@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
+  <FileHeader revMajor="1" revMinor="2" date="2021-01-13T10:00:00" description="An example where the ego arrives at a 4 way junction as 2 closely timed non-egos cross." author="ASAM e.V." />
+  <ParameterDeclarations>
+    <ParameterDeclaration name="Road_Logics" parameterType="string" value="Databases/fabriksgatan.xodr" />
+    <ParameterDeclaration name="Road_SceneGraph" parameterType="string" value="Databases/fabriksgatan.osgb" />
+    <ParameterDeclaration name="Ego_Speed" parameterType="double" value="6.4" />
+    <ParameterDeclaration name="A1_InitialTrajectoryDistance" parameterType="double" value="10.0" />
+    <ParameterDeclaration name="A2_InitialTrajectoryDistance" parameterType="double" value="0.0" />
+  </ParameterDeclarations>
+  <CatalogLocations>
+    <TrajectoryCatalog>
+      <Directory path="Catalogs/Trajectories" />
+    </TrajectoryCatalog>
+  </CatalogLocations>
+  <RoadNetwork>
+    <LogicFile filepath="$Road_Logics" />
+    <SceneGraphFile filepath="$Road_SceneGraph" />
+  </RoadNetwork>
+  <Entities>
+    <ScenarioObject name="Ego">
+      <Vehicle name="HAF" vehicleCategory="car">
+        <ParameterDeclarations />
+        <Performance maxSpeed="69.444" maxAcceleration="200" maxDeceleration="10.0" />
+        <BoundingBox>
+          <Center x="1.5" y="0.0" z="0.9" />
+          <Dimensions width="2.1" length="4.5" height="1.8" />
+        </BoundingBox>
+        <Axles>
+          <FrontAxle maxSteering="0.5" wheelDiameter="0.6" trackWidth="1.8" positionX="3.1" positionZ="0.3" />
+          <RearAxle maxSteering="0.0" wheelDiameter="0.6" trackWidth="1.8" positionX="0.0" positionZ="0.3" />
+        </Axles>
+        <Properties />
+      </Vehicle>
+      <ObjectController>
+        <Controller name="HAF_Driver">
+          <Properties>
+            <Property name="weight" value="60.0" />
+            <Property name="height" value="1.8" />
+            <Property name="eyeDistance" value="0.065" />
+            <Property name="age" value="28" />
+            <Property name="sex" value="female" />
+          </Properties>
+        </Controller>
+      </ObjectController>
+    </ScenarioObject>
+    <ScenarioObject name="A1">
+      <Vehicle name="Default_Car" vehicleCategory="car">
+        <ParameterDeclarations />
+        <Performance maxSpeed="69.444" maxAcceleration="200" maxDeceleration="10.0" />
+        <BoundingBox>
+          <Center x="1.4" y="0.0" z="0.8" />
+          <Dimensions width="2.0" length="4.2" height="1.6" />
+        </BoundingBox>
+        <Axles>
+          <FrontAxle maxSteering="0.5" wheelDiameter="0.5" trackWidth="1.75" positionX="2.8" positionZ="0.25" />
+          <RearAxle maxSteering="0.0" wheelDiameter="0.5" trackWidth="1.75" positionX="0.0" positionZ="0.25" />
+        </Axles>
+        <Properties />
+      </Vehicle>
+      <ObjectController>
+        <Controller name="Default_Driver">
+          <Properties>
+            <Property name="weight" value="80.0" />
+            <Property name="height" value="1.88" />
+            <Property name="eyeDistance" value="0.07" />
+            <Property name="age" value="32" />
+            <Property name="sex" value="male" />
+          </Properties>
+        </Controller>
+      </ObjectController>
+    </ScenarioObject>
+    <ScenarioObject name="A2">
+      <Vehicle name="Default_Car" vehicleCategory="car">
+        <ParameterDeclarations />
+        <Performance maxSpeed="69.444" maxAcceleration="200" maxDeceleration="10.0" />
+        <BoundingBox>
+          <Center x="1.4" y="0.0" z="0.8" />
+          <Dimensions width="2.0" length="4.2" height="1.6" />
+        </BoundingBox>
+        <Axles>
+          <FrontAxle maxSteering="0.5" wheelDiameter="0.5" trackWidth="1.75" positionX="2.8" positionZ="0.25" />
+          <RearAxle maxSteering="0.0" wheelDiameter="0.5" trackWidth="1.75" positionX="0.0" positionZ="0.25" />
+        </Axles>
+        <Properties />
+      </Vehicle>
+      <ObjectController>
+        <Controller name="Default_Driver">
+          <Properties>
+            <Property name="weight" value="80.0" />
+            <Property name="height" value="1.88" />
+            <Property name="eyeDistance" value="0.07" />
+            <Property name="age" value="32" />
+            <Property name="sex" value="male" />
+          </Properties>
+        </Controller>
+      </ObjectController>
+    </ScenarioObject>
+  </Entities>
+  <Storyboard>
+    <Init>
+      <Actions>
+        <GlobalAction>
+          <EnvironmentAction>
+            <Environment name="Environment1">
+              <TimeOfDay animation="false" dateTime="2020-02-21T12:00:00" />
+              <Weather fractionalCloudCover="zeroOktas">
+                <Sun intensity="1.0" azimuth="0.0" elevation="1.571" />
+                <Fog visualRange="100000.0" />
+                <Precipitation precipitationType="dry" precipitationIntensity="0.0" />
+              </Weather>
+              <RoadCondition frictionScaleFactor="1.0" />
+            </Environment>
+          </EnvironmentAction>
+        </GlobalAction>
+        <Private entityRef="Ego">
+          <PrivateAction>
+            <LongitudinalAction>
+              <SpeedAction>
+                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time" />
+                <SpeedActionTarget>
+                  <AbsoluteTargetSpeed value="$Ego_Speed" />
+                </SpeedActionTarget>
+              </SpeedAction>
+            </LongitudinalAction>
+          </PrivateAction>
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <LanePosition roadId="3" laneId="-1" s="5.0" />
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="A1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <TrajectoryPosition s="$A1_InitialTrajectoryDistance">
+                  <TrajectoryRef>
+                    <CatalogReference catalogName="TrajectoryCatalog" entryName="FabriksgatanNorthToSouth" />
+                  </TrajectoryRef>
+                </TrajectoryPosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="A2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <TrajectoryPosition s="$A2_InitialTrajectoryDistance">
+                  <TrajectoryRef>
+                    <CatalogReference catalogName="TrajectoryCatalog" entryName="FabriksgatanNorthToSouth" />
+                  </TrajectoryRef>
+                </TrajectoryPosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+        </Private>
+      </Actions>
+    </Init>
+    <Story name="A1_Story">
+      <Act name="A1_Act1">
+        <ManeuverGroup maximumExecutionCount="1" name="A1_Sequence1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="A1" />
+          </Actors>
+          <Maneuver name="A1_CrossingManeuver">
+            <Event name="A1_CrossingEvent" priority="override">
+              <Action name="A1_CrossingAction">
+                <PrivateAction>
+                  <RoutingAction>
+                    <FollowTrajectoryAction initialDistanceOffset="$A1_InitialTrajectoryDistance">
+                      <TrajectoryRef>
+                        <CatalogReference catalogName="TrajectoryCatalog" entryName="FabriksgatanNorthToSouth" />
+                      </TrajectoryRef>
+                      <TimeReference>
+                        <Timing domainAbsoluteRelative="relative" scale="1" offset="0" />
+                      </TimeReference>
+                      <TrajectoryFollowingMode followingMode="position" />
+                    </FollowTrajectoryAction>
+                  </RoutingAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger />
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="0" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+      </Act>
+    </Story>
+    <Story name="A2_Story">
+      <Act name="A2_Act1">
+        <ManeuverGroup maximumExecutionCount="1" name="A2_Sequence1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="A2" />
+          </Actors>
+          <Maneuver name="A2_CrossingManeuver">
+            <Event name="A2_CrossingEvent" priority="override">
+              <Action name="A2_CrossingAction">
+                <PrivateAction>
+                  <RoutingAction>
+                    <FollowTrajectoryAction initialDistanceOffset="$A2_InitialTrajectoryDistance">
+                      <TrajectoryRef>
+                        <CatalogReference catalogName="TrajectoryCatalog" entryName="FabriksgatanNorthToSouth" />
+                      </TrajectoryRef>
+                      <TimeReference>
+                        <Timing domainAbsoluteRelative="relative" scale="1" offset="0" />
+                      </TimeReference>
+                      <TrajectoryFollowingMode followingMode="position" />
+                    </FollowTrajectoryAction>
+                  </RoutingAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger />
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition name="" delay="0" conditionEdge="rising">
+              <ByValueCondition>
+                <SimulationTimeCondition value="0" rule="greaterThan" />
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+      </Act>
+    </Story>
+    <StopTrigger />
+  </Storyboard>
+</OpenSCENARIO>

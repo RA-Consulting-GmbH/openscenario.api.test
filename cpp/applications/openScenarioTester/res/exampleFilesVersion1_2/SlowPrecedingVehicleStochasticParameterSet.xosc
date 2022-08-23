@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
+  <FileHeader revMajor="1" revMinor="2" date="2021-02-17T12:00:00+01:00" description="Determines parameter set for scenario" author="ASAM e.V." />
+  <ParameterValueDistribution>
+    <ScenarioFile filepath="SlowPrecedingVehicle.xosc" />
+    <Stochastic numberOfTestRuns="100" randomSeed="1">
+      <StochasticDistribution parameterName="Ego_Speed">
+        <ProbabilityDistributionSet>
+          <Element value="10.0" weight="1" />
+          <Element value="22.0" weight="3" />
+          <Element value="25.0" weight="5" />
+          <Element value="27.0" weight="10" />
+          <Element value="28.0" weight="10" />
+          <Element value="40.0" weight="5" />
+          <Element value="60.0" weight="1" />
+        </ProbabilityDistributionSet>
+      </StochasticDistribution>
+      <StochasticDistribution parameterName="A1_Speed">
+        <NormalDistribution expectedValue="22.222" variance="10.0">
+          <Range lowerLimit="15.0" upperLimit="30.0" />
+        </NormalDistribution>
+      </StochasticDistribution>
+    </Stochastic>
+  </ParameterValueDistribution>
+</OpenSCENARIO>
