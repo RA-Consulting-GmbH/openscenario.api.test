@@ -265,7 +265,7 @@ bool TestV1_2(std::string basePath)
 
 	auto result = true;
 
-	/*result = testFiles.TestUnicode() && result;
+	result = testFiles.TestUnicode() && result;
 
 	result = testAlks.TestScenarios() && result;
 	result = testInjectedParameters.TestInjectionsForSuccess() && result;
@@ -345,7 +345,7 @@ bool TestV1_2(std::string basePath)
 	result = testVariableValidation.TestValidationWrongDataTypes() && result;
 	result = testVariableValidation.TestVariableNotDefined() && result;
 	result = testVariableValidation.TestValidationWrongSetAction() && result;
-	*/
+
 	result = testDeprecatedValidation.TestValidation() && result;
 
 	return result;

@@ -43,7 +43,7 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <IGeoPosition> object);
-
+			void CheckFileContext(std::vector<std::string>& result, std::shared_ptr<IGeoPosition> object);
 		};
 
 		class OverrideBrakeActionDeprecationChecker : public ICheckerRule
@@ -54,7 +54,7 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <IOverrideBrakeAction> object);
-
+			void CheckFileContext(std::vector<std::string>& result, std::shared_ptr<IOverrideBrakeAction> object);
 		};
 
 		class OverrideGearActionDeprecationChecker : public ICheckerRule
@@ -65,7 +65,7 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <IOverrideGearAction> object);
-
+			void CheckFileContext(std::vector<std::string>& result, std::shared_ptr<IOverrideGearAction> object);
 		};
 
 		class OverrideParkingBrakeActionDeprecationChecker : public ICheckerRule
@@ -76,7 +76,8 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <IOverrideParkingBrakeAction> object);
-
+			void CheckFileContext(std::vector<std::string>& result,
+			                      std::shared_ptr<IOverrideParkingBrakeAction> object);
 		};
 
 		class SunDeprecationChecker : public ICheckerRule
@@ -87,7 +88,7 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <ISun> object);
-
+			void CheckFileContext(std::vector<std::string>& result, std::shared_ptr<ISun> object);
 		};
 
 		class TrafficSourceActionDeprecationChecker : public ICheckerRule
@@ -98,7 +99,7 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <ITrafficSourceAction> object);
-
+			void CheckFileContext(std::vector<std::string>& result, std::shared_ptr<ITrafficSourceAction> object);
 		};
 
 		class TrafficSwarmActionDeprecationChecker : public ICheckerRule
@@ -109,7 +110,7 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <ITrafficSwarmAction> object);
-
+			void CheckFileContext(std::vector<std::string>& result, std::shared_ptr<ITrafficSwarmAction> object);
 		};
 
 		class WeatherDeprecationChecker : public ICheckerRule
@@ -120,7 +121,7 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <IWeather> object);
-
+			void CheckFileContext(std::vector<std::string>& result, std::shared_ptr<IWeather> object);
 		};
 
 		class ClothoidDeprecationChecker : public ICheckerRule
@@ -131,7 +132,7 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <IClothoid> object);
-
+			void CheckFileContext(std::vector<std::string>& result, std::shared_ptr<IClothoid> object);
 		};
 
 		class DistanceConditionDeprecationChecker : public ICheckerRule
@@ -142,7 +143,7 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <IDistanceCondition> object);
-
+			void CheckFileContext(std::vector<std::string>& result, std::shared_ptr<IDistanceCondition> object);
 		};
 
 		class PrecipitationDeprecationChecker : public ICheckerRule
@@ -153,7 +154,7 @@ namespace NET_ASAM_OPENSCENARIO
 			void ApplyRuleInTreeContext(std::shared_ptr<ITreeMessageLogger > messageLogger, std::shared_ptr<IOpenScenarioModelElement> object) override;
 		private:
 			void Check(std::vector<std::string>& result, std::shared_ptr <IPrecipitation> object);
-
+			void CheckFileContext(std::vector<std::string>& result, std::shared_ptr<IPrecipitation> object);
 		};
 
 
