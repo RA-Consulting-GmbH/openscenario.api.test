@@ -24,12 +24,6 @@ configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_
 
 
 ################################################################
-# Set compile output folder
-RAC_SET_FOLDERS()
-message ( STATUS "Building all into: ${CMAKE_BINARY_DIR}" )
-
-
-################################################################
 # Antlr
 antlr_target(XMLLexer ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/XMLLexer.g4 LEXER)
 antlr_target(XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/XMLParser.g4 PARSER
@@ -37,102 +31,6 @@ antlr_target(XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/XMLParser.g4 PARSER
              DEPENDS_ANTLR XMLLexer
              COMPILE_FLAGS -lib ${ANTLR_XMLLexer_OUTPUT_DIR})
 
-
-################################################################
-# Include folders
-include_directories( ${ANTLR4_INCLUDE_DIRS} )
-
-if (SUPPORT_OSC_1_0)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/parser )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/api/writer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/model )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/catalog)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/xmlParser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/export/xml )
-endif (SUPPORT_OSC_1_0)
-
-if (SUPPORT_OSC_1_1)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/expression )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/parser )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/api/writer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/model )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/catalog)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/xmlParser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/export/xml )
-endif (SUPPORT_OSC_1_1)
-
-
-if (SUPPORT_OSC_1_2)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/expression )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/parser )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/api/writer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker/model )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/catalog)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/xmlParser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/export/xml )
-endif (SUPPORT_OSC_1_2)
-
-include_directories(${ANTLR_XMLLexer_OUTPUT_DIR})
-include_directories(${ANTLR_XMLParser_OUTPUT_DIR})
-
-#external files
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/Filesystem)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/TinyXML2 )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/UtfCpp )
-
-#version independent
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/checker/tree )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/checker/model )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/export )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/expression )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser/modelgroup )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser/type )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/simple/struct )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/xmlIndexer )
-
-#expressionsLib
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../expressionsLib/inc)
 
 
 ################################################################
@@ -339,11 +237,114 @@ if( MSVC )
     endif()
 endif()
 
+if (SUPPORT_OSC_1_0)
+target_include_directories( ${PROJECT_NAME}
+	PUBLIC
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/loader"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/parameter"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/parser"
+	#generated
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/api"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/api/writer"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/model"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/range"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/xmlParser"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/export/xml" 
+)
+endif (SUPPORT_OSC_1_0)
+
+if (SUPPORT_OSC_1_1)
+target_include_directories( ${PROJECT_NAME}
+	PUBLIC
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/loader"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/parameter"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/expression"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/parser"
+
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/api"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/api/writer"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/model"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/range"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/xmlParser"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/export/xml" 
+)
+endif (SUPPORT_OSC_1_1)
+
+
+if (SUPPORT_OSC_1_2)
+target_include_directories( ${PROJECT_NAME}
+	PUBLIC
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/loader"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/parameter"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/expression"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/parser"
+
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/api"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/api/writer"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker/model"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker/range"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/xmlParser"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/export/xml" 
+)
+endif (SUPPORT_OSC_1_2)
+
+################################################################
+# Include folders
+#external files
+target_include_directories( ${PROJECT_NAME}
+	PUBLIC
+	${ANTLR4_INCLUDE_DIRS}
+	"${CMAKE_CURRENT_SOURCE_DIR}/../common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/Filesystem"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/TinyXML2"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/UtfCpp"
+
+#version independent
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/api"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/checker/tree"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/checker/model"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/export"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/loader"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/parameter"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/expression"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/parser"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/parser/modelgroup"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/parser/type"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/simple/struct"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/xmlIndexer" 
+    ${ANTLR_XMLLexer_OUTPUT_DIR}
+    ${ANTLR_XMLParser_OUTPUT_DIR}
+)
+
+
 # Add libs
 target_link_libraries( ${PROJECT_NAME} 
                 PUBLIC ExpressionsLib
                        )
-
 
 ################################################################
 # Linux lib versioning

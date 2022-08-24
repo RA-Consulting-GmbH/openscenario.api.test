@@ -107,18 +107,16 @@ message(STATUS "Subprojects:")
 # Set compile output folder for OpenSCENARIO core libs
 # This is needed because of the way the makefiles for ANTLR4-Cpp-src are written
 unset(CMAKE_BUILD_TYPE CACHE)
-RAC_SET_FOLDERS()
-message(STATUS "Building all into: ${CMAKE_BINARY_DIR}")
     
 # CoreLibraries
-add_subdirectory(openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib)
-add_subdirectory(expressionsLib ${PROJECT_BINARY_DIR}/expressionsLib)
+add_subdirectory(openScenarioLib)
+add_subdirectory(expressionsLib)
 
 # Applications
-add_subdirectory(applications/openScenarioReader ${PROJECT_BINARY_DIR}/applications/openScenarioReader)
-add_subdirectory(applications/openScenarioTester ${PROJECT_BINARY_DIR}/applications/openScenarioTester)
-add_subdirectory(applications/indexerTester ${PROJECT_BINARY_DIR}/applications/indexerTester)
-add_subdirectory(applications/expressionsTester ${PROJECT_BINARY_DIR}/applications/expressionsTester)
+add_subdirectory(applications/openScenarioReader)
+add_subdirectory(applications/openScenarioTester)
+add_subdirectory(applications/indexerTester)
+add_subdirectory(applications/expressionsTester)
 
 
 ################################################################
