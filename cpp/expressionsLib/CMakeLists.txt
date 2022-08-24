@@ -17,11 +17,6 @@ if( ${BUILD_SHARED_LIBS} )
 endif()
 
 
-################################################################
-# Set compile output folder
-RAC_SET_FOLDERS()
-message ( STATUS "Building all into: ${CMAKE_BINARY_DIR}" )
-
 
 ################################################################
 # Update rc file
@@ -42,27 +37,29 @@ antlr_target(OscExprParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/OscExprParser.g
              COMPILE_FLAGS -lib ${ANTLR_OscExprLexer_OUTPUT_DIR})
 
 
+set ( INC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/inc")
+set ( SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 ################################################################
 # Specify all header and source files
 set ( LIB_HEADERS
-    "inc/OscExprEvaluatorImpl.h"
-    "inc/ParseErrorListener.hpp"
-    "inc/OscExprEvaluatorFactory.h"
-    "inc/OscExprEvaluator.h"
-    "inc/EvaluatorListener.h"
-    "inc/ExprType.h"
-    "inc/ExprValue.h"
-    "inc/SemanticException.h"
-    "inc/OscExprExportDefs.h"
+    "${INC_DIR}/OscExprEvaluatorImpl.h"
+    "${INC_DIR}/ParseErrorListener.hpp"
+    "${INC_DIR}/OscExprEvaluatorFactory.h"
+    "${INC_DIR}/OscExprEvaluator.h"
+    "${INC_DIR}/EvaluatorListener.h"
+    "${INC_DIR}/ExprType.h"
+    "${INC_DIR}/ExprValue.h"
+    "${INC_DIR}/SemanticException.h"
+    "${INC_DIR}/OscExprExportDefs.h"
 )
 
 set( LIB_SOURCES
-    "src/OscExprEvaluatorImpl.cpp"
-    "src/OscExprEvaluatorFactory.cpp"
-    "src/EvaluatorListener.cpp"
-    "src/ExprType.cpp"
-    "src/ExprValue.cpp"
-    "src/SemanticException.cpp"
+    "${SRC_DIR}/OscExprEvaluatorImpl.cpp"
+    "${SRC_DIR}/OscExprEvaluatorFactory.cpp"
+    "${SRC_DIR}/EvaluatorListener.cpp"
+    "${SRC_DIR}/ExprType.cpp"
+    "${SRC_DIR}/ExprValue.cpp"
+    "${SRC_DIR}/SemanticException.cpp"
     
 )
 set( ANTLR_GENERATED
@@ -118,10 +115,14 @@ target_link_libraries( ${PROJECT_NAME} PUBLIC ${ANTLR_STATIC_SHARED} )
 
 # Add include dirs
 target_include_directories( ${PROJECT_NAME}
-                    PUBLIC  ${ANTLR4_INCLUDE_DIRS}
-                    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/inc
+							PUBLIC
+							${ANTLR4_INCLUDE_DIRS}
+							PRIVATE 
+							${INC_DIR}
                             ${ANTLR_OscExprLexer_OUTPUT_DIR}
                             ${ANTLR_OscExprParser_OUTPUT_DIR}
+							INTERFACE
+							${INC_DIR}
                             )
 
 if( MSVC )

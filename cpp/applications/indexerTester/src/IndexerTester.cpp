@@ -46,7 +46,7 @@ void TestBooks()
     try 
     {
         char cwdBuffer[OS_PATH_MAX];
-		std::string filePath = "TestResources/IndexerTester/books.xml";
+		std::string filePath = "./test-rc/books.xml";
 		std::string currentPath = std::string(GETCWD(cwdBuffer, OS_PATH_MAX));
         std::ifstream infile(filePath, std::ios::binary);
         if (infile.bad() || infile.fail())

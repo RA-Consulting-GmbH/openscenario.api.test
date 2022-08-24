@@ -19,11 +19,6 @@ RAC_GET_PRODUCT_INFO( "${CMAKE_CURRENT_SOURCE_DIR}/productInfo.txt" )
 configure_file( "${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc" )
 
 
-################################################################
-# Set compile output folder
-RAC_SET_FOLDERS()
-message ( STATUS "Building all into: ${CMAKE_BINARY_DIR}" )
-
 
 ################################################################
 # Antlr
@@ -124,19 +119,13 @@ if( MSVC )
     endif()
 endif()
 
-
-################################################################
-# Copy the resources for testing
-add_custom_command( TARGET ${PROJECT_NAME} POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/$(Configuration)/TestResources/${PROJECT_NAME}
-        )
-        
+POST_BUILD_ADD_COPY_TEST_RESOURCES(${PROJECT_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/res)
+POST_BUILD_COPY_ANTLR_RUNTIME_FILES(${PROJECT_NAME})
 
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251 /utf-8 /we4828" ) # ${osc_extra_static_compile_flags}" )
     set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
-    set_target_properties( ${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(Configuration)" )
+	set_target_properties( ${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "$<TARGET_FILE_DIR:${PROJECT_NAME}>" )
 endif()

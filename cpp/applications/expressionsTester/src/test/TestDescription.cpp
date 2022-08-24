@@ -34,7 +34,7 @@ const std::string TestDescription::json = R"json(
 	"expr": "${$testShort +1}",
 	"expectedDatatype": "unsignedShort",
 	"expectedError": {
-		"message": "Value '65536.000000' cannot be converted to type 'unsignedShort'",
+		"message": "Value '65536' cannot be converted to type 'unsignedShort'",
 		"column": 0
 	}
 },{
@@ -59,7 +59,7 @@ const std::string TestDescription::json = R"json(
 	"expr": "${66000}",
 	"expectedDatatype": "unsignedShort",
 	"expectedError": {
-		"message": "Value '66000.000000' cannot be converted to type 'unsignedShort'",
+		"message": "Value '66000' cannot be converted to type 'unsignedShort'",
 		"column": 0
 	}
 },{

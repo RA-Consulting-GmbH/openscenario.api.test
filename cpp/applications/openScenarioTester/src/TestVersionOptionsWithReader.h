@@ -23,7 +23,7 @@ namespace NET_ASAM_OPENSCENARIO
 		class TestVersionOptionsWithReader
 		{
 		protected:
-			const std::string kInputDir = u8"TestResources/OpenScenarioTester/";
+			const std::string kInputDir = u8"test-rc/";
 
 			std::string _executablePath;
 
