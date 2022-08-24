@@ -340,10 +340,17 @@ target_include_directories( ${PROJECT_NAME}
     ${ANTLR_XMLParser_OUTPUT_DIR}
 )
 
+if( ${BUILD_SHARED_LIBS} )
+   set( ANTLR_STATIC_SHARED  antlr4_shared )
+   message( STATUS "${PROJECT_NAME}: using Antlr shared" )
+else()
+   set( ANTLR_STATIC_SHARED  antlr4_static )
+   message( STATUS "${PROJECT_NAME}: using Antlr static" )
+endif()
 
 # Add libs
 target_link_libraries( ${PROJECT_NAME} 
-                PUBLIC ExpressionsLib
+                PUBLIC ExpressionsLib ${ANTLR_STATIC_SHARED}
                        )
 
 ################################################################
