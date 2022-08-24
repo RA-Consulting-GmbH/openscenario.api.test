@@ -22,14 +22,14 @@ validate an OpenSCENARIO file.
 To use the library as a standalone program we would typically use the
 compiled C++ binary
 
-`/cpp/build/cgReleaseMakeShared/applications/OpenScenarioReader/Release`. 
+`/cpp/build/cgReleaseMakeShared/applications/OpenScenarioReader`. 
 
 See section <<BuildingTheBinaries,Building the binaries>> for building instructions.
 
 For example the binary is located in the following directory, dependent
 on your development platform: 
 
-* Linux: `./cpp/build/cgReleaseMakeShared/applications/OpenScenarioReader/Release`
+* Linux: `./cpp/build/cgReleaseMakeShared/applications/OpenScenarioReader`
 * Windows `./cpp/build/cgMultiVS2019x64Shared/applications/OpenScenarioReader/Release`
 
 Navigate your command shell to the appropriate folder above and first
@@ -783,12 +783,12 @@ $ ./generateLinux.sh shared release make
 This will create in the `openscenario.api.test/cpp/build/cgReleaseMakeShared` folder containing the Linux Makefiles for building the binaries and the binaries.
 
 The executables and libraries are in
-* `cgReleaseMakeShared/applications/openScenarioReader/Release` 
-* `cgReleaseMakeShared/applications/indexTester/Release` 
-* `cgReleaseMakeShared/applications/openScenarioTester/Release` 
-* `cgReleaseMakeShared/applications/expressionTester/Release`
-* `cgReleaseMakeShared/expressionLib/Release`
-* `cgReleaseMakeShared/openScenarioLib/Release`
+* `cgReleaseMakeShared/applications/openScenarioReader` 
+* `cgReleaseMakeShared/applications/indexTester` 
+* `cgReleaseMakeShared/applications/openScenarioTester` 
+* `cgReleaseMakeShared/applications/expressionTester`
+* `cgReleaseMakeShared/expressionLib`
+* `cgReleaseMakeShared/openScenarioLib`
 
 The general command has the following options:
 [source,bash]
@@ -1035,13 +1035,13 @@ Test with id '86' successful.
 
 ==== Testing on Linux
 On Linux we already on console and can change directory directly.
-E.g. you have selected the preset "Linux shared release" then your output folder is `openscenario.api.test/cpp/build/cgReleaseMakeShared/applications/openScenarioTester/Release`.
+E.g. you have selected the preset "Linux shared release" then your output folder is `openscenario.api.test/cpp/build/cgReleaseMakeShared/applications/openScenarioTester`.
 As you should be already in `openscenario.api.test/cpp` just do the following:
 
 ===== OpenScenarioTester
 [source,bash]
 ----
-$ cd build/cgReleaseMakeShared/applications/openScenarioTester/Release
+$ cd build/cgReleaseMakeShared/applications/openScenarioTester
 $ ./OpenScenarioTester
 Major Revision :0
 Minor Revision :9
@@ -1058,7 +1058,7 @@ Ego has 2 axles (front, rear)
 ===== ExpressionsTester
 [source,bash]
 ----
-$ cd build/cgReleaseMakeShared/applications/expressionsTester/Release
+$ cd build/cgReleaseMakeShared/applications/expressionsTester
 $ ./ExpressionsTester
 [...]
 Running test with id '84':
@@ -1074,7 +1074,7 @@ Test with id '86' successful.
 ===== IndexerTester
 [source,bash]
 ----
-$ cd build/cgReleaseMakeShared/applications/indexerTester/Release
+$ cd build/cgReleaseMakeShared/applications/indexerTester
 $ ./IndexerTester
 [...]
 81: (117, 6) - (117, 59)
@@ -1273,18 +1273,18 @@ After successful compilation you should see an output similar to this (shortened
 [ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers1.cpp.o
 [ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers2.cpp.o
 [ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLParser.cpp.o
-[ 98%] Linking CXX executable ../../../cgDebugMakeStatic/applications/indexerTester/Debug/IndexerTester
+[ 98%] Linking CXX executable ../../../cgDebugMakeStatic/applications/indexerTester/IndexerTester
 [ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLLexer.cpp.o
 [ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/src/loader/XmlScenarioLoader.cpp.o
 [ 98%] Built target IndexerTester
-[ 99%] Linking CXX static library ../../../cgDebugMakeStatic/openScenarioLib/Debug/libOpenScenarioLib.a
+[ 99%] Linking CXX static library ../../../cgDebugMakeStatic/openScenarioLib/libOpenScenarioLib.a
 [ 99%] Built target OpenScenarioLib
 [100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
 [100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/OpenScenarioTester.cpp.o
 [100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
 [100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
-[100%] Linking CXX executable ../../../../cgDebugMakeStatic/applications/openScenarioReader/Debug/OpenScenarioReader
-[100%] Linking CXX executable ../../../../cgDebugMakeStatic/applications/openScenarioTester/Debug/OpenScenarioTester
+[100%] Linking CXX executable ../../../../cgDebugMakeStatic/applications/openScenarioReader/OpenScenarioReader
+[100%] Linking CXX executable ../../../../cgDebugMakeStatic/applications/openScenarioTester/OpenScenarioTester
 [100%] Built target OpenScenarioReader
 [100%] Built target OpenScenarioTester
 $
@@ -1575,7 +1575,7 @@ user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static$ cd build/Lin/
 user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin$ make
 Scanning dependencies of target OpenScenarioReader
 [ 50%] Building CXX object CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
-[100%] Linking CXX executable ../cgDebugMakeShared/openScenarioReader/Release/OpenScenarioReader
+[100%] Linking CXX executable ../cgDebugMakeShared/openScenarioReader/OpenScenarioReader
 [100%] Built target OpenScenarioReader
 user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin$
 ----
