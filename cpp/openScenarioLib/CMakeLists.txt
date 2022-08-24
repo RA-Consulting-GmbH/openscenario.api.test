@@ -353,6 +353,8 @@ target_link_libraries( ${PROJECT_NAME}
                 PUBLIC ExpressionsLib ${ANTLR_STATIC_SHARED}
                        )
 
+set_target_properties( ${PROJECT_NAME} PROPERTIES ANTLR4_RUNTIME_LIBRARIES "${ANTLR4_RUNTIME_LIBRARIES}" )
+
 ################################################################
 # Linux lib versioning
 if( UNIX )
