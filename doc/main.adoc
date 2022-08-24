@@ -22,15 +22,15 @@ validate an OpenSCENARIO file.
 To use the library as a standalone program we would typically use the
 compiled C++ binary
 
-`/cpp/build/output/Linux_shared/Release/OpenScenarioReader`. 
+`/cpp/build/cgReleaseMakeShared/applications/OpenScenarioReader/Release`. 
 
 See section <<BuildingTheBinaries,Building the binaries>> for building instructions.
 
 For example the binary is located in the following directory, dependent
 on your development platform: 
 
-* Linux: `./cpp/build/output/Linux_shared/Release/OpenScenarioReader`
-* Windows `./cpp/build/output/x64_shared/Release/OpenScenarioReader`
+* Linux: `./cpp/build/cgReleaseMakeShared/applications/OpenScenarioReader/Release`
+* Windows `./cpp/build/cgMultiVS2019x64Shared/applications/OpenScenarioReader/Release`
 
 Navigate your command shell to the appropriate folder above and first
 execute the following command on Linux once to tell the runtime system
@@ -51,9 +51,9 @@ $ ./OpenScenarioReader
 This will generate the following output:
 
 ```
-****************************************
-= * ASAM OpenSCENARIO 1.3.0 Checker (2022) *
-****************************************
+******************************************
+* ASAM OpenSCENARIO 1.3.0 Checker (2022) *
+******************************************
 OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>]] | -v]
 Options:
 -i    <filename> file to be validated
@@ -77,9 +77,9 @@ $ ./OpenScenarioReader -i examples/simpleExample/SimpleExample.xosc
 Result:
 
 ```
-****************************************
+******************************************
 * ASAM OpenSCENARIO 1.3.0 Checker (2022) *
-****************************************
+******************************************
 Checking 'examples/simpleExample/SimpleExample.xosc'
 Validation succeeded with 0 errors and 0 warnings.
 ```
@@ -145,7 +145,7 @@ Result:
 ******************************************
 Program version 1.3.0
 ```
-Telling us that implementation version is 1.3.0. This is independent from the OpenSCENARIO standard version. Compatibility to standard version OpenSCENARIO 1.0, OpenSCENARIO 1.1 and OpenSCENARIO 1.2 is currently supported.
+Telling us that implementation version is 1.3.0. This is independent from the OpenSCENARIO standard version. Compatibility to standard version OpenSCENARIO 1.0, OpenSCENARIO 1.1 and OpenSCENARIO 1.3.0 is currently supported.
 
 === Embedding the Library 
 To use the OpenSCENARIO as an embedded library we use the compiled library `libOpenScenarioLib` on Linux and on Windows. Both libraries on Linux as well as on Windows have third party dependencies. 
@@ -371,7 +371,7 @@ Remarks: The API currently supports C\++ only. The java product line has been gi
 
 === Standard versioning as a product dimension
 
-When supporting a standard, versioning of this standard is a product dimension that should be supported. Since we cannot look in the future and foresee the changes, we still can be sure that changes will happen. So, the worst case is not to be faced with incompatible changes of a new standard version, but a dead-end standard that does suffer from a bad change management. Therefore, even when our world is "OpenSCENARIO 1.2 only" right at that moment, we better have strategies for versioning, migration etc.. Change management is considered an important architectural aspect.
+When supporting a standard, versioning of this standard is a product dimension that should be supported. Since we cannot look in the future and foresee the changes, we still can be sure that changes will happen. So, the worst case is not to be faced with incompatible changes of a new standard version, but a dead-end standard that does suffer from a bad change management. Therefore, even when our world is "OpenSCENARIO 1.3.0 only" right at that moment, we better have strategies for versioning, migration etc.. Change management is considered an important architectural aspect.
 
 === Providing compile time support
 
@@ -780,10 +780,15 @@ For example the commands for building and compiling shared objects and binaries 
 $ cd openscenario.api.test/cpp/buildArtifact
 $ ./generateLinux.sh shared release make
 ----
-This will create in the `openscenario.api.test/cpp/build` folder the following two directories:
+This will create in the `openscenario.api.test/cpp/build/cgReleaseMakeShared` folder containing the Linux Makefiles for building the binaries and the binaries.
 
-* `cgReleaseMakeShared` containing the Linux Makefiles for building the binaries and
-* `output/Linux_Shared/Release` where the compiled libraries and executables are located.
+The executables and libraries are in
+* `cgReleaseMakeShared/applications/openScenarioReader/Release` 
+* `cgReleaseMakeShared/applications/indexTester/Release` 
+* `cgReleaseMakeShared/applications/openScenarioTester/Release` 
+* `cgReleaseMakeShared/applications/expressionTester/Release`
+* `cgReleaseMakeShared/expressionLib/Release`
+* `cgReleaseMakeShared/openScenarioLib/Release`
 
 The general command has the following options:
 [source,bash]
@@ -971,14 +976,14 @@ This time the console window should show the following output:
 
 ===== Windows command line
 When testing via command line open a Windows command line prompt (cmd).
-Then navigate to the output folder, e.g. if you have selected the preset "VS2019 x64 shared" then the output folder is
-`openscenario.api.test\cpp\build\x64_shared\[Debug|Release]`.
+Then navigate to the output folder, e.g. if you have selected the preset "VS2019 x64 shared" then the output folder is 
+`openscenario.api.test/cpp/build/cgMultiVS2019x64Shared/applications/openScenarioTester/[Release|Debug]`.
 Just change directory to that folder and start the three tests:
 
 ====== OpenScenarioTester
 [source,cmd]
 ----
->cd /d <full path to your osc folder>\openscenario.api.test\cpp\build\x64_shared\[Debug|Release]
+>cd /d <full path to your osc folder>openscenario.api.test\cpp\build\cgMultiVS2019x64Shared\applications\openScenarioTester\[Debug|Release]
 >OpenScenarioTester.exe
 Major Revision :0
 Minor Revision :9
@@ -1001,6 +1006,7 @@ Ego has 2 axles (front, rear)
 ====== ExpressionsTester
 [source,cmd]
 ----
+>cd /d <full path to your osc folder>openscenario.api.test\cpp\build\cgMultiVS2019x64Shared\applications\expressionTester\[Debug|Release]
 >ExpressionsTester.exe
 [...]
 Running test with id '84':
@@ -1016,6 +1022,7 @@ Test with id '86' successful.
 ====== IndexerTester
 [source,cmd]
 ----
+>cd /d <full path to your osc folder>openscenario.api.test\cpp\build\cgMultiVS2019x64Shared\applications\indexerTester\[Debug|Release]
 >IndexerTester.exe
 [...]
 81: (117, 6) - (117, 59)
@@ -1028,14 +1035,14 @@ Test with id '86' successful.
 
 ==== Testing on Linux
 On Linux we already on console and can change directory directly.
-E.g. you have selected the preset "Linux shared release" then your output folder is `openscenario.api.test/cpp/build/output/Linux_shared/Release`.
+E.g. you have selected the preset "Linux shared release" then your output folder is `openscenario.api.test/cpp/build/cgReleaseMakeShared/applications/openScenarioTester/Release`.
 As you should be already in `openscenario.api.test/cpp` just do the following:
 
 ===== OpenScenarioTester
 [source,bash]
 ----
-$ cd build/output/Linux_shared/Release
-$ ./OpenScenarioTest
+$ cd build/cgReleaseMakeShared/applications/openScenarioTester/Release
+$ ./OpenScenarioTester
 Major Revision :0
 Minor Revision :9
 XML_ERROR_PARSING
@@ -1051,6 +1058,7 @@ Ego has 2 axles (front, rear)
 ===== ExpressionsTester
 [source,bash]
 ----
+$ cd build/cgReleaseMakeShared/applications/expressionsTester/Release
 $ ./ExpressionsTester
 [...]
 Running test with id '84':
@@ -1066,6 +1074,7 @@ Test with id '86' successful.
 ===== IndexerTester
 [source,bash]
 ----
+$ cd build/cgReleaseMakeShared/applications/indexerTester/Release
 $ ./IndexerTester
 [...]
 81: (117, 6) - (117, 59)
@@ -1195,7 +1204,7 @@ On the Linux terminal enter the following command to build a debug version with 
 $ cmake --preset="Linux-static-debug"
 ----
 
-The output created is similar to our Linux cmake-gui example despite that the output folder for the object files should be `cpp/build/cgDebugMakeStatic` and for the binaries `cpp/build/output/Linux_static/Debug`.
+The output created is similar to our Linux cmake-gui example despite that the output folder for the files should be `cpp/build/cgDebugMakeStatic`.
 
 With the command above we configured the project and generated the necessary project files for building in one single step.
 
@@ -1219,16 +1228,11 @@ Preset environment variables:
   PR_ENV_BUILD_TYPE="Debug"
 
 [...]
-
-Output libraries to /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/output/Linux_static/Debug
 OpenScenarioLib
 -- lib binding: STATIC
 OpenScenarioReader
-Building all into: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/output/Linux_static/Debug
 OpenScenarioTester
-Building all into: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/output/Linux_static/Debug
 IndexerTester
-Building all into: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/output/Linux_static/Debug
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/cgDebugMakeStatic
@@ -1269,18 +1273,18 @@ After successful compilation you should see an output similar to this (shortened
 [ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers1.cpp.o
 [ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers2.cpp.o
 [ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLParser.cpp.o
-[ 98%] Linking CXX executable ../../../output/Linux_static/Debug/IndexerTester
+[ 98%] Linking CXX executable ../../../cgDebugMakeStatic/applications/indexerTester/Debug/IndexerTester
 [ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLLexer.cpp.o
 [ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/src/loader/XmlScenarioLoader.cpp.o
 [ 98%] Built target IndexerTester
-[ 99%] Linking CXX static library ../../../output/Linux_static/Debug/libOpenScenarioLib.a
+[ 99%] Linking CXX static library ../../../cgDebugMakeStatic/openScenarioLib/Debug/libOpenScenarioLib.a
 [ 99%] Built target OpenScenarioLib
 [100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
 [100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/OpenScenarioTester.cpp.o
 [100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
 [100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
-[100%] Linking CXX executable ../../../../output/Linux_static/Debug/OpenScenarioReader
-[100%] Linking CXX executable ../../../../output/Linux_static/Debug/OpenScenarioTester
+[100%] Linking CXX executable ../../../../cgDebugMakeStatic/applications/openScenarioReader/Debug/OpenScenarioReader
+[100%] Linking CXX executable ../../../../cgDebugMakeStatic/applications/openScenarioTester/Debug/OpenScenarioTester
 [100%] Built target OpenScenarioReader
 [100%] Built target OpenScenarioTester
 $
@@ -1394,9 +1398,9 @@ If you build the standalone checker with an incomplete set of standard versions,
 $ ./OpenScenarioReader -i examples/simpleExample/SimpleExample.xosc
 ```
 ```
-****************************************
-* ASAM OpenSCENARIO 1.2 Checker (2022) *
-****************************************
+******************************************
+* ASAM OpenSCENARIO 1.3.0 Checker (2022) *
+******************************************
 Checking 'examples/simpleExample/SimpleExample.xosc'
 Standard Version 1.0 is not supported. Compile Reader with SUPPORT_OSC_1_0 option.
 ```
@@ -1406,9 +1410,9 @@ The same kind of error will show up when starting the reader with the `-v1_1` fl
 $ ./OpenScenarioReader -i examples/simpleExample/SimpleExample.xosc -v1_1
 ```
 ```
-****************************************
-* ASAM OpenSCENARIO 1.2 Checker (2022) *
-****************************************
+******************************************
+* ASAM OpenSCENARIO 1.3.0 Checker (2022) *
+******************************************
 Checking 'examples/simpleExample/SimpleExample.xosc'
 Standard Version 1.1 is not supported. Compile Reader with SUPPORT_OSC_1_1 option.
 ```
@@ -1555,7 +1559,6 @@ OpenScenarioReader
 -- Single-configuration generator: Release
 -- OpenScenarioReader configuration: Release
 -- Platform: Linux; Shared lib: OFF
-Building all into: /home/user/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/output/Linux_static/Release
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/user/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin
@@ -1572,7 +1575,7 @@ user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static$ cd build/Lin/
 user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin$ make
 Scanning dependencies of target OpenScenarioReader
 [ 50%] Building CXX object CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
-[100%] Linking CXX executable ../output/Linux_static/Release/OpenScenarioReader
+[100%] Linking CXX executable ../cgDebugMakeShared/openScenarioReader/Release/OpenScenarioReader
 [100%] Built target OpenScenarioReader
 user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin$
 ----
