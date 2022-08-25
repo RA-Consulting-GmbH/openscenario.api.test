@@ -25,7 +25,7 @@ endif (SUPPORT_OSC_1_2)
 ################################################################
 # Write msbuild.exe for Windows build
 if(MSVC)
-    write_file("${CMAKE_SOURCE_DIR}/buildArtifact/msbuildcmd.txt" "cmd,${CMAKE_VS_MSBUILD_COMMAND}")
+    write_file("${CMAKE_CURRENT_SOURCE_DIR}/buildArtifact/msbuildcmd.txt" "cmd,${CMAKE_VS_MSBUILD_COMMAND}")
 endif(MSVC)
 
 

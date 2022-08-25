@@ -198,7 +198,7 @@ public class GeneratorCpp {
 			System.out.println("-- Xml Parser Classes for ${key}");
 			binding["helper"] = new XmlParserClassHelper();
 			def all = umlModel.getClasses();
-			def sublist = all.collate( all.size().intdiv(2) +1 );
+			def sublist = all.collate( all.size().intdiv(4) +1 );
 			template = templateProcessor.getTemplate('XmlParserClass');
 			processor("xmlParser", "XmlParsers${versionProperties["fileSuffix"]}.h"){
 				return templateApplication(template, umlModel.getClasses());
@@ -210,6 +210,14 @@ public class GeneratorCpp {
 			
 			processor("xmlParser", "XmlParsers2${versionProperties["fileSuffix"]}.cpp"){
 				return templateApplication(template, sublist[1]);
+			}
+			
+			processor("xmlParser", "XmlParsers3${versionProperties["fileSuffix"]}.cpp"){
+				return templateApplication(template, sublist[2]);
+			}
+			
+			processor("xmlParser", "XmlParsers4${versionProperties["fileSuffix"]}.cpp"){
+				return templateApplication(template, sublist[3]);
 			}
 
 			// OK (template classes)
