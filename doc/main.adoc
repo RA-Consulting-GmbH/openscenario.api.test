@@ -22,15 +22,15 @@ validate an OpenSCENARIO file.
 To use the library as a standalone program we would typically use the
 compiled C++ binary
 
-`/cpp/build/output/Linux_shared/Release/OpenScenarioReader`. 
+`/cpp/build/cgReleaseMakeShared/applications/openScenarioReader`. 
 
 See section <<BuildingTheBinaries,Building the binaries>> for building instructions.
 
 For example the binary is located in the following directory, dependent
 on your development platform: 
 
-* Linux: `./cpp/build/output/Linux_shared/Release/OpenScenarioReader`
-* Windows `./cpp/build/output/x64_shared/Release/OpenScenarioReader`
+* Linux: `./cpp/build/cgReleaseMakeShared/applications/openScenarioReader`
+* Windows `./ccpp/build/cgMultiVS2022Shared/applications/openScenarioReader/Release`
 
 Navigate your command shell to the appropriate folder above and first
 execute the following command on Linux once to tell the runtime system
@@ -736,7 +736,7 @@ $ sudo apt install uuid-dev
 [[BuildingWithCmakeVersionLe3.18]]
 == Building with cmake version \<= 3.18
 
-If your cmake version is older than 3.19 then cmake does not know the concept of "presets" and consequently cmake-gui is missing the "Preset" entry as seen in the two images below.
+If your cmake version is older than 3.19 then cmake does not know the concept of "presets" and consequently cmake-gui is missing the "Preset" entry as seen in the image below.
 
 .cmake-gui missing the "Preset" element.
 image:images/oscCgNoPreset.png[cmake_gui,width=720,float="center",align="center"]
@@ -759,7 +759,7 @@ $ ./generateLinux.sh shared release make
 This will create in the `openscenario.api.test/cpp/build` folder the following two directories:
 
 * `cgReleaseMakeShared` containing the Linux Makefiles for building the binaries and
-* `output/Linux_Shared/Release` where the compiled libraries and executables are located.
+* `cgReleaseMakeShared/applications` where the compiled libraries and executables are located.
 
 The general command has the following options:
 [source,bash]

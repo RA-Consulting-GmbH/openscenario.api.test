@@ -92,12 +92,12 @@ cp -r "${SCRIPT_DIR}/../applications/openScenarioTester/res" "${SCRIPT_DIR}/${OP
 ################################################################
 # check if libraries are already compiled
 if [ ${PLATFORM_NAME} == "Linux" ] ; then
-    if [ ! -d "${SCRIPT_DIR}/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}" ] ; then
+    if [ ! -d "${SCRIPT_DIR}/../build/cg${BUILD_TYPE_CAP}Make${BINDING_TYPE}/" ] ; then
         echo "Please run './generateLinux.sh ${BUILD_TYPE} ${BINDING_TYPE} make' to compile the OpenSCENARIO libraries!"
         exit -1
     fi
 else
-    if [ ! -d "${SCRIPT_DIR}/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}" ] ; then
+    if [ ! -d "${SCRIPT_DIR}/../build/cgMultiVS20??${BINDING_TYPE}/${BUILD_TYPE_CAP}" ] ; then
         echo "Please run './generateWindows.bat (VS2010|...|VS2022) ${BUILD_TYPE} ${BINDING_TYPE} ${PLATFORM_NAME} make' to compile the OpenSCENARIO libraries!"
         exit -1
     fi
@@ -115,6 +115,7 @@ if [ ${PLATFORM_NAME} == "Linux" ] ; then
 else
     LIB_SHST="*.lib"
 fi
+#TODO: fix output -> have 4 folders oscReader, oscTester, ...
 cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/${LIB_SHST} "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
 ls -l "${SCRIPT_DIR}"/../build/output
 if [ ${PLATFORM_NAME} == "Win32" ] || [ ${PLATFORM_NAME} == "x64" ] ; then
