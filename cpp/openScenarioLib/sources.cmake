@@ -189,6 +189,8 @@ set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_0_IMPL} )
 set( SOURCES_GENERATED_1_0_XMLPARSER
     "generated/v1_0/xmlParser/XmlParsers1V1_0.cpp"
     "generated/v1_0/xmlParser/XmlParsers2V1_0.cpp"
+    "generated/v1_0/xmlParser/XmlParsers3V1_0.cpp"
+    "generated/v1_0/xmlParser/XmlParsers4V1_0.cpp"
 )
 set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_0_XMLPARSER} )
 
@@ -273,6 +275,8 @@ set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_1_IMPL} )
 set( SOURCES_GENERATED_1_1_XMLPARSER
     "generated/v1_1/xmlParser/XmlParsers1V1_1.cpp"
     "generated/v1_1/xmlParser/XmlParsers2V1_1.cpp"
+    "generated/v1_1/xmlParser/XmlParsers3V1_1.cpp"
+    "generated/v1_1/xmlParser/XmlParsers4V1_1.cpp"
 )
 set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_1_XMLPARSER} )
 
@@ -358,6 +362,8 @@ set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_2_IMPL} )
 set( SOURCES_GENERATED_1_2_XMLPARSER
     "generated/v1_2/xmlParser/XmlParsers1V1_2.cpp"
     "generated/v1_2/xmlParser/XmlParsers2V1_2.cpp"
+    "generated/v1_2/xmlParser/XmlParsers3V1_2.cpp"
+    "generated/v1_2/xmlParser/XmlParsers4V1_2.cpp"
 )
 set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_2_XMLPARSER} )
 

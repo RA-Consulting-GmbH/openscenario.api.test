@@ -20,7 +20,7 @@ endif()
 ################################################################
 # Update rc file
 RAC_GET_PRODUCT_INFO("${CMAKE_CURRENT_SOURCE_DIR}/productInfo.txt")
-configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/../common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc")
 
 
 ################################################################
@@ -366,6 +366,6 @@ endif()
  ################################################################
 # Visual Studio solution folders
 if( MSVC )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251 /utf-8 /we4828")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251 /utf-8 /we4828 ")
     set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Core )
 endif()
