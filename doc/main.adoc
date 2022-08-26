@@ -30,7 +30,7 @@ For example the binary is located in the following directory, dependent
 on your development platform: 
 
 * Linux: `./cpp/build/cgReleaseMakeShared/applications/openScenarioReader`
-* Windows `./ccpp/build/cgMultiVS2022Shared/applications/openScenarioReader/Release`
+* Windows `./cpp/build/cgMultiVS2022x64Shared/applications/openScenarioReader/Release`
 
 Navigate your command shell to the appropriate folder above and first
 execute the following command on Linux once to tell the runtime system
