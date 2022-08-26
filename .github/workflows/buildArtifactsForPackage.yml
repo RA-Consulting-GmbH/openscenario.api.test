@@ -25,12 +25,12 @@ jobs:
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: LinuxSharedDebug
-    #     path: ./cpp/build/output/Linux_shared/Debug
+    #     path: ./cpp/build/cgDebugMakeShared/applications
 
     # - name: unzip artifacts LinuxSharedDebug libs.tgz
     #   shell: bash
     #   run: |
-    #     cd ./cpp/build/output/Linux_shared/Debug
+    #     cd ./cpp/build/cgDebugMakeShared/applications
     #     tar -zxf libsd.tgz
     #     rm -f libsd.tgz
 
@@ -38,12 +38,12 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: LinuxSharedRelease
-        path: ./cpp/build/output/Linux_shared/Release
+        path: ./cpp/build/cgReleaseMakeShared/applications
 
     - name: unzip artifacts LinuxSharedRelease libs.tgz
       shell: bash
       run: |
-        cd ./cpp/build/output/Linux_shared/Release
+        cd ./cpp/build/cgReleaseMakeShared/applications
         tar -zxf libsr.tgz
         rm -f libsr.tgz
         ls -lah
@@ -52,63 +52,63 @@ jobs:
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: LinuxStaticDebug
-    #     path: ./cpp/build/output/Linux_static/Debug
+    #     path: ./cpp/build/cgDebugMakeStatic/applications
 
     - name: get artifacts LinuxStaticRelease
       uses: actions/download-artifact@v2
       with:
         name: LinuxStaticRelease
-        path: ./cpp/build/output/Linux_static/Release
+        path: ./cpp/build/cgReleaseMakeStatic/applications
 
     # Win32 builds
     # - name: get artifacts Win32SharedDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: Win32SharedDebug
-    #     path: ./cpp/build/output/Win32_shared/Debug
+    #     path: ./cpp/build/cgMultiVS2022Win32Shared/Debug/applications
 
     - name: get artifacts Win32SharedRelease
       uses: actions/download-artifact@v2
       with:
         name: Win32SharedRelease
-        path: ./cpp/build/output/Win32_shared/Release
+        path: ./cpp/build/cgMultiVS2022Win32Shared/Release/applications
 
     # - name: get artifacts Win32StaticDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: Win32StaticDebug
-    #     path: ./cpp/build/output/Win32_static/Debug
+    #     path: ./cpp/build/cgMultiVS2022Win32Static/Debug/applications
 
     - name: get artifacts Win32StaticRelease
       uses: actions/download-artifact@v2
       with:
         name: Win32StaticRelease
-        path: ./cpp/build/output/Win32_static/Release
+        path: ./cpp/build/cgMultiVS2022Win32Static/Release/applications
 
     # x64 builds
     # - name: get artifacts x64SharedDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: x64SharedDebug
-    #     path: ./cpp/build/output/x64_shared/Debug
+    #     path: ./cpp/build/cgMultiVS2022x64Shared/Debug/applications
 
     - name: get artifacts x64SharedRelease
       uses: actions/download-artifact@v2
       with:
         name: x64SharedRelease
-        path: ./cpp/build/output/x64_shared/Release
+        path: ./cpp/build/cgMultiVS2022x64Shared/Release/applications
 
     # - name: get artifacts x64StaticDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: x64StaticDebug
-    #     path: ./cpp/build/output/x64_static/Debug
+    #     path: ./cpp/build/cgMultiVS2022x64Static/Debug/applications
 
     - name: get artifacts x64StaticRelease
       uses: actions/download-artifact@v2
       with:
         name: x64StaticRelease
-        path: ./cpp/build/output/x64_static/Release
+        path: ./cpp/build/cgMultiVS2022x64Static/Release/applications
 
     # Create the devel packages
     - name: create package Linux shared
@@ -176,12 +176,12 @@ jobs:
 
   #   - name: copy antlr
   #     shell: bash
-  #     run:  cp ./cpp/build/cgDebugMakeShared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_shared/Release/
+  #     run:  cp ./cpp/build/cgDebugMakeShared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/cgReleaseMakeShared/applications/
 
   #   - name: tar and zip shared libs
   #     shell: bash
   #     run: |
-  #       cd ./cpp/build/output/Linux_shared/Debug
+  #       cd ./cpp/build/cgDebugMakeShared/applications
   #       tar -zcf ../libsd.tgz *.so*
   #       rm -rf *
   #       mv ../libsd.tgz .
@@ -190,7 +190,7 @@ jobs:
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: LinuxSharedDebug
-  #       path: ./cpp/build/output/Linux_shared/Debug/*
+  #       path: ./cpp/build/cgDebugMakeShared/applications/*
 
 
   LinuxSharedReleaseBuild:
@@ -216,12 +216,12 @@ jobs:
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgReleaseMakeShared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_shared/Release/
+      run:  cp ./cpp/build/cgReleaseMakeShared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/cgReleaseMakeShared/applications/
 
     - name: tar and zip shared libs
       shell: bash
       run: |
-        cd ./cpp/build/output/Linux_shared/Release
+        cd ./cpp/build/cgReleaseMakeShared/applications
         ls -lah
         tar -zcf ../libsr.tgz *.so*
         rm -rf *
@@ -232,7 +232,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with: 
         name: LinuxSharedRelease
-        path: ./cpp/build/output/Linux_shared/Release/*
+        path: ./cpp/build/cgReleaseMakeShared/applications/*
 
 
   # Linux Static
@@ -259,13 +259,13 @@ jobs:
 
   #   - name: copy antlr
   #     shell: bash
-  #     run:  cp ./cpp/build/cgDebugMakeStatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_static/Release/
+  #     run:  cp ./cpp/build/cgDebugMakeStatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/cgReleaseMakeStatic/applications/
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: LinuxStaticDebug
-  #       path: ./cpp/build/output/Linux_static/Debug/*
+  #       path: ./cpp/build/cgDebugMakeStatic/applications/*
 
 
   LinuxStaticReleaseBuild:
@@ -291,13 +291,13 @@ jobs:
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgReleaseMakeStatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_static/Release/
+      run:  cp ./cpp/build/cgReleaseMakeStatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/cgReleaseMakeStatic/applications/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with: 
         name: LinuxStaticRelease
-        path: ./cpp/build/output/Linux_static/Release/*
+        path: ./cpp/build/cgReleaseMakeStatic/applications/*
 
 
   # Win32 Shared
@@ -317,13 +317,13 @@ jobs:
 
   #   - name: copy antlr
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/Win32_shared/Debug/
+  #     run:  cp ./cpp/build/cgMultiVS2022Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/cgMultiVS2022Win32Shared/Debug/applications/
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: Win32SharedDebug
-  #       path: ./cpp/build/output/Win32_shared/Debug/*
+  #       path: ./cpp/build/cgMultiVS2022Win32Shared/Debug/applications/*
 
 
   Win32SharedReleaseBuild:
@@ -342,13 +342,13 @@ jobs:
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_shared/Release/
+      run:  cp ./cpp/build/cgMultiVS2022Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/cgMultiVS2022Win32Shared/Release/applications/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with: 
         name: Win32SharedRelease
-        path: ./cpp/build/output/Win32_shared/Release/*
+        path: ./cpp/build/cgMultiVS2022Win32Shared/Release/applications/*
 
 
   # Win32 Static
@@ -368,13 +368,13 @@ jobs:
 
   #   - name: copy antlr
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/Win32_static/Debug/
+  #     run:  cp ./cpp/build/cgMultiVS2022Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/cgMultiVS2022Win32Static/Debug/applications/
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: Win32StaticDebug
-  #       path: ./cpp/build/output/Win32_static/Debug/*
+  #       path: ./cpp/build/cgMultiVS2022Win32Static/Debug/applications/*
 
 
   Win32StaticReleaseBuild:
@@ -393,13 +393,13 @@ jobs:
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_static/Release/
+      run:  cp ./cpp/build/cgMultiVS2022Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/cgMultiVS2022Win32Static/Release/applications/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with: 
         name: Win32StaticRelease
-        path: ./cpp/build/output/Win32_static/Release/*
+        path: ./cpp/build/cgMultiVS2022Win32Static/Release/applications/*
 
 
   # x64 Shared
@@ -419,13 +419,13 @@ jobs:
     
   #   - name: copy antlr
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/x64_shared/Debug/
+  #     run:  cp ./cpp/build/cgMultiVS2022x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/cgMultiVS2022x64Shared/Debug/applications/
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: x64SharedDebug
-  #       path: ./cpp/build/output/x64_shared/Debug/*
+  #       path: ./cpp/build/cgMultiVS2022x64Shared/Debug/applications/*
 
 
   x64SharedReleaseBuild:
@@ -444,13 +444,13 @@ jobs:
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_shared/Release/
+      run:  cp ./cpp/build/cgMultiVS2022x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/cgMultiVS2022x64Shared/Release/applications/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with: 
         name: x64SharedRelease
-        path: ./cpp/build/output/x64_shared/Release/*
+        path: ./cpp/build/cgMultiVS2022x64Shared/Release/applications/*
 
 
   # x64 Static
@@ -470,13 +470,13 @@ jobs:
 
   #   - name: copy antlr
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/x64_static/Debug/
+  #     run:  cp ./cpp/build/cgMultiVS2022x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/cgMultiVS2022x64Static/Debug/applications/
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: x64StaticDebug
-  #       path: ./cpp/build/output/x64_static/Debug/*
+  #       path: ./cpp/build/cgMultiVS2022x64Static/Debug/applications/*
 
 
   x64StaticReleaseBuild:
@@ -495,12 +495,12 @@ jobs:
 
     - name: copy antlr
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_static/Release/
+      run:  cp ./cpp/build/cgMultiVS2022x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/cgMultiVS2022x64Static/Release/applications/
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with: 
         name: x64StaticRelease
-        path: ./cpp/build/output/x64_static/Release/*
+        path: ./cpp/build/cgMultiVS2022x64Static/Release/applications/*
 
 
