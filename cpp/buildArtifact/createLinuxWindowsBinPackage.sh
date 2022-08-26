@@ -57,6 +57,8 @@ done
 cd ${SCRIPT_DIR}
 # set OpenSCENARIO API folder
 OPEN_SCEANARIO_API=OpenSCENARIO.V1_1.API_${PLATFORM_NAME}_${BINDING_TYPE}
+# current OpenSCENARIO applications
+OSC_APPS="expressionsTester indexerTester openScenarioReader openScenarioTester"
 # prepare OpenSCENARIO API folder
 rm -rf "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"/*
 mkdir -p "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
@@ -97,7 +99,7 @@ if [ ${PLATFORM_NAME} == "Linux" ] ; then
         exit -1
     fi
 else
-    if [ ! -d "${SCRIPT_DIR}/../build/cgMultiVS20??${BINDING_TYPE}/${BUILD_TYPE_CAP}" ] ; then
+    if [ ! -d "${SCRIPT_DIR}/../build/cgMultiVS20??${PLATFORM_NAME}${BINDING_TYPE}/${BUILD_TYPE_CAP}" ] ; then
         echo "Please run './generateWindows.bat (VS2010|...|VS2022) ${BUILD_TYPE} ${BINDING_TYPE} ${PLATFORM_NAME} make' to compile the OpenSCENARIO libraries!"
         exit -1
     fi
@@ -106,7 +108,7 @@ fi
 # create lib folders
 mkdir -p "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
 
-# copy libs
+# determine libs extension
 if [ ${PLATFORM_NAME} == "Linux" ] ; then
     LIB_SHST="lib*.a"
     if [ ${BINDING_TYPE} == "shared" ] ; then
@@ -115,15 +117,35 @@ if [ ${PLATFORM_NAME} == "Linux" ] ; then
 else
     LIB_SHST="*.lib"
 fi
-#TODO: fix output -> have 4 folders oscReader, oscTester, ...
-cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/${LIB_SHST} "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
-ls -l "${SCRIPT_DIR}"/../build/output
-if [ ${PLATFORM_NAME} == "Win32" ] || [ ${PLATFORM_NAME} == "x64" ] ; then
-    if [ ${BINDING_TYPE} == "shared" ] ; then
-        cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/*.dll "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
-        cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/*.exp "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
-    fi
+
+# platform dependent build folder
+PLATFORM_SPECIFIC_PATH="cgMultiVS2022${PLATFORM_NAME}${BINDING_TYPE}/${BUILD_TYPE_CAP}"
+if [ ${PLATFORM_NAME} == "Linux" ] ; then
+    PLATFORM_SPECIFIC_PATH="cg${BUILD_TYPE_CAP}Make${BINDING_TYPE}"
 fi
+
+
+# copy libs for all osc apps
+for APP in ${OSC_APPS} ; do
+    cp -r "${SCRIPT_DIR}"/../build/${PLATFORM_SPECIFIC_PATH}/${APP}/${LIB_SHST} "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
+    if [ ${PLATFORM_NAME} == "Win32" ] || [ ${PLATFORM_NAME} == "x64" ] ; then
+        if [ ${BINDING_TYPE} == "shared" ] ; then
+            cp -r "${SCRIPT_DIR}"/../build/${PLATFORM_SPECIFIC_PATH}/${APP}/*.dll "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
+            cp -r "${SCRIPT_DIR}"/../build/${PLATFORM_SPECIFIC_PATH}/${APP}/*.exp "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
+        fi
+    fi
+done
+ls -l "${SCRIPT_DIR}"/../build
+
+#TODO: fix output -> have 4 folders oscReader, oscTester, ...
+# cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/${LIB_SHST} "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
+# ls -l "${SCRIPT_DIR}"/../build/output
+# if [ ${PLATFORM_NAME} == "Win32" ] || [ ${PLATFORM_NAME} == "x64" ] ; then
+#     if [ ${BINDING_TYPE} == "shared" ] ; then
+#         cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/*.dll "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
+#         cp -r "${SCRIPT_DIR}"/../build/output/${PLATFORM_NAME}_${BINDING_TYPE}/${BUILD_TYPE_CAP}/*.exp "${OPEN_SCEANARIO_API}/lib/${PLATFORM_PATH}${PLATFORM_NAME}"
+#     fi
+# fi
 
 # strip debug infos
 #strip -s "${OPEN_SCEANARIO_API}"/lib/Linux/*
