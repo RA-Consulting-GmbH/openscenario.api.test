@@ -96,7 +96,6 @@ RAC_SET_BUILD_PARAM()
 
 ################################################################
 # Set compile output folder
-RAC_SET_FOLDERS()
 message ( \"Building all into: \${CMAKE_BINARY_DIR}\" )
 
 
