@@ -38,7 +38,7 @@ jobs:
       with:
         name: LinuxSharedRelease
         path: ./cpp/build
-    - name: unzip output
+    - name: unzip output LinuxSharedDebug
       shell: bash
       run: |
         cd ./cpp/build
@@ -50,7 +50,7 @@ jobs:
     #   with:
     #     name: LinuxStaticDebug
     #     path: ./cpp/build
-    # - name: unzip output
+    # - name: unzip output LinuxStaticDebug
     #   shell: bash
     #   run: |
     #     cd ./cpp/build
@@ -62,7 +62,7 @@ jobs:
       with:
         name: LinuxStaticRelease
         path: ./cpp/build
-    - name: unzip output
+    - name: unzip output LinuxStaticRelease
       shell: bash
       run: |
         cd ./cpp/build
@@ -75,7 +75,7 @@ jobs:
     #   with:
     #     name: Win32SharedDebug
     #     path: ./cpp/build
-    # - name: unzip output
+    # - name: unzip output Win32SharedDebug
     #   shell: bash
     #   run: |
     #     cd ./cpp/build
@@ -87,7 +87,7 @@ jobs:
       with:
         name: Win32SharedRelease
         path: ./cpp/build
-    - name: unzip output
+    - name: unzip output Win32SharedRelease
       shell: bash
       run: |
         cd ./cpp/build
@@ -99,7 +99,7 @@ jobs:
     #   with:
     #     name: Win32StaticDebug
     #     path: ./cpp/build
-    # - name: unzip output
+    # - name: unzip output Win32StaticDebug
     #   shell: bash
     #   run: |
     #     cd ./cpp/build
@@ -111,7 +111,7 @@ jobs:
       with:
         name: Win32StaticRelease
         path: ./cpp/build
-    - name: unzip output
+    - name: unzip output Win32StaticRelease
       shell: bash
       run: |
         cd ./cpp/build
@@ -124,7 +124,7 @@ jobs:
     #   with:
     #     name: x64SharedDebug
     #     path: ./cpp/build
-    # - name: unzip output
+    # - name: unzip output x64SharedDebug
     #   shell: bash
     #   run: |
     #     cd ./cpp/build
@@ -136,7 +136,7 @@ jobs:
       with:
         name: x64SharedRelease
         path: ./cpp/build
-    - name: unzip output
+    - name: unzip output x64SharedRelease
       shell: bash
       run: |
         cd ./cpp/build
@@ -148,7 +148,7 @@ jobs:
     #   with:
     #     name: x64StaticDebug
     #     path: ./cpp/build
-    # - name: unzip output
+    # - name: unzip output x64StaticDebug
     #   shell: bash
     #   run: |
     #     cd ./cpp/build
@@ -160,7 +160,7 @@ jobs:
       with:
         name: x64StaticRelease
         path: ./cpp/build
-    - name: unzip output
+    - name: unzip output x64StaticRelease
       shell: bash
       run: |
         cd ./cpp/build
@@ -268,11 +268,11 @@ jobs:
         cd ./cpp/build
         tar -zcf out.tgz cg*
 
-      - name: publish artifact
-        uses: actions/upload-artifact@v2
-        with: 
-          name: LinuxSharedRelease
-          path: ./cpp/build/out.tgz
+    - name: publish artifact
+      uses: actions/upload-artifact@v2
+      with: 
+        name: LinuxSharedRelease
+        path: ./cpp/build/out.tgz
 
 
   # Linux Static
@@ -337,11 +337,11 @@ jobs:
         cd ./cpp/build
         tar -zcf out.tgz cg*
 
-      - name: publish artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: LinuxStaticRelease
-          path: ./cpp/build/out.tgz
+    - name: publish artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: LinuxStaticRelease
+        path: ./cpp/build/out.tgz
 
 
   # Win32 Shared
@@ -392,11 +392,11 @@ jobs:
         cd ./cpp/build
         tar -zcf out.tgz cg*
 
-      - name: publish artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Win32SharedRelease
-          path: ./cpp/build/out.tgz
+    - name: publish artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Win32SharedRelease
+        path: ./cpp/build/out.tgz
 
 
   # Win32 Static
@@ -447,11 +447,11 @@ jobs:
         cd ./cpp/build
         tar -zcf out.tgz cg*
 
-      - name: publish artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: Win32StaticRelease
-          path: ./cpp/build/out.tgz
+    - name: publish artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Win32StaticRelease
+        path: ./cpp/build/out.tgz
 
 
   # x64 Shared
@@ -502,11 +502,11 @@ jobs:
         cd ./cpp/build
         tar -zcf out.tgz cg*
 
-      - name: publish artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: x64SharedRelease
-          path: ./cpp/build/out.tgz
+    - name: publish artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: x64SharedRelease
+        path: ./cpp/build/out.tgz
 
 
   # x64 Static
@@ -557,10 +557,10 @@ jobs:
         cd ./cpp/build
         tar -zcf out.tgz cg*
 
-      - name: publish artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: x64StaticRelease
-          path: ./cpp/build/out.tgz
+    - name: publish artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: x64StaticRelease
+        path: ./cpp/build/out.tgz
 
 
