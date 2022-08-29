@@ -1,4 +1,4 @@
-name: OpenScenarioV1_1CppArtifacts
+name: OpenScenarioCppArtifacts
 on:
   workflow_dispatch:
     # Inputs the workflow accepts.
@@ -14,7 +14,9 @@ jobs:
     needs: [LinuxSharedReleaseBuild, LinuxStaticReleaseBuild, Win32SharedReleaseBuild, Win32StaticReleaseBuild, x64SharedReleaseBuild, x64StaticReleaseBuild]
 
     steps:
-    - uses: actions/checkout@v2
+    - name: create artifacts dir
+      shell: bash
+      run: mkdir -p ./artifacts
 
     - name: update system
       run:  sudo apt-get update
@@ -25,131 +27,85 @@ jobs:
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: LinuxSharedDebug
-    #     path: ./cpp/build/cgDebugMakeShared/applications
-
-    # - name: unzip artifacts LinuxSharedDebug libs.tgz
-    #   shell: bash
-    #   run: |
-    #     cd ./cpp/build/cgDebugMakeShared/applications
-    #     tar -zxf libsd.tgz
-    #     rm -f libsd.tgz
+    #     path: ./artifacts
 
     - name: get artifacts LinuxSharedRelease
       uses: actions/download-artifact@v2
       with:
         name: LinuxSharedRelease
-        path: ./cpp/build/cgReleaseMakeShared/applications
-
-    - name: unzip artifacts LinuxSharedRelease libs.tgz
-      shell: bash
-      run: |
-        cd ./cpp/build/cgReleaseMakeShared/applications
-        tar -zxf libsr.tgz
-        rm -f libsr.tgz
-        ls -lah
+        path: ./artifacts
 
     # - name: get artifacts LinuxStaticDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: LinuxStaticDebug
-    #     path: ./cpp/build/cgDebugMakeStatic/applications
+    #     path: ./artifacts
 
     - name: get artifacts LinuxStaticRelease
       uses: actions/download-artifact@v2
       with:
         name: LinuxStaticRelease
-        path: ./cpp/build/cgReleaseMakeStatic/applications
+        path: ./artifacts
 
     # Win32 builds
     # - name: get artifacts Win32SharedDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: Win32SharedDebug
-    #     path: ./cpp/build/cgMultiVS2022Win32Shared/Debug/applications
+    #     path: ./artifacts
 
     - name: get artifacts Win32SharedRelease
       uses: actions/download-artifact@v2
       with:
         name: Win32SharedRelease
-        path: ./cpp/build/cgMultiVS2022Win32Shared/Release/applications
+        path: ./artifacts
 
     # - name: get artifacts Win32StaticDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: Win32StaticDebug
-    #     path: ./cpp/build/cgMultiVS2022Win32Static/Debug/applications
+    #     path: ./artifacts
 
     - name: get artifacts Win32StaticRelease
       uses: actions/download-artifact@v2
       with:
         name: Win32StaticRelease
-        path: ./cpp/build/cgMultiVS2022Win32Static/Release/applications
+        path: ./artifacts
 
     # x64 builds
     # - name: get artifacts x64SharedDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: x64SharedDebug
-    #     path: ./cpp/build/cgMultiVS2022x64Shared/Debug/applications
+    #     path: ./artifacts
 
     - name: get artifacts x64SharedRelease
       uses: actions/download-artifact@v2
       with:
         name: x64SharedRelease
-        path: ./cpp/build/cgMultiVS2022x64Shared/Release/applications
+        path: ./artifacts
 
     # - name: get artifacts x64StaticDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: x64StaticDebug
-    #     path: ./cpp/build/cgMultiVS2022x64Static/Debug/applications
+    #     path: ./artifacts
 
     - name: get artifacts x64StaticRelease
       uses: actions/download-artifact@v2
       with:
         name: x64StaticRelease
-        path: ./cpp/build/cgMultiVS2022x64Static/Release/applications
-
-    # Create the devel packages
-    - name: create package Linux shared
-      run: |
-        chmod a+x ./cpp/buildArtifact/*.sh
-        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared
-
-    - name: create package Linux static
-      run: |
-        chmod a+x ./cpp/buildArtifact/*.sh
-        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static
-
-    - name: create package Win32 shared
-      run: |
-        chmod a+x ./cpp/buildArtifact/*.sh
-        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared Win32
-
-    - name: create package Win32 static
-      run: |
-        chmod a+x ./cpp/buildArtifact/*.sh
-        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static Win32
-
-    - name: create package x64 shared
-      run: |
-        chmod a+x ./cpp/buildArtifact/*.sh
-        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared x64
-
-    - name: create package x64 static
-      run: |
-        chmod a+x ./cpp/buildArtifact/*.sh
-        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static x64
+        path: ./artifacts
 
     # Check packages
     - name: check packages
-      run: ls ./cpp/buildArtifact/OpenSCENARIO*
+      run: ls ./artifacts/OpenSCENARIO*
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with:
         name: ${{ github.event.inputs.name }}
-        path: ./cpp/buildArtifact/OpenSCENARIO*
+        path: ./artifacts/OpenSCENARIO*
 
 
   # Linux Shared
@@ -174,23 +130,16 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-Linux-shared-debug"
 
-  #   - name: copy antlr
-  #     shell: bash
-  #     run:  cp ./cpp/build/cgDebugMakeShared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/cgReleaseMakeShared/applications/
+  #  - name: create package Linux shared debug
+  #    run: |
+  #      chmod a+x ./cpp/buildArtifact/*.sh
+  #      ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared debug
 
-  #   - name: tar and zip shared libs
-  #     shell: bash
-  #     run: |
-  #       cd ./cpp/build/cgDebugMakeShared/applications
-  #       tar -zcf ../libsd.tgz *.so*
-  #       rm -rf *
-  #       mv ../libsd.tgz .
-
-  #   - name: publish artifacts
+  #   - name: publish artifact
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: LinuxSharedDebug
-  #       path: ./cpp/build/cgDebugMakeShared/applications/*
+  #       path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   LinuxSharedReleaseBuild:
@@ -214,25 +163,16 @@ jobs:
         cd cpp
         cmake --build --preset="Build-Linux-shared-release"
 
-    - name: copy antlr
-      shell: bash
-      run:  cp ./cpp/build/cgReleaseMakeShared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/cgReleaseMakeShared/applications/
-
-    - name: tar and zip shared libs
-      shell: bash
+    - name: create package Linux shared release
       run: |
-        cd ./cpp/build/cgReleaseMakeShared/applications
-        ls -lah
-        tar -zcf ../libsr.tgz *.so*
-        rm -rf *
-        mv ../libsr.tgz .
-        ls -lah
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared
 
-    - name: publish artifacts
+    - name: publish artifact
       uses: actions/upload-artifact@v2
       with: 
         name: LinuxSharedRelease
-        path: ./cpp/build/cgReleaseMakeShared/applications/*
+        path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   # Linux Static
@@ -257,15 +197,16 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-Linux-static-debug"
 
-  #   - name: copy antlr
-  #     shell: bash
-  #     run:  cp ./cpp/build/cgDebugMakeStatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/cgReleaseMakeStatic/applications/
+  #   - name: create package Linux static debug
+  #     run: |
+  #       chmod a+x ./cpp/buildArtifact/*.sh
+  #       ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static debug
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: LinuxStaticDebug
-  #       path: ./cpp/build/cgDebugMakeStatic/applications/*
+  #       path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   LinuxStaticReleaseBuild:
@@ -289,15 +230,16 @@ jobs:
         cd cpp
         cmake --build --preset="Build-Linux-static-release"
 
-    - name: copy antlr
-      shell: bash
-      run:  cp ./cpp/build/cgReleaseMakeStatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/cgReleaseMakeStatic/applications/
+    - name: create package Linux static release
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static release
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with: 
         name: LinuxStaticRelease
-        path: ./cpp/build/cgReleaseMakeStatic/applications/*
+        path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   # Win32 Shared
@@ -315,15 +257,16 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-VS2022-Win32-shared" --config Debug
 
-  #   - name: copy antlr
-  #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/cgMultiVS2022Win32Shared/Debug/applications/
+  #   - name: create package Win32 shared debug
+  #     run: |
+  #       chmod a+x ./cpp/buildArtifact/*.sh
+  #       ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared debug Win32
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: Win32SharedDebug
-  #       path: ./cpp/build/cgMultiVS2022Win32Shared/Debug/applications/*
+  #       path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   Win32SharedReleaseBuild:
@@ -340,15 +283,16 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2022-Win32-shared" --config Release
 
-    - name: copy antlr
-      shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/cgMultiVS2022Win32Shared/Release/applications/
+    - name: create package Win32 shared release
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared release Win32
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with: 
         name: Win32SharedRelease
-        path: ./cpp/build/cgMultiVS2022Win32Shared/Release/applications/*
+        path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   # Win32 Static
@@ -366,15 +310,16 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-VS2022-Win32-static" --config Debug
 
-  #   - name: copy antlr
-  #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/cgMultiVS2022Win32Static/Debug/applications/
+  #   - name: create package Win32 static debug
+  #     run: |
+  #       chmod a+x ./cpp/buildArtifact/*.sh
+  #       ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static debug Win32
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: Win32StaticDebug
-  #       path: ./cpp/build/cgMultiVS2022Win32Static/Debug/applications/*
+  #       path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   Win32StaticReleaseBuild:
@@ -391,15 +336,16 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2022-Win32-static" --config Release
 
-    - name: copy antlr
-      shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/cgMultiVS2022Win32Static/Release/applications/
+    - name: create package Win32 static release
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static release Win32
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with: 
         name: Win32StaticRelease
-        path: ./cpp/build/cgMultiVS2022Win32Static/Release/applications/*
+        path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   # x64 Shared
@@ -417,15 +363,16 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-VS2022-x64-shared" --config Debug
     
-  #   - name: copy antlr
-  #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/cgMultiVS2022x64Shared/Debug/applications/
+  #   - name: create package x64 shared debug
+  #     run: |
+  #       chmod a+x ./cpp/buildArtifact/*.sh
+  #       ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared debug x64
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: x64SharedDebug
-  #       path: ./cpp/build/cgMultiVS2022x64Shared/Debug/applications/*
+  #       path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   x64SharedReleaseBuild:
@@ -442,15 +389,16 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2022-x64-shared" --config Release
 
-    - name: copy antlr
-      shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/cgMultiVS2022x64Shared/Release/applications/
+    - name: create package x64 shared release
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared release x64
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with: 
         name: x64SharedRelease
-        path: ./cpp/build/cgMultiVS2022x64Shared/Release/applications/*
+        path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   # x64 Static
@@ -468,15 +416,16 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-VS2022-x64-static" --config Debug
 
-  #   - name: copy antlr
-  #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/cgMultiVS2022x64Static/Debug/applications/
+  #   - name: create package x64 static debug
+  #     run: |
+  #       chmod a+x ./cpp/buildArtifact/*.sh
+  #       ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static debug x64
 
   #   - name: publish artifacts
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: x64StaticDebug
-  #       path: ./cpp/build/cgMultiVS2022x64Static/Debug/applications/*
+  #       path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 
   x64StaticReleaseBuild:
@@ -493,14 +442,15 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2022-x64-static" --config Release
 
-    - name: copy antlr
-      shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/cgMultiVS2022x64Static/Release/applications/
+    - name: create package x64 static release
+      run: |
+        chmod a+x ./cpp/buildArtifact/*.sh
+        ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static release x64
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2
       with: 
         name: x64StaticRelease
-        path: ./cpp/build/cgMultiVS2022x64Static/Release/applications/*
+        path: ./cpp/buildArtifact/OpenSCENARIO_API_*
 
 

@@ -56,7 +56,7 @@ done
 # cd to script dir
 cd ${SCRIPT_DIR}
 # set OpenSCENARIO API folder
-OPEN_SCEANARIO_API=OpenSCENARIO.V1_2.API_${PLATFORM_NAME}${BINDING_TYPE_CAP}${BUILD_TYPE_CAP}
+OPEN_SCEANARIO_API=OpenSCENARIO_API_${PLATFORM_NAME}${BINDING_TYPE_CAP}${BUILD_TYPE_CAP}
 # current OpenSCENARIO libs
 OSC_LIBS="expressionsLib openScenarioLib antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist"
 # prepare OpenSCENARIO API folder
