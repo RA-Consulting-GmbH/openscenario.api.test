@@ -197,7 +197,7 @@ jobs:
 
     # Check packages
     - name: check packages
-      run: ls ./artifacts/OpenSCENARIO*
+      run: ls ./cpp/buildArtifact/OpenSCENARIO*
 
     - name: publish artifacts
       uses: actions/upload-artifact@v2

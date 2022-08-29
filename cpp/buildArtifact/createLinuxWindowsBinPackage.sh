@@ -99,7 +99,10 @@ if [ ${PLATFORM_NAME} == "Linux" ] ; then
         exit -1
     fi
 else
-    if [ ! -d "${SCRIPT_DIR}/../build/cgMultiVS2022${PLATFORM_NAME}${BINDING_TYPE_CAP}/" ] ; then
+    VISUAL_STUDIO=""
+    # determine Visual Studio version
+    for j in 2010 2012 2013 2015 2017 2019 2022; do if [[ -d "${SCRIPT_DIR}/../build/cgMultiVS${j}${PLATFORM_NAME}${BINDING_TYPE_CAP}" ]]; then VISUAL_STUDIO=${j}; break; fi; done
+    if [ "${VISUAL_STUDIO}" == "" ] || [ ! -d "${SCRIPT_DIR}/../build/cgMultiVS${VISUAL_STUDIO}${PLATFORM_NAME}${BINDING_TYPE_CAP}/" ] ; then
         echo "Please run './generateWindows.bat (VS2010|...|VS2022) ${BUILD_TYPE} ${BINDING_TYPE} ${PLATFORM_NAME} make' to compile the OpenSCENARIO libraries!"
         exit -1
     fi
@@ -117,7 +120,7 @@ if [ ${PLATFORM_NAME} == "Linux" ] ; then
 fi
 
 # platform dependent build folder
-PLATFORM_SPECIFIC_PATH="cgMultiVS2022${PLATFORM_NAME}${BINDING_TYPE_CAP}"
+PLATFORM_SPECIFIC_PATH="cgMultiVS${VISUAL_STUDIO}${PLATFORM_NAME}${BINDING_TYPE_CAP}"
 if [ ${PLATFORM_NAME} == "Linux" ] ; then
     PLATFORM_SPECIFIC_PATH="cg${BUILD_TYPE_CAP}Make${BINDING_TYPE_CAP}"
 fi
