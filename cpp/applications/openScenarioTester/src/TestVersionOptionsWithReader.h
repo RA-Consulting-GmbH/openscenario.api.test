@@ -16,7 +16,7 @@
  */
 
 #pragma once
-#include <xstring>
+#include <string>
 
 namespace NET_ASAM_OPENSCENARIO
 {

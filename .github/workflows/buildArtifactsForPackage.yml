@@ -1,4 +1,4 @@
-name: OpenScenarioV1_1CppArtifacts
+name: OpenScenarioCppArtifacts
 on:
   workflow_dispatch:
     # Inputs the workflow accepts.
@@ -25,117 +25,171 @@ jobs:
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: LinuxSharedDebug
-    #     path: ./cpp/build/output/Linux_shared/Debug
-
-    # - name: unzip artifacts LinuxSharedDebug libs.tgz
+    #     path: ./cpp/build
+    # - name: unzip output
     #   shell: bash
     #   run: |
-    #     cd ./cpp/build/output/Linux_shared/Debug
-    #     tar -zxf libsd.tgz
-    #     rm -f libsd.tgz
+    #     cd ./cpp/build
+    #     tar -zxf out.tgz
+    #     rm out.tgz
 
     - name: get artifacts LinuxSharedRelease
       uses: actions/download-artifact@v2
       with:
         name: LinuxSharedRelease
-        path: ./cpp/build/output/Linux_shared/Release
-
-    - name: unzip artifacts LinuxSharedRelease libs.tgz
+        path: ./cpp/build
+    - name: unzip output LinuxSharedDebug
       shell: bash
       run: |
-        cd ./cpp/build/output/Linux_shared/Release
-        tar -zxf libsr.tgz
-        rm -f libsr.tgz
-        ls -lah
+        cd ./cpp/build
+        tar -zxf out.tgz
+        rm out.tgz
 
     # - name: get artifacts LinuxStaticDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: LinuxStaticDebug
-    #     path: ./cpp/build/output/Linux_static/Debug
+    #     path: ./cpp/build
+    # - name: unzip output LinuxStaticDebug
+    #   shell: bash
+    #   run: |
+    #     cd ./cpp/build
+    #     tar -zxf out.tgz
+    #     rm out.tgz
 
     - name: get artifacts LinuxStaticRelease
       uses: actions/download-artifact@v2
       with:
         name: LinuxStaticRelease
-        path: ./cpp/build/output/Linux_static/Release
+        path: ./cpp/build
+    - name: unzip output LinuxStaticRelease
+      shell: bash
+      run: |
+        cd ./cpp/build
+        tar -zxf out.tgz
+        rm out.tgz
 
     # Win32 builds
     # - name: get artifacts Win32SharedDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: Win32SharedDebug
-    #     path: ./cpp/build/output/Win32_shared/Debug
+    #     path: ./cpp/build
+    # - name: unzip output Win32SharedDebug
+    #   shell: bash
+    #   run: |
+    #     cd ./cpp/build
+    #     tar -zxf out.tgz
+    #     rm out.tgz
 
     - name: get artifacts Win32SharedRelease
       uses: actions/download-artifact@v2
       with:
         name: Win32SharedRelease
-        path: ./cpp/build/output/Win32_shared/Release
+        path: ./cpp/build
+    - name: unzip output Win32SharedRelease
+      shell: bash
+      run: |
+        cd ./cpp/build
+        tar -zxf out.tgz
+        rm out.tgz
 
     # - name: get artifacts Win32StaticDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: Win32StaticDebug
-    #     path: ./cpp/build/output/Win32_static/Debug
+    #     path: ./cpp/build
+    # - name: unzip output Win32StaticDebug
+    #   shell: bash
+    #   run: |
+    #     cd ./cpp/build
+    #     tar -zxf out.tgz
+    #     rm out.tgz
 
     - name: get artifacts Win32StaticRelease
       uses: actions/download-artifact@v2
       with:
         name: Win32StaticRelease
-        path: ./cpp/build/output/Win32_static/Release
+        path: ./cpp/build
+    - name: unzip output Win32StaticRelease
+      shell: bash
+      run: |
+        cd ./cpp/build
+        tar -zxf out.tgz
+        rm out.tgz
 
     # x64 builds
     # - name: get artifacts x64SharedDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: x64SharedDebug
-    #     path: ./cpp/build/output/x64_shared/Debug
+    #     path: ./cpp/build
+    # - name: unzip output x64SharedDebug
+    #   shell: bash
+    #   run: |
+    #     cd ./cpp/build
+    #     tar -zxf out.tgz
+    #     rm out.tgz
 
     - name: get artifacts x64SharedRelease
       uses: actions/download-artifact@v2
       with:
         name: x64SharedRelease
-        path: ./cpp/build/output/x64_shared/Release
+        path: ./cpp/build
+    - name: unzip output x64SharedRelease
+      shell: bash
+      run: |
+        cd ./cpp/build
+        tar -zxf out.tgz
+        rm out.tgz
 
     # - name: get artifacts x64StaticDebug
     #   uses: actions/download-artifact@v2
     #   with:
     #     name: x64StaticDebug
-    #     path: ./cpp/build/output/x64_static/Debug
+    #     path: ./cpp/build
+    # - name: unzip output x64StaticDebug
+    #   shell: bash
+    #   run: |
+    #     cd ./cpp/build
+    #     tar -zxf out.tgz
+    #     rm out.tgz
 
     - name: get artifacts x64StaticRelease
       uses: actions/download-artifact@v2
       with:
         name: x64StaticRelease
-        path: ./cpp/build/output/x64_static/Release
+        path: ./cpp/build
+    - name: unzip output x64StaticRelease
+      shell: bash
+      run: |
+        cd ./cpp/build
+        tar -zxf out.tgz
+        rm out.tgz
+        ls -l .
+
 
     # Create the devel packages
     - name: create package Linux shared
       run: |
         chmod a+x ./cpp/buildArtifact/*.sh
         ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared
-
     - name: create package Linux static
       run: |
         chmod a+x ./cpp/buildArtifact/*.sh
         ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static
-
     - name: create package Win32 shared
       run: |
         chmod a+x ./cpp/buildArtifact/*.sh
         ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared Win32
-
     - name: create package Win32 static
       run: |
         chmod a+x ./cpp/buildArtifact/*.sh
         ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh static Win32
-
     - name: create package x64 shared
       run: |
         chmod a+x ./cpp/buildArtifact/*.sh
         ./cpp/buildArtifact/createLinuxWindowsBinPackage.sh shared x64
-
     - name: create package x64 static
       run: |
         chmod a+x ./cpp/buildArtifact/*.sh
@@ -174,23 +228,17 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-Linux-shared-debug"
 
-  #   - name: copy antlr
+  #  - name: tar and zip output
   #     shell: bash
-  #     run:  cp ./cpp/build/cgDebugMakeShared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_shared/Release/
+  #    run: |
+  #      cd ./cpp/build
+  #      tar -zcf out.tgz cg*
 
-  #   - name: tar and zip shared libs
-  #     shell: bash
-  #     run: |
-  #       cd ./cpp/build/output/Linux_shared/Debug
-  #       tar -zcf ../libsd.tgz *.so*
-  #       rm -rf *
-  #       mv ../libsd.tgz .
-
-  #   - name: publish artifacts
+  #   - name: publish artifact
   #     uses: actions/upload-artifact@v2
   #     with: 
   #       name: LinuxSharedDebug
-  #       path: ./cpp/build/output/Linux_shared/Debug/*
+  #       path: ./cpp/build/out.tgz
 
 
   LinuxSharedReleaseBuild:
@@ -214,25 +262,17 @@ jobs:
         cd cpp
         cmake --build --preset="Build-Linux-shared-release"
 
-    - name: copy antlr
-      shell: bash
-      run:  cp ./cpp/build/cgReleaseMakeShared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_shared/Release/
-
-    - name: tar and zip shared libs
+    - name: tar and zip output
       shell: bash
       run: |
-        cd ./cpp/build/output/Linux_shared/Release
-        ls -lah
-        tar -zcf ../libsr.tgz *.so*
-        rm -rf *
-        mv ../libsr.tgz .
-        ls -lah
+        cd ./cpp/build
+        tar -zcf out.tgz cg*
 
-    - name: publish artifacts
+    - name: publish artifact
       uses: actions/upload-artifact@v2
       with: 
         name: LinuxSharedRelease
-        path: ./cpp/build/output/Linux_shared/Release/*
+        path: ./cpp/build/out.tgz
 
 
   # Linux Static
@@ -257,15 +297,17 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-Linux-static-debug"
 
-  #   - name: copy antlr
+  #   - name: tar and zip output
   #     shell: bash
-  #     run:  cp ./cpp/build/cgDebugMakeStatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_static/Release/
+  #     run: |
+  #       cd ./cpp/build
+  #       tar -zcf out.tgz cg*
 
-  #   - name: publish artifacts
-  #     uses: actions/upload-artifact@v2
-  #     with: 
-  #       name: LinuxStaticDebug
-  #       path: ./cpp/build/output/Linux_static/Debug/*
+  #     - name: publish artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: LinuxStaticDebug
+  #         path: ./cpp/build/out.tgz
 
 
   LinuxStaticReleaseBuild:
@@ -289,15 +331,17 @@ jobs:
         cd cpp
         cmake --build --preset="Build-Linux-static-release"
 
-    - name: copy antlr
+    - name: tar and zip output
       shell: bash
-      run:  cp ./cpp/build/cgReleaseMakeStatic/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/* ./cpp/build/output/Linux_static/Release/
+      run: |
+        cd ./cpp/build
+        tar -zcf out.tgz cg*
 
-    - name: publish artifacts
+    - name: publish artifact
       uses: actions/upload-artifact@v2
-      with: 
+      with:
         name: LinuxStaticRelease
-        path: ./cpp/build/output/Linux_static/Release/*
+        path: ./cpp/build/out.tgz
 
 
   # Win32 Shared
@@ -315,15 +359,17 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-VS2022-Win32-shared" --config Debug
 
-  #   - name: copy antlr
+  #   - name: tar and zip output
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/Win32_shared/Debug/
+  #     run: |
+  #       cd ./cpp/build
+  #       tar -zcf out.tgz cg*
 
-  #   - name: publish artifacts
-  #     uses: actions/upload-artifact@v2
-  #     with: 
-  #       name: Win32SharedDebug
-  #       path: ./cpp/build/output/Win32_shared/Debug/*
+  #     - name: publish artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: Win32SharedDebug
+  #         path: ./cpp/build/out.tgz
 
 
   Win32SharedReleaseBuild:
@@ -340,15 +386,17 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2022-Win32-shared" --config Release
 
-    - name: copy antlr
+    - name: tar and zip output
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022Win32Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_shared/Release/
+      run: |
+        cd ./cpp/build
+        tar -zcf out.tgz cg*
 
-    - name: publish artifacts
+    - name: publish artifact
       uses: actions/upload-artifact@v2
-      with: 
+      with:
         name: Win32SharedRelease
-        path: ./cpp/build/output/Win32_shared/Release/*
+        path: ./cpp/build/out.tgz
 
 
   # Win32 Static
@@ -366,15 +414,17 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-VS2022-Win32-static" --config Debug
 
-  #   - name: copy antlr
+  #   - name: tar and zip output
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/Win32_static/Debug/
+  #     run: |
+  #       cd ./cpp/build
+  #       tar -zcf out.tgz cg*
 
-  #   - name: publish artifacts
-  #     uses: actions/upload-artifact@v2
-  #     with: 
-  #       name: Win32StaticDebug
-  #       path: ./cpp/build/output/Win32_static/Debug/*
+  #     - name: publish artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: Win32StaticDebug
+  #         path: ./cpp/build/out.tgz
 
 
   Win32StaticReleaseBuild:
@@ -391,15 +441,17 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2022-Win32-static" --config Release
 
-    - name: copy antlr
+    - name: tar and zip output
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022Win32Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/Win32_static/Release/
+      run: |
+        cd ./cpp/build
+        tar -zcf out.tgz cg*
 
-    - name: publish artifacts
+    - name: publish artifact
       uses: actions/upload-artifact@v2
-      with: 
+      with:
         name: Win32StaticRelease
-        path: ./cpp/build/output/Win32_static/Release/*
+        path: ./cpp/build/out.tgz
 
 
   # x64 Shared
@@ -417,15 +469,17 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-VS2022-x64-shared" --config Debug
     
-  #   - name: copy antlr
+  #   - name: tar and zip output
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/x64_shared/Debug/
+  #     run: |
+  #       cd ./cpp/build
+  #       tar -zcf out.tgz cg*
 
-  #   - name: publish artifacts
-  #     uses: actions/upload-artifact@v2
-  #     with: 
-  #       name: x64SharedDebug
-  #       path: ./cpp/build/output/x64_shared/Debug/*
+  #     - name: publish artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: x64SharedDebug
+  #         path: ./cpp/build/out.tgz
 
 
   x64SharedReleaseBuild:
@@ -442,15 +496,17 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2022-x64-shared" --config Release
 
-    - name: copy antlr
+    - name: tar and zip output
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022x64Shared/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_shared/Release/
+      run: |
+        cd ./cpp/build
+        tar -zcf out.tgz cg*
 
-    - name: publish artifacts
+    - name: publish artifact
       uses: actions/upload-artifact@v2
-      with: 
+      with:
         name: x64SharedRelease
-        path: ./cpp/build/output/x64_shared/Release/*
+        path: ./cpp/build/out.tgz
 
 
   # x64 Static
@@ -468,15 +524,17 @@ jobs:
   #       cd cpp
   #       cmake --build --preset="Build-VS2022-x64-static" --config Debug
 
-  #   - name: copy antlr
+  #   - name: tar and zip output
   #     shell: bash
-  #     run:  cp ./cpp/build/cgMultiVS2022x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Debug/* ./cpp/build/output/x64_static/Debug/
+  #     run: |
+  #       cd ./cpp/build
+  #       tar -zcf out.tgz cg*
 
-  #   - name: publish artifacts
-  #     uses: actions/upload-artifact@v2
-  #     with: 
-  #       name: x64StaticDebug
-  #       path: ./cpp/build/output/x64_static/Debug/*
+  #     - name: publish artifact
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: x64StaticDebug
+  #         path: ./cpp/build/out.tgz
 
 
   x64StaticReleaseBuild:
@@ -493,14 +551,16 @@ jobs:
         cd cpp
         cmake --build --preset="Build-VS2022-x64-static" --config Release
 
-    - name: copy antlr
+    - name: tar and zip output
       shell: bash
-      run:  cp ./cpp/build/cgMultiVS2022x64Static/antlr4_runtime/src/antlr4_runtime/runtime/Cpp/dist/Release/* ./cpp/build/output/x64_static/Release/
+      run: |
+        cd ./cpp/build
+        tar -zcf out.tgz cg*
 
-    - name: publish artifacts
+    - name: publish artifact
       uses: actions/upload-artifact@v2
-      with: 
+      with:
         name: x64StaticRelease
-        path: ./cpp/build/output/x64_static/Release/*
+        path: ./cpp/build/out.tgz
 
 

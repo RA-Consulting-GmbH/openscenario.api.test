@@ -19,6 +19,8 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
+#include <map>
 
 #include "ErrorLevel.h"
 #include "FileContentMessage.h"

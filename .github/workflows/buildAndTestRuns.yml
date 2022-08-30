@@ -36,7 +36,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/Linux_shared/Debug
+        cd cpp/build/cgDebugMakeShared/applications/openScenarioTester
         chmod a+x *
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
         ./OpenScenarioTester && (exit 0) 
@@ -66,7 +66,7 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/Linux_shared/Release
+        cd cpp/build/cgReleaseMakeShared/applications/openScenarioTester
         chmod a+x *
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
         ./OpenScenarioTester && (exit 0) 
@@ -96,7 +96,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/Linux_static/Debug
+        cd cpp/build/cgDebugMakeStatic/applications/openScenarioTester
         chmod a+x *
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
         ./OpenScenarioTester && (exit 0) 
@@ -126,7 +126,7 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/Linux_static/Release
+        cd cpp/build/cgReleaseMakeStatic/applications/openScenarioTester
         chmod a+x *
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
         ./OpenScenarioTester && (exit 0) 
@@ -149,7 +149,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/Win32_shared/Debug
+        cd cpp/build/cgMultiVS2022Win32Shared/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -170,7 +170,7 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/Win32_shared/Release
+        cd cpp/build/cgMultiVS2022Win32Shared/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -191,7 +191,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/x64_shared/Debug
+        cd cpp/build/cgMultiVS2022x64Shared/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -212,7 +212,7 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/x64_shared/Release
+        cd cpp/build/cgMultiVS2022x64Shared/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -233,7 +233,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/Win32_static/Debug
+        cd cpp/build/cgMultiVS2022Win32Static/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -254,7 +254,7 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/Win32_static/Release
+        cd cpp/build/cgMultiVS2022Win32Static/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -275,7 +275,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/x64_static/Debug
+        cd cpp/build/cgMultiVS2022x64Static/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -296,5 +296,5 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/x64_static/Release
+        cd cpp/build/cgMultiVS2022x64Static/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 

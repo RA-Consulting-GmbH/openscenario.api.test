@@ -28,9 +28,12 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/Linux_shared/Release
+        cd cpp/build/cgReleaseMakeShared/applications
         chmod a+x *
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
-        ./ExpressionTester && (exit 0) 
-        ./IndexerTester && (exit 0) 
+        cd expressionsTester
+        ./ExpressionTester && (exit 0)
+        cd ../indexerTester/ 
+        ./IndexerTester && (exit 0)
+        cd ../openScenarioTester 
         ./OpenScenarioTester && (exit 0) 
