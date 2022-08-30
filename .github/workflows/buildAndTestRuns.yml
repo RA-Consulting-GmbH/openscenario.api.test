@@ -149,7 +149,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/cgMultiVS2022Win32Shared/Debug/applications/openScenarioTester
+        cd cpp/build/cgMultiVS2022Win32Shared/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -170,7 +170,7 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/cgMultiVS2022Win32Shared/Release/applications/openScenarioTester
+        cd cpp/build/cgMultiVS2022Win32Shared/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -191,7 +191,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/cgMultiVS2022x64Shared/Debug/applications/openScenarioTester
+        cd cpp/build/cgMultiVS2022x64Shared/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -212,7 +212,7 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/cgMultiVS2022x64Shared/Release/applications/openScenarioTester
+        cd cpp/build/cgMultiVS2022x64Shared/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -233,7 +233,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/cgMultiVS2022Win32Static/Debug/applications/openScenarioTester
+        cd cpp/build/cgMultiVS2022Win32Static/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -254,7 +254,7 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/cgMultiVS2022Win32Static/Release/applications/openScenarioTester
+        cd cpp/build/cgMultiVS2022Win32Static/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -275,7 +275,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/cgMultiVS2022x64Static/Debug/applications/openScenarioTester
+        cd cpp/build/cgMultiVS2022x64Static/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -296,5 +296,5 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/cgMultiVS2022x64Static/Release/applications/openScenarioTester
+        cd cpp/build/cgMultiVS2022x64Static/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 
