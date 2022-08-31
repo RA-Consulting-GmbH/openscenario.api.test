@@ -1210,28 +1210,53 @@ Here is a shortened version of the generated output:
 
 [source,bash]
 ----
-$ cmake --preset="Linux-static-debug"
+user:~/Projects/openscenario.api.test/cpp$ cmake --preset="Linux-static-debug"
 Preset CMake variables:
 
-  BUILD_SHARED_LIBS:BOOL="OFF"
-  CMAKE_BUILD_TYPE="Debug"
-  MASTER_PROJECT:STRING="TRUE"
+   BUILD_SHARED_LIBS:BOOL="OFF"
+   CMAKE_BUILD_TYPE="Debug"
+   MASTER_PROJECT:STRING="TRUE"
 
 Preset environment variables:
 
-  PR_ENV_BINDING="Static"
-  PR_ENV_BUILD_TYPE="Debug"
+   PR_ENV_BINDING="Static"
+   PR_ENV_BUILD_TYPE="Debug"
+
+-- The C compiler identification is GNU 11.2.0
+-- The CXX compiler identification is GNU 11.2.0
 
 [...]
+
+-- OpenScenario-Cpp
+-- Single-configuration generator: Debug
+-- OpenScenario-Cpp configuration: Debug
+-- Platform: ; Shared lib: OFF
+-- Found ANTLR:
+/home/user/Projects/openscenario.api.test/cpp/thirdparty/antlr/antlr-4.8-complete.jar
+(found version "4.8")
+Program version: 1.3.0
+OSC std version: 1.2.0
+-- Subprojects:
+--
 OpenScenarioLib
--- lib binding: STATIC
+-- OpenScenarioLib: using Antlr static
+--
+ExpressionsLib
+-- ExpressionsLib: using Antlr static
+--
 OpenScenarioReader
+--
 OpenScenarioTester
+--
 IndexerTester
+-- IndexerTester: using Antlr static
+--
+ExpressionsTester
 -- Configuring done
 -- Generating done
--- Build files have been written to: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/cgDebugMakeStatic
-user:/mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp$
+-- Build files have been written to:
+/home/user/Projects/openscenario.api.test/cpp/build/cgDebugMakeStatic
+user:~/Projects/openscenario.api.test/cpp$
 ----
 
 On Windows the equivalent command to build a debug (and also the release) version with static libraries is:
@@ -1265,24 +1290,40 @@ After successful compilation you should see an output similar to this (shortened
 
 [source,bash]
 ----
-[ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers1.cpp.o
-[ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers2.cpp.o
-[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLParser.cpp.o
-[ 98%] Linking CXX executable ../../../cgDebugMakeStatic/applications/indexerTester/IndexerTester
-[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLLexer.cpp.o
-[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/src/loader/XmlScenarioLoader.cpp.o
-[ 98%] Built target IndexerTester
-[ 99%] Linking CXX static library ../../../cgDebugMakeStatic/openScenarioLib/libOpenScenarioLib.a
-[ 99%] Built target OpenScenarioLib
-[100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
-[100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/OpenScenarioTester.cpp.o
-[100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
-[100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
-[100%] Linking CXX executable ../../../../cgDebugMakeStatic/applications/openScenarioReader/OpenScenarioReader
-[100%] Linking CXX executable ../../../../cgDebugMakeStatic/applications/openScenarioTester/OpenScenarioTester
-[100%] Built target OpenScenarioReader
-[100%] Built target OpenScenarioTester
-$
+user:~/Projects/openscenario.api.test/cpp$ cmake --build --preset="Build-Linux-static-debug" -j8 [  1%] Creating directories for 'antlr4_runtime'
+[  2%] Performing download step (verify and extract) for 'antlr4_runtime'
+
+[...]
+
+[ 76%] Building CXX object
+openScenarioLib/CMakeFiles/OpenScenarioLib.dir/antlr4cpp_generated_src/XMLParser/XMLParserBaseListener.cpp.o
+[ 77%] Building CXX object
+openScenarioLib/CMakeFiles/OpenScenarioLib.dir/antlr4cpp_generated_src/XMLParser/XMLParserListener.cpp.o
+[ 77%] Linking CXX static library libOpenScenarioLib.a [ 77%] Built target OpenScenarioLib [ 78%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
+[ 78%] Building CXX object
+applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
+[ 78%] Linking CXX executable OpenScenarioReader [ 78%] Built target OpenScenarioReader [ 79%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
+
+
+[...]
+
+[ 97%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/TestAlksV1_2.cpp.o
+[ 97%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/TestParameterValidationV1_2.cpp.o
+[ 98%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/TestVariableValidationV1_2.cpp.o
+[ 98%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/TestDeprecatedValidationV1_2.cpp.o
+[ 98%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/TestExamplesOscV1_2.cpp.o
+[ 99%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/helper/EgoCheckerRuleV1_0.cpp.o
+[ 99%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/helper/EgoCheckerRuleV1_1.cpp.o
+[100%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/helper/EgoCheckerRuleV1_2.cpp.o
+[100%] Linking CXX executable OpenScenarioTester [100%] Built target OpenScenarioTester user:~/Projects/openscenario.api.test/cpp$
 ----
 
 The Windows pendant for starting compilation:
@@ -1487,7 +1528,7 @@ Selecting the correct version of Visual Studio (and of course the right architec
 
 Click on the "Configure" button and select *Visual Studio 17 2022* as shown in the screenshot below:
 
-image:images/artifacts/cmBuildArtifactSelectVS2019.png[cmake_gui,width=380,float="center",align="center"]
+image:images/artifacts/cmBuildArtifactSelectVS2022.png[cmake_gui,width=380,float="center",align="center"]
 
 Next select the correct processor architecture.
 In the current example this *x64*.
@@ -1527,7 +1568,7 @@ user:~/Projects$ tar -zxf OpenSCENARIO_API_LinuxStaticRelease_2022.08.29.tgz
 ==== Step 2: Configure and generate
 The cmake configuration and generate step is quite easy.
 Just enter the artifact directory ```cd OpenSCENARIO_API_LinuxStaticRelease/``` and enter the following command ```cmake -S . -B build/Lin```.
-The generated output is the following:
+The generated output on Ubuntu 22.04.1 is the following:
 
 [source,bash]
 ----
