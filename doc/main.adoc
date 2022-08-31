@@ -1300,10 +1300,14 @@ user:~/Projects/openscenario.api.test/cpp$ cmake --build --preset="Build-Linux-s
 openScenarioLib/CMakeFiles/OpenScenarioLib.dir/antlr4cpp_generated_src/XMLParser/XMLParserBaseListener.cpp.o
 [ 77%] Building CXX object
 openScenarioLib/CMakeFiles/OpenScenarioLib.dir/antlr4cpp_generated_src/XMLParser/XMLParserListener.cpp.o
-[ 77%] Linking CXX static library libOpenScenarioLib.a [ 77%] Built target OpenScenarioLib [ 78%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
+[ 77%] Linking CXX static library libOpenScenarioLib.a
+[ 77%] Built target OpenScenarioLib
+[ 78%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
 [ 78%] Building CXX object
 applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
-[ 78%] Linking CXX executable OpenScenarioReader [ 78%] Built target OpenScenarioReader [ 79%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
+[ 78%] Linking CXX executable OpenScenarioReader
+[ 78%] Built target OpenScenarioReader
+[ 79%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
 
 [...]
 
@@ -1323,7 +1327,9 @@ applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/helper/Ego
 applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/helper/EgoCheckerRuleV1_1.cpp.o
 [100%] Building CXX object
 applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/helper/EgoCheckerRuleV1_2.cpp.o
-[100%] Linking CXX executable OpenScenarioTester [100%] Built target OpenScenarioTester user:~/Projects/openscenario.api.test/cpp$
+[100%] Linking CXX executable OpenScenarioTester
+[100%] Built target OpenScenarioTester
+user:~/Projects/openscenario.api.test/cpp$
 ----
 
 The Windows pendant for starting compilation:
