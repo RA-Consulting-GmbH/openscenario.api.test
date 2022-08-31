@@ -1567,7 +1567,7 @@ user:~/Projects$ tar -zxf OpenSCENARIO_API_LinuxStaticRelease_2022.08.29.tgz
 
 ==== Step 2: Configure and generate
 The cmake configuration and generate step is quite easy.
-Just enter the artifact directory ```cd OpenSCENARIO_API_LinuxStaticRelease/``` and enter the following command ```cmake -S . -B build/Lin```.
+Just enter the artifact directory `cd OpenSCENARIO_API_LinuxStaticRelease/` and enter the following command `cmake -S . -B build/Lin`.
 The generated output on Ubuntu 22.04.1 is the following:
 
 [source,bash]
@@ -1598,7 +1598,7 @@ Building all into: /home/user/Projects/osc/OpenSCENARIO_API_LinuxStaticRelease/b
 
 ==== Step 3: Build or compile the project
 In this last step we compile the generated project with `make`.
-Just enter the newly created build folder ```cd build/Lin/``` and then enter the command ```make```.
+Just enter the newly created build folder `cd build/Lin/` and then enter the command `make`.
 The output should look like this
 
 [source,bash]
