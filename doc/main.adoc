@@ -1290,7 +1290,8 @@ After successful compilation you should see an output similar to this (shortened
 
 [source,bash]
 ----
-user:~/Projects/openscenario.api.test/cpp$ cmake --build --preset="Build-Linux-static-debug" -j8 [  1%] Creating directories for 'antlr4_runtime'
+user:~/Projects/openscenario.api.test/cpp$ cmake --build --preset="Build-Linux-static-debug" -j8
+[  1%] Creating directories for 'antlr4_runtime'
 [  2%] Performing download step (verify and extract) for 'antlr4_runtime'
 
 [...]
@@ -1303,7 +1304,6 @@ openScenarioLib/CMakeFiles/OpenScenarioLib.dir/antlr4cpp_generated_src/XMLParser
 [ 78%] Building CXX object
 applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
 [ 78%] Linking CXX executable OpenScenarioReader [ 78%] Built target OpenScenarioReader [ 79%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
-
 
 [...]
 
