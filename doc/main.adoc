@@ -22,15 +22,15 @@ validate an OpenSCENARIO file.
 To use the library as a standalone program we would typically use the
 compiled C++ binary
 
-`/cpp/build/output/Linux_shared/Release/OpenScenarioReader`. 
+`/cpp/build/cgReleaseMakeShared/applications/OpenScenarioReader`. 
 
 See section <<BuildingTheBinaries,Building the binaries>> for building instructions.
 
 For example the binary is located in the following directory, dependent
 on your development platform: 
 
-* Linux: `./cpp/build/output/Linux_shared/Release/OpenScenarioReader`
-* Windows `./cpp/build/output/x64_shared/Release/OpenScenarioReader`
+* Linux: `./cpp/build/cgReleaseMakeShared/applications/OpenScenarioReader`
+* Windows `./cpp/build/cgMultiVS2019x64Shared/applications/OpenScenarioReader/Release`
 
 Navigate your command shell to the appropriate folder above and first
 execute the following command on Linux once to tell the runtime system
@@ -51,15 +51,16 @@ $ ./OpenScenarioReader
 This will generate the following output:
 
 ```
-****************************************
-* ASAM OpenSCENARIO 1.2 Checker (2021) *
-****************************************
+******************************************
+* ASAM OpenSCENARIO 1.3.0 Checker (2022) *
+******************************************
 OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>]] | -v]
 Options:
 -i    <filename> file to be validated
 -d    <directory> directory to be validated
 -p    <paramfilename> a file with name/value pairs. One line per name/value pair. tab separated
 -v1_1 Use standard version 1.1
+-v1_2 Use standard version 1.2
 -v    Print program version
 ```
 
@@ -76,9 +77,9 @@ $ ./OpenScenarioReader -i examples/simpleExample/SimpleExample.xosc
 Result:
 
 ```
-****************************************
-* ASAM OpenSCENARIO 1.1 Checker (2021) *
-****************************************
+******************************************
+* ASAM OpenSCENARIO 1.3.0 Checker (2022) *
+******************************************
 Checking 'examples/simpleExample/SimpleExample.xosc'
 Validation succeeded with 0 errors and 0 warnings.
 ```
@@ -94,7 +95,7 @@ Result:
 
 ```
 ******************************************
-* ASAM OpenSCENARIO 1.2.0 Checker (2021) *
+* ASAM OpenSCENARIO 1.3.0 Checker (2022) *
 ******************************************
 Checking 'examples/defectExample/DefectExample.xosc'
 ERROR: Cannot resolve parameter 'DefectParameter' (41,53)
@@ -118,7 +119,7 @@ One line per definition. '#' is used for comments. We use tab as a delimiter bet
 
 ```
 ******************************************
-* ASAM OpenSCENARIO 1.2.0 Checker (2021) *
+* ASAM OpenSCENARIO 1.3.0 Checker (2022) *
 ******************************************
 Used Parameters:
     EgoStartS   60
@@ -140,11 +141,11 @@ Result:
 
 ```
 ******************************************
-* ASAM OpenSCENARIO 1.2.0 Checker (2021) *
+* ASAM OpenSCENARIO 1.3.0 Checker (2022) *
 ******************************************
-Program version 1.2.0
+Program version 1.3.0
 ```
-Telling us that implementation version is 1.2.0. This is independent from the OpenSCENARIO standard version. Compatibility to standard version 1.0 and 1.1 is currently supported.
+Telling us that implementation version is 1.3.0. This is independent from the OpenSCENARIO standard version. Compatibility to standard version OpenSCENARIO 1.0, OpenSCENARIO 1.1 and OpenSCENARIO 1.3.0 is currently supported.
 
 === Embedding the Library 
 To use the OpenSCENARIO as an embedded library we use the compiled library `libOpenScenarioLib` on Linux and on Windows. Both libraries on Linux as well as on Windows have third party dependencies. 
@@ -155,7 +156,7 @@ See the link:{levelToBaseDir}/README.md[README.MD] file in the project root for 
 Windows or we build the 
 * *shared version* results in shared versions of the third party libraries which have to be linked to
 the project, too. Currently these are the two files
-`libOpenScenario.so.1.1.0` and `libantlr4-runtime.so.4.8` on Linux
+`libOpenScenario.so.1.3.0` and `libantlr4-runtime.so.4.8` on Linux
 and `libOpenScenario.dll` and `libantlr4-runtime.dll` on Windows.
 
 For both, static and shared version `CMakeLists.txt` template files are already generated. The zip-file `openScenario.zip` contains templates for static and shared builds for both Linux and Windows.
@@ -173,14 +174,14 @@ const auto kMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::MessageLogge
 
 // Instantiating the factory
 std::string fileName = _executablePath + "/" + kInputDir + "DoubleLaneChanger.xosc";
-auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_1::XmlScenarioLoaderFactory(fileName);
+auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_2::XmlScenarioLoaderFactory(fileName);
 
 // Creating the loader
 auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 
 // Loading 
-auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_1::IOpenScenario>
-    (loader->Load(kMessageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_1::IOpenScenario).name()));
+auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_2::IOpenScenario>
+    (loader->Load(kMessageLogger)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_2::IOpenScenario).name()));
 
 //Check for errors
 if (!kMessageLogger->HasErrors())
@@ -206,7 +207,7 @@ auto messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger
 auto catalogMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
 // Instantiating the factory
-NET_ASAM_OPENSCENARIO::V_1_1::XmlScenarioImportLoaderFactory
+NET_ASAM_OPENSCENARIO::v1_2::XmlScenarioImportLoaderFactory
     loaderFactory(catalogMessageLogger, _executablePath + "/" + kInputDir +
     "simpleImport/simpleImport.xosc");
 
@@ -214,8 +215,8 @@ NET_ASAM_OPENSCENARIO::V_1_1::XmlScenarioImportLoaderFactory
 auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 
 // Loading the scenario
-auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::V_1_1::OpenScenarioImpl>(loader->Load(messageLogger)
-    ->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::V_1_1::OpenScenarioImpl).name()));
+auto openScenario = std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl>(loader->Load(messageLogger)
+    ->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl).name()));
 
 // Get the list of scenario objects
 auto scenarioObjects = openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()
@@ -233,9 +234,9 @@ for (auto&& scenarioObject : scenarioObjects)
         {
             auto catalogRef = catalogReference->GetRef();
             // Now check the type.
-            if ( NET_ASAM_OPENSCENARIO::V_1_1::CatalogHelper::IsVehicle(catalogRef))
+            if ( NET_ASAM_OPENSCENARIO::v1_2::CatalogHelper::IsVehicle(catalogRef))
             {
-                auto vehicle = NET_ASAM_OPENSCENARIO::V_1_1::CatalogHelper::AsVehicle(catalogRef);
+                auto vehicle = NET_ASAM_OPENSCENARIO::v1_2::CatalogHelper::AsVehicle(catalogRef);
                 // Now you can access the resolved vehicle
                 auto axles = vehicle->GetAxles();
                 // get the additonal axles
@@ -291,7 +292,7 @@ injectedParamters.emplace("testUnsignedShort", "2");
 injectedParamters.emplace("testDouble", "2.0");
 
 // Creating the loader with a file resource locator and the injected parameters
-auto loaderFactory = NET_ASAM_OPENSCENARIO::V_1_0::XmlScenarioLoaderFactory(filename);
+auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_2::XmlScenarioLoaderFactory(filename);
 auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 auto ptr = loader->Load(_messageLogger, injectedProperties);
 ----
@@ -313,14 +314,17 @@ This article is about some fundamental aspects in the API's architecture. It may
 === Generative approach
 The backbone of the OpenSCENARIO API is represented by classes, enumerations and interfaces generated from a released OpenSCENARIO model. Therefore, the API is tightly coupled to the model.
 
-This paradigm makes the API highly consistent with the UML model. If we have a class in the UML model called `LaneChangeTarget` we will find a corresponding interface `ILaneChangeTarget` in the namespace `NET_ASAM_OPENSCENARIO::v1_1` or in the namespace `NET_ASAM_OPENSCENARIO::v1_1`. If this class has a property called `relativeTargetLane`, we can be sure that there is a corresponding getter in the interface which is called `GetRelativeTargetLane`. Consistently, if this model property `relativeTargetLane` is of the model type `RelativeTargetLane` the getter will return a result of `IRelativeTargetLane`.
+This paradigm makes the API highly consistent with the UML model.
+E.g. we have a class in the UML model called `LaneChangeTarget` in the OpenSCENARIO 1.0 version.
+As the versions 1.x are downward compatible for 1.0, we will find a corresponding interface `ILaneChangeTarget` in the namespaces `NET_ASAM_OPENSCENARIO::v1_0`, `NET_ASAM_OPENSCENARIO::v1_1`,`NET_ASAM_OPENSCENARIO::v1_2`.
+If this class has a property called `relativeTargetLane`, we can be sure, that there is a corresponding getter in the interface which is called `GetRelativeTargetLane`. Consistently, if this model property `relativeTargetLane` is of the model type `RelativeTargetLane` the getter will return a result of `IRelativeTargetLane`.
 
 As an example: `ILaneChangeTarget`
 
 [source,cpp]
 ----
 /**
- * This is a automatic generated file according to the OpenSCENARIO specification version 1.0
+ * This is a automatic generated file according to the OpenSCENARIO specification version 1.2
  * <p>
  * From OpenSCENARIO class model specification:
  * Defines the target lane of the LaneChangeAction.
@@ -354,38 +358,38 @@ class ILaneChangeTarget : public virtual IOpenScenarioModelElement
 
 This pattern is is applied to all classes, interfaces and enumerations of the model. Not even that, also the descriptions in the classes, interfaces, enumerations and properties are consistent with the model annotations from UML. The documentation in the javadoc is fully in synch with the annotations in the UML model. So, the generative approach offers great consistency with a single point of truth in the UML model rather than an imaginary 'copy and paste' consistency.
 
-This leads to great efficiency and a clean architecture where more than 95% of the source code is automatically generated. This elevates productivity with about 397,532 lines of code created for the cpp project and allows transfer to other platforms like C++. Transfer comes with a fair amount of initial work as well as for keeping the platforms in synch over time.
+This leads to great efficiency and a clean architecture where more than 95% of the source code is automatically generated. This elevates productivity with over a million lines of code created for the cpp projec.
 
 === Don't-edit-generated-files policy
 All generated files are located in the `generated` folder. These files must not be edited manually. Moreover it is recommended to consult experienced developers if changes in the generated code are needed.
 
 === Generative approach and product dimensions
 
-Product dimensions can lead to a high amount of work for creating and maintaining product lines. For example a dimension could be the _programming platform_. In order to provide a product for different programming platforms, there might be a need for a single source of code and additional adapters to other platforms. Java and C\++ might be coupled through JNI etc. Practically, this is often very painful. Java is not the #1 platform on desktop UI systems whereas C++ is often not allowed to run on backend servers. Using integrated java code in a C\++ environment or using C++ in a java environment often feels unhandy and end up in the worst from both world: Our code is dependent on a java VM as well as on the binary platform. One solution is to maintain a common architecture with a single model and generators that take minimal amount to deploy the architecture to the different platforms. This is exactly where a generative approach has its strength and an efficient workflow is able to produce and to maintain source code. Other product dimensions are _versions_ (1.0, 1.1, 2.0 etc.), operating systems (Linux, Mac, Windows), deployment platforms (Server, desktop, embedded) etc. In these multidimensional space (e.g. providing a native lib for mac and version 1.0) a generative approach is one way to manage dependencies and minimize the amount of work.
+Product dimensions can lead to a high amount of work for creating and maintaining product lines. For example a dimension could be the _programming platform_. In order to provide a product for different programming platforms, there might be a need for a single source of code and additional adapters to other platforms. Java and C\++ might be coupled through JNI etc. Practically, this is often very painful. Java is not the #1 platform on desktop UI systems whereas C++ is often not allowed to run on backend servers. Using integrated java code in a C\++ environment or using C++ in a java environment often feels unhandy and end up in the worst from both world: Our code is dependent on a java VM as well as on the binary platform. One solution is to maintain a common architecture with a single model and generators that take minimal amount to deploy the architecture to the different platforms. This is exactly where a generative approach has its strength and an efficient workflow is able to produce and to maintain source code. Other product dimensions are _program versions_ (1.0, 1.1, 2.0 etc.), operating systems (Linux, Mac, Windows), deployment platforms (Server, desktop, embedded) etc. In these multidimensional space (e.g. providing a native lib for mac and version 1.0) a generative approach is one way to manage dependencies and minimize the amount of work.
 
 Remarks: The API currently supports C\++ only. The java product line has been given up in favor of developing a C++ product. The java product line is frozen in the 1.0 version of the library.
 
-=== Versioning as a product dimension
+=== Standard versioning as a product dimension
 
-When supporting a standard, versioning is a product dimension that should be supported. Since we cannot look in the future and foresee the changes, we still can be sure that changes happen. So, the worst case is not to be faced with incompatible changes of a new version, but a dead-end standard that does suffer from a bad change management. Therefore, even when our world is "version 1.1 only" right at that moment, we better have strategies for versioning, migration etc.. Change management is considered an important architectural aspect.
+When supporting a standard, versioning of this standard is a product dimension that should be supported. Since we cannot look in the future and foresee the changes, we still can be sure that changes will happen. So, the worst case is not to be faced with incompatible changes of a new standard version, but a dead-end standard that does suffer from a bad change management. Therefore, even when our world is "OpenSCENARIO 1.3.0 only" right at that moment, we better have strategies for versioning, migration etc.. Change management is considered an important architectural aspect.
 
 === Providing compile time support
 
-As described above, if code is generated consistently with the UML model, we have everything ready when using the API at compile time. We can use the classes, the interfaces and the methods that are provided right off-the-shelf. We may make use of the documentation, code completion and the compiler detects misspellings and inconsistencies right before we are able to run a error prone program. So, when we follow the paradigm that costs for error detection and fixes rise extremely along the development cycle of a software, it is best to detect our errors as soon as we write it (low fixing costs) rather than after having the software delivered to the customer (high fixing costs). In this sense, generating concrete artifacts, like classes, enumerations, interfaces and methods is not only consistent with the UMl model (single source of domain knowledge) but also a great way for managing quality and costs. So, let the compiler be you friend.
+As described above, if code is generated consistently with the UML model, we have everything ready when using the API at compile time. We can use the classes, the interfaces and the methods that are provided right off-the-shelf. We may make use of the documentation, code completion and the compiler detects misspellings and inconsistencies right before we are able to run a error prone program. So, when we follow the paradigm that costs for error detection and fixes rise extremely along the development cycle of a software, it is best to detect our errors as soon as we write it (low fixing costs) rather than after having the software delivered to the customer (high fixing costs). In this sense, generating concrete artifacts, like classes, enumerations, interfaces and methods is not only consistent with the UML model (single source of domain knowledge) but also a great way for managing quality and costs. So, let the compiler be your friend.
 
 === Version management and namespaces
 
-As said `versioning` is a dimension in our software product line and we better have strategies to support different versions of the standard with our software. Since we cannot rely on downward compatibility, there are different aspects when providing compatibility to multiple versions. E.g. to declare artifacts as _deprecated_ or we transparently map new versions to older versions. The OpenSCENARIO API relies heavily on namespaces for different versions. They provide maximum separation among the different version of the standard. In many cases data structures change. For example an `EntityAction` in version 1.0 might have some other semantic as `EntityAction` in version 1.2 (as said: we cannot foresee it). The OpenSCENARIO API's policy is that the complete set of artefacts (interfaces, classes, enumerations) are created for every single version. This means, that there is a `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` and another interface `NET_ASAM_OPENSCENARIO::v1_1::IEntityAction`. So, every version specific set of classes, enumeration and interfaces provided by the API is self-contained and completely independent from other versions. This has benefits and drawbacks. A benefit, as said, is that the different versions are greatly decoupled. Old versions are very stable and do not change over time. E.g. once released, `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` will not change. This means the domain knowledge, models and the API itself are snapshots of a released standard. As the domain knowledge evolves, this explicitly results in a new version of the standard, a new version of the model, and a new version of the API.
+As said `standard versioning` is a dimension in our software product line and we better have strategies to support different versions of the standard with our software. Since we cannot rely on downward compatibility, there are different aspects when providing compatibility to multiple versions. E.g. to declare artifacts as _deprecated_ or we transparently map new standard versions to older standard versions. The OpenSCENARIO API relies heavily on namespaces for different versions. They provide maximum separation among the different version of the standard. In many cases data structures change. For example an `EntityAction` in version 1.0 might have some other semantic as `EntityAction` in version 1.3 (as said: we cannot foresee it). The OpenSCENARIO API's policy is that the complete set of artefacts (interfaces, classes, enumerations) are created for every single standard version. This means, that there is a `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` a distinct `NET_ASAM_OPENSCENARIO::v1_1::IEntityAction`. So, every standard version specific set of classes, enumeration and interfaces provided by the API is self-contained and completely independent from other standard versions. This has benefits and drawbacks. A benefit, as said, is that the different versions are greatly decoupled. Old versions are very stable and do not change over time. E.g. once released, `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` will not change. This means the domain knowledge, models and the API itself are snapshots of a released standard. As the domain knowledge evolves, this explicitly results in a new version of the standard, a new version of the model, and a new version of the API.
 
 
 === Drawback of separating versions
 
-The drawback is that with every new version, we have to deal with a complete new set of artefacts. Once we have used `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` in our program and the semantics have not changed for version 2.0, we don't wanna integrate `NET_ASAM_OPENSCENARIO::v2_0::IEntityAction` in the same way. And it's even worse when we have a new set of 200+ interfaces. As we expect that there *are only a few semantic changes*, let's say in 10% of the classes, integrating a complete set of new classes might be an effort that does not justify the amount of work.
-Fortunately, integrating a new version of the standard in the client code, that is downward compatible to an previous one is very simple. Just replace the name-spaces and the include versions. Use `NET_ASAM_OPENSCENARIO::v1_1` instead of `NET_ASAM_OPENSCENARIO::v1_0` and use
+The drawback is that with every new version, we have to deal with a complete new set of artefacts. Once we have used `NET_ASAM_OPENSCENARIO::v1_0::IEntityAction` in our program and the semantics have not changed for version 1.2, we don't wanna integrate `NET_ASAM_OPENSCENARIO::v1_2::IEntityAction` in the same way. And it's even worse when we have a new set of 200+ interfaces. As we expect that there *are only a few semantic changes*, let's say in 10% of the classes, integrating a complete set of new classes might be an effort that does not justify the amount of work.
+Fortunately, integrating a new version of the standard in the client code, that is downward compatible to an previous one is very simple. Just replace the name-spaces and the include versions. Use `NET_ASAM_OPENSCENARIO::v1_2` instead of `NET_ASAM_OPENSCENARIO::v1_0` and use
 
 [source,cpp]
 ----
-#include "ApiClassInterfacesV1_1.h"` 
+#include "ApiClassInterfacesV1_2.h" 
 ----
 
 instead of 
@@ -468,7 +472,7 @@ Our first example will show, how to ensure that the major revision is always 1 a
 
 The first step is to define a class `VersionCheckerRule` that implements the `ICheckerRule`. is the model type where to access the `majorRev` and the `minorRev`property.
 
-Remark: In previous API versions the ICheckerRule was implemented as an generic class where the generic type was the type to check (like `IFileHeader` here). It turned out that the compiler needs many resources when working with generic classes and even adding different levels of generic classes, things get even worse. For the OSC API version 1.2.0, generic classes where widely eliminated. As an alternative, now the base class `IOpenScenarioModelElement` is used and the user has to cast it into the target class (`IFileHeader` here). So literally, typing was moved from design time to runtime. This improved the use of compiler resources (memory, time) tremendously. 
+Remark: In previous API versions the ICheckerRule was implemented as an generic class where the generic type was the type to check (like `IFileHeader` here). It turned out that the compiler needs many resources when working with generic classes and even adding different levels of generic classes, things get even worse. For the OSC API version 1.2.0 and up, generic classes where widely eliminated. As an alternative, now the base class `IOpenScenarioModelElement` is used and the user has to cast it into the target class (`IFileHeader` here). So literally, typing was moved from design time to runtime. This improved the use of compiler resources (memory, time) tremendously. 
 
 As we want to use this class for any combination of expected major revisions and minor revisions, we hand over the expected major revision and the expected minor revision to the constructor and store them in the instance.
 
@@ -668,8 +672,28 @@ Defining a primitive datatype like `unsigned int` or `double` does already repre
 
 Please see these corresponding classes if you are interested in the details:
 
-* NET_ASAM_OPENSCENARIO::v1_1::RangeCheckerHelper;
+* NET_ASAM_OPENSCENARIO::v1_2::RangeCheckerHelper;
 * TestRangeChecker
+
+=== Deprecated checker rules - Built-in validation for deprecated elements 
+When properties are dprecated, they are often replaced by new elements.
+As we are committed to dowwnward compatibility, cardinalitity of a property cannot be stricter than in its previuos version.
+If one property replaces another property, both have to be optional and have an implicit xor context, that cannot be ensured in the schema.
+For standard version 1.2 there is a `DeprecatedChecker` that checks the properties.
+
+When in `GeoPosition` the deprecated attribute `height` is used along with the new attribute `altitude` the checker issues an error:
+
+```xml
+<GeoPosition altitude="100" height="100" latitudeDeg="45"  longitudeDeg="37">
+```
+```
+Attribute 'height' is deprecated and must not be used with attribute 'altitude'.
+``` 
+
+Please see these corresponding classes if you are interested in the details:
+
+* NET_ASAM_OPENSCENARIO::v1_2::DeprecatedChecker
+* TestDeprecatedValidation
 
 
 == Known issues
@@ -756,10 +780,16 @@ For example the commands for building and compiling shared objects and binaries 
 $ cd openscenario.api.test/cpp/buildArtifact
 $ ./generateLinux.sh shared release make
 ----
-This will create in the `openscenario.api.test/cpp/build` folder the following two directories:
+This will create in the `openscenario.api.test/cpp/build/cgReleaseMakeShared` folder containing the Linux Makefiles for building the binaries and the binaries.
 
-* `cgReleaseMakeShared` containing the Linux Makefiles for building the binaries and
-* `output/Linux_Shared/Release` where the compiled libraries and executables are located.
+The executables and libraries are in
+
+* `cgReleaseMakeShared/applications/openScenarioReader` 
+* `cgReleaseMakeShared/applications/indexTester` 
+* `cgReleaseMakeShared/applications/openScenarioTester` 
+* `cgReleaseMakeShared/applications/expressionTester`
+* `cgReleaseMakeShared/expressionLib`
+* `cgReleaseMakeShared/openScenarioLib`
 
 The general command has the following options:
 [source,bash]
@@ -779,7 +809,7 @@ This command for example creates only the Makefiles for the release and dynamica
 
 ==== Build script for Windows
 The Windows version of the script is similar to the Linux version with some changes in the options.
-For example the commands for build project files for Visual Studio 2019 x64 shared release look like this:
+For example the commands to build the project files for Visual Studio 2019 x64 shared release look like this:
 [source,cmd]
 ----
 >cd openscenario.api.test\cpp\build
@@ -825,9 +855,6 @@ An output as shown in the image below will be generated.
 
 image:images/oscCgWin2.png[cmake_gui,width=720,float="center",align="center"]
 
-[NOTE]
-All the red lines in the output section are cmake warnings generated by the antlr4 project.
-
 
 * Next click the button "Generate", just right of "Configure".
 If cmake successfully created the solution the line "Generating done" will be added at the end of the output and the button "Open Project" will be enabled.
@@ -852,9 +879,6 @@ That means cmake will create a Makefile project using gcc / g++ as compilers, cr
 An output as shown in the image below will be generated.
 
 image:images/oscCgLin1.png[cmake_gui,width=720,float="center",align="center"]
-
-[NOTE]
-All the red lines in the output section are cmake warnings generated by the antlr4 project.
 
 
 * Next click the button "Generate", just right of "Configure".
@@ -893,6 +917,11 @@ In both cases a console window with the following output should appear:
 
 [source,cmd]
 ----
+Major Revision :0
+Minor Revision :9
+XML_ERROR_PARSING
+XML_ERROR_MISMATCHED_ELEMENT
+Ego has 2 axles (front, rear)
 Major Revision :0
 Minor Revision :9
 XML_ERROR_PARSING
@@ -942,15 +971,20 @@ This time the console window should show the following output:
 
 ===== Windows command line
 When testing via command line open a Windows command line prompt (cmd).
-Then navigate to the output folder, e.g. if you have selected the preset "VS2019 x64 shared" then the output folder is
-`openscenario.api.test\cpp\build\x64_shared\[Debug|Release]`.
+Then navigate to the output folder, e.g. if you have selected the preset "VS2019 x64 shared" then the output folder is 
+`openscenario.api.test/cpp/build/cgMultiVS2019x64Shared/applications/openScenarioTester/[Release|Debug]`.
 Just change directory to that folder and start the three tests:
 
 ====== OpenScenarioTester
 [source,cmd]
 ----
->cd /d <full path to your osc folder>\openscenario.api.test\cpp\build\x64_shared\[Debug|Release]
+>cd /d <full path to your osc folder>openscenario.api.test\cpp\build\cgMultiVS2019x64Shared\applications\openScenarioTester\[Debug|Release]
 >OpenScenarioTester.exe
+Major Revision :0
+Minor Revision :9
+XML_ERROR_PARSING
+XML_ERROR_MISMATCHED_ELEMENT
+Ego has 2 axles (front, rear)
 Major Revision :0
 Minor Revision :9
 XML_ERROR_PARSING
@@ -967,6 +1001,7 @@ Ego has 2 axles (front, rear)
 ====== ExpressionsTester
 [source,cmd]
 ----
+>cd /d <full path to your osc folder>openscenario.api.test\cpp\build\cgMultiVS2019x64Shared\applications\expressionTester\[Debug|Release]
 >ExpressionsTester.exe
 [...]
 Running test with id '84':
@@ -982,6 +1017,7 @@ Test with id '86' successful.
 ====== IndexerTester
 [source,cmd]
 ----
+>cd /d <full path to your osc folder>openscenario.api.test\cpp\build\cgMultiVS2019x64Shared\applications\indexerTester\[Debug|Release]
 >IndexerTester.exe
 [...]
 81: (117, 6) - (117, 59)
@@ -994,14 +1030,14 @@ Test with id '86' successful.
 
 ==== Testing on Linux
 On Linux we already on console and can change directory directly.
-E.g. you have selected the preset "Linux shared release" then your output folder is `openscenario.api.test/cpp/build/output/Linux_shared/Release`.
+E.g. you have selected the preset "Linux shared release" then your output folder is `openscenario.api.test/cpp/build/cgReleaseMakeShared/applications/openScenarioTester`.
 As you should be already in `openscenario.api.test/cpp` just do the following:
 
 ===== OpenScenarioTester
 [source,bash]
 ----
-$ cd build/output/Linux_shared/Release
-$ ./OpenScenarioTest
+$ cd build/cgReleaseMakeShared/applications/openScenarioTester
+$ ./OpenScenarioTester
 Major Revision :0
 Minor Revision :9
 XML_ERROR_PARSING
@@ -1017,6 +1053,7 @@ Ego has 2 axles (front, rear)
 ===== ExpressionsTester
 [source,bash]
 ----
+$ cd build/cgReleaseMakeShared/applications/expressionsTester
 $ ./ExpressionsTester
 [...]
 Running test with id '84':
@@ -1032,6 +1069,7 @@ Test with id '86' successful.
 ===== IndexerTester
 [source,bash]
 ----
+$ cd build/cgReleaseMakeShared/applications/indexerTester
 $ ./IndexerTester
 [...]
 81: (117, 6) - (117, 59)
@@ -1161,7 +1199,7 @@ On the Linux terminal enter the following command to build a debug version with 
 $ cmake --preset="Linux-static-debug"
 ----
 
-The output created is similar to our Linux cmake-gui example despite that the output folder for the object files should be `cpp/build/cgDebugMakeStatic` and for the binaries `cpp/build/output/Linux_static/Debug`.
+The output created is similar to our Linux cmake-gui example despite that the output folder for the files should be `cpp/build/cgDebugMakeStatic`.
 
 With the command above we configured the project and generated the necessary project files for building in one single step.
 
@@ -1172,33 +1210,53 @@ Here is a shortened version of the generated output:
 
 [source,bash]
 ----
-$ cmake --preset="Linux-static-debug"
+user:~/Projects/openscenario.api.test/cpp$ cmake --preset="Linux-static-debug"
 Preset CMake variables:
 
-  BUILD_SHARED_LIBS:BOOL="OFF"
-  CMAKE_BUILD_TYPE="Debug"
-  MASTER_PROJECT:STRING="TRUE"
+   BUILD_SHARED_LIBS:BOOL="OFF"
+   CMAKE_BUILD_TYPE="Debug"
+   MASTER_PROJECT:STRING="TRUE"
 
 Preset environment variables:
 
-  PR_ENV_BINDING="Static"
-  PR_ENV_BUILD_TYPE="Debug"
+   PR_ENV_BINDING="Static"
+   PR_ENV_BUILD_TYPE="Debug"
+
+-- The C compiler identification is GNU 11.2.0
+-- The CXX compiler identification is GNU 11.2.0
 
 [...]
 
-Output libraries to /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/output/Linux_static/Debug
+-- OpenScenario-Cpp
+-- Single-configuration generator: Debug
+-- OpenScenario-Cpp configuration: Debug
+-- Platform: ; Shared lib: OFF
+-- Found ANTLR:
+/home/user/Projects/openscenario.api.test/cpp/thirdparty/antlr/antlr-4.8-complete.jar
+(found version "4.8")
+Program version: 1.3.0
+OSC std version: 1.2.0
+-- Subprojects:
+--
 OpenScenarioLib
--- lib binding: STATIC
+-- OpenScenarioLib: using Antlr static
+--
+ExpressionsLib
+-- ExpressionsLib: using Antlr static
+--
 OpenScenarioReader
-Building all into: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/output/Linux_static/Debug
+--
 OpenScenarioTester
-Building all into: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/output/Linux_static/Debug
+--
 IndexerTester
-Building all into: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/output/Linux_static/Debug
+-- IndexerTester: using Antlr static
+--
+ExpressionsTester
 -- Configuring done
 -- Generating done
--- Build files have been written to: /mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp/build/cgDebugMakeStatic
-user:/mnt/c/Users/Deakon/source/repos/openscenario.api.test/cpp$
+-- Build files have been written to:
+/home/user/Projects/openscenario.api.test/cpp/build/cgDebugMakeStatic
+user:~/Projects/openscenario.api.test/cpp$
 ----
 
 On Windows the equivalent command to build a debug (and also the release) version with static libraries is:
@@ -1232,24 +1290,46 @@ After successful compilation you should see an output similar to this (shortened
 
 [source,bash]
 ----
-[ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers1.cpp.o
-[ 97%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XmlParsers2.cpp.o
-[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLParser.cpp.o
-[ 98%] Linking CXX executable ../../../output/Linux_static/Debug/IndexerTester
-[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/generated/xmlParser/XMLLexer.cpp.o
-[ 98%] Building CXX object openScenarioLib/CMakeFiles/OpenScenarioLib.dir/src/loader/XmlScenarioLoader.cpp.o
-[ 98%] Built target IndexerTester
-[ 99%] Linking CXX static library ../../../output/Linux_static/Debug/libOpenScenarioLib.a
-[ 99%] Built target OpenScenarioLib
-[100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
-[100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/OpenScenarioTester.cpp.o
-[100%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
-[100%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
-[100%] Linking CXX executable ../../../../output/Linux_static/Debug/OpenScenarioReader
-[100%] Linking CXX executable ../../../../output/Linux_static/Debug/OpenScenarioTester
-[100%] Built target OpenScenarioReader
+user:~/Projects/openscenario.api.test/cpp$ cmake --build --preset="Build-Linux-static-debug" -j8
+[  1%] Creating directories for 'antlr4_runtime'
+[  2%] Performing download step (verify and extract) for 'antlr4_runtime'
+
+[...]
+
+[ 76%] Building CXX object
+openScenarioLib/CMakeFiles/OpenScenarioLib.dir/antlr4cpp_generated_src/XMLParser/XMLParserBaseListener.cpp.o
+[ 77%] Building CXX object
+openScenarioLib/CMakeFiles/OpenScenarioLib.dir/antlr4cpp_generated_src/XMLParser/XMLParserListener.cpp.o
+[ 77%] Linking CXX static library libOpenScenarioLib.a
+[ 77%] Built target OpenScenarioLib
+[ 78%] Building CXX object applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
+[ 78%] Building CXX object
+applications/openScenarioReader/CMakeFiles/OpenScenarioReader.dir/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
+[ 78%] Linking CXX executable OpenScenarioReader
+[ 78%] Built target OpenScenarioReader
+[ 79%] Building CXX object applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/__/__/externalLibs/TinyXML2/tinyxml2.cpp.o
+
+[...]
+
+[ 97%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/TestAlksV1_2.cpp.o
+[ 97%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/TestParameterValidationV1_2.cpp.o
+[ 98%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/TestVariableValidationV1_2.cpp.o
+[ 98%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/TestDeprecatedValidationV1_2.cpp.o
+[ 98%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/TestExamplesOscV1_2.cpp.o
+[ 99%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/helper/EgoCheckerRuleV1_0.cpp.o
+[ 99%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/helper/EgoCheckerRuleV1_1.cpp.o
+[100%] Building CXX object
+applications/openScenarioTester/CMakeFiles/OpenScenarioTester.dir/src/helper/EgoCheckerRuleV1_2.cpp.o
+[100%] Linking CXX executable OpenScenarioTester
 [100%] Built target OpenScenarioTester
-$
+user:~/Projects/openscenario.api.test/cpp$
 ----
 
 The Windows pendant for starting compilation:
@@ -1360,9 +1440,9 @@ If you build the standalone checker with an incomplete set of standard versions,
 $ ./OpenScenarioReader -i examples/simpleExample/SimpleExample.xosc
 ```
 ```
-****************************************
-* ASAM OpenSCENARIO 1.2 Checker (2021) *
-****************************************
+******************************************
+* ASAM OpenSCENARIO 1.3.0 Checker (2022) *
+******************************************
 Checking 'examples/simpleExample/SimpleExample.xosc'
 Standard Version 1.0 is not supported. Compile Reader with SUPPORT_OSC_1_0 option.
 ```
@@ -1372,9 +1452,9 @@ The same kind of error will show up when starting the reader with the `-v1_1` fl
 $ ./OpenScenarioReader -i examples/simpleExample/SimpleExample.xosc -v1_1
 ```
 ```
-****************************************
-* ASAM OpenSCENARIO 1.2 Checker (2021) *
-****************************************
+******************************************
+* ASAM OpenSCENARIO 1.3.0 Checker (2022) *
+******************************************
 Checking 'examples/simpleExample/SimpleExample.xosc'
 Standard Version 1.1 is not supported. Compile Reader with SUPPORT_OSC_1_1 option.
 ```
@@ -1390,25 +1470,25 @@ On the release page all artifacts for a certain release are collected in the `As
 Currently we support Windows (32 and 64 bit) and Linux for shared and static builds.
 All artifacts are release builds and come with an example application using the pre-compiled libraries.
 
-The Windows artifacts were build with Visual Studio 2019.
+The Windows artifacts were build with Visual Studio 2022.
 
-The Linux artifacts were build with gcc 9.3.
+The Linux artifacts were build with gcc 9.4.
 
 Here is an example list:
 
-* OpenSCENARIO.V1_1.API_Linux_shared_2021.12.15.tgz
-* OpenSCENARIO.V1_1.API_Linux_static_2021.12.15.tgz
-* OpenSCENARIO.V1_1.API_Win32_shared_2021.12.15.zip
-* OpenSCENARIO.V1_1.API_Win32_static_2021.12.15.zip
-* OpenSCENARIO.V1_1.API_x64_shared_2021.12.15.zip
-* OpenSCENARIO.V1_1.API_x64_static_2021.12.15.zip
+* OpenSCENARIO_API_LinuxSharedRelease_2022.08.29.tgz
+* OpenSCENARIO_API_LinuxStaticRelease_2022.08.29.tgz
+* OpenSCENARIO_API_Win32SharedRelease_2022.08.29.zip
+* OpenSCENARIO_API_Win32StaticRelease_2022.08.29.zip
+* OpenSCENARIO_API_x64SharedRelease_2022.08.29.zip
+* OpenSCENARIO_API_x64StaticRelease_2022.08.29.zip
 
 [NOTE]
 For the static versions of the artifacts you must use release and the matching compiler version otherwise the build will fail.
 
 
 === Artifact common top level directory content
-After downloading e.g. `OpenSCENARIO.V1_1.API_x64_shared_2021.12.15.zip` and unpacking it you should see the following content (with description):
+After downloading e.g. `OpenSCENARIO_API_x64SharedRelease_2022.08.29.zip` and unpacking it you should see the following content (with description):
 
 [cols="0m,1",frame=none]
 |===
@@ -1438,8 +1518,8 @@ After downloading e.g. `OpenSCENARIO.V1_1.API_x64_shared_2021.12.15.zip` and unp
 In this example we especially focus on the static build and the necessary steps to pay attention.
 
 ==== Step 1: Download, unpack, and start cmake-gui
-Download e.g. `OpenSCENARIO.V1_1.API_x64_static_2021.12.15.zip` and unpack it.
-Its default folder should be named e.g. `OpenSCENARIO.V1_1.API_x64_static`.
+Download e.g. `OpenSCENARIO_API_x64StaticRelease_2022.08.29.zip` and unpack it.
+Its default folder should be named e.g. `OpenSCENARIO_API_x64StaticRelease`.
 
 Now open `cmake-gui` and point its source directory to the unpacked folder.
 For the destination folder add `/build/Win` as seen in the screenshot below:
@@ -1447,14 +1527,14 @@ For the destination folder add `/build/Win` as seen in the screenshot below:
 image:images/artifacts/cmBuildArtifactChooseProjectFolder.png[cmake_gui,width=640,float="center",align="center"]
 
 ==== Step 2: Configure and generate
-Now when it comes to the cmake configure step be sure to select Visual Studio 2019 x64.
+Now when it comes to the cmake configure step be sure to select Visual Studio 2022 x64.
 
 [NOTE]
 Selecting the correct version of Visual Studio (and of course the right architecture, too) is crucial for a successful static build!
 
-Click on the "Configure" button and select *Visual Studio 16 2019* as shown in the screenshot below:
+Click on the "Configure" button and select *Visual Studio 17 2022* as shown in the screenshot below:
 
-image:images/artifacts/cmBuildArtifactSelectVS2019.png[cmake_gui,width=380,float="center",align="center"]
+image:images/artifacts/cmBuildArtifactSelectVS2022.png[cmake_gui,width=380,float="center",align="center"]
 
 Next select the correct processor architecture.
 In the current example this *x64*.
@@ -1469,7 +1549,7 @@ image:images/artifacts/cmBuildArtifactConfGenOpen.png[cmake_gui,width=720,float=
 
 ==== Step 3: Open the solution for configuration
 
-Click on the "Open Project" button to open Visual Studio 2019.
+Click on the "Open Project" button to open Visual Studio 2022.
 
 Now in the configuration dropdown box select `Release` as seen in the screenshot below:
 
@@ -1484,60 +1564,57 @@ The Linux example on how to use the build artifacts is quite similar to the Wind
 We will show the `command line` way of setting up the project.
 
 ==== Step 1: Download and unpack
-Download e.g. `OpenSCENARIO.V1_1.API_Linux_static_2021.12.15.tgz` and unpack it.
+Download e.g. `OpenSCENARIO_API_LinuxStaticRelease_2022.08.29.tgz` and unpack it.
 
 [source,bash]
 ----
-user:~/Projects$ tar -zxf OpenSCENARIO.V1_1.API_Linux_static_2021.12.15.tgz
+user:~/Projects$ tar -zxf OpenSCENARIO_API_LinuxStaticRelease_2022.08.29.tgz
 ----
 
 ==== Step 2: Configure and generate
 The cmake configuration and generate step is quite easy.
-Just enter the artifact directory ```cd OpenSCENARIO.V1_1.API_Linux_static/``` and enter the following command ```cmake -S . -B build/Lin```.
-The generated output is the following:
+Just enter the artifact directory `cd OpenSCENARIO_API_LinuxStaticRelease/` and enter the following command `cmake -S . -B build/Lin`.
+The generated output on Ubuntu 22.04.1 is the following:
 
 [source,bash]
 ----
-user:~/Projects$ cd OpenSCENARIO.V1_1.API_Linux_static/
-user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static$ cmake -S . -B build/Lin
--- The C compiler identification is GNU 9.3.0
--- The CXX compiler identification is GNU 9.3.0
--- Check for working C compiler: /usr/bin/cc
--- Check for working C compiler: /usr/bin/cc -- works
+user:~/Projects$ cd OpenSCENARIO_API_LinuxStaticRelease/
+user:~/Projects/OpenSCENARIO_API_LinuxStaticRelease$ cmake -S . -B build/Lin
+-- The C compiler identification is GNU 11.2.0
+-- The CXX compiler identification is GNU 11.2.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
--- Check for working CXX compiler: /usr/bin/c++
--- Check for working CXX compiler: /usr/bin/c++ -- works
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
 OpenScenarioReader
 -- Single-configuration generator: Release
 -- OpenScenarioReader configuration: Release
 -- Platform: Linux; Shared lib: OFF
-Building all into: /home/user/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/output/Linux_static/Release
+Building all into: /home/user/Projects/osc/OpenSCENARIO_API_LinuxStaticRelease/build/Lin
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/user/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin
+-- Build files have been written to: /home/user/Projects/osc/OpenSCENARIO_API_LinuxStaticRelease/build/Lin
 ----
 
 ==== Step 3: Build or compile the project
 In this last step we compile the generated project with `make`.
-Just enter the newly created build folder ```cd build/Lin/``` and then enter the command ```make```.
+Just enter the newly created build folder `cd build/Lin/` and then enter the command `make`.
 The output should look like this
 
 [source,bash]
 ----
-user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static$ cd build/Lin/
-user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin$ make
-Scanning dependencies of target OpenScenarioReader
+user:~/Projects/osc/OpenSCENARIO_API_LinuxStaticRelease$ cd build/Lin/
+user:~/Projects/osc/OpenSCENARIO_API_LinuxStaticRelease/build/Lin$ make
 [ 50%] Building CXX object CMakeFiles/OpenScenarioReader.dir/src/OpenScenarioReader.cpp.o
-[100%] Linking CXX executable ../output/Linux_static/Release/OpenScenarioReader
+[100%] Linking CXX executable OpenScenarioReader
 [100%] Built target OpenScenarioReader
-user:~/Projects/OpenSCENARIO.V1_1.API_Linux_static/build/Lin$
+user:~/Projects/osc/OpenSCENARIO_API_LinuxStaticRelease/build/Lin$ 
 ----
 
 That\'s all for Linux and the build artifacts.
