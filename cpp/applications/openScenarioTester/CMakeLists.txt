@@ -136,8 +136,6 @@ set( SOURCES
     ${SOURCES}
 	"src/TestBaseV1_0.cpp"
     "src/TestExamplesV1_0.cpp"
-    "src/TestExamplesV1_1.cpp"
-    "src/TestCardinalityV1_1.cpp"
     "src/TestFilesV1_0.cpp"
     "src/TestFlexInterfaceV1_0.cpp"
     "src/TestImportsV1_0.cpp"
@@ -151,11 +149,11 @@ set( SOURCES
 endif (SUPPORT_OSC_1_0)
 
 if (SUPPORT_OSC_1_1)
-
 set( SOURCES
     ${SOURCES}
 	"src/TestBaseV1_1.cpp"
     "src/TestExamplesV1_1.cpp"
+    "src/TestCardinalityV1_1.cpp"
     "src/TestFilesV1_1.cpp"
     "src/TestFlexInterfaceV1_1.cpp"
     "src/TestImportsV1_1.cpp"
