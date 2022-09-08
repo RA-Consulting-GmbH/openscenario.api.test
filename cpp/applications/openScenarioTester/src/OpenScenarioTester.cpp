@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-#include <TestExamplesOscV1_2.h>
-
 #include "TestVersionOptionsWithReader.h"
 
 #ifdef SUPPORT_OSC_1_0
@@ -47,7 +45,6 @@
 #include "TestFlexInterfaceV1_1.h"
 #include "TestInjectedParametersV1_1.h"
 #include "TestWriterApiV1_1.h"
-
 #endif
 
 #ifdef SUPPORT_OSC_1_2
@@ -57,6 +54,7 @@
 #include "TestAlksV1_2.h"
 #include "TestDeprecatedV1_2.h"
 #include "TestExamplesV1_2.h"
+#include <TestExamplesOscV1_2.h>
 #include "TestRangeCheckerV1_2.h"
 #include "TestFilesV1_2.h"
 #include "TestImportsV1_2.h"

@@ -467,7 +467,8 @@ int main(int argc, char** argv)
             if (argc == 6 && std::string(argv[5]) == "-v1_1")
             {
                 version = VERSION_1_1;
-            }else if (argc == 6 && std::string(argv[5]) == "-v1_2")
+            }
+            else if (argc == 6 && std::string(argv[5]) == "-v1_2")
 			{
 				version = VERSION_1_2;
 			}

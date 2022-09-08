@@ -30,7 +30,7 @@ FIND_HEADERS_SH=${FIND_HEADERS_SH_PATH}/${FIND_HEADERS_SH_FILE}
 # prepare inlude paths for C++ compiler in order to extract ALL necessary non-system include files
 # this has to be done outside the openScenarioReader project folder to also reach all referenced external dependencies
 echo "#!/bin/bash" > ${FIND_HEADERS_SH}
-echo "cpp -DCOLLECT_HEADERS -MM \\" >> ${FIND_HEADERS_SH}
+echo "cpp -DCOLLECT_HEADERS -DSUPPORT_OSC_1_0 -DSUPPORT_OSC_1_1 -DSUPPORT_OSC_1_2 -MM \\" >> ${FIND_HEADERS_SH}
 for i in `find . -type d -print` ; do
     if [[ $i == *"CMake"* ]] || [[ $i == *"antlr_runtime"* ]] || [[ $i == *"ython"* ]] || [[ $i == *"java"* ]] || [[ $i == *".dir"* ]] || [[ $i == "./build"* ]] ;
     then
