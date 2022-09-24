@@ -54,7 +54,7 @@
 #include "NamedReferenceProxy.h"
 #ifdef SUPPORT_OSC_1_0
 #include "UnionCheckerRulesV1_0.h"
-#include "RangeCheckerRulesV1_0.h
+#include "RangeCheckerRulesV1_0.h"
 #include "OpenScenarioXmlExporterV1_0.h"
 #include "XmlParsersV1_0.h"
 #include "CatalogCacheV1_0.h"
@@ -64,7 +64,7 @@
 
 #ifdef SUPPORT_OSC_1_1
 #include "UnionCheckerRulesV1_1.h"
-#include "RangeCheckerRulesV1_1.h
+#include "RangeCheckerRulesV1_1.h"
 #include "OpenScenarioXmlExporterV1_1.h"
 #include "XmlParsersV1_1.h"
 #include "CatalogCacheV1_1.h"
@@ -75,7 +75,7 @@
 
 #ifdef SUPPORT_OSC_1_2
 #include "UnionCheckerRulesV1_2.h"
-#include "RangeCheckerRulesV1_2.h
+#include "RangeCheckerRulesV1_2.h"
 #include "OpenScenarioXmlExporterV1_2.h"
 #include "XmlParsersV1_2.h"
 #include "CatalogCacheV1_2.h"
