@@ -12,6 +12,7 @@
           </ParameterValueSet>
         </ValueSetDistribution>
       </DeterministicMultiParameterDistribution>
+      <!-- Xor elements DeterministicMultiParameterDistribution, DeterministicSingleParameterDistribution
       <DeterministicSingleParameterDistribution parameterName="Ego_Speed">
         <DistributionSet>
           <Element value="10.0" />
@@ -28,6 +29,7 @@
           <Range lowerLimit="15.0" upperLimit="25.0" />
         </DistributionRange>
       </DeterministicSingleParameterDistribution>
+      -->
     </Deterministic>
   </ParameterValueDistribution>
 </OpenSCENARIO>

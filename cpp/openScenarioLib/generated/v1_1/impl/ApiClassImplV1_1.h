@@ -52,10 +52,9 @@ namespace NET_ASAM_OPENSCENARIO
         class AbsoluteSpeedImpl: public BaseImpl, public IAbsoluteSpeedWriter, public std::enable_shared_from_this<AbsoluteSpeedImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
-            bool _isSetSteadyState = false;          
+            bool _isSetSteadyState = false;
             std::shared_ptr<ISteadyStateWriter> _steadyState {};
 
         public:
@@ -126,7 +125,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ISteadyStateWriter> GetWriterSteadyState() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -152,9 +151,8 @@ namespace NET_ASAM_OPENSCENARIO
         class AbsoluteTargetLaneImpl: public BaseImpl, public IAbsoluteTargetLaneWriter, public std::enable_shared_from_this<AbsoluteTargetLaneImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             std::string _value {};
-            
 
         public:
 
@@ -221,7 +219,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
         };
@@ -243,9 +241,8 @@ namespace NET_ASAM_OPENSCENARIO
         class AbsoluteTargetLaneOffsetImpl: public BaseImpl, public IAbsoluteTargetLaneOffsetWriter, public std::enable_shared_from_this<AbsoluteTargetLaneOffsetImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -312,7 +309,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
         };
@@ -334,9 +331,8 @@ namespace NET_ASAM_OPENSCENARIO
         class AbsoluteTargetSpeedImpl: public BaseImpl, public IAbsoluteTargetSpeedWriter, public std::enable_shared_from_this<AbsoluteTargetSpeedImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -403,7 +399,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
         };
@@ -425,12 +421,10 @@ namespace NET_ASAM_OPENSCENARIO
         class AccelerationConditionImpl: public BaseImpl, public IAccelerationConditionWriter, public std::enable_shared_from_this<AccelerationConditionImpl> 
         {
         private:
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -504,8 +498,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetRule() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -528,7 +522,7 @@ namespace NET_ASAM_OPENSCENARIO
         class AcquirePositionActionImpl: public BaseImpl, public IAcquirePositionActionWriter, public std::enable_shared_from_this<AcquirePositionActionImpl> 
         {
         private:
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
 
         public:
@@ -613,14 +607,13 @@ namespace NET_ASAM_OPENSCENARIO
         class ActImpl: public BaseImpl, public IActWriter, public std::enable_shared_from_this<ActImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetManeuverGroups = false;          
+            bool _isSetManeuverGroups = false;
             std::vector<std::shared_ptr<IManeuverGroupWriter>> _maneuverGroups {};
-            bool _isSetStartTrigger = false;          
+            bool _isSetStartTrigger = false;
             std::shared_ptr<ITriggerWriter> _startTrigger {};
-            bool _isSetStopTrigger = false;          
+            bool _isSetStopTrigger = false;
             std::shared_ptr<ITriggerWriter> _stopTrigger {};
 
         public:
@@ -701,7 +694,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITriggerWriter> GetWriterStartTrigger() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITriggerWriter> GetWriterStopTrigger() const override;
@@ -730,14 +723,13 @@ namespace NET_ASAM_OPENSCENARIO
         class ActionImpl: public BaseImpl, public IActionWriter, public std::enable_shared_from_this<ActionImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetGlobalAction = false;          
+            bool _isSetGlobalAction = false;
             std::shared_ptr<IGlobalActionWriter> _globalAction {};
-            bool _isSetUserDefinedAction = false;          
+            bool _isSetUserDefinedAction = false;
             std::shared_ptr<IUserDefinedActionWriter> _userDefinedAction {};
-            bool _isSetPrivateAction = false;          
+            bool _isSetPrivateAction = false;
             std::shared_ptr<IPrivateActionWriter> _privateAction {};
 
         public:
@@ -814,7 +806,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IGlobalActionWriter> GetWriterGlobalAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IUserDefinedActionWriter> GetWriterUserDefinedAction() const override;
@@ -848,12 +840,10 @@ namespace NET_ASAM_OPENSCENARIO
         class ActivateControllerActionImpl: public BaseImpl, public IActivateControllerActionWriter, public std::enable_shared_from_this<ActivateControllerActionImpl> 
         {
         private:
-            bool _isSetLateral = false;          
+            bool _isSetLateral = false;
             bool _lateral {};
-            
-            bool _isSetLongitudinal = false;          
+            bool _isSetLongitudinal = false;
             bool _longitudinal {};
-            
 
         public:
 
@@ -927,8 +917,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromLongitudinal() const override;
 
-            OPENSCENARIOLIB_EXP bool IsLateralParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsLongitudinalParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsLateralParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsLongitudinalParameterized() override;
             // children
             OPENSCENARIOLIB_EXP virtual void ResetLateral() override;
                       
@@ -955,10 +945,9 @@ namespace NET_ASAM_OPENSCENARIO
         class ActorsImpl: public BaseImpl, public IActorsWriter, public std::enable_shared_from_this<ActorsImpl> 
         {
         private:
-            bool _isSetSelectTriggeringEntities = false;          
+            bool _isSetSelectTriggeringEntities = false;
             bool _selectTriggeringEntities {};
-            
-            bool _isSetEntityRefs = false;          
+            bool _isSetEntityRefs = false;
             std::vector<std::shared_ptr<IEntityRefWriter>> _entityRefs {};
 
         public:
@@ -1033,7 +1022,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromSelectTriggeringEntities() const override;
 
-            OPENSCENARIOLIB_EXP bool IsSelectTriggeringEntitiesParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsSelectTriggeringEntitiesParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetSelectTriggeringEntities() const override;
             OPENSCENARIOLIB_EXP virtual void ResetEntityRefs() override;
@@ -1058,7 +1047,7 @@ namespace NET_ASAM_OPENSCENARIO
         class AddEntityActionImpl: public BaseImpl, public IAddEntityActionWriter, public std::enable_shared_from_this<AddEntityActionImpl> 
         {
         private:
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
 
         public:
@@ -1143,15 +1132,13 @@ namespace NET_ASAM_OPENSCENARIO
         class AssignControllerActionImpl: public BaseImpl, public IAssignControllerActionWriter, public std::enable_shared_from_this<AssignControllerActionImpl> 
         {
         private:
-            bool _isSetActivateLateral = false;          
+            bool _isSetActivateLateral = false;
             bool _activateLateral {};
-            
-            bool _isSetActivateLongitudinal = false;          
+            bool _isSetActivateLongitudinal = false;
             bool _activateLongitudinal {};
-            
-            bool _isSetController = false;          
+            bool _isSetController = false;
             std::shared_ptr<IControllerWriter> _controller {};
-            bool _isSetCatalogReference = false;          
+            bool _isSetCatalogReference = false;
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
 
         public:
@@ -1232,8 +1219,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromActivateLongitudinal() const override;
 
-            OPENSCENARIOLIB_EXP bool IsActivateLateralParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsActivateLongitudinalParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsActivateLateralParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsActivateLongitudinalParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IControllerWriter> GetWriterController() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const override;
@@ -1268,9 +1255,9 @@ namespace NET_ASAM_OPENSCENARIO
         class AssignRouteActionImpl: public BaseImpl, public IAssignRouteActionWriter, public std::enable_shared_from_this<AssignRouteActionImpl> 
         {
         private:
-            bool _isSetRoute = false;          
+            bool _isSetRoute = false;
             std::shared_ptr<IRouteWriter> _route {};
-            bool _isSetCatalogReference = false;          
+            bool _isSetCatalogReference = false;
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
 
         public:
@@ -1364,21 +1351,16 @@ namespace NET_ASAM_OPENSCENARIO
         class AxleImpl: public BaseImpl, public IAxleWriter, public std::enable_shared_from_this<AxleImpl> 
         {
         private:
-            bool _isSetMaxSteering = false;          
+            bool _isSetMaxSteering = false;
             double _maxSteering {};
-            
-            bool _isSetPositionX = false;          
+            bool _isSetPositionX = false;
             double _positionX {};
-            
-            bool _isSetPositionZ = false;          
+            bool _isSetPositionZ = false;
             double _positionZ {};
-            
-            bool _isSetTrackWidth = false;          
+            bool _isSetTrackWidth = false;
             double _trackWidth {};
-            
-            bool _isSetWheelDiameter = false;          
+            bool _isSetWheelDiameter = false;
             double _wheelDiameter {};
-            
 
         public:
 
@@ -1473,11 +1455,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromWheelDiameter() const override;
 
-            OPENSCENARIOLIB_EXP bool IsMaxSteeringParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsPositionXParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsPositionZParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTrackWidthParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsWheelDiameterParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsMaxSteeringParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsPositionXParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsPositionZParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTrackWidthParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsWheelDiameterParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetMaxSteering() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetPositionX() const override;
@@ -1503,11 +1485,11 @@ namespace NET_ASAM_OPENSCENARIO
         class AxlesImpl: public BaseImpl, public IAxlesWriter, public std::enable_shared_from_this<AxlesImpl> 
         {
         private:
-            bool _isSetFrontAxle = false;          
+            bool _isSetFrontAxle = false;
             std::shared_ptr<IAxleWriter> _frontAxle {};
-            bool _isSetRearAxle = false;          
+            bool _isSetRearAxle = false;
             std::shared_ptr<IAxleWriter> _rearAxle {};
-            bool _isSetAdditionalAxles = false;          
+            bool _isSetAdditionalAxles = false;
             std::vector<std::shared_ptr<IAxleWriter>> _additionalAxles {};
 
         public:
@@ -1607,9 +1589,9 @@ namespace NET_ASAM_OPENSCENARIO
         class BoundingBoxImpl: public BaseImpl, public IBoundingBoxWriter, public std::enable_shared_from_this<BoundingBoxImpl> 
         {
         private:
-            bool _isSetCenter = false;          
+            bool _isSetCenter = false;
             std::shared_ptr<ICenterWriter> _center {};
-            bool _isSetDimensions = false;          
+            bool _isSetDimensions = false;
             std::shared_ptr<IDimensionsWriter> _dimensions {};
 
         public:
@@ -1699,9 +1681,9 @@ namespace NET_ASAM_OPENSCENARIO
         class ByEntityConditionImpl: public BaseImpl, public IByEntityConditionWriter, public std::enable_shared_from_this<ByEntityConditionImpl> 
         {
         private:
-            bool _isSetTriggeringEntities = false;          
+            bool _isSetTriggeringEntities = false;
             std::shared_ptr<ITriggeringEntitiesWriter> _triggeringEntities {};
-            bool _isSetEntityCondition = false;          
+            bool _isSetEntityCondition = false;
             std::shared_ptr<IEntityConditionWriter> _entityCondition {};
 
         public:
@@ -1791,9 +1773,8 @@ namespace NET_ASAM_OPENSCENARIO
         class ByObjectTypeImpl: public BaseImpl, public IByObjectTypeWriter, public std::enable_shared_from_this<ByObjectTypeImpl> 
         {
         private:
-            bool _isSetType = false;          
+            bool _isSetType = false;
             ObjectType _type {};
-            
 
         public:
 
@@ -1859,7 +1840,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromType() const override;
 
-            OPENSCENARIOLIB_EXP bool IsTypeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsTypeParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetType() const override;
         };
@@ -1881,9 +1862,8 @@ namespace NET_ASAM_OPENSCENARIO
         class ByTypeImpl: public BaseImpl, public IByTypeWriter, public std::enable_shared_from_this<ByTypeImpl> 
         {
         private:
-            bool _isSetObjectType = false;          
+            bool _isSetObjectType = false;
             ObjectType _objectType {};
-            
 
         public:
 
@@ -1949,7 +1929,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromObjectType() const override;
 
-            OPENSCENARIOLIB_EXP bool IsObjectTypeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsObjectTypeParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetObjectType() const override;
         };
@@ -1971,19 +1951,19 @@ namespace NET_ASAM_OPENSCENARIO
         class ByValueConditionImpl: public BaseImpl, public IByValueConditionWriter, public std::enable_shared_from_this<ByValueConditionImpl> 
         {
         private:
-            bool _isSetParameterCondition = false;          
+            bool _isSetParameterCondition = false;
             std::shared_ptr<IParameterConditionWriter> _parameterCondition {};
-            bool _isSetTimeOfDayCondition = false;          
+            bool _isSetTimeOfDayCondition = false;
             std::shared_ptr<ITimeOfDayConditionWriter> _timeOfDayCondition {};
-            bool _isSetSimulationTimeCondition = false;          
+            bool _isSetSimulationTimeCondition = false;
             std::shared_ptr<ISimulationTimeConditionWriter> _simulationTimeCondition {};
-            bool _isSetStoryboardElementStateCondition = false;          
+            bool _isSetStoryboardElementStateCondition = false;
             std::shared_ptr<IStoryboardElementStateConditionWriter> _storyboardElementStateCondition {};
-            bool _isSetUserDefinedValueCondition = false;          
+            bool _isSetUserDefinedValueCondition = false;
             std::shared_ptr<IUserDefinedValueConditionWriter> _userDefinedValueCondition {};
-            bool _isSetTrafficSignalCondition = false;          
+            bool _isSetTrafficSignalCondition = false;
             std::shared_ptr<ITrafficSignalConditionWriter> _trafficSignalCondition {};
-            bool _isSetTrafficSignalControllerCondition = false;          
+            bool _isSetTrafficSignalControllerCondition = false;
             std::shared_ptr<ITrafficSignalControllerConditionWriter> _trafficSignalControllerCondition {};
 
         public:
@@ -2112,24 +2092,23 @@ namespace NET_ASAM_OPENSCENARIO
         class CatalogImpl: public BaseImpl, public ICatalogWriter, public std::enable_shared_from_this<CatalogImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetVehicles = false;          
+            bool _isSetVehicles = false;
             std::vector<std::shared_ptr<IVehicleWriter>> _vehicles {};
-            bool _isSetControllers = false;          
+            bool _isSetControllers = false;
             std::vector<std::shared_ptr<IControllerWriter>> _controllers {};
-            bool _isSetPedestrians = false;          
+            bool _isSetPedestrians = false;
             std::vector<std::shared_ptr<IPedestrianWriter>> _pedestrians {};
-            bool _isSetMiscObjects = false;          
+            bool _isSetMiscObjects = false;
             std::vector<std::shared_ptr<IMiscObjectWriter>> _miscObjects {};
-            bool _isSetEnvironments = false;          
+            bool _isSetEnvironments = false;
             std::vector<std::shared_ptr<IEnvironmentWriter>> _environments {};
-            bool _isSetManeuvers = false;          
+            bool _isSetManeuvers = false;
             std::vector<std::shared_ptr<IManeuverWriter>> _maneuvers {};
-            bool _isSetTrajectories = false;          
+            bool _isSetTrajectories = false;
             std::vector<std::shared_ptr<ITrajectoryWriter>> _trajectories {};
-            bool _isSetRoutes = false;          
+            bool _isSetRoutes = false;
             std::vector<std::shared_ptr<IRouteWriter>> _routes {};
 
         public:
@@ -2253,7 +2232,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP virtual void ResetName() override;
                       
@@ -2301,7 +2280,7 @@ namespace NET_ASAM_OPENSCENARIO
         class CatalogDefinitionImpl: public BaseImpl, public ICatalogDefinitionWriter, public std::enable_shared_from_this<CatalogDefinitionImpl> 
         {
         private:
-            bool _isSetCatalog = false;          
+            bool _isSetCatalog = false;
             std::shared_ptr<ICatalogWriter> _catalog {};
 
         public:
@@ -2386,21 +2365,21 @@ namespace NET_ASAM_OPENSCENARIO
         class CatalogLocationsImpl: public BaseImpl, public ICatalogLocationsWriter, public std::enable_shared_from_this<CatalogLocationsImpl> 
         {
         private:
-            bool _isSetVehicleCatalog = false;          
+            bool _isSetVehicleCatalog = false;
             std::shared_ptr<IVehicleCatalogLocationWriter> _vehicleCatalog {};
-            bool _isSetControllerCatalog = false;          
+            bool _isSetControllerCatalog = false;
             std::shared_ptr<IControllerCatalogLocationWriter> _controllerCatalog {};
-            bool _isSetPedestrianCatalog = false;          
+            bool _isSetPedestrianCatalog = false;
             std::shared_ptr<IPedestrianCatalogLocationWriter> _pedestrianCatalog {};
-            bool _isSetMiscObjectCatalog = false;          
+            bool _isSetMiscObjectCatalog = false;
             std::shared_ptr<IMiscObjectCatalogLocationWriter> _miscObjectCatalog {};
-            bool _isSetEnvironmentCatalog = false;          
+            bool _isSetEnvironmentCatalog = false;
             std::shared_ptr<IEnvironmentCatalogLocationWriter> _environmentCatalog {};
-            bool _isSetManeuverCatalog = false;          
+            bool _isSetManeuverCatalog = false;
             std::shared_ptr<IManeuverCatalogLocationWriter> _maneuverCatalog {};
-            bool _isSetTrajectoryCatalog = false;          
+            bool _isSetTrajectoryCatalog = false;
             std::shared_ptr<ITrajectoryCatalogLocationWriter> _trajectoryCatalog {};
-            bool _isSetRouteCatalog = false;          
+            bool _isSetRouteCatalog = false;
             std::shared_ptr<IRouteCatalogLocationWriter> _routeCatalog {};
 
         public:
@@ -2536,15 +2515,13 @@ namespace NET_ASAM_OPENSCENARIO
         class CatalogReferenceImpl: public BaseImpl, public ICatalogReferenceWriter, public std::enable_shared_from_this<CatalogReferenceImpl> 
         {
         private:
-            bool _isSetCatalogName = false;          
+            bool _isSetCatalogName = false;
             std::string _catalogName {};
-            
-            bool _isSetEntryName = false;          
+            bool _isSetEntryName = false;
             std::string _entryName {};
-            
-            bool _isSetParameterAssignments = false;          
+            bool _isSetParameterAssignments = false;
             std::vector<std::shared_ptr<IParameterAssignmentWriter>> _parameterAssignments {};
-            bool _isSetRef = false;          
+            bool _isSetRef = false;
             std::shared_ptr<ICatalogElement> _ref {};
 
         public:
@@ -2629,8 +2606,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromEntryName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsCatalogNameParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsEntryNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsCatalogNameParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsEntryNameParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetCatalogName() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetEntryName() const override;
@@ -2657,15 +2634,12 @@ namespace NET_ASAM_OPENSCENARIO
         class CenterImpl: public BaseImpl, public ICenterWriter, public std::enable_shared_from_this<CenterImpl> 
         {
         private:
-            bool _isSetX = false;          
+            bool _isSetX = false;
             double _x {};
-            
-            bool _isSetY = false;          
+            bool _isSetY = false;
             double _y {};
-            
-            bool _isSetZ = false;          
+            bool _isSetZ = false;
             double _z {};
-            
 
         public:
 
@@ -2746,9 +2720,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromZ() const override;
 
-            OPENSCENARIOLIB_EXP bool IsXParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsYParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsZParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsXParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsYParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsZParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetX() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetY() const override;
@@ -2772,7 +2746,7 @@ namespace NET_ASAM_OPENSCENARIO
         class CentralSwarmObjectImpl: public BaseImpl, public ICentralSwarmObjectWriter, public std::enable_shared_from_this<CentralSwarmObjectImpl> 
         {
         private:
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
 
         public:
@@ -2839,7 +2813,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromEntityRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;
         };
@@ -2861,25 +2835,19 @@ namespace NET_ASAM_OPENSCENARIO
         class ClothoidImpl: public BaseImpl, public IClothoidWriter, public std::enable_shared_from_this<ClothoidImpl> 
         {
         private:
-            bool _isSetCurvature = false;          
+            bool _isSetCurvature = false;
             double _curvature {};
-            
-            bool _isSetCurvatureDot = false;          
+            bool _isSetCurvatureDot = false;
             double _curvatureDot {};
-            
-            bool _isSetCurvaturePrime = false;          
+            bool _isSetCurvaturePrime = false;
             double _curvaturePrime {};
-            
-            bool _isSetLength = false;          
+            bool _isSetLength = false;
             double _length {};
-            
-            bool _isSetStartTime = false;          
+            bool _isSetStartTime = false;
             double _startTime {};
-            
-            bool _isSetStopTime = false;          
+            bool _isSetStopTime = false;
             double _stopTime {};
-            
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
 
         public:
@@ -2985,12 +2953,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromStopTime() const override;
 
-            OPENSCENARIOLIB_EXP bool IsCurvatureParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsCurvatureDotParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsCurvaturePrimeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsLengthParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsStartTimeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsStopTimeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsCurvatureParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsCurvatureDotParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsCurvaturePrimeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsLengthParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsStartTimeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsStopTimeParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetCurvature() const override;
@@ -3027,9 +2995,9 @@ namespace NET_ASAM_OPENSCENARIO
         class CollisionConditionImpl: public BaseImpl, public ICollisionConditionWriter, public std::enable_shared_from_this<CollisionConditionImpl> 
         {
         private:
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<IEntityRefWriter> _entityRef {};
-            bool _isSetByType = false;          
+            bool _isSetByType = false;
             std::shared_ptr<IByObjectTypeWriter> _byType {};
 
         public:
@@ -3123,18 +3091,15 @@ namespace NET_ASAM_OPENSCENARIO
         class ConditionImpl: public BaseImpl, public IConditionWriter, public std::enable_shared_from_this<ConditionImpl> 
         {
         private:
-            bool _isSetConditionEdge = false;          
+            bool _isSetConditionEdge = false;
             ConditionEdge _conditionEdge {};
-            
-            bool _isSetDelay = false;          
+            bool _isSetDelay = false;
             double _delay {};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetByEntityCondition = false;          
+            bool _isSetByEntityCondition = false;
             std::shared_ptr<IByEntityConditionWriter> _byEntityCondition {};
-            bool _isSetByValueCondition = false;          
+            bool _isSetByValueCondition = false;
             std::shared_ptr<IByValueConditionWriter> _byValueCondition {};
 
         public:
@@ -3223,9 +3188,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsConditionEdgeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDelayParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsConditionEdgeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDelayParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IByEntityConditionWriter> GetWriterByEntityCondition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IByValueConditionWriter> GetWriterByValueCondition() const override;
@@ -3257,7 +3222,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ConditionGroupImpl: public BaseImpl, public IConditionGroupWriter, public std::enable_shared_from_this<ConditionGroupImpl> 
         {
         private:
-            bool _isSetConditions = false;          
+            bool _isSetConditions = false;
             std::vector<std::shared_ptr<IConditionWriter>> _conditions {};
 
         public:
@@ -3345,13 +3310,11 @@ namespace NET_ASAM_OPENSCENARIO
         class ControlPointImpl: public BaseImpl, public IControlPointWriter, public std::enable_shared_from_this<ControlPointImpl> 
         {
         private:
-            bool _isSetTime = false;          
+            bool _isSetTime = false;
             double _time {};
-            
-            bool _isSetWeight = false;          
+            bool _isSetWeight = false;
             double _weight {};
-            
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
 
         public:
@@ -3429,8 +3392,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromWeight() const override;
 
-            OPENSCENARIOLIB_EXP bool IsTimeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsWeightParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsTimeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsWeightParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
             OPENSCENARIOLIB_EXP virtual void ResetTime() override;
@@ -3459,12 +3422,11 @@ namespace NET_ASAM_OPENSCENARIO
         class ControllerImpl: public BaseImpl, public IControllerWriter, public std::enable_shared_from_this<ControllerImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetParameterDeclarations = false;          
+            bool _isSetParameterDeclarations = false;
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
-            bool _isSetProperties = false;          
+            bool _isSetProperties = false;
             std::shared_ptr<IPropertiesWriter> _properties {};
 
         public:
@@ -3544,7 +3506,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPropertiesWriter> GetWriterProperties() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
@@ -3571,11 +3533,11 @@ namespace NET_ASAM_OPENSCENARIO
         class ControllerActionImpl: public BaseImpl, public IControllerActionWriter, public std::enable_shared_from_this<ControllerActionImpl> 
         {
         private:
-            bool _isSetAssignControllerAction = false;          
+            bool _isSetAssignControllerAction = false;
             std::shared_ptr<IAssignControllerActionWriter> _assignControllerAction {};
-            bool _isSetOverrideControllerValueAction = false;          
+            bool _isSetOverrideControllerValueAction = false;
             std::shared_ptr<IOverrideControllerValueActionWriter> _overrideControllerValueAction {};
-            bool _isSetActivateControllerAction = false;          
+            bool _isSetActivateControllerAction = false;
             std::shared_ptr<IActivateControllerActionWriter> _activateControllerAction {};
 
         public:
@@ -3676,7 +3638,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ControllerCatalogLocationImpl: public BaseImpl, public IControllerCatalogLocationWriter, public std::enable_shared_from_this<ControllerCatalogLocationImpl> 
         {
         private:
-            bool _isSetDirectory = false;          
+            bool _isSetDirectory = false;
             std::shared_ptr<IDirectoryWriter> _directory {};
 
         public:
@@ -3761,7 +3723,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ControllerDistributionImpl: public BaseImpl, public IControllerDistributionWriter, public std::enable_shared_from_this<ControllerDistributionImpl> 
         {
         private:
-            bool _isSetControllerDistributionEntries = false;          
+            bool _isSetControllerDistributionEntries = false;
             std::vector<std::shared_ptr<IControllerDistributionEntryWriter>> _controllerDistributionEntries {};
 
         public:
@@ -3849,12 +3811,11 @@ namespace NET_ASAM_OPENSCENARIO
         class ControllerDistributionEntryImpl: public BaseImpl, public IControllerDistributionEntryWriter, public std::enable_shared_from_this<ControllerDistributionEntryImpl> 
         {
         private:
-            bool _isSetWeight = false;          
+            bool _isSetWeight = false;
             double _weight {};
-            
-            bool _isSetController = false;          
+            bool _isSetController = false;
             std::shared_ptr<IControllerWriter> _controller {};
-            bool _isSetCatalogReference = false;          
+            bool _isSetCatalogReference = false;
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
 
         public:
@@ -3928,7 +3889,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromWeight() const override;
 
-            OPENSCENARIOLIB_EXP bool IsWeightParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsWeightParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IControllerWriter> GetWriterController() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const override;
@@ -3958,12 +3919,10 @@ namespace NET_ASAM_OPENSCENARIO
         class CustomCommandActionImpl: public BaseImpl, public ICustomCommandActionWriter, public std::enable_shared_from_this<CustomCommandActionImpl> 
         {
         private:
-            bool _isSetContent = false;          
+            bool _isSetContent = false;
             std::string _content {};
-            
-            bool _isSetType = false;          
+            bool _isSetType = false;
             std::string _type {};
-            
 
         public:
 
@@ -4037,8 +3996,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromType() const override;
 
-            OPENSCENARIOLIB_EXP bool IsContentParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTypeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsContentParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTypeParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetContent() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetType() const override;
@@ -4139,7 +4098,7 @@ namespace NET_ASAM_OPENSCENARIO
         class DeterministicImpl: public BaseImpl, public IDeterministicWriter, public std::enable_shared_from_this<DeterministicImpl> 
         {
         private:
-            bool _isSetDeterministicParameterDistributions = false;          
+            bool _isSetDeterministicParameterDistributions = false;
             std::vector<std::shared_ptr<IDeterministicParameterDistributionWriter>> _deterministicParameterDistributions {};
 
         public:
@@ -4229,7 +4188,7 @@ namespace NET_ASAM_OPENSCENARIO
         class DeterministicMultiParameterDistributionImpl: public BaseImpl, public IDeterministicMultiParameterDistributionWriter, public std::enable_shared_from_this<DeterministicMultiParameterDistributionImpl> 
         {
         private:
-            bool _isSetDeterministicMultiParameterDistributionType = false;          
+            bool _isSetDeterministicMultiParameterDistributionType = false;
             std::shared_ptr<IDeterministicMultiParameterDistributionTypeWriter> _deterministicMultiParameterDistributionType {};
 
         public:
@@ -4314,7 +4273,7 @@ namespace NET_ASAM_OPENSCENARIO
         class DeterministicMultiParameterDistributionTypeImpl: public BaseImpl, public IDeterministicMultiParameterDistributionTypeWriter, public std::enable_shared_from_this<DeterministicMultiParameterDistributionTypeImpl> 
         {
         private:
-            bool _isSetValueSetDistribution = false;          
+            bool _isSetValueSetDistribution = false;
             std::shared_ptr<IValueSetDistributionWriter> _valueSetDistribution {};
 
         public:
@@ -4399,9 +4358,9 @@ namespace NET_ASAM_OPENSCENARIO
         class DeterministicParameterDistributionImpl: public BaseImpl, public IDeterministicParameterDistributionWriter, public std::enable_shared_from_this<DeterministicParameterDistributionImpl> 
         {
         private:
-            bool _isSetDeterministicMultiParameterDistribution = false;          
+            bool _isSetDeterministicMultiParameterDistribution = false;
             std::shared_ptr<IDeterministicMultiParameterDistributionWriter> _deterministicMultiParameterDistribution {};
-            bool _isSetDeterministicSingleParameterDistribution = false;          
+            bool _isSetDeterministicSingleParameterDistribution = false;
             std::shared_ptr<IDeterministicSingleParameterDistributionWriter> _deterministicSingleParameterDistribution {};
 
         public:
@@ -4491,10 +4450,9 @@ namespace NET_ASAM_OPENSCENARIO
         class DeterministicSingleParameterDistributionImpl: public BaseImpl, public IDeterministicSingleParameterDistributionWriter, public std::enable_shared_from_this<DeterministicSingleParameterDistributionImpl> 
         {
         private:
-            bool _isSetParameterName = false;          
+            bool _isSetParameterName = false;
             std::string _parameterName {};
-            
-            bool _isSetDeterministicSingleParameterDistributionType = false;          
+            bool _isSetDeterministicSingleParameterDistributionType = false;
             std::shared_ptr<IDeterministicSingleParameterDistributionTypeWriter> _deterministicSingleParameterDistributionType {};
 
         public:
@@ -4565,7 +4523,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromParameterName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsParameterNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsParameterNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IDeterministicSingleParameterDistributionTypeWriter> GetWriterDeterministicSingleParameterDistributionType() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetParameterName() const override;
@@ -4589,11 +4547,11 @@ namespace NET_ASAM_OPENSCENARIO
         class DeterministicSingleParameterDistributionTypeImpl: public BaseImpl, public IDeterministicSingleParameterDistributionTypeWriter, public std::enable_shared_from_this<DeterministicSingleParameterDistributionTypeImpl> 
         {
         private:
-            bool _isSetDistributionSet = false;          
+            bool _isSetDistributionSet = false;
             std::shared_ptr<IDistributionSetWriter> _distributionSet {};
-            bool _isSetDistributionRange = false;          
+            bool _isSetDistributionRange = false;
             std::shared_ptr<IDistributionRangeWriter> _distributionRange {};
-            bool _isSetUserDefinedDistribution = false;          
+            bool _isSetUserDefinedDistribution = false;
             std::shared_ptr<IUserDefinedDistributionWriter> _userDefinedDistribution {};
 
         public:
@@ -4688,15 +4646,12 @@ namespace NET_ASAM_OPENSCENARIO
         class DimensionsImpl: public BaseImpl, public IDimensionsWriter, public std::enable_shared_from_this<DimensionsImpl> 
         {
         private:
-            bool _isSetHeight = false;          
+            bool _isSetHeight = false;
             double _height {};
-            
-            bool _isSetLength = false;          
+            bool _isSetLength = false;
             double _length {};
-            
-            bool _isSetWidth = false;          
+            bool _isSetWidth = false;
             double _width {};
-            
 
         public:
 
@@ -4777,9 +4732,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromWidth() const override;
 
-            OPENSCENARIOLIB_EXP bool IsHeightParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsLengthParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsWidthParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsHeightParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsLengthParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsWidthParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetHeight() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetLength() const override;
@@ -4803,9 +4758,8 @@ namespace NET_ASAM_OPENSCENARIO
         class DirectoryImpl: public BaseImpl, public IDirectoryWriter, public std::enable_shared_from_this<DirectoryImpl> 
         {
         private:
-            bool _isSetPath = false;          
+            bool _isSetPath = false;
             std::string _path {};
-            
 
         public:
 
@@ -4872,7 +4826,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromPath() const override;
 
-            OPENSCENARIOLIB_EXP bool IsPathParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsPathParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetPath() const override;
         };
@@ -4894,25 +4848,19 @@ namespace NET_ASAM_OPENSCENARIO
         class DistanceConditionImpl: public BaseImpl, public IDistanceConditionWriter, public std::enable_shared_from_this<DistanceConditionImpl> 
         {
         private:
-            bool _isSetAlongRoute = false;          
+            bool _isSetAlongRoute = false;
             bool _alongRoute {};
-            
-            bool _isSetCoordinateSystem = false;          
+            bool _isSetCoordinateSystem = false;
             CoordinateSystem _coordinateSystem {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-            
-            bool _isSetFreespace = false;          
+            bool _isSetFreespace = false;
             bool _freespace {};
-            
-            bool _isSetRelativeDistanceType = false;          
+            bool _isSetRelativeDistanceType = false;
             RelativeDistanceType _relativeDistanceType {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
-            
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
 
         public:
@@ -5019,12 +4967,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsAlongRouteParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRelativeDistanceTypeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsAlongRouteParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRelativeDistanceTypeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
             OPENSCENARIOLIB_EXP virtual void ResetAlongRoute() override;
@@ -5059,9 +5007,9 @@ namespace NET_ASAM_OPENSCENARIO
         class DistributionDefinitionImpl: public BaseImpl, public IDistributionDefinitionWriter, public std::enable_shared_from_this<DistributionDefinitionImpl> 
         {
         private:
-            bool _isSetDeterministic = false;          
+            bool _isSetDeterministic = false;
             std::shared_ptr<IDeterministicWriter> _deterministic {};
-            bool _isSetStochastic = false;          
+            bool _isSetStochastic = false;
             std::shared_ptr<IStochasticWriter> _stochastic {};
 
         public:
@@ -5151,10 +5099,9 @@ namespace NET_ASAM_OPENSCENARIO
         class DistributionRangeImpl: public BaseImpl, public IDistributionRangeWriter, public std::enable_shared_from_this<DistributionRangeImpl> 
         {
         private:
-            bool _isSetStepWidth = false;          
+            bool _isSetStepWidth = false;
             double _stepWidth {};
-            
-            bool _isSetRange = false;          
+            bool _isSetRange = false;
             std::shared_ptr<IRangeWriter> _range {};
 
         public:
@@ -5225,7 +5172,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromStepWidth() const override;
 
-            OPENSCENARIOLIB_EXP bool IsStepWidthParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsStepWidthParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRangeWriter> GetWriterRange() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetStepWidth() const override;
@@ -5249,7 +5196,7 @@ namespace NET_ASAM_OPENSCENARIO
         class DistributionSetImpl: public BaseImpl, public IDistributionSetWriter, public std::enable_shared_from_this<DistributionSetImpl> 
         {
         private:
-            bool _isSetElements = false;          
+            bool _isSetElements = false;
             std::vector<std::shared_ptr<IDistributionSetElementWriter>> _elements {};
 
         public:
@@ -5337,9 +5284,8 @@ namespace NET_ASAM_OPENSCENARIO
         class DistributionSetElementImpl: public BaseImpl, public IDistributionSetElementWriter, public std::enable_shared_from_this<DistributionSetElementImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             std::string _value {};
-            
 
         public:
 
@@ -5406,7 +5352,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
         };
@@ -5428,15 +5374,12 @@ namespace NET_ASAM_OPENSCENARIO
         class DynamicConstraintsImpl: public BaseImpl, public IDynamicConstraintsWriter, public std::enable_shared_from_this<DynamicConstraintsImpl> 
         {
         private:
-            bool _isSetMaxAcceleration = false;          
+            bool _isSetMaxAcceleration = false;
             double _maxAcceleration {};
-            
-            bool _isSetMaxDeceleration = false;          
+            bool _isSetMaxDeceleration = false;
             double _maxDeceleration {};
-            
-            bool _isSetMaxSpeed = false;          
+            bool _isSetMaxSpeed = false;
             double _maxSpeed {};
-            
 
         public:
 
@@ -5517,9 +5460,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromMaxSpeed() const override;
 
-            OPENSCENARIOLIB_EXP bool IsMaxAccelerationParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsMaxDecelerationParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsMaxSpeedParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsMaxAccelerationParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsMaxDecelerationParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsMaxSpeedParameterized() override;
             // children
             OPENSCENARIOLIB_EXP virtual void ResetMaxAcceleration() override;
                       
@@ -5549,9 +5492,8 @@ namespace NET_ASAM_OPENSCENARIO
         class EndOfRoadConditionImpl: public BaseImpl, public IEndOfRoadConditionWriter, public std::enable_shared_from_this<EndOfRoadConditionImpl> 
         {
         private:
-            bool _isSetDuration = false;          
+            bool _isSetDuration = false;
             double _duration {};
-            
 
         public:
 
@@ -5618,7 +5560,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromDuration() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDurationParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDurationParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetDuration() const override;
         };
@@ -5640,9 +5582,9 @@ namespace NET_ASAM_OPENSCENARIO
         class EntitiesImpl: public BaseImpl, public IEntitiesWriter, public std::enable_shared_from_this<EntitiesImpl> 
         {
         private:
-            bool _isSetScenarioObjects = false;          
+            bool _isSetScenarioObjects = false;
             std::vector<std::shared_ptr<IScenarioObjectWriter>> _scenarioObjects {};
-            bool _isSetEntitySelections = false;          
+            bool _isSetEntitySelections = false;
             std::vector<std::shared_ptr<IEntitySelectionWriter>> _entitySelections {};
 
         public:
@@ -5742,11 +5684,11 @@ namespace NET_ASAM_OPENSCENARIO
         class EntityActionImpl: public BaseImpl, public IEntityActionWriter, public std::enable_shared_from_this<EntityActionImpl> 
         {
         private:
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetAddEntityAction = false;          
+            bool _isSetAddEntityAction = false;
             std::shared_ptr<IAddEntityActionWriter> _addEntityAction {};
-            bool _isSetDeleteEntityAction = false;          
+            bool _isSetDeleteEntityAction = false;
             std::shared_ptr<IDeleteEntityActionWriter> _deleteEntityAction {};
 
         public:
@@ -5819,7 +5761,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromEntityRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IAddEntityActionWriter> GetWriterAddEntityAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IDeleteEntityActionWriter> GetWriterDeleteEntityAction() const override;
@@ -5849,31 +5791,31 @@ namespace NET_ASAM_OPENSCENARIO
         class EntityConditionImpl: public BaseImpl, public IEntityConditionWriter, public std::enable_shared_from_this<EntityConditionImpl> 
         {
         private:
-            bool _isSetEndOfRoadCondition = false;          
+            bool _isSetEndOfRoadCondition = false;
             std::shared_ptr<IEndOfRoadConditionWriter> _endOfRoadCondition {};
-            bool _isSetCollisionCondition = false;          
+            bool _isSetCollisionCondition = false;
             std::shared_ptr<ICollisionConditionWriter> _collisionCondition {};
-            bool _isSetOffroadCondition = false;          
+            bool _isSetOffroadCondition = false;
             std::shared_ptr<IOffroadConditionWriter> _offroadCondition {};
-            bool _isSetTimeHeadwayCondition = false;          
+            bool _isSetTimeHeadwayCondition = false;
             std::shared_ptr<ITimeHeadwayConditionWriter> _timeHeadwayCondition {};
-            bool _isSetTimeToCollisionCondition = false;          
+            bool _isSetTimeToCollisionCondition = false;
             std::shared_ptr<ITimeToCollisionConditionWriter> _timeToCollisionCondition {};
-            bool _isSetAccelerationCondition = false;          
+            bool _isSetAccelerationCondition = false;
             std::shared_ptr<IAccelerationConditionWriter> _accelerationCondition {};
-            bool _isSetStandStillCondition = false;          
+            bool _isSetStandStillCondition = false;
             std::shared_ptr<IStandStillConditionWriter> _standStillCondition {};
-            bool _isSetSpeedCondition = false;          
+            bool _isSetSpeedCondition = false;
             std::shared_ptr<ISpeedConditionWriter> _speedCondition {};
-            bool _isSetRelativeSpeedCondition = false;          
+            bool _isSetRelativeSpeedCondition = false;
             std::shared_ptr<IRelativeSpeedConditionWriter> _relativeSpeedCondition {};
-            bool _isSetTraveledDistanceCondition = false;          
+            bool _isSetTraveledDistanceCondition = false;
             std::shared_ptr<ITraveledDistanceConditionWriter> _traveledDistanceCondition {};
-            bool _isSetReachPositionCondition = false;          
+            bool _isSetReachPositionCondition = false;
             std::shared_ptr<IReachPositionConditionWriter> _reachPositionCondition {};
-            bool _isSetDistanceCondition = false;          
+            bool _isSetDistanceCondition = false;
             std::shared_ptr<IDistanceConditionWriter> _distanceCondition {};
-            bool _isSetRelativeDistanceCondition = false;          
+            bool _isSetRelativeDistanceCondition = false;
             std::shared_ptr<IRelativeDistanceConditionWriter> _relativeDistanceCondition {};
 
         public:
@@ -6044,15 +5986,15 @@ namespace NET_ASAM_OPENSCENARIO
         class EntityObjectImpl: public BaseImpl, public IEntityObjectWriter, public std::enable_shared_from_this<EntityObjectImpl> 
         {
         private:
-            bool _isSetCatalogReference = false;          
+            bool _isSetCatalogReference = false;
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
-            bool _isSetVehicle = false;          
+            bool _isSetVehicle = false;
             std::shared_ptr<IVehicleWriter> _vehicle {};
-            bool _isSetPedestrian = false;          
+            bool _isSetPedestrian = false;
             std::shared_ptr<IPedestrianWriter> _pedestrian {};
-            bool _isSetMiscObject = false;          
+            bool _isSetMiscObject = false;
             std::shared_ptr<IMiscObjectWriter> _miscObject {};
-            bool _isSetExternalObjectReference = false;          
+            bool _isSetExternalObjectReference = false;
             std::shared_ptr<IExternalObjectReferenceWriter> _externalObjectReference {};
 
         public:
@@ -6167,7 +6109,7 @@ namespace NET_ASAM_OPENSCENARIO
         class EntityRefImpl: public BaseImpl, public IEntityRefWriter, public std::enable_shared_from_this<EntityRefImpl> 
         {
         private:
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
 
         public:
@@ -6234,7 +6176,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromEntityRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;
         };
@@ -6256,10 +6198,9 @@ namespace NET_ASAM_OPENSCENARIO
         class EntitySelectionImpl: public BaseImpl, public IEntitySelectionWriter, public std::enable_shared_from_this<EntitySelectionImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetMembers = false;          
+            bool _isSetMembers = false;
             std::shared_ptr<ISelectedEntitiesWriter> _members {};
 
         public:
@@ -6330,7 +6271,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ISelectedEntitiesWriter> GetWriterMembers() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
@@ -6354,16 +6295,15 @@ namespace NET_ASAM_OPENSCENARIO
         class EnvironmentImpl: public BaseImpl, public IEnvironmentWriter, public std::enable_shared_from_this<EnvironmentImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetParameterDeclarations = false;          
+            bool _isSetParameterDeclarations = false;
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
-            bool _isSetTimeOfDay = false;          
+            bool _isSetTimeOfDay = false;
             std::shared_ptr<ITimeOfDayWriter> _timeOfDay {};
-            bool _isSetWeather = false;          
+            bool _isSetWeather = false;
             std::shared_ptr<IWeatherWriter> _weather {};
-            bool _isSetRoadCondition = false;          
+            bool _isSetRoadCondition = false;
             std::shared_ptr<IRoadConditionWriter> _roadCondition {};
 
         public:
@@ -6449,7 +6389,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITimeOfDayWriter> GetWriterTimeOfDay() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IWeatherWriter> GetWriterWeather() const override;
@@ -6486,9 +6426,9 @@ namespace NET_ASAM_OPENSCENARIO
         class EnvironmentActionImpl: public BaseImpl, public IEnvironmentActionWriter, public std::enable_shared_from_this<EnvironmentActionImpl> 
         {
         private:
-            bool _isSetEnvironment = false;          
+            bool _isSetEnvironment = false;
             std::shared_ptr<IEnvironmentWriter> _environment {};
-            bool _isSetCatalogReference = false;          
+            bool _isSetCatalogReference = false;
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
 
         public:
@@ -6582,7 +6522,7 @@ namespace NET_ASAM_OPENSCENARIO
         class EnvironmentCatalogLocationImpl: public BaseImpl, public IEnvironmentCatalogLocationWriter, public std::enable_shared_from_this<EnvironmentCatalogLocationImpl> 
         {
         private:
-            bool _isSetDirectory = false;          
+            bool _isSetDirectory = false;
             std::shared_ptr<IDirectoryWriter> _directory {};
 
         public:
@@ -6667,18 +6607,15 @@ namespace NET_ASAM_OPENSCENARIO
         class EventImpl: public BaseImpl, public IEventWriter, public std::enable_shared_from_this<EventImpl> 
         {
         private:
-            bool _isSetMaximumExecutionCount = false;          
+            bool _isSetMaximumExecutionCount = false;
             uint32_t _maximumExecutionCount {1};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetPriority = false;          
+            bool _isSetPriority = false;
             Priority _priority {};
-            
-            bool _isSetActions = false;          
+            bool _isSetActions = false;
             std::vector<std::shared_ptr<IActionWriter>> _actions {};
-            bool _isSetStartTrigger = false;          
+            bool _isSetStartTrigger = false;
             std::shared_ptr<ITriggerWriter> _startTrigger {};
 
         public:
@@ -6771,9 +6708,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromPriority() const override;
 
-            OPENSCENARIOLIB_EXP bool IsMaximumExecutionCountParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsPriorityParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsMaximumExecutionCountParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsPriorityParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITriggerWriter> GetWriterStartTrigger() const override;
             OPENSCENARIOLIB_EXP virtual void ResetMaximumExecutionCount() override;
@@ -6804,9 +6741,8 @@ namespace NET_ASAM_OPENSCENARIO
         class ExternalObjectReferenceImpl: public BaseImpl, public IExternalObjectReferenceWriter, public std::enable_shared_from_this<ExternalObjectReferenceImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
 
         public:
 
@@ -6873,7 +6809,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
         };
@@ -6895,9 +6831,8 @@ namespace NET_ASAM_OPENSCENARIO
         class FileImpl: public BaseImpl, public IFileWriter, public std::enable_shared_from_this<FileImpl> 
         {
         private:
-            bool _isSetFilepath = false;          
+            bool _isSetFilepath = false;
             std::string _filepath {};
-            
 
         public:
 
@@ -6964,7 +6899,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromFilepath() const override;
 
-            OPENSCENARIOLIB_EXP bool IsFilepathParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsFilepathParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetFilepath() const override;
         };
@@ -6986,22 +6921,17 @@ namespace NET_ASAM_OPENSCENARIO
         class FileHeaderImpl: public BaseImpl, public IFileHeaderWriter, public std::enable_shared_from_this<FileHeaderImpl> 
         {
         private:
-            bool _isSetAuthor = false;          
+            bool _isSetAuthor = false;
             std::string _author {};
-            
-            bool _isSetDate = false;          
+            bool _isSetDate = false;
             DateTime _date {};
-            
-            bool _isSetDescription = false;          
+            bool _isSetDescription = false;
             std::string _description {};
-            
-            bool _isSetRevMajor = false;          
+            bool _isSetRevMajor = false;
             uint16_t _revMajor {};
-            
-            bool _isSetRevMinor = false;          
+            bool _isSetRevMinor = false;
             uint16_t _revMinor {};
-            
-            bool _isSetLicense = false;          
+            bool _isSetLicense = false;
             std::shared_ptr<ILicenseWriter> _license {};
 
         public:
@@ -7102,11 +7032,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromRevMinor() const override;
 
-            OPENSCENARIOLIB_EXP bool IsAuthorParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDateParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDescriptionParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRevMajorParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRevMinorParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsAuthorParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDateParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDescriptionParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRevMajorParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRevMinorParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ILicenseWriter> GetWriterLicense() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetAuthor() const override;
@@ -7136,9 +7066,9 @@ namespace NET_ASAM_OPENSCENARIO
         class FinalSpeedImpl: public BaseImpl, public IFinalSpeedWriter, public std::enable_shared_from_this<FinalSpeedImpl> 
         {
         private:
-            bool _isSetAbsoluteSpeed = false;          
+            bool _isSetAbsoluteSpeed = false;
             std::shared_ptr<IAbsoluteSpeedWriter> _absoluteSpeed {};
-            bool _isSetRelativeSpeedToMaster = false;          
+            bool _isSetRelativeSpeedToMaster = false;
             std::shared_ptr<IRelativeSpeedToMasterWriter> _relativeSpeedToMaster {};
 
         public:
@@ -7232,10 +7162,9 @@ namespace NET_ASAM_OPENSCENARIO
         class FogImpl: public BaseImpl, public IFogWriter, public std::enable_shared_from_this<FogImpl> 
         {
         private:
-            bool _isSetVisualRange = false;          
+            bool _isSetVisualRange = false;
             double _visualRange {};
-            
-            bool _isSetBoundingBox = false;          
+            bool _isSetBoundingBox = false;
             std::shared_ptr<IBoundingBoxWriter> _boundingBox {};
 
         public:
@@ -7306,7 +7235,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromVisualRange() const override;
 
-            OPENSCENARIOLIB_EXP bool IsVisualRangeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsVisualRangeParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetVisualRange() const override;
@@ -7332,18 +7261,17 @@ namespace NET_ASAM_OPENSCENARIO
         class FollowTrajectoryActionImpl: public BaseImpl, public IFollowTrajectoryActionWriter, public std::enable_shared_from_this<FollowTrajectoryActionImpl> 
         {
         private:
-            bool _isSetInitialDistanceOffset = false;          
+            bool _isSetInitialDistanceOffset = false;
             double _initialDistanceOffset {0};
-            
-            bool _isSetTrajectory = false;          
+            bool _isSetTrajectory = false;
             std::shared_ptr<ITrajectoryWriter> _trajectory {};
-            bool _isSetCatalogReference = false;          
+            bool _isSetCatalogReference = false;
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
-            bool _isSetTimeReference = false;          
+            bool _isSetTimeReference = false;
             std::shared_ptr<ITimeReferenceWriter> _timeReference {};
-            bool _isSetTrajectoryFollowingMode = false;          
+            bool _isSetTrajectoryFollowingMode = false;
             std::shared_ptr<ITrajectoryFollowingModeWriter> _trajectoryFollowingMode {};
-            bool _isSetTrajectoryRef = false;          
+            bool _isSetTrajectoryRef = false;
             std::shared_ptr<ITrajectoryRefWriter> _trajectoryRef {};
 
         public:
@@ -7426,7 +7354,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromInitialDistanceOffset() const override;
 
-            OPENSCENARIOLIB_EXP bool IsInitialDistanceOffsetParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsInitialDistanceOffsetParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryWriter> GetWriterTrajectory() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReferenceWriter> GetWriterCatalogReference() const override;
@@ -7466,16 +7394,13 @@ namespace NET_ASAM_OPENSCENARIO
         class GeoPositionImpl: public BaseImpl, public IGeoPositionWriter, public std::enable_shared_from_this<GeoPositionImpl> 
         {
         private:
-            bool _isSetHeight = false;          
+            bool _isSetHeight = false;
             double _height {0};
-            
-            bool _isSetLatitude = false;          
+            bool _isSetLatitude = false;
             double _latitude {};
-            
-            bool _isSetLongitude = false;          
+            bool _isSetLongitude = false;
             double _longitude {};
-            
-            bool _isSetOrientation = false;          
+            bool _isSetOrientation = false;
             std::shared_ptr<IOrientationWriter> _orientation {};
 
         public:
@@ -7560,9 +7485,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromLongitude() const override;
 
-            OPENSCENARIOLIB_EXP bool IsHeightParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsLatitudeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsLongitudeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsHeightParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsLatitudeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsLongitudeParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
             OPENSCENARIOLIB_EXP virtual void ResetHeight() override;
@@ -7592,15 +7517,15 @@ namespace NET_ASAM_OPENSCENARIO
         class GlobalActionImpl: public BaseImpl, public IGlobalActionWriter, public std::enable_shared_from_this<GlobalActionImpl> 
         {
         private:
-            bool _isSetEnvironmentAction = false;          
+            bool _isSetEnvironmentAction = false;
             std::shared_ptr<IEnvironmentActionWriter> _environmentAction {};
-            bool _isSetEntityAction = false;          
+            bool _isSetEntityAction = false;
             std::shared_ptr<IEntityActionWriter> _entityAction {};
-            bool _isSetParameterAction = false;          
+            bool _isSetParameterAction = false;
             std::shared_ptr<IParameterActionWriter> _parameterAction {};
-            bool _isSetInfrastructureAction = false;          
+            bool _isSetInfrastructureAction = false;
             std::shared_ptr<IInfrastructureActionWriter> _infrastructureAction {};
-            bool _isSetTrafficAction = false;          
+            bool _isSetTrafficAction = false;
             std::shared_ptr<ITrafficActionWriter> _trafficAction {};
 
         public:
@@ -7715,7 +7640,7 @@ namespace NET_ASAM_OPENSCENARIO
         class HistogramImpl: public BaseImpl, public IHistogramWriter, public std::enable_shared_from_this<HistogramImpl> 
         {
         private:
-            bool _isSetBins = false;          
+            bool _isSetBins = false;
             std::vector<std::shared_ptr<IHistogramBinWriter>> _bins {};
 
         public:
@@ -7803,10 +7728,9 @@ namespace NET_ASAM_OPENSCENARIO
         class HistogramBinImpl: public BaseImpl, public IHistogramBinWriter, public std::enable_shared_from_this<HistogramBinImpl> 
         {
         private:
-            bool _isSetWeight = false;          
+            bool _isSetWeight = false;
             double _weight {};
-            
-            bool _isSetRange = false;          
+            bool _isSetRange = false;
             std::shared_ptr<IRangeWriter> _range {};
 
         public:
@@ -7877,7 +7801,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromWeight() const override;
 
-            OPENSCENARIOLIB_EXP bool IsWeightParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsWeightParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRangeWriter> GetWriterRange() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetWeight() const override;
@@ -7901,11 +7825,11 @@ namespace NET_ASAM_OPENSCENARIO
         class InRoutePositionImpl: public BaseImpl, public IInRoutePositionWriter, public std::enable_shared_from_this<InRoutePositionImpl> 
         {
         private:
-            bool _isSetFromCurrentEntity = false;          
+            bool _isSetFromCurrentEntity = false;
             std::shared_ptr<IPositionOfCurrentEntityWriter> _fromCurrentEntity {};
-            bool _isSetFromRoadCoordinates = false;          
+            bool _isSetFromRoadCoordinates = false;
             std::shared_ptr<IPositionInRoadCoordinatesWriter> _fromRoadCoordinates {};
-            bool _isSetFromLaneCoordinates = false;          
+            bool _isSetFromLaneCoordinates = false;
             std::shared_ptr<IPositionInLaneCoordinatesWriter> _fromLaneCoordinates {};
 
         public:
@@ -8006,7 +7930,7 @@ namespace NET_ASAM_OPENSCENARIO
         class InfrastructureActionImpl: public BaseImpl, public IInfrastructureActionWriter, public std::enable_shared_from_this<InfrastructureActionImpl> 
         {
         private:
-            bool _isSetTrafficSignalAction = false;          
+            bool _isSetTrafficSignalAction = false;
             std::shared_ptr<ITrafficSignalActionWriter> _trafficSignalAction {};
 
         public:
@@ -8091,7 +8015,7 @@ namespace NET_ASAM_OPENSCENARIO
         class InitImpl: public BaseImpl, public IInitWriter, public std::enable_shared_from_this<InitImpl> 
         {
         private:
-            bool _isSetActions = false;          
+            bool _isSetActions = false;
             std::shared_ptr<IInitActionsWriter> _actions {};
 
         public:
@@ -8176,11 +8100,11 @@ namespace NET_ASAM_OPENSCENARIO
         class InitActionsImpl: public BaseImpl, public IInitActionsWriter, public std::enable_shared_from_this<InitActionsImpl> 
         {
         private:
-            bool _isSetGlobalActions = false;          
+            bool _isSetGlobalActions = false;
             std::vector<std::shared_ptr<IGlobalActionWriter>> _globalActions {};
-            bool _isSetUserDefinedActions = false;          
+            bool _isSetUserDefinedActions = false;
             std::vector<std::shared_ptr<IUserDefinedActionWriter>> _userDefinedActions {};
-            bool _isSetPrivates = false;          
+            bool _isSetPrivates = false;
             std::vector<std::shared_ptr<IPrivateWriter>> _privates {};
 
         public:
@@ -8290,9 +8214,8 @@ namespace NET_ASAM_OPENSCENARIO
         class KnotImpl: public BaseImpl, public IKnotWriter, public std::enable_shared_from_this<KnotImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -8359,7 +8282,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
         };
@@ -8381,12 +8304,11 @@ namespace NET_ASAM_OPENSCENARIO
         class LaneChangeActionImpl: public BaseImpl, public ILaneChangeActionWriter, public std::enable_shared_from_this<LaneChangeActionImpl> 
         {
         private:
-            bool _isSetTargetLaneOffset = false;          
+            bool _isSetTargetLaneOffset = false;
             double _targetLaneOffset {0};
-            
-            bool _isSetLaneChangeActionDynamics = false;          
+            bool _isSetLaneChangeActionDynamics = false;
             std::shared_ptr<ITransitionDynamicsWriter> _laneChangeActionDynamics {};
-            bool _isSetLaneChangeTarget = false;          
+            bool _isSetLaneChangeTarget = false;
             std::shared_ptr<ILaneChangeTargetWriter> _laneChangeTarget {};
 
         public:
@@ -8460,7 +8382,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTargetLaneOffset() const override;
 
-            OPENSCENARIOLIB_EXP bool IsTargetLaneOffsetParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsTargetLaneOffsetParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITransitionDynamicsWriter> GetWriterLaneChangeActionDynamics() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ILaneChangeTargetWriter> GetWriterLaneChangeTarget() const override;
@@ -8488,9 +8410,9 @@ namespace NET_ASAM_OPENSCENARIO
         class LaneChangeTargetImpl: public BaseImpl, public ILaneChangeTargetWriter, public std::enable_shared_from_this<LaneChangeTargetImpl> 
         {
         private:
-            bool _isSetRelativeTargetLane = false;          
+            bool _isSetRelativeTargetLane = false;
             std::shared_ptr<IRelativeTargetLaneWriter> _relativeTargetLane {};
-            bool _isSetAbsoluteTargetLane = false;          
+            bool _isSetAbsoluteTargetLane = false;
             std::shared_ptr<IAbsoluteTargetLaneWriter> _absoluteTargetLane {};
 
         public:
@@ -8584,12 +8506,11 @@ namespace NET_ASAM_OPENSCENARIO
         class LaneOffsetActionImpl: public BaseImpl, public ILaneOffsetActionWriter, public std::enable_shared_from_this<LaneOffsetActionImpl> 
         {
         private:
-            bool _isSetContinuous = false;          
+            bool _isSetContinuous = false;
             bool _continuous {};
-            
-            bool _isSetLaneOffsetActionDynamics = false;          
+            bool _isSetLaneOffsetActionDynamics = false;
             std::shared_ptr<ILaneOffsetActionDynamicsWriter> _laneOffsetActionDynamics {};
-            bool _isSetLaneOffsetTarget = false;          
+            bool _isSetLaneOffsetTarget = false;
             std::shared_ptr<ILaneOffsetTargetWriter> _laneOffsetTarget {};
 
         public:
@@ -8663,7 +8584,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromContinuous() const override;
 
-            OPENSCENARIOLIB_EXP bool IsContinuousParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsContinuousParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ILaneOffsetActionDynamicsWriter> GetWriterLaneOffsetActionDynamics() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ILaneOffsetTargetWriter> GetWriterLaneOffsetTarget() const override;
@@ -8689,12 +8610,10 @@ namespace NET_ASAM_OPENSCENARIO
         class LaneOffsetActionDynamicsImpl: public BaseImpl, public ILaneOffsetActionDynamicsWriter, public std::enable_shared_from_this<LaneOffsetActionDynamicsImpl> 
         {
         private:
-            bool _isSetDynamicsShape = false;          
+            bool _isSetDynamicsShape = false;
             DynamicsShape _dynamicsShape {};
-            
-            bool _isSetMaxLateralAcc = false;          
+            bool _isSetMaxLateralAcc = false;
             double _maxLateralAcc {};
-            
 
         public:
 
@@ -8768,8 +8687,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromMaxLateralAcc() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDynamicsShapeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsMaxLateralAccParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDynamicsShapeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsMaxLateralAccParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetDynamicsShape() const override;
             OPENSCENARIOLIB_EXP virtual void ResetMaxLateralAcc() override;
@@ -8794,9 +8713,9 @@ namespace NET_ASAM_OPENSCENARIO
         class LaneOffsetTargetImpl: public BaseImpl, public ILaneOffsetTargetWriter, public std::enable_shared_from_this<LaneOffsetTargetImpl> 
         {
         private:
-            bool _isSetRelativeTargetLaneOffset = false;          
+            bool _isSetRelativeTargetLaneOffset = false;
             std::shared_ptr<IRelativeTargetLaneOffsetWriter> _relativeTargetLaneOffset {};
-            bool _isSetAbsoluteTargetLaneOffset = false;          
+            bool _isSetAbsoluteTargetLaneOffset = false;
             std::shared_ptr<IAbsoluteTargetLaneOffsetWriter> _absoluteTargetLaneOffset {};
 
         public:
@@ -8890,19 +8809,15 @@ namespace NET_ASAM_OPENSCENARIO
         class LanePositionImpl: public BaseImpl, public ILanePositionWriter, public std::enable_shared_from_this<LanePositionImpl> 
         {
         private:
-            bool _isSetLaneId = false;          
+            bool _isSetLaneId = false;
             std::string _laneId {};
-            
-            bool _isSetOffset = false;          
+            bool _isSetOffset = false;
             double _offset {0};
-            
-            bool _isSetRoadId = false;          
+            bool _isSetRoadId = false;
             std::string _roadId {};
-            
-            bool _isSetS = false;          
+            bool _isSetS = false;
             double _s {};
-            
-            bool _isSetOrientation = false;          
+            bool _isSetOrientation = false;
             std::shared_ptr<IOrientationWriter> _orientation {};
 
         public:
@@ -8995,10 +8910,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromS() const override;
 
-            OPENSCENARIOLIB_EXP bool IsLaneIdParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsOffsetParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRoadIdParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsSParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsLaneIdParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsOffsetParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRoadIdParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsSParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetLaneId() const override;
@@ -9029,11 +8944,11 @@ namespace NET_ASAM_OPENSCENARIO
         class LateralActionImpl: public BaseImpl, public ILateralActionWriter, public std::enable_shared_from_this<LateralActionImpl> 
         {
         private:
-            bool _isSetLaneChangeAction = false;          
+            bool _isSetLaneChangeAction = false;
             std::shared_ptr<ILaneChangeActionWriter> _laneChangeAction {};
-            bool _isSetLaneOffsetAction = false;          
+            bool _isSetLaneOffsetAction = false;
             std::shared_ptr<ILaneOffsetActionWriter> _laneOffsetAction {};
-            bool _isSetLateralDistanceAction = false;          
+            bool _isSetLateralDistanceAction = false;
             std::shared_ptr<ILateralDistanceActionWriter> _lateralDistanceAction {};
 
         public:
@@ -9134,24 +9049,19 @@ namespace NET_ASAM_OPENSCENARIO
         class LateralDistanceActionImpl: public BaseImpl, public ILateralDistanceActionWriter, public std::enable_shared_from_this<LateralDistanceActionImpl> 
         {
         private:
-            bool _isSetContinuous = false;          
+            bool _isSetContinuous = false;
             bool _continuous {};
-            
-            bool _isSetCoordinateSystem = false;          
+            bool _isSetCoordinateSystem = false;
             CoordinateSystem _coordinateSystem {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-            
-            bool _isSetDisplacement = false;          
+            bool _isSetDisplacement = false;
             LateralDisplacement _displacement {LateralDisplacement::LateralDisplacementEnum::ANY};
-            
-            bool _isSetDistance = false;          
+            bool _isSetDistance = false;
             double _distance {0};
-            
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetFreespace = false;          
+            bool _isSetFreespace = false;
             bool _freespace {};
-            
-            bool _isSetDynamicConstraints = false;          
+            bool _isSetDynamicConstraints = false;
             std::shared_ptr<IDynamicConstraintsWriter> _dynamicConstraints {};
 
         public:
@@ -9258,12 +9168,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromFreespace() const override;
 
-            OPENSCENARIOLIB_EXP bool IsContinuousParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDisplacementParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDistanceParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsContinuousParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDisplacementParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDistanceParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IDynamicConstraintsWriter> GetWriterDynamicConstraints() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetContinuous() const override;
@@ -9300,18 +9210,14 @@ namespace NET_ASAM_OPENSCENARIO
         class LicenseImpl: public BaseImpl, public ILicenseWriter, public std::enable_shared_from_this<LicenseImpl> 
         {
         private:
-            bool _isSetText = false;          
+            bool _isSetText = false;
             std::string _text {};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetResource = false;          
+            bool _isSetResource = false;
             std::string _resource {};
-            
-            bool _isSetSpdxId = false;          
+            bool _isSetSpdxId = false;
             std::string _spdxId {};
-            
 
         public:
 
@@ -9399,10 +9305,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromSpdxId() const override;
 
-            OPENSCENARIOLIB_EXP bool IsTextParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsResourceParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsSpdxIdParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsTextParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsResourceParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsSpdxIdParameterized() override;
             // children
             OPENSCENARIOLIB_EXP virtual void ResetText() override;
                       
@@ -9433,9 +9339,9 @@ namespace NET_ASAM_OPENSCENARIO
         class LongitudinalActionImpl: public BaseImpl, public ILongitudinalActionWriter, public std::enable_shared_from_this<LongitudinalActionImpl> 
         {
         private:
-            bool _isSetSpeedAction = false;          
+            bool _isSetSpeedAction = false;
             std::shared_ptr<ISpeedActionWriter> _speedAction {};
-            bool _isSetLongitudinalDistanceAction = false;          
+            bool _isSetLongitudinalDistanceAction = false;
             std::shared_ptr<ILongitudinalDistanceActionWriter> _longitudinalDistanceAction {};
 
         public:
@@ -9529,27 +9435,21 @@ namespace NET_ASAM_OPENSCENARIO
         class LongitudinalDistanceActionImpl: public BaseImpl, public ILongitudinalDistanceActionWriter, public std::enable_shared_from_this<LongitudinalDistanceActionImpl> 
         {
         private:
-            bool _isSetContinuous = false;          
+            bool _isSetContinuous = false;
             bool _continuous {};
-            
-            bool _isSetCoordinateSystem = false;          
+            bool _isSetCoordinateSystem = false;
             CoordinateSystem _coordinateSystem {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-            
-            bool _isSetDisplacement = false;          
+            bool _isSetDisplacement = false;
             LongitudinalDisplacement _displacement {LongitudinalDisplacement::LongitudinalDisplacementEnum::TRAILING_REFERENCED_ENTITY};
-            
-            bool _isSetDistance = false;          
+            bool _isSetDistance = false;
             double _distance {};
-            
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetFreespace = false;          
+            bool _isSetFreespace = false;
             bool _freespace {};
-            
-            bool _isSetTimeGap = false;          
+            bool _isSetTimeGap = false;
             double _timeGap {};
-            
-            bool _isSetDynamicConstraints = false;          
+            bool _isSetDynamicConstraints = false;
             std::shared_ptr<IDynamicConstraintsWriter> _dynamicConstraints {};
 
         public:
@@ -9663,13 +9563,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTimeGap() const override;
 
-            OPENSCENARIOLIB_EXP bool IsContinuousParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDisplacementParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDistanceParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTimeGapParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsContinuousParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDisplacementParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDistanceParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTimeGapParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IDynamicConstraintsWriter> GetWriterDynamicConstraints() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetContinuous() const override;
@@ -9709,12 +9609,11 @@ namespace NET_ASAM_OPENSCENARIO
         class ManeuverImpl: public BaseImpl, public IManeuverWriter, public std::enable_shared_from_this<ManeuverImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetParameterDeclarations = false;          
+            bool _isSetParameterDeclarations = false;
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
-            bool _isSetEvents = false;          
+            bool _isSetEvents = false;
             std::vector<std::shared_ptr<IEventWriter>> _events {};
 
         public:
@@ -9798,7 +9697,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
             OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
@@ -9824,7 +9723,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ManeuverCatalogLocationImpl: public BaseImpl, public IManeuverCatalogLocationWriter, public std::enable_shared_from_this<ManeuverCatalogLocationImpl> 
         {
         private:
-            bool _isSetDirectory = false;          
+            bool _isSetDirectory = false;
             std::shared_ptr<IDirectoryWriter> _directory {};
 
         public:
@@ -9909,17 +9808,15 @@ namespace NET_ASAM_OPENSCENARIO
         class ManeuverGroupImpl: public BaseImpl, public IManeuverGroupWriter, public std::enable_shared_from_this<ManeuverGroupImpl> 
         {
         private:
-            bool _isSetMaximumExecutionCount = false;          
+            bool _isSetMaximumExecutionCount = false;
             uint32_t _maximumExecutionCount {};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetActors = false;          
+            bool _isSetActors = false;
             std::shared_ptr<IActorsWriter> _actors {};
-            bool _isSetCatalogReferences = false;          
+            bool _isSetCatalogReferences = false;
             std::vector<std::shared_ptr<ICatalogReferenceWriter>> _catalogReferences {};
-            bool _isSetManeuvers = false;          
+            bool _isSetManeuvers = false;
             std::vector<std::shared_ptr<IManeuverWriter>> _maneuvers {};
 
         public:
@@ -10012,8 +9909,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsMaximumExecutionCountParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsMaximumExecutionCountParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IActorsWriter> GetWriterActors() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetMaximumExecutionCount() const override;
@@ -10044,23 +9941,19 @@ namespace NET_ASAM_OPENSCENARIO
         class MiscObjectImpl: public BaseImpl, public IMiscObjectWriter, public std::enable_shared_from_this<MiscObjectImpl> 
         {
         private:
-            bool _isSetMass = false;          
+            bool _isSetMass = false;
             double _mass {};
-            
-            bool _isSetMiscObjectCategory = false;          
+            bool _isSetMiscObjectCategory = false;
             MiscObjectCategory _miscObjectCategory {};
-            
-            bool _isSetModel3d = false;          
+            bool _isSetModel3d = false;
             std::string _model3d {};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetParameterDeclarations = false;          
+            bool _isSetParameterDeclarations = false;
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
-            bool _isSetBoundingBox = false;          
+            bool _isSetBoundingBox = false;
             std::shared_ptr<IBoundingBoxWriter> _boundingBox {};
-            bool _isSetProperties = false;          
+            bool _isSetProperties = false;
             std::shared_ptr<IPropertiesWriter> _properties {};
 
         public:
@@ -10165,10 +10058,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsMassParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsMiscObjectCategoryParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsModel3dParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsMassParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsMiscObjectCategoryParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsModel3dParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPropertiesWriter> GetWriterProperties() const override;
@@ -10202,7 +10095,7 @@ namespace NET_ASAM_OPENSCENARIO
         class MiscObjectCatalogLocationImpl: public BaseImpl, public IMiscObjectCatalogLocationWriter, public std::enable_shared_from_this<MiscObjectCatalogLocationImpl> 
         {
         private:
-            bool _isSetDirectory = false;          
+            bool _isSetDirectory = false;
             std::shared_ptr<IDirectoryWriter> _directory {};
 
         public:
@@ -10287,9 +10180,9 @@ namespace NET_ASAM_OPENSCENARIO
         class ModifyRuleImpl: public BaseImpl, public IModifyRuleWriter, public std::enable_shared_from_this<ModifyRuleImpl> 
         {
         private:
-            bool _isSetAddValue = false;          
+            bool _isSetAddValue = false;
             std::shared_ptr<IParameterAddValueRuleWriter> _addValue {};
-            bool _isSetMultiplyByValue = false;          
+            bool _isSetMultiplyByValue = false;
             std::shared_ptr<IParameterMultiplyByValueRuleWriter> _multiplyByValue {};
 
         public:
@@ -10461,13 +10354,11 @@ namespace NET_ASAM_OPENSCENARIO
         class NormalDistributionImpl: public BaseImpl, public INormalDistributionWriter, public std::enable_shared_from_this<NormalDistributionImpl> 
         {
         private:
-            bool _isSetExpectedValue = false;          
+            bool _isSetExpectedValue = false;
             double _expectedValue {};
-            
-            bool _isSetVariance = false;          
+            bool _isSetVariance = false;
             double _variance {};
-            
-            bool _isSetRange = false;          
+            bool _isSetRange = false;
             std::shared_ptr<IRangeWriter> _range {};
 
         public:
@@ -10545,8 +10436,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromVariance() const override;
 
-            OPENSCENARIOLIB_EXP bool IsExpectedValueParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsVarianceParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsExpectedValueParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsVarianceParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRangeWriter> GetWriterRange() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetExpectedValue() const override;
@@ -10573,12 +10464,11 @@ namespace NET_ASAM_OPENSCENARIO
         class NurbsImpl: public BaseImpl, public INurbsWriter, public std::enable_shared_from_this<NurbsImpl> 
         {
         private:
-            bool _isSetOrder = false;          
+            bool _isSetOrder = false;
             uint32_t _order {};
-            
-            bool _isSetControlPoints = false;          
+            bool _isSetControlPoints = false;
             std::vector<std::shared_ptr<IControlPointWriter>> _controlPoints {};
-            bool _isSetKnots = false;          
+            bool _isSetKnots = false;
             std::vector<std::shared_ptr<IKnotWriter>> _knots {};
 
         public:
@@ -10660,7 +10550,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromOrder() const override;
 
-            OPENSCENARIOLIB_EXP bool IsOrderParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsOrderParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetOrder() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetControlPoints() const override;
@@ -10684,9 +10574,9 @@ namespace NET_ASAM_OPENSCENARIO
         class ObjectControllerImpl: public BaseImpl, public IObjectControllerWriter, public std::enable_shared_from_this<ObjectControllerImpl> 
         {
         private:
-            bool _isSetCatalogReference = false;          
+            bool _isSetCatalogReference = false;
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
-            bool _isSetController = false;          
+            bool _isSetController = false;
             std::shared_ptr<IControllerWriter> _controller {};
 
         public:
@@ -10780,9 +10670,8 @@ namespace NET_ASAM_OPENSCENARIO
         class OffroadConditionImpl: public BaseImpl, public IOffroadConditionWriter, public std::enable_shared_from_this<OffroadConditionImpl> 
         {
         private:
-            bool _isSetDuration = false;          
+            bool _isSetDuration = false;
             double _duration {};
-            
 
         public:
 
@@ -10849,7 +10738,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromDuration() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDurationParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDurationParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetDuration() const override;
         };
@@ -10871,9 +10760,9 @@ namespace NET_ASAM_OPENSCENARIO
         class OpenScenarioImpl: public BaseImpl, public IOpenScenarioWriter, public std::enable_shared_from_this<OpenScenarioImpl> 
         {
         private:
-            bool _isSetFileHeader = false;          
+            bool _isSetFileHeader = false;
             std::shared_ptr<IFileHeaderWriter> _fileHeader {};
-            bool _isSetOpenScenarioCategory = false;          
+            bool _isSetOpenScenarioCategory = false;
             std::shared_ptr<IOpenScenarioCategoryWriter> _openScenarioCategory {};
 
         public:
@@ -10963,11 +10852,11 @@ namespace NET_ASAM_OPENSCENARIO
         class OpenScenarioCategoryImpl: public BaseImpl, public IOpenScenarioCategoryWriter, public std::enable_shared_from_this<OpenScenarioCategoryImpl> 
         {
         private:
-            bool _isSetScenarioDefinition = false;          
+            bool _isSetScenarioDefinition = false;
             std::shared_ptr<IScenarioDefinitionWriter> _scenarioDefinition {};
-            bool _isSetCatalogDefinition = false;          
+            bool _isSetCatalogDefinition = false;
             std::shared_ptr<ICatalogDefinitionWriter> _catalogDefinition {};
-            bool _isSetParameterValueDistributionDefinition = false;          
+            bool _isSetParameterValueDistributionDefinition = false;
             std::shared_ptr<IParameterValueDistributionDefinitionWriter> _parameterValueDistributionDefinition {};
 
         public:
@@ -11062,18 +10951,14 @@ namespace NET_ASAM_OPENSCENARIO
         class OrientationImpl: public BaseImpl, public IOrientationWriter, public std::enable_shared_from_this<OrientationImpl> 
         {
         private:
-            bool _isSetH = false;          
+            bool _isSetH = false;
             double _h {0};
-            
-            bool _isSetP = false;          
+            bool _isSetP = false;
             double _p {0};
-            
-            bool _isSetR = false;          
+            bool _isSetR = false;
             double _r {0};
-            
-            bool _isSetType = false;          
+            bool _isSetType = false;
             ReferenceContext _type {ReferenceContext::ReferenceContextEnum::ABSOLUTE};
-            
 
         public:
 
@@ -11161,10 +11046,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromType() const override;
 
-            OPENSCENARIOLIB_EXP bool IsHParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsPParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTypeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsHParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsPParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTypeParameterized() override;
             // children
             OPENSCENARIOLIB_EXP virtual void ResetH() override;
                       
@@ -11197,12 +11082,10 @@ namespace NET_ASAM_OPENSCENARIO
         class OverrideBrakeActionImpl: public BaseImpl, public IOverrideBrakeActionWriter, public std::enable_shared_from_this<OverrideBrakeActionImpl> 
         {
         private:
-            bool _isSetActive = false;          
+            bool _isSetActive = false;
             bool _active {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -11277,8 +11160,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetActive() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -11301,12 +11184,10 @@ namespace NET_ASAM_OPENSCENARIO
         class OverrideClutchActionImpl: public BaseImpl, public IOverrideClutchActionWriter, public std::enable_shared_from_this<OverrideClutchActionImpl> 
         {
         private:
-            bool _isSetActive = false;          
+            bool _isSetActive = false;
             bool _active {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -11381,8 +11262,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetActive() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -11405,17 +11286,17 @@ namespace NET_ASAM_OPENSCENARIO
         class OverrideControllerValueActionImpl: public BaseImpl, public IOverrideControllerValueActionWriter, public std::enable_shared_from_this<OverrideControllerValueActionImpl> 
         {
         private:
-            bool _isSetThrottle = false;          
+            bool _isSetThrottle = false;
             std::shared_ptr<IOverrideThrottleActionWriter> _throttle {};
-            bool _isSetBrake = false;          
+            bool _isSetBrake = false;
             std::shared_ptr<IOverrideBrakeActionWriter> _brake {};
-            bool _isSetClutch = false;          
+            bool _isSetClutch = false;
             std::shared_ptr<IOverrideClutchActionWriter> _clutch {};
-            bool _isSetParkingBrake = false;          
+            bool _isSetParkingBrake = false;
             std::shared_ptr<IOverrideParkingBrakeActionWriter> _parkingBrake {};
-            bool _isSetSteeringWheel = false;          
+            bool _isSetSteeringWheel = false;
             std::shared_ptr<IOverrideSteeringWheelActionWriter> _steeringWheel {};
-            bool _isSetGear = false;          
+            bool _isSetGear = false;
             std::shared_ptr<IOverrideGearActionWriter> _gear {};
 
         public:
@@ -11537,12 +11418,10 @@ namespace NET_ASAM_OPENSCENARIO
         class OverrideGearActionImpl: public BaseImpl, public IOverrideGearActionWriter, public std::enable_shared_from_this<OverrideGearActionImpl> 
         {
         private:
-            bool _isSetActive = false;          
+            bool _isSetActive = false;
             bool _active {};
-            
-            bool _isSetNumber = false;          
+            bool _isSetNumber = false;
             double _number {};
-            
 
         public:
 
@@ -11617,8 +11496,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromNumber() const override;
 
-            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNumberParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNumberParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetActive() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetNumber() const override;
@@ -11641,12 +11520,10 @@ namespace NET_ASAM_OPENSCENARIO
         class OverrideParkingBrakeActionImpl: public BaseImpl, public IOverrideParkingBrakeActionWriter, public std::enable_shared_from_this<OverrideParkingBrakeActionImpl> 
         {
         private:
-            bool _isSetActive = false;          
+            bool _isSetActive = false;
             bool _active {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -11721,8 +11598,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetActive() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -11745,12 +11622,10 @@ namespace NET_ASAM_OPENSCENARIO
         class OverrideSteeringWheelActionImpl: public BaseImpl, public IOverrideSteeringWheelActionWriter, public std::enable_shared_from_this<OverrideSteeringWheelActionImpl> 
         {
         private:
-            bool _isSetActive = false;          
+            bool _isSetActive = false;
             bool _active {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -11825,8 +11700,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetActive() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -11849,12 +11724,10 @@ namespace NET_ASAM_OPENSCENARIO
         class OverrideThrottleActionImpl: public BaseImpl, public IOverrideThrottleActionWriter, public std::enable_shared_from_this<OverrideThrottleActionImpl> 
         {
         private:
-            bool _isSetActive = false;          
+            bool _isSetActive = false;
             bool _active {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -11929,8 +11802,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsActiveParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetActive() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -11953,11 +11826,11 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterActionImpl: public BaseImpl, public IParameterActionWriter, public std::enable_shared_from_this<ParameterActionImpl> 
         {
         private:
-            bool _isSetParameterRef = false;          
+            bool _isSetParameterRef = false;
             std::shared_ptr<INamedReference<IParameterDeclaration>> _parameterRef  = nullptr;
-            bool _isSetSetAction = false;          
+            bool _isSetSetAction = false;
             std::shared_ptr<IParameterSetActionWriter> _setAction {};
-            bool _isSetModifyAction = false;          
+            bool _isSetModifyAction = false;
             std::shared_ptr<IParameterModifyActionWriter> _modifyAction {};
 
         public:
@@ -12030,7 +11903,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromParameterRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsParameterRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsParameterRefParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterSetActionWriter> GetWriterSetAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IParameterModifyActionWriter> GetWriterModifyAction() const override;
@@ -12060,9 +11933,8 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterAddValueRuleImpl: public BaseImpl, public IParameterAddValueRuleWriter, public std::enable_shared_from_this<ParameterAddValueRuleImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -12129,7 +12001,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
         };
@@ -12151,11 +12023,10 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterAssignmentImpl: public BaseImpl, public IParameterAssignmentWriter, public std::enable_shared_from_this<ParameterAssignmentImpl> 
         {
         private:
-            bool _isSetParameterRef = false;          
+            bool _isSetParameterRef = false;
             std::shared_ptr<INamedReference<IParameterDeclaration>> _parameterRef  = nullptr;
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             std::string _value {};
-            
 
         public:
 
@@ -12227,7 +12098,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetParameterRef() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -12250,14 +12121,12 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterConditionImpl: public BaseImpl, public IParameterConditionWriter, public std::enable_shared_from_this<ParameterConditionImpl> 
         {
         private:
-            bool _isSetParameterRef = false;          
+            bool _isSetParameterRef = false;
             std::shared_ptr<INamedReference<IParameterDeclaration>> _parameterRef  = nullptr;
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             std::string _value {};
-            
 
         public:
 
@@ -12338,9 +12207,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsParameterRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsParameterRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetParameterRef() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetRule() const override;
@@ -12364,16 +12233,13 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterDeclarationImpl: public BaseImpl, public IParameterDeclarationWriter, public std::enable_shared_from_this<ParameterDeclarationImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetParameterType = false;          
+            bool _isSetParameterType = false;
             ParameterType _parameterType {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             std::string _value {};
-            
-            bool _isSetConstraintGroups = false;          
+            bool _isSetConstraintGroups = false;
             std::vector<std::shared_ptr<IValueConstraintGroupWriter>> _constraintGroups {};
 
         public:
@@ -12460,8 +12326,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsParameterTypeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsParameterTypeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetParameterType() const override;
@@ -12488,7 +12354,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterModifyActionImpl: public BaseImpl, public IParameterModifyActionWriter, public std::enable_shared_from_this<ParameterModifyActionImpl> 
         {
         private:
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             std::shared_ptr<IModifyRuleWriter> _rule {};
 
         public:
@@ -12573,9 +12439,8 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterMultiplyByValueRuleImpl: public BaseImpl, public IParameterMultiplyByValueRuleWriter, public std::enable_shared_from_this<ParameterMultiplyByValueRuleImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -12642,7 +12507,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
         };
@@ -12664,9 +12529,8 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterSetActionImpl: public BaseImpl, public IParameterSetActionWriter, public std::enable_shared_from_this<ParameterSetActionImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             std::string _value {};
-            
 
         public:
 
@@ -12733,7 +12597,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
         };
@@ -12755,9 +12619,9 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterValueDistributionImpl: public BaseImpl, public IParameterValueDistributionWriter, public std::enable_shared_from_this<ParameterValueDistributionImpl> 
         {
         private:
-            bool _isSetScenarioFile = false;          
+            bool _isSetScenarioFile = false;
             std::shared_ptr<IFileWriter> _scenarioFile {};
-            bool _isSetDistributionDefinition = false;          
+            bool _isSetDistributionDefinition = false;
             std::shared_ptr<IDistributionDefinitionWriter> _distributionDefinition {};
 
         public:
@@ -12847,7 +12711,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterValueDistributionDefinitionImpl: public BaseImpl, public IParameterValueDistributionDefinitionWriter, public std::enable_shared_from_this<ParameterValueDistributionDefinitionImpl> 
         {
         private:
-            bool _isSetParameterValueDistribution = false;          
+            bool _isSetParameterValueDistribution = false;
             std::shared_ptr<IParameterValueDistributionWriter> _parameterValueDistribution {};
 
         public:
@@ -12932,7 +12796,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ParameterValueSetImpl: public BaseImpl, public IParameterValueSetWriter, public std::enable_shared_from_this<ParameterValueSetImpl> 
         {
         private:
-            bool _isSetParameterAssignments = false;          
+            bool _isSetParameterAssignments = false;
             std::vector<std::shared_ptr<IParameterAssignmentWriter>> _parameterAssignments {};
 
         public:
@@ -13020,26 +12884,21 @@ namespace NET_ASAM_OPENSCENARIO
         class PedestrianImpl: public BaseImpl, public IPedestrianWriter, public std::enable_shared_from_this<PedestrianImpl> 
         {
         private:
-            bool _isSetMass = false;          
+            bool _isSetMass = false;
             double _mass {};
-            
-            bool _isSetModel = false;          
+            bool _isSetModel = false;
             std::string _model {};
-            
-            bool _isSetModel3d = false;          
+            bool _isSetModel3d = false;
             std::string _model3d {};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetPedestrianCategory = false;          
+            bool _isSetPedestrianCategory = false;
             PedestrianCategory _pedestrianCategory {};
-            
-            bool _isSetParameterDeclarations = false;          
+            bool _isSetParameterDeclarations = false;
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
-            bool _isSetBoundingBox = false;          
+            bool _isSetBoundingBox = false;
             std::shared_ptr<IBoundingBoxWriter> _boundingBox {};
-            bool _isSetProperties = false;          
+            bool _isSetProperties = false;
             std::shared_ptr<IPropertiesWriter> _properties {};
 
         public:
@@ -13151,11 +13010,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromPedestrianCategory() const override;
 
-            OPENSCENARIOLIB_EXP bool IsMassParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsModelParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsModel3dParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsPedestrianCategoryParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsMassParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsModelParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsModel3dParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsPedestrianCategoryParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPropertiesWriter> GetWriterProperties() const override;
@@ -13192,7 +13051,7 @@ namespace NET_ASAM_OPENSCENARIO
         class PedestrianCatalogLocationImpl: public BaseImpl, public IPedestrianCatalogLocationWriter, public std::enable_shared_from_this<PedestrianCatalogLocationImpl> 
         {
         private:
-            bool _isSetDirectory = false;          
+            bool _isSetDirectory = false;
             std::shared_ptr<IDirectoryWriter> _directory {};
 
         public:
@@ -13277,15 +13136,12 @@ namespace NET_ASAM_OPENSCENARIO
         class PerformanceImpl: public BaseImpl, public IPerformanceWriter, public std::enable_shared_from_this<PerformanceImpl> 
         {
         private:
-            bool _isSetMaxAcceleration = false;          
+            bool _isSetMaxAcceleration = false;
             double _maxAcceleration {};
-            
-            bool _isSetMaxDeceleration = false;          
+            bool _isSetMaxDeceleration = false;
             double _maxDeceleration {};
-            
-            bool _isSetMaxSpeed = false;          
+            bool _isSetMaxSpeed = false;
             double _maxSpeed {};
-            
 
         public:
 
@@ -13366,9 +13222,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromMaxSpeed() const override;
 
-            OPENSCENARIOLIB_EXP bool IsMaxAccelerationParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsMaxDecelerationParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsMaxSpeedParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsMaxAccelerationParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsMaxDecelerationParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsMaxSpeedParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetMaxAcceleration() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetMaxDeceleration() const override;
@@ -13392,13 +13248,11 @@ namespace NET_ASAM_OPENSCENARIO
         class PhaseImpl: public BaseImpl, public IPhaseWriter, public std::enable_shared_from_this<PhaseImpl> 
         {
         private:
-            bool _isSetDuration = false;          
+            bool _isSetDuration = false;
             double _duration {};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetTrafficSignalStates = false;          
+            bool _isSetTrafficSignalStates = false;
             std::vector<std::shared_ptr<ITrafficSignalStateWriter>> _trafficSignalStates {};
 
         public:
@@ -13481,8 +13335,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDurationParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDurationParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetDuration() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
@@ -13508,10 +13362,9 @@ namespace NET_ASAM_OPENSCENARIO
         class PoissonDistributionImpl: public BaseImpl, public IPoissonDistributionWriter, public std::enable_shared_from_this<PoissonDistributionImpl> 
         {
         private:
-            bool _isSetExpectedValue = false;          
+            bool _isSetExpectedValue = false;
             double _expectedValue {};
-            
-            bool _isSetRange = false;          
+            bool _isSetRange = false;
             std::shared_ptr<IRangeWriter> _range {};
 
         public:
@@ -13582,7 +13435,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromExpectedValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsExpectedValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsExpectedValueParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IRangeWriter> GetWriterRange() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetExpectedValue() const override;
@@ -13608,7 +13461,7 @@ namespace NET_ASAM_OPENSCENARIO
         class PolylineImpl: public BaseImpl, public IPolylineWriter, public std::enable_shared_from_this<PolylineImpl> 
         {
         private:
-            bool _isSetVertices = false;          
+            bool _isSetVertices = false;
             std::vector<std::shared_ptr<IVertexWriter>> _vertices {};
 
         public:
@@ -13696,25 +13549,25 @@ namespace NET_ASAM_OPENSCENARIO
         class PositionImpl: public BaseImpl, public IPositionWriter, public std::enable_shared_from_this<PositionImpl> 
         {
         private:
-            bool _isSetWorldPosition = false;          
+            bool _isSetWorldPosition = false;
             std::shared_ptr<IWorldPositionWriter> _worldPosition {};
-            bool _isSetRelativeWorldPosition = false;          
+            bool _isSetRelativeWorldPosition = false;
             std::shared_ptr<IRelativeWorldPositionWriter> _relativeWorldPosition {};
-            bool _isSetRelativeObjectPosition = false;          
+            bool _isSetRelativeObjectPosition = false;
             std::shared_ptr<IRelativeObjectPositionWriter> _relativeObjectPosition {};
-            bool _isSetRoadPosition = false;          
+            bool _isSetRoadPosition = false;
             std::shared_ptr<IRoadPositionWriter> _roadPosition {};
-            bool _isSetRelativeRoadPosition = false;          
+            bool _isSetRelativeRoadPosition = false;
             std::shared_ptr<IRelativeRoadPositionWriter> _relativeRoadPosition {};
-            bool _isSetLanePosition = false;          
+            bool _isSetLanePosition = false;
             std::shared_ptr<ILanePositionWriter> _lanePosition {};
-            bool _isSetRelativeLanePosition = false;          
+            bool _isSetRelativeLanePosition = false;
             std::shared_ptr<IRelativeLanePositionWriter> _relativeLanePosition {};
-            bool _isSetRoutePosition = false;          
+            bool _isSetRoutePosition = false;
             std::shared_ptr<IRoutePositionWriter> _routePosition {};
-            bool _isSetGeoPosition = false;          
+            bool _isSetGeoPosition = false;
             std::shared_ptr<IGeoPositionWriter> _geoPosition {};
-            bool _isSetTrajectoryPosition = false;          
+            bool _isSetTrajectoryPosition = false;
             std::shared_ptr<ITrajectoryPositionWriter> _trajectoryPosition {};
 
         public:
@@ -13864,15 +13717,12 @@ namespace NET_ASAM_OPENSCENARIO
         class PositionInLaneCoordinatesImpl: public BaseImpl, public IPositionInLaneCoordinatesWriter, public std::enable_shared_from_this<PositionInLaneCoordinatesImpl> 
         {
         private:
-            bool _isSetLaneId = false;          
+            bool _isSetLaneId = false;
             std::string _laneId {};
-            
-            bool _isSetLaneOffset = false;          
+            bool _isSetLaneOffset = false;
             double _laneOffset {0};
-            
-            bool _isSetPathS = false;          
+            bool _isSetPathS = false;
             double _pathS {};
-            
 
         public:
 
@@ -13954,9 +13804,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromPathS() const override;
 
-            OPENSCENARIOLIB_EXP bool IsLaneIdParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsLaneOffsetParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsPathSParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsLaneIdParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsLaneOffsetParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsPathSParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetLaneId() const override;
             OPENSCENARIOLIB_EXP virtual void ResetLaneOffset() override;
@@ -13982,12 +13832,10 @@ namespace NET_ASAM_OPENSCENARIO
         class PositionInRoadCoordinatesImpl: public BaseImpl, public IPositionInRoadCoordinatesWriter, public std::enable_shared_from_this<PositionInRoadCoordinatesImpl> 
         {
         private:
-            bool _isSetPathS = false;          
+            bool _isSetPathS = false;
             double _pathS {};
-            
-            bool _isSetT = false;          
+            bool _isSetT = false;
             double _t {};
-            
 
         public:
 
@@ -14061,8 +13909,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromT() const override;
 
-            OPENSCENARIOLIB_EXP bool IsPathSParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsPathSParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetPathS() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetT() const override;
@@ -14085,7 +13933,7 @@ namespace NET_ASAM_OPENSCENARIO
         class PositionOfCurrentEntityImpl: public BaseImpl, public IPositionOfCurrentEntityWriter, public std::enable_shared_from_this<PositionOfCurrentEntityImpl> 
         {
         private:
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
 
         public:
@@ -14152,7 +14000,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromEntityRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;
         };
@@ -14174,15 +14022,12 @@ namespace NET_ASAM_OPENSCENARIO
         class PrecipitationImpl: public BaseImpl, public IPrecipitationWriter, public std::enable_shared_from_this<PrecipitationImpl> 
         {
         private:
-            bool _isSetIntensity = false;          
+            bool _isSetIntensity = false;
             double _intensity {};
-            
-            bool _isSetPrecipitationIntensity = false;          
+            bool _isSetPrecipitationIntensity = false;
             double _precipitationIntensity {};
-            
-            bool _isSetPrecipitationType = false;          
+            bool _isSetPrecipitationType = false;
             PrecipitationType _precipitationType {};
-            
 
         public:
 
@@ -14263,9 +14108,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromPrecipitationType() const override;
 
-            OPENSCENARIOLIB_EXP bool IsIntensityParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsPrecipitationIntensityParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsPrecipitationTypeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsIntensityParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsPrecipitationIntensityParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsPrecipitationTypeParameterized() override;
             // children
             OPENSCENARIOLIB_EXP virtual void ResetIntensity() override;
                       
@@ -14293,9 +14138,9 @@ namespace NET_ASAM_OPENSCENARIO
         class PrivateImpl: public BaseImpl, public IPrivateWriter, public std::enable_shared_from_this<PrivateImpl> 
         {
         private:
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetPrivateActions = false;          
+            bool _isSetPrivateActions = false;
             std::vector<std::shared_ptr<IPrivateActionWriter>> _privateActions {};
 
         public:
@@ -14369,7 +14214,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromEntityRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetPrivateActions() const override;
@@ -14392,21 +14237,21 @@ namespace NET_ASAM_OPENSCENARIO
         class PrivateActionImpl: public BaseImpl, public IPrivateActionWriter, public std::enable_shared_from_this<PrivateActionImpl> 
         {
         private:
-            bool _isSetLongitudinalAction = false;          
+            bool _isSetLongitudinalAction = false;
             std::shared_ptr<ILongitudinalActionWriter> _longitudinalAction {};
-            bool _isSetLateralAction = false;          
+            bool _isSetLateralAction = false;
             std::shared_ptr<ILateralActionWriter> _lateralAction {};
-            bool _isSetVisibilityAction = false;          
+            bool _isSetVisibilityAction = false;
             std::shared_ptr<IVisibilityActionWriter> _visibilityAction {};
-            bool _isSetSynchronizeAction = false;          
+            bool _isSetSynchronizeAction = false;
             std::shared_ptr<ISynchronizeActionWriter> _synchronizeAction {};
-            bool _isSetActivateControllerAction = false;          
+            bool _isSetActivateControllerAction = false;
             std::shared_ptr<IActivateControllerActionWriter> _activateControllerAction {};
-            bool _isSetControllerAction = false;          
+            bool _isSetControllerAction = false;
             std::shared_ptr<IControllerActionWriter> _controllerAction {};
-            bool _isSetTeleportAction = false;          
+            bool _isSetTeleportAction = false;
             std::shared_ptr<ITeleportActionWriter> _teleportAction {};
-            bool _isSetRoutingAction = false;          
+            bool _isSetRoutingAction = false;
             std::shared_ptr<IRoutingActionWriter> _routingAction {};
 
         public:
@@ -14542,7 +14387,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ProbabilityDistributionSetImpl: public BaseImpl, public IProbabilityDistributionSetWriter, public std::enable_shared_from_this<ProbabilityDistributionSetImpl> 
         {
         private:
-            bool _isSetElements = false;          
+            bool _isSetElements = false;
             std::vector<std::shared_ptr<IProbabilityDistributionSetElementWriter>> _elements {};
 
         public:
@@ -14630,12 +14475,10 @@ namespace NET_ASAM_OPENSCENARIO
         class ProbabilityDistributionSetElementImpl: public BaseImpl, public IProbabilityDistributionSetElementWriter, public std::enable_shared_from_this<ProbabilityDistributionSetElementImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             std::string _value {};
-            
-            bool _isSetWeight = false;          
+            bool _isSetWeight = false;
             double _weight {};
-            
 
         public:
 
@@ -14710,8 +14553,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromWeight() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsWeightParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsWeightParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetWeight() const override;
@@ -14734,9 +14577,9 @@ namespace NET_ASAM_OPENSCENARIO
         class PropertiesImpl: public BaseImpl, public IPropertiesWriter, public std::enable_shared_from_this<PropertiesImpl> 
         {
         private:
-            bool _isSetProperties = false;          
+            bool _isSetProperties = false;
             std::vector<std::shared_ptr<IPropertyWriter>> _properties {};
-            bool _isSetFiles = false;          
+            bool _isSetFiles = false;
             std::vector<std::shared_ptr<IFileWriter>> _files {};
 
         public:
@@ -14836,12 +14679,10 @@ namespace NET_ASAM_OPENSCENARIO
         class PropertyImpl: public BaseImpl, public IPropertyWriter, public std::enable_shared_from_this<PropertyImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             std::string _value {};
-            
 
         public:
 
@@ -14915,8 +14756,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -14939,12 +14780,10 @@ namespace NET_ASAM_OPENSCENARIO
         class RangeImpl: public BaseImpl, public IRangeWriter, public std::enable_shared_from_this<RangeImpl> 
         {
         private:
-            bool _isSetLowerLimit = false;          
+            bool _isSetLowerLimit = false;
             double _lowerLimit {};
-            
-            bool _isSetUpperLimit = false;          
+            bool _isSetUpperLimit = false;
             double _upperLimit {};
-            
 
         public:
 
@@ -15018,8 +14857,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromUpperLimit() const override;
 
-            OPENSCENARIOLIB_EXP bool IsLowerLimitParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsUpperLimitParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsLowerLimitParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsUpperLimitParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetLowerLimit() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetUpperLimit() const override;
@@ -15042,10 +14881,9 @@ namespace NET_ASAM_OPENSCENARIO
         class ReachPositionConditionImpl: public BaseImpl, public IReachPositionConditionWriter, public std::enable_shared_from_this<ReachPositionConditionImpl> 
         {
         private:
-            bool _isSetTolerance = false;          
+            bool _isSetTolerance = false;
             double _tolerance {};
-            
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
 
         public:
@@ -15116,7 +14954,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTolerance() const override;
 
-            OPENSCENARIOLIB_EXP bool IsToleranceParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsToleranceParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetTolerance() const override;
@@ -15140,23 +14978,18 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeDistanceConditionImpl: public BaseImpl, public IRelativeDistanceConditionWriter, public std::enable_shared_from_this<RelativeDistanceConditionImpl> 
         {
         private:
-            bool _isSetCoordinateSystem = false;          
+            bool _isSetCoordinateSystem = false;
             CoordinateSystem _coordinateSystem {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-            
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetFreespace = false;          
+            bool _isSetFreespace = false;
             bool _freespace {};
-            
-            bool _isSetRelativeDistanceType = false;          
+            bool _isSetRelativeDistanceType = false;
             RelativeDistanceType _relativeDistanceType {};
-            
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -15259,12 +15092,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRelativeDistanceTypeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRelativeDistanceTypeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
             OPENSCENARIOLIB_EXP virtual void ResetCoordinateSystem() override;
                       
@@ -15293,21 +15126,17 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeLanePositionImpl: public BaseImpl, public IRelativeLanePositionWriter, public std::enable_shared_from_this<RelativeLanePositionImpl> 
         {
         private:
-            bool _isSetDLane = false;          
+            bool _isSetDLane = false;
             int _dLane {};
-            
-            bool _isSetDs = false;          
+            bool _isSetDs = false;
             double _ds {};
-            
-            bool _isSetDsLane = false;          
+            bool _isSetDsLane = false;
             double _dsLane {};
-            
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetOffset = false;          
+            bool _isSetOffset = false;
             double _offset {0};
-            
-            bool _isSetOrientation = false;          
+            bool _isSetOrientation = false;
             std::shared_ptr<IOrientationWriter> _orientation {};
 
         public:
@@ -15407,11 +15236,11 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromOffset() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDLaneParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDsParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDsLaneParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsOffsetParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDLaneParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDsParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDsLaneParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsOffsetParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetDLane() const override;
@@ -15447,18 +15276,15 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeObjectPositionImpl: public BaseImpl, public IRelativeObjectPositionWriter, public std::enable_shared_from_this<RelativeObjectPositionImpl> 
         {
         private:
-            bool _isSetDx = false;          
+            bool _isSetDx = false;
             double _dx {};
-            
-            bool _isSetDy = false;          
+            bool _isSetDy = false;
             double _dy {};
-            
-            bool _isSetDz = false;          
+            bool _isSetDz = false;
             double _dz {0};
-            
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetOrientation = false;          
+            bool _isSetOrientation = false;
             std::shared_ptr<IOrientationWriter> _orientation {};
 
         public:
@@ -15550,10 +15376,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromEntityRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDxParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDyParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDzParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDxParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDyParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDzParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetDx() const override;
@@ -15584,15 +15410,13 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeRoadPositionImpl: public BaseImpl, public IRelativeRoadPositionWriter, public std::enable_shared_from_this<RelativeRoadPositionImpl> 
         {
         private:
-            bool _isSetDs = false;          
+            bool _isSetDs = false;
             double _ds {};
-            
-            bool _isSetDt = false;          
+            bool _isSetDt = false;
             double _dt {};
-            
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetOrientation = false;          
+            bool _isSetOrientation = false;
             std::shared_ptr<IOrientationWriter> _orientation {};
 
         public:
@@ -15677,9 +15501,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromEntityRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDsParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDtParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDsParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDtParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetDs() const override;
@@ -15707,14 +15531,12 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeSpeedConditionImpl: public BaseImpl, public IRelativeSpeedConditionWriter, public std::enable_shared_from_this<RelativeSpeedConditionImpl> 
         {
         private:
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -15795,9 +15617,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetRule() const override;
@@ -15821,13 +15643,11 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeSpeedToMasterImpl: public BaseImpl, public IRelativeSpeedToMasterWriter, public std::enable_shared_from_this<RelativeSpeedToMasterImpl> 
         {
         private:
-            bool _isSetSpeedTargetValueType = false;          
+            bool _isSetSpeedTargetValueType = false;
             SpeedTargetValueType _speedTargetValueType {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
-            bool _isSetSteadyState = false;          
+            bool _isSetSteadyState = false;
             std::shared_ptr<ISteadyStateWriter> _steadyState {};
 
         public:
@@ -15905,8 +15725,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsSpeedTargetValueTypeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsSpeedTargetValueTypeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ISteadyStateWriter> GetWriterSteadyState() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetSpeedTargetValueType() const override;
@@ -15933,11 +15753,10 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeTargetLaneImpl: public BaseImpl, public IRelativeTargetLaneWriter, public std::enable_shared_from_this<RelativeTargetLaneImpl> 
         {
         private:
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             int _value {};
-            
 
         public:
 
@@ -16011,8 +15830,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -16035,11 +15854,10 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeTargetLaneOffsetImpl: public BaseImpl, public IRelativeTargetLaneOffsetWriter, public std::enable_shared_from_this<RelativeTargetLaneOffsetImpl> 
         {
         private:
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -16113,8 +15931,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -16137,17 +15955,14 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeTargetSpeedImpl: public BaseImpl, public IRelativeTargetSpeedWriter, public std::enable_shared_from_this<RelativeTargetSpeedImpl> 
         {
         private:
-            bool _isSetContinuous = false;          
+            bool _isSetContinuous = false;
             bool _continuous {};
-            
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetSpeedTargetValueType = false;          
+            bool _isSetSpeedTargetValueType = false;
             SpeedTargetValueType _speedTargetValueType {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -16236,10 +16051,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsContinuousParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsSpeedTargetValueTypeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsContinuousParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsSpeedTargetValueTypeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetContinuous() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetEntityRef() const override;
@@ -16264,18 +16079,15 @@ namespace NET_ASAM_OPENSCENARIO
         class RelativeWorldPositionImpl: public BaseImpl, public IRelativeWorldPositionWriter, public std::enable_shared_from_this<RelativeWorldPositionImpl> 
         {
         private:
-            bool _isSetDx = false;          
+            bool _isSetDx = false;
             double _dx {};
-            
-            bool _isSetDy = false;          
+            bool _isSetDy = false;
             double _dy {};
-            
-            bool _isSetDz = false;          
+            bool _isSetDz = false;
             double _dz {0};
-            
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetOrientation = false;          
+            bool _isSetOrientation = false;
             std::shared_ptr<IOrientationWriter> _orientation {};
 
         public:
@@ -16367,10 +16179,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromEntityRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDxParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDyParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDzParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDxParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDyParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDzParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetDx() const override;
@@ -16401,10 +16213,9 @@ namespace NET_ASAM_OPENSCENARIO
         class RoadConditionImpl: public BaseImpl, public IRoadConditionWriter, public std::enable_shared_from_this<RoadConditionImpl> 
         {
         private:
-            bool _isSetFrictionScaleFactor = false;          
+            bool _isSetFrictionScaleFactor = false;
             double _frictionScaleFactor {};
-            
-            bool _isSetProperties = false;          
+            bool _isSetProperties = false;
             std::shared_ptr<IPropertiesWriter> _properties {};
 
         public:
@@ -16475,7 +16286,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromFrictionScaleFactor() const override;
 
-            OPENSCENARIOLIB_EXP bool IsFrictionScaleFactorParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsFrictionScaleFactorParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPropertiesWriter> GetWriterProperties() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetFrictionScaleFactor() const override;
@@ -16501,13 +16312,13 @@ namespace NET_ASAM_OPENSCENARIO
         class RoadNetworkImpl: public BaseImpl, public IRoadNetworkWriter, public std::enable_shared_from_this<RoadNetworkImpl> 
         {
         private:
-            bool _isSetLogicFile = false;          
+            bool _isSetLogicFile = false;
             std::shared_ptr<IFileWriter> _logicFile {};
-            bool _isSetSceneGraphFile = false;          
+            bool _isSetSceneGraphFile = false;
             std::shared_ptr<IFileWriter> _sceneGraphFile {};
-            bool _isSetTrafficSignals = false;          
+            bool _isSetTrafficSignals = false;
             std::vector<std::shared_ptr<ITrafficSignalControllerWriter>> _trafficSignals {};
-            bool _isSetUsedArea = false;          
+            bool _isSetUsedArea = false;
             std::shared_ptr<IUsedAreaWriter> _usedArea {};
 
         public:
@@ -16618,16 +16429,13 @@ namespace NET_ASAM_OPENSCENARIO
         class RoadPositionImpl: public BaseImpl, public IRoadPositionWriter, public std::enable_shared_from_this<RoadPositionImpl> 
         {
         private:
-            bool _isSetRoadId = false;          
+            bool _isSetRoadId = false;
             std::string _roadId {};
-            
-            bool _isSetS = false;          
+            bool _isSetS = false;
             double _s {};
-            
-            bool _isSetT = false;          
+            bool _isSetT = false;
             double _t {};
-            
-            bool _isSetOrientation = false;          
+            bool _isSetOrientation = false;
             std::shared_ptr<IOrientationWriter> _orientation {};
 
         public:
@@ -16713,9 +16521,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromT() const override;
 
-            OPENSCENARIOLIB_EXP bool IsRoadIdParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsSParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsRoadIdParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsSParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetRoadId() const override;
@@ -16743,15 +16551,13 @@ namespace NET_ASAM_OPENSCENARIO
         class RouteImpl: public BaseImpl, public IRouteWriter, public std::enable_shared_from_this<RouteImpl> 
         {
         private:
-            bool _isSetClosed = false;          
+            bool _isSetClosed = false;
             bool _closed {};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetParameterDeclarations = false;          
+            bool _isSetParameterDeclarations = false;
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
-            bool _isSetWaypoints = false;          
+            bool _isSetWaypoints = false;
             std::vector<std::shared_ptr<IWaypointWriter>> _waypoints {};
 
         public:
@@ -16843,8 +16649,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsClosedParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsClosedParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetClosed() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
@@ -16871,7 +16677,7 @@ namespace NET_ASAM_OPENSCENARIO
         class RouteCatalogLocationImpl: public BaseImpl, public IRouteCatalogLocationWriter, public std::enable_shared_from_this<RouteCatalogLocationImpl> 
         {
         private:
-            bool _isSetDirectory = false;          
+            bool _isSetDirectory = false;
             std::shared_ptr<IDirectoryWriter> _directory {};
 
         public:
@@ -16956,11 +16762,11 @@ namespace NET_ASAM_OPENSCENARIO
         class RoutePositionImpl: public BaseImpl, public IRoutePositionWriter, public std::enable_shared_from_this<RoutePositionImpl> 
         {
         private:
-            bool _isSetRouteRef = false;          
+            bool _isSetRouteRef = false;
             std::shared_ptr<IRouteRefWriter> _routeRef {};
-            bool _isSetOrientation = false;          
+            bool _isSetOrientation = false;
             std::shared_ptr<IOrientationWriter> _orientation {};
-            bool _isSetInRoutePosition = false;          
+            bool _isSetInRoutePosition = false;
             std::shared_ptr<IInRoutePositionWriter> _inRoutePosition {};
 
         public:
@@ -17057,9 +16863,9 @@ namespace NET_ASAM_OPENSCENARIO
         class RouteRefImpl: public BaseImpl, public IRouteRefWriter, public std::enable_shared_from_this<RouteRefImpl> 
         {
         private:
-            bool _isSetRoute = false;          
+            bool _isSetRoute = false;
             std::shared_ptr<IRouteWriter> _route {};
-            bool _isSetCatalogReference = false;          
+            bool _isSetCatalogReference = false;
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
 
         public:
@@ -17153,11 +16959,11 @@ namespace NET_ASAM_OPENSCENARIO
         class RoutingActionImpl: public BaseImpl, public IRoutingActionWriter, public std::enable_shared_from_this<RoutingActionImpl> 
         {
         private:
-            bool _isSetAssignRouteAction = false;          
+            bool _isSetAssignRouteAction = false;
             std::shared_ptr<IAssignRouteActionWriter> _assignRouteAction {};
-            bool _isSetFollowTrajectoryAction = false;          
+            bool _isSetFollowTrajectoryAction = false;
             std::shared_ptr<IFollowTrajectoryActionWriter> _followTrajectoryAction {};
-            bool _isSetAcquirePositionAction = false;          
+            bool _isSetAcquirePositionAction = false;
             std::shared_ptr<IAcquirePositionActionWriter> _acquirePositionAction {};
 
         public:
@@ -17258,15 +17064,15 @@ namespace NET_ASAM_OPENSCENARIO
         class ScenarioDefinitionImpl: public BaseImpl, public IScenarioDefinitionWriter, public std::enable_shared_from_this<ScenarioDefinitionImpl> 
         {
         private:
-            bool _isSetParameterDeclarations = false;          
+            bool _isSetParameterDeclarations = false;
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
-            bool _isSetCatalogLocations = false;          
+            bool _isSetCatalogLocations = false;
             std::shared_ptr<ICatalogLocationsWriter> _catalogLocations {};
-            bool _isSetRoadNetwork = false;          
+            bool _isSetRoadNetwork = false;
             std::shared_ptr<IRoadNetworkWriter> _roadNetwork {};
-            bool _isSetEntities = false;          
+            bool _isSetEntities = false;
             std::shared_ptr<IEntitiesWriter> _entities {};
-            bool _isSetStoryboard = false;          
+            bool _isSetStoryboard = false;
             std::shared_ptr<IStoryboardWriter> _storyboard {};
 
         public:
@@ -17378,12 +17184,11 @@ namespace NET_ASAM_OPENSCENARIO
         class ScenarioObjectImpl: public BaseImpl, public IScenarioObjectWriter, public std::enable_shared_from_this<ScenarioObjectImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetEntityObject = false;          
+            bool _isSetEntityObject = false;
             std::shared_ptr<IEntityObjectWriter> _entityObject {};
-            bool _isSetObjectController = false;          
+            bool _isSetObjectController = false;
             std::shared_ptr<IObjectControllerWriter> _objectController {};
 
         public:
@@ -17457,7 +17262,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IEntityObjectWriter> GetWriterEntityObject() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IObjectControllerWriter> GetWriterObjectController() const override;
@@ -17485,9 +17290,9 @@ namespace NET_ASAM_OPENSCENARIO
         class SelectedEntitiesImpl: public BaseImpl, public ISelectedEntitiesWriter, public std::enable_shared_from_this<SelectedEntitiesImpl> 
         {
         private:
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::vector<std::shared_ptr<IEntityRefWriter>> _entityRef {};
-            bool _isSetByType = false;          
+            bool _isSetByType = false;
             std::vector<std::shared_ptr<IByTypeWriter>> _byType {};
 
         public:
@@ -17587,11 +17392,11 @@ namespace NET_ASAM_OPENSCENARIO
         class ShapeImpl: public BaseImpl, public IShapeWriter, public std::enable_shared_from_this<ShapeImpl> 
         {
         private:
-            bool _isSetPolyline = false;          
+            bool _isSetPolyline = false;
             std::shared_ptr<IPolylineWriter> _polyline {};
-            bool _isSetClothoid = false;          
+            bool _isSetClothoid = false;
             std::shared_ptr<IClothoidWriter> _clothoid {};
-            bool _isSetNurbs = false;          
+            bool _isSetNurbs = false;
             std::shared_ptr<INurbsWriter> _nurbs {};
 
         public:
@@ -17692,12 +17497,10 @@ namespace NET_ASAM_OPENSCENARIO
         class SimulationTimeConditionImpl: public BaseImpl, public ISimulationTimeConditionWriter, public std::enable_shared_from_this<SimulationTimeConditionImpl> 
         {
         private:
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -17771,8 +17574,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetRule() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -17795,9 +17598,9 @@ namespace NET_ASAM_OPENSCENARIO
         class SpeedActionImpl: public BaseImpl, public ISpeedActionWriter, public std::enable_shared_from_this<SpeedActionImpl> 
         {
         private:
-            bool _isSetSpeedActionDynamics = false;          
+            bool _isSetSpeedActionDynamics = false;
             std::shared_ptr<ITransitionDynamicsWriter> _speedActionDynamics {};
-            bool _isSetSpeedActionTarget = false;          
+            bool _isSetSpeedActionTarget = false;
             std::shared_ptr<ISpeedActionTargetWriter> _speedActionTarget {};
 
         public:
@@ -17887,9 +17690,9 @@ namespace NET_ASAM_OPENSCENARIO
         class SpeedActionTargetImpl: public BaseImpl, public ISpeedActionTargetWriter, public std::enable_shared_from_this<SpeedActionTargetImpl> 
         {
         private:
-            bool _isSetRelativeTargetSpeed = false;          
+            bool _isSetRelativeTargetSpeed = false;
             std::shared_ptr<IRelativeTargetSpeedWriter> _relativeTargetSpeed {};
-            bool _isSetAbsoluteTargetSpeed = false;          
+            bool _isSetAbsoluteTargetSpeed = false;
             std::shared_ptr<IAbsoluteTargetSpeedWriter> _absoluteTargetSpeed {};
 
         public:
@@ -17983,12 +17786,10 @@ namespace NET_ASAM_OPENSCENARIO
         class SpeedConditionImpl: public BaseImpl, public ISpeedConditionWriter, public std::enable_shared_from_this<SpeedConditionImpl> 
         {
         private:
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -18062,8 +17863,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetRule() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -18086,9 +17887,8 @@ namespace NET_ASAM_OPENSCENARIO
         class StandStillConditionImpl: public BaseImpl, public IStandStillConditionWriter, public std::enable_shared_from_this<StandStillConditionImpl> 
         {
         private:
-            bool _isSetDuration = false;          
+            bool _isSetDuration = false;
             double _duration {};
-            
 
         public:
 
@@ -18155,7 +17955,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromDuration() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDurationParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDurationParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetDuration() const override;
         };
@@ -18177,9 +17977,9 @@ namespace NET_ASAM_OPENSCENARIO
         class SteadyStateImpl: public BaseImpl, public ISteadyStateWriter, public std::enable_shared_from_this<SteadyStateImpl> 
         {
         private:
-            bool _isSetTargetDistanceSteadyState = false;          
+            bool _isSetTargetDistanceSteadyState = false;
             std::shared_ptr<ITargetDistanceSteadyStateWriter> _targetDistanceSteadyState {};
-            bool _isSetTargetTimeSteadyState = false;          
+            bool _isSetTargetTimeSteadyState = false;
             std::shared_ptr<ITargetTimeSteadyStateWriter> _targetTimeSteadyState {};
 
         public:
@@ -18269,13 +18069,11 @@ namespace NET_ASAM_OPENSCENARIO
         class StochasticImpl: public BaseImpl, public IStochasticWriter, public std::enable_shared_from_this<StochasticImpl> 
         {
         private:
-            bool _isSetNumberOfTestRuns = false;          
+            bool _isSetNumberOfTestRuns = false;
             uint32_t _numberOfTestRuns {};
-            
-            bool _isSetRandomSeed = false;          
+            bool _isSetRandomSeed = false;
             double _randomSeed {};
-            
-            bool _isSetStochasticDistributions = false;          
+            bool _isSetStochasticDistributions = false;
             std::vector<std::shared_ptr<IStochasticDistributionWriter>> _stochasticDistributions {};
 
         public:
@@ -18358,8 +18156,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromRandomSeed() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNumberOfTestRunsParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRandomSeedParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNumberOfTestRunsParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRandomSeedParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetNumberOfTestRuns() const override;
             OPENSCENARIOLIB_EXP virtual void ResetRandomSeed() override;
@@ -18385,10 +18183,9 @@ namespace NET_ASAM_OPENSCENARIO
         class StochasticDistributionImpl: public BaseImpl, public IStochasticDistributionWriter, public std::enable_shared_from_this<StochasticDistributionImpl> 
         {
         private:
-            bool _isSetParameterName = false;          
+            bool _isSetParameterName = false;
             std::string _parameterName {};
-            
-            bool _isSetStochasticDistributionType = false;          
+            bool _isSetStochasticDistributionType = false;
             std::shared_ptr<IStochasticDistributionTypeWriter> _stochasticDistributionType {};
 
         public:
@@ -18459,7 +18256,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromParameterName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsParameterNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsParameterNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IStochasticDistributionTypeWriter> GetWriterStochasticDistributionType() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetParameterName() const override;
@@ -18483,17 +18280,17 @@ namespace NET_ASAM_OPENSCENARIO
         class StochasticDistributionTypeImpl: public BaseImpl, public IStochasticDistributionTypeWriter, public std::enable_shared_from_this<StochasticDistributionTypeImpl> 
         {
         private:
-            bool _isSetProbabilityDistributionSet = false;          
+            bool _isSetProbabilityDistributionSet = false;
             std::shared_ptr<IProbabilityDistributionSetWriter> _probabilityDistributionSet {};
-            bool _isSetNormalDistribution = false;          
+            bool _isSetNormalDistribution = false;
             std::shared_ptr<INormalDistributionWriter> _normalDistribution {};
-            bool _isSetUniformDistribution = false;          
+            bool _isSetUniformDistribution = false;
             std::shared_ptr<IUniformDistributionWriter> _uniformDistribution {};
-            bool _isSetPoissonDistribution = false;          
+            bool _isSetPoissonDistribution = false;
             std::shared_ptr<IPoissonDistributionWriter> _poissonDistribution {};
-            bool _isSetHistogram = false;          
+            bool _isSetHistogram = false;
             std::shared_ptr<IHistogramWriter> _histogram {};
-            bool _isSetUserDefinedDistribution = false;          
+            bool _isSetUserDefinedDistribution = false;
             std::shared_ptr<IUserDefinedDistributionWriter> _userDefinedDistribution {};
 
         public:
@@ -18603,12 +18400,11 @@ namespace NET_ASAM_OPENSCENARIO
         class StoryImpl: public BaseImpl, public IStoryWriter, public std::enable_shared_from_this<StoryImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetParameterDeclarations = false;          
+            bool _isSetParameterDeclarations = false;
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
-            bool _isSetActs = false;          
+            bool _isSetActs = false;
             std::vector<std::shared_ptr<IActWriter>> _acts {};
 
         public:
@@ -18692,7 +18488,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
             OPENSCENARIOLIB_EXP virtual void ResetParameterDeclarations() override;
@@ -18718,11 +18514,11 @@ namespace NET_ASAM_OPENSCENARIO
         class StoryboardImpl: public BaseImpl, public IStoryboardWriter, public std::enable_shared_from_this<StoryboardImpl> 
         {
         private:
-            bool _isSetInit = false;          
+            bool _isSetInit = false;
             std::shared_ptr<IInitWriter> _init {};
-            bool _isSetStories = false;          
+            bool _isSetStories = false;
             std::vector<std::shared_ptr<IStoryWriter>> _stories {};
-            bool _isSetStopTrigger = false;          
+            bool _isSetStopTrigger = false;
             std::shared_ptr<ITriggerWriter> _stopTrigger {};
 
         public:
@@ -18820,14 +18616,12 @@ namespace NET_ASAM_OPENSCENARIO
         class StoryboardElementStateConditionImpl: public BaseImpl, public IStoryboardElementStateConditionWriter, public std::enable_shared_from_this<StoryboardElementStateConditionImpl> 
         {
         private:
-            bool _isSetState = false;          
+            bool _isSetState = false;
             StoryboardElementState _state {};
-            
-            bool _isSetStoryboardElementRef = false;          
+            bool _isSetStoryboardElementRef = false;
             std::shared_ptr<INamedReference<IStoryboardElement>> _storyboardElementRef  = nullptr;
-            bool _isSetStoryboardElementType = false;          
+            bool _isSetStoryboardElementType = false;
             StoryboardElementType _storyboardElementType {};
-            
 
         public:
 
@@ -18907,9 +18701,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromStoryboardElementType() const override;
 
-            OPENSCENARIOLIB_EXP bool IsStateParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsStoryboardElementRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsStoryboardElementTypeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsStateParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsStoryboardElementRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsStoryboardElementTypeParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetState() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetStoryboardElementRef() const override;
@@ -18933,15 +18727,12 @@ namespace NET_ASAM_OPENSCENARIO
         class SunImpl: public BaseImpl, public ISunWriter, public std::enable_shared_from_this<SunImpl> 
         {
         private:
-            bool _isSetAzimuth = false;          
+            bool _isSetAzimuth = false;
             double _azimuth {};
-            
-            bool _isSetElevation = false;          
+            bool _isSetElevation = false;
             double _elevation {};
-            
-            bool _isSetIntensity = false;          
+            bool _isSetIntensity = false;
             double _intensity {};
-            
 
         public:
 
@@ -19022,9 +18813,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromIntensity() const override;
 
-            OPENSCENARIOLIB_EXP bool IsAzimuthParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsElevationParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsIntensityParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsAzimuthParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsElevationParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsIntensityParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetAzimuth() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetElevation() const override;
@@ -19048,19 +18839,17 @@ namespace NET_ASAM_OPENSCENARIO
         class SynchronizeActionImpl: public BaseImpl, public ISynchronizeActionWriter, public std::enable_shared_from_this<SynchronizeActionImpl> 
         {
         private:
-            bool _isSetMasterEntityRef = false;          
+            bool _isSetMasterEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _masterEntityRef  = nullptr;
-            bool _isSetTargetTolerance = false;          
+            bool _isSetTargetTolerance = false;
             double _targetTolerance {};
-            
-            bool _isSetTargetToleranceMaster = false;          
+            bool _isSetTargetToleranceMaster = false;
             double _targetToleranceMaster {};
-            
-            bool _isSetTargetPositionMaster = false;          
+            bool _isSetTargetPositionMaster = false;
             std::shared_ptr<IPositionWriter> _targetPositionMaster {};
-            bool _isSetTargetPosition = false;          
+            bool _isSetTargetPosition = false;
             std::shared_ptr<IPositionWriter> _targetPosition {};
-            bool _isSetFinalSpeed = false;          
+            bool _isSetFinalSpeed = false;
             std::shared_ptr<IFinalSpeedWriter> _finalSpeed {};
 
         public:
@@ -19151,9 +18940,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTargetToleranceMaster() const override;
 
-            OPENSCENARIOLIB_EXP bool IsMasterEntityRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTargetToleranceParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTargetToleranceMasterParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsMasterEntityRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTargetToleranceParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTargetToleranceMasterParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterTargetPositionMaster() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterTargetPosition() const override;
@@ -19189,9 +18978,8 @@ namespace NET_ASAM_OPENSCENARIO
         class TargetDistanceSteadyStateImpl: public BaseImpl, public ITargetDistanceSteadyStateWriter, public std::enable_shared_from_this<TargetDistanceSteadyStateImpl> 
         {
         private:
-            bool _isSetDistance = false;          
+            bool _isSetDistance = false;
             double _distance {};
-            
 
         public:
 
@@ -19258,7 +19046,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromDistance() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDistanceParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDistanceParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetDistance() const override;
         };
@@ -19280,9 +19068,8 @@ namespace NET_ASAM_OPENSCENARIO
         class TargetTimeSteadyStateImpl: public BaseImpl, public ITargetTimeSteadyStateWriter, public std::enable_shared_from_this<TargetTimeSteadyStateImpl> 
         {
         private:
-            bool _isSetTime = false;          
+            bool _isSetTime = false;
             double _time {};
-            
 
         public:
 
@@ -19349,7 +19136,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTime() const override;
 
-            OPENSCENARIOLIB_EXP bool IsTimeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsTimeParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetTime() const override;
         };
@@ -19371,7 +19158,7 @@ namespace NET_ASAM_OPENSCENARIO
         class TeleportActionImpl: public BaseImpl, public ITeleportActionWriter, public std::enable_shared_from_this<TeleportActionImpl> 
         {
         private:
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
 
         public:
@@ -19456,26 +19243,20 @@ namespace NET_ASAM_OPENSCENARIO
         class TimeHeadwayConditionImpl: public BaseImpl, public ITimeHeadwayConditionWriter, public std::enable_shared_from_this<TimeHeadwayConditionImpl> 
         {
         private:
-            bool _isSetAlongRoute = false;          
+            bool _isSetAlongRoute = false;
             bool _alongRoute {};
-            
-            bool _isSetCoordinateSystem = false;          
+            bool _isSetCoordinateSystem = false;
             CoordinateSystem _coordinateSystem {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-            
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<INamedReference<IEntity>> _entityRef  = nullptr;
-            bool _isSetFreespace = false;          
+            bool _isSetFreespace = false;
             bool _freespace {};
-            
-            bool _isSetRelativeDistanceType = false;          
+            bool _isSetRelativeDistanceType = false;
             RelativeDistanceType _relativeDistanceType {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
-            
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -19585,13 +19366,13 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsAlongRouteParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRelativeDistanceTypeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsAlongRouteParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsEntityRefParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRelativeDistanceTypeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
             OPENSCENARIOLIB_EXP virtual void ResetAlongRoute() override;
                       
@@ -19625,12 +19406,10 @@ namespace NET_ASAM_OPENSCENARIO
         class TimeOfDayImpl: public BaseImpl, public ITimeOfDayWriter, public std::enable_shared_from_this<TimeOfDayImpl> 
         {
         private:
-            bool _isSetAnimation = false;          
+            bool _isSetAnimation = false;
             bool _animation {};
-            
-            bool _isSetDateTime = false;          
+            bool _isSetDateTime = false;
             DateTime _dateTime {};
-            
 
         public:
 
@@ -19705,8 +19484,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromDateTime() const override;
 
-            OPENSCENARIOLIB_EXP bool IsAnimationParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDateTimeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsAnimationParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDateTimeParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetAnimation() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetDateTime() const override;
@@ -19729,12 +19508,10 @@ namespace NET_ASAM_OPENSCENARIO
         class TimeOfDayConditionImpl: public BaseImpl, public ITimeOfDayConditionWriter, public std::enable_shared_from_this<TimeOfDayConditionImpl> 
         {
         private:
-            bool _isSetDateTime = false;          
+            bool _isSetDateTime = false;
             DateTime _dateTime {};
-            
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
 
         public:
 
@@ -19808,8 +19585,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromRule() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDateTimeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDateTimeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetDateTime() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetRule() const override;
@@ -19832,9 +19609,9 @@ namespace NET_ASAM_OPENSCENARIO
         class TimeReferenceImpl: public BaseImpl, public ITimeReferenceWriter, public std::enable_shared_from_this<TimeReferenceImpl> 
         {
         private:
-            bool _isSetNone = false;          
+            bool _isSetNone = false;
             std::shared_ptr<INoneWriter> _none {};
-            bool _isSetTiming = false;          
+            bool _isSetTiming = false;
             std::shared_ptr<ITimingWriter> _timing {};
 
         public:
@@ -19928,25 +19705,19 @@ namespace NET_ASAM_OPENSCENARIO
         class TimeToCollisionConditionImpl: public BaseImpl, public ITimeToCollisionConditionWriter, public std::enable_shared_from_this<TimeToCollisionConditionImpl> 
         {
         private:
-            bool _isSetAlongRoute = false;          
+            bool _isSetAlongRoute = false;
             bool _alongRoute {};
-            
-            bool _isSetCoordinateSystem = false;          
+            bool _isSetCoordinateSystem = false;
             CoordinateSystem _coordinateSystem {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-            
-            bool _isSetFreespace = false;          
+            bool _isSetFreespace = false;
             bool _freespace {};
-            
-            bool _isSetRelativeDistanceType = false;          
+            bool _isSetRelativeDistanceType = false;
             RelativeDistanceType _relativeDistanceType {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
-            
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
-            bool _isSetTimeToCollisionConditionTarget = false;          
+            bool _isSetTimeToCollisionConditionTarget = false;
             std::shared_ptr<ITimeToCollisionConditionTargetWriter> _timeToCollisionConditionTarget {};
 
         public:
@@ -20053,12 +19824,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsAlongRouteParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRelativeDistanceTypeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsAlongRouteParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsCoordinateSystemParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsFreespaceParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRelativeDistanceTypeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITimeToCollisionConditionTargetWriter> GetWriterTimeToCollisionConditionTarget() const override;
             OPENSCENARIOLIB_EXP virtual void ResetAlongRoute() override;
@@ -20093,9 +19864,9 @@ namespace NET_ASAM_OPENSCENARIO
         class TimeToCollisionConditionTargetImpl: public BaseImpl, public ITimeToCollisionConditionTargetWriter, public std::enable_shared_from_this<TimeToCollisionConditionTargetImpl> 
         {
         private:
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
-            bool _isSetEntityRef = false;          
+            bool _isSetEntityRef = false;
             std::shared_ptr<IEntityRefWriter> _entityRef {};
 
         public:
@@ -20189,15 +19960,12 @@ namespace NET_ASAM_OPENSCENARIO
         class TimingImpl: public BaseImpl, public ITimingWriter, public std::enable_shared_from_this<TimingImpl> 
         {
         private:
-            bool _isSetDomainAbsoluteRelative = false;          
+            bool _isSetDomainAbsoluteRelative = false;
             ReferenceContext _domainAbsoluteRelative {};
-            
-            bool _isSetOffset = false;          
+            bool _isSetOffset = false;
             double _offset {};
-            
-            bool _isSetScale = false;          
+            bool _isSetScale = false;
             double _scale {};
-            
 
         public:
 
@@ -20278,9 +20046,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromScale() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDomainAbsoluteRelativeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsOffsetParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsScaleParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDomainAbsoluteRelativeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsOffsetParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsScaleParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetDomainAbsoluteRelative() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetOffset() const override;
@@ -20304,16 +20072,15 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficActionImpl: public BaseImpl, public ITrafficActionWriter, public std::enable_shared_from_this<TrafficActionImpl> 
         {
         private:
-            bool _isSetTrafficName = false;          
+            bool _isSetTrafficName = false;
             std::string _trafficName {};
-            
-            bool _isSetTrafficSourceAction = false;          
+            bool _isSetTrafficSourceAction = false;
             std::shared_ptr<ITrafficSourceActionWriter> _trafficSourceAction {};
-            bool _isSetTrafficSinkAction = false;          
+            bool _isSetTrafficSinkAction = false;
             std::shared_ptr<ITrafficSinkActionWriter> _trafficSinkAction {};
-            bool _isSetTrafficSwarmAction = false;          
+            bool _isSetTrafficSwarmAction = false;
             std::shared_ptr<ITrafficSwarmActionWriter> _trafficSwarmAction {};
-            bool _isSetTrafficStopAction = false;          
+            bool _isSetTrafficStopAction = false;
             std::shared_ptr<ITrafficStopActionWriter> _trafficStopAction {};
 
         public:
@@ -20393,7 +20160,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTrafficName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsTrafficNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsTrafficNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSourceActionWriter> GetWriterTrafficSourceAction() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSinkActionWriter> GetWriterTrafficSinkAction() const override;
@@ -20433,12 +20200,11 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficDefinitionImpl: public BaseImpl, public ITrafficDefinitionWriter, public std::enable_shared_from_this<TrafficDefinitionImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetVehicleCategoryDistribution = false;          
+            bool _isSetVehicleCategoryDistribution = false;
             std::shared_ptr<IVehicleCategoryDistributionWriter> _vehicleCategoryDistribution {};
-            bool _isSetControllerDistribution = false;          
+            bool _isSetControllerDistribution = false;
             std::shared_ptr<IControllerDistributionWriter> _controllerDistribution {};
 
         public:
@@ -20512,7 +20278,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IVehicleCategoryDistributionWriter> GetWriterVehicleCategoryDistribution() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IControllerDistributionWriter> GetWriterControllerDistribution() const override;
@@ -20538,9 +20304,9 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSignalActionImpl: public BaseImpl, public ITrafficSignalActionWriter, public std::enable_shared_from_this<TrafficSignalActionImpl> 
         {
         private:
-            bool _isSetTrafficSignalControllerAction = false;          
+            bool _isSetTrafficSignalControllerAction = false;
             std::shared_ptr<ITrafficSignalControllerActionWriter> _trafficSignalControllerAction {};
-            bool _isSetTrafficSignalStateAction = false;          
+            bool _isSetTrafficSignalStateAction = false;
             std::shared_ptr<ITrafficSignalStateActionWriter> _trafficSignalStateAction {};
 
         public:
@@ -20634,12 +20400,10 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSignalConditionImpl: public BaseImpl, public ITrafficSignalConditionWriter, public std::enable_shared_from_this<TrafficSignalConditionImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetState = false;          
+            bool _isSetState = false;
             std::string _state {};
-            
 
         public:
 
@@ -20713,8 +20477,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromState() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsStateParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsStateParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetState() const override;
@@ -20737,16 +20501,13 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSignalControllerImpl: public BaseImpl, public ITrafficSignalControllerWriter, public std::enable_shared_from_this<TrafficSignalControllerImpl> 
         {
         private:
-            bool _isSetDelay = false;          
+            bool _isSetDelay = false;
             double _delay {0};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetReference = false;          
+            bool _isSetReference = false;
             std::string _reference {};
-            
-            bool _isSetPhases = false;          
+            bool _isSetPhases = false;
             std::vector<std::shared_ptr<IPhaseWriter>> _phases {};
 
         public:
@@ -20836,9 +20597,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromReference() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDelayParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsReferenceParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDelayParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsReferenceParameterized() override;
             // children
             OPENSCENARIOLIB_EXP virtual void ResetDelay() override;
                       
@@ -20869,12 +20630,11 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSignalControllerActionImpl: public BaseImpl, public ITrafficSignalControllerActionWriter, public std::enable_shared_from_this<TrafficSignalControllerActionImpl> 
         {
         private:
-            bool _isSetPhase = false;          
+            bool _isSetPhase = false;
             std::string _phase {};
-            
-            bool _isSetTrafficSignalControllerRef = false;          
+            bool _isSetTrafficSignalControllerRef = false;
             std::shared_ptr<INamedReference<ITrafficSignalController>> _trafficSignalControllerRef  = nullptr;
-            bool _isSetPhaseRef = false;          
+            bool _isSetPhaseRef = false;
             std::vector<std::shared_ptr<IPhase>> _phaseRef {};
 
         public:
@@ -20955,8 +20715,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTrafficSignalControllerRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsPhaseParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTrafficSignalControllerRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsPhaseParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTrafficSignalControllerRefParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetPhase() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSignalControllerRef() const override;
@@ -20982,12 +20742,11 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSignalControllerConditionImpl: public BaseImpl, public ITrafficSignalControllerConditionWriter, public std::enable_shared_from_this<TrafficSignalControllerConditionImpl> 
         {
         private:
-            bool _isSetPhase = false;          
+            bool _isSetPhase = false;
             std::string _phase {};
-            
-            bool _isSetTrafficSignalControllerRef = false;          
+            bool _isSetTrafficSignalControllerRef = false;
             std::shared_ptr<INamedReference<ITrafficSignalController>> _trafficSignalControllerRef  = nullptr;
-            bool _isSetPhaseRef = false;          
+            bool _isSetPhaseRef = false;
             std::vector<std::shared_ptr<IPhase>> _phaseRef {};
 
         public:
@@ -21068,8 +20827,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTrafficSignalControllerRef() const override;
 
-            OPENSCENARIOLIB_EXP bool IsPhaseParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTrafficSignalControllerRefParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsPhaseParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTrafficSignalControllerRefParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetPhase() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSignalControllerRef() const override;
@@ -21095,12 +20854,10 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSignalStateImpl: public BaseImpl, public ITrafficSignalStateWriter, public std::enable_shared_from_this<TrafficSignalStateImpl> 
         {
         private:
-            bool _isSetState = false;          
+            bool _isSetState = false;
             std::string _state {};
-            
-            bool _isSetTrafficSignalId = false;          
+            bool _isSetTrafficSignalId = false;
             std::string _trafficSignalId {};
-            
 
         public:
 
@@ -21174,8 +20931,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTrafficSignalId() const override;
 
-            OPENSCENARIOLIB_EXP bool IsStateParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTrafficSignalIdParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsStateParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTrafficSignalIdParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetState() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetTrafficSignalId() const override;
@@ -21198,12 +20955,10 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSignalStateActionImpl: public BaseImpl, public ITrafficSignalStateActionWriter, public std::enable_shared_from_this<TrafficSignalStateActionImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetState = false;          
+            bool _isSetState = false;
             std::string _state {};
-            
 
         public:
 
@@ -21277,8 +21032,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromState() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsStateParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsStateParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetState() const override;
@@ -21301,15 +21056,13 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSinkActionImpl: public BaseImpl, public ITrafficSinkActionWriter, public std::enable_shared_from_this<TrafficSinkActionImpl> 
         {
         private:
-            bool _isSetRadius = false;          
+            bool _isSetRadius = false;
             double _radius {};
-            
-            bool _isSetRate = false;          
+            bool _isSetRate = false;
             double _rate {};
-            
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
-            bool _isSetTrafficDefinition = false;          
+            bool _isSetTrafficDefinition = false;
             std::shared_ptr<ITrafficDefinitionWriter> _trafficDefinition {};
 
         public:
@@ -21390,8 +21143,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromRate() const override;
 
-            OPENSCENARIOLIB_EXP bool IsRadiusParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRateParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsRadiusParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRateParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const override;
@@ -21422,18 +21175,15 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSourceActionImpl: public BaseImpl, public ITrafficSourceActionWriter, public std::enable_shared_from_this<TrafficSourceActionImpl> 
         {
         private:
-            bool _isSetRadius = false;          
+            bool _isSetRadius = false;
             double _radius {};
-            
-            bool _isSetRate = false;          
+            bool _isSetRate = false;
             double _rate {};
-            
-            bool _isSetVelocity = false;          
+            bool _isSetVelocity = false;
             double _velocity {0};
-            
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
-            bool _isSetTrafficDefinition = false;          
+            bool _isSetTrafficDefinition = false;
             std::shared_ptr<ITrafficDefinitionWriter> _trafficDefinition {};
 
         public:
@@ -21521,9 +21271,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromVelocity() const override;
 
-            OPENSCENARIOLIB_EXP bool IsRadiusParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRateParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsVelocityParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsRadiusParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRateParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsVelocityParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const override;
@@ -21631,27 +21381,21 @@ namespace NET_ASAM_OPENSCENARIO
         class TrafficSwarmActionImpl: public BaseImpl, public ITrafficSwarmActionWriter, public std::enable_shared_from_this<TrafficSwarmActionImpl> 
         {
         private:
-            bool _isSetInnerRadius = false;          
+            bool _isSetInnerRadius = false;
             double _innerRadius {};
-            
-            bool _isSetNumberOfVehicles = false;          
+            bool _isSetNumberOfVehicles = false;
             uint32_t _numberOfVehicles {};
-            
-            bool _isSetOffset = false;          
+            bool _isSetOffset = false;
             double _offset {};
-            
-            bool _isSetSemiMajorAxis = false;          
+            bool _isSetSemiMajorAxis = false;
             double _semiMajorAxis {};
-            
-            bool _isSetSemiMinorAxis = false;          
+            bool _isSetSemiMinorAxis = false;
             double _semiMinorAxis {};
-            
-            bool _isSetVelocity = false;          
+            bool _isSetVelocity = false;
             double _velocity {0};
-            
-            bool _isSetCentralObject = false;          
+            bool _isSetCentralObject = false;
             std::shared_ptr<ICentralSwarmObjectWriter> _centralObject {};
-            bool _isSetTrafficDefinition = false;          
+            bool _isSetTrafficDefinition = false;
             std::shared_ptr<ITrafficDefinitionWriter> _trafficDefinition {};
 
         public:
@@ -21761,12 +21505,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromVelocity() const override;
 
-            OPENSCENARIOLIB_EXP bool IsInnerRadiusParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNumberOfVehiclesParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsOffsetParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsSemiMajorAxisParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsSemiMinorAxisParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsVelocityParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsInnerRadiusParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNumberOfVehiclesParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsOffsetParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsSemiMajorAxisParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsSemiMinorAxisParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsVelocityParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ICentralSwarmObjectWriter> GetWriterCentralObject() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficDefinitionWriter> GetWriterTrafficDefinition() const override;
@@ -21799,15 +21543,13 @@ namespace NET_ASAM_OPENSCENARIO
         class TrajectoryImpl: public BaseImpl, public ITrajectoryWriter, public std::enable_shared_from_this<TrajectoryImpl> 
         {
         private:
-            bool _isSetClosed = false;          
+            bool _isSetClosed = false;
             bool _closed {};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetParameterDeclarations = false;          
+            bool _isSetParameterDeclarations = false;
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
-            bool _isSetShape = false;          
+            bool _isSetShape = false;
             std::shared_ptr<IShapeWriter> _shape {};
 
         public:
@@ -21895,8 +21637,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromName() const override;
 
-            OPENSCENARIOLIB_EXP bool IsClosedParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsClosedParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IShapeWriter> GetWriterShape() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetClosed() const override;
@@ -21924,7 +21666,7 @@ namespace NET_ASAM_OPENSCENARIO
         class TrajectoryCatalogLocationImpl: public BaseImpl, public ITrajectoryCatalogLocationWriter, public std::enable_shared_from_this<TrajectoryCatalogLocationImpl> 
         {
         private:
-            bool _isSetDirectory = false;          
+            bool _isSetDirectory = false;
             std::shared_ptr<IDirectoryWriter> _directory {};
 
         public:
@@ -22009,9 +21751,8 @@ namespace NET_ASAM_OPENSCENARIO
         class TrajectoryFollowingModeImpl: public BaseImpl, public ITrajectoryFollowingModeWriter, public std::enable_shared_from_this<TrajectoryFollowingModeImpl> 
         {
         private:
-            bool _isSetFollowingMode = false;          
+            bool _isSetFollowingMode = false;
             FollowingMode _followingMode {};
-            
 
         public:
 
@@ -22077,7 +21818,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromFollowingMode() const override;
 
-            OPENSCENARIOLIB_EXP bool IsFollowingModeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsFollowingModeParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetFollowingMode() const override;
         };
@@ -22099,15 +21840,13 @@ namespace NET_ASAM_OPENSCENARIO
         class TrajectoryPositionImpl: public BaseImpl, public ITrajectoryPositionWriter, public std::enable_shared_from_this<TrajectoryPositionImpl> 
         {
         private:
-            bool _isSetS = false;          
+            bool _isSetS = false;
             double _s {};
-            
-            bool _isSetT = false;          
+            bool _isSetT = false;
             double _t {0};
-            
-            bool _isSetOrientation = false;          
+            bool _isSetOrientation = false;
             std::shared_ptr<IOrientationWriter> _orientation {};
-            bool _isSetTrajectoryRef = false;          
+            bool _isSetTrajectoryRef = false;
             std::shared_ptr<ITrajectoryRefWriter> _trajectoryRef {};
 
         public:
@@ -22188,8 +21927,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromT() const override;
 
-            OPENSCENARIOLIB_EXP bool IsSParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsSParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> GetWriterOrientation() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryRefWriter> GetWriterTrajectoryRef() const override;
@@ -22220,9 +21959,9 @@ namespace NET_ASAM_OPENSCENARIO
         class TrajectoryRefImpl: public BaseImpl, public ITrajectoryRefWriter, public std::enable_shared_from_this<TrajectoryRefImpl> 
         {
         private:
-            bool _isSetTrajectory = false;          
+            bool _isSetTrajectory = false;
             std::shared_ptr<ITrajectoryWriter> _trajectory {};
-            bool _isSetCatalogReference = false;          
+            bool _isSetCatalogReference = false;
             std::shared_ptr<ICatalogReferenceWriter> _catalogReference {};
 
         public:
@@ -22312,15 +22051,12 @@ namespace NET_ASAM_OPENSCENARIO
         class TransitionDynamicsImpl: public BaseImpl, public ITransitionDynamicsWriter, public std::enable_shared_from_this<TransitionDynamicsImpl> 
         {
         private:
-            bool _isSetDynamicsDimension = false;          
+            bool _isSetDynamicsDimension = false;
             DynamicsDimension _dynamicsDimension {};
-            
-            bool _isSetDynamicsShape = false;          
+            bool _isSetDynamicsShape = false;
             DynamicsShape _dynamicsShape {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -22401,9 +22137,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDynamicsDimensionParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsDynamicsShapeParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDynamicsDimensionParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsDynamicsShapeParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetDynamicsDimension() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetDynamicsShape() const override;
@@ -22427,9 +22163,8 @@ namespace NET_ASAM_OPENSCENARIO
         class TraveledDistanceConditionImpl: public BaseImpl, public ITraveledDistanceConditionWriter, public std::enable_shared_from_this<TraveledDistanceConditionImpl> 
         {
         private:
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             double _value {};
-            
 
         public:
 
@@ -22496,7 +22231,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
         };
@@ -22518,7 +22253,7 @@ namespace NET_ASAM_OPENSCENARIO
         class TriggerImpl: public BaseImpl, public ITriggerWriter, public std::enable_shared_from_this<TriggerImpl> 
         {
         private:
-            bool _isSetConditionGroups = false;          
+            bool _isSetConditionGroups = false;
             std::vector<std::shared_ptr<IConditionGroupWriter>> _conditionGroups {};
 
         public:
@@ -22608,10 +22343,9 @@ namespace NET_ASAM_OPENSCENARIO
         class TriggeringEntitiesImpl: public BaseImpl, public ITriggeringEntitiesWriter, public std::enable_shared_from_this<TriggeringEntitiesImpl> 
         {
         private:
-            bool _isSetTriggeringEntitiesRule = false;          
+            bool _isSetTriggeringEntitiesRule = false;
             TriggeringEntitiesRule _triggeringEntitiesRule {};
-            
-            bool _isSetEntityRefs = false;          
+            bool _isSetEntityRefs = false;
             std::vector<std::shared_ptr<IEntityRefWriter>> _entityRefs {};
 
         public:
@@ -22685,7 +22419,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTriggeringEntitiesRule() const override;
 
-            OPENSCENARIOLIB_EXP bool IsTriggeringEntitiesRuleParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsTriggeringEntitiesRuleParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetTriggeringEntitiesRule() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetEntityRefs() const override;
@@ -22708,7 +22442,7 @@ namespace NET_ASAM_OPENSCENARIO
         class UniformDistributionImpl: public BaseImpl, public IUniformDistributionWriter, public std::enable_shared_from_this<UniformDistributionImpl> 
         {
         private:
-            bool _isSetRange = false;          
+            bool _isSetRange = false;
             std::shared_ptr<IRangeWriter> _range {};
 
         public:
@@ -22793,7 +22527,7 @@ namespace NET_ASAM_OPENSCENARIO
         class UsedAreaImpl: public BaseImpl, public IUsedAreaWriter, public std::enable_shared_from_this<UsedAreaImpl> 
         {
         private:
-            bool _isSetPositions = false;          
+            bool _isSetPositions = false;
             std::vector<std::shared_ptr<IPositionWriter>> _positions {};
 
         public:
@@ -22881,7 +22615,7 @@ namespace NET_ASAM_OPENSCENARIO
         class UserDefinedActionImpl: public BaseImpl, public IUserDefinedActionWriter, public std::enable_shared_from_this<UserDefinedActionImpl> 
         {
         private:
-            bool _isSetCustomCommandAction = false;          
+            bool _isSetCustomCommandAction = false;
             std::shared_ptr<ICustomCommandActionWriter> _customCommandAction {};
 
         public:
@@ -22966,12 +22700,10 @@ namespace NET_ASAM_OPENSCENARIO
         class UserDefinedDistributionImpl: public BaseImpl, public IUserDefinedDistributionWriter, public std::enable_shared_from_this<UserDefinedDistributionImpl> 
         {
         private:
-            bool _isSetContent = false;          
+            bool _isSetContent = false;
             std::string _content {};
-            
-            bool _isSetType = false;          
+            bool _isSetType = false;
             std::string _type {};
-            
 
         public:
 
@@ -23045,8 +22777,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromType() const override;
 
-            OPENSCENARIOLIB_EXP bool IsContentParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTypeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsContentParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTypeParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetContent() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetType() const override;
@@ -23069,15 +22801,12 @@ namespace NET_ASAM_OPENSCENARIO
         class UserDefinedValueConditionImpl: public BaseImpl, public IUserDefinedValueConditionWriter, public std::enable_shared_from_this<UserDefinedValueConditionImpl> 
         {
         private:
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             std::string _value {};
-            
 
         public:
 
@@ -23158,9 +22887,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetName() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetRule() const override;
@@ -23184,12 +22913,10 @@ namespace NET_ASAM_OPENSCENARIO
         class ValueConstraintImpl: public BaseImpl, public IValueConstraintWriter, public std::enable_shared_from_this<ValueConstraintImpl> 
         {
         private:
-            bool _isSetRule = false;          
+            bool _isSetRule = false;
             Rule _rule {};
-            
-            bool _isSetValue = false;          
+            bool _isSetValue = false;
             std::string _value {};
-            
 
         public:
 
@@ -23265,8 +22992,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromValue() const override;
 
-            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsRuleParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsValueParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetRule() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetValue() const override;
@@ -23289,7 +23016,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ValueConstraintGroupImpl: public BaseImpl, public IValueConstraintGroupWriter, public std::enable_shared_from_this<ValueConstraintGroupImpl> 
         {
         private:
-            bool _isSetConstraints = false;          
+            bool _isSetConstraints = false;
             std::vector<std::shared_ptr<IValueConstraintWriter>> _constraints {};
 
         public:
@@ -23377,7 +23104,7 @@ namespace NET_ASAM_OPENSCENARIO
         class ValueSetDistributionImpl: public BaseImpl, public IValueSetDistributionWriter, public std::enable_shared_from_this<ValueSetDistributionImpl> 
         {
         private:
-            bool _isSetParameterValueSets = false;          
+            bool _isSetParameterValueSets = false;
             std::vector<std::shared_ptr<IParameterValueSetWriter>> _parameterValueSets {};
 
         public:
@@ -23465,27 +23192,23 @@ namespace NET_ASAM_OPENSCENARIO
         class VehicleImpl: public BaseImpl, public IVehicleWriter, public std::enable_shared_from_this<VehicleImpl> 
         {
         private:
-            bool _isSetMass = false;          
+            bool _isSetMass = false;
             double _mass {};
-            
-            bool _isSetModel3d = false;          
+            bool _isSetModel3d = false;
             std::string _model3d {};
-            
-            bool _isSetName = false;          
+            bool _isSetName = false;
             std::string _name {};
-            
-            bool _isSetVehicleCategory = false;          
+            bool _isSetVehicleCategory = false;
             VehicleCategory _vehicleCategory {};
-            
-            bool _isSetParameterDeclarations = false;          
+            bool _isSetParameterDeclarations = false;
             std::vector<std::shared_ptr<IParameterDeclarationWriter>> _parameterDeclarations {};
-            bool _isSetBoundingBox = false;          
+            bool _isSetBoundingBox = false;
             std::shared_ptr<IBoundingBoxWriter> _boundingBox {};
-            bool _isSetPerformance = false;          
+            bool _isSetPerformance = false;
             std::shared_ptr<IPerformanceWriter> _performance {};
-            bool _isSetAxles = false;          
+            bool _isSetAxles = false;
             std::shared_ptr<IAxlesWriter> _axles {};
-            bool _isSetProperties = false;          
+            bool _isSetProperties = false;
             std::shared_ptr<IPropertiesWriter> _properties {};
 
         public:
@@ -23596,10 +23319,10 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromVehicleCategory() const override;
 
-            OPENSCENARIOLIB_EXP bool IsMassParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsModel3dParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsVehicleCategoryParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsMassParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsModel3dParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsNameParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsVehicleCategoryParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IBoundingBoxWriter> GetWriterBoundingBox() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IPerformanceWriter> GetWriterPerformance() const override;
@@ -23639,7 +23362,7 @@ namespace NET_ASAM_OPENSCENARIO
         class VehicleCatalogLocationImpl: public BaseImpl, public IVehicleCatalogLocationWriter, public std::enable_shared_from_this<VehicleCatalogLocationImpl> 
         {
         private:
-            bool _isSetDirectory = false;          
+            bool _isSetDirectory = false;
             std::shared_ptr<IDirectoryWriter> _directory {};
 
         public:
@@ -23724,7 +23447,7 @@ namespace NET_ASAM_OPENSCENARIO
         class VehicleCategoryDistributionImpl: public BaseImpl, public IVehicleCategoryDistributionWriter, public std::enable_shared_from_this<VehicleCategoryDistributionImpl> 
         {
         private:
-            bool _isSetVehicleCategoryDistributionEntries = false;          
+            bool _isSetVehicleCategoryDistributionEntries = false;
             std::vector<std::shared_ptr<IVehicleCategoryDistributionEntryWriter>> _vehicleCategoryDistributionEntries {};
 
         public:
@@ -23812,12 +23535,10 @@ namespace NET_ASAM_OPENSCENARIO
         class VehicleCategoryDistributionEntryImpl: public BaseImpl, public IVehicleCategoryDistributionEntryWriter, public std::enable_shared_from_this<VehicleCategoryDistributionEntryImpl> 
         {
         private:
-            bool _isSetCategory = false;          
+            bool _isSetCategory = false;
             VehicleCategory _category {};
-            
-            bool _isSetWeight = false;          
+            bool _isSetWeight = false;
             double _weight {};
-            
 
         public:
 
@@ -23891,8 +23612,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromWeight() const override;
 
-            OPENSCENARIOLIB_EXP bool IsCategoryParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsWeightParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsCategoryParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsWeightParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetCategory() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetWeight() const override;
@@ -23915,10 +23636,9 @@ namespace NET_ASAM_OPENSCENARIO
         class VertexImpl: public BaseImpl, public IVertexWriter, public std::enable_shared_from_this<VertexImpl> 
         {
         private:
-            bool _isSetTime = false;          
+            bool _isSetTime = false;
             double _time {};
-            
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
 
         public:
@@ -23989,7 +23709,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTime() const override;
 
-            OPENSCENARIOLIB_EXP bool IsTimeParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsTimeParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
             OPENSCENARIOLIB_EXP virtual void ResetTime() override;
@@ -24015,15 +23735,12 @@ namespace NET_ASAM_OPENSCENARIO
         class VisibilityActionImpl: public BaseImpl, public IVisibilityActionWriter, public std::enable_shared_from_this<VisibilityActionImpl> 
         {
         private:
-            bool _isSetGraphics = false;          
+            bool _isSetGraphics = false;
             bool _graphics {};
-            
-            bool _isSetSensors = false;          
+            bool _isSetSensors = false;
             bool _sensors {};
-            
-            bool _isSetTraffic = false;          
+            bool _isSetTraffic = false;
             bool _traffic {};
-            
 
         public:
 
@@ -24104,9 +23821,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTraffic() const override;
 
-            OPENSCENARIOLIB_EXP bool IsGraphicsParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsSensorsParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTrafficParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsGraphicsParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsSensorsParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTrafficParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetGraphics() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetSensors() const override;
@@ -24130,10 +23847,9 @@ namespace NET_ASAM_OPENSCENARIO
         class WaypointImpl: public BaseImpl, public IWaypointWriter, public std::enable_shared_from_this<WaypointImpl> 
         {
         private:
-            bool _isSetRouteStrategy = false;          
+            bool _isSetRouteStrategy = false;
             RouteStrategy _routeStrategy {};
-            
-            bool _isSetPosition = false;          
+            bool _isSetPosition = false;
             std::shared_ptr<IPositionWriter> _position {};
 
         public:
@@ -24203,7 +23919,7 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromRouteStrategy() const override;
 
-            OPENSCENARIOLIB_EXP bool IsRouteStrategyParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsRouteStrategyParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> GetWriterPosition() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetRouteStrategy() const override;
@@ -24227,22 +23943,19 @@ namespace NET_ASAM_OPENSCENARIO
         class WeatherImpl: public BaseImpl, public IWeatherWriter, public std::enable_shared_from_this<WeatherImpl> 
         {
         private:
-            bool _isSetAtmosphericPressure = false;          
+            bool _isSetAtmosphericPressure = false;
             double _atmosphericPressure {};
-            
-            bool _isSetCloudState = false;          
+            bool _isSetCloudState = false;
             CloudState _cloudState {};
-            
-            bool _isSetTemperature = false;          
+            bool _isSetTemperature = false;
             double _temperature {};
-            
-            bool _isSetSun = false;          
+            bool _isSetSun = false;
             std::shared_ptr<ISunWriter> _sun {};
-            bool _isSetFog = false;          
+            bool _isSetFog = false;
             std::shared_ptr<IFogWriter> _fog {};
-            bool _isSetPrecipitation = false;          
+            bool _isSetPrecipitation = false;
             std::shared_ptr<IPrecipitationWriter> _precipitation {};
-            bool _isSetWind = false;          
+            bool _isSetWind = false;
             std::shared_ptr<IWindWriter> _wind {};
 
         public:
@@ -24336,9 +24049,9 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromTemperature() const override;
 
-            OPENSCENARIOLIB_EXP bool IsAtmosphericPressureParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsCloudStateParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsTemperatureParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsAtmosphericPressureParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsCloudStateParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsTemperatureParameterized() override;
             // children
             OPENSCENARIOLIB_EXP std::shared_ptr<ISunWriter> GetWriterSun() const override;
             OPENSCENARIOLIB_EXP std::shared_ptr<IFogWriter> GetWriterFog() const override;
@@ -24384,12 +24097,10 @@ namespace NET_ASAM_OPENSCENARIO
         class WindImpl: public BaseImpl, public IWindWriter, public std::enable_shared_from_this<WindImpl> 
         {
         private:
-            bool _isSetDirection = false;          
+            bool _isSetDirection = false;
             double _direction {};
-            
-            bool _isSetSpeed = false;          
+            bool _isSetSpeed = false;
             double _speed {};
-            
 
         public:
 
@@ -24463,8 +24174,8 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromSpeed() const override;
 
-            OPENSCENARIOLIB_EXP bool IsDirectionParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsSpeedParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsDirectionParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsSpeedParameterized() override;
             // children
 			OPENSCENARIOLIB_EXP virtual bool IsSetDirection() const override;
 			OPENSCENARIOLIB_EXP virtual bool IsSetSpeed() const override;
@@ -24487,24 +24198,18 @@ namespace NET_ASAM_OPENSCENARIO
         class WorldPositionImpl: public BaseImpl, public IWorldPositionWriter, public std::enable_shared_from_this<WorldPositionImpl> 
         {
         private:
-            bool _isSetH = false;          
+            bool _isSetH = false;
             double _h {0};
-            
-            bool _isSetP = false;          
+            bool _isSetP = false;
             double _p {0};
-            
-            bool _isSetR = false;          
+            bool _isSetR = false;
             double _r {0};
-            
-            bool _isSetX = false;          
+            bool _isSetX = false;
             double _x {};
-            
-            bool _isSetY = false;          
+            bool _isSetY = false;
             double _y {};
-            
-            bool _isSetZ = false;          
+            bool _isSetZ = false;
             double _z {0};
-            
 
         public:
 
@@ -24606,12 +24311,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             OPENSCENARIOLIB_EXP std::string GetParameterFromZ() const override;
 
-            OPENSCENARIOLIB_EXP bool IsHParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsPParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsRParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsXParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsYParameterized() override;          
-            OPENSCENARIOLIB_EXP bool IsZParameterized() override;          
+            OPENSCENARIOLIB_EXP bool IsHParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsPParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsRParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsXParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsYParameterized() override;
+            OPENSCENARIOLIB_EXP bool IsZParameterized() override;
             // children
             OPENSCENARIOLIB_EXP virtual void ResetH() override;
                       

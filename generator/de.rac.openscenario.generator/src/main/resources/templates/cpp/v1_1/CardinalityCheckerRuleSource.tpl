@@ -96,12 +96,12 @@ namespace NET_ASAM_OPENSCENARIO
             <%-}-%>
 
             //Xor elements check
-            <%-if (umlClass.isModelGroupChoice()){ -%>
-            bool oneElementDefined = false;
+            <%-if (umlClass.doPropertiesContainXorElements()){ -%>
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
             <%-properties.each{ property -> -%>
             <%-if (property.appliedStereotypes.find(){s -> s.getName() == "xor"}){ -%>
-            oneElementDefined ^= object->IsSet<%=property.name.toClassName()%>();
+            elementsDefined += object->IsSet<%=property.name.toClassName()%>()?1:0;
             <%- if (property.appliedStereotypes.find(){s -> s.getName() == "XSDattribute"}){-%>
             propertiesName.push_back( OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%> );
             <%-}else if (umlClass.isSimpleContent()) {-%>
@@ -112,7 +112,7 @@ namespace NET_ASAM_OPENSCENARIO
             <%-}-%>
             <%-}-%>	
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
             <%-}-%>
 
@@ -125,7 +125,7 @@ namespace NET_ASAM_OPENSCENARIO
         void <%=umlClass.name.toClassName()%>CardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<I<%=umlClass.name.toClassName()%>>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));

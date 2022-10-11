@@ -339,8 +339,13 @@ namespace NET_ASAM_OPENSCENARIO
 
 
             /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
+            /**
             * Retrieves whether property steadyState is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSteadyState() const = 0;
 
@@ -372,6 +377,11 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -401,6 +411,11 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -430,6 +445,11 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -484,9 +504,19 @@ namespace NET_ASAM_OPENSCENARIO
 
             /**
             * Retrieves whether property direction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDirection() const = 0;
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -516,6 +546,11 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
 
+            /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
 
         };
 
@@ -595,8 +630,23 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property maneuverGroups is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetManeuverGroups() const = 0;
+            /**
+            * Retrieves whether property startTrigger is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetStartTrigger() const = 0;
+            /**
             * Retrieves whether property stopTrigger is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetStopTrigger() const = 0;
 
@@ -662,18 +712,23 @@ namespace NET_ASAM_OPENSCENARIO
 
 
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property globalAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetGlobalAction() const = 0;
             /**
             * Retrieves whether property userDefinedAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetUserDefinedAction() const = 0;
             /**
             * Retrieves whether property privateAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPrivateAction() const = 0;
 
@@ -761,27 +816,27 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property animation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAnimation() const = 0;
             /**
             * Retrieves whether property controllerRef is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetControllerRef() const = 0;
             /**
             * Retrieves whether property lateral is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLateral() const = 0;
             /**
             * Retrieves whether property lighting is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLighting() const = 0;
             /**
             * Retrieves whether property longitudinal is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLongitudinal() const = 0;
 
@@ -840,8 +895,13 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
             /**
+            * Retrieves whether property selectTriggeringEntities is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSelectTriggeringEntities() const = 0;
+            /**
             * Retrieves whether property entityRefs is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEntityRefs() const = 0;
 
@@ -873,6 +933,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
 
         };
 
@@ -939,17 +1004,22 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property animationDuration is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAnimationDuration() const = 0;
             /**
             * Retrieves whether property loop is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLoop() const = 0;
             /**
+            * Retrieves whether property animationType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetAnimationType() const = 0;
+            /**
             * Retrieves whether property animationState is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAnimationState() const = 0;
 
@@ -996,9 +1066,14 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property timeOffset is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTimeOffset() const = 0;
+            /**
+            * Retrieves whether property file is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFile() const = 0;
 
         };
 
@@ -1030,6 +1105,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property state is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetState() const = 0;
 
         };
 
@@ -1092,6 +1172,26 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property componentAnimation is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetComponentAnimation() const = 0;
+            /**
+            * Retrieves whether property pedestrianAnimation is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPedestrianAnimation() const = 0;
+            /**
+            * Retrieves whether property animationFile is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetAnimationFile() const = 0;
+            /**
+            * Retrieves whether property userDefinedAnimation is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetUserDefinedAnimation() const = 0;
 
         };
 
@@ -1132,6 +1232,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property lightStateAction is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLightStateAction() const = 0;
+            /**
+            * Retrieves whether property animationAction is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetAnimationAction() const = 0;
 
         };
 
@@ -1224,32 +1334,32 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property activateAnimation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetActivateAnimation() const = 0;
             /**
             * Retrieves whether property activateLateral is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetActivateLateral() const = 0;
             /**
             * Retrieves whether property activateLighting is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetActivateLighting() const = 0;
             /**
             * Retrieves whether property activateLongitudinal is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetActivateLongitudinal() const = 0;
             /**
             * Retrieves whether property controller is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetController() const = 0;
             /**
             * Retrieves whether property catalogReference is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCatalogReference() const = 0;
 
@@ -1296,12 +1406,12 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property route is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoute() const = 0;
             /**
             * Retrieves whether property catalogReference is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCatalogReference() const = 0;
 
@@ -1333,6 +1443,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property gear is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetGear() const = 0;
 
         };
 
@@ -1407,6 +1522,31 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property maxSteering is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMaxSteering() const = 0;
+            /**
+            * Retrieves whether property positionX is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPositionX() const = 0;
+            /**
+            * Retrieves whether property positionZ is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPositionZ() const = 0;
+            /**
+            * Retrieves whether property trackWidth is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTrackWidth() const = 0;
+            /**
+            * Retrieves whether property wheelDiameter is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetWheelDiameter() const = 0;
 
         };
 
@@ -1474,8 +1614,18 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
             /**
+            * Retrieves whether property frontAxle is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFrontAxle() const = 0;
+            /**
+            * Retrieves whether property rearAxle is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRearAxle() const = 0;
+            /**
             * Retrieves whether property additionalAxles is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAdditionalAxles() const = 0;
 
@@ -1519,6 +1669,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property center is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCenter() const = 0;
+            /**
+            * Retrieves whether property dimensions is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDimensions() const = 0;
 
         };
 
@@ -1561,9 +1721,14 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property maxRate is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxRate() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -1604,6 +1769,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property brakePercent is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetBrakePercent() const = 0;
+            /**
+            * Retrieves whether property brakeForce is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetBrakeForce() const = 0;
 
         };
 
@@ -1646,6 +1821,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property triggeringEntities is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTriggeringEntities() const = 0;
+            /**
+            * Retrieves whether property entityCondition is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityCondition() const = 0;
 
         };
 
@@ -1675,6 +1860,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property type is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetType() const = 0;
 
         };
 
@@ -1704,6 +1894,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property objectType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetObjectType() const = 0;
 
         };
 
@@ -1812,42 +2007,42 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property parameterCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterCondition() const = 0;
             /**
             * Retrieves whether property timeOfDayCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTimeOfDayCondition() const = 0;
             /**
             * Retrieves whether property simulationTimeCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSimulationTimeCondition() const = 0;
             /**
             * Retrieves whether property storyboardElementStateCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetStoryboardElementStateCondition() const = 0;
             /**
             * Retrieves whether property userDefinedValueCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetUserDefinedValueCondition() const = 0;
             /**
             * Retrieves whether property trafficSignalCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficSignalCondition() const = 0;
             /**
             * Retrieves whether property trafficSignalControllerCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficSignalControllerCondition() const = 0;
             /**
             * Retrieves whether property variableCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetVariableCondition() const = 0;
 
@@ -2090,47 +2285,47 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property name is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetName() const = 0;
             /**
             * Retrieves whether property vehicles is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetVehicles() const = 0;
             /**
             * Retrieves whether property controllers is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetControllers() const = 0;
             /**
             * Retrieves whether property pedestrians is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPedestrians() const = 0;
             /**
             * Retrieves whether property miscObjects is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMiscObjects() const = 0;
             /**
             * Retrieves whether property environments is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEnvironments() const = 0;
             /**
             * Retrieves whether property maneuvers is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetManeuvers() const = 0;
             /**
             * Retrieves whether property trajectories is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrajectories() const = 0;
             /**
             * Retrieves whether property routes is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoutes() const = 0;
 
@@ -2162,6 +2357,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property catalog is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCatalog() const = 0;
 
         };
 
@@ -2270,42 +2470,42 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property vehicleCatalog is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetVehicleCatalog() const = 0;
             /**
             * Retrieves whether property controllerCatalog is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetControllerCatalog() const = 0;
             /**
             * Retrieves whether property pedestrianCatalog is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPedestrianCatalog() const = 0;
             /**
             * Retrieves whether property miscObjectCatalog is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMiscObjectCatalog() const = 0;
             /**
             * Retrieves whether property environmentCatalog is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEnvironmentCatalog() const = 0;
             /**
             * Retrieves whether property maneuverCatalog is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetManeuverCatalog() const = 0;
             /**
             * Retrieves whether property trajectoryCatalog is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrajectoryCatalog() const = 0;
             /**
             * Retrieves whether property routeCatalog is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRouteCatalog() const = 0;
 
@@ -2388,10 +2588,25 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
             /**
+            * Retrieves whether property catalogName is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCatalogName() const = 0;
+            /**
+            * Retrieves whether property entryName is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntryName() const = 0;
+            /**
             * Retrieves whether property parameterAssignments is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterAssignments() const = 0;
+            /**
+            * Retrieves whether property ref is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRef() const = 0;
 
         };
 
@@ -2444,6 +2659,21 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property x is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetX() const = 0;
+            /**
+            * Retrieves whether property y is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetY() const = 0;
+            /**
+            * Retrieves whether property z is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetZ() const = 0;
 
         };
 
@@ -2473,6 +2703,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
 
         };
 
@@ -2572,25 +2807,40 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
 
             /**
+            * Retrieves whether property curvature is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCurvature() const = 0;
+            /**
             * Retrieves whether property curvatureDot is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCurvatureDot() const = 0;
             /**
             * Retrieves whether property curvaturePrime is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCurvaturePrime() const = 0;
             /**
+            * Retrieves whether property length is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLength() const = 0;
+            /**
             * Retrieves whether property startTime is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetStartTime() const = 0;
             /**
             * Retrieves whether property stopTime is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetStopTime() const = 0;
+            /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
 
         };
 
@@ -2634,12 +2884,12 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property entityRef is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEntityRef() const = 0;
             /**
             * Retrieves whether property byType is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetByType() const = 0;
 
@@ -2693,6 +2943,21 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property colorType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetColorType() const = 0;
+            /**
+            * Retrieves whether property colorRgb is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetColorRgb() const = 0;
+            /**
+            * Retrieves whether property colorCmyk is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetColorCmyk() const = 0;
 
         };
 
@@ -2755,6 +3020,26 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property cyan is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCyan() const = 0;
+            /**
+            * Retrieves whether property key is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetKey() const = 0;
+            /**
+            * Retrieves whether property magenta is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMagenta() const = 0;
+            /**
+            * Retrieves whether property yellow is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetYellow() const = 0;
 
         };
 
@@ -2806,6 +3091,21 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property blue is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetBlue() const = 0;
+            /**
+            * Retrieves whether property green is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetGreen() const = 0;
+            /**
+            * Retrieves whether property red is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRed() const = 0;
 
         };
 
@@ -2846,6 +3146,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property vehicleComponent is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVehicleComponent() const = 0;
+            /**
+            * Retrieves whether property userDefinedComponent is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetUserDefinedComponent() const = 0;
 
         };
 
@@ -2923,13 +3233,28 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
 
             /**
+            * Retrieves whether property conditionEdge is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetConditionEdge() const = 0;
+            /**
+            * Retrieves whether property delay is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDelay() const = 0;
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property byEntityCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetByEntityCondition() const = 0;
             /**
             * Retrieves whether property byValueCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetByValueCondition() const = 0;
 
@@ -2977,6 +3302,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property conditions is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetConditions() const = 0;
 
         };
 
@@ -3031,14 +3361,19 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property time is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTime() const = 0;
             /**
             * Retrieves whether property weight is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetWeight() const = 0;
+            /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
 
         };
 
@@ -3118,14 +3453,24 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property controllerType is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetControllerType() const = 0;
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property parameterDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterDeclarations() const = 0;
+            /**
+            * Retrieves whether property properties is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetProperties() const = 0;
 
         };
 
@@ -3180,17 +3525,17 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property assignControllerAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAssignControllerAction() const = 0;
             /**
             * Retrieves whether property overrideControllerValueAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOverrideControllerValueAction() const = 0;
             /**
             * Retrieves whether property activateControllerAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetActivateControllerAction() const = 0;
 
@@ -3222,6 +3567,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property directory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDirectory() const = 0;
 
         };
 
@@ -3266,6 +3616,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property controllerDistributionEntries is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetControllerDistributionEntries() const = 0;
 
         };
 
@@ -3318,13 +3673,18 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
 
             /**
+            * Retrieves whether property weight is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetWeight() const = 0;
+            /**
             * Retrieves whether property controller is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetController() const = 0;
             /**
             * Retrieves whether property catalogReference is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCatalogReference() const = 0;
 
@@ -3368,6 +3728,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property content is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetContent() const = 0;
+            /**
+            * Retrieves whether property type is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetType() const = 0;
 
         };
 
@@ -3397,6 +3767,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property content is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetContent() const = 0;
 
         };
 
@@ -3461,7 +3836,7 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property deterministicParameterDistributions is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDeterministicParameterDistributions() const = 0;
 
@@ -3493,6 +3868,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property deterministicMultiParameterDistributionType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDeterministicMultiParameterDistributionType() const = 0;
 
         };
 
@@ -3522,6 +3902,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property valueSetDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValueSetDistribution() const = 0;
 
         };
 
@@ -3562,6 +3947,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property deterministicMultiParameterDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDeterministicMultiParameterDistribution() const = 0;
+            /**
+            * Retrieves whether property deterministicSingleParameterDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDeterministicSingleParameterDistribution() const = 0;
 
         };
 
@@ -3602,6 +3997,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property parameterName is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetParameterName() const = 0;
+            /**
+            * Retrieves whether property deterministicSingleParameterDistributionType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDeterministicSingleParameterDistributionType() const = 0;
 
         };
 
@@ -3653,6 +4058,21 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property distributionSet is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDistributionSet() const = 0;
+            /**
+            * Retrieves whether property distributionRange is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDistributionRange() const = 0;
+            /**
+            * Retrieves whether property userDefinedDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetUserDefinedDistribution() const = 0;
 
         };
 
@@ -3705,6 +4125,21 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property height is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetHeight() const = 0;
+            /**
+            * Retrieves whether property length is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLength() const = 0;
+            /**
+            * Retrieves whether property width is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetWidth() const = 0;
 
         };
 
@@ -3747,6 +4182,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property opposite is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetOpposite() const = 0;
+            /**
+            * Retrieves whether property same is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSame() const = 0;
 
         };
 
@@ -3776,6 +4221,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property path is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPath() const = 0;
 
         };
 
@@ -3889,24 +4339,44 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property alongRoute is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAlongRoute() const = 0;
             /**
             * Retrieves whether property coordinateSystem is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCoordinateSystem() const = 0;
             /**
+            * Retrieves whether property freespace is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFreespace() const = 0;
+            /**
             * Retrieves whether property relativeDistanceType is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeDistanceType() const = 0;
             /**
             * Retrieves whether property routingAlgorithm is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoutingAlgorithm() const = 0;
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
+            /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
 
         };
 
@@ -3947,6 +4417,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property deterministic is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDeterministic() const = 0;
+            /**
+            * Retrieves whether property stochastic is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetStochastic() const = 0;
 
         };
 
@@ -3989,6 +4469,16 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property stepWidth is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetStepWidth() const = 0;
+            /**
+            * Retrieves whether property range is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRange() const = 0;
 
         };
 
@@ -4033,6 +4523,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property elements is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetElements() const = 0;
 
         };
 
@@ -4062,6 +4557,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -4105,9 +4605,14 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property azimuthOffset is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAzimuthOffset() const = 0;
+            /**
+            * Retrieves whether property domeFile is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDomeFile() const = 0;
 
         };
 
@@ -4188,27 +4693,27 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property maxAcceleration is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxAcceleration() const = 0;
             /**
             * Retrieves whether property maxAccelerationRate is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxAccelerationRate() const = 0;
             /**
             * Retrieves whether property maxDeceleration is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxDeceleration() const = 0;
             /**
             * Retrieves whether property maxDecelerationRate is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxDecelerationRate() const = 0;
             /**
             * Retrieves whether property maxSpeed is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxSpeed() const = 0;
 
@@ -4240,6 +4745,11 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
             }
 
 
+            /**
+            * Retrieves whether property duration is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDuration() const = 0;
 
         };
 
@@ -4312,12 +4822,12 @@ Note: Although the OpenSCENARIO v1.2 allows to omit the controllerRef
 
             /**
             * Retrieves whether property scenarioObjects is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetScenarioObjects() const = 0;
             /**
             * Retrieves whether property entitySelections is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEntitySelections() const = 0;
 
@@ -4376,13 +4886,18 @@ An entity can only exist in one copy. Adding an already active entity will have 
 
 
             /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
             * Retrieves whether property addEntityAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAddEntityAction() const = 0;
             /**
             * Retrieves whether property deleteEntityAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDeleteEntityAction() const = 0;
 
@@ -4559,72 +5074,72 @@ An entity can only exist in one copy. Adding an already active entity will have 
 
             /**
             * Retrieves whether property endOfRoadCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEndOfRoadCondition() const = 0;
             /**
             * Retrieves whether property collisionCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCollisionCondition() const = 0;
             /**
             * Retrieves whether property offroadCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOffroadCondition() const = 0;
             /**
             * Retrieves whether property timeHeadwayCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTimeHeadwayCondition() const = 0;
             /**
             * Retrieves whether property timeToCollisionCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTimeToCollisionCondition() const = 0;
             /**
             * Retrieves whether property accelerationCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAccelerationCondition() const = 0;
             /**
             * Retrieves whether property standStillCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetStandStillCondition() const = 0;
             /**
             * Retrieves whether property speedCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSpeedCondition() const = 0;
             /**
             * Retrieves whether property relativeSpeedCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeSpeedCondition() const = 0;
             /**
             * Retrieves whether property traveledDistanceCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTraveledDistanceCondition() const = 0;
             /**
             * Retrieves whether property reachPositionCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetReachPositionCondition() const = 0;
             /**
             * Retrieves whether property distanceCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDistanceCondition() const = 0;
             /**
             * Retrieves whether property relativeDistanceCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeDistanceCondition() const = 0;
             /**
             * Retrieves whether property relativeClearanceCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeClearanceCondition() const = 0;
 
@@ -4702,27 +5217,27 @@ An entity can only exist in one copy. Adding an already active entity will have 
 
             /**
             * Retrieves whether property catalogReference is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCatalogReference() const = 0;
             /**
             * Retrieves whether property vehicle is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetVehicle() const = 0;
             /**
             * Retrieves whether property pedestrian is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPedestrian() const = 0;
             /**
             * Retrieves whether property miscObject is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMiscObject() const = 0;
             /**
             * Retrieves whether property externalObjectReference is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetExternalObjectReference() const = 0;
 
@@ -4754,6 +5269,11 @@ An entity can only exist in one copy. Adding an already active entity will have 
             }
 
 
+            /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
 
         };
 
@@ -4795,6 +5315,16 @@ An entity can only exist in one copy. Adding an already active entity will have 
             }
 
 
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property members is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMembers() const = 0;
 
         };
 
@@ -4885,23 +5415,28 @@ An entity can only exist in one copy. Adding an already active entity will have 
             }
 
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property parameterDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterDeclarations() const = 0;
             /**
             * Retrieves whether property timeOfDay is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTimeOfDay() const = 0;
             /**
             * Retrieves whether property weather is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetWeather() const = 0;
             /**
             * Retrieves whether property roadCondition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoadCondition() const = 0;
 
@@ -4947,12 +5482,12 @@ An entity can only exist in one copy. Adding an already active entity will have 
 
             /**
             * Retrieves whether property environment is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEnvironment() const = 0;
             /**
             * Retrieves whether property catalogReference is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCatalogReference() const = 0;
 
@@ -4984,6 +5519,11 @@ An entity can only exist in one copy. Adding an already active entity will have 
             }
 
 
+            /**
+            * Retrieves whether property directory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDirectory() const = 0;
 
         };
 
@@ -5076,12 +5616,27 @@ An entity can only exist in one copy. Adding an already active entity will have 
 
             /**
             * Retrieves whether property maximumExecutionCount is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaximumExecutionCount() const = 0;
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property priority is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPriority() const = 0;
+            /**
+            * Retrieves whether property actions is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetActions() const = 0;
+            /**
             * Retrieves whether property startTrigger is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetStartTrigger() const = 0;
 
@@ -5114,6 +5669,11 @@ An entity can only exist in one copy. Adding an already active entity will have 
             }
 
 
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
 
         };
 
@@ -5143,6 +5703,11 @@ An entity can only exist in one copy. Adding an already active entity will have 
             }
 
 
+            /**
+            * Retrieves whether property filepath is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFilepath() const = 0;
 
         };
 
@@ -5239,13 +5804,38 @@ An entity can only exist in one copy. Adding an already active entity will have 
 
 
             /**
+            * Retrieves whether property author is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetAuthor() const = 0;
+            /**
+            * Retrieves whether property date is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDate() const = 0;
+            /**
+            * Retrieves whether property description is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDescription() const = 0;
+            /**
+            * Retrieves whether property revMajor is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRevMajor() const = 0;
+            /**
+            * Retrieves whether property revMinor is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRevMinor() const = 0;
+            /**
             * Retrieves whether property license is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLicense() const = 0;
             /**
             * Retrieves whether property properties is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetProperties() const = 0;
 
@@ -5290,12 +5880,12 @@ An entity can only exist in one copy. Adding an already active entity will have 
 
             /**
             * Retrieves whether property absoluteSpeed is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAbsoluteSpeed() const = 0;
             /**
             * Retrieves whether property relativeSpeedToMaster is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeSpeedToMaster() const = 0;
 
@@ -5339,8 +5929,13 @@ An entity can only exist in one copy. Adding an already active entity will have 
 
 
             /**
+            * Retrieves whether property visualRange is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVisualRange() const = 0;
+            /**
             * Retrieves whether property boundingBox is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetBoundingBox() const = 0;
 
@@ -5436,22 +6031,32 @@ An entity can only exist in one copy. Adding an already active entity will have 
 
             /**
             * Retrieves whether property initialDistanceOffset is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetInitialDistanceOffset() const = 0;
             /**
             * Retrieves whether property trajectory is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrajectory() const = 0;
             /**
             * Retrieves whether property catalogReference is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCatalogReference() const = 0;
             /**
+            * Retrieves whether property timeReference is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTimeReference() const = 0;
+            /**
+            * Retrieves whether property trajectoryFollowingMode is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTrajectoryFollowingMode() const = 0;
+            /**
             * Retrieves whether property trajectoryRef is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrajectoryRef() const = 0;
 
@@ -5494,6 +6099,16 @@ An entity can only exist in one copy. Adding an already active entity will have 
             }
 
 
+            /**
+            * Retrieves whether property manualGear is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetManualGear() const = 0;
+            /**
+            * Retrieves whether property automaticGear is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetAutomaticGear() const = 0;
 
         };
 
@@ -5624,37 +6239,37 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
             /**
             * Retrieves whether property altitude is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAltitude() const = 0;
             /**
             * Retrieves whether property height is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetHeight() const = 0;
             /**
             * Retrieves whether property latitude is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLatitude() const = 0;
             /**
             * Retrieves whether property latitudeDeg is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLatitudeDeg() const = 0;
             /**
             * Retrieves whether property longitude is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLongitude() const = 0;
             /**
             * Retrieves whether property longitudeDeg is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLongitudeDeg() const = 0;
             /**
             * Retrieves whether property orientation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOrientation() const = 0;
 
@@ -5743,32 +6358,32 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
             /**
             * Retrieves whether property environmentAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEnvironmentAction() const = 0;
             /**
             * Retrieves whether property entityAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEntityAction() const = 0;
             /**
             * Retrieves whether property parameterAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterAction() const = 0;
             /**
             * Retrieves whether property infrastructureAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetInfrastructureAction() const = 0;
             /**
             * Retrieves whether property trafficAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficAction() const = 0;
             /**
             * Retrieves whether property variableAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetVariableAction() const = 0;
 
@@ -5815,6 +6430,11 @@ Missing Orientation property is interpreted as the absolute reference context wi
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property bins is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetBins() const = 0;
 
         };
 
@@ -5857,6 +6477,16 @@ Missing Orientation property is interpreted as the absolute reference context wi
             }
 
 
+            /**
+            * Retrieves whether property weight is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetWeight() const = 0;
+            /**
+            * Retrieves whether property range is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRange() const = 0;
 
         };
 
@@ -5911,17 +6541,17 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
             /**
             * Retrieves whether property fromCurrentEntity is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFromCurrentEntity() const = 0;
             /**
             * Retrieves whether property fromRoadCoordinates is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFromRoadCoordinates() const = 0;
             /**
             * Retrieves whether property fromLaneCoordinates is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFromLaneCoordinates() const = 0;
 
@@ -5953,6 +6583,11 @@ Missing Orientation property is interpreted as the absolute reference context wi
             }
 
 
+            /**
+            * Retrieves whether property trafficSignalAction is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTrafficSignalAction() const = 0;
 
         };
 
@@ -5982,6 +6617,11 @@ Missing Orientation property is interpreted as the absolute reference context wi
             }
 
 
+            /**
+            * Retrieves whether property actions is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetActions() const = 0;
 
         };
 
@@ -6081,17 +6721,17 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
             /**
             * Retrieves whether property globalActions is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetGlobalActions() const = 0;
             /**
             * Retrieves whether property userDefinedActions is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetUserDefinedActions() const = 0;
             /**
             * Retrieves whether property privates is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPrivates() const = 0;
 
@@ -6123,6 +6763,11 @@ Missing Orientation property is interpreted as the absolute reference context wi
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -6181,9 +6826,19 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
             /**
             * Retrieves whether property targetLaneOffset is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTargetLaneOffset() const = 0;
+            /**
+            * Retrieves whether property laneChangeActionDynamics is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLaneChangeActionDynamics() const = 0;
+            /**
+            * Retrieves whether property laneChangeTarget is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLaneChangeTarget() const = 0;
 
         };
 
@@ -6226,12 +6881,12 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
             /**
             * Retrieves whether property relativeTargetLane is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeTargetLane() const = 0;
             /**
             * Retrieves whether property absoluteTargetLane is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAbsoluteTargetLane() const = 0;
 
@@ -6293,6 +6948,21 @@ Missing Orientation property is interpreted as the absolute reference context wi
             }
 
 
+            /**
+            * Retrieves whether property continuous is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetContinuous() const = 0;
+            /**
+            * Retrieves whether property laneOffsetActionDynamics is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLaneOffsetActionDynamics() const = 0;
+            /**
+            * Retrieves whether property laneOffsetTarget is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLaneOffsetTarget() const = 0;
 
         };
 
@@ -6335,8 +7005,13 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
 
             /**
+            * Retrieves whether property dynamicsShape is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDynamicsShape() const = 0;
+            /**
             * Retrieves whether property maxLateralAcc is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxLateralAcc() const = 0;
 
@@ -6381,12 +7056,12 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
             /**
             * Retrieves whether property relativeTargetLaneOffset is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeTargetLaneOffset() const = 0;
             /**
             * Retrieves whether property absoluteTargetLaneOffset is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAbsoluteTargetLaneOffset() const = 0;
 
@@ -6481,13 +7156,28 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property laneId is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLaneId() const = 0;
+            /**
             * Retrieves whether property offset is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOffset() const = 0;
             /**
+            * Retrieves whether property roadId is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRoadId() const = 0;
+            /**
+            * Retrieves whether property s is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetS() const = 0;
+            /**
             * Retrieves whether property orientation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOrientation() const = 0;
 
@@ -6543,17 +7233,17 @@ Missing Orientation
 
             /**
             * Retrieves whether property laneChangeAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLaneChangeAction() const = 0;
             /**
             * Retrieves whether property laneOffsetAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLaneOffsetAction() const = 0;
             /**
             * Retrieves whether property lateralDistanceAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLateralDistanceAction() const = 0;
 
@@ -6659,23 +7349,38 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property continuous is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetContinuous() const = 0;
+            /**
             * Retrieves whether property coordinateSystem is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCoordinateSystem() const = 0;
             /**
             * Retrieves whether property displacement is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDisplacement() const = 0;
             /**
             * Retrieves whether property distance is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDistance() const = 0;
             /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
+            * Retrieves whether property freespace is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFreespace() const = 0;
+            /**
             * Retrieves whether property dynamicConstraints is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDynamicConstraints() const = 0;
 
@@ -6744,17 +7449,22 @@ Missing Orientation
 
             /**
             * Retrieves whether property text is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetText() const = 0;
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property resource is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetResource() const = 0;
             /**
             * Retrieves whether property spdxId is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSpdxId() const = 0;
 
@@ -6834,22 +7544,27 @@ Missing Orientation
 
             /**
             * Retrieves whether property flashingOffDuration is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFlashingOffDuration() const = 0;
             /**
             * Retrieves whether property flashingOnDuration is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFlashingOnDuration() const = 0;
             /**
             * Retrieves whether property luminousIntensity is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLuminousIntensity() const = 0;
             /**
+            * Retrieves whether property mode is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMode() const = 0;
+            /**
             * Retrieves whether property color is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetColor() const = 0;
 
@@ -6905,9 +7620,19 @@ Missing Orientation
 
             /**
             * Retrieves whether property transitionTime is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTransitionTime() const = 0;
+            /**
+            * Retrieves whether property lightType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLightType() const = 0;
+            /**
+            * Retrieves whether property lightState is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLightState() const = 0;
 
         };
 
@@ -6948,6 +7673,16 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property vehicleLight is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVehicleLight() const = 0;
+            /**
+            * Retrieves whether property userDefinedLight is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetUserDefinedLight() const = 0;
 
         };
 
@@ -7001,17 +7736,17 @@ Missing Orientation
 
             /**
             * Retrieves whether property speedAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSpeedAction() const = 0;
             /**
             * Retrieves whether property longitudinalDistanceAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLongitudinalDistanceAction() const = 0;
             /**
             * Retrieves whether property speedProfileAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSpeedProfileAction() const = 0;
 
@@ -7131,28 +7866,43 @@ The target position may be either on the same road segment where the reference
 
 
             /**
+            * Retrieves whether property continuous is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetContinuous() const = 0;
+            /**
             * Retrieves whether property coordinateSystem is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCoordinateSystem() const = 0;
             /**
             * Retrieves whether property displacement is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDisplacement() const = 0;
             /**
             * Retrieves whether property distance is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDistance() const = 0;
             /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
+            * Retrieves whether property freespace is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFreespace() const = 0;
+            /**
             * Retrieves whether property timeGap is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTimeGap() const = 0;
             /**
             * Retrieves whether property dynamicConstraints is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDynamicConstraints() const = 0;
 
@@ -7237,10 +7987,20 @@ The target position may be either on the same road segment where the reference
             }
 
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property parameterDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterDeclarations() const = 0;
+            /**
+            * Retrieves whether property events is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEvents() const = 0;
 
         };
 
@@ -7270,6 +8030,11 @@ The target position may be either on the same road segment where the reference
             }
 
 
+            /**
+            * Retrieves whether property directory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDirectory() const = 0;
 
         };
 
@@ -7375,13 +8140,28 @@ The target position may be either on the same road segment where the reference
             }
 
             /**
+            * Retrieves whether property maximumExecutionCount is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMaximumExecutionCount() const = 0;
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property actors is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetActors() const = 0;
+            /**
             * Retrieves whether property catalogReferences is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCatalogReferences() const = 0;
             /**
             * Retrieves whether property maneuvers is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetManeuvers() const = 0;
 
@@ -7413,6 +8193,11 @@ The target position may be either on the same road segment where the reference
             }
 
 
+            /**
+            * Retrieves whether property number is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetNumber() const = 0;
 
         };
 
@@ -7524,15 +8309,40 @@ The target position may be either on the same road segment where the reference
             }
 
             /**
+            * Retrieves whether property mass is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMass() const = 0;
+            /**
+            * Retrieves whether property miscObjectCategory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMiscObjectCategory() const = 0;
+            /**
             * Retrieves whether property model3d is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetModel3d() const = 0;
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property parameterDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterDeclarations() const = 0;
+            /**
+            * Retrieves whether property boundingBox is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetBoundingBox() const = 0;
+            /**
+            * Retrieves whether property properties is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetProperties() const = 0;
 
         };
 
@@ -7562,6 +8372,11 @@ The target position may be either on the same road segment where the reference
             }
 
 
+            /**
+            * Retrieves whether property directory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDirectory() const = 0;
 
         };
 
@@ -7605,12 +8420,12 @@ The target position may be either on the same road segment where the reference
 
             /**
             * Retrieves whether property addValue is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAddValue() const = 0;
             /**
             * Retrieves whether property multiplyByValue is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMultiplyByValue() const = 0;
 
@@ -7683,8 +8498,18 @@ The target position may be either on the same road segment where the reference
 
 
             /**
+            * Retrieves whether property expectedValue is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetExpectedValue() const = 0;
+            /**
+            * Retrieves whether property variance is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVariance() const = 0;
+            /**
             * Retrieves whether property range is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRange() const = 0;
 
@@ -7772,6 +8597,21 @@ The target position may be either on the same road segment where the reference
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property order is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetOrder() const = 0;
+            /**
+            * Retrieves whether property controlPoints is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetControlPoints() const = 0;
+            /**
+            * Retrieves whether property knots is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetKnots() const = 0;
 
         };
 
@@ -7814,12 +8654,12 @@ The target position may be either on the same road segment where the reference
 
             /**
             * Retrieves whether property catalogReference is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCatalogReference() const = 0;
             /**
             * Retrieves whether property controller is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetController() const = 0;
 
@@ -7852,6 +8692,11 @@ The target position may be either on the same road segment where the reference
             }
 
 
+            /**
+            * Retrieves whether property duration is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDuration() const = 0;
 
         };
 
@@ -7892,6 +8737,16 @@ The target position may be either on the same road segment where the reference
             }
 
 
+            /**
+            * Retrieves whether property fileHeader is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFileHeader() const = 0;
+            /**
+            * Retrieves whether property openScenarioCategory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetOpenScenarioCategory() const = 0;
 
         };
 
@@ -7943,6 +8798,21 @@ The target position may be either on the same road segment where the reference
             }
 
 
+            /**
+            * Retrieves whether property scenarioDefinition is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetScenarioDefinition() const = 0;
+            /**
+            * Retrieves whether property catalogDefinition is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCatalogDefinition() const = 0;
+            /**
+            * Retrieves whether property parameterValueDistributionDefinition is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetParameterValueDistributionDefinition() const = 0;
 
         };
 
@@ -8019,22 +8889,22 @@ The
 
             /**
             * Retrieves whether property h is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetH() const = 0;
             /**
             * Retrieves whether property p is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetP() const = 0;
             /**
             * Retrieves whether property r is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetR() const = 0;
             /**
             * Retrieves whether property type is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetType() const = 0;
 
@@ -8089,13 +8959,18 @@ The
 
 
             /**
+            * Retrieves whether property active is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetActive() const = 0;
+            /**
             * Retrieves whether property value is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetValue() const = 0;
             /**
             * Retrieves whether property brakeInput is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetBrakeInput() const = 0;
 
@@ -8150,10 +9025,20 @@ The
 
 
             /**
+            * Retrieves whether property active is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetActive() const = 0;
+            /**
             * Retrieves whether property maxRate is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxRate() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -8242,32 +9127,32 @@ It is assumed that a respective user-defined
 
             /**
             * Retrieves whether property throttle is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetThrottle() const = 0;
             /**
             * Retrieves whether property brake is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetBrake() const = 0;
             /**
             * Retrieves whether property clutch is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetClutch() const = 0;
             /**
             * Retrieves whether property parkingBrake is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParkingBrake() const = 0;
             /**
             * Retrieves whether property steeringWheel is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSteeringWheel() const = 0;
             /**
             * Retrieves whether property gear is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetGear() const = 0;
 
@@ -8322,13 +9207,18 @@ It is assumed that a respective user-defined
 
 
             /**
+            * Retrieves whether property active is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetActive() const = 0;
+            /**
             * Retrieves whether property number is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetNumber() const = 0;
             /**
             * Retrieves whether property gear is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetGear() const = 0;
 
@@ -8383,13 +9273,18 @@ It is assumed that a respective user-defined
 
 
             /**
+            * Retrieves whether property active is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetActive() const = 0;
+            /**
             * Retrieves whether property value is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetValue() const = 0;
             /**
             * Retrieves whether property brakeInput is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetBrakeInput() const = 0;
 
@@ -8455,15 +9350,25 @@ It is assumed that a respective user-defined
 
 
             /**
+            * Retrieves whether property active is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetActive() const = 0;
+            /**
             * Retrieves whether property maxRate is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxRate() const = 0;
             /**
             * Retrieves whether property maxTorque is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxTorque() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -8516,10 +9421,20 @@ It is assumed that a respective user-defined
 
 
             /**
+            * Retrieves whether property active is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetActive() const = 0;
+            /**
             * Retrieves whether property maxRate is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxRate() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -8572,13 +9487,18 @@ It is assumed that a respective user-defined
 
 
             /**
+            * Retrieves whether property parameterRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetParameterRef() const = 0;
+            /**
             * Retrieves whether property setAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSetAction() const = 0;
             /**
             * Retrieves whether property modifyAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetModifyAction() const = 0;
 
@@ -8610,6 +9530,11 @@ It is assumed that a respective user-defined
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -8653,6 +9578,16 @@ It is assumed that a respective user-defined
             }
 
 
+            /**
+            * Retrieves whether property parameterRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetParameterRef() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -8706,6 +9641,21 @@ It is assumed that a respective user-defined
             }
 
 
+            /**
+            * Retrieves whether property parameterRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetParameterRef() const = 0;
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -8796,8 +9746,23 @@ The
             }
 
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property parameterType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetParameterType() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
+            /**
             * Retrieves whether property constraintGroups is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetConstraintGroups() const = 0;
 
@@ -8829,6 +9794,11 @@ The
             }
 
 
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
 
         };
 
@@ -8858,6 +9828,11 @@ The
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -8887,6 +9862,11 @@ The
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -8927,6 +9907,16 @@ The
             }
 
 
+            /**
+            * Retrieves whether property scenarioFile is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetScenarioFile() const = 0;
+            /**
+            * Retrieves whether property distributionDefinition is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDistributionDefinition() const = 0;
 
         };
 
@@ -8956,6 +9946,11 @@ The
             }
 
 
+            /**
+            * Retrieves whether property parameterValueDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetParameterValueDistribution() const = 0;
 
         };
 
@@ -9000,6 +9995,11 @@ The
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property parameterAssignments is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetParameterAssignments() const = 0;
 
         };
 
@@ -9133,25 +10133,50 @@ The
             }
 
             /**
+            * Retrieves whether property mass is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMass() const = 0;
+            /**
             * Retrieves whether property model is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetModel() const = 0;
             /**
             * Retrieves whether property model3d is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetModel3d() const = 0;
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property pedestrianCategory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPedestrianCategory() const = 0;
+            /**
             * Retrieves whether property role is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRole() const = 0;
             /**
             * Retrieves whether property parameterDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterDeclarations() const = 0;
+            /**
+            * Retrieves whether property boundingBox is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetBoundingBox() const = 0;
+            /**
+            * Retrieves whether property properties is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetProperties() const = 0;
 
         };
 
@@ -9221,17 +10246,17 @@ The
 
             /**
             * Retrieves whether property motion is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMotion() const = 0;
             /**
             * Retrieves whether property userDefinedPedestrianAnimation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetUserDefinedPedestrianAnimation() const = 0;
             /**
             * Retrieves whether property gestures is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetGestures() const = 0;
 
@@ -9263,6 +10288,11 @@ The
             }
 
 
+            /**
+            * Retrieves whether property directory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDirectory() const = 0;
 
         };
 
@@ -9292,6 +10322,11 @@ The
             }
 
 
+            /**
+            * Retrieves whether property gesture is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetGesture() const = 0;
 
         };
 
@@ -9366,15 +10401,30 @@ The
 
 
             /**
+            * Retrieves whether property maxAcceleration is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMaxAcceleration() const = 0;
+            /**
             * Retrieves whether property maxAccelerationRate is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxAccelerationRate() const = 0;
             /**
+            * Retrieves whether property maxDeceleration is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMaxDeceleration() const = 0;
+            /**
             * Retrieves whether property maxDecelerationRate is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMaxDecelerationRate() const = 0;
+            /**
+            * Retrieves whether property maxSpeed is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMaxSpeed() const = 0;
 
         };
 
@@ -9461,13 +10511,23 @@ The semantic information like go, attention, stop, etc. is set in Phase
             }
 
             /**
+            * Retrieves whether property duration is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDuration() const = 0;
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property trafficSignalStates is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficSignalStates() const = 0;
             /**
             * Retrieves whether property trafficeSignalGroupState is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficeSignalGroupState() const = 0;
 
@@ -9511,8 +10571,13 @@ The semantic information like go, attention, stop, etc. is set in Phase
 
 
             /**
+            * Retrieves whether property expectedValue is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetExpectedValue() const = 0;
+            /**
             * Retrieves whether property range is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRange() const = 0;
 
@@ -9559,6 +10624,11 @@ The semantic information like go, attention, stop, etc. is set in Phase
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property vertices is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVertices() const = 0;
 
         };
 
@@ -9690,52 +10760,52 @@ The semantic information like go, attention, stop, etc. is set in Phase
 
             /**
             * Retrieves whether property worldPosition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetWorldPosition() const = 0;
             /**
             * Retrieves whether property relativeWorldPosition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeWorldPosition() const = 0;
             /**
             * Retrieves whether property relativeObjectPosition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeObjectPosition() const = 0;
             /**
             * Retrieves whether property roadPosition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoadPosition() const = 0;
             /**
             * Retrieves whether property relativeRoadPosition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeRoadPosition() const = 0;
             /**
             * Retrieves whether property lanePosition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLanePosition() const = 0;
             /**
             * Retrieves whether property relativeLanePosition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeLanePosition() const = 0;
             /**
             * Retrieves whether property routePosition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoutePosition() const = 0;
             /**
             * Retrieves whether property geoPosition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetGeoPosition() const = 0;
             /**
             * Retrieves whether property trajectoryPosition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrajectoryPosition() const = 0;
 
@@ -9791,10 +10861,20 @@ The semantic information like go, attention, stop, etc. is set in Phase
 
 
             /**
+            * Retrieves whether property laneId is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLaneId() const = 0;
+            /**
             * Retrieves whether property laneOffset is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLaneOffset() const = 0;
+            /**
+            * Retrieves whether property pathS is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPathS() const = 0;
 
         };
 
@@ -9836,6 +10916,16 @@ The semantic information like go, attention, stop, etc. is set in Phase
             }
 
 
+            /**
+            * Retrieves whether property pathS is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPathS() const = 0;
+            /**
+            * Retrieves whether property t is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetT() const = 0;
 
         };
 
@@ -9866,6 +10956,11 @@ The semantic information like go, attention, stop, etc. is set in Phase
             }
 
 
+            /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
 
         };
 
@@ -9919,14 +11014,19 @@ The semantic information like go, attention, stop, etc. is set in Phase
 
             /**
             * Retrieves whether property intensity is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetIntensity() const = 0;
             /**
             * Retrieves whether property precipitationIntensity is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPrecipitationIntensity() const = 0;
+            /**
+            * Retrieves whether property precipitationType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPrecipitationType() const = 0;
 
         };
 
@@ -9982,6 +11082,16 @@ The semantic information like go, attention, stop, etc. is set in Phase
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
+            * Retrieves whether property privateActions is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPrivateActions() const = 0;
 
         };
 
@@ -10105,47 +11215,47 @@ The semantic information like go, attention, stop, etc. is set in Phase
 
             /**
             * Retrieves whether property longitudinalAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLongitudinalAction() const = 0;
             /**
             * Retrieves whether property lateralAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLateralAction() const = 0;
             /**
             * Retrieves whether property visibilityAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetVisibilityAction() const = 0;
             /**
             * Retrieves whether property synchronizeAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSynchronizeAction() const = 0;
             /**
             * Retrieves whether property activateControllerAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetActivateControllerAction() const = 0;
             /**
             * Retrieves whether property controllerAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetControllerAction() const = 0;
             /**
             * Retrieves whether property teleportAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTeleportAction() const = 0;
             /**
             * Retrieves whether property routingAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoutingAction() const = 0;
             /**
             * Retrieves whether property appearanceAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAppearanceAction() const = 0;
 
@@ -10192,6 +11302,11 @@ The semantic information like go, attention, stop, etc. is set in Phase
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property elements is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetElements() const = 0;
 
         };
 
@@ -10234,6 +11349,16 @@ The semantic information like go, attention, stop, etc. is set in Phase
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
+            /**
+            * Retrieves whether property weight is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetWeight() const = 0;
 
         };
 
@@ -10334,17 +11459,17 @@ The semantic information like go, attention, stop, etc. is set in Phase
 
             /**
             * Retrieves whether property properties is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetProperties() const = 0;
             /**
             * Retrieves whether property files is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFiles() const = 0;
             /**
             * Retrieves whether property customContent is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCustomContent() const = 0;
 
@@ -10387,6 +11512,16 @@ The semantic information like go, attention, stop, etc. is set in Phase
             }
 
 
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -10427,6 +11562,16 @@ The semantic information like go, attention, stop, etc. is set in Phase
             }
 
 
+            /**
+            * Retrieves whether property lowerLimit is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetLowerLimit() const = 0;
+            /**
+            * Retrieves whether property upperLimit is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetUpperLimit() const = 0;
 
         };
 
@@ -10467,6 +11612,16 @@ The semantic information like go, attention, stop, etc. is set in Phase
             }
 
 
+            /**
+            * Retrieves whether property tolerance is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTolerance() const = 0;
+            /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
 
         };
 
@@ -10593,22 +11748,32 @@ The semantic information like go, attention, stop, etc. is set in Phase
 
             /**
             * Retrieves whether property distanceBackward is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDistanceBackward() const = 0;
             /**
             * Retrieves whether property distanceForward is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDistanceForward() const = 0;
             /**
+            * Retrieves whether property freeSpace is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFreeSpace() const = 0;
+            /**
+            * Retrieves whether property oppositeLanes is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetOppositeLanes() const = 0;
+            /**
             * Retrieves whether property relativeLaneRange is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeLaneRange() const = 0;
             /**
             * Retrieves whether property entityRef is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEntityRef() const = 0;
 
@@ -10710,14 +11875,39 @@ The semantic information like go, attention, stop, etc. is set in Phase
 
             /**
             * Retrieves whether property coordinateSystem is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCoordinateSystem() const = 0;
             /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
+            * Retrieves whether property freespace is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFreespace() const = 0;
+            /**
+            * Retrieves whether property relativeDistanceType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRelativeDistanceType() const = 0;
+            /**
             * Retrieves whether property routingAlgorithm is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoutingAlgorithm() const = 0;
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -10855,23 +12045,33 @@ Missing Orientation property is interpreted as the absolute
 
 
             /**
+            * Retrieves whether property dLane is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDLane() const = 0;
+            /**
             * Retrieves whether property ds is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDs() const = 0;
             /**
             * Retrieves whether property dsLane is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDsLane() const = 0;
             /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
             * Retrieves whether property offset is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOffset() const = 0;
             /**
             * Retrieves whether property orientation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOrientation() const = 0;
 
@@ -10918,12 +12118,12 @@ Missing Orientation property is interpreted as the absolute
 
             /**
             * Retrieves whether property from is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFrom() const = 0;
             /**
             * Retrieves whether property to is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTo() const = 0;
 
@@ -11007,13 +12207,28 @@ Missing Orientation property
 
 
             /**
+            * Retrieves whether property dx is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDx() const = 0;
+            /**
+            * Retrieves whether property dy is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDy() const = 0;
+            /**
             * Retrieves whether property dz is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDz() const = 0;
             /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
             * Retrieves whether property orientation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOrientation() const = 0;
 
@@ -11103,8 +12318,23 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
 
             /**
+            * Retrieves whether property ds is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDs() const = 0;
+            /**
+            * Retrieves whether property dt is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDt() const = 0;
+            /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
             * Retrieves whether property orientation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOrientation() const = 0;
 
@@ -11173,9 +12403,24 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
             /**
             * Retrieves whether property direction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDirection() const = 0;
+            /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -11228,8 +12473,18 @@ Missing Orientation property is interpreted as the absolute reference context wi
 
 
             /**
+            * Retrieves whether property speedTargetValueType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSpeedTargetValueType() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
+            /**
             * Retrieves whether property steadyState is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSteadyState() const = 0;
 
@@ -11272,6 +12527,16 @@ Missing Orientation property is interpreted as the absolute reference context wi
             }
 
 
+            /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -11313,6 +12578,16 @@ Missing Orientation property is interpreted as the absolute reference context wi
             }
 
 
+            /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -11379,6 +12654,26 @@ Missing Orientation property is interpreted as the absolute reference context wi
             }
 
 
+            /**
+            * Retrieves whether property continuous is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetContinuous() const = 0;
+            /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
+            * Retrieves whether property speedTargetValueType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSpeedTargetValueType() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -11460,13 +12755,28 @@ Missing Orientation property is interpreted as the absolute
 
 
             /**
+            * Retrieves whether property dx is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDx() const = 0;
+            /**
+            * Retrieves whether property dy is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDy() const = 0;
+            /**
             * Retrieves whether property dz is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDz() const = 0;
             /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
             * Retrieves whether property orientation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOrientation() const = 0;
 
@@ -11521,13 +12831,18 @@ Missing Orientation property is interpreted as the absolute
 
 
             /**
+            * Retrieves whether property frictionScaleFactor is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFrictionScaleFactor() const = 0;
+            /**
             * Retrieves whether property wetness is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetWetness() const = 0;
             /**
             * Retrieves whether property properties is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetProperties() const = 0;
 
@@ -11613,22 +12928,22 @@ Missing Orientation property is interpreted as the absolute
 
             /**
             * Retrieves whether property logicFile is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetLogicFile() const = 0;
             /**
             * Retrieves whether property sceneGraphFile is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSceneGraphFile() const = 0;
             /**
             * Retrieves whether property trafficSignals is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficSignals() const = 0;
             /**
             * Retrieves whether property usedArea is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetUsedArea() const = 0;
 
@@ -11710,8 +13025,23 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property roadId is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRoadId() const = 0;
+            /**
+            * Retrieves whether property s is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetS() const = 0;
+            /**
+            * Retrieves whether property t is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetT() const = 0;
+            /**
             * Retrieves whether property orientation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOrientation() const = 0;
 
@@ -11808,10 +13138,25 @@ Missing Orientation
             }
 
             /**
+            * Retrieves whether property closed is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetClosed() const = 0;
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property parameterDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterDeclarations() const = 0;
+            /**
+            * Retrieves whether property waypoints is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetWaypoints() const = 0;
 
         };
 
@@ -11841,6 +13186,11 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property directory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDirectory() const = 0;
 
         };
 
@@ -11896,10 +13246,20 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property routeRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRouteRef() const = 0;
+            /**
             * Retrieves whether property orientation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOrientation() const = 0;
+            /**
+            * Retrieves whether property inRoutePosition is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetInRoutePosition() const = 0;
 
         };
 
@@ -11942,12 +13302,12 @@ Missing Orientation
 
             /**
             * Retrieves whether property route is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoute() const = 0;
             /**
             * Retrieves whether property catalogReference is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCatalogReference() const = 0;
 
@@ -12005,17 +13365,17 @@ Missing Orientation
 
             /**
             * Retrieves whether property assignRouteAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAssignRouteAction() const = 0;
             /**
             * Retrieves whether property followTrajectoryAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFollowTrajectoryAction() const = 0;
             /**
             * Retrieves whether property acquirePositionAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAcquirePositionAction() const = 0;
 
@@ -12137,14 +13497,34 @@ Missing Orientation
 
             /**
             * Retrieves whether property parameterDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterDeclarations() const = 0;
             /**
             * Retrieves whether property variableDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetVariableDeclarations() const = 0;
+            /**
+            * Retrieves whether property catalogLocations is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCatalogLocations() const = 0;
+            /**
+            * Retrieves whether property roadNetwork is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRoadNetwork() const = 0;
+            /**
+            * Retrieves whether property entities is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntities() const = 0;
+            /**
+            * Retrieves whether property storyboard is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetStoryboard() const = 0;
 
         };
 
@@ -12214,8 +13594,18 @@ Missing Orientation
             }
 
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property entityObject is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityObject() const = 0;
+            /**
             * Retrieves whether property objectController is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetObjectController() const = 0;
 
@@ -12290,12 +13680,12 @@ Missing Orientation
 
             /**
             * Retrieves whether property entityRef is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEntityRef() const = 0;
             /**
             * Retrieves whether property byType is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetByType() const = 0;
 
@@ -12328,6 +13718,11 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
 
         };
 
@@ -12372,6 +13767,11 @@ Missing Orientation
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property sensorReferences is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSensorReferences() const = 0;
 
         };
 
@@ -12425,17 +13825,17 @@ Missing Orientation
 
             /**
             * Retrieves whether property polyline is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPolyline() const = 0;
             /**
             * Retrieves whether property clothoid is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetClothoid() const = 0;
             /**
             * Retrieves whether property nurbs is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetNurbs() const = 0;
 
@@ -12478,6 +13878,16 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -12519,6 +13929,16 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property speedActionDynamics is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSpeedActionDynamics() const = 0;
+            /**
+            * Retrieves whether property speedActionTarget is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSpeedActionTarget() const = 0;
 
         };
 
@@ -12562,12 +13982,12 @@ Missing Orientation
 
             /**
             * Retrieves whether property relativeTargetSpeed is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeTargetSpeed() const = 0;
             /**
             * Retrieves whether property absoluteTargetSpeed is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAbsoluteTargetSpeed() const = 0;
 
@@ -12624,9 +14044,19 @@ Missing Orientation
 
             /**
             * Retrieves whether property direction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDirection() const = 0;
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -12710,14 +14140,24 @@ Missing Orientation
 
             /**
             * Retrieves whether property entityRef is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEntityRef() const = 0;
             /**
+            * Retrieves whether property followingMode is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFollowingMode() const = 0;
+            /**
             * Retrieves whether property dynamicConstraints is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDynamicConstraints() const = 0;
+            /**
+            * Retrieves whether property speedProfileEntry is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSpeedProfileEntry() const = 0;
 
         };
 
@@ -12761,8 +14201,13 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property speed is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSpeed() const = 0;
+            /**
             * Retrieves whether property time is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTime() const = 0;
 
@@ -12794,6 +14239,11 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property duration is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDuration() const = 0;
 
         };
 
@@ -12834,6 +14284,16 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property targetDistanceSteadyState is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTargetDistanceSteadyState() const = 0;
+            /**
+            * Retrieves whether property targetTimeSteadyState is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTargetTimeSteadyState() const = 0;
 
         };
 
@@ -12902,10 +14362,20 @@ Missing Orientation
             }
 
             /**
+            * Retrieves whether property numberOfTestRuns is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetNumberOfTestRuns() const = 0;
+            /**
             * Retrieves whether property randomSeed is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRandomSeed() const = 0;
+            /**
+            * Retrieves whether property stochasticDistributions is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetStochasticDistributions() const = 0;
 
         };
 
@@ -12946,6 +14416,16 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property parameterName is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetParameterName() const = 0;
+            /**
+            * Retrieves whether property stochasticDistributionType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetStochasticDistributionType() const = 0;
 
         };
 
@@ -13030,6 +14510,36 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property probabilityDistributionSet is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetProbabilityDistributionSet() const = 0;
+            /**
+            * Retrieves whether property normalDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetNormalDistribution() const = 0;
+            /**
+            * Retrieves whether property uniformDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetUniformDistribution() const = 0;
+            /**
+            * Retrieves whether property poissonDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPoissonDistribution() const = 0;
+            /**
+            * Retrieves whether property histogram is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetHistogram() const = 0;
+            /**
+            * Retrieves whether property userDefinedDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetUserDefinedDistribution() const = 0;
 
         };
 
@@ -13112,10 +14622,20 @@ Missing Orientation
             }
 
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property parameterDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterDeclarations() const = 0;
+            /**
+            * Retrieves whether property acts is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetActs() const = 0;
 
         };
 
@@ -13183,10 +14703,20 @@ Missing Orientation
             }
 
             /**
+            * Retrieves whether property init is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetInit() const = 0;
+            /**
             * Retrieves whether property stories is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetStories() const = 0;
+            /**
+            * Retrieves whether property stopTrigger is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetStopTrigger() const = 0;
 
         };
 
@@ -13240,6 +14770,21 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property state is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetState() const = 0;
+            /**
+            * Retrieves whether property storyboardElementRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetStoryboardElementRef() const = 0;
+            /**
+            * Retrieves whether property storyboardElementType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetStoryboardElementType() const = 0;
 
         };
 
@@ -13303,13 +14848,23 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property azimuth is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetAzimuth() const = 0;
+            /**
+            * Retrieves whether property elevation is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetElevation() const = 0;
+            /**
             * Retrieves whether property illuminance is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetIlluminance() const = 0;
             /**
             * Retrieves whether property intensity is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetIntensity() const = 0;
 
@@ -13399,18 +14954,33 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property masterEntityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetMasterEntityRef() const = 0;
+            /**
             * Retrieves whether property targetTolerance is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTargetTolerance() const = 0;
             /**
             * Retrieves whether property targetToleranceMaster is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTargetToleranceMaster() const = 0;
             /**
+            * Retrieves whether property targetPositionMaster is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTargetPositionMaster() const = 0;
+            /**
+            * Retrieves whether property targetPosition is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTargetPosition() const = 0;
+            /**
             * Retrieves whether property finalSpeed is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFinalSpeed() const = 0;
 
@@ -13442,6 +15012,11 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property distance is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDistance() const = 0;
 
         };
 
@@ -13471,6 +15046,11 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property time is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTime() const = 0;
 
         };
 
@@ -13500,6 +15080,11 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
 
         };
 
@@ -13618,24 +15203,44 @@ Missing Orientation
 
             /**
             * Retrieves whether property alongRoute is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAlongRoute() const = 0;
             /**
             * Retrieves whether property coordinateSystem is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCoordinateSystem() const = 0;
             /**
+            * Retrieves whether property entityRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRef() const = 0;
+            /**
+            * Retrieves whether property freespace is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFreespace() const = 0;
+            /**
             * Retrieves whether property relativeDistanceType is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeDistanceType() const = 0;
             /**
             * Retrieves whether property routingAlgorithm is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoutingAlgorithm() const = 0;
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -13676,6 +15281,16 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property animation is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetAnimation() const = 0;
+            /**
+            * Retrieves whether property dateTime is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDateTime() const = 0;
 
         };
 
@@ -13717,6 +15332,16 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property dateTime is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDateTime() const = 0;
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
 
         };
 
@@ -13761,12 +15386,12 @@ Missing Orientation
 
             /**
             * Retrieves whether property none is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetNone() const = 0;
             /**
             * Retrieves whether property timing is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTiming() const = 0;
 
@@ -13889,24 +15514,44 @@ Missing Orientation
 
             /**
             * Retrieves whether property alongRoute is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAlongRoute() const = 0;
             /**
             * Retrieves whether property coordinateSystem is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCoordinateSystem() const = 0;
             /**
+            * Retrieves whether property freespace is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFreespace() const = 0;
+            /**
             * Retrieves whether property relativeDistanceType is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRelativeDistanceType() const = 0;
             /**
             * Retrieves whether property routingAlgorithm is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRoutingAlgorithm() const = 0;
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
+            /**
+            * Retrieves whether property timeToCollisionConditionTarget is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTimeToCollisionConditionTarget() const = 0;
 
         };
 
@@ -13950,12 +15595,12 @@ Missing Orientation
 
             /**
             * Retrieves whether property position is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPosition() const = 0;
             /**
             * Retrieves whether property entityRef is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetEntityRef() const = 0;
 
@@ -14010,6 +15655,21 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property domainAbsoluteRelative is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDomainAbsoluteRelative() const = 0;
+            /**
+            * Retrieves whether property offset is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetOffset() const = 0;
+            /**
+            * Retrieves whether property scale is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetScale() const = 0;
 
         };
 
@@ -14085,27 +15745,27 @@ Missing Orientation
 
             /**
             * Retrieves whether property trafficName is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficName() const = 0;
             /**
             * Retrieves whether property trafficSourceAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficSourceAction() const = 0;
             /**
             * Retrieves whether property trafficSinkAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficSinkAction() const = 0;
             /**
             * Retrieves whether property trafficSwarmAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficSwarmAction() const = 0;
             /**
             * Retrieves whether property trafficStopAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficStopAction() const = 0;
 
@@ -14171,10 +15831,25 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property vehicleCategoryDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVehicleCategoryDistribution() const = 0;
+            /**
             * Retrieves whether property vehicleRoleDistribution is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetVehicleRoleDistribution() const = 0;
+            /**
+            * Retrieves whether property controllerDistribution is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetControllerDistribution() const = 0;
 
         };
 
@@ -14217,12 +15892,12 @@ Missing Orientation
 
             /**
             * Retrieves whether property trafficSignalControllerAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficSignalControllerAction() const = 0;
             /**
             * Retrieves whether property trafficSignalStateAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficSignalStateAction() const = 0;
 
@@ -14268,6 +15943,16 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property state is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetState() const = 0;
 
         };
 
@@ -14352,17 +16037,22 @@ Missing Orientation
 
             /**
             * Retrieves whether property delay is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDelay() const = 0;
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property reference is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetReference() const = 0;
             /**
             * Retrieves whether property phases is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPhases() const = 0;
 
@@ -14433,8 +16123,18 @@ Missing Orientation
             }
 
             /**
+            * Retrieves whether property phase is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPhase() const = 0;
+            /**
+            * Retrieves whether property trafficSignalControllerRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTrafficSignalControllerRef() const = 0;
+            /**
             * Retrieves whether property phaseRef is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPhaseRef() const = 0;
 
@@ -14506,8 +16206,18 @@ Missing Orientation
             }
 
             /**
+            * Retrieves whether property phase is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPhase() const = 0;
+            /**
+            * Retrieves whether property trafficSignalControllerRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTrafficSignalControllerRef() const = 0;
+            /**
             * Retrieves whether property phaseRef is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPhaseRef() const = 0;
 
@@ -14540,6 +16250,11 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property state is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetState() const = 0;
 
         };
 
@@ -14581,6 +16296,16 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property state is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetState() const = 0;
+            /**
+            * Retrieves whether property trafficSignalId is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTrafficSignalId() const = 0;
 
         };
 
@@ -14621,6 +16346,16 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property state is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetState() const = 0;
 
         };
 
@@ -14686,13 +16421,23 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property radius is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRadius() const = 0;
+            /**
             * Retrieves whether property rate is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRate() const = 0;
             /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
+            /**
             * Retrieves whether property trafficDefinition is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTrafficDefinition() const = 0;
 
@@ -14780,15 +16525,35 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property radius is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRadius() const = 0;
+            /**
+            * Retrieves whether property rate is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRate() const = 0;
+            /**
             * Retrieves whether property speed is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSpeed() const = 0;
             /**
             * Retrieves whether property velocity is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetVelocity() const = 0;
+            /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
+            /**
+            * Retrieves whether property trafficDefinition is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTrafficDefinition() const = 0;
 
         };
 
@@ -14947,18 +16712,53 @@ Missing Orientation
 
 
             /**
+            * Retrieves whether property innerRadius is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetInnerRadius() const = 0;
+            /**
+            * Retrieves whether property numberOfVehicles is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetNumberOfVehicles() const = 0;
+            /**
+            * Retrieves whether property offset is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetOffset() const = 0;
+            /**
+            * Retrieves whether property semiMajorAxis is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSemiMajorAxis() const = 0;
+            /**
+            * Retrieves whether property semiMinorAxis is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSemiMinorAxis() const = 0;
+            /**
             * Retrieves whether property velocity is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetVelocity() const = 0;
             /**
+            * Retrieves whether property centralObject is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCentralObject() const = 0;
+            /**
+            * Retrieves whether property trafficDefinition is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTrafficDefinition() const = 0;
+            /**
             * Retrieves whether property initialSpeedRange is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetInitialSpeedRange() const = 0;
             /**
             * Retrieves whether property directionOfTravelDistribution is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDirectionOfTravelDistribution() const = 0;
 
@@ -15042,10 +16842,25 @@ Missing Orientation
             }
 
             /**
+            * Retrieves whether property closed is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetClosed() const = 0;
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property parameterDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterDeclarations() const = 0;
+            /**
+            * Retrieves whether property shape is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetShape() const = 0;
 
         };
 
@@ -15075,6 +16890,11 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property directory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDirectory() const = 0;
 
         };
 
@@ -15107,6 +16927,11 @@ Missing Orientation
             }
 
 
+            /**
+            * Retrieves whether property followingMode is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetFollowingMode() const = 0;
 
         };
 
@@ -15183,15 +17008,25 @@ Missing
 
 
             /**
+            * Retrieves whether property s is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetS() const = 0;
+            /**
             * Retrieves whether property t is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetT() const = 0;
             /**
             * Retrieves whether property orientation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetOrientation() const = 0;
+            /**
+            * Retrieves whether property trajectoryRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTrajectoryRef() const = 0;
 
         };
 
@@ -15232,6 +17067,16 @@ Missing
             }
 
 
+            /**
+            * Retrieves whether property trajectory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTrajectory() const = 0;
+            /**
+            * Retrieves whether property catalogReference is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCatalogReference() const = 0;
 
         };
 
@@ -15303,10 +17148,25 @@ Missing
 
 
             /**
+            * Retrieves whether property dynamicsDimension is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDynamicsDimension() const = 0;
+            /**
+            * Retrieves whether property dynamicsShape is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDynamicsShape() const = 0;
+            /**
             * Retrieves whether property followingMode is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFollowingMode() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -15336,6 +17196,11 @@ Missing
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -15383,7 +17248,7 @@ Missing
 
             /**
             * Retrieves whether property conditionGroups is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetConditionGroups() const = 0;
 
@@ -15442,6 +17307,16 @@ Missing
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property triggeringEntitiesRule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTriggeringEntitiesRule() const = 0;
+            /**
+            * Retrieves whether property entityRefs is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetEntityRefs() const = 0;
 
         };
 
@@ -15471,6 +17346,11 @@ Missing
             }
 
 
+            /**
+            * Retrieves whether property range is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRange() const = 0;
 
         };
 
@@ -15516,6 +17396,11 @@ Missing
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property positions is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPositions() const = 0;
 
         };
 
@@ -15546,6 +17431,11 @@ Missing
             }
 
 
+            /**
+            * Retrieves whether property customCommandAction is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCustomCommandAction() const = 0;
 
         };
 
@@ -15576,6 +17466,11 @@ Missing
             }
 
 
+            /**
+            * Retrieves whether property userDefinedAnimationType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetUserDefinedAnimationType() const = 0;
 
         };
 
@@ -15605,6 +17500,11 @@ Missing
             }
 
 
+            /**
+            * Retrieves whether property userDefinedComponentType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetUserDefinedComponentType() const = 0;
 
         };
 
@@ -15646,6 +17546,16 @@ Missing
             }
 
 
+            /**
+            * Retrieves whether property content is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetContent() const = 0;
+            /**
+            * Retrieves whether property type is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetType() const = 0;
 
         };
 
@@ -15676,6 +17586,11 @@ Missing
             }
 
 
+            /**
+            * Retrieves whether property userDefinedLightType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetUserDefinedLightType() const = 0;
 
         };
 
@@ -15733,6 +17648,21 @@ The external value can only be set from outside the
             }
 
 
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -15777,6 +17707,16 @@ The external value can only be set from outside the
             }
 
 
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -15824,6 +17764,11 @@ Multiple constraint groups are
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property constraints is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetConstraints() const = 0;
 
         };
 
@@ -15868,6 +17813,11 @@ Multiple constraint groups are
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property parameterValueSets is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetParameterValueSets() const = 0;
 
         };
 
@@ -15920,13 +17870,18 @@ Multiple constraint groups are
 
 
             /**
+            * Retrieves whether property variableRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVariableRef() const = 0;
+            /**
             * Retrieves whether property setAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSetAction() const = 0;
             /**
             * Retrieves whether property modifyAction is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetModifyAction() const = 0;
 
@@ -15958,6 +17913,11 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -16011,6 +17971,21 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
+            /**
+            * Retrieves whether property variableRef is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVariableRef() const = 0;
 
         };
 
@@ -16066,6 +18041,21 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
+            /**
+            * Retrieves whether property variableType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVariableType() const = 0;
 
         };
 
@@ -16095,6 +18085,11 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property rule is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRule() const = 0;
 
         };
 
@@ -16138,12 +18133,12 @@ Multiple constraint groups are
 
             /**
             * Retrieves whether property addValue is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAddValue() const = 0;
             /**
             * Retrieves whether property multiplyByValue is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMultiplyByValue() const = 0;
 
@@ -16175,6 +18170,11 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -16204,6 +18204,11 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property value is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetValue() const = 0;
 
         };
 
@@ -16349,24 +18354,54 @@ Multiple constraint groups are
 
             /**
             * Retrieves whether property mass is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetMass() const = 0;
             /**
             * Retrieves whether property model3d is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetModel3d() const = 0;
             /**
+            * Retrieves whether property name is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetName() const = 0;
+            /**
             * Retrieves whether property role is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetRole() const = 0;
             /**
+            * Retrieves whether property vehicleCategory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVehicleCategory() const = 0;
+            /**
             * Retrieves whether property parameterDeclarations is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetParameterDeclarations() const = 0;
+            /**
+            * Retrieves whether property boundingBox is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetBoundingBox() const = 0;
+            /**
+            * Retrieves whether property performance is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPerformance() const = 0;
+            /**
+            * Retrieves whether property axles is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetAxles() const = 0;
+            /**
+            * Retrieves whether property properties is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetProperties() const = 0;
 
         };
 
@@ -16396,6 +18431,11 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property directory is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDirectory() const = 0;
 
         };
 
@@ -16441,6 +18481,11 @@ Multiple constraint groups are
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property vehicleCategoryDistributionEntries is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVehicleCategoryDistributionEntries() const = 0;
 
         };
 
@@ -16482,6 +18527,16 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property category is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetCategory() const = 0;
+            /**
+            * Retrieves whether property weight is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetWeight() const = 0;
 
         };
 
@@ -16511,6 +18566,11 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property vehicleComponentType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVehicleComponentType() const = 0;
 
         };
 
@@ -16540,6 +18600,11 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property vehicleLightType is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVehicleLightType() const = 0;
 
         };
 
@@ -16585,6 +18650,11 @@ Multiple constraint groups are
                 return nullptr;
             }
 
+            /**
+            * Retrieves whether property vehicleRoleDistributionEntries is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetVehicleRoleDistributionEntries() const = 0;
 
         };
 
@@ -16626,6 +18696,16 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property role is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRole() const = 0;
+            /**
+            * Retrieves whether property weight is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetWeight() const = 0;
 
         };
 
@@ -16668,9 +18748,14 @@ Multiple constraint groups are
 
             /**
             * Retrieves whether property time is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTime() const = 0;
+            /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
 
         };
 
@@ -16740,8 +18825,23 @@ Multiple constraint groups are
 
 
             /**
+            * Retrieves whether property graphics is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetGraphics() const = 0;
+            /**
+            * Retrieves whether property sensors is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSensors() const = 0;
+            /**
+            * Retrieves whether property traffic is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetTraffic() const = 0;
+            /**
             * Retrieves whether property sensorReferenceSet is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSensorReferenceSet() const = 0;
 
@@ -16784,6 +18884,16 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property routeStrategy is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetRouteStrategy() const = 0;
+            /**
+            * Retrieves whether property position is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetPosition() const = 0;
 
         };
 
@@ -16909,47 +19019,47 @@ Multiple constraint groups are
 
             /**
             * Retrieves whether property atmosphericPressure is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetAtmosphericPressure() const = 0;
             /**
             * Retrieves whether property cloudState is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetCloudState() const = 0;
             /**
             * Retrieves whether property fractionalCloudCover is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFractionalCloudCover() const = 0;
             /**
             * Retrieves whether property temperature is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetTemperature() const = 0;
             /**
             * Retrieves whether property sun is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetSun() const = 0;
             /**
             * Retrieves whether property fog is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetFog() const = 0;
             /**
             * Retrieves whether property precipitation is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetPrecipitation() const = 0;
             /**
             * Retrieves whether property wind is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetWind() const = 0;
             /**
             * Retrieves whether property domeImage is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetDomeImage() const = 0;
 
@@ -16993,6 +19103,16 @@ Multiple constraint groups are
             }
 
 
+            /**
+            * Retrieves whether property direction is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetDirection() const = 0;
+            /**
+            * Retrieves whether property speed is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetSpeed() const = 0;
 
         };
 
@@ -17083,22 +19203,32 @@ Multiple constraint groups are
 
             /**
             * Retrieves whether property h is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetH() const = 0;
             /**
             * Retrieves whether property p is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetP() const = 0;
             /**
             * Retrieves whether property r is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetR() const = 0;
             /**
+            * Retrieves whether property x is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetX() const = 0;
+            /**
+            * Retrieves whether property y is set
+            * @return true when the property is set
+            */
+            virtual bool IsSetY() const = 0;
+            /**
             * Retrieves whether property z is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSetZ() const = 0;
 

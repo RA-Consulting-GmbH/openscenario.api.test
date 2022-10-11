@@ -45,6 +45,7 @@ namespace NET_ASAM_OPENSCENARIO
     <%- List properties = element.umlProperties-%>
         private:
         <%-properties.each{ property ->-%>
+            bool _isSet<%=property.name.toClassName()%> = false;
 <%- if (property.isProxy() && !property.isList()){-%>
             std::shared_ptr<INamedReference<I<%=property.type.name.toClassName()%>>> _<%=property.name.toMemberName()%>  = nullptr;
 <%}else if (property.isTransient() && property.isList()){-%>
@@ -91,12 +92,6 @@ namespace NET_ASAM_OPENSCENARIO
             OPENSCENARIOLIB_EXP <%=property.type.toCppName()%> Get<%=property.name.toClassName()%>() const override;
         <%-}-%>
     <%-}-%>
-
-	<%-properties = element.umlProperties-%>
-	<%-properties.each{ property ->-%>
-	<%-if (property.lower == 0) {-%>
-            bool isSet<%=property.name.toClassName()%> = false;          
-	<%-}}-%>
 
 <%-properties.each{ property ->-%>
 
@@ -183,7 +178,6 @@ namespace NET_ASAM_OPENSCENARIO
 <%-}-%>
 <%-properties.each{ property ->-%>
             OPENSCENARIOLIB_EXP bool Is<%=property.name.toClassName()%>Parameterized() override;
-
 <%-}-%>
             // children
 <%-properties = element.getXmlElementProperties().findAll(){ !it.isList() }-%>
@@ -194,8 +188,9 @@ namespace NET_ASAM_OPENSCENARIO
 <%-properties.each{ property ->-%>
 <%-if (property.lower == 0) {-%>
             OPENSCENARIOLIB_EXP virtual void Reset<%=property.name.toClassName()%>() override;
+<%-}-%>
             OPENSCENARIOLIB_EXP virtual bool IsSet<%=property.name.toClassName()%>() const override;          
-<%-}}-%>
+<%-}-%>
         };
 
     <%-}-%>

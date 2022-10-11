@@ -323,7 +323,7 @@ public class GeneratorCpp {
 				return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
 			}
 
-			if (key == "v1_1") //only implemented for OSC 1.1 for now
+			if (key != "v1_0") //only implemented for OSC 1.1 and OSC 1.2
 			{
 				System.out.println("-- Cardinality Checker Helper Header for ${key}");
 				binding["helper"] = new CardinalityCheckerHelper()

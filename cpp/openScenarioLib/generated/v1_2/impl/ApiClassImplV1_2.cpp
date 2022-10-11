@@ -45,13 +45,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         void AbsoluteSpeedImpl::SetSteadyState(std::shared_ptr<ISteadyStateWriter> steadyState)
         {
             _steadyState = steadyState;
-			// set the indicator to true
-            isSetSteadyState = true;          
+            _isSetSteadyState = true;
         }
 
         std::shared_ptr<void> AbsoluteSpeedImpl::GetAdapter(const std::string classifier)
@@ -173,6 +173,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -272,21 +273,26 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void AbsoluteSpeedImpl::ResetSteadyState()
-	   {
-	   		isSetSteadyState = false; 
-			_steadyState = {};
-			
-	   }
-       bool AbsoluteSpeedImpl::IsSetSteadyState() const
-	   {
-			return isSetSteadyState;
-	   }
+        bool AbsoluteSpeedImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
+        void AbsoluteSpeedImpl::ResetSteadyState()
+        {
+            _isSetSteadyState = false; 
+            _steadyState = {};
+
+        }
+        bool AbsoluteSpeedImpl::IsSetSteadyState() const
+        {
+            return _isSetSteadyState;
+        }
 
         IOpenScenarioFlexElement* AbsoluteTargetLaneImpl::GetOpenScenarioFlexElement()
         {
@@ -302,6 +308,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> AbsoluteTargetLaneImpl::GetAdapter(const std::string classifier)
@@ -410,6 +417,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -496,11 +504,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool AbsoluteTargetLaneImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* AbsoluteTargetLaneOffsetImpl::GetOpenScenarioFlexElement()
         {
@@ -516,6 +529,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> AbsoluteTargetLaneOffsetImpl::GetAdapter(const std::string classifier)
@@ -633,6 +647,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -710,11 +725,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool AbsoluteTargetLaneOffsetImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* AbsoluteTargetSpeedImpl::GetOpenScenarioFlexElement()
         {
@@ -730,6 +750,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> AbsoluteTargetSpeedImpl::GetAdapter(const std::string classifier)
@@ -847,6 +868,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -924,11 +946,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool AbsoluteTargetSpeedImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* AccelerationConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -952,20 +979,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _direction = direction;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DIRECTION);
-			// set the indicator to true
-            isSetDirection = true;          
+            _isSetDirection = true;
         }
 
         void AccelerationConditionImpl::SetRule(const Rule rule)
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void AccelerationConditionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> AccelerationConditionImpl::GetAdapter(const std::string classifier)
@@ -1132,6 +1160,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _direction = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetDirection = true;
                 }
                 else
                 {
@@ -1147,6 +1176,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -1159,6 +1189,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -1212,7 +1243,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetDirection = isSetDirection;
+            clonedObject->_isSetDirection = _isSetDirection;
             // clone children
             return clonedObject;
         }
@@ -1264,21 +1295,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void AccelerationConditionImpl::ResetDirection()
-	   {
-	   		isSetDirection = false; 
-			_direction = {};
-			
-	   }
-       bool AccelerationConditionImpl::IsSetDirection() const
-	   {
-			return isSetDirection;
-	   }
+        void AccelerationConditionImpl::ResetDirection()
+        {
+            _isSetDirection = false; 
+            _direction = {};
+
+        }
+        bool AccelerationConditionImpl::IsSetDirection() const
+        {
+            return _isSetDirection;
+        }
+        bool AccelerationConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool AccelerationConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* AcquirePositionActionImpl::GetOpenScenarioFlexElement()
         {
@@ -1293,6 +1333,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AcquirePositionActionImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         std::shared_ptr<void> AcquirePositionActionImpl::GetAdapter(const std::string classifier)
@@ -1468,6 +1509,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool AcquirePositionActionImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
 
         IOpenScenarioFlexElement* ActImpl::GetOpenScenarioFlexElement()
         {
@@ -1516,23 +1561,25 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void ActImpl::SetManeuverGroups(std::vector<std::shared_ptr<IManeuverGroupWriter>>& maneuverGroups)
         {
             _maneuverGroups = maneuverGroups;
+            _isSetManeuverGroups = true;
         }
 
         void ActImpl::SetStartTrigger(std::shared_ptr<ITriggerWriter> startTrigger)
         {
             _startTrigger = startTrigger;
+            _isSetStartTrigger = true;
         }
 
         void ActImpl::SetStopTrigger(std::shared_ptr<ITriggerWriter> stopTrigger)
         {
             _stopTrigger = stopTrigger;
-			// set the indicator to true
-            isSetStopTrigger = true;          
+            _isSetStopTrigger = true;
         }
 
         std::shared_ptr<void> ActImpl::GetAdapter(const std::string classifier)
@@ -1649,6 +1696,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -1808,21 +1856,34 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void ActImpl::ResetStopTrigger()
-	   {
-	   		isSetStopTrigger = false; 
-			_stopTrigger = {};
-			
-	   }
-       bool ActImpl::IsSetStopTrigger() const
-	   {
-			return isSetStopTrigger;
-	   }
+        bool ActImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool ActImpl::IsSetManeuverGroups() const
+        {
+            return _isSetManeuverGroups;
+        }
+        bool ActImpl::IsSetStartTrigger() const
+        {
+            return _isSetStartTrigger;
+        }
+        void ActImpl::ResetStopTrigger()
+        {
+            _isSetStopTrigger = false; 
+            _stopTrigger = {};
+
+        }
+        bool ActImpl::IsSetStopTrigger() const
+        {
+            return _isSetStopTrigger;
+        }
 
         IOpenScenarioFlexElement* ActionImpl::GetOpenScenarioFlexElement()
         {
@@ -1850,6 +1911,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void ActionImpl::SetGlobalAction(std::shared_ptr<IGlobalActionWriter> globalAction)
@@ -1857,8 +1919,7 @@ namespace NET_ASAM_OPENSCENARIO
             _globalAction = globalAction;
             _userDefinedAction = {};
             _privateAction = {};
-			// set the indicator to true
-            isSetGlobalAction = true;          
+            _isSetGlobalAction = true;
         }
 
         void ActionImpl::SetUserDefinedAction(std::shared_ptr<IUserDefinedActionWriter> userDefinedAction)
@@ -1866,8 +1927,7 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedAction = userDefinedAction;
             _globalAction = {};
             _privateAction = {};
-			// set the indicator to true
-            isSetUserDefinedAction = true;          
+            _isSetUserDefinedAction = true;
         }
 
         void ActionImpl::SetPrivateAction(std::shared_ptr<IPrivateActionWriter> privateAction)
@@ -1875,8 +1935,7 @@ namespace NET_ASAM_OPENSCENARIO
             _privateAction = privateAction;
             _globalAction = {};
             _userDefinedAction = {};
-			// set the indicator to true
-            isSetPrivateAction = true;          
+            _isSetPrivateAction = true;
         }
 
         std::shared_ptr<void> ActionImpl::GetAdapter(const std::string classifier)
@@ -1997,6 +2056,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -2141,41 +2201,46 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void ActionImpl::ResetGlobalAction()
-	   {
-	   		isSetGlobalAction = false; 
-			_globalAction = {};
-			
-	   }
-       bool ActionImpl::IsSetGlobalAction() const
-	   {
-			return isSetGlobalAction;
-	   }
-       void ActionImpl::ResetUserDefinedAction()
-	   {
-	   		isSetUserDefinedAction = false; 
-			_userDefinedAction = {};
-			
-	   }
-       bool ActionImpl::IsSetUserDefinedAction() const
-	   {
-			return isSetUserDefinedAction;
-	   }
-       void ActionImpl::ResetPrivateAction()
-	   {
-	   		isSetPrivateAction = false; 
-			_privateAction = {};
-			
-	   }
-       bool ActionImpl::IsSetPrivateAction() const
-	   {
-			return isSetPrivateAction;
-	   }
+        bool ActionImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void ActionImpl::ResetGlobalAction()
+        {
+            _isSetGlobalAction = false; 
+            _globalAction = {};
+
+        }
+        bool ActionImpl::IsSetGlobalAction() const
+        {
+            return _isSetGlobalAction;
+        }
+        void ActionImpl::ResetUserDefinedAction()
+        {
+            _isSetUserDefinedAction = false; 
+            _userDefinedAction = {};
+
+        }
+        bool ActionImpl::IsSetUserDefinedAction() const
+        {
+            return _isSetUserDefinedAction;
+        }
+        void ActionImpl::ResetPrivateAction()
+        {
+            _isSetPrivateAction = false; 
+            _privateAction = {};
+
+        }
+        bool ActionImpl::IsSetPrivateAction() const
+        {
+            return _isSetPrivateAction;
+        }
 
         IOpenScenarioFlexElement* ActivateControllerActionImpl::GetOpenScenarioFlexElement()
         {
@@ -2207,40 +2272,35 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _animation = animation;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ANIMATION);
-			// set the indicator to true
-            isSetAnimation = true;          
+            _isSetAnimation = true;
         }
 
         void ActivateControllerActionImpl::SetControllerRef(std::shared_ptr<INamedReference<IController>> controllerRef)
         {
             _controllerRef = controllerRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTROLLER_REF);
-			// set the indicator to true
-            isSetControllerRef = true;          
+            _isSetControllerRef = true;
         }
 
         void ActivateControllerActionImpl::SetLateral(const bool lateral)
         {
             _lateral = lateral;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATERAL);
-			// set the indicator to true
-            isSetLateral = true;          
+            _isSetLateral = true;
         }
 
         void ActivateControllerActionImpl::SetLighting(const bool lighting)
         {
             _lighting = lighting;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LIGHTING);
-			// set the indicator to true
-            isSetLighting = true;          
+            _isSetLighting = true;
         }
 
         void ActivateControllerActionImpl::SetLongitudinal(const bool longitudinal)
         {
             _longitudinal = longitudinal;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL);
-			// set the indicator to true
-            isSetLongitudinal = true;          
+            _isSetLongitudinal = true;
         }
 
         std::shared_ptr<void> ActivateControllerActionImpl::GetAdapter(const std::string classifier)
@@ -2462,6 +2522,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _animation = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAnimation = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CONTROLLER_REF)
             {
@@ -2469,24 +2530,28 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IController>>(parameterLiteralValue);
                 _controllerRef = std::dynamic_pointer_cast<INamedReference<IController>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetControllerRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LATERAL)
             {
                 // Simple type
                 _lateral = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLateral = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LIGHTING)
             {
                 // Simple type
                 _lighting = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLighting = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL)
             {
                 // Simple type
                 _longitudinal = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLongitudinal = true;
             }
         }
 
@@ -2539,11 +2604,11 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_longitudinal = GetLongitudinal();
             // clone indicators
-            	clonedObject->isSetAnimation = isSetAnimation;
-            	clonedObject->isSetControllerRef = isSetControllerRef;
-            	clonedObject->isSetLateral = isSetLateral;
-            	clonedObject->isSetLighting = isSetLighting;
-            	clonedObject->isSetLongitudinal = isSetLongitudinal;
+            clonedObject->_isSetAnimation = _isSetAnimation;
+            clonedObject->_isSetControllerRef = _isSetControllerRef;
+            clonedObject->_isSetLateral = _isSetLateral;
+            clonedObject->_isSetLighting = _isSetLighting;
+            clonedObject->_isSetLongitudinal = _isSetLongitudinal;
             // clone children
             return clonedObject;
         }
@@ -2602,79 +2667,83 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _animation = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAnimation = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LATERAL)
             {
                 // Simple type
                 _lateral = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLateral = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LIGHTING)
             {
                 // Simple type
                 _lighting = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLighting = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LONGITUDINAL)
             {
                 // Simple type
                 _longitudinal = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLongitudinal = true;
             }
 		
 		}
 
 
-       void ActivateControllerActionImpl::ResetAnimation()
-	   {
-	   		isSetAnimation = false; 
-			_animation = {};
-			
-	   }
-       bool ActivateControllerActionImpl::IsSetAnimation() const
-	   {
-			return isSetAnimation;
-	   }
-       void ActivateControllerActionImpl::ResetControllerRef()
-	   {
-	   		isSetControllerRef = false; 
-        	_controllerRef = nullptr;
-			
-	   }
-       bool ActivateControllerActionImpl::IsSetControllerRef() const
-	   {
-			return isSetControllerRef;
-	   }
-       void ActivateControllerActionImpl::ResetLateral()
-	   {
-	   		isSetLateral = false; 
-			_lateral = {};
-			
-	   }
-       bool ActivateControllerActionImpl::IsSetLateral() const
-	   {
-			return isSetLateral;
-	   }
-       void ActivateControllerActionImpl::ResetLighting()
-	   {
-	   		isSetLighting = false; 
-			_lighting = {};
-			
-	   }
-       bool ActivateControllerActionImpl::IsSetLighting() const
-	   {
-			return isSetLighting;
-	   }
-       void ActivateControllerActionImpl::ResetLongitudinal()
-	   {
-	   		isSetLongitudinal = false; 
-			_longitudinal = {};
-			
-	   }
-       bool ActivateControllerActionImpl::IsSetLongitudinal() const
-	   {
-			return isSetLongitudinal;
-	   }
+        void ActivateControllerActionImpl::ResetAnimation()
+        {
+            _isSetAnimation = false; 
+            _animation = {};
+
+        }
+        bool ActivateControllerActionImpl::IsSetAnimation() const
+        {
+            return _isSetAnimation;
+        }
+        void ActivateControllerActionImpl::ResetControllerRef()
+        {
+            _isSetControllerRef = false; 
+            _controllerRef = nullptr;
+
+        }
+        bool ActivateControllerActionImpl::IsSetControllerRef() const
+        {
+            return _isSetControllerRef;
+        }
+        void ActivateControllerActionImpl::ResetLateral()
+        {
+            _isSetLateral = false; 
+            _lateral = {};
+
+        }
+        bool ActivateControllerActionImpl::IsSetLateral() const
+        {
+            return _isSetLateral;
+        }
+        void ActivateControllerActionImpl::ResetLighting()
+        {
+            _isSetLighting = false; 
+            _lighting = {};
+
+        }
+        bool ActivateControllerActionImpl::IsSetLighting() const
+        {
+            return _isSetLighting;
+        }
+        void ActivateControllerActionImpl::ResetLongitudinal()
+        {
+            _isSetLongitudinal = false; 
+            _longitudinal = {};
+
+        }
+        bool ActivateControllerActionImpl::IsSetLongitudinal() const
+        {
+            return _isSetLongitudinal;
+        }
 
         IOpenScenarioFlexElement* ActorsImpl::GetOpenScenarioFlexElement()
         {
@@ -2715,13 +2784,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _selectTriggeringEntities = selectTriggeringEntities;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SELECT_TRIGGERING_ENTITIES);
+            _isSetSelectTriggeringEntities = true;
         }
 
         void ActorsImpl::SetEntityRefs(std::vector<std::shared_ptr<IEntityRefWriter>>& entityRefs)
         {
             _entityRefs = entityRefs;
-			// set the indicator to true
-            isSetEntityRefs = true;          
+            _isSetEntityRefs = true;
         }
 
         std::shared_ptr<void> ActorsImpl::GetAdapter(const std::string classifier)
@@ -2839,6 +2908,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _selectTriggeringEntities = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetSelectTriggeringEntities = true;
             }
         }
 
@@ -2949,21 +3019,26 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _selectTriggeringEntities = value;
                 AddResolvedParameter(attributeKey);
+                _isSetSelectTriggeringEntities = true;
             }
 		
 		}
 
 
-       void ActorsImpl::ResetEntityRefs()
-	   {
-	   		isSetEntityRefs = false; 
-			_entityRefs = {};
-			
-	   }
-       bool ActorsImpl::IsSetEntityRefs() const
-	   {
-			return isSetEntityRefs;
-	   }
+        bool ActorsImpl::IsSetSelectTriggeringEntities() const
+        {
+            return _isSetSelectTriggeringEntities;
+        }
+        void ActorsImpl::ResetEntityRefs()
+        {
+            _isSetEntityRefs = false; 
+            _entityRefs = {};
+
+        }
+        bool ActorsImpl::IsSetEntityRefs() const
+        {
+            return _isSetEntityRefs;
+        }
 
         IOpenScenarioFlexElement* AddEntityActionImpl::GetOpenScenarioFlexElement()
         {
@@ -2978,6 +3053,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AddEntityActionImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         std::shared_ptr<void> AddEntityActionImpl::GetAdapter(const std::string classifier)
@@ -3153,6 +3229,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool AddEntityActionImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
 
         IOpenScenarioFlexElement* AnimationActionImpl::GetOpenScenarioFlexElement()
         {
@@ -3180,28 +3260,26 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _animationDuration = animationDuration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ANIMATION_DURATION);
-			// set the indicator to true
-            isSetAnimationDuration = true;          
+            _isSetAnimationDuration = true;
         }
 
         void AnimationActionImpl::SetLoop(const bool loop)
         {
             _loop = loop;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LOOP);
-			// set the indicator to true
-            isSetLoop = true;          
+            _isSetLoop = true;
         }
 
         void AnimationActionImpl::SetAnimationType(std::shared_ptr<IAnimationTypeWriter> animationType)
         {
             _animationType = animationType;
+            _isSetAnimationType = true;
         }
 
         void AnimationActionImpl::SetAnimationState(std::shared_ptr<IAnimationStateWriter> animationState)
         {
             _animationState = animationState;
-			// set the indicator to true
-            isSetAnimationState = true;          
+            _isSetAnimationState = true;
         }
 
         std::shared_ptr<void> AnimationActionImpl::GetAdapter(const std::string classifier)
@@ -3359,12 +3437,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _animationDuration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAnimationDuration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LOOP)
             {
                 // Simple type
                 _loop = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLoop = true;
             }
         }
 
@@ -3418,8 +3498,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_loop = GetLoop();
             // clone indicators
-            	clonedObject->isSetAnimationDuration = isSetAnimationDuration;
-            	clonedObject->isSetLoop = isSetLoop;
+            clonedObject->_isSetAnimationDuration = _isSetAnimationDuration;
+            clonedObject->_isSetLoop = _isSetLoop;
             // clone children
             const auto kAnimationType =  GetWriterAnimationType();
             if (kAnimationType)
@@ -3486,6 +3566,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _loop = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLoop = true;
             }
 		
 		}
@@ -3496,41 +3577,46 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _animationDuration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAnimationDuration = true;
             }
 		
 		}
 
 
-       void AnimationActionImpl::ResetAnimationDuration()
-	   {
-	   		isSetAnimationDuration = false; 
-			_animationDuration = {};
-			
-	   }
-       bool AnimationActionImpl::IsSetAnimationDuration() const
-	   {
-			return isSetAnimationDuration;
-	   }
-       void AnimationActionImpl::ResetLoop()
-	   {
-	   		isSetLoop = false; 
-			_loop = {false};
-			
-	   }
-       bool AnimationActionImpl::IsSetLoop() const
-	   {
-			return isSetLoop;
-	   }
-       void AnimationActionImpl::ResetAnimationState()
-	   {
-	   		isSetAnimationState = false; 
-			_animationState = {};
-			
-	   }
-       bool AnimationActionImpl::IsSetAnimationState() const
-	   {
-			return isSetAnimationState;
-	   }
+        void AnimationActionImpl::ResetAnimationDuration()
+        {
+            _isSetAnimationDuration = false; 
+            _animationDuration = {};
+
+        }
+        bool AnimationActionImpl::IsSetAnimationDuration() const
+        {
+            return _isSetAnimationDuration;
+        }
+        void AnimationActionImpl::ResetLoop()
+        {
+            _isSetLoop = false; 
+            _loop = {false};
+
+        }
+        bool AnimationActionImpl::IsSetLoop() const
+        {
+            return _isSetLoop;
+        }
+        bool AnimationActionImpl::IsSetAnimationType() const
+        {
+            return _isSetAnimationType;
+        }
+        void AnimationActionImpl::ResetAnimationState()
+        {
+            _isSetAnimationState = false; 
+            _animationState = {};
+
+        }
+        bool AnimationActionImpl::IsSetAnimationState() const
+        {
+            return _isSetAnimationState;
+        }
 
         IOpenScenarioFlexElement* AnimationFileImpl::GetOpenScenarioFlexElement()
         {
@@ -3550,13 +3636,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _timeOffset = timeOffset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME_OFFSET);
-			// set the indicator to true
-            isSetTimeOffset = true;          
+            _isSetTimeOffset = true;
         }
 
         void AnimationFileImpl::SetFile(std::shared_ptr<IFileWriter> file)
         {
             _file = file;
+            _isSetFile = true;
         }
 
         std::shared_ptr<void> AnimationFileImpl::GetAdapter(const std::string classifier)
@@ -3678,6 +3764,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _timeOffset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTimeOffset = true;
             }
         }
 
@@ -3724,7 +3811,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_timeOffset = GetTimeOffset();
             // clone indicators
-            	clonedObject->isSetTimeOffset = isSetTimeOffset;
+            clonedObject->_isSetTimeOffset = _isSetTimeOffset;
             // clone children
             const auto kFile =  GetWriterFile();
             if (kFile)
@@ -3778,21 +3865,26 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _timeOffset = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTimeOffset = true;
             }
 		
 		}
 
 
-       void AnimationFileImpl::ResetTimeOffset()
-	   {
-	   		isSetTimeOffset = false; 
-			_timeOffset = {};
-			
-	   }
-       bool AnimationFileImpl::IsSetTimeOffset() const
-	   {
-			return isSetTimeOffset;
-	   }
+        void AnimationFileImpl::ResetTimeOffset()
+        {
+            _isSetTimeOffset = false; 
+            _timeOffset = {};
+
+        }
+        bool AnimationFileImpl::IsSetTimeOffset() const
+        {
+            return _isSetTimeOffset;
+        }
+        bool AnimationFileImpl::IsSetFile() const
+        {
+            return _isSetFile;
+        }
 
         IOpenScenarioFlexElement* AnimationStateImpl::GetOpenScenarioFlexElement()
         {
@@ -3808,6 +3900,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _state = state;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE);
+            _isSetState = true;
         }
 
         std::shared_ptr<void> AnimationStateImpl::GetAdapter(const std::string classifier)
@@ -3925,6 +4018,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _state = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetState = true;
             }
         }
 
@@ -4002,11 +4096,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _state = value;
                 AddResolvedParameter(attributeKey);
+                _isSetState = true;
             }
 		
 		}
 
 
+        bool AnimationStateImpl::IsSetState() const
+        {
+            return _isSetState;
+        }
 
         IOpenScenarioFlexElement* AnimationTypeImpl::GetOpenScenarioFlexElement()
         {
@@ -4036,6 +4135,7 @@ namespace NET_ASAM_OPENSCENARIO
             _pedestrianAnimation = {};
             _animationFile = {};
             _userDefinedAnimation = {};
+            _isSetComponentAnimation = true;
         }
 
         void AnimationTypeImpl::SetPedestrianAnimation(std::shared_ptr<IPedestrianAnimationWriter> pedestrianAnimation)
@@ -4044,6 +4144,7 @@ namespace NET_ASAM_OPENSCENARIO
             _componentAnimation = {};
             _animationFile = {};
             _userDefinedAnimation = {};
+            _isSetPedestrianAnimation = true;
         }
 
         void AnimationTypeImpl::SetAnimationFile(std::shared_ptr<IAnimationFileWriter> animationFile)
@@ -4052,6 +4153,7 @@ namespace NET_ASAM_OPENSCENARIO
             _componentAnimation = {};
             _pedestrianAnimation = {};
             _userDefinedAnimation = {};
+            _isSetAnimationFile = true;
         }
 
         void AnimationTypeImpl::SetUserDefinedAnimation(std::shared_ptr<IUserDefinedAnimationWriter> userDefinedAnimation)
@@ -4060,6 +4162,7 @@ namespace NET_ASAM_OPENSCENARIO
             _componentAnimation = {};
             _pedestrianAnimation = {};
             _animationFile = {};
+            _isSetUserDefinedAnimation = true;
         }
 
         std::shared_ptr<void> AnimationTypeImpl::GetAdapter(const std::string classifier)
@@ -4301,6 +4404,22 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool AnimationTypeImpl::IsSetComponentAnimation() const
+        {
+            return _isSetComponentAnimation;
+        }
+        bool AnimationTypeImpl::IsSetPedestrianAnimation() const
+        {
+            return _isSetPedestrianAnimation;
+        }
+        bool AnimationTypeImpl::IsSetAnimationFile() const
+        {
+            return _isSetAnimationFile;
+        }
+        bool AnimationTypeImpl::IsSetUserDefinedAnimation() const
+        {
+            return _isSetUserDefinedAnimation;
+        }
 
         IOpenScenarioFlexElement* AppearanceActionImpl::GetOpenScenarioFlexElement()
         {
@@ -4320,12 +4439,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _lightStateAction = lightStateAction;
             _animationAction = {};
+            _isSetLightStateAction = true;
         }
 
         void AppearanceActionImpl::SetAnimationAction(std::shared_ptr<IAnimationActionWriter> animationAction)
         {
             _animationAction = animationAction;
             _lightStateAction = {};
+            _isSetAnimationAction = true;
         }
 
         std::shared_ptr<void> AppearanceActionImpl::GetAdapter(const std::string classifier)
@@ -4523,6 +4644,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool AppearanceActionImpl::IsSetLightStateAction() const
+        {
+            return _isSetLightStateAction;
+        }
+        bool AppearanceActionImpl::IsSetAnimationAction() const
+        {
+            return _isSetAnimationAction;
+        }
 
         IOpenScenarioFlexElement* AssignControllerActionImpl::GetOpenScenarioFlexElement()
         {
@@ -4558,48 +4687,42 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _activateAnimation = activateAnimation;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_ANIMATION);
-			// set the indicator to true
-            isSetActivateAnimation = true;          
+            _isSetActivateAnimation = true;
         }
 
         void AssignControllerActionImpl::SetActivateLateral(const bool activateLateral)
         {
             _activateLateral = activateLateral;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL);
-			// set the indicator to true
-            isSetActivateLateral = true;          
+            _isSetActivateLateral = true;
         }
 
         void AssignControllerActionImpl::SetActivateLighting(const bool activateLighting)
         {
             _activateLighting = activateLighting;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LIGHTING);
-			// set the indicator to true
-            isSetActivateLighting = true;          
+            _isSetActivateLighting = true;
         }
 
         void AssignControllerActionImpl::SetActivateLongitudinal(const bool activateLongitudinal)
         {
             _activateLongitudinal = activateLongitudinal;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL);
-			// set the indicator to true
-            isSetActivateLongitudinal = true;          
+            _isSetActivateLongitudinal = true;
         }
 
         void AssignControllerActionImpl::SetController(std::shared_ptr<IControllerWriter> controller)
         {
             _controller = controller;
             _catalogReference = {};
-			// set the indicator to true
-            isSetController = true;          
+            _isSetController = true;
         }
 
         void AssignControllerActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _controller = {};
-			// set the indicator to true
-            isSetCatalogReference = true;          
+            _isSetCatalogReference = true;
         }
 
         std::shared_ptr<void> AssignControllerActionImpl::GetAdapter(const std::string classifier)
@@ -4806,24 +4929,28 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _activateAnimation = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetActivateAnimation = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL)
             {
                 // Simple type
                 _activateLateral = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetActivateLateral = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LIGHTING)
             {
                 // Simple type
                 _activateLighting = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetActivateLighting = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL)
             {
                 // Simple type
                 _activateLongitudinal = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetActivateLongitudinal = true;
             }
         }
 
@@ -4881,10 +5008,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_activateLongitudinal = GetActivateLongitudinal();
             // clone indicators
-            	clonedObject->isSetActivateAnimation = isSetActivateAnimation;
-            	clonedObject->isSetActivateLateral = isSetActivateLateral;
-            	clonedObject->isSetActivateLighting = isSetActivateLighting;
-            	clonedObject->isSetActivateLongitudinal = isSetActivateLongitudinal;
+            clonedObject->_isSetActivateAnimation = _isSetActivateAnimation;
+            clonedObject->_isSetActivateLateral = _isSetActivateLateral;
+            clonedObject->_isSetActivateLighting = _isSetActivateLighting;
+            clonedObject->_isSetActivateLongitudinal = _isSetActivateLongitudinal;
             // clone children
             const auto kController =  GetWriterController();
             if (kController)
@@ -4951,89 +5078,93 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _activateAnimation = value;
                 AddResolvedParameter(attributeKey);
+                _isSetActivateAnimation = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LATERAL)
             {
                 // Simple type
                 _activateLateral = value;
                 AddResolvedParameter(attributeKey);
+                _isSetActivateLateral = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LIGHTING)
             {
                 // Simple type
                 _activateLighting = value;
                 AddResolvedParameter(attributeKey);
+                _isSetActivateLighting = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ACTIVATE_LONGITUDINAL)
             {
                 // Simple type
                 _activateLongitudinal = value;
                 AddResolvedParameter(attributeKey);
+                _isSetActivateLongitudinal = true;
             }
 		
 		}
 
 
-       void AssignControllerActionImpl::ResetActivateAnimation()
-	   {
-	   		isSetActivateAnimation = false; 
-			_activateAnimation = {};
-			
-	   }
-       bool AssignControllerActionImpl::IsSetActivateAnimation() const
-	   {
-			return isSetActivateAnimation;
-	   }
-       void AssignControllerActionImpl::ResetActivateLateral()
-	   {
-	   		isSetActivateLateral = false; 
-			_activateLateral = {};
-			
-	   }
-       bool AssignControllerActionImpl::IsSetActivateLateral() const
-	   {
-			return isSetActivateLateral;
-	   }
-       void AssignControllerActionImpl::ResetActivateLighting()
-	   {
-	   		isSetActivateLighting = false; 
-			_activateLighting = {};
-			
-	   }
-       bool AssignControllerActionImpl::IsSetActivateLighting() const
-	   {
-			return isSetActivateLighting;
-	   }
-       void AssignControllerActionImpl::ResetActivateLongitudinal()
-	   {
-	   		isSetActivateLongitudinal = false; 
-			_activateLongitudinal = {};
-			
-	   }
-       bool AssignControllerActionImpl::IsSetActivateLongitudinal() const
-	   {
-			return isSetActivateLongitudinal;
-	   }
-       void AssignControllerActionImpl::ResetController()
-	   {
-	   		isSetController = false; 
-			_controller = {};
-			
-	   }
-       bool AssignControllerActionImpl::IsSetController() const
-	   {
-			return isSetController;
-	   }
-       void AssignControllerActionImpl::ResetCatalogReference()
-	   {
-	   		isSetCatalogReference = false; 
-			_catalogReference = {};
-			
-	   }
-       bool AssignControllerActionImpl::IsSetCatalogReference() const
-	   {
-			return isSetCatalogReference;
-	   }
+        void AssignControllerActionImpl::ResetActivateAnimation()
+        {
+            _isSetActivateAnimation = false; 
+            _activateAnimation = {};
+
+        }
+        bool AssignControllerActionImpl::IsSetActivateAnimation() const
+        {
+            return _isSetActivateAnimation;
+        }
+        void AssignControllerActionImpl::ResetActivateLateral()
+        {
+            _isSetActivateLateral = false; 
+            _activateLateral = {};
+
+        }
+        bool AssignControllerActionImpl::IsSetActivateLateral() const
+        {
+            return _isSetActivateLateral;
+        }
+        void AssignControllerActionImpl::ResetActivateLighting()
+        {
+            _isSetActivateLighting = false; 
+            _activateLighting = {};
+
+        }
+        bool AssignControllerActionImpl::IsSetActivateLighting() const
+        {
+            return _isSetActivateLighting;
+        }
+        void AssignControllerActionImpl::ResetActivateLongitudinal()
+        {
+            _isSetActivateLongitudinal = false; 
+            _activateLongitudinal = {};
+
+        }
+        bool AssignControllerActionImpl::IsSetActivateLongitudinal() const
+        {
+            return _isSetActivateLongitudinal;
+        }
+        void AssignControllerActionImpl::ResetController()
+        {
+            _isSetController = false; 
+            _controller = {};
+
+        }
+        bool AssignControllerActionImpl::IsSetController() const
+        {
+            return _isSetController;
+        }
+        void AssignControllerActionImpl::ResetCatalogReference()
+        {
+            _isSetCatalogReference = false; 
+            _catalogReference = {};
+
+        }
+        bool AssignControllerActionImpl::IsSetCatalogReference() const
+        {
+            return _isSetCatalogReference;
+        }
 
         IOpenScenarioFlexElement* AssignRouteActionImpl::GetOpenScenarioFlexElement()
         {
@@ -5053,16 +5184,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _route = route;
             _catalogReference = {};
-			// set the indicator to true
-            isSetRoute = true;          
+            _isSetRoute = true;
         }
 
         void AssignRouteActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _route = {};
-			// set the indicator to true
-            isSetCatalogReference = true;          
+            _isSetCatalogReference = true;
         }
 
         std::shared_ptr<void> AssignRouteActionImpl::GetAdapter(const std::string classifier)
@@ -5260,26 +5389,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void AssignRouteActionImpl::ResetRoute()
-	   {
-	   		isSetRoute = false; 
-			_route = {};
-			
-	   }
-       bool AssignRouteActionImpl::IsSetRoute() const
-	   {
-			return isSetRoute;
-	   }
-       void AssignRouteActionImpl::ResetCatalogReference()
-	   {
-	   		isSetCatalogReference = false; 
-			_catalogReference = {};
-			
-	   }
-       bool AssignRouteActionImpl::IsSetCatalogReference() const
-	   {
-			return isSetCatalogReference;
-	   }
+        void AssignRouteActionImpl::ResetRoute()
+        {
+            _isSetRoute = false; 
+            _route = {};
+
+        }
+        bool AssignRouteActionImpl::IsSetRoute() const
+        {
+            return _isSetRoute;
+        }
+        void AssignRouteActionImpl::ResetCatalogReference()
+        {
+            _isSetCatalogReference = false; 
+            _catalogReference = {};
+
+        }
+        bool AssignRouteActionImpl::IsSetCatalogReference() const
+        {
+            return _isSetCatalogReference;
+        }
 
         IOpenScenarioFlexElement* AutomaticGearImpl::GetOpenScenarioFlexElement()
         {
@@ -5295,6 +5424,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _gear = gear;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__GEAR);
+            _isSetGear = true;
         }
 
         std::shared_ptr<void> AutomaticGearImpl::GetAdapter(const std::string classifier)
@@ -5406,6 +5536,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _gear = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetGear = true;
                 }
                 else
                 {
@@ -5498,6 +5629,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool AutomaticGearImpl::IsSetGear() const
+        {
+            return _isSetGear;
+        }
 
         IOpenScenarioFlexElement* AxleImpl::GetOpenScenarioFlexElement()
         {
@@ -5529,30 +5664,35 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _maxSteering = maxSteering;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_STEERING);
+            _isSetMaxSteering = true;
         }
 
         void AxleImpl::SetPositionX(const double positionX)
         {
             _positionX = positionX;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_X);
+            _isSetPositionX = true;
         }
 
         void AxleImpl::SetPositionZ(const double positionZ)
         {
             _positionZ = positionZ;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__POSITION_Z);
+            _isSetPositionZ = true;
         }
 
         void AxleImpl::SetTrackWidth(const double trackWidth)
         {
             _trackWidth = trackWidth;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH);
+            _isSetTrackWidth = true;
         }
 
         void AxleImpl::SetWheelDiameter(const double wheelDiameter)
         {
             _wheelDiameter = wheelDiameter;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER);
+            _isSetWheelDiameter = true;
         }
 
         std::shared_ptr<void> AxleImpl::GetAdapter(const std::string classifier)
@@ -5778,30 +5918,35 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxSteering = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxSteering = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__POSITION_X)
             {
                 // Simple type
                 _positionX = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetPositionX = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__POSITION_Z)
             {
                 // Simple type
                 _positionZ = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetPositionZ = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH)
             {
                 // Simple type
                 _trackWidth = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTrackWidth = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER)
             {
                 // Simple type
                 _wheelDiameter = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetWheelDiameter = true;
             }
         }
 
@@ -5887,35 +6032,60 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxSteering = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxSteering = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__POSITION_X)
             {
                 // Simple type
                 _positionX = value;
                 AddResolvedParameter(attributeKey);
+                _isSetPositionX = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__POSITION_Z)
             {
                 // Simple type
                 _positionZ = value;
                 AddResolvedParameter(attributeKey);
+                _isSetPositionZ = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRACK_WIDTH)
             {
                 // Simple type
                 _trackWidth = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTrackWidth = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WHEEL_DIAMETER)
             {
                 // Simple type
                 _wheelDiameter = value;
                 AddResolvedParameter(attributeKey);
+                _isSetWheelDiameter = true;
             }
 		
 		}
 
 
+        bool AxleImpl::IsSetMaxSteering() const
+        {
+            return _isSetMaxSteering;
+        }
+        bool AxleImpl::IsSetPositionX() const
+        {
+            return _isSetPositionX;
+        }
+        bool AxleImpl::IsSetPositionZ() const
+        {
+            return _isSetPositionZ;
+        }
+        bool AxleImpl::IsSetTrackWidth() const
+        {
+            return _isSetTrackWidth;
+        }
+        bool AxleImpl::IsSetWheelDiameter() const
+        {
+            return _isSetWheelDiameter;
+        }
 
         IOpenScenarioFlexElement* AxlesImpl::GetOpenScenarioFlexElement()
         {
@@ -5959,18 +6129,19 @@ namespace NET_ASAM_OPENSCENARIO
         void AxlesImpl::SetFrontAxle(std::shared_ptr<IAxleWriter> frontAxle)
         {
             _frontAxle = frontAxle;
+            _isSetFrontAxle = true;
         }
 
         void AxlesImpl::SetRearAxle(std::shared_ptr<IAxleWriter> rearAxle)
         {
             _rearAxle = rearAxle;
+            _isSetRearAxle = true;
         }
 
         void AxlesImpl::SetAdditionalAxles(std::vector<std::shared_ptr<IAxleWriter>>& additionalAxles)
         {
             _additionalAxles = additionalAxles;
-			// set the indicator to true
-            isSetAdditionalAxles = true;          
+            _isSetAdditionalAxles = true;
         }
 
         std::shared_ptr<void> AxlesImpl::GetAdapter(const std::string classifier)
@@ -6201,16 +6372,24 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void AxlesImpl::ResetAdditionalAxles()
-	   {
-	   		isSetAdditionalAxles = false; 
-			_additionalAxles = {};
-			
-	   }
-       bool AxlesImpl::IsSetAdditionalAxles() const
-	   {
-			return isSetAdditionalAxles;
-	   }
+        bool AxlesImpl::IsSetFrontAxle() const
+        {
+            return _isSetFrontAxle;
+        }
+        bool AxlesImpl::IsSetRearAxle() const
+        {
+            return _isSetRearAxle;
+        }
+        void AxlesImpl::ResetAdditionalAxles()
+        {
+            _isSetAdditionalAxles = false; 
+            _additionalAxles = {};
+
+        }
+        bool AxlesImpl::IsSetAdditionalAxles() const
+        {
+            return _isSetAdditionalAxles;
+        }
 
         IOpenScenarioFlexElement* BoundingBoxImpl::GetOpenScenarioFlexElement()
         {
@@ -6229,11 +6408,13 @@ namespace NET_ASAM_OPENSCENARIO
         void BoundingBoxImpl::SetCenter(std::shared_ptr<ICenterWriter> center)
         {
             _center = center;
+            _isSetCenter = true;
         }
 
         void BoundingBoxImpl::SetDimensions(std::shared_ptr<IDimensionsWriter> dimensions)
         {
             _dimensions = dimensions;
+            _isSetDimensions = true;
         }
 
         std::shared_ptr<void> BoundingBoxImpl::GetAdapter(const std::string classifier)
@@ -6431,6 +6612,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool BoundingBoxImpl::IsSetCenter() const
+        {
+            return _isSetCenter;
+        }
+        bool BoundingBoxImpl::IsSetDimensions() const
+        {
+            return _isSetDimensions;
+        }
 
         IOpenScenarioFlexElement* BrakeImpl::GetOpenScenarioFlexElement()
         {
@@ -6450,14 +6639,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _maxRate = maxRate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_RATE);
-			// set the indicator to true
-            isSetMaxRate = true;          
+            _isSetMaxRate = true;
         }
 
         void BrakeImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> BrakeImpl::GetAdapter(const std::string classifier)
@@ -6602,12 +6791,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxRate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -6651,7 +6842,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetMaxRate = isSetMaxRate;
+            clonedObject->_isSetMaxRate = _isSetMaxRate;
             // clone children
             return clonedObject;
         }
@@ -6688,27 +6879,33 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxRate = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void BrakeImpl::ResetMaxRate()
-	   {
-	   		isSetMaxRate = false; 
-			_maxRate = {};
-			
-	   }
-       bool BrakeImpl::IsSetMaxRate() const
-	   {
-			return isSetMaxRate;
-	   }
+        void BrakeImpl::ResetMaxRate()
+        {
+            _isSetMaxRate = false; 
+            _maxRate = {};
+
+        }
+        bool BrakeImpl::IsSetMaxRate() const
+        {
+            return _isSetMaxRate;
+        }
+        bool BrakeImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* BrakeInputImpl::GetOpenScenarioFlexElement()
         {
@@ -6728,12 +6925,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _brakePercent = brakePercent;
             _brakeForce = {};
+            _isSetBrakePercent = true;
         }
 
         void BrakeInputImpl::SetBrakeForce(std::shared_ptr<IBrakeWriter> brakeForce)
         {
             _brakeForce = brakeForce;
             _brakePercent = {};
+            _isSetBrakeForce = true;
         }
 
         std::shared_ptr<void> BrakeInputImpl::GetAdapter(const std::string classifier)
@@ -6931,6 +7130,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool BrakeInputImpl::IsSetBrakePercent() const
+        {
+            return _isSetBrakePercent;
+        }
+        bool BrakeInputImpl::IsSetBrakeForce() const
+        {
+            return _isSetBrakeForce;
+        }
 
         IOpenScenarioFlexElement* ByEntityConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -6949,11 +7156,13 @@ namespace NET_ASAM_OPENSCENARIO
         void ByEntityConditionImpl::SetTriggeringEntities(std::shared_ptr<ITriggeringEntitiesWriter> triggeringEntities)
         {
             _triggeringEntities = triggeringEntities;
+            _isSetTriggeringEntities = true;
         }
 
         void ByEntityConditionImpl::SetEntityCondition(std::shared_ptr<IEntityConditionWriter> entityCondition)
         {
             _entityCondition = entityCondition;
+            _isSetEntityCondition = true;
         }
 
         std::shared_ptr<void> ByEntityConditionImpl::GetAdapter(const std::string classifier)
@@ -7151,6 +7360,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ByEntityConditionImpl::IsSetTriggeringEntities() const
+        {
+            return _isSetTriggeringEntities;
+        }
+        bool ByEntityConditionImpl::IsSetEntityCondition() const
+        {
+            return _isSetEntityCondition;
+        }
 
         IOpenScenarioFlexElement* ByObjectTypeImpl::GetOpenScenarioFlexElement()
         {
@@ -7166,6 +7383,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _type = type;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE);
+            _isSetType = true;
         }
 
         std::shared_ptr<void> ByObjectTypeImpl::GetAdapter(const std::string classifier)
@@ -7277,6 +7495,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _type = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetType = true;
                 }
                 else
                 {
@@ -7369,6 +7588,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ByObjectTypeImpl::IsSetType() const
+        {
+            return _isSetType;
+        }
 
         IOpenScenarioFlexElement* ByTypeImpl::GetOpenScenarioFlexElement()
         {
@@ -7384,6 +7607,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _objectType = objectType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OBJECT_TYPE);
+            _isSetObjectType = true;
         }
 
         std::shared_ptr<void> ByTypeImpl::GetAdapter(const std::string classifier)
@@ -7495,6 +7719,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _objectType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetObjectType = true;
                 }
                 else
                 {
@@ -7587,6 +7812,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ByTypeImpl::IsSetObjectType() const
+        {
+            return _isSetObjectType;
+        }
 
         IOpenScenarioFlexElement* ByValueConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -7636,8 +7865,7 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
             _variableCondition = {};
-			// set the indicator to true
-            isSetParameterCondition = true;          
+            _isSetParameterCondition = true;
         }
 
         void ByValueConditionImpl::SetTimeOfDayCondition(std::shared_ptr<ITimeOfDayConditionWriter> timeOfDayCondition)
@@ -7650,8 +7878,7 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
             _variableCondition = {};
-			// set the indicator to true
-            isSetTimeOfDayCondition = true;          
+            _isSetTimeOfDayCondition = true;
         }
 
         void ByValueConditionImpl::SetSimulationTimeCondition(std::shared_ptr<ISimulationTimeConditionWriter> simulationTimeCondition)
@@ -7664,8 +7891,7 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
             _variableCondition = {};
-			// set the indicator to true
-            isSetSimulationTimeCondition = true;          
+            _isSetSimulationTimeCondition = true;
         }
 
         void ByValueConditionImpl::SetStoryboardElementStateCondition(std::shared_ptr<IStoryboardElementStateConditionWriter> storyboardElementStateCondition)
@@ -7678,8 +7904,7 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
             _variableCondition = {};
-			// set the indicator to true
-            isSetStoryboardElementStateCondition = true;          
+            _isSetStoryboardElementStateCondition = true;
         }
 
         void ByValueConditionImpl::SetUserDefinedValueCondition(std::shared_ptr<IUserDefinedValueConditionWriter> userDefinedValueCondition)
@@ -7692,8 +7917,7 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
             _variableCondition = {};
-			// set the indicator to true
-            isSetUserDefinedValueCondition = true;          
+            _isSetUserDefinedValueCondition = true;
         }
 
         void ByValueConditionImpl::SetTrafficSignalCondition(std::shared_ptr<ITrafficSignalConditionWriter> trafficSignalCondition)
@@ -7706,8 +7930,7 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedValueCondition = {};
             _trafficSignalControllerCondition = {};
             _variableCondition = {};
-			// set the indicator to true
-            isSetTrafficSignalCondition = true;          
+            _isSetTrafficSignalCondition = true;
         }
 
         void ByValueConditionImpl::SetTrafficSignalControllerCondition(std::shared_ptr<ITrafficSignalControllerConditionWriter> trafficSignalControllerCondition)
@@ -7720,8 +7943,7 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedValueCondition = {};
             _trafficSignalCondition = {};
             _variableCondition = {};
-			// set the indicator to true
-            isSetTrafficSignalControllerCondition = true;          
+            _isSetTrafficSignalControllerCondition = true;
         }
 
         void ByValueConditionImpl::SetVariableCondition(std::shared_ptr<IVariableConditionWriter> variableCondition)
@@ -7734,8 +7956,7 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedValueCondition = {};
             _trafficSignalCondition = {};
             _trafficSignalControllerCondition = {};
-			// set the indicator to true
-            isSetVariableCondition = true;          
+            _isSetVariableCondition = true;
         }
 
         std::shared_ptr<void> ByValueConditionImpl::GetAdapter(const std::string classifier)
@@ -8065,86 +8286,86 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void ByValueConditionImpl::ResetParameterCondition()
-	   {
-	   		isSetParameterCondition = false; 
-			_parameterCondition = {};
-			
-	   }
-       bool ByValueConditionImpl::IsSetParameterCondition() const
-	   {
-			return isSetParameterCondition;
-	   }
-       void ByValueConditionImpl::ResetTimeOfDayCondition()
-	   {
-	   		isSetTimeOfDayCondition = false; 
-			_timeOfDayCondition = {};
-			
-	   }
-       bool ByValueConditionImpl::IsSetTimeOfDayCondition() const
-	   {
-			return isSetTimeOfDayCondition;
-	   }
-       void ByValueConditionImpl::ResetSimulationTimeCondition()
-	   {
-	   		isSetSimulationTimeCondition = false; 
-			_simulationTimeCondition = {};
-			
-	   }
-       bool ByValueConditionImpl::IsSetSimulationTimeCondition() const
-	   {
-			return isSetSimulationTimeCondition;
-	   }
-       void ByValueConditionImpl::ResetStoryboardElementStateCondition()
-	   {
-	   		isSetStoryboardElementStateCondition = false; 
-			_storyboardElementStateCondition = {};
-			
-	   }
-       bool ByValueConditionImpl::IsSetStoryboardElementStateCondition() const
-	   {
-			return isSetStoryboardElementStateCondition;
-	   }
-       void ByValueConditionImpl::ResetUserDefinedValueCondition()
-	   {
-	   		isSetUserDefinedValueCondition = false; 
-			_userDefinedValueCondition = {};
-			
-	   }
-       bool ByValueConditionImpl::IsSetUserDefinedValueCondition() const
-	   {
-			return isSetUserDefinedValueCondition;
-	   }
-       void ByValueConditionImpl::ResetTrafficSignalCondition()
-	   {
-	   		isSetTrafficSignalCondition = false; 
-			_trafficSignalCondition = {};
-			
-	   }
-       bool ByValueConditionImpl::IsSetTrafficSignalCondition() const
-	   {
-			return isSetTrafficSignalCondition;
-	   }
-       void ByValueConditionImpl::ResetTrafficSignalControllerCondition()
-	   {
-	   		isSetTrafficSignalControllerCondition = false; 
-			_trafficSignalControllerCondition = {};
-			
-	   }
-       bool ByValueConditionImpl::IsSetTrafficSignalControllerCondition() const
-	   {
-			return isSetTrafficSignalControllerCondition;
-	   }
-       void ByValueConditionImpl::ResetVariableCondition()
-	   {
-	   		isSetVariableCondition = false; 
-			_variableCondition = {};
-			
-	   }
-       bool ByValueConditionImpl::IsSetVariableCondition() const
-	   {
-			return isSetVariableCondition;
-	   }
+        void ByValueConditionImpl::ResetParameterCondition()
+        {
+            _isSetParameterCondition = false; 
+            _parameterCondition = {};
+
+        }
+        bool ByValueConditionImpl::IsSetParameterCondition() const
+        {
+            return _isSetParameterCondition;
+        }
+        void ByValueConditionImpl::ResetTimeOfDayCondition()
+        {
+            _isSetTimeOfDayCondition = false; 
+            _timeOfDayCondition = {};
+
+        }
+        bool ByValueConditionImpl::IsSetTimeOfDayCondition() const
+        {
+            return _isSetTimeOfDayCondition;
+        }
+        void ByValueConditionImpl::ResetSimulationTimeCondition()
+        {
+            _isSetSimulationTimeCondition = false; 
+            _simulationTimeCondition = {};
+
+        }
+        bool ByValueConditionImpl::IsSetSimulationTimeCondition() const
+        {
+            return _isSetSimulationTimeCondition;
+        }
+        void ByValueConditionImpl::ResetStoryboardElementStateCondition()
+        {
+            _isSetStoryboardElementStateCondition = false; 
+            _storyboardElementStateCondition = {};
+
+        }
+        bool ByValueConditionImpl::IsSetStoryboardElementStateCondition() const
+        {
+            return _isSetStoryboardElementStateCondition;
+        }
+        void ByValueConditionImpl::ResetUserDefinedValueCondition()
+        {
+            _isSetUserDefinedValueCondition = false; 
+            _userDefinedValueCondition = {};
+
+        }
+        bool ByValueConditionImpl::IsSetUserDefinedValueCondition() const
+        {
+            return _isSetUserDefinedValueCondition;
+        }
+        void ByValueConditionImpl::ResetTrafficSignalCondition()
+        {
+            _isSetTrafficSignalCondition = false; 
+            _trafficSignalCondition = {};
+
+        }
+        bool ByValueConditionImpl::IsSetTrafficSignalCondition() const
+        {
+            return _isSetTrafficSignalCondition;
+        }
+        void ByValueConditionImpl::ResetTrafficSignalControllerCondition()
+        {
+            _isSetTrafficSignalControllerCondition = false; 
+            _trafficSignalControllerCondition = {};
+
+        }
+        bool ByValueConditionImpl::IsSetTrafficSignalControllerCondition() const
+        {
+            return _isSetTrafficSignalControllerCondition;
+        }
+        void ByValueConditionImpl::ResetVariableCondition()
+        {
+            _isSetVariableCondition = false; 
+            _variableCondition = {};
+
+        }
+        bool ByValueConditionImpl::IsSetVariableCondition() const
+        {
+            return _isSetVariableCondition;
+        }
 
         IOpenScenarioFlexElement* CatalogImpl::GetOpenScenarioFlexElement()
         {
@@ -8360,64 +8581,55 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
-			// set the indicator to true
-            isSetName = true;          
+            _isSetName = true;
         }
 
         void CatalogImpl::SetVehicles(std::vector<std::shared_ptr<IVehicleWriter>>& vehicles)
         {
             _vehicles = vehicles;
-			// set the indicator to true
-            isSetVehicles = true;          
+            _isSetVehicles = true;
         }
 
         void CatalogImpl::SetControllers(std::vector<std::shared_ptr<IControllerWriter>>& controllers)
         {
             _controllers = controllers;
-			// set the indicator to true
-            isSetControllers = true;          
+            _isSetControllers = true;
         }
 
         void CatalogImpl::SetPedestrians(std::vector<std::shared_ptr<IPedestrianWriter>>& pedestrians)
         {
             _pedestrians = pedestrians;
-			// set the indicator to true
-            isSetPedestrians = true;          
+            _isSetPedestrians = true;
         }
 
         void CatalogImpl::SetMiscObjects(std::vector<std::shared_ptr<IMiscObjectWriter>>& miscObjects)
         {
             _miscObjects = miscObjects;
-			// set the indicator to true
-            isSetMiscObjects = true;          
+            _isSetMiscObjects = true;
         }
 
         void CatalogImpl::SetEnvironments(std::vector<std::shared_ptr<IEnvironmentWriter>>& environments)
         {
             _environments = environments;
-			// set the indicator to true
-            isSetEnvironments = true;          
+            _isSetEnvironments = true;
         }
 
         void CatalogImpl::SetManeuvers(std::vector<std::shared_ptr<IManeuverWriter>>& maneuvers)
         {
             _maneuvers = maneuvers;
-			// set the indicator to true
-            isSetManeuvers = true;          
+            _isSetManeuvers = true;
         }
 
         void CatalogImpl::SetTrajectories(std::vector<std::shared_ptr<ITrajectoryWriter>>& trajectories)
         {
             _trajectories = trajectories;
-			// set the indicator to true
-            isSetTrajectories = true;          
+            _isSetTrajectories = true;
         }
 
         void CatalogImpl::SetRoutes(std::vector<std::shared_ptr<IRouteWriter>>& routes)
         {
             _routes = routes;
-			// set the indicator to true
-            isSetRoutes = true;          
+            _isSetRoutes = true;
         }
 
         std::shared_ptr<void> CatalogImpl::GetAdapter(const std::string classifier)
@@ -8526,6 +8738,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -8631,7 +8844,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_name = GetName();
             // clone indicators
-            	clonedObject->isSetName = isSetName;
+            clonedObject->_isSetName = _isSetName;
             // clone children
             const auto kVehicles =  GetWriterVehicles();
             if (!kVehicles.empty())
@@ -8842,101 +9055,102 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void CatalogImpl::ResetName()
-	   {
-	   		isSetName = false; 
-			_name = {};
-			
-	   }
-       bool CatalogImpl::IsSetName() const
-	   {
-			return isSetName;
-	   }
-       void CatalogImpl::ResetVehicles()
-	   {
-	   		isSetVehicles = false; 
-			_vehicles = {};
-			
-	   }
-       bool CatalogImpl::IsSetVehicles() const
-	   {
-			return isSetVehicles;
-	   }
-       void CatalogImpl::ResetControllers()
-	   {
-	   		isSetControllers = false; 
-			_controllers = {};
-			
-	   }
-       bool CatalogImpl::IsSetControllers() const
-	   {
-			return isSetControllers;
-	   }
-       void CatalogImpl::ResetPedestrians()
-	   {
-	   		isSetPedestrians = false; 
-			_pedestrians = {};
-			
-	   }
-       bool CatalogImpl::IsSetPedestrians() const
-	   {
-			return isSetPedestrians;
-	   }
-       void CatalogImpl::ResetMiscObjects()
-	   {
-	   		isSetMiscObjects = false; 
-			_miscObjects = {};
-			
-	   }
-       bool CatalogImpl::IsSetMiscObjects() const
-	   {
-			return isSetMiscObjects;
-	   }
-       void CatalogImpl::ResetEnvironments()
-	   {
-	   		isSetEnvironments = false; 
-			_environments = {};
-			
-	   }
-       bool CatalogImpl::IsSetEnvironments() const
-	   {
-			return isSetEnvironments;
-	   }
-       void CatalogImpl::ResetManeuvers()
-	   {
-	   		isSetManeuvers = false; 
-			_maneuvers = {};
-			
-	   }
-       bool CatalogImpl::IsSetManeuvers() const
-	   {
-			return isSetManeuvers;
-	   }
-       void CatalogImpl::ResetTrajectories()
-	   {
-	   		isSetTrajectories = false; 
-			_trajectories = {};
-			
-	   }
-       bool CatalogImpl::IsSetTrajectories() const
-	   {
-			return isSetTrajectories;
-	   }
-       void CatalogImpl::ResetRoutes()
-	   {
-	   		isSetRoutes = false; 
-			_routes = {};
-			
-	   }
-       bool CatalogImpl::IsSetRoutes() const
-	   {
-			return isSetRoutes;
-	   }
+        void CatalogImpl::ResetName()
+        {
+            _isSetName = false; 
+            _name = {};
+
+        }
+        bool CatalogImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void CatalogImpl::ResetVehicles()
+        {
+            _isSetVehicles = false; 
+            _vehicles = {};
+
+        }
+        bool CatalogImpl::IsSetVehicles() const
+        {
+            return _isSetVehicles;
+        }
+        void CatalogImpl::ResetControllers()
+        {
+            _isSetControllers = false; 
+            _controllers = {};
+
+        }
+        bool CatalogImpl::IsSetControllers() const
+        {
+            return _isSetControllers;
+        }
+        void CatalogImpl::ResetPedestrians()
+        {
+            _isSetPedestrians = false; 
+            _pedestrians = {};
+
+        }
+        bool CatalogImpl::IsSetPedestrians() const
+        {
+            return _isSetPedestrians;
+        }
+        void CatalogImpl::ResetMiscObjects()
+        {
+            _isSetMiscObjects = false; 
+            _miscObjects = {};
+
+        }
+        bool CatalogImpl::IsSetMiscObjects() const
+        {
+            return _isSetMiscObjects;
+        }
+        void CatalogImpl::ResetEnvironments()
+        {
+            _isSetEnvironments = false; 
+            _environments = {};
+
+        }
+        bool CatalogImpl::IsSetEnvironments() const
+        {
+            return _isSetEnvironments;
+        }
+        void CatalogImpl::ResetManeuvers()
+        {
+            _isSetManeuvers = false; 
+            _maneuvers = {};
+
+        }
+        bool CatalogImpl::IsSetManeuvers() const
+        {
+            return _isSetManeuvers;
+        }
+        void CatalogImpl::ResetTrajectories()
+        {
+            _isSetTrajectories = false; 
+            _trajectories = {};
+
+        }
+        bool CatalogImpl::IsSetTrajectories() const
+        {
+            return _isSetTrajectories;
+        }
+        void CatalogImpl::ResetRoutes()
+        {
+            _isSetRoutes = false; 
+            _routes = {};
+
+        }
+        bool CatalogImpl::IsSetRoutes() const
+        {
+            return _isSetRoutes;
+        }
 
         IOpenScenarioFlexElement* CatalogDefinitionImpl::GetOpenScenarioFlexElement()
         {
@@ -8951,6 +9165,7 @@ namespace NET_ASAM_OPENSCENARIO
         void CatalogDefinitionImpl::SetCatalog(std::shared_ptr<ICatalogWriter> catalog)
         {
             _catalog = catalog;
+            _isSetCatalog = true;
         }
 
         std::shared_ptr<void> CatalogDefinitionImpl::GetAdapter(const std::string classifier)
@@ -9126,6 +9341,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool CatalogDefinitionImpl::IsSetCatalog() const
+        {
+            return _isSetCatalog;
+        }
 
         IOpenScenarioFlexElement* CatalogLocationsImpl::GetOpenScenarioFlexElement()
         {
@@ -9168,57 +9387,49 @@ namespace NET_ASAM_OPENSCENARIO
         void CatalogLocationsImpl::SetVehicleCatalog(std::shared_ptr<IVehicleCatalogLocationWriter> vehicleCatalog)
         {
             _vehicleCatalog = vehicleCatalog;
-			// set the indicator to true
-            isSetVehicleCatalog = true;          
+            _isSetVehicleCatalog = true;
         }
 
         void CatalogLocationsImpl::SetControllerCatalog(std::shared_ptr<IControllerCatalogLocationWriter> controllerCatalog)
         {
             _controllerCatalog = controllerCatalog;
-			// set the indicator to true
-            isSetControllerCatalog = true;          
+            _isSetControllerCatalog = true;
         }
 
         void CatalogLocationsImpl::SetPedestrianCatalog(std::shared_ptr<IPedestrianCatalogLocationWriter> pedestrianCatalog)
         {
             _pedestrianCatalog = pedestrianCatalog;
-			// set the indicator to true
-            isSetPedestrianCatalog = true;          
+            _isSetPedestrianCatalog = true;
         }
 
         void CatalogLocationsImpl::SetMiscObjectCatalog(std::shared_ptr<IMiscObjectCatalogLocationWriter> miscObjectCatalog)
         {
             _miscObjectCatalog = miscObjectCatalog;
-			// set the indicator to true
-            isSetMiscObjectCatalog = true;          
+            _isSetMiscObjectCatalog = true;
         }
 
         void CatalogLocationsImpl::SetEnvironmentCatalog(std::shared_ptr<IEnvironmentCatalogLocationWriter> environmentCatalog)
         {
             _environmentCatalog = environmentCatalog;
-			// set the indicator to true
-            isSetEnvironmentCatalog = true;          
+            _isSetEnvironmentCatalog = true;
         }
 
         void CatalogLocationsImpl::SetManeuverCatalog(std::shared_ptr<IManeuverCatalogLocationWriter> maneuverCatalog)
         {
             _maneuverCatalog = maneuverCatalog;
-			// set the indicator to true
-            isSetManeuverCatalog = true;          
+            _isSetManeuverCatalog = true;
         }
 
         void CatalogLocationsImpl::SetTrajectoryCatalog(std::shared_ptr<ITrajectoryCatalogLocationWriter> trajectoryCatalog)
         {
             _trajectoryCatalog = trajectoryCatalog;
-			// set the indicator to true
-            isSetTrajectoryCatalog = true;          
+            _isSetTrajectoryCatalog = true;
         }
 
         void CatalogLocationsImpl::SetRouteCatalog(std::shared_ptr<IRouteCatalogLocationWriter> routeCatalog)
         {
             _routeCatalog = routeCatalog;
-			// set the indicator to true
-            isSetRouteCatalog = true;          
+            _isSetRouteCatalog = true;
         }
 
         std::shared_ptr<void> CatalogLocationsImpl::GetAdapter(const std::string classifier)
@@ -9548,86 +9759,86 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void CatalogLocationsImpl::ResetVehicleCatalog()
-	   {
-	   		isSetVehicleCatalog = false; 
-			_vehicleCatalog = {};
-			
-	   }
-       bool CatalogLocationsImpl::IsSetVehicleCatalog() const
-	   {
-			return isSetVehicleCatalog;
-	   }
-       void CatalogLocationsImpl::ResetControllerCatalog()
-	   {
-	   		isSetControllerCatalog = false; 
-			_controllerCatalog = {};
-			
-	   }
-       bool CatalogLocationsImpl::IsSetControllerCatalog() const
-	   {
-			return isSetControllerCatalog;
-	   }
-       void CatalogLocationsImpl::ResetPedestrianCatalog()
-	   {
-	   		isSetPedestrianCatalog = false; 
-			_pedestrianCatalog = {};
-			
-	   }
-       bool CatalogLocationsImpl::IsSetPedestrianCatalog() const
-	   {
-			return isSetPedestrianCatalog;
-	   }
-       void CatalogLocationsImpl::ResetMiscObjectCatalog()
-	   {
-	   		isSetMiscObjectCatalog = false; 
-			_miscObjectCatalog = {};
-			
-	   }
-       bool CatalogLocationsImpl::IsSetMiscObjectCatalog() const
-	   {
-			return isSetMiscObjectCatalog;
-	   }
-       void CatalogLocationsImpl::ResetEnvironmentCatalog()
-	   {
-	   		isSetEnvironmentCatalog = false; 
-			_environmentCatalog = {};
-			
-	   }
-       bool CatalogLocationsImpl::IsSetEnvironmentCatalog() const
-	   {
-			return isSetEnvironmentCatalog;
-	   }
-       void CatalogLocationsImpl::ResetManeuverCatalog()
-	   {
-	   		isSetManeuverCatalog = false; 
-			_maneuverCatalog = {};
-			
-	   }
-       bool CatalogLocationsImpl::IsSetManeuverCatalog() const
-	   {
-			return isSetManeuverCatalog;
-	   }
-       void CatalogLocationsImpl::ResetTrajectoryCatalog()
-	   {
-	   		isSetTrajectoryCatalog = false; 
-			_trajectoryCatalog = {};
-			
-	   }
-       bool CatalogLocationsImpl::IsSetTrajectoryCatalog() const
-	   {
-			return isSetTrajectoryCatalog;
-	   }
-       void CatalogLocationsImpl::ResetRouteCatalog()
-	   {
-	   		isSetRouteCatalog = false; 
-			_routeCatalog = {};
-			
-	   }
-       bool CatalogLocationsImpl::IsSetRouteCatalog() const
-	   {
-			return isSetRouteCatalog;
-	   }
+        void CatalogLocationsImpl::ResetVehicleCatalog()
+        {
+            _isSetVehicleCatalog = false; 
+            _vehicleCatalog = {};
+
+        }
+        bool CatalogLocationsImpl::IsSetVehicleCatalog() const
+        {
+            return _isSetVehicleCatalog;
+        }
+        void CatalogLocationsImpl::ResetControllerCatalog()
+        {
+            _isSetControllerCatalog = false; 
+            _controllerCatalog = {};
+
+        }
+        bool CatalogLocationsImpl::IsSetControllerCatalog() const
+        {
+            return _isSetControllerCatalog;
+        }
+        void CatalogLocationsImpl::ResetPedestrianCatalog()
+        {
+            _isSetPedestrianCatalog = false; 
+            _pedestrianCatalog = {};
+
+        }
+        bool CatalogLocationsImpl::IsSetPedestrianCatalog() const
+        {
+            return _isSetPedestrianCatalog;
+        }
+        void CatalogLocationsImpl::ResetMiscObjectCatalog()
+        {
+            _isSetMiscObjectCatalog = false; 
+            _miscObjectCatalog = {};
+
+        }
+        bool CatalogLocationsImpl::IsSetMiscObjectCatalog() const
+        {
+            return _isSetMiscObjectCatalog;
+        }
+        void CatalogLocationsImpl::ResetEnvironmentCatalog()
+        {
+            _isSetEnvironmentCatalog = false; 
+            _environmentCatalog = {};
+
+        }
+        bool CatalogLocationsImpl::IsSetEnvironmentCatalog() const
+        {
+            return _isSetEnvironmentCatalog;
+        }
+        void CatalogLocationsImpl::ResetManeuverCatalog()
+        {
+            _isSetManeuverCatalog = false; 
+            _maneuverCatalog = {};
+
+        }
+        bool CatalogLocationsImpl::IsSetManeuverCatalog() const
+        {
+            return _isSetManeuverCatalog;
+        }
+        void CatalogLocationsImpl::ResetTrajectoryCatalog()
+        {
+            _isSetTrajectoryCatalog = false; 
+            _trajectoryCatalog = {};
+
+        }
+        bool CatalogLocationsImpl::IsSetTrajectoryCatalog() const
+        {
+            return _isSetTrajectoryCatalog;
+        }
+        void CatalogLocationsImpl::ResetRouteCatalog()
+        {
+            _isSetRouteCatalog = false; 
+            _routeCatalog = {};
+
+        }
+        bool CatalogLocationsImpl::IsSetRouteCatalog() const
+        {
+            return _isSetRouteCatalog;
+        }
 
         IOpenScenarioFlexElement* CatalogReferenceImpl::GetOpenScenarioFlexElement()
         {
@@ -9676,24 +9887,26 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _catalogName = catalogName;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CATALOG_NAME);
+            _isSetCatalogName = true;
         }
 
         void CatalogReferenceImpl::SetEntryName(const std::string entryName)
         {
             _entryName = entryName;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME);
+            _isSetEntryName = true;
         }
 
         void CatalogReferenceImpl::SetParameterAssignments(std::vector<std::shared_ptr<IParameterAssignmentWriter>>& parameterAssignments)
         {
             _parameterAssignments = parameterAssignments;
-			// set the indicator to true
-            isSetParameterAssignments = true;          
+            _isSetParameterAssignments = true;
         }
 
         void CatalogReferenceImpl::SetRef(const std::shared_ptr<ICatalogElement> ref)
         {
             _ref = ref;
+            _isSetRef = true;
         }
 
         std::shared_ptr<void> CatalogReferenceImpl::GetAdapter(const std::string classifier)
@@ -9825,12 +10038,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _catalogName = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetCatalogName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME)
             {
                 // Simple type
                 _entryName = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetEntryName = true;
             }
         }
 
@@ -9956,27 +10171,41 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _catalogName = value;
                 AddResolvedParameter(attributeKey);
+                _isSetCatalogName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTRY_NAME)
             {
                 // Simple type
                 _entryName = value;
                 AddResolvedParameter(attributeKey);
+                _isSetEntryName = true;
             }
 		
 		}
 
 
-       void CatalogReferenceImpl::ResetParameterAssignments()
-	   {
-	   		isSetParameterAssignments = false; 
-			_parameterAssignments = {};
-			
-	   }
-       bool CatalogReferenceImpl::IsSetParameterAssignments() const
-	   {
-			return isSetParameterAssignments;
-	   }
+        bool CatalogReferenceImpl::IsSetCatalogName() const
+        {
+            return _isSetCatalogName;
+        }
+        bool CatalogReferenceImpl::IsSetEntryName() const
+        {
+            return _isSetEntryName;
+        }
+        void CatalogReferenceImpl::ResetParameterAssignments()
+        {
+            _isSetParameterAssignments = false; 
+            _parameterAssignments = {};
+
+        }
+        bool CatalogReferenceImpl::IsSetParameterAssignments() const
+        {
+            return _isSetParameterAssignments;
+        }
+        bool CatalogReferenceImpl::IsSetRef() const
+        {
+            return _isSetRef;
+        }
 
         IOpenScenarioFlexElement* CenterImpl::GetOpenScenarioFlexElement()
         {
@@ -10000,18 +10229,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _x = x;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__X);
+            _isSetX = true;
         }
 
         void CenterImpl::SetY(const double y)
         {
             _y = y;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Y);
+            _isSetY = true;
         }
 
         void CenterImpl::SetZ(const double z)
         {
             _z = z;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z);
+            _isSetZ = true;
         }
 
         std::shared_ptr<void> CenterImpl::GetAdapter(const std::string classifier)
@@ -10183,18 +10415,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _x = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetX = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Y)
             {
                 // Simple type
                 _y = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetY = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Z)
             {
                 // Simple type
                 _z = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetZ = true;
             }
         }
 
@@ -10276,23 +10511,38 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _x = value;
                 AddResolvedParameter(attributeKey);
+                _isSetX = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Y)
             {
                 // Simple type
                 _y = value;
                 AddResolvedParameter(attributeKey);
+                _isSetY = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Z)
             {
                 // Simple type
                 _z = value;
                 AddResolvedParameter(attributeKey);
+                _isSetZ = true;
             }
 		
 		}
 
 
+        bool CenterImpl::IsSetX() const
+        {
+            return _isSetX;
+        }
+        bool CenterImpl::IsSetY() const
+        {
+            return _isSetY;
+        }
+        bool CenterImpl::IsSetZ() const
+        {
+            return _isSetZ;
+        }
 
         IOpenScenarioFlexElement* CentralSwarmObjectImpl::GetOpenScenarioFlexElement()
         {
@@ -10308,6 +10558,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         std::shared_ptr<void> CentralSwarmObjectImpl::GetAdapter(const std::string classifier)
@@ -10417,6 +10668,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
         }
 
@@ -10514,6 +10766,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool CentralSwarmObjectImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
 
         IOpenScenarioFlexElement* ClothoidImpl::GetOpenScenarioFlexElement()
         {
@@ -10553,49 +10809,48 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _curvature = curvature;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE);
+            _isSetCurvature = true;
         }
 
         void ClothoidImpl::SetCurvatureDot(const double curvatureDot)
         {
             _curvatureDot = curvatureDot;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT);
-			// set the indicator to true
-            isSetCurvatureDot = true;          
+            _isSetCurvatureDot = true;
         }
 
         void ClothoidImpl::SetCurvaturePrime(const double curvaturePrime)
         {
             _curvaturePrime = curvaturePrime;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME);
-			// set the indicator to true
-            isSetCurvaturePrime = true;          
+            _isSetCurvaturePrime = true;
         }
 
         void ClothoidImpl::SetLength(const double length)
         {
             _length = length;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH);
+            _isSetLength = true;
         }
 
         void ClothoidImpl::SetStartTime(const double startTime)
         {
             _startTime = startTime;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__START_TIME);
-			// set the indicator to true
-            isSetStartTime = true;          
+            _isSetStartTime = true;
         }
 
         void ClothoidImpl::SetStopTime(const double stopTime)
         {
             _stopTime = stopTime;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STOP_TIME);
-			// set the indicator to true
-            isSetStopTime = true;          
+            _isSetStopTime = true;
         }
 
         void ClothoidImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         std::shared_ptr<void> ClothoidImpl::GetAdapter(const std::string classifier)
@@ -10852,36 +11107,42 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _curvature = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetCurvature = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT)
             {
                 // Simple type
                 _curvatureDot = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetCurvatureDot = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME)
             {
                 // Simple type
                 _curvaturePrime = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetCurvaturePrime = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LENGTH)
             {
                 // Simple type
                 _length = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLength = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__START_TIME)
             {
                 // Simple type
                 _startTime = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetStartTime = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STOP_TIME)
             {
                 // Simple type
                 _stopTime = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetStopTime = true;
             }
         }
 
@@ -10938,10 +11199,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_stopTime = GetStopTime();
             // clone indicators
-            	clonedObject->isSetCurvatureDot = isSetCurvatureDot;
-            	clonedObject->isSetCurvaturePrime = isSetCurvaturePrime;
-            	clonedObject->isSetStartTime = isSetStartTime;
-            	clonedObject->isSetStopTime = isSetStopTime;
+            clonedObject->_isSetCurvatureDot = _isSetCurvatureDot;
+            clonedObject->_isSetCurvaturePrime = _isSetCurvaturePrime;
+            clonedObject->_isSetStartTime = _isSetStartTime;
+            clonedObject->_isSetStopTime = _isSetStopTime;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -10995,81 +11256,99 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _curvature = value;
                 AddResolvedParameter(attributeKey);
+                _isSetCurvature = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CURVATURE_DOT)
             {
                 // Simple type
                 _curvatureDot = value;
                 AddResolvedParameter(attributeKey);
+                _isSetCurvatureDot = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CURVATURE_PRIME)
             {
                 // Simple type
                 _curvaturePrime = value;
                 AddResolvedParameter(attributeKey);
+                _isSetCurvaturePrime = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LENGTH)
             {
                 // Simple type
                 _length = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLength = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__START_TIME)
             {
                 // Simple type
                 _startTime = value;
                 AddResolvedParameter(attributeKey);
+                _isSetStartTime = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STOP_TIME)
             {
                 // Simple type
                 _stopTime = value;
                 AddResolvedParameter(attributeKey);
+                _isSetStopTime = true;
             }
 		
 		}
 
 
-       void ClothoidImpl::ResetCurvatureDot()
-	   {
-	   		isSetCurvatureDot = false; 
-			_curvatureDot = {};
-			
-	   }
-       bool ClothoidImpl::IsSetCurvatureDot() const
-	   {
-			return isSetCurvatureDot;
-	   }
-       void ClothoidImpl::ResetCurvaturePrime()
-	   {
-	   		isSetCurvaturePrime = false; 
-			_curvaturePrime = {};
-			
-	   }
-       bool ClothoidImpl::IsSetCurvaturePrime() const
-	   {
-			return isSetCurvaturePrime;
-	   }
-       void ClothoidImpl::ResetStartTime()
-	   {
-	   		isSetStartTime = false; 
-			_startTime = {};
-			
-	   }
-       bool ClothoidImpl::IsSetStartTime() const
-	   {
-			return isSetStartTime;
-	   }
-       void ClothoidImpl::ResetStopTime()
-	   {
-	   		isSetStopTime = false; 
-			_stopTime = {};
-			
-	   }
-       bool ClothoidImpl::IsSetStopTime() const
-	   {
-			return isSetStopTime;
-	   }
+        bool ClothoidImpl::IsSetCurvature() const
+        {
+            return _isSetCurvature;
+        }
+        void ClothoidImpl::ResetCurvatureDot()
+        {
+            _isSetCurvatureDot = false; 
+            _curvatureDot = {};
+
+        }
+        bool ClothoidImpl::IsSetCurvatureDot() const
+        {
+            return _isSetCurvatureDot;
+        }
+        void ClothoidImpl::ResetCurvaturePrime()
+        {
+            _isSetCurvaturePrime = false; 
+            _curvaturePrime = {};
+
+        }
+        bool ClothoidImpl::IsSetCurvaturePrime() const
+        {
+            return _isSetCurvaturePrime;
+        }
+        bool ClothoidImpl::IsSetLength() const
+        {
+            return _isSetLength;
+        }
+        void ClothoidImpl::ResetStartTime()
+        {
+            _isSetStartTime = false; 
+            _startTime = {};
+
+        }
+        bool ClothoidImpl::IsSetStartTime() const
+        {
+            return _isSetStartTime;
+        }
+        void ClothoidImpl::ResetStopTime()
+        {
+            _isSetStopTime = false; 
+            _stopTime = {};
+
+        }
+        bool ClothoidImpl::IsSetStopTime() const
+        {
+            return _isSetStopTime;
+        }
+        bool ClothoidImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
 
         IOpenScenarioFlexElement* CollisionConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -11089,16 +11368,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             _byType = {};
-			// set the indicator to true
-            isSetEntityRef = true;          
+            _isSetEntityRef = true;
         }
 
         void CollisionConditionImpl::SetByType(std::shared_ptr<IByObjectTypeWriter> byType)
         {
             _byType = byType;
             _entityRef = {};
-			// set the indicator to true
-            isSetByType = true;          
+            _isSetByType = true;
         }
 
         std::shared_ptr<void> CollisionConditionImpl::GetAdapter(const std::string classifier)
@@ -11296,26 +11573,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void CollisionConditionImpl::ResetEntityRef()
-	   {
-	   		isSetEntityRef = false; 
-			_entityRef = {};
-			
-	   }
-       bool CollisionConditionImpl::IsSetEntityRef() const
-	   {
-			return isSetEntityRef;
-	   }
-       void CollisionConditionImpl::ResetByType()
-	   {
-	   		isSetByType = false; 
-			_byType = {};
-			
-	   }
-       bool CollisionConditionImpl::IsSetByType() const
-	   {
-			return isSetByType;
-	   }
+        void CollisionConditionImpl::ResetEntityRef()
+        {
+            _isSetEntityRef = false; 
+            _entityRef = {};
+
+        }
+        bool CollisionConditionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        void CollisionConditionImpl::ResetByType()
+        {
+            _isSetByType = false; 
+            _byType = {};
+
+        }
+        bool CollisionConditionImpl::IsSetByType() const
+        {
+            return _isSetByType;
+        }
 
         IOpenScenarioFlexElement* ColorImpl::GetOpenScenarioFlexElement()
         {
@@ -11339,18 +11616,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _colorType = colorType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COLOR_TYPE);
+            _isSetColorType = true;
         }
 
         void ColorImpl::SetColorRgb(std::shared_ptr<IColorRgbWriter> colorRgb)
         {
             _colorRgb = colorRgb;
             _colorCmyk = {};
+            _isSetColorRgb = true;
         }
 
         void ColorImpl::SetColorCmyk(std::shared_ptr<IColorCmykWriter> colorCmyk)
         {
             _colorCmyk = colorCmyk;
             _colorRgb = {};
+            _isSetColorCmyk = true;
         }
 
         std::shared_ptr<void> ColorImpl::GetAdapter(const std::string classifier)
@@ -11470,6 +11750,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _colorType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetColorType = true;
                 }
                 else
                 {
@@ -11602,6 +11883,18 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ColorImpl::IsSetColorType() const
+        {
+            return _isSetColorType;
+        }
+        bool ColorImpl::IsSetColorRgb() const
+        {
+            return _isSetColorRgb;
+        }
+        bool ColorImpl::IsSetColorCmyk() const
+        {
+            return _isSetColorCmyk;
+        }
 
         IOpenScenarioFlexElement* ColorCmykImpl::GetOpenScenarioFlexElement()
         {
@@ -11629,24 +11922,28 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _cyan = cyan;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CYAN);
+            _isSetCyan = true;
         }
 
         void ColorCmykImpl::SetKey(const double key)
         {
             _key = key;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__KEY);
+            _isSetKey = true;
         }
 
         void ColorCmykImpl::SetMagenta(const double magenta)
         {
             _magenta = magenta;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAGENTA);
+            _isSetMagenta = true;
         }
 
         void ColorCmykImpl::SetYellow(const double yellow)
         {
             _yellow = yellow;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__YELLOW);
+            _isSetYellow = true;
         }
 
         std::shared_ptr<void> ColorCmykImpl::GetAdapter(const std::string classifier)
@@ -11845,24 +12142,28 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _cyan = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetCyan = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__KEY)
             {
                 // Simple type
                 _key = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetKey = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAGENTA)
             {
                 // Simple type
                 _magenta = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMagenta = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__YELLOW)
             {
                 // Simple type
                 _yellow = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetYellow = true;
             }
         }
 
@@ -11946,29 +12247,49 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _cyan = value;
                 AddResolvedParameter(attributeKey);
+                _isSetCyan = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__KEY)
             {
                 // Simple type
                 _key = value;
                 AddResolvedParameter(attributeKey);
+                _isSetKey = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAGENTA)
             {
                 // Simple type
                 _magenta = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMagenta = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__YELLOW)
             {
                 // Simple type
                 _yellow = value;
                 AddResolvedParameter(attributeKey);
+                _isSetYellow = true;
             }
 		
 		}
 
 
+        bool ColorCmykImpl::IsSetCyan() const
+        {
+            return _isSetCyan;
+        }
+        bool ColorCmykImpl::IsSetKey() const
+        {
+            return _isSetKey;
+        }
+        bool ColorCmykImpl::IsSetMagenta() const
+        {
+            return _isSetMagenta;
+        }
+        bool ColorCmykImpl::IsSetYellow() const
+        {
+            return _isSetYellow;
+        }
 
         IOpenScenarioFlexElement* ColorRgbImpl::GetOpenScenarioFlexElement()
         {
@@ -11992,18 +12313,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _blue = blue;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__BLUE);
+            _isSetBlue = true;
         }
 
         void ColorRgbImpl::SetGreen(const double green)
         {
             _green = green;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__GREEN);
+            _isSetGreen = true;
         }
 
         void ColorRgbImpl::SetRed(const double red)
         {
             _red = red;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RED);
+            _isSetRed = true;
         }
 
         std::shared_ptr<void> ColorRgbImpl::GetAdapter(const std::string classifier)
@@ -12175,18 +12499,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _blue = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetBlue = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__GREEN)
             {
                 // Simple type
                 _green = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetGreen = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RED)
             {
                 // Simple type
                 _red = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetRed = true;
             }
         }
 
@@ -12268,23 +12595,38 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _blue = value;
                 AddResolvedParameter(attributeKey);
+                _isSetBlue = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__GREEN)
             {
                 // Simple type
                 _green = value;
                 AddResolvedParameter(attributeKey);
+                _isSetGreen = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RED)
             {
                 // Simple type
                 _red = value;
                 AddResolvedParameter(attributeKey);
+                _isSetRed = true;
             }
 		
 		}
 
 
+        bool ColorRgbImpl::IsSetBlue() const
+        {
+            return _isSetBlue;
+        }
+        bool ColorRgbImpl::IsSetGreen() const
+        {
+            return _isSetGreen;
+        }
+        bool ColorRgbImpl::IsSetRed() const
+        {
+            return _isSetRed;
+        }
 
         IOpenScenarioFlexElement* ComponentAnimationImpl::GetOpenScenarioFlexElement()
         {
@@ -12304,12 +12646,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _vehicleComponent = vehicleComponent;
             _userDefinedComponent = {};
+            _isSetVehicleComponent = true;
         }
 
         void ComponentAnimationImpl::SetUserDefinedComponent(std::shared_ptr<IUserDefinedComponentWriter> userDefinedComponent)
         {
             _userDefinedComponent = userDefinedComponent;
             _vehicleComponent = {};
+            _isSetUserDefinedComponent = true;
         }
 
         std::shared_ptr<void> ComponentAnimationImpl::GetAdapter(const std::string classifier)
@@ -12507,6 +12851,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ComponentAnimationImpl::IsSetVehicleComponent() const
+        {
+            return _isSetVehicleComponent;
+        }
+        bool ComponentAnimationImpl::IsSetUserDefinedComponent() const
+        {
+            return _isSetUserDefinedComponent;
+        }
 
         IOpenScenarioFlexElement* ConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -12538,34 +12890,35 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _conditionEdge = conditionEdge;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONDITION_EDGE);
+            _isSetConditionEdge = true;
         }
 
         void ConditionImpl::SetDelay(const double delay)
         {
             _delay = delay;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY);
+            _isSetDelay = true;
         }
 
         void ConditionImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void ConditionImpl::SetByEntityCondition(std::shared_ptr<IByEntityConditionWriter> byEntityCondition)
         {
             _byEntityCondition = byEntityCondition;
             _byValueCondition = {};
-			// set the indicator to true
-            isSetByEntityCondition = true;          
+            _isSetByEntityCondition = true;
         }
 
         void ConditionImpl::SetByValueCondition(std::shared_ptr<IByValueConditionWriter> byValueCondition)
         {
             _byValueCondition = byValueCondition;
             _byEntityCondition = {};
-			// set the indicator to true
-            isSetByValueCondition = true;          
+            _isSetByValueCondition = true;
         }
 
         std::shared_ptr<void> ConditionImpl::GetAdapter(const std::string classifier)
@@ -12740,6 +13093,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _conditionEdge = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetConditionEdge = true;
                 }
                 else
                 {
@@ -12752,12 +13106,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _delay = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDelay = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -12902,6 +13258,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
@@ -12912,31 +13269,44 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _delay = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDelay = true;
             }
 		
 		}
 
 
-       void ConditionImpl::ResetByEntityCondition()
-	   {
-	   		isSetByEntityCondition = false; 
-			_byEntityCondition = {};
-			
-	   }
-       bool ConditionImpl::IsSetByEntityCondition() const
-	   {
-			return isSetByEntityCondition;
-	   }
-       void ConditionImpl::ResetByValueCondition()
-	   {
-	   		isSetByValueCondition = false; 
-			_byValueCondition = {};
-			
-	   }
-       bool ConditionImpl::IsSetByValueCondition() const
-	   {
-			return isSetByValueCondition;
-	   }
+        bool ConditionImpl::IsSetConditionEdge() const
+        {
+            return _isSetConditionEdge;
+        }
+        bool ConditionImpl::IsSetDelay() const
+        {
+            return _isSetDelay;
+        }
+        bool ConditionImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void ConditionImpl::ResetByEntityCondition()
+        {
+            _isSetByEntityCondition = false; 
+            _byEntityCondition = {};
+
+        }
+        bool ConditionImpl::IsSetByEntityCondition() const
+        {
+            return _isSetByEntityCondition;
+        }
+        void ConditionImpl::ResetByValueCondition()
+        {
+            _isSetByValueCondition = false; 
+            _byValueCondition = {};
+
+        }
+        bool ConditionImpl::IsSetByValueCondition() const
+        {
+            return _isSetByValueCondition;
+        }
 
         IOpenScenarioFlexElement* ConditionGroupImpl::GetOpenScenarioFlexElement()
         {
@@ -12972,6 +13342,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ConditionGroupImpl::SetConditions(std::vector<std::shared_ptr<IConditionWriter>>& conditions)
         {
             _conditions = conditions;
+            _isSetConditions = true;
         }
 
         std::shared_ptr<void> ConditionGroupImpl::GetAdapter(const std::string classifier)
@@ -13154,6 +13525,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ConditionGroupImpl::IsSetConditions() const
+        {
+            return _isSetConditions;
+        }
 
         IOpenScenarioFlexElement* ControlPointImpl::GetOpenScenarioFlexElement()
         {
@@ -13177,21 +13552,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _time = time;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME);
-			// set the indicator to true
-            isSetTime = true;          
+            _isSetTime = true;
         }
 
         void ControlPointImpl::SetWeight(const double weight)
         {
             _weight = weight;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT);
-			// set the indicator to true
-            isSetWeight = true;          
+            _isSetWeight = true;
         }
 
         void ControlPointImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         std::shared_ptr<void> ControlPointImpl::GetAdapter(const std::string classifier)
@@ -13340,12 +13714,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _time = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTime = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WEIGHT)
             {
                 // Simple type
                 _weight = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
         }
 
@@ -13394,8 +13770,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_weight = GetWeight();
             // clone indicators
-            	clonedObject->isSetTime = isSetTime;
-            	clonedObject->isSetWeight = isSetWeight;
+            clonedObject->_isSetTime = _isSetTime;
+            clonedObject->_isSetWeight = _isSetWeight;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -13449,37 +13825,43 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _time = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTime = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WEIGHT)
             {
                 // Simple type
                 _weight = value;
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
 		
 		}
 
 
-       void ControlPointImpl::ResetTime()
-	   {
-	   		isSetTime = false; 
-			_time = {};
-			
-	   }
-       bool ControlPointImpl::IsSetTime() const
-	   {
-			return isSetTime;
-	   }
-       void ControlPointImpl::ResetWeight()
-	   {
-	   		isSetWeight = false; 
-			_weight = {};
-			
-	   }
-       bool ControlPointImpl::IsSetWeight() const
-	   {
-			return isSetWeight;
-	   }
+        void ControlPointImpl::ResetTime()
+        {
+            _isSetTime = false; 
+            _time = {};
+
+        }
+        bool ControlPointImpl::IsSetTime() const
+        {
+            return _isSetTime;
+        }
+        void ControlPointImpl::ResetWeight()
+        {
+            _isSetWeight = false; 
+            _weight = {};
+
+        }
+        bool ControlPointImpl::IsSetWeight() const
+        {
+            return _isSetWeight;
+        }
+        bool ControlPointImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
 
         IOpenScenarioFlexElement* ControllerImpl::GetOpenScenarioFlexElement()
         {
@@ -13528,26 +13910,26 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _controllerType = controllerType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTROLLER_TYPE);
-			// set the indicator to true
-            isSetControllerType = true;          
+            _isSetControllerType = true;
         }
 
         void ControllerImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void ControllerImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
-			// set the indicator to true
-            isSetParameterDeclarations = true;          
+            _isSetParameterDeclarations = true;
         }
 
         void ControllerImpl::SetProperties(std::shared_ptr<IPropertiesWriter> properties)
         {
             _properties = properties;
+            _isSetProperties = true;
         }
 
         std::shared_ptr<void> ControllerImpl::GetAdapter(const std::string classifier)
@@ -13686,6 +14068,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _controllerType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetControllerType = true;
                 }
                 else
                 {
@@ -13698,6 +14081,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -13778,7 +14162,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_name = GetName();
             // clone indicators
-            	clonedObject->isSetControllerType = isSetControllerType;
+            clonedObject->_isSetControllerType = _isSetControllerType;
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -13875,31 +14259,40 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void ControllerImpl::ResetControllerType()
-	   {
-	   		isSetControllerType = false; 
-			_controllerType = {ControllerType::ControllerTypeEnum::MOVEMENT};
-			
-	   }
-       bool ControllerImpl::IsSetControllerType() const
-	   {
-			return isSetControllerType;
-	   }
-       void ControllerImpl::ResetParameterDeclarations()
-	   {
-	   		isSetParameterDeclarations = false; 
-			_parameterDeclarations = {};
-			
-	   }
-       bool ControllerImpl::IsSetParameterDeclarations() const
-	   {
-			return isSetParameterDeclarations;
-	   }
+        void ControllerImpl::ResetControllerType()
+        {
+            _isSetControllerType = false; 
+            _controllerType = {ControllerType::ControllerTypeEnum::MOVEMENT};
+
+        }
+        bool ControllerImpl::IsSetControllerType() const
+        {
+            return _isSetControllerType;
+        }
+        bool ControllerImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void ControllerImpl::ResetParameterDeclarations()
+        {
+            _isSetParameterDeclarations = false; 
+            _parameterDeclarations = {};
+
+        }
+        bool ControllerImpl::IsSetParameterDeclarations() const
+        {
+            return _isSetParameterDeclarations;
+        }
+        bool ControllerImpl::IsSetProperties() const
+        {
+            return _isSetProperties;
+        }
 
         IOpenScenarioFlexElement* ControllerActionImpl::GetOpenScenarioFlexElement()
         {
@@ -13922,22 +14315,19 @@ namespace NET_ASAM_OPENSCENARIO
         void ControllerActionImpl::SetAssignControllerAction(std::shared_ptr<IAssignControllerActionWriter> assignControllerAction)
         {
             _assignControllerAction = assignControllerAction;
-			// set the indicator to true
-            isSetAssignControllerAction = true;          
+            _isSetAssignControllerAction = true;
         }
 
         void ControllerActionImpl::SetOverrideControllerValueAction(std::shared_ptr<IOverrideControllerValueActionWriter> overrideControllerValueAction)
         {
             _overrideControllerValueAction = overrideControllerValueAction;
-			// set the indicator to true
-            isSetOverrideControllerValueAction = true;          
+            _isSetOverrideControllerValueAction = true;
         }
 
         void ControllerActionImpl::SetActivateControllerAction(std::shared_ptr<IActivateControllerActionWriter> activateControllerAction)
         {
             _activateControllerAction = activateControllerAction;
-			// set the indicator to true
-            isSetActivateControllerAction = true;          
+            _isSetActivateControllerAction = true;
         }
 
         std::shared_ptr<void> ControllerActionImpl::GetAdapter(const std::string classifier)
@@ -14157,36 +14547,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void ControllerActionImpl::ResetAssignControllerAction()
-	   {
-	   		isSetAssignControllerAction = false; 
-			_assignControllerAction = {};
-			
-	   }
-       bool ControllerActionImpl::IsSetAssignControllerAction() const
-	   {
-			return isSetAssignControllerAction;
-	   }
-       void ControllerActionImpl::ResetOverrideControllerValueAction()
-	   {
-	   		isSetOverrideControllerValueAction = false; 
-			_overrideControllerValueAction = {};
-			
-	   }
-       bool ControllerActionImpl::IsSetOverrideControllerValueAction() const
-	   {
-			return isSetOverrideControllerValueAction;
-	   }
-       void ControllerActionImpl::ResetActivateControllerAction()
-	   {
-	   		isSetActivateControllerAction = false; 
-			_activateControllerAction = {};
-			
-	   }
-       bool ControllerActionImpl::IsSetActivateControllerAction() const
-	   {
-			return isSetActivateControllerAction;
-	   }
+        void ControllerActionImpl::ResetAssignControllerAction()
+        {
+            _isSetAssignControllerAction = false; 
+            _assignControllerAction = {};
+
+        }
+        bool ControllerActionImpl::IsSetAssignControllerAction() const
+        {
+            return _isSetAssignControllerAction;
+        }
+        void ControllerActionImpl::ResetOverrideControllerValueAction()
+        {
+            _isSetOverrideControllerValueAction = false; 
+            _overrideControllerValueAction = {};
+
+        }
+        bool ControllerActionImpl::IsSetOverrideControllerValueAction() const
+        {
+            return _isSetOverrideControllerValueAction;
+        }
+        void ControllerActionImpl::ResetActivateControllerAction()
+        {
+            _isSetActivateControllerAction = false; 
+            _activateControllerAction = {};
+
+        }
+        bool ControllerActionImpl::IsSetActivateControllerAction() const
+        {
+            return _isSetActivateControllerAction;
+        }
 
         IOpenScenarioFlexElement* ControllerCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -14201,6 +14591,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ControllerCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectoryWriter> directory)
         {
             _directory = directory;
+            _isSetDirectory = true;
         }
 
         std::shared_ptr<void> ControllerCatalogLocationImpl::GetAdapter(const std::string classifier)
@@ -14376,6 +14767,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ControllerCatalogLocationImpl::IsSetDirectory() const
+        {
+            return _isSetDirectory;
+        }
 
         IOpenScenarioFlexElement* ControllerDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -14411,6 +14806,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ControllerDistributionImpl::SetControllerDistributionEntries(std::vector<std::shared_ptr<IControllerDistributionEntryWriter>>& controllerDistributionEntries)
         {
             _controllerDistributionEntries = controllerDistributionEntries;
+            _isSetControllerDistributionEntries = true;
         }
 
         std::shared_ptr<void> ControllerDistributionImpl::GetAdapter(const std::string classifier)
@@ -14593,6 +14989,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ControllerDistributionImpl::IsSetControllerDistributionEntries() const
+        {
+            return _isSetControllerDistributionEntries;
+        }
 
         IOpenScenarioFlexElement* ControllerDistributionEntryImpl::GetOpenScenarioFlexElement()
         {
@@ -14616,22 +15016,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _weight = weight;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT);
+            _isSetWeight = true;
         }
 
         void ControllerDistributionEntryImpl::SetController(std::shared_ptr<IControllerWriter> controller)
         {
             _controller = controller;
             _catalogReference = {};
-			// set the indicator to true
-            isSetController = true;          
+            _isSetController = true;
         }
 
         void ControllerDistributionEntryImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _controller = {};
-			// set the indicator to true
-            isSetCatalogReference = true;          
+            _isSetCatalogReference = true;
         }
 
         std::shared_ptr<void> ControllerDistributionEntryImpl::GetAdapter(const std::string classifier)
@@ -14757,6 +15156,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _weight = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
         }
 
@@ -14874,31 +15274,36 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _weight = value;
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
 		
 		}
 
 
-       void ControllerDistributionEntryImpl::ResetController()
-	   {
-	   		isSetController = false; 
-			_controller = {};
-			
-	   }
-       bool ControllerDistributionEntryImpl::IsSetController() const
-	   {
-			return isSetController;
-	   }
-       void ControllerDistributionEntryImpl::ResetCatalogReference()
-	   {
-	   		isSetCatalogReference = false; 
-			_catalogReference = {};
-			
-	   }
-       bool ControllerDistributionEntryImpl::IsSetCatalogReference() const
-	   {
-			return isSetCatalogReference;
-	   }
+        bool ControllerDistributionEntryImpl::IsSetWeight() const
+        {
+            return _isSetWeight;
+        }
+        void ControllerDistributionEntryImpl::ResetController()
+        {
+            _isSetController = false; 
+            _controller = {};
+
+        }
+        bool ControllerDistributionEntryImpl::IsSetController() const
+        {
+            return _isSetController;
+        }
+        void ControllerDistributionEntryImpl::ResetCatalogReference()
+        {
+            _isSetCatalogReference = false; 
+            _catalogReference = {};
+
+        }
+        bool ControllerDistributionEntryImpl::IsSetCatalogReference() const
+        {
+            return _isSetCatalogReference;
+        }
 
         IOpenScenarioFlexElement* CustomCommandActionImpl::GetOpenScenarioFlexElement()
         {
@@ -14918,12 +15323,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _content = content;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTENT);
+            _isSetContent = true;
         }
 
         void CustomCommandActionImpl::SetType(const std::string type)
         {
             _type = type;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE);
+            _isSetType = true;
         }
 
         std::shared_ptr<void> CustomCommandActionImpl::GetAdapter(const std::string classifier)
@@ -15055,12 +15462,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _content = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetContent = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TYPE)
             {
                 // Simple type
                 _type = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetType = true;
             }
         }
 
@@ -15152,17 +15561,27 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _content = value;
                 AddResolvedParameter(attributeKey);
+                _isSetContent = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TYPE)
             {
                 // Simple type
                 _type = value;
                 AddResolvedParameter(attributeKey);
+                _isSetType = true;
             }
 		
 		}
 
 
+        bool CustomCommandActionImpl::IsSetContent() const
+        {
+            return _isSetContent;
+        }
+        bool CustomCommandActionImpl::IsSetType() const
+        {
+            return _isSetType;
+        }
 
         IOpenScenarioFlexElement* CustomContentImpl::GetOpenScenarioFlexElement()
         {
@@ -15178,6 +15597,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _content = content;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTENT);
+            _isSetContent = true;
         }
 
         std::shared_ptr<void> CustomContentImpl::GetAdapter(const std::string classifier)
@@ -15286,6 +15706,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _content = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetContent = true;
             }
         }
 
@@ -15370,11 +15791,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _content = value;
                 AddResolvedParameter(attributeKey);
+                _isSetContent = true;
             }
 		
 		}
 
 
+        bool CustomContentImpl::IsSetContent() const
+        {
+            return _isSetContent;
+        }
 
         IOpenScenarioFlexElement* DeleteEntityActionImpl::GetOpenScenarioFlexElement()
         {
@@ -15564,8 +15990,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DeterministicImpl::SetDeterministicParameterDistributions(std::vector<std::shared_ptr<IDeterministicParameterDistributionWriter>>& deterministicParameterDistributions)
         {
             _deterministicParameterDistributions = deterministicParameterDistributions;
-			// set the indicator to true
-            isSetDeterministicParameterDistributions = true;          
+            _isSetDeterministicParameterDistributions = true;
         }
 
         std::shared_ptr<void> DeterministicImpl::GetAdapter(const std::string classifier)
@@ -15748,16 +16173,16 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void DeterministicImpl::ResetDeterministicParameterDistributions()
-	   {
-	   		isSetDeterministicParameterDistributions = false; 
-			_deterministicParameterDistributions = {};
-			
-	   }
-       bool DeterministicImpl::IsSetDeterministicParameterDistributions() const
-	   {
-			return isSetDeterministicParameterDistributions;
-	   }
+        void DeterministicImpl::ResetDeterministicParameterDistributions()
+        {
+            _isSetDeterministicParameterDistributions = false; 
+            _deterministicParameterDistributions = {};
+
+        }
+        bool DeterministicImpl::IsSetDeterministicParameterDistributions() const
+        {
+            return _isSetDeterministicParameterDistributions;
+        }
 
         IOpenScenarioFlexElement* DeterministicMultiParameterDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -15772,6 +16197,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DeterministicMultiParameterDistributionImpl::SetDeterministicMultiParameterDistributionType(std::shared_ptr<IDeterministicMultiParameterDistributionTypeWriter> deterministicMultiParameterDistributionType)
         {
             _deterministicMultiParameterDistributionType = deterministicMultiParameterDistributionType;
+            _isSetDeterministicMultiParameterDistributionType = true;
         }
 
         std::shared_ptr<void> DeterministicMultiParameterDistributionImpl::GetAdapter(const std::string classifier)
@@ -15947,6 +16373,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool DeterministicMultiParameterDistributionImpl::IsSetDeterministicMultiParameterDistributionType() const
+        {
+            return _isSetDeterministicMultiParameterDistributionType;
+        }
 
         IOpenScenarioFlexElement* DeterministicMultiParameterDistributionTypeImpl::GetOpenScenarioFlexElement()
         {
@@ -15961,6 +16391,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DeterministicMultiParameterDistributionTypeImpl::SetValueSetDistribution(std::shared_ptr<IValueSetDistributionWriter> valueSetDistribution)
         {
             _valueSetDistribution = valueSetDistribution;
+            _isSetValueSetDistribution = true;
         }
 
         std::shared_ptr<void> DeterministicMultiParameterDistributionTypeImpl::GetAdapter(const std::string classifier)
@@ -16136,6 +16567,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool DeterministicMultiParameterDistributionTypeImpl::IsSetValueSetDistribution() const
+        {
+            return _isSetValueSetDistribution;
+        }
 
         IOpenScenarioFlexElement* DeterministicParameterDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -16155,12 +16590,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _deterministicMultiParameterDistribution = deterministicMultiParameterDistribution;
             _deterministicSingleParameterDistribution = {};
+            _isSetDeterministicMultiParameterDistribution = true;
         }
 
         void DeterministicParameterDistributionImpl::SetDeterministicSingleParameterDistribution(std::shared_ptr<IDeterministicSingleParameterDistributionWriter> deterministicSingleParameterDistribution)
         {
             _deterministicSingleParameterDistribution = deterministicSingleParameterDistribution;
             _deterministicMultiParameterDistribution = {};
+            _isSetDeterministicSingleParameterDistribution = true;
         }
 
         std::shared_ptr<void> DeterministicParameterDistributionImpl::GetAdapter(const std::string classifier)
@@ -16358,6 +16795,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool DeterministicParameterDistributionImpl::IsSetDeterministicMultiParameterDistribution() const
+        {
+            return _isSetDeterministicMultiParameterDistribution;
+        }
+        bool DeterministicParameterDistributionImpl::IsSetDeterministicSingleParameterDistribution() const
+        {
+            return _isSetDeterministicSingleParameterDistribution;
+        }
 
         IOpenScenarioFlexElement* DeterministicSingleParameterDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -16377,11 +16822,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _parameterName = parameterName;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME);
+            _isSetParameterName = true;
         }
 
         void DeterministicSingleParameterDistributionImpl::SetDeterministicSingleParameterDistributionType(std::shared_ptr<IDeterministicSingleParameterDistributionTypeWriter> deterministicSingleParameterDistributionType)
         {
             _deterministicSingleParameterDistributionType = deterministicSingleParameterDistributionType;
+            _isSetDeterministicSingleParameterDistributionType = true;
         }
 
         std::shared_ptr<void> DeterministicSingleParameterDistributionImpl::GetAdapter(const std::string classifier)
@@ -16494,6 +16941,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _parameterName = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetParameterName = true;
             }
         }
 
@@ -16602,11 +17050,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _parameterName = value;
                 AddResolvedParameter(attributeKey);
+                _isSetParameterName = true;
             }
 		
 		}
 
 
+        bool DeterministicSingleParameterDistributionImpl::IsSetParameterName() const
+        {
+            return _isSetParameterName;
+        }
+        bool DeterministicSingleParameterDistributionImpl::IsSetDeterministicSingleParameterDistributionType() const
+        {
+            return _isSetDeterministicSingleParameterDistributionType;
+        }
 
         IOpenScenarioFlexElement* DeterministicSingleParameterDistributionTypeImpl::GetOpenScenarioFlexElement()
         {
@@ -16631,6 +17088,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distributionSet = distributionSet;
             _distributionRange = {};
             _userDefinedDistribution = {};
+            _isSetDistributionSet = true;
         }
 
         void DeterministicSingleParameterDistributionTypeImpl::SetDistributionRange(std::shared_ptr<IDistributionRangeWriter> distributionRange)
@@ -16638,6 +17096,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distributionRange = distributionRange;
             _distributionSet = {};
             _userDefinedDistribution = {};
+            _isSetDistributionRange = true;
         }
 
         void DeterministicSingleParameterDistributionTypeImpl::SetUserDefinedDistribution(std::shared_ptr<IUserDefinedDistributionWriter> userDefinedDistribution)
@@ -16645,6 +17104,7 @@ namespace NET_ASAM_OPENSCENARIO
             _userDefinedDistribution = userDefinedDistribution;
             _distributionSet = {};
             _distributionRange = {};
+            _isSetUserDefinedDistribution = true;
         }
 
         std::shared_ptr<void> DeterministicSingleParameterDistributionTypeImpl::GetAdapter(const std::string classifier)
@@ -16864,6 +17324,18 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool DeterministicSingleParameterDistributionTypeImpl::IsSetDistributionSet() const
+        {
+            return _isSetDistributionSet;
+        }
+        bool DeterministicSingleParameterDistributionTypeImpl::IsSetDistributionRange() const
+        {
+            return _isSetDistributionRange;
+        }
+        bool DeterministicSingleParameterDistributionTypeImpl::IsSetUserDefinedDistribution() const
+        {
+            return _isSetUserDefinedDistribution;
+        }
 
         IOpenScenarioFlexElement* DimensionsImpl::GetOpenScenarioFlexElement()
         {
@@ -16887,18 +17359,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _height = height;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT);
+            _isSetHeight = true;
         }
 
         void DimensionsImpl::SetLength(const double length)
         {
             _length = length;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LENGTH);
+            _isSetLength = true;
         }
 
         void DimensionsImpl::SetWidth(const double width)
         {
             _width = width;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WIDTH);
+            _isSetWidth = true;
         }
 
         std::shared_ptr<void> DimensionsImpl::GetAdapter(const std::string classifier)
@@ -17070,18 +17545,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _height = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetHeight = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LENGTH)
             {
                 // Simple type
                 _length = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLength = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WIDTH)
             {
                 // Simple type
                 _width = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetWidth = true;
             }
         }
 
@@ -17163,23 +17641,38 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _height = value;
                 AddResolvedParameter(attributeKey);
+                _isSetHeight = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LENGTH)
             {
                 // Simple type
                 _length = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLength = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WIDTH)
             {
                 // Simple type
                 _width = value;
                 AddResolvedParameter(attributeKey);
+                _isSetWidth = true;
             }
 		
 		}
 
 
+        bool DimensionsImpl::IsSetHeight() const
+        {
+            return _isSetHeight;
+        }
+        bool DimensionsImpl::IsSetLength() const
+        {
+            return _isSetLength;
+        }
+        bool DimensionsImpl::IsSetWidth() const
+        {
+            return _isSetWidth;
+        }
 
         IOpenScenarioFlexElement* DirectionOfTravelDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -17199,12 +17692,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _opposite = opposite;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OPPOSITE);
+            _isSetOpposite = true;
         }
 
         void DirectionOfTravelDistributionImpl::SetSame(const double same)
         {
             _same = same;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SAME);
+            _isSetSame = true;
         }
 
         std::shared_ptr<void> DirectionOfTravelDistributionImpl::GetAdapter(const std::string classifier)
@@ -17349,12 +17844,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _opposite = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetOpposite = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SAME)
             {
                 // Simple type
                 _same = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetSame = true;
             }
         }
 
@@ -17434,17 +17931,27 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _opposite = value;
                 AddResolvedParameter(attributeKey);
+                _isSetOpposite = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SAME)
             {
                 // Simple type
                 _same = value;
                 AddResolvedParameter(attributeKey);
+                _isSetSame = true;
             }
 		
 		}
 
 
+        bool DirectionOfTravelDistributionImpl::IsSetOpposite() const
+        {
+            return _isSetOpposite;
+        }
+        bool DirectionOfTravelDistributionImpl::IsSetSame() const
+        {
+            return _isSetSame;
+        }
 
         IOpenScenarioFlexElement* DirectoryImpl::GetOpenScenarioFlexElement()
         {
@@ -17460,6 +17967,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _path = path;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH);
+            _isSetPath = true;
         }
 
         std::shared_ptr<void> DirectoryImpl::GetAdapter(const std::string classifier)
@@ -17568,6 +18076,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _path = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetPath = true;
             }
         }
 
@@ -17654,11 +18163,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _path = value;
                 AddResolvedParameter(attributeKey);
+                _isSetPath = true;
             }
 		
 		}
 
 
+        bool DirectoryImpl::IsSetPath() const
+        {
+            return _isSetPath;
+        }
 
         IOpenScenarioFlexElement* DistanceConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -17702,55 +18216,55 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _alongRoute = alongRoute;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE);
-			// set the indicator to true
-            isSetAlongRoute = true;          
+            _isSetAlongRoute = true;
         }
 
         void DistanceConditionImpl::SetCoordinateSystem(const CoordinateSystem coordinateSystem)
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
-			// set the indicator to true
-            isSetCoordinateSystem = true;          
+            _isSetCoordinateSystem = true;
         }
 
         void DistanceConditionImpl::SetFreespace(const bool freespace)
         {
             _freespace = freespace;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE);
+            _isSetFreespace = true;
         }
 
         void DistanceConditionImpl::SetRelativeDistanceType(const RelativeDistanceType relativeDistanceType)
         {
             _relativeDistanceType = relativeDistanceType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
-			// set the indicator to true
-            isSetRelativeDistanceType = true;          
+            _isSetRelativeDistanceType = true;
         }
 
         void DistanceConditionImpl::SetRoutingAlgorithm(const RoutingAlgorithm routingAlgorithm)
         {
             _routingAlgorithm = routingAlgorithm;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROUTING_ALGORITHM);
-			// set the indicator to true
-            isSetRoutingAlgorithm = true;          
+            _isSetRoutingAlgorithm = true;
         }
 
         void DistanceConditionImpl::SetRule(const Rule rule)
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void DistanceConditionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         void DistanceConditionImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         std::shared_ptr<void> DistanceConditionImpl::GetAdapter(const std::string classifier)
@@ -18023,6 +18537,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAlongRoute = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM)
             {
@@ -18032,6 +18547,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _coordinateSystem = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetCoordinateSystem = true;
                 }
                 else
                 {
@@ -18044,6 +18560,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE)
             {
@@ -18053,6 +18570,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _relativeDistanceType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRelativeDistanceType = true;
                 }
                 else
                 {
@@ -18068,6 +18586,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _routingAlgorithm = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRoutingAlgorithm = true;
                 }
                 else
                 {
@@ -18083,6 +18602,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -18095,6 +18615,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -18169,10 +18690,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetAlongRoute = isSetAlongRoute;
-            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
-            	clonedObject->isSetRelativeDistanceType = isSetRelativeDistanceType;
-            	clonedObject->isSetRoutingAlgorithm = isSetRoutingAlgorithm;
+            clonedObject->_isSetAlongRoute = _isSetAlongRoute;
+            clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
+            clonedObject->_isSetRelativeDistanceType = _isSetRelativeDistanceType;
+            clonedObject->_isSetRoutingAlgorithm = _isSetRoutingAlgorithm;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -18251,12 +18772,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _alongRoute = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAlongRoute = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
 		
 		}
@@ -18267,51 +18790,68 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void DistanceConditionImpl::ResetAlongRoute()
-	   {
-	   		isSetAlongRoute = false; 
-			_alongRoute = {};
-			
-	   }
-       bool DistanceConditionImpl::IsSetAlongRoute() const
-	   {
-			return isSetAlongRoute;
-	   }
-       void DistanceConditionImpl::ResetCoordinateSystem()
-	   {
-	   		isSetCoordinateSystem = false; 
-			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-			
-	   }
-       bool DistanceConditionImpl::IsSetCoordinateSystem() const
-	   {
-			return isSetCoordinateSystem;
-	   }
-       void DistanceConditionImpl::ResetRelativeDistanceType()
-	   {
-	   		isSetRelativeDistanceType = false; 
-			_relativeDistanceType = {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
-			
-	   }
-       bool DistanceConditionImpl::IsSetRelativeDistanceType() const
-	   {
-			return isSetRelativeDistanceType;
-	   }
-       void DistanceConditionImpl::ResetRoutingAlgorithm()
-	   {
-	   		isSetRoutingAlgorithm = false; 
-			_routingAlgorithm = {RoutingAlgorithm::RoutingAlgorithmEnum::UNDEFINED};
-			
-	   }
-       bool DistanceConditionImpl::IsSetRoutingAlgorithm() const
-	   {
-			return isSetRoutingAlgorithm;
-	   }
+        void DistanceConditionImpl::ResetAlongRoute()
+        {
+            _isSetAlongRoute = false; 
+            _alongRoute = {};
+
+        }
+        bool DistanceConditionImpl::IsSetAlongRoute() const
+        {
+            return _isSetAlongRoute;
+        }
+        void DistanceConditionImpl::ResetCoordinateSystem()
+        {
+            _isSetCoordinateSystem = false; 
+            _coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+
+        }
+        bool DistanceConditionImpl::IsSetCoordinateSystem() const
+        {
+            return _isSetCoordinateSystem;
+        }
+        bool DistanceConditionImpl::IsSetFreespace() const
+        {
+            return _isSetFreespace;
+        }
+        void DistanceConditionImpl::ResetRelativeDistanceType()
+        {
+            _isSetRelativeDistanceType = false; 
+            _relativeDistanceType = {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
+
+        }
+        bool DistanceConditionImpl::IsSetRelativeDistanceType() const
+        {
+            return _isSetRelativeDistanceType;
+        }
+        void DistanceConditionImpl::ResetRoutingAlgorithm()
+        {
+            _isSetRoutingAlgorithm = false; 
+            _routingAlgorithm = {RoutingAlgorithm::RoutingAlgorithmEnum::UNDEFINED};
+
+        }
+        bool DistanceConditionImpl::IsSetRoutingAlgorithm() const
+        {
+            return _isSetRoutingAlgorithm;
+        }
+        bool DistanceConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool DistanceConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
+        bool DistanceConditionImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
 
         IOpenScenarioFlexElement* DistributionDefinitionImpl::GetOpenScenarioFlexElement()
         {
@@ -18331,12 +18871,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _deterministic = deterministic;
             _stochastic = {};
+            _isSetDeterministic = true;
         }
 
         void DistributionDefinitionImpl::SetStochastic(std::shared_ptr<IStochasticWriter> stochastic)
         {
             _stochastic = stochastic;
             _deterministic = {};
+            _isSetStochastic = true;
         }
 
         std::shared_ptr<void> DistributionDefinitionImpl::GetAdapter(const std::string classifier)
@@ -18534,6 +19076,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool DistributionDefinitionImpl::IsSetDeterministic() const
+        {
+            return _isSetDeterministic;
+        }
+        bool DistributionDefinitionImpl::IsSetStochastic() const
+        {
+            return _isSetStochastic;
+        }
 
         IOpenScenarioFlexElement* DistributionRangeImpl::GetOpenScenarioFlexElement()
         {
@@ -18553,11 +19103,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _stepWidth = stepWidth;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STEP_WIDTH);
+            _isSetStepWidth = true;
         }
 
         void DistributionRangeImpl::SetRange(std::shared_ptr<IRangeWriter> range)
         {
             _range = range;
+            _isSetRange = true;
         }
 
         std::shared_ptr<void> DistributionRangeImpl::GetAdapter(const std::string classifier)
@@ -18679,6 +19231,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _stepWidth = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetStepWidth = true;
             }
         }
 
@@ -18778,11 +19331,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _stepWidth = value;
                 AddResolvedParameter(attributeKey);
+                _isSetStepWidth = true;
             }
 		
 		}
 
 
+        bool DistributionRangeImpl::IsSetStepWidth() const
+        {
+            return _isSetStepWidth;
+        }
+        bool DistributionRangeImpl::IsSetRange() const
+        {
+            return _isSetRange;
+        }
 
         IOpenScenarioFlexElement* DistributionSetImpl::GetOpenScenarioFlexElement()
         {
@@ -18818,6 +19380,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DistributionSetImpl::SetElements(std::vector<std::shared_ptr<IDistributionSetElementWriter>>& elements)
         {
             _elements = elements;
+            _isSetElements = true;
         }
 
         std::shared_ptr<void> DistributionSetImpl::GetAdapter(const std::string classifier)
@@ -19000,6 +19563,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool DistributionSetImpl::IsSetElements() const
+        {
+            return _isSetElements;
+        }
 
         IOpenScenarioFlexElement* DistributionSetElementImpl::GetOpenScenarioFlexElement()
         {
@@ -19015,6 +19582,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> DistributionSetElementImpl::GetAdapter(const std::string classifier)
@@ -19123,6 +19691,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -19209,11 +19778,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool DistributionSetElementImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* DomeImageImpl::GetOpenScenarioFlexElement()
         {
@@ -19233,13 +19807,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _azimuthOffset = azimuthOffset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH_OFFSET);
-			// set the indicator to true
-            isSetAzimuthOffset = true;          
+            _isSetAzimuthOffset = true;
         }
 
         void DomeImageImpl::SetDomeFile(std::shared_ptr<IFileWriter> domeFile)
         {
             _domeFile = domeFile;
+            _isSetDomeFile = true;
         }
 
         std::shared_ptr<void> DomeImageImpl::GetAdapter(const std::string classifier)
@@ -19361,6 +19935,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _azimuthOffset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAzimuthOffset = true;
             }
         }
 
@@ -19407,7 +19982,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_azimuthOffset = GetAzimuthOffset();
             // clone indicators
-            	clonedObject->isSetAzimuthOffset = isSetAzimuthOffset;
+            clonedObject->_isSetAzimuthOffset = _isSetAzimuthOffset;
             // clone children
             const auto kDomeFile =  GetWriterDomeFile();
             if (kDomeFile)
@@ -19461,21 +20036,26 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _azimuthOffset = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAzimuthOffset = true;
             }
 		
 		}
 
 
-       void DomeImageImpl::ResetAzimuthOffset()
-	   {
-	   		isSetAzimuthOffset = false; 
-			_azimuthOffset = {0};
-			
-	   }
-       bool DomeImageImpl::IsSetAzimuthOffset() const
-	   {
-			return isSetAzimuthOffset;
-	   }
+        void DomeImageImpl::ResetAzimuthOffset()
+        {
+            _isSetAzimuthOffset = false; 
+            _azimuthOffset = {0};
+
+        }
+        bool DomeImageImpl::IsSetAzimuthOffset() const
+        {
+            return _isSetAzimuthOffset;
+        }
+        bool DomeImageImpl::IsSetDomeFile() const
+        {
+            return _isSetDomeFile;
+        }
 
         IOpenScenarioFlexElement* DynamicConstraintsImpl::GetOpenScenarioFlexElement()
         {
@@ -19507,40 +20087,35 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _maxAcceleration = maxAcceleration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION);
-			// set the indicator to true
-            isSetMaxAcceleration = true;          
+            _isSetMaxAcceleration = true;
         }
 
         void DynamicConstraintsImpl::SetMaxAccelerationRate(const double maxAccelerationRate)
         {
             _maxAccelerationRate = maxAccelerationRate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION_RATE);
-			// set the indicator to true
-            isSetMaxAccelerationRate = true;          
+            _isSetMaxAccelerationRate = true;
         }
 
         void DynamicConstraintsImpl::SetMaxDeceleration(const double maxDeceleration)
         {
             _maxDeceleration = maxDeceleration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION);
-			// set the indicator to true
-            isSetMaxDeceleration = true;          
+            _isSetMaxDeceleration = true;
         }
 
         void DynamicConstraintsImpl::SetMaxDecelerationRate(const double maxDecelerationRate)
         {
             _maxDecelerationRate = maxDecelerationRate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION_RATE);
-			// set the indicator to true
-            isSetMaxDecelerationRate = true;          
+            _isSetMaxDecelerationRate = true;
         }
 
         void DynamicConstraintsImpl::SetMaxSpeed(const double maxSpeed)
         {
             _maxSpeed = maxSpeed;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED);
-			// set the indicator to true
-            isSetMaxSpeed = true;          
+            _isSetMaxSpeed = true;
         }
 
         std::shared_ptr<void> DynamicConstraintsImpl::GetAdapter(const std::string classifier)
@@ -19766,30 +20341,35 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxAcceleration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxAcceleration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION_RATE)
             {
                 // Simple type
                 _maxAccelerationRate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxAccelerationRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION)
             {
                 // Simple type
                 _maxDeceleration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxDeceleration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION_RATE)
             {
                 // Simple type
                 _maxDecelerationRate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxDecelerationRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED)
             {
                 // Simple type
                 _maxSpeed = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxSpeed = true;
             }
         }
 
@@ -19839,11 +20419,11 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_maxSpeed = GetMaxSpeed();
             // clone indicators
-            	clonedObject->isSetMaxAcceleration = isSetMaxAcceleration;
-            	clonedObject->isSetMaxAccelerationRate = isSetMaxAccelerationRate;
-            	clonedObject->isSetMaxDeceleration = isSetMaxDeceleration;
-            	clonedObject->isSetMaxDecelerationRate = isSetMaxDecelerationRate;
-            	clonedObject->isSetMaxSpeed = isSetMaxSpeed;
+            clonedObject->_isSetMaxAcceleration = _isSetMaxAcceleration;
+            clonedObject->_isSetMaxAccelerationRate = _isSetMaxAccelerationRate;
+            clonedObject->_isSetMaxDeceleration = _isSetMaxDeceleration;
+            clonedObject->_isSetMaxDecelerationRate = _isSetMaxDecelerationRate;
+            clonedObject->_isSetMaxSpeed = _isSetMaxSpeed;
             // clone children
             return clonedObject;
         }
@@ -19880,85 +20460,90 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxAcceleration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxAcceleration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION_RATE)
             {
                 // Simple type
                 _maxAccelerationRate = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxAccelerationRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION)
             {
                 // Simple type
                 _maxDeceleration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxDeceleration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION_RATE)
             {
                 // Simple type
                 _maxDecelerationRate = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxDecelerationRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED)
             {
                 // Simple type
                 _maxSpeed = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxSpeed = true;
             }
 		
 		}
 
 
-       void DynamicConstraintsImpl::ResetMaxAcceleration()
-	   {
-	   		isSetMaxAcceleration = false; 
-			_maxAcceleration = {};
-			
-	   }
-       bool DynamicConstraintsImpl::IsSetMaxAcceleration() const
-	   {
-			return isSetMaxAcceleration;
-	   }
-       void DynamicConstraintsImpl::ResetMaxAccelerationRate()
-	   {
-	   		isSetMaxAccelerationRate = false; 
-			_maxAccelerationRate = {};
-			
-	   }
-       bool DynamicConstraintsImpl::IsSetMaxAccelerationRate() const
-	   {
-			return isSetMaxAccelerationRate;
-	   }
-       void DynamicConstraintsImpl::ResetMaxDeceleration()
-	   {
-	   		isSetMaxDeceleration = false; 
-			_maxDeceleration = {};
-			
-	   }
-       bool DynamicConstraintsImpl::IsSetMaxDeceleration() const
-	   {
-			return isSetMaxDeceleration;
-	   }
-       void DynamicConstraintsImpl::ResetMaxDecelerationRate()
-	   {
-	   		isSetMaxDecelerationRate = false; 
-			_maxDecelerationRate = {};
-			
-	   }
-       bool DynamicConstraintsImpl::IsSetMaxDecelerationRate() const
-	   {
-			return isSetMaxDecelerationRate;
-	   }
-       void DynamicConstraintsImpl::ResetMaxSpeed()
-	   {
-	   		isSetMaxSpeed = false; 
-			_maxSpeed = {};
-			
-	   }
-       bool DynamicConstraintsImpl::IsSetMaxSpeed() const
-	   {
-			return isSetMaxSpeed;
-	   }
+        void DynamicConstraintsImpl::ResetMaxAcceleration()
+        {
+            _isSetMaxAcceleration = false; 
+            _maxAcceleration = {};
+
+        }
+        bool DynamicConstraintsImpl::IsSetMaxAcceleration() const
+        {
+            return _isSetMaxAcceleration;
+        }
+        void DynamicConstraintsImpl::ResetMaxAccelerationRate()
+        {
+            _isSetMaxAccelerationRate = false; 
+            _maxAccelerationRate = {};
+
+        }
+        bool DynamicConstraintsImpl::IsSetMaxAccelerationRate() const
+        {
+            return _isSetMaxAccelerationRate;
+        }
+        void DynamicConstraintsImpl::ResetMaxDeceleration()
+        {
+            _isSetMaxDeceleration = false; 
+            _maxDeceleration = {};
+
+        }
+        bool DynamicConstraintsImpl::IsSetMaxDeceleration() const
+        {
+            return _isSetMaxDeceleration;
+        }
+        void DynamicConstraintsImpl::ResetMaxDecelerationRate()
+        {
+            _isSetMaxDecelerationRate = false; 
+            _maxDecelerationRate = {};
+
+        }
+        bool DynamicConstraintsImpl::IsSetMaxDecelerationRate() const
+        {
+            return _isSetMaxDecelerationRate;
+        }
+        void DynamicConstraintsImpl::ResetMaxSpeed()
+        {
+            _isSetMaxSpeed = false; 
+            _maxSpeed = {};
+
+        }
+        bool DynamicConstraintsImpl::IsSetMaxSpeed() const
+        {
+            return _isSetMaxSpeed;
+        }
 
         IOpenScenarioFlexElement* EndOfRoadConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -19974,6 +20559,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _duration = duration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION);
+            _isSetDuration = true;
         }
 
         std::shared_ptr<void> EndOfRoadConditionImpl::GetAdapter(const std::string classifier)
@@ -20091,6 +20677,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _duration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDuration = true;
             }
         }
 
@@ -20168,11 +20755,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _duration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDuration = true;
             }
 		
 		}
 
 
+        bool EndOfRoadConditionImpl::IsSetDuration() const
+        {
+            return _isSetDuration;
+        }
 
         IOpenScenarioFlexElement* EntitiesImpl::GetOpenScenarioFlexElement()
         {
@@ -20233,15 +20825,13 @@ namespace NET_ASAM_OPENSCENARIO
         void EntitiesImpl::SetScenarioObjects(std::vector<std::shared_ptr<IScenarioObjectWriter>>& scenarioObjects)
         {
             _scenarioObjects = scenarioObjects;
-			// set the indicator to true
-            isSetScenarioObjects = true;          
+            _isSetScenarioObjects = true;
         }
 
         void EntitiesImpl::SetEntitySelections(std::vector<std::shared_ptr<IEntitySelectionWriter>>& entitySelections)
         {
             _entitySelections = entitySelections;
-			// set the indicator to true
-            isSetEntitySelections = true;          
+            _isSetEntitySelections = true;
         }
 
         std::shared_ptr<void> EntitiesImpl::GetAdapter(const std::string classifier)
@@ -20452,26 +21042,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void EntitiesImpl::ResetScenarioObjects()
-	   {
-	   		isSetScenarioObjects = false; 
-			_scenarioObjects = {};
-			
-	   }
-       bool EntitiesImpl::IsSetScenarioObjects() const
-	   {
-			return isSetScenarioObjects;
-	   }
-       void EntitiesImpl::ResetEntitySelections()
-	   {
-	   		isSetEntitySelections = false; 
-			_entitySelections = {};
-			
-	   }
-       bool EntitiesImpl::IsSetEntitySelections() const
-	   {
-			return isSetEntitySelections;
-	   }
+        void EntitiesImpl::ResetScenarioObjects()
+        {
+            _isSetScenarioObjects = false; 
+            _scenarioObjects = {};
+
+        }
+        bool EntitiesImpl::IsSetScenarioObjects() const
+        {
+            return _isSetScenarioObjects;
+        }
+        void EntitiesImpl::ResetEntitySelections()
+        {
+            _isSetEntitySelections = false; 
+            _entitySelections = {};
+
+        }
+        bool EntitiesImpl::IsSetEntitySelections() const
+        {
+            return _isSetEntitySelections;
+        }
 
         IOpenScenarioFlexElement* EntityActionImpl::GetOpenScenarioFlexElement()
         {
@@ -20495,22 +21085,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void EntityActionImpl::SetAddEntityAction(std::shared_ptr<IAddEntityActionWriter> addEntityAction)
         {
             _addEntityAction = addEntityAction;
             _deleteEntityAction = {};
-			// set the indicator to true
-            isSetAddEntityAction = true;          
+            _isSetAddEntityAction = true;
         }
 
         void EntityActionImpl::SetDeleteEntityAction(std::shared_ptr<IDeleteEntityActionWriter> deleteEntityAction)
         {
             _deleteEntityAction = deleteEntityAction;
             _addEntityAction = {};
-			// set the indicator to true
-            isSetDeleteEntityAction = true;          
+            _isSetDeleteEntityAction = true;
         }
 
         std::shared_ptr<void> EntityActionImpl::GetAdapter(const std::string classifier)
@@ -20628,6 +21217,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
         }
 
@@ -20765,26 +21355,30 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void EntityActionImpl::ResetAddEntityAction()
-	   {
-	   		isSetAddEntityAction = false; 
-			_addEntityAction = {};
-			
-	   }
-       bool EntityActionImpl::IsSetAddEntityAction() const
-	   {
-			return isSetAddEntityAction;
-	   }
-       void EntityActionImpl::ResetDeleteEntityAction()
-	   {
-	   		isSetDeleteEntityAction = false; 
-			_deleteEntityAction = {};
-			
-	   }
-       bool EntityActionImpl::IsSetDeleteEntityAction() const
-	   {
-			return isSetDeleteEntityAction;
-	   }
+        bool EntityActionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        void EntityActionImpl::ResetAddEntityAction()
+        {
+            _isSetAddEntityAction = false; 
+            _addEntityAction = {};
+
+        }
+        bool EntityActionImpl::IsSetAddEntityAction() const
+        {
+            return _isSetAddEntityAction;
+        }
+        void EntityActionImpl::ResetDeleteEntityAction()
+        {
+            _isSetDeleteEntityAction = false; 
+            _deleteEntityAction = {};
+
+        }
+        bool EntityActionImpl::IsSetDeleteEntityAction() const
+        {
+            return _isSetDeleteEntityAction;
+        }
 
         IOpenScenarioFlexElement* EntityConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -20864,8 +21458,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetEndOfRoadCondition = true;          
+            _isSetEndOfRoadCondition = true;
         }
 
         void EntityConditionImpl::SetCollisionCondition(std::shared_ptr<ICollisionConditionWriter> collisionCondition)
@@ -20884,8 +21477,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetCollisionCondition = true;          
+            _isSetCollisionCondition = true;
         }
 
         void EntityConditionImpl::SetOffroadCondition(std::shared_ptr<IOffroadConditionWriter> offroadCondition)
@@ -20904,8 +21496,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetOffroadCondition = true;          
+            _isSetOffroadCondition = true;
         }
 
         void EntityConditionImpl::SetTimeHeadwayCondition(std::shared_ptr<ITimeHeadwayConditionWriter> timeHeadwayCondition)
@@ -20924,8 +21515,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetTimeHeadwayCondition = true;          
+            _isSetTimeHeadwayCondition = true;
         }
 
         void EntityConditionImpl::SetTimeToCollisionCondition(std::shared_ptr<ITimeToCollisionConditionWriter> timeToCollisionCondition)
@@ -20944,8 +21534,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetTimeToCollisionCondition = true;          
+            _isSetTimeToCollisionCondition = true;
         }
 
         void EntityConditionImpl::SetAccelerationCondition(std::shared_ptr<IAccelerationConditionWriter> accelerationCondition)
@@ -20964,8 +21553,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetAccelerationCondition = true;          
+            _isSetAccelerationCondition = true;
         }
 
         void EntityConditionImpl::SetStandStillCondition(std::shared_ptr<IStandStillConditionWriter> standStillCondition)
@@ -20984,8 +21572,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetStandStillCondition = true;          
+            _isSetStandStillCondition = true;
         }
 
         void EntityConditionImpl::SetSpeedCondition(std::shared_ptr<ISpeedConditionWriter> speedCondition)
@@ -21004,8 +21591,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetSpeedCondition = true;          
+            _isSetSpeedCondition = true;
         }
 
         void EntityConditionImpl::SetRelativeSpeedCondition(std::shared_ptr<IRelativeSpeedConditionWriter> relativeSpeedCondition)
@@ -21024,8 +21610,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetRelativeSpeedCondition = true;          
+            _isSetRelativeSpeedCondition = true;
         }
 
         void EntityConditionImpl::SetTraveledDistanceCondition(std::shared_ptr<ITraveledDistanceConditionWriter> traveledDistanceCondition)
@@ -21044,8 +21629,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetTraveledDistanceCondition = true;          
+            _isSetTraveledDistanceCondition = true;
         }
 
         void EntityConditionImpl::SetReachPositionCondition(std::shared_ptr<IReachPositionConditionWriter> reachPositionCondition)
@@ -21064,8 +21648,7 @@ namespace NET_ASAM_OPENSCENARIO
             _distanceCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetReachPositionCondition = true;          
+            _isSetReachPositionCondition = true;
         }
 
         void EntityConditionImpl::SetDistanceCondition(std::shared_ptr<IDistanceConditionWriter> distanceCondition)
@@ -21084,8 +21667,7 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _relativeDistanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetDistanceCondition = true;          
+            _isSetDistanceCondition = true;
         }
 
         void EntityConditionImpl::SetRelativeDistanceCondition(std::shared_ptr<IRelativeDistanceConditionWriter> relativeDistanceCondition)
@@ -21104,8 +21686,7 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeClearanceCondition = {};
-			// set the indicator to true
-            isSetRelativeDistanceCondition = true;          
+            _isSetRelativeDistanceCondition = true;
         }
 
         void EntityConditionImpl::SetRelativeClearanceCondition(std::shared_ptr<IRelativeClearanceConditionWriter> relativeClearanceCondition)
@@ -21124,8 +21705,7 @@ namespace NET_ASAM_OPENSCENARIO
             _reachPositionCondition = {};
             _distanceCondition = {};
             _relativeDistanceCondition = {};
-			// set the indicator to true
-            isSetRelativeClearanceCondition = true;          
+            _isSetRelativeClearanceCondition = true;
         }
 
         std::shared_ptr<void> EntityConditionImpl::GetAdapter(const std::string classifier)
@@ -21587,146 +22167,146 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void EntityConditionImpl::ResetEndOfRoadCondition()
-	   {
-	   		isSetEndOfRoadCondition = false; 
-			_endOfRoadCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetEndOfRoadCondition() const
-	   {
-			return isSetEndOfRoadCondition;
-	   }
-       void EntityConditionImpl::ResetCollisionCondition()
-	   {
-	   		isSetCollisionCondition = false; 
-			_collisionCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetCollisionCondition() const
-	   {
-			return isSetCollisionCondition;
-	   }
-       void EntityConditionImpl::ResetOffroadCondition()
-	   {
-	   		isSetOffroadCondition = false; 
-			_offroadCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetOffroadCondition() const
-	   {
-			return isSetOffroadCondition;
-	   }
-       void EntityConditionImpl::ResetTimeHeadwayCondition()
-	   {
-	   		isSetTimeHeadwayCondition = false; 
-			_timeHeadwayCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetTimeHeadwayCondition() const
-	   {
-			return isSetTimeHeadwayCondition;
-	   }
-       void EntityConditionImpl::ResetTimeToCollisionCondition()
-	   {
-	   		isSetTimeToCollisionCondition = false; 
-			_timeToCollisionCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetTimeToCollisionCondition() const
-	   {
-			return isSetTimeToCollisionCondition;
-	   }
-       void EntityConditionImpl::ResetAccelerationCondition()
-	   {
-	   		isSetAccelerationCondition = false; 
-			_accelerationCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetAccelerationCondition() const
-	   {
-			return isSetAccelerationCondition;
-	   }
-       void EntityConditionImpl::ResetStandStillCondition()
-	   {
-	   		isSetStandStillCondition = false; 
-			_standStillCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetStandStillCondition() const
-	   {
-			return isSetStandStillCondition;
-	   }
-       void EntityConditionImpl::ResetSpeedCondition()
-	   {
-	   		isSetSpeedCondition = false; 
-			_speedCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetSpeedCondition() const
-	   {
-			return isSetSpeedCondition;
-	   }
-       void EntityConditionImpl::ResetRelativeSpeedCondition()
-	   {
-	   		isSetRelativeSpeedCondition = false; 
-			_relativeSpeedCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetRelativeSpeedCondition() const
-	   {
-			return isSetRelativeSpeedCondition;
-	   }
-       void EntityConditionImpl::ResetTraveledDistanceCondition()
-	   {
-	   		isSetTraveledDistanceCondition = false; 
-			_traveledDistanceCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetTraveledDistanceCondition() const
-	   {
-			return isSetTraveledDistanceCondition;
-	   }
-       void EntityConditionImpl::ResetReachPositionCondition()
-	   {
-	   		isSetReachPositionCondition = false; 
-			_reachPositionCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetReachPositionCondition() const
-	   {
-			return isSetReachPositionCondition;
-	   }
-       void EntityConditionImpl::ResetDistanceCondition()
-	   {
-	   		isSetDistanceCondition = false; 
-			_distanceCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetDistanceCondition() const
-	   {
-			return isSetDistanceCondition;
-	   }
-       void EntityConditionImpl::ResetRelativeDistanceCondition()
-	   {
-	   		isSetRelativeDistanceCondition = false; 
-			_relativeDistanceCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetRelativeDistanceCondition() const
-	   {
-			return isSetRelativeDistanceCondition;
-	   }
-       void EntityConditionImpl::ResetRelativeClearanceCondition()
-	   {
-	   		isSetRelativeClearanceCondition = false; 
-			_relativeClearanceCondition = {};
-			
-	   }
-       bool EntityConditionImpl::IsSetRelativeClearanceCondition() const
-	   {
-			return isSetRelativeClearanceCondition;
-	   }
+        void EntityConditionImpl::ResetEndOfRoadCondition()
+        {
+            _isSetEndOfRoadCondition = false; 
+            _endOfRoadCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetEndOfRoadCondition() const
+        {
+            return _isSetEndOfRoadCondition;
+        }
+        void EntityConditionImpl::ResetCollisionCondition()
+        {
+            _isSetCollisionCondition = false; 
+            _collisionCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetCollisionCondition() const
+        {
+            return _isSetCollisionCondition;
+        }
+        void EntityConditionImpl::ResetOffroadCondition()
+        {
+            _isSetOffroadCondition = false; 
+            _offroadCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetOffroadCondition() const
+        {
+            return _isSetOffroadCondition;
+        }
+        void EntityConditionImpl::ResetTimeHeadwayCondition()
+        {
+            _isSetTimeHeadwayCondition = false; 
+            _timeHeadwayCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetTimeHeadwayCondition() const
+        {
+            return _isSetTimeHeadwayCondition;
+        }
+        void EntityConditionImpl::ResetTimeToCollisionCondition()
+        {
+            _isSetTimeToCollisionCondition = false; 
+            _timeToCollisionCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetTimeToCollisionCondition() const
+        {
+            return _isSetTimeToCollisionCondition;
+        }
+        void EntityConditionImpl::ResetAccelerationCondition()
+        {
+            _isSetAccelerationCondition = false; 
+            _accelerationCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetAccelerationCondition() const
+        {
+            return _isSetAccelerationCondition;
+        }
+        void EntityConditionImpl::ResetStandStillCondition()
+        {
+            _isSetStandStillCondition = false; 
+            _standStillCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetStandStillCondition() const
+        {
+            return _isSetStandStillCondition;
+        }
+        void EntityConditionImpl::ResetSpeedCondition()
+        {
+            _isSetSpeedCondition = false; 
+            _speedCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetSpeedCondition() const
+        {
+            return _isSetSpeedCondition;
+        }
+        void EntityConditionImpl::ResetRelativeSpeedCondition()
+        {
+            _isSetRelativeSpeedCondition = false; 
+            _relativeSpeedCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetRelativeSpeedCondition() const
+        {
+            return _isSetRelativeSpeedCondition;
+        }
+        void EntityConditionImpl::ResetTraveledDistanceCondition()
+        {
+            _isSetTraveledDistanceCondition = false; 
+            _traveledDistanceCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetTraveledDistanceCondition() const
+        {
+            return _isSetTraveledDistanceCondition;
+        }
+        void EntityConditionImpl::ResetReachPositionCondition()
+        {
+            _isSetReachPositionCondition = false; 
+            _reachPositionCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetReachPositionCondition() const
+        {
+            return _isSetReachPositionCondition;
+        }
+        void EntityConditionImpl::ResetDistanceCondition()
+        {
+            _isSetDistanceCondition = false; 
+            _distanceCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetDistanceCondition() const
+        {
+            return _isSetDistanceCondition;
+        }
+        void EntityConditionImpl::ResetRelativeDistanceCondition()
+        {
+            _isSetRelativeDistanceCondition = false; 
+            _relativeDistanceCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetRelativeDistanceCondition() const
+        {
+            return _isSetRelativeDistanceCondition;
+        }
+        void EntityConditionImpl::ResetRelativeClearanceCondition()
+        {
+            _isSetRelativeClearanceCondition = false; 
+            _relativeClearanceCondition = {};
+
+        }
+        bool EntityConditionImpl::IsSetRelativeClearanceCondition() const
+        {
+            return _isSetRelativeClearanceCondition;
+        }
 
         IOpenScenarioFlexElement* EntityObjectImpl::GetOpenScenarioFlexElement()
         {
@@ -21761,8 +22341,7 @@ namespace NET_ASAM_OPENSCENARIO
             _pedestrian = {};
             _miscObject = {};
             _externalObjectReference = {};
-			// set the indicator to true
-            isSetCatalogReference = true;          
+            _isSetCatalogReference = true;
         }
 
         void EntityObjectImpl::SetVehicle(std::shared_ptr<IVehicleWriter> vehicle)
@@ -21772,8 +22351,7 @@ namespace NET_ASAM_OPENSCENARIO
             _pedestrian = {};
             _miscObject = {};
             _externalObjectReference = {};
-			// set the indicator to true
-            isSetVehicle = true;          
+            _isSetVehicle = true;
         }
 
         void EntityObjectImpl::SetPedestrian(std::shared_ptr<IPedestrianWriter> pedestrian)
@@ -21783,8 +22361,7 @@ namespace NET_ASAM_OPENSCENARIO
             _vehicle = {};
             _miscObject = {};
             _externalObjectReference = {};
-			// set the indicator to true
-            isSetPedestrian = true;          
+            _isSetPedestrian = true;
         }
 
         void EntityObjectImpl::SetMiscObject(std::shared_ptr<IMiscObjectWriter> miscObject)
@@ -21794,8 +22371,7 @@ namespace NET_ASAM_OPENSCENARIO
             _vehicle = {};
             _pedestrian = {};
             _externalObjectReference = {};
-			// set the indicator to true
-            isSetMiscObject = true;          
+            _isSetMiscObject = true;
         }
 
         void EntityObjectImpl::SetExternalObjectReference(std::shared_ptr<IExternalObjectReferenceWriter> externalObjectReference)
@@ -21805,8 +22381,7 @@ namespace NET_ASAM_OPENSCENARIO
             _vehicle = {};
             _pedestrian = {};
             _miscObject = {};
-			// set the indicator to true
-            isSetExternalObjectReference = true;          
+            _isSetExternalObjectReference = true;
         }
 
         std::shared_ptr<void> EntityObjectImpl::GetAdapter(const std::string classifier)
@@ -22070,56 +22645,56 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void EntityObjectImpl::ResetCatalogReference()
-	   {
-	   		isSetCatalogReference = false; 
-			_catalogReference = {};
-			
-	   }
-       bool EntityObjectImpl::IsSetCatalogReference() const
-	   {
-			return isSetCatalogReference;
-	   }
-       void EntityObjectImpl::ResetVehicle()
-	   {
-	   		isSetVehicle = false; 
-			_vehicle = {};
-			
-	   }
-       bool EntityObjectImpl::IsSetVehicle() const
-	   {
-			return isSetVehicle;
-	   }
-       void EntityObjectImpl::ResetPedestrian()
-	   {
-	   		isSetPedestrian = false; 
-			_pedestrian = {};
-			
-	   }
-       bool EntityObjectImpl::IsSetPedestrian() const
-	   {
-			return isSetPedestrian;
-	   }
-       void EntityObjectImpl::ResetMiscObject()
-	   {
-	   		isSetMiscObject = false; 
-			_miscObject = {};
-			
-	   }
-       bool EntityObjectImpl::IsSetMiscObject() const
-	   {
-			return isSetMiscObject;
-	   }
-       void EntityObjectImpl::ResetExternalObjectReference()
-	   {
-	   		isSetExternalObjectReference = false; 
-			_externalObjectReference = {};
-			
-	   }
-       bool EntityObjectImpl::IsSetExternalObjectReference() const
-	   {
-			return isSetExternalObjectReference;
-	   }
+        void EntityObjectImpl::ResetCatalogReference()
+        {
+            _isSetCatalogReference = false; 
+            _catalogReference = {};
+
+        }
+        bool EntityObjectImpl::IsSetCatalogReference() const
+        {
+            return _isSetCatalogReference;
+        }
+        void EntityObjectImpl::ResetVehicle()
+        {
+            _isSetVehicle = false; 
+            _vehicle = {};
+
+        }
+        bool EntityObjectImpl::IsSetVehicle() const
+        {
+            return _isSetVehicle;
+        }
+        void EntityObjectImpl::ResetPedestrian()
+        {
+            _isSetPedestrian = false; 
+            _pedestrian = {};
+
+        }
+        bool EntityObjectImpl::IsSetPedestrian() const
+        {
+            return _isSetPedestrian;
+        }
+        void EntityObjectImpl::ResetMiscObject()
+        {
+            _isSetMiscObject = false; 
+            _miscObject = {};
+
+        }
+        bool EntityObjectImpl::IsSetMiscObject() const
+        {
+            return _isSetMiscObject;
+        }
+        void EntityObjectImpl::ResetExternalObjectReference()
+        {
+            _isSetExternalObjectReference = false; 
+            _externalObjectReference = {};
+
+        }
+        bool EntityObjectImpl::IsSetExternalObjectReference() const
+        {
+            return _isSetExternalObjectReference;
+        }
 
         IOpenScenarioFlexElement* EntityRefImpl::GetOpenScenarioFlexElement()
         {
@@ -22135,6 +22710,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         std::shared_ptr<void> EntityRefImpl::GetAdapter(const std::string classifier)
@@ -22244,6 +22820,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
         }
 
@@ -22341,6 +22918,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool EntityRefImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
 
         IOpenScenarioFlexElement* EntitySelectionImpl::GetOpenScenarioFlexElement()
         {
@@ -22360,11 +22941,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void EntitySelectionImpl::SetMembers(std::shared_ptr<ISelectedEntitiesWriter> members)
         {
             _members = members;
+            _isSetMembers = true;
         }
 
         std::shared_ptr<void> EntitySelectionImpl::GetAdapter(const std::string classifier)
@@ -22477,6 +23060,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -22585,11 +23169,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
+        bool EntitySelectionImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool EntitySelectionImpl::IsSetMembers() const
+        {
+            return _isSetMembers;
+        }
 
         IOpenScenarioFlexElement* EnvironmentImpl::GetOpenScenarioFlexElement()
         {
@@ -22642,34 +23235,31 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void EnvironmentImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
-			// set the indicator to true
-            isSetParameterDeclarations = true;          
+            _isSetParameterDeclarations = true;
         }
 
         void EnvironmentImpl::SetTimeOfDay(std::shared_ptr<ITimeOfDayWriter> timeOfDay)
         {
             _timeOfDay = timeOfDay;
-			// set the indicator to true
-            isSetTimeOfDay = true;          
+            _isSetTimeOfDay = true;
         }
 
         void EnvironmentImpl::SetWeather(std::shared_ptr<IWeatherWriter> weather)
         {
             _weather = weather;
-			// set the indicator to true
-            isSetWeather = true;          
+            _isSetWeather = true;
         }
 
         void EnvironmentImpl::SetRoadCondition(std::shared_ptr<IRoadConditionWriter> roadCondition)
         {
             _roadCondition = roadCondition;
-			// set the indicator to true
-            isSetRoadCondition = true;          
+            _isSetRoadCondition = true;
         }
 
         std::shared_ptr<void> EnvironmentImpl::GetAdapter(const std::string classifier)
@@ -22790,6 +23380,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -22986,51 +23577,56 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void EnvironmentImpl::ResetParameterDeclarations()
-	   {
-	   		isSetParameterDeclarations = false; 
-			_parameterDeclarations = {};
-			
-	   }
-       bool EnvironmentImpl::IsSetParameterDeclarations() const
-	   {
-			return isSetParameterDeclarations;
-	   }
-       void EnvironmentImpl::ResetTimeOfDay()
-	   {
-	   		isSetTimeOfDay = false; 
-			_timeOfDay = {};
-			
-	   }
-       bool EnvironmentImpl::IsSetTimeOfDay() const
-	   {
-			return isSetTimeOfDay;
-	   }
-       void EnvironmentImpl::ResetWeather()
-	   {
-	   		isSetWeather = false; 
-			_weather = {};
-			
-	   }
-       bool EnvironmentImpl::IsSetWeather() const
-	   {
-			return isSetWeather;
-	   }
-       void EnvironmentImpl::ResetRoadCondition()
-	   {
-	   		isSetRoadCondition = false; 
-			_roadCondition = {};
-			
-	   }
-       bool EnvironmentImpl::IsSetRoadCondition() const
-	   {
-			return isSetRoadCondition;
-	   }
+        bool EnvironmentImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void EnvironmentImpl::ResetParameterDeclarations()
+        {
+            _isSetParameterDeclarations = false; 
+            _parameterDeclarations = {};
+
+        }
+        bool EnvironmentImpl::IsSetParameterDeclarations() const
+        {
+            return _isSetParameterDeclarations;
+        }
+        void EnvironmentImpl::ResetTimeOfDay()
+        {
+            _isSetTimeOfDay = false; 
+            _timeOfDay = {};
+
+        }
+        bool EnvironmentImpl::IsSetTimeOfDay() const
+        {
+            return _isSetTimeOfDay;
+        }
+        void EnvironmentImpl::ResetWeather()
+        {
+            _isSetWeather = false; 
+            _weather = {};
+
+        }
+        bool EnvironmentImpl::IsSetWeather() const
+        {
+            return _isSetWeather;
+        }
+        void EnvironmentImpl::ResetRoadCondition()
+        {
+            _isSetRoadCondition = false; 
+            _roadCondition = {};
+
+        }
+        bool EnvironmentImpl::IsSetRoadCondition() const
+        {
+            return _isSetRoadCondition;
+        }
 
         IOpenScenarioFlexElement* EnvironmentActionImpl::GetOpenScenarioFlexElement()
         {
@@ -23050,16 +23646,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _environment = environment;
             _catalogReference = {};
-			// set the indicator to true
-            isSetEnvironment = true;          
+            _isSetEnvironment = true;
         }
 
         void EnvironmentActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _environment = {};
-			// set the indicator to true
-            isSetCatalogReference = true;          
+            _isSetCatalogReference = true;
         }
 
         std::shared_ptr<void> EnvironmentActionImpl::GetAdapter(const std::string classifier)
@@ -23257,26 +23851,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void EnvironmentActionImpl::ResetEnvironment()
-	   {
-	   		isSetEnvironment = false; 
-			_environment = {};
-			
-	   }
-       bool EnvironmentActionImpl::IsSetEnvironment() const
-	   {
-			return isSetEnvironment;
-	   }
-       void EnvironmentActionImpl::ResetCatalogReference()
-	   {
-	   		isSetCatalogReference = false; 
-			_catalogReference = {};
-			
-	   }
-       bool EnvironmentActionImpl::IsSetCatalogReference() const
-	   {
-			return isSetCatalogReference;
-	   }
+        void EnvironmentActionImpl::ResetEnvironment()
+        {
+            _isSetEnvironment = false; 
+            _environment = {};
+
+        }
+        bool EnvironmentActionImpl::IsSetEnvironment() const
+        {
+            return _isSetEnvironment;
+        }
+        void EnvironmentActionImpl::ResetCatalogReference()
+        {
+            _isSetCatalogReference = false; 
+            _catalogReference = {};
+
+        }
+        bool EnvironmentActionImpl::IsSetCatalogReference() const
+        {
+            return _isSetCatalogReference;
+        }
 
         IOpenScenarioFlexElement* EnvironmentCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -23291,6 +23885,7 @@ namespace NET_ASAM_OPENSCENARIO
         void EnvironmentCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectoryWriter> directory)
         {
             _directory = directory;
+            _isSetDirectory = true;
         }
 
         std::shared_ptr<void> EnvironmentCatalogLocationImpl::GetAdapter(const std::string classifier)
@@ -23466,6 +24061,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool EnvironmentCatalogLocationImpl::IsSetDirectory() const
+        {
+            return _isSetDirectory;
+        }
 
         IOpenScenarioFlexElement* EventImpl::GetOpenScenarioFlexElement()
         {
@@ -23518,32 +24117,33 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _maximumExecutionCount = maximumExecutionCount;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
-			// set the indicator to true
-            isSetMaximumExecutionCount = true;          
+            _isSetMaximumExecutionCount = true;
         }
 
         void EventImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void EventImpl::SetPriority(const Priority priority)
         {
             _priority = priority;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRIORITY);
+            _isSetPriority = true;
         }
 
         void EventImpl::SetActions(std::vector<std::shared_ptr<IActionWriter>>& actions)
         {
             _actions = actions;
+            _isSetActions = true;
         }
 
         void EventImpl::SetStartTrigger(std::shared_ptr<ITriggerWriter> startTrigger)
         {
             _startTrigger = startTrigger;
-			// set the indicator to true
-            isSetStartTrigger = true;          
+            _isSetStartTrigger = true;
         }
 
         std::shared_ptr<void> EventImpl::GetAdapter(const std::string classifier)
@@ -23711,12 +24311,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maximumExecutionCount = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaximumExecutionCount = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PRIORITY)
             {
@@ -23726,6 +24328,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _priority = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetPriority = true;
                 }
                 else
                 {
@@ -23794,7 +24397,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_priority = Priority::GetFromLiteral(kPriority.GetLiteral());
             }
             // clone indicators
-            	clonedObject->isSetMaximumExecutionCount = isSetMaximumExecutionCount;
+            clonedObject->_isSetMaximumExecutionCount = _isSetMaximumExecutionCount;
             // clone children
             const auto kActions =  GetWriterActions();
             if (!kActions.empty())
@@ -23892,6 +24495,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maximumExecutionCount = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaximumExecutionCount = true;
             }
 		
 		}
@@ -23902,31 +24506,44 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void EventImpl::ResetMaximumExecutionCount()
-	   {
-	   		isSetMaximumExecutionCount = false; 
-			_maximumExecutionCount = {1};
-			
-	   }
-       bool EventImpl::IsSetMaximumExecutionCount() const
-	   {
-			return isSetMaximumExecutionCount;
-	   }
-       void EventImpl::ResetStartTrigger()
-	   {
-	   		isSetStartTrigger = false; 
-			_startTrigger = {};
-			
-	   }
-       bool EventImpl::IsSetStartTrigger() const
-	   {
-			return isSetStartTrigger;
-	   }
+        void EventImpl::ResetMaximumExecutionCount()
+        {
+            _isSetMaximumExecutionCount = false; 
+            _maximumExecutionCount = {1};
+
+        }
+        bool EventImpl::IsSetMaximumExecutionCount() const
+        {
+            return _isSetMaximumExecutionCount;
+        }
+        bool EventImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool EventImpl::IsSetPriority() const
+        {
+            return _isSetPriority;
+        }
+        bool EventImpl::IsSetActions() const
+        {
+            return _isSetActions;
+        }
+        void EventImpl::ResetStartTrigger()
+        {
+            _isSetStartTrigger = false; 
+            _startTrigger = {};
+
+        }
+        bool EventImpl::IsSetStartTrigger() const
+        {
+            return _isSetStartTrigger;
+        }
 
         IOpenScenarioFlexElement* ExternalObjectReferenceImpl::GetOpenScenarioFlexElement()
         {
@@ -23942,6 +24559,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         std::shared_ptr<void> ExternalObjectReferenceImpl::GetAdapter(const std::string classifier)
@@ -24050,6 +24668,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -24136,11 +24755,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
+        bool ExternalObjectReferenceImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
 
         IOpenScenarioFlexElement* FileImpl::GetOpenScenarioFlexElement()
         {
@@ -24156,6 +24780,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _filepath = filepath;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FILEPATH);
+            _isSetFilepath = true;
         }
 
         std::shared_ptr<void> FileImpl::GetAdapter(const std::string classifier)
@@ -24264,6 +24889,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _filepath = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFilepath = true;
             }
         }
 
@@ -24350,11 +24976,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _filepath = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFilepath = true;
             }
 		
 		}
 
 
+        bool FileImpl::IsSetFilepath() const
+        {
+            return _isSetFilepath;
+        }
 
         IOpenScenarioFlexElement* FileHeaderImpl::GetOpenScenarioFlexElement()
         {
@@ -24394,44 +25025,47 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _author = author;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AUTHOR);
+            _isSetAuthor = true;
         }
 
         void FileHeaderImpl::SetDate(const DateTime date)
         {
             _date = date;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DATE);
+            _isSetDate = true;
         }
 
         void FileHeaderImpl::SetDescription(const std::string description)
         {
             _description = description;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION);
+            _isSetDescription = true;
         }
 
         void FileHeaderImpl::SetRevMajor(const uint16_t revMajor)
         {
             _revMajor = revMajor;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR);
+            _isSetRevMajor = true;
         }
 
         void FileHeaderImpl::SetRevMinor(const uint16_t revMinor)
         {
             _revMinor = revMinor;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REV_MINOR);
+            _isSetRevMinor = true;
         }
 
         void FileHeaderImpl::SetLicense(std::shared_ptr<ILicenseWriter> license)
         {
             _license = license;
-			// set the indicator to true
-            isSetLicense = true;          
+            _isSetLicense = true;
         }
 
         void FileHeaderImpl::SetProperties(std::shared_ptr<IPropertiesWriter> properties)
         {
             _properties = properties;
-			// set the indicator to true
-            isSetProperties = true;          
+            _isSetProperties = true;
         }
 
         std::shared_ptr<void> FileHeaderImpl::GetAdapter(const std::string classifier)
@@ -24662,30 +25296,35 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _author = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAuthor = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DATE)
             {
                 // Simple type
                 _date = ParserHelper::ParseDateTime(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION)
             {
                 // Simple type
                 _description = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDescription = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REV_MAJOR)
             {
                 // Simple type
                 _revMajor = ParserHelper::ParseUnsignedShort(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetRevMajor = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REV_MINOR)
             {
                 // Simple type
                 _revMinor = ParserHelper::ParseUnsignedShort(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetRevMinor = true;
             }
         }
 
@@ -24825,12 +25464,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _revMajor = value;
                 AddResolvedParameter(attributeKey);
+                _isSetRevMajor = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REV_MINOR)
             {
                 // Simple type
                 _revMinor = value;
                 AddResolvedParameter(attributeKey);
+                _isSetRevMinor = true;
             }
 		
 		}
@@ -24841,12 +25482,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _author = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAuthor = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DESCRIPTION)
             {
                 // Simple type
                 _description = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDescription = true;
             }
 		
 		}
@@ -24857,31 +25500,52 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _date = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDate = true;
             }
 		
 		}
 
 
-       void FileHeaderImpl::ResetLicense()
-	   {
-	   		isSetLicense = false; 
-			_license = {};
-			
-	   }
-       bool FileHeaderImpl::IsSetLicense() const
-	   {
-			return isSetLicense;
-	   }
-       void FileHeaderImpl::ResetProperties()
-	   {
-	   		isSetProperties = false; 
-			_properties = {};
-			
-	   }
-       bool FileHeaderImpl::IsSetProperties() const
-	   {
-			return isSetProperties;
-	   }
+        bool FileHeaderImpl::IsSetAuthor() const
+        {
+            return _isSetAuthor;
+        }
+        bool FileHeaderImpl::IsSetDate() const
+        {
+            return _isSetDate;
+        }
+        bool FileHeaderImpl::IsSetDescription() const
+        {
+            return _isSetDescription;
+        }
+        bool FileHeaderImpl::IsSetRevMajor() const
+        {
+            return _isSetRevMajor;
+        }
+        bool FileHeaderImpl::IsSetRevMinor() const
+        {
+            return _isSetRevMinor;
+        }
+        void FileHeaderImpl::ResetLicense()
+        {
+            _isSetLicense = false; 
+            _license = {};
+
+        }
+        bool FileHeaderImpl::IsSetLicense() const
+        {
+            return _isSetLicense;
+        }
+        void FileHeaderImpl::ResetProperties()
+        {
+            _isSetProperties = false; 
+            _properties = {};
+
+        }
+        bool FileHeaderImpl::IsSetProperties() const
+        {
+            return _isSetProperties;
+        }
 
         IOpenScenarioFlexElement* FinalSpeedImpl::GetOpenScenarioFlexElement()
         {
@@ -24901,16 +25565,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _absoluteSpeed = absoluteSpeed;
             _relativeSpeedToMaster = {};
-			// set the indicator to true
-            isSetAbsoluteSpeed = true;          
+            _isSetAbsoluteSpeed = true;
         }
 
         void FinalSpeedImpl::SetRelativeSpeedToMaster(std::shared_ptr<IRelativeSpeedToMasterWriter> relativeSpeedToMaster)
         {
             _relativeSpeedToMaster = relativeSpeedToMaster;
             _absoluteSpeed = {};
-			// set the indicator to true
-            isSetRelativeSpeedToMaster = true;          
+            _isSetRelativeSpeedToMaster = true;
         }
 
         std::shared_ptr<void> FinalSpeedImpl::GetAdapter(const std::string classifier)
@@ -25108,26 +25770,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void FinalSpeedImpl::ResetAbsoluteSpeed()
-	   {
-	   		isSetAbsoluteSpeed = false; 
-			_absoluteSpeed = {};
-			
-	   }
-       bool FinalSpeedImpl::IsSetAbsoluteSpeed() const
-	   {
-			return isSetAbsoluteSpeed;
-	   }
-       void FinalSpeedImpl::ResetRelativeSpeedToMaster()
-	   {
-	   		isSetRelativeSpeedToMaster = false; 
-			_relativeSpeedToMaster = {};
-			
-	   }
-       bool FinalSpeedImpl::IsSetRelativeSpeedToMaster() const
-	   {
-			return isSetRelativeSpeedToMaster;
-	   }
+        void FinalSpeedImpl::ResetAbsoluteSpeed()
+        {
+            _isSetAbsoluteSpeed = false; 
+            _absoluteSpeed = {};
+
+        }
+        bool FinalSpeedImpl::IsSetAbsoluteSpeed() const
+        {
+            return _isSetAbsoluteSpeed;
+        }
+        void FinalSpeedImpl::ResetRelativeSpeedToMaster()
+        {
+            _isSetRelativeSpeedToMaster = false; 
+            _relativeSpeedToMaster = {};
+
+        }
+        bool FinalSpeedImpl::IsSetRelativeSpeedToMaster() const
+        {
+            return _isSetRelativeSpeedToMaster;
+        }
 
         IOpenScenarioFlexElement* FogImpl::GetOpenScenarioFlexElement()
         {
@@ -25147,13 +25809,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _visualRange = visualRange;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VISUAL_RANGE);
+            _isSetVisualRange = true;
         }
 
         void FogImpl::SetBoundingBox(std::shared_ptr<IBoundingBoxWriter> boundingBox)
         {
             _boundingBox = boundingBox;
-			// set the indicator to true
-            isSetBoundingBox = true;          
+            _isSetBoundingBox = true;
         }
 
         std::shared_ptr<void> FogImpl::GetAdapter(const std::string classifier)
@@ -25275,6 +25937,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _visualRange = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetVisualRange = true;
             }
         }
 
@@ -25374,21 +26037,26 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _visualRange = value;
                 AddResolvedParameter(attributeKey);
+                _isSetVisualRange = true;
             }
 		
 		}
 
 
-       void FogImpl::ResetBoundingBox()
-	   {
-	   		isSetBoundingBox = false; 
-			_boundingBox = {};
-			
-	   }
-       bool FogImpl::IsSetBoundingBox() const
-	   {
-			return isSetBoundingBox;
-	   }
+        bool FogImpl::IsSetVisualRange() const
+        {
+            return _isSetVisualRange;
+        }
+        void FogImpl::ResetBoundingBox()
+        {
+            _isSetBoundingBox = false; 
+            _boundingBox = {};
+
+        }
+        bool FogImpl::IsSetBoundingBox() const
+        {
+            return _isSetBoundingBox;
+        }
 
         IOpenScenarioFlexElement* FollowTrajectoryActionImpl::GetOpenScenarioFlexElement()
         {
@@ -25424,39 +26092,37 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _initialDistanceOffset = initialDistanceOffset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INITIAL_DISTANCE_OFFSET);
-			// set the indicator to true
-            isSetInitialDistanceOffset = true;          
+            _isSetInitialDistanceOffset = true;
         }
 
         void FollowTrajectoryActionImpl::SetTrajectory(std::shared_ptr<ITrajectoryWriter> trajectory)
         {
             _trajectory = trajectory;
-			// set the indicator to true
-            isSetTrajectory = true;          
+            _isSetTrajectory = true;
         }
 
         void FollowTrajectoryActionImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
-			// set the indicator to true
-            isSetCatalogReference = true;          
+            _isSetCatalogReference = true;
         }
 
         void FollowTrajectoryActionImpl::SetTimeReference(std::shared_ptr<ITimeReferenceWriter> timeReference)
         {
             _timeReference = timeReference;
+            _isSetTimeReference = true;
         }
 
         void FollowTrajectoryActionImpl::SetTrajectoryFollowingMode(std::shared_ptr<ITrajectoryFollowingModeWriter> trajectoryFollowingMode)
         {
             _trajectoryFollowingMode = trajectoryFollowingMode;
+            _isSetTrajectoryFollowingMode = true;
         }
 
         void FollowTrajectoryActionImpl::SetTrajectoryRef(std::shared_ptr<ITrajectoryRefWriter> trajectoryRef)
         {
             _trajectoryRef = trajectoryRef;
-			// set the indicator to true
-            isSetTrajectoryRef = true;          
+            _isSetTrajectoryRef = true;
         }
 
         std::shared_ptr<void> FollowTrajectoryActionImpl::GetAdapter(const std::string classifier)
@@ -25594,6 +26260,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _initialDistanceOffset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetInitialDistanceOffset = true;
             }
         }
 
@@ -25660,7 +26327,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_initialDistanceOffset = GetInitialDistanceOffset();
             // clone indicators
-            	clonedObject->isSetInitialDistanceOffset = isSetInitialDistanceOffset;
+            clonedObject->_isSetInitialDistanceOffset = _isSetInitialDistanceOffset;
             // clone children
             const auto kTrajectory =  GetWriterTrajectory();
             if (kTrajectory)
@@ -25766,51 +26433,60 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _initialDistanceOffset = value;
                 AddResolvedParameter(attributeKey);
+                _isSetInitialDistanceOffset = true;
             }
 		
 		}
 
 
-       void FollowTrajectoryActionImpl::ResetInitialDistanceOffset()
-	   {
-	   		isSetInitialDistanceOffset = false; 
-			_initialDistanceOffset = {0};
-			
-	   }
-       bool FollowTrajectoryActionImpl::IsSetInitialDistanceOffset() const
-	   {
-			return isSetInitialDistanceOffset;
-	   }
-       void FollowTrajectoryActionImpl::ResetTrajectory()
-	   {
-	   		isSetTrajectory = false; 
-			_trajectory = {};
-			
-	   }
-       bool FollowTrajectoryActionImpl::IsSetTrajectory() const
-	   {
-			return isSetTrajectory;
-	   }
-       void FollowTrajectoryActionImpl::ResetCatalogReference()
-	   {
-	   		isSetCatalogReference = false; 
-			_catalogReference = {};
-			
-	   }
-       bool FollowTrajectoryActionImpl::IsSetCatalogReference() const
-	   {
-			return isSetCatalogReference;
-	   }
-       void FollowTrajectoryActionImpl::ResetTrajectoryRef()
-	   {
-	   		isSetTrajectoryRef = false; 
-			_trajectoryRef = {};
-			
-	   }
-       bool FollowTrajectoryActionImpl::IsSetTrajectoryRef() const
-	   {
-			return isSetTrajectoryRef;
-	   }
+        void FollowTrajectoryActionImpl::ResetInitialDistanceOffset()
+        {
+            _isSetInitialDistanceOffset = false; 
+            _initialDistanceOffset = {0};
+
+        }
+        bool FollowTrajectoryActionImpl::IsSetInitialDistanceOffset() const
+        {
+            return _isSetInitialDistanceOffset;
+        }
+        void FollowTrajectoryActionImpl::ResetTrajectory()
+        {
+            _isSetTrajectory = false; 
+            _trajectory = {};
+
+        }
+        bool FollowTrajectoryActionImpl::IsSetTrajectory() const
+        {
+            return _isSetTrajectory;
+        }
+        void FollowTrajectoryActionImpl::ResetCatalogReference()
+        {
+            _isSetCatalogReference = false; 
+            _catalogReference = {};
+
+        }
+        bool FollowTrajectoryActionImpl::IsSetCatalogReference() const
+        {
+            return _isSetCatalogReference;
+        }
+        bool FollowTrajectoryActionImpl::IsSetTimeReference() const
+        {
+            return _isSetTimeReference;
+        }
+        bool FollowTrajectoryActionImpl::IsSetTrajectoryFollowingMode() const
+        {
+            return _isSetTrajectoryFollowingMode;
+        }
+        void FollowTrajectoryActionImpl::ResetTrajectoryRef()
+        {
+            _isSetTrajectoryRef = false; 
+            _trajectoryRef = {};
+
+        }
+        bool FollowTrajectoryActionImpl::IsSetTrajectoryRef() const
+        {
+            return _isSetTrajectoryRef;
+        }
 
         IOpenScenarioFlexElement* GearImpl::GetOpenScenarioFlexElement()
         {
@@ -25830,12 +26506,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _manualGear = manualGear;
             _automaticGear = {};
+            _isSetManualGear = true;
         }
 
         void GearImpl::SetAutomaticGear(std::shared_ptr<IAutomaticGearWriter> automaticGear)
         {
             _automaticGear = automaticGear;
             _manualGear = {};
+            _isSetAutomaticGear = true;
         }
 
         std::shared_ptr<void> GearImpl::GetAdapter(const std::string classifier)
@@ -26033,6 +26711,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool GearImpl::IsSetManualGear() const
+        {
+            return _isSetManualGear;
+        }
+        bool GearImpl::IsSetAutomaticGear() const
+        {
+            return _isSetAutomaticGear;
+        }
 
         IOpenScenarioFlexElement* GeoPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -26072,55 +26758,48 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _altitude = altitude;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALTITUDE);
-			// set the indicator to true
-            isSetAltitude = true;          
+            _isSetAltitude = true;
         }
 
         void GeoPositionImpl::SetHeight(const double height)
         {
             _height = height;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__HEIGHT);
-			// set the indicator to true
-            isSetHeight = true;          
+            _isSetHeight = true;
         }
 
         void GeoPositionImpl::SetLatitude(const double latitude)
         {
             _latitude = latitude;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATITUDE);
-			// set the indicator to true
-            isSetLatitude = true;          
+            _isSetLatitude = true;
         }
 
         void GeoPositionImpl::SetLatitudeDeg(const double latitudeDeg)
         {
             _latitudeDeg = latitudeDeg;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LATITUDE_DEG);
-			// set the indicator to true
-            isSetLatitudeDeg = true;          
+            _isSetLatitudeDeg = true;
         }
 
         void GeoPositionImpl::SetLongitude(const double longitude)
         {
             _longitude = longitude;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE);
-			// set the indicator to true
-            isSetLongitude = true;          
+            _isSetLongitude = true;
         }
 
         void GeoPositionImpl::SetLongitudeDeg(const double longitudeDeg)
         {
             _longitudeDeg = longitudeDeg;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LONGITUDE_DEG);
-			// set the indicator to true
-            isSetLongitudeDeg = true;          
+            _isSetLongitudeDeg = true;
         }
 
         void GeoPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
-			// set the indicator to true
-            isSetOrientation = true;          
+            _isSetOrientation = true;
         }
 
         std::shared_ptr<void> GeoPositionImpl::GetAdapter(const std::string classifier)
@@ -26377,36 +27056,42 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _altitude = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAltitude = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__HEIGHT)
             {
                 // Simple type
                 _height = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetHeight = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LATITUDE)
             {
                 // Simple type
                 _latitude = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLatitude = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LATITUDE_DEG)
             {
                 // Simple type
                 _latitudeDeg = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLatitudeDeg = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LONGITUDE)
             {
                 // Simple type
                 _longitude = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLongitude = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LONGITUDE_DEG)
             {
                 // Simple type
                 _longitudeDeg = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLongitudeDeg = true;
             }
         }
 
@@ -26463,12 +27148,12 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_longitudeDeg = GetLongitudeDeg();
             // clone indicators
-            	clonedObject->isSetAltitude = isSetAltitude;
-            	clonedObject->isSetHeight = isSetHeight;
-            	clonedObject->isSetLatitude = isSetLatitude;
-            	clonedObject->isSetLatitudeDeg = isSetLatitudeDeg;
-            	clonedObject->isSetLongitude = isSetLongitude;
-            	clonedObject->isSetLongitudeDeg = isSetLongitudeDeg;
+            clonedObject->_isSetAltitude = _isSetAltitude;
+            clonedObject->_isSetHeight = _isSetHeight;
+            clonedObject->_isSetLatitude = _isSetLatitude;
+            clonedObject->_isSetLatitudeDeg = _isSetLatitudeDeg;
+            clonedObject->_isSetLongitude = _isSetLongitude;
+            clonedObject->_isSetLongitudeDeg = _isSetLongitudeDeg;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -26522,111 +27207,117 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _altitude = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAltitude = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__HEIGHT)
             {
                 // Simple type
                 _height = value;
                 AddResolvedParameter(attributeKey);
+                _isSetHeight = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LATITUDE)
             {
                 // Simple type
                 _latitude = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLatitude = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LATITUDE_DEG)
             {
                 // Simple type
                 _latitudeDeg = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLatitudeDeg = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LONGITUDE)
             {
                 // Simple type
                 _longitude = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLongitude = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LONGITUDE_DEG)
             {
                 // Simple type
                 _longitudeDeg = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLongitudeDeg = true;
             }
 		
 		}
 
 
-       void GeoPositionImpl::ResetAltitude()
-	   {
-	   		isSetAltitude = false; 
-			_altitude = {0};
-			
-	   }
-       bool GeoPositionImpl::IsSetAltitude() const
-	   {
-			return isSetAltitude;
-	   }
-       void GeoPositionImpl::ResetHeight()
-	   {
-	   		isSetHeight = false; 
-			_height = {0};
-			
-	   }
-       bool GeoPositionImpl::IsSetHeight() const
-	   {
-			return isSetHeight;
-	   }
-       void GeoPositionImpl::ResetLatitude()
-	   {
-	   		isSetLatitude = false; 
-			_latitude = {0};
-			
-	   }
-       bool GeoPositionImpl::IsSetLatitude() const
-	   {
-			return isSetLatitude;
-	   }
-       void GeoPositionImpl::ResetLatitudeDeg()
-	   {
-	   		isSetLatitudeDeg = false; 
-			_latitudeDeg = {};
-			
-	   }
-       bool GeoPositionImpl::IsSetLatitudeDeg() const
-	   {
-			return isSetLatitudeDeg;
-	   }
-       void GeoPositionImpl::ResetLongitude()
-	   {
-	   		isSetLongitude = false; 
-			_longitude = {0};
-			
-	   }
-       bool GeoPositionImpl::IsSetLongitude() const
-	   {
-			return isSetLongitude;
-	   }
-       void GeoPositionImpl::ResetLongitudeDeg()
-	   {
-	   		isSetLongitudeDeg = false; 
-			_longitudeDeg = {0};
-			
-	   }
-       bool GeoPositionImpl::IsSetLongitudeDeg() const
-	   {
-			return isSetLongitudeDeg;
-	   }
-       void GeoPositionImpl::ResetOrientation()
-	   {
-	   		isSetOrientation = false; 
-			_orientation = {};
-			
-	   }
-       bool GeoPositionImpl::IsSetOrientation() const
-	   {
-			return isSetOrientation;
-	   }
+        void GeoPositionImpl::ResetAltitude()
+        {
+            _isSetAltitude = false; 
+            _altitude = {0};
+
+        }
+        bool GeoPositionImpl::IsSetAltitude() const
+        {
+            return _isSetAltitude;
+        }
+        void GeoPositionImpl::ResetHeight()
+        {
+            _isSetHeight = false; 
+            _height = {0};
+
+        }
+        bool GeoPositionImpl::IsSetHeight() const
+        {
+            return _isSetHeight;
+        }
+        void GeoPositionImpl::ResetLatitude()
+        {
+            _isSetLatitude = false; 
+            _latitude = {0};
+
+        }
+        bool GeoPositionImpl::IsSetLatitude() const
+        {
+            return _isSetLatitude;
+        }
+        void GeoPositionImpl::ResetLatitudeDeg()
+        {
+            _isSetLatitudeDeg = false; 
+            _latitudeDeg = {};
+
+        }
+        bool GeoPositionImpl::IsSetLatitudeDeg() const
+        {
+            return _isSetLatitudeDeg;
+        }
+        void GeoPositionImpl::ResetLongitude()
+        {
+            _isSetLongitude = false; 
+            _longitude = {0};
+
+        }
+        bool GeoPositionImpl::IsSetLongitude() const
+        {
+            return _isSetLongitude;
+        }
+        void GeoPositionImpl::ResetLongitudeDeg()
+        {
+            _isSetLongitudeDeg = false; 
+            _longitudeDeg = {0};
+
+        }
+        bool GeoPositionImpl::IsSetLongitudeDeg() const
+        {
+            return _isSetLongitudeDeg;
+        }
+        void GeoPositionImpl::ResetOrientation()
+        {
+            _isSetOrientation = false; 
+            _orientation = {};
+
+        }
+        bool GeoPositionImpl::IsSetOrientation() const
+        {
+            return _isSetOrientation;
+        }
 
         IOpenScenarioFlexElement* GlobalActionImpl::GetOpenScenarioFlexElement()
         {
@@ -26666,8 +27357,7 @@ namespace NET_ASAM_OPENSCENARIO
             _infrastructureAction = {};
             _trafficAction = {};
             _variableAction = {};
-			// set the indicator to true
-            isSetEnvironmentAction = true;          
+            _isSetEnvironmentAction = true;
         }
 
         void GlobalActionImpl::SetEntityAction(std::shared_ptr<IEntityActionWriter> entityAction)
@@ -26678,8 +27368,7 @@ namespace NET_ASAM_OPENSCENARIO
             _infrastructureAction = {};
             _trafficAction = {};
             _variableAction = {};
-			// set the indicator to true
-            isSetEntityAction = true;          
+            _isSetEntityAction = true;
         }
 
         void GlobalActionImpl::SetParameterAction(std::shared_ptr<IParameterActionWriter> parameterAction)
@@ -26690,8 +27379,7 @@ namespace NET_ASAM_OPENSCENARIO
             _infrastructureAction = {};
             _trafficAction = {};
             _variableAction = {};
-			// set the indicator to true
-            isSetParameterAction = true;          
+            _isSetParameterAction = true;
         }
 
         void GlobalActionImpl::SetInfrastructureAction(std::shared_ptr<IInfrastructureActionWriter> infrastructureAction)
@@ -26702,8 +27390,7 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterAction = {};
             _trafficAction = {};
             _variableAction = {};
-			// set the indicator to true
-            isSetInfrastructureAction = true;          
+            _isSetInfrastructureAction = true;
         }
 
         void GlobalActionImpl::SetTrafficAction(std::shared_ptr<ITrafficActionWriter> trafficAction)
@@ -26714,8 +27401,7 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterAction = {};
             _infrastructureAction = {};
             _variableAction = {};
-			// set the indicator to true
-            isSetTrafficAction = true;          
+            _isSetTrafficAction = true;
         }
 
         void GlobalActionImpl::SetVariableAction(std::shared_ptr<IVariableActionWriter> variableAction)
@@ -26726,8 +27412,7 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterAction = {};
             _infrastructureAction = {};
             _trafficAction = {};
-			// set the indicator to true
-            isSetVariableAction = true;          
+            _isSetVariableAction = true;
         }
 
         std::shared_ptr<void> GlobalActionImpl::GetAdapter(const std::string classifier)
@@ -27013,66 +27698,66 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void GlobalActionImpl::ResetEnvironmentAction()
-	   {
-	   		isSetEnvironmentAction = false; 
-			_environmentAction = {};
-			
-	   }
-       bool GlobalActionImpl::IsSetEnvironmentAction() const
-	   {
-			return isSetEnvironmentAction;
-	   }
-       void GlobalActionImpl::ResetEntityAction()
-	   {
-	   		isSetEntityAction = false; 
-			_entityAction = {};
-			
-	   }
-       bool GlobalActionImpl::IsSetEntityAction() const
-	   {
-			return isSetEntityAction;
-	   }
-       void GlobalActionImpl::ResetParameterAction()
-	   {
-	   		isSetParameterAction = false; 
-			_parameterAction = {};
-			
-	   }
-       bool GlobalActionImpl::IsSetParameterAction() const
-	   {
-			return isSetParameterAction;
-	   }
-       void GlobalActionImpl::ResetInfrastructureAction()
-	   {
-	   		isSetInfrastructureAction = false; 
-			_infrastructureAction = {};
-			
-	   }
-       bool GlobalActionImpl::IsSetInfrastructureAction() const
-	   {
-			return isSetInfrastructureAction;
-	   }
-       void GlobalActionImpl::ResetTrafficAction()
-	   {
-	   		isSetTrafficAction = false; 
-			_trafficAction = {};
-			
-	   }
-       bool GlobalActionImpl::IsSetTrafficAction() const
-	   {
-			return isSetTrafficAction;
-	   }
-       void GlobalActionImpl::ResetVariableAction()
-	   {
-	   		isSetVariableAction = false; 
-			_variableAction = {};
-			
-	   }
-       bool GlobalActionImpl::IsSetVariableAction() const
-	   {
-			return isSetVariableAction;
-	   }
+        void GlobalActionImpl::ResetEnvironmentAction()
+        {
+            _isSetEnvironmentAction = false; 
+            _environmentAction = {};
+
+        }
+        bool GlobalActionImpl::IsSetEnvironmentAction() const
+        {
+            return _isSetEnvironmentAction;
+        }
+        void GlobalActionImpl::ResetEntityAction()
+        {
+            _isSetEntityAction = false; 
+            _entityAction = {};
+
+        }
+        bool GlobalActionImpl::IsSetEntityAction() const
+        {
+            return _isSetEntityAction;
+        }
+        void GlobalActionImpl::ResetParameterAction()
+        {
+            _isSetParameterAction = false; 
+            _parameterAction = {};
+
+        }
+        bool GlobalActionImpl::IsSetParameterAction() const
+        {
+            return _isSetParameterAction;
+        }
+        void GlobalActionImpl::ResetInfrastructureAction()
+        {
+            _isSetInfrastructureAction = false; 
+            _infrastructureAction = {};
+
+        }
+        bool GlobalActionImpl::IsSetInfrastructureAction() const
+        {
+            return _isSetInfrastructureAction;
+        }
+        void GlobalActionImpl::ResetTrafficAction()
+        {
+            _isSetTrafficAction = false; 
+            _trafficAction = {};
+
+        }
+        bool GlobalActionImpl::IsSetTrafficAction() const
+        {
+            return _isSetTrafficAction;
+        }
+        void GlobalActionImpl::ResetVariableAction()
+        {
+            _isSetVariableAction = false; 
+            _variableAction = {};
+
+        }
+        bool GlobalActionImpl::IsSetVariableAction() const
+        {
+            return _isSetVariableAction;
+        }
 
         IOpenScenarioFlexElement* HistogramImpl::GetOpenScenarioFlexElement()
         {
@@ -27108,6 +27793,7 @@ namespace NET_ASAM_OPENSCENARIO
         void HistogramImpl::SetBins(std::vector<std::shared_ptr<IHistogramBinWriter>>& bins)
         {
             _bins = bins;
+            _isSetBins = true;
         }
 
         std::shared_ptr<void> HistogramImpl::GetAdapter(const std::string classifier)
@@ -27290,6 +27976,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool HistogramImpl::IsSetBins() const
+        {
+            return _isSetBins;
+        }
 
         IOpenScenarioFlexElement* HistogramBinImpl::GetOpenScenarioFlexElement()
         {
@@ -27309,11 +27999,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _weight = weight;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT);
+            _isSetWeight = true;
         }
 
         void HistogramBinImpl::SetRange(std::shared_ptr<IRangeWriter> range)
         {
             _range = range;
+            _isSetRange = true;
         }
 
         std::shared_ptr<void> HistogramBinImpl::GetAdapter(const std::string classifier)
@@ -27435,6 +28127,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _weight = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
         }
 
@@ -27534,11 +28227,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _weight = value;
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
 		
 		}
 
 
+        bool HistogramBinImpl::IsSetWeight() const
+        {
+            return _isSetWeight;
+        }
+        bool HistogramBinImpl::IsSetRange() const
+        {
+            return _isSetRange;
+        }
 
         IOpenScenarioFlexElement* InRoutePositionImpl::GetOpenScenarioFlexElement()
         {
@@ -27563,8 +28265,7 @@ namespace NET_ASAM_OPENSCENARIO
             _fromCurrentEntity = fromCurrentEntity;
             _fromRoadCoordinates = {};
             _fromLaneCoordinates = {};
-			// set the indicator to true
-            isSetFromCurrentEntity = true;          
+            _isSetFromCurrentEntity = true;
         }
 
         void InRoutePositionImpl::SetFromRoadCoordinates(std::shared_ptr<IPositionInRoadCoordinatesWriter> fromRoadCoordinates)
@@ -27572,8 +28273,7 @@ namespace NET_ASAM_OPENSCENARIO
             _fromRoadCoordinates = fromRoadCoordinates;
             _fromCurrentEntity = {};
             _fromLaneCoordinates = {};
-			// set the indicator to true
-            isSetFromRoadCoordinates = true;          
+            _isSetFromRoadCoordinates = true;
         }
 
         void InRoutePositionImpl::SetFromLaneCoordinates(std::shared_ptr<IPositionInLaneCoordinatesWriter> fromLaneCoordinates)
@@ -27581,8 +28281,7 @@ namespace NET_ASAM_OPENSCENARIO
             _fromLaneCoordinates = fromLaneCoordinates;
             _fromCurrentEntity = {};
             _fromRoadCoordinates = {};
-			// set the indicator to true
-            isSetFromLaneCoordinates = true;          
+            _isSetFromLaneCoordinates = true;
         }
 
         std::shared_ptr<void> InRoutePositionImpl::GetAdapter(const std::string classifier)
@@ -27802,36 +28501,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void InRoutePositionImpl::ResetFromCurrentEntity()
-	   {
-	   		isSetFromCurrentEntity = false; 
-			_fromCurrentEntity = {};
-			
-	   }
-       bool InRoutePositionImpl::IsSetFromCurrentEntity() const
-	   {
-			return isSetFromCurrentEntity;
-	   }
-       void InRoutePositionImpl::ResetFromRoadCoordinates()
-	   {
-	   		isSetFromRoadCoordinates = false; 
-			_fromRoadCoordinates = {};
-			
-	   }
-       bool InRoutePositionImpl::IsSetFromRoadCoordinates() const
-	   {
-			return isSetFromRoadCoordinates;
-	   }
-       void InRoutePositionImpl::ResetFromLaneCoordinates()
-	   {
-	   		isSetFromLaneCoordinates = false; 
-			_fromLaneCoordinates = {};
-			
-	   }
-       bool InRoutePositionImpl::IsSetFromLaneCoordinates() const
-	   {
-			return isSetFromLaneCoordinates;
-	   }
+        void InRoutePositionImpl::ResetFromCurrentEntity()
+        {
+            _isSetFromCurrentEntity = false; 
+            _fromCurrentEntity = {};
+
+        }
+        bool InRoutePositionImpl::IsSetFromCurrentEntity() const
+        {
+            return _isSetFromCurrentEntity;
+        }
+        void InRoutePositionImpl::ResetFromRoadCoordinates()
+        {
+            _isSetFromRoadCoordinates = false; 
+            _fromRoadCoordinates = {};
+
+        }
+        bool InRoutePositionImpl::IsSetFromRoadCoordinates() const
+        {
+            return _isSetFromRoadCoordinates;
+        }
+        void InRoutePositionImpl::ResetFromLaneCoordinates()
+        {
+            _isSetFromLaneCoordinates = false; 
+            _fromLaneCoordinates = {};
+
+        }
+        bool InRoutePositionImpl::IsSetFromLaneCoordinates() const
+        {
+            return _isSetFromLaneCoordinates;
+        }
 
         IOpenScenarioFlexElement* InfrastructureActionImpl::GetOpenScenarioFlexElement()
         {
@@ -27846,6 +28545,7 @@ namespace NET_ASAM_OPENSCENARIO
         void InfrastructureActionImpl::SetTrafficSignalAction(std::shared_ptr<ITrafficSignalActionWriter> trafficSignalAction)
         {
             _trafficSignalAction = trafficSignalAction;
+            _isSetTrafficSignalAction = true;
         }
 
         std::shared_ptr<void> InfrastructureActionImpl::GetAdapter(const std::string classifier)
@@ -28021,6 +28721,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool InfrastructureActionImpl::IsSetTrafficSignalAction() const
+        {
+            return _isSetTrafficSignalAction;
+        }
 
         IOpenScenarioFlexElement* InitImpl::GetOpenScenarioFlexElement()
         {
@@ -28035,6 +28739,7 @@ namespace NET_ASAM_OPENSCENARIO
         void InitImpl::SetActions(std::shared_ptr<IInitActionsWriter> actions)
         {
             _actions = actions;
+            _isSetActions = true;
         }
 
         std::shared_ptr<void> InitImpl::GetAdapter(const std::string classifier)
@@ -28210,6 +28915,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool InitImpl::IsSetActions() const
+        {
+            return _isSetActions;
+        }
 
         IOpenScenarioFlexElement* InitActionsImpl::GetOpenScenarioFlexElement()
         {
@@ -28295,22 +29004,19 @@ namespace NET_ASAM_OPENSCENARIO
         void InitActionsImpl::SetGlobalActions(std::vector<std::shared_ptr<IGlobalActionWriter>>& globalActions)
         {
             _globalActions = globalActions;
-			// set the indicator to true
-            isSetGlobalActions = true;          
+            _isSetGlobalActions = true;
         }
 
         void InitActionsImpl::SetUserDefinedActions(std::vector<std::shared_ptr<IUserDefinedActionWriter>>& userDefinedActions)
         {
             _userDefinedActions = userDefinedActions;
-			// set the indicator to true
-            isSetUserDefinedActions = true;          
+            _isSetUserDefinedActions = true;
         }
 
         void InitActionsImpl::SetPrivates(std::vector<std::shared_ptr<IPrivateWriter>>& privates)
         {
             _privates = privates;
-			// set the indicator to true
-            isSetPrivates = true;          
+            _isSetPrivates = true;
         }
 
         std::shared_ptr<void> InitActionsImpl::GetAdapter(const std::string classifier)
@@ -28549,36 +29255,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void InitActionsImpl::ResetGlobalActions()
-	   {
-	   		isSetGlobalActions = false; 
-			_globalActions = {};
-			
-	   }
-       bool InitActionsImpl::IsSetGlobalActions() const
-	   {
-			return isSetGlobalActions;
-	   }
-       void InitActionsImpl::ResetUserDefinedActions()
-	   {
-	   		isSetUserDefinedActions = false; 
-			_userDefinedActions = {};
-			
-	   }
-       bool InitActionsImpl::IsSetUserDefinedActions() const
-	   {
-			return isSetUserDefinedActions;
-	   }
-       void InitActionsImpl::ResetPrivates()
-	   {
-	   		isSetPrivates = false; 
-			_privates = {};
-			
-	   }
-       bool InitActionsImpl::IsSetPrivates() const
-	   {
-			return isSetPrivates;
-	   }
+        void InitActionsImpl::ResetGlobalActions()
+        {
+            _isSetGlobalActions = false; 
+            _globalActions = {};
+
+        }
+        bool InitActionsImpl::IsSetGlobalActions() const
+        {
+            return _isSetGlobalActions;
+        }
+        void InitActionsImpl::ResetUserDefinedActions()
+        {
+            _isSetUserDefinedActions = false; 
+            _userDefinedActions = {};
+
+        }
+        bool InitActionsImpl::IsSetUserDefinedActions() const
+        {
+            return _isSetUserDefinedActions;
+        }
+        void InitActionsImpl::ResetPrivates()
+        {
+            _isSetPrivates = false; 
+            _privates = {};
+
+        }
+        bool InitActionsImpl::IsSetPrivates() const
+        {
+            return _isSetPrivates;
+        }
 
         IOpenScenarioFlexElement* KnotImpl::GetOpenScenarioFlexElement()
         {
@@ -28594,6 +29300,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> KnotImpl::GetAdapter(const std::string classifier)
@@ -28711,6 +29418,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -28788,11 +29496,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool KnotImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* LaneChangeActionImpl::GetOpenScenarioFlexElement()
         {
@@ -28816,18 +29529,19 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _targetLaneOffset = targetLaneOffset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_LANE_OFFSET);
-			// set the indicator to true
-            isSetTargetLaneOffset = true;          
+            _isSetTargetLaneOffset = true;
         }
 
         void LaneChangeActionImpl::SetLaneChangeActionDynamics(std::shared_ptr<ITransitionDynamicsWriter> laneChangeActionDynamics)
         {
             _laneChangeActionDynamics = laneChangeActionDynamics;
+            _isSetLaneChangeActionDynamics = true;
         }
 
         void LaneChangeActionImpl::SetLaneChangeTarget(std::shared_ptr<ILaneChangeTargetWriter> laneChangeTarget)
         {
             _laneChangeTarget = laneChangeTarget;
+            _isSetLaneChangeTarget = true;
         }
 
         std::shared_ptr<void> LaneChangeActionImpl::GetAdapter(const std::string classifier)
@@ -28953,6 +29667,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _targetLaneOffset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTargetLaneOffset = true;
             }
         }
 
@@ -29004,7 +29719,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_targetLaneOffset = GetTargetLaneOffset();
             // clone indicators
-            	clonedObject->isSetTargetLaneOffset = isSetTargetLaneOffset;
+            clonedObject->_isSetTargetLaneOffset = _isSetTargetLaneOffset;
             // clone children
             const auto kLaneChangeActionDynamics =  GetWriterLaneChangeActionDynamics();
             if (kLaneChangeActionDynamics)
@@ -29071,21 +29786,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _targetLaneOffset = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTargetLaneOffset = true;
             }
 		
 		}
 
 
-       void LaneChangeActionImpl::ResetTargetLaneOffset()
-	   {
-	   		isSetTargetLaneOffset = false; 
-			_targetLaneOffset = {0};
-			
-	   }
-       bool LaneChangeActionImpl::IsSetTargetLaneOffset() const
-	   {
-			return isSetTargetLaneOffset;
-	   }
+        void LaneChangeActionImpl::ResetTargetLaneOffset()
+        {
+            _isSetTargetLaneOffset = false; 
+            _targetLaneOffset = {0};
+
+        }
+        bool LaneChangeActionImpl::IsSetTargetLaneOffset() const
+        {
+            return _isSetTargetLaneOffset;
+        }
+        bool LaneChangeActionImpl::IsSetLaneChangeActionDynamics() const
+        {
+            return _isSetLaneChangeActionDynamics;
+        }
+        bool LaneChangeActionImpl::IsSetLaneChangeTarget() const
+        {
+            return _isSetLaneChangeTarget;
+        }
 
         IOpenScenarioFlexElement* LaneChangeTargetImpl::GetOpenScenarioFlexElement()
         {
@@ -29105,16 +29829,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _relativeTargetLane = relativeTargetLane;
             _absoluteTargetLane = {};
-			// set the indicator to true
-            isSetRelativeTargetLane = true;          
+            _isSetRelativeTargetLane = true;
         }
 
         void LaneChangeTargetImpl::SetAbsoluteTargetLane(std::shared_ptr<IAbsoluteTargetLaneWriter> absoluteTargetLane)
         {
             _absoluteTargetLane = absoluteTargetLane;
             _relativeTargetLane = {};
-			// set the indicator to true
-            isSetAbsoluteTargetLane = true;          
+            _isSetAbsoluteTargetLane = true;
         }
 
         std::shared_ptr<void> LaneChangeTargetImpl::GetAdapter(const std::string classifier)
@@ -29312,26 +30034,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void LaneChangeTargetImpl::ResetRelativeTargetLane()
-	   {
-	   		isSetRelativeTargetLane = false; 
-			_relativeTargetLane = {};
-			
-	   }
-       bool LaneChangeTargetImpl::IsSetRelativeTargetLane() const
-	   {
-			return isSetRelativeTargetLane;
-	   }
-       void LaneChangeTargetImpl::ResetAbsoluteTargetLane()
-	   {
-	   		isSetAbsoluteTargetLane = false; 
-			_absoluteTargetLane = {};
-			
-	   }
-       bool LaneChangeTargetImpl::IsSetAbsoluteTargetLane() const
-	   {
-			return isSetAbsoluteTargetLane;
-	   }
+        void LaneChangeTargetImpl::ResetRelativeTargetLane()
+        {
+            _isSetRelativeTargetLane = false; 
+            _relativeTargetLane = {};
+
+        }
+        bool LaneChangeTargetImpl::IsSetRelativeTargetLane() const
+        {
+            return _isSetRelativeTargetLane;
+        }
+        void LaneChangeTargetImpl::ResetAbsoluteTargetLane()
+        {
+            _isSetAbsoluteTargetLane = false; 
+            _absoluteTargetLane = {};
+
+        }
+        bool LaneChangeTargetImpl::IsSetAbsoluteTargetLane() const
+        {
+            return _isSetAbsoluteTargetLane;
+        }
 
         IOpenScenarioFlexElement* LaneOffsetActionImpl::GetOpenScenarioFlexElement()
         {
@@ -29355,16 +30077,19 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _continuous = continuous;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS);
+            _isSetContinuous = true;
         }
 
         void LaneOffsetActionImpl::SetLaneOffsetActionDynamics(std::shared_ptr<ILaneOffsetActionDynamicsWriter> laneOffsetActionDynamics)
         {
             _laneOffsetActionDynamics = laneOffsetActionDynamics;
+            _isSetLaneOffsetActionDynamics = true;
         }
 
         void LaneOffsetActionImpl::SetLaneOffsetTarget(std::shared_ptr<ILaneOffsetTargetWriter> laneOffsetTarget)
         {
             _laneOffsetTarget = laneOffsetTarget;
+            _isSetLaneOffsetTarget = true;
         }
 
         std::shared_ptr<void> LaneOffsetActionImpl::GetAdapter(const std::string classifier)
@@ -29490,6 +30215,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetContinuous = true;
             }
         }
 
@@ -29607,11 +30333,24 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _continuous = value;
                 AddResolvedParameter(attributeKey);
+                _isSetContinuous = true;
             }
 		
 		}
 
 
+        bool LaneOffsetActionImpl::IsSetContinuous() const
+        {
+            return _isSetContinuous;
+        }
+        bool LaneOffsetActionImpl::IsSetLaneOffsetActionDynamics() const
+        {
+            return _isSetLaneOffsetActionDynamics;
+        }
+        bool LaneOffsetActionImpl::IsSetLaneOffsetTarget() const
+        {
+            return _isSetLaneOffsetTarget;
+        }
 
         IOpenScenarioFlexElement* LaneOffsetActionDynamicsImpl::GetOpenScenarioFlexElement()
         {
@@ -29631,14 +30370,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _dynamicsShape = dynamicsShape;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE);
+            _isSetDynamicsShape = true;
         }
 
         void LaneOffsetActionDynamicsImpl::SetMaxLateralAcc(const double maxLateralAcc)
         {
             _maxLateralAcc = maxLateralAcc;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_LATERAL_ACC);
-			// set the indicator to true
-            isSetMaxLateralAcc = true;          
+            _isSetMaxLateralAcc = true;
         }
 
         std::shared_ptr<void> LaneOffsetActionDynamicsImpl::GetAdapter(const std::string classifier)
@@ -29782,6 +30521,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _dynamicsShape = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetDynamicsShape = true;
                 }
                 else
                 {
@@ -29794,6 +30534,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxLateralAcc = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxLateralAcc = true;
             }
         }
 
@@ -29841,7 +30582,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_maxLateralAcc = GetMaxLateralAcc();
             // clone indicators
-            	clonedObject->isSetMaxLateralAcc = isSetMaxLateralAcc;
+            clonedObject->_isSetMaxLateralAcc = _isSetMaxLateralAcc;
             // clone children
             return clonedObject;
         }
@@ -29888,21 +30629,26 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxLateralAcc = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxLateralAcc = true;
             }
 		
 		}
 
 
-       void LaneOffsetActionDynamicsImpl::ResetMaxLateralAcc()
-	   {
-	   		isSetMaxLateralAcc = false; 
-			_maxLateralAcc = {};
-			
-	   }
-       bool LaneOffsetActionDynamicsImpl::IsSetMaxLateralAcc() const
-	   {
-			return isSetMaxLateralAcc;
-	   }
+        bool LaneOffsetActionDynamicsImpl::IsSetDynamicsShape() const
+        {
+            return _isSetDynamicsShape;
+        }
+        void LaneOffsetActionDynamicsImpl::ResetMaxLateralAcc()
+        {
+            _isSetMaxLateralAcc = false; 
+            _maxLateralAcc = {};
+
+        }
+        bool LaneOffsetActionDynamicsImpl::IsSetMaxLateralAcc() const
+        {
+            return _isSetMaxLateralAcc;
+        }
 
         IOpenScenarioFlexElement* LaneOffsetTargetImpl::GetOpenScenarioFlexElement()
         {
@@ -29922,16 +30668,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _relativeTargetLaneOffset = relativeTargetLaneOffset;
             _absoluteTargetLaneOffset = {};
-			// set the indicator to true
-            isSetRelativeTargetLaneOffset = true;          
+            _isSetRelativeTargetLaneOffset = true;
         }
 
         void LaneOffsetTargetImpl::SetAbsoluteTargetLaneOffset(std::shared_ptr<IAbsoluteTargetLaneOffsetWriter> absoluteTargetLaneOffset)
         {
             _absoluteTargetLaneOffset = absoluteTargetLaneOffset;
             _relativeTargetLaneOffset = {};
-			// set the indicator to true
-            isSetAbsoluteTargetLaneOffset = true;          
+            _isSetAbsoluteTargetLaneOffset = true;
         }
 
         std::shared_ptr<void> LaneOffsetTargetImpl::GetAdapter(const std::string classifier)
@@ -30129,26 +30873,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void LaneOffsetTargetImpl::ResetRelativeTargetLaneOffset()
-	   {
-	   		isSetRelativeTargetLaneOffset = false; 
-			_relativeTargetLaneOffset = {};
-			
-	   }
-       bool LaneOffsetTargetImpl::IsSetRelativeTargetLaneOffset() const
-	   {
-			return isSetRelativeTargetLaneOffset;
-	   }
-       void LaneOffsetTargetImpl::ResetAbsoluteTargetLaneOffset()
-	   {
-	   		isSetAbsoluteTargetLaneOffset = false; 
-			_absoluteTargetLaneOffset = {};
-			
-	   }
-       bool LaneOffsetTargetImpl::IsSetAbsoluteTargetLaneOffset() const
-	   {
-			return isSetAbsoluteTargetLaneOffset;
-	   }
+        void LaneOffsetTargetImpl::ResetRelativeTargetLaneOffset()
+        {
+            _isSetRelativeTargetLaneOffset = false; 
+            _relativeTargetLaneOffset = {};
+
+        }
+        bool LaneOffsetTargetImpl::IsSetRelativeTargetLaneOffset() const
+        {
+            return _isSetRelativeTargetLaneOffset;
+        }
+        void LaneOffsetTargetImpl::ResetAbsoluteTargetLaneOffset()
+        {
+            _isSetAbsoluteTargetLaneOffset = false; 
+            _absoluteTargetLaneOffset = {};
+
+        }
+        bool LaneOffsetTargetImpl::IsSetAbsoluteTargetLaneOffset() const
+        {
+            return _isSetAbsoluteTargetLaneOffset;
+        }
 
         IOpenScenarioFlexElement* LanePositionImpl::GetOpenScenarioFlexElement()
         {
@@ -30180,33 +30924,34 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _laneId = laneId;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_ID);
+            _isSetLaneId = true;
         }
 
         void LanePositionImpl::SetOffset(const double offset)
         {
             _offset = offset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET);
-			// set the indicator to true
-            isSetOffset = true;          
+            _isSetOffset = true;
         }
 
         void LanePositionImpl::SetRoadId(const std::string roadId)
         {
             _roadId = roadId;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID);
+            _isSetRoadId = true;
         }
 
         void LanePositionImpl::SetS(const double s)
         {
             _s = s;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S);
+            _isSetS = true;
         }
 
         void LanePositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
-			// set the indicator to true
-            isSetOrientation = true;          
+            _isSetOrientation = true;
         }
 
         std::shared_ptr<void> LanePositionImpl::GetAdapter(const std::string classifier)
@@ -30401,24 +31146,28 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _laneId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLaneId = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
             {
                 // Simple type
                 _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetOffset = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ROAD_ID)
             {
                 // Simple type
                 _roadId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetRoadId = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__S)
             {
                 // Simple type
                 _s = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetS = true;
             }
         }
 
@@ -30471,7 +31220,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_s = GetS();
             // clone indicators
-            	clonedObject->isSetOffset = isSetOffset;
+            clonedObject->_isSetOffset = _isSetOffset;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -30539,12 +31288,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _laneId = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLaneId = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ROAD_ID)
             {
                 // Simple type
                 _roadId = value;
                 AddResolvedParameter(attributeKey);
+                _isSetRoadId = true;
             }
 		
 		}
@@ -30555,37 +31306,51 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _offset = value;
                 AddResolvedParameter(attributeKey);
+                _isSetOffset = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__S)
             {
                 // Simple type
                 _s = value;
                 AddResolvedParameter(attributeKey);
+                _isSetS = true;
             }
 		
 		}
 
 
-       void LanePositionImpl::ResetOffset()
-	   {
-	   		isSetOffset = false; 
-			_offset = {0};
-			
-	   }
-       bool LanePositionImpl::IsSetOffset() const
-	   {
-			return isSetOffset;
-	   }
-       void LanePositionImpl::ResetOrientation()
-	   {
-	   		isSetOrientation = false; 
-			_orientation = {};
-			
-	   }
-       bool LanePositionImpl::IsSetOrientation() const
-	   {
-			return isSetOrientation;
-	   }
+        bool LanePositionImpl::IsSetLaneId() const
+        {
+            return _isSetLaneId;
+        }
+        void LanePositionImpl::ResetOffset()
+        {
+            _isSetOffset = false; 
+            _offset = {0};
+
+        }
+        bool LanePositionImpl::IsSetOffset() const
+        {
+            return _isSetOffset;
+        }
+        bool LanePositionImpl::IsSetRoadId() const
+        {
+            return _isSetRoadId;
+        }
+        bool LanePositionImpl::IsSetS() const
+        {
+            return _isSetS;
+        }
+        void LanePositionImpl::ResetOrientation()
+        {
+            _isSetOrientation = false; 
+            _orientation = {};
+
+        }
+        bool LanePositionImpl::IsSetOrientation() const
+        {
+            return _isSetOrientation;
+        }
 
         IOpenScenarioFlexElement* LateralActionImpl::GetOpenScenarioFlexElement()
         {
@@ -30610,8 +31375,7 @@ namespace NET_ASAM_OPENSCENARIO
             _laneChangeAction = laneChangeAction;
             _laneOffsetAction = {};
             _lateralDistanceAction = {};
-			// set the indicator to true
-            isSetLaneChangeAction = true;          
+            _isSetLaneChangeAction = true;
         }
 
         void LateralActionImpl::SetLaneOffsetAction(std::shared_ptr<ILaneOffsetActionWriter> laneOffsetAction)
@@ -30619,8 +31383,7 @@ namespace NET_ASAM_OPENSCENARIO
             _laneOffsetAction = laneOffsetAction;
             _laneChangeAction = {};
             _lateralDistanceAction = {};
-			// set the indicator to true
-            isSetLaneOffsetAction = true;          
+            _isSetLaneOffsetAction = true;
         }
 
         void LateralActionImpl::SetLateralDistanceAction(std::shared_ptr<ILateralDistanceActionWriter> lateralDistanceAction)
@@ -30628,8 +31391,7 @@ namespace NET_ASAM_OPENSCENARIO
             _lateralDistanceAction = lateralDistanceAction;
             _laneChangeAction = {};
             _laneOffsetAction = {};
-			// set the indicator to true
-            isSetLateralDistanceAction = true;          
+            _isSetLateralDistanceAction = true;
         }
 
         std::shared_ptr<void> LateralActionImpl::GetAdapter(const std::string classifier)
@@ -30849,36 +31611,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void LateralActionImpl::ResetLaneChangeAction()
-	   {
-	   		isSetLaneChangeAction = false; 
-			_laneChangeAction = {};
-			
-	   }
-       bool LateralActionImpl::IsSetLaneChangeAction() const
-	   {
-			return isSetLaneChangeAction;
-	   }
-       void LateralActionImpl::ResetLaneOffsetAction()
-	   {
-	   		isSetLaneOffsetAction = false; 
-			_laneOffsetAction = {};
-			
-	   }
-       bool LateralActionImpl::IsSetLaneOffsetAction() const
-	   {
-			return isSetLaneOffsetAction;
-	   }
-       void LateralActionImpl::ResetLateralDistanceAction()
-	   {
-	   		isSetLateralDistanceAction = false; 
-			_lateralDistanceAction = {};
-			
-	   }
-       bool LateralActionImpl::IsSetLateralDistanceAction() const
-	   {
-			return isSetLateralDistanceAction;
-	   }
+        void LateralActionImpl::ResetLaneChangeAction()
+        {
+            _isSetLaneChangeAction = false; 
+            _laneChangeAction = {};
+
+        }
+        bool LateralActionImpl::IsSetLaneChangeAction() const
+        {
+            return _isSetLaneChangeAction;
+        }
+        void LateralActionImpl::ResetLaneOffsetAction()
+        {
+            _isSetLaneOffsetAction = false; 
+            _laneOffsetAction = {};
+
+        }
+        bool LateralActionImpl::IsSetLaneOffsetAction() const
+        {
+            return _isSetLaneOffsetAction;
+        }
+        void LateralActionImpl::ResetLateralDistanceAction()
+        {
+            _isSetLateralDistanceAction = false; 
+            _lateralDistanceAction = {};
+
+        }
+        bool LateralActionImpl::IsSetLateralDistanceAction() const
+        {
+            return _isSetLateralDistanceAction;
+        }
 
         IOpenScenarioFlexElement* LateralDistanceActionImpl::GetOpenScenarioFlexElement()
         {
@@ -30918,49 +31680,48 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _continuous = continuous;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS);
+            _isSetContinuous = true;
         }
 
         void LateralDistanceActionImpl::SetCoordinateSystem(const CoordinateSystem coordinateSystem)
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
-			// set the indicator to true
-            isSetCoordinateSystem = true;          
+            _isSetCoordinateSystem = true;
         }
 
         void LateralDistanceActionImpl::SetDisplacement(const LateralDisplacement displacement)
         {
             _displacement = displacement;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT);
-			// set the indicator to true
-            isSetDisplacement = true;          
+            _isSetDisplacement = true;
         }
 
         void LateralDistanceActionImpl::SetDistance(const double distance)
         {
             _distance = distance;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE);
-			// set the indicator to true
-            isSetDistance = true;          
+            _isSetDistance = true;
         }
 
         void LateralDistanceActionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void LateralDistanceActionImpl::SetFreespace(const bool freespace)
         {
             _freespace = freespace;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE);
+            _isSetFreespace = true;
         }
 
         void LateralDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraintsWriter> dynamicConstraints)
         {
             _dynamicConstraints = dynamicConstraints;
-			// set the indicator to true
-            isSetDynamicConstraints = true;          
+            _isSetDynamicConstraints = true;
         }
 
         std::shared_ptr<void> LateralDistanceActionImpl::GetAdapter(const std::string classifier)
@@ -31210,6 +31971,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetContinuous = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM)
             {
@@ -31219,6 +31981,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _coordinateSystem = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetCoordinateSystem = true;
                 }
                 else
                 {
@@ -31234,6 +31997,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _displacement = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetDisplacement = true;
                 }
                 else
                 {
@@ -31246,6 +32010,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _distance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDistance = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
@@ -31253,12 +32018,14 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
         }
 
@@ -31326,9 +32093,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_freespace = GetFreespace();
             // clone indicators
-            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
-            	clonedObject->isSetDisplacement = isSetDisplacement;
-            	clonedObject->isSetDistance = isSetDistance;
+            clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
+            clonedObject->_isSetDisplacement = _isSetDisplacement;
+            clonedObject->_isSetDistance = _isSetDistance;
             // clone children
             const auto kDynamicConstraints =  GetWriterDynamicConstraints();
             if (kDynamicConstraints)
@@ -31419,12 +32186,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _continuous = value;
                 AddResolvedParameter(attributeKey);
+                _isSetContinuous = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
 		
 		}
@@ -31435,51 +32204,64 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _distance = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDistance = true;
             }
 		
 		}
 
 
-       void LateralDistanceActionImpl::ResetCoordinateSystem()
-	   {
-	   		isSetCoordinateSystem = false; 
-			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-			
-	   }
-       bool LateralDistanceActionImpl::IsSetCoordinateSystem() const
-	   {
-			return isSetCoordinateSystem;
-	   }
-       void LateralDistanceActionImpl::ResetDisplacement()
-	   {
-	   		isSetDisplacement = false; 
-			_displacement = {LateralDisplacement::LateralDisplacementEnum::ANY};
-			
-	   }
-       bool LateralDistanceActionImpl::IsSetDisplacement() const
-	   {
-			return isSetDisplacement;
-	   }
-       void LateralDistanceActionImpl::ResetDistance()
-	   {
-	   		isSetDistance = false; 
-			_distance = {0};
-			
-	   }
-       bool LateralDistanceActionImpl::IsSetDistance() const
-	   {
-			return isSetDistance;
-	   }
-       void LateralDistanceActionImpl::ResetDynamicConstraints()
-	   {
-	   		isSetDynamicConstraints = false; 
-			_dynamicConstraints = {};
-			
-	   }
-       bool LateralDistanceActionImpl::IsSetDynamicConstraints() const
-	   {
-			return isSetDynamicConstraints;
-	   }
+        bool LateralDistanceActionImpl::IsSetContinuous() const
+        {
+            return _isSetContinuous;
+        }
+        void LateralDistanceActionImpl::ResetCoordinateSystem()
+        {
+            _isSetCoordinateSystem = false; 
+            _coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+
+        }
+        bool LateralDistanceActionImpl::IsSetCoordinateSystem() const
+        {
+            return _isSetCoordinateSystem;
+        }
+        void LateralDistanceActionImpl::ResetDisplacement()
+        {
+            _isSetDisplacement = false; 
+            _displacement = {LateralDisplacement::LateralDisplacementEnum::ANY};
+
+        }
+        bool LateralDistanceActionImpl::IsSetDisplacement() const
+        {
+            return _isSetDisplacement;
+        }
+        void LateralDistanceActionImpl::ResetDistance()
+        {
+            _isSetDistance = false; 
+            _distance = {0};
+
+        }
+        bool LateralDistanceActionImpl::IsSetDistance() const
+        {
+            return _isSetDistance;
+        }
+        bool LateralDistanceActionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        bool LateralDistanceActionImpl::IsSetFreespace() const
+        {
+            return _isSetFreespace;
+        }
+        void LateralDistanceActionImpl::ResetDynamicConstraints()
+        {
+            _isSetDynamicConstraints = false; 
+            _dynamicConstraints = {};
+
+        }
+        bool LateralDistanceActionImpl::IsSetDynamicConstraints() const
+        {
+            return _isSetDynamicConstraints;
+        }
 
         IOpenScenarioFlexElement* LicenseImpl::GetOpenScenarioFlexElement()
         {
@@ -31507,30 +32289,28 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _text = text;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TEXT);
-			// set the indicator to true
-            isSetText = true;          
+            _isSetText = true;
         }
 
         void LicenseImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void LicenseImpl::SetResource(const std::string resource)
         {
             _resource = resource;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RESOURCE);
-			// set the indicator to true
-            isSetResource = true;          
+            _isSetResource = true;
         }
 
         void LicenseImpl::SetSpdxId(const std::string spdxId)
         {
             _spdxId = spdxId;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPDX_ID);
-			// set the indicator to true
-            isSetSpdxId = true;          
+            _isSetSpdxId = true;
         }
 
         std::shared_ptr<void> LicenseImpl::GetAdapter(const std::string classifier)
@@ -31708,24 +32488,28 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _text = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetText = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RESOURCE)
             {
                 // Simple type
                 _resource = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetResource = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPDX_ID)
             {
                 // Simple type
                 _spdxId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetSpdxId = true;
             }
         }
 
@@ -31771,8 +32555,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_spdxId = GetSpdxId();
             // clone indicators
-            	clonedObject->isSetResource = isSetResource;
-            	clonedObject->isSetSpdxId = isSetSpdxId;
+            clonedObject->_isSetResource = _isSetResource;
+            clonedObject->_isSetSpdxId = _isSetSpdxId;
             // clone children
             return clonedObject;
         }
@@ -31833,59 +32617,67 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _text = value;
                 AddResolvedParameter(attributeKey);
+                _isSetText = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RESOURCE)
             {
                 // Simple type
                 _resource = value;
                 AddResolvedParameter(attributeKey);
+                _isSetResource = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPDX_ID)
             {
                 // Simple type
                 _spdxId = value;
                 AddResolvedParameter(attributeKey);
+                _isSetSpdxId = true;
             }
 		
 		}
 
 
-       void LicenseImpl::ResetText()
-	   {
-	   		isSetText = false; 
-			_text = {};
-			
-	   }
-       bool LicenseImpl::IsSetText() const
-	   {
-			return isSetText;
-	   }
-       void LicenseImpl::ResetResource()
-	   {
-	   		isSetResource = false; 
-			_resource = {};
-			
-	   }
-       bool LicenseImpl::IsSetResource() const
-	   {
-			return isSetResource;
-	   }
-       void LicenseImpl::ResetSpdxId()
-	   {
-	   		isSetSpdxId = false; 
-			_spdxId = {};
-			
-	   }
-       bool LicenseImpl::IsSetSpdxId() const
-	   {
-			return isSetSpdxId;
-	   }
+        void LicenseImpl::ResetText()
+        {
+            _isSetText = false; 
+            _text = {};
+
+        }
+        bool LicenseImpl::IsSetText() const
+        {
+            return _isSetText;
+        }
+        bool LicenseImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void LicenseImpl::ResetResource()
+        {
+            _isSetResource = false; 
+            _resource = {};
+
+        }
+        bool LicenseImpl::IsSetResource() const
+        {
+            return _isSetResource;
+        }
+        void LicenseImpl::ResetSpdxId()
+        {
+            _isSetSpdxId = false; 
+            _spdxId = {};
+
+        }
+        bool LicenseImpl::IsSetSpdxId() const
+        {
+            return _isSetSpdxId;
+        }
 
         IOpenScenarioFlexElement* LightStateImpl::GetOpenScenarioFlexElement()
         {
@@ -31917,37 +32709,34 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _flashingOffDuration = flashingOffDuration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FLASHING_OFF_DURATION);
-			// set the indicator to true
-            isSetFlashingOffDuration = true;          
+            _isSetFlashingOffDuration = true;
         }
 
         void LightStateImpl::SetFlashingOnDuration(const double flashingOnDuration)
         {
             _flashingOnDuration = flashingOnDuration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FLASHING_ON_DURATION);
-			// set the indicator to true
-            isSetFlashingOnDuration = true;          
+            _isSetFlashingOnDuration = true;
         }
 
         void LightStateImpl::SetLuminousIntensity(const double luminousIntensity)
         {
             _luminousIntensity = luminousIntensity;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LUMINOUS_INTENSITY);
-			// set the indicator to true
-            isSetLuminousIntensity = true;          
+            _isSetLuminousIntensity = true;
         }
 
         void LightStateImpl::SetMode(const LightMode mode)
         {
             _mode = mode;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODE);
+            _isSetMode = true;
         }
 
         void LightStateImpl::SetColor(std::shared_ptr<IColorWriter> color)
         {
             _color = color;
-			// set the indicator to true
-            isSetColor = true;          
+            _isSetColor = true;
         }
 
         std::shared_ptr<void> LightStateImpl::GetAdapter(const std::string classifier)
@@ -32146,18 +32935,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _flashingOffDuration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFlashingOffDuration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FLASHING_ON_DURATION)
             {
                 // Simple type
                 _flashingOnDuration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFlashingOnDuration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LUMINOUS_INTENSITY)
             {
                 // Simple type
                 _luminousIntensity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLuminousIntensity = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MODE)
             {
@@ -32167,6 +32959,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _mode = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetMode = true;
                 }
                 else
                 {
@@ -32229,9 +33022,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_mode = LightMode::GetFromLiteral(kMode.GetLiteral());
             }
             // clone indicators
-            	clonedObject->isSetFlashingOffDuration = isSetFlashingOffDuration;
-            	clonedObject->isSetFlashingOnDuration = isSetFlashingOnDuration;
-            	clonedObject->isSetLuminousIntensity = isSetLuminousIntensity;
+            clonedObject->_isSetFlashingOffDuration = _isSetFlashingOffDuration;
+            clonedObject->_isSetFlashingOnDuration = _isSetFlashingOnDuration;
+            clonedObject->_isSetLuminousIntensity = _isSetLuminousIntensity;
             // clone children
             const auto kColor =  GetWriterColor();
             if (kColor)
@@ -32295,63 +33088,70 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _flashingOffDuration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFlashingOffDuration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FLASHING_ON_DURATION)
             {
                 // Simple type
                 _flashingOnDuration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFlashingOnDuration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LUMINOUS_INTENSITY)
             {
                 // Simple type
                 _luminousIntensity = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLuminousIntensity = true;
             }
 		
 		}
 
 
-       void LightStateImpl::ResetFlashingOffDuration()
-	   {
-	   		isSetFlashingOffDuration = false; 
-			_flashingOffDuration = {0.5};
-			
-	   }
-       bool LightStateImpl::IsSetFlashingOffDuration() const
-	   {
-			return isSetFlashingOffDuration;
-	   }
-       void LightStateImpl::ResetFlashingOnDuration()
-	   {
-	   		isSetFlashingOnDuration = false; 
-			_flashingOnDuration = {0.5};
-			
-	   }
-       bool LightStateImpl::IsSetFlashingOnDuration() const
-	   {
-			return isSetFlashingOnDuration;
-	   }
-       void LightStateImpl::ResetLuminousIntensity()
-	   {
-	   		isSetLuminousIntensity = false; 
-			_luminousIntensity = {};
-			
-	   }
-       bool LightStateImpl::IsSetLuminousIntensity() const
-	   {
-			return isSetLuminousIntensity;
-	   }
-       void LightStateImpl::ResetColor()
-	   {
-	   		isSetColor = false; 
-			_color = {};
-			
-	   }
-       bool LightStateImpl::IsSetColor() const
-	   {
-			return isSetColor;
-	   }
+        void LightStateImpl::ResetFlashingOffDuration()
+        {
+            _isSetFlashingOffDuration = false; 
+            _flashingOffDuration = {0.5};
+
+        }
+        bool LightStateImpl::IsSetFlashingOffDuration() const
+        {
+            return _isSetFlashingOffDuration;
+        }
+        void LightStateImpl::ResetFlashingOnDuration()
+        {
+            _isSetFlashingOnDuration = false; 
+            _flashingOnDuration = {0.5};
+
+        }
+        bool LightStateImpl::IsSetFlashingOnDuration() const
+        {
+            return _isSetFlashingOnDuration;
+        }
+        void LightStateImpl::ResetLuminousIntensity()
+        {
+            _isSetLuminousIntensity = false; 
+            _luminousIntensity = {};
+
+        }
+        bool LightStateImpl::IsSetLuminousIntensity() const
+        {
+            return _isSetLuminousIntensity;
+        }
+        bool LightStateImpl::IsSetMode() const
+        {
+            return _isSetMode;
+        }
+        void LightStateImpl::ResetColor()
+        {
+            _isSetColor = false; 
+            _color = {};
+
+        }
+        bool LightStateImpl::IsSetColor() const
+        {
+            return _isSetColor;
+        }
 
         IOpenScenarioFlexElement* LightStateActionImpl::GetOpenScenarioFlexElement()
         {
@@ -32375,18 +33175,19 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _transitionTime = transitionTime;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRANSITION_TIME);
-			// set the indicator to true
-            isSetTransitionTime = true;          
+            _isSetTransitionTime = true;
         }
 
         void LightStateActionImpl::SetLightType(std::shared_ptr<ILightTypeWriter> lightType)
         {
             _lightType = lightType;
+            _isSetLightType = true;
         }
 
         void LightStateActionImpl::SetLightState(std::shared_ptr<ILightStateWriter> lightState)
         {
             _lightState = lightState;
+            _isSetLightState = true;
         }
 
         std::shared_ptr<void> LightStateActionImpl::GetAdapter(const std::string classifier)
@@ -32512,6 +33313,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _transitionTime = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTransitionTime = true;
             }
         }
 
@@ -32563,7 +33365,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_transitionTime = GetTransitionTime();
             // clone indicators
-            	clonedObject->isSetTransitionTime = isSetTransitionTime;
+            clonedObject->_isSetTransitionTime = _isSetTransitionTime;
             // clone children
             const auto kLightType =  GetWriterLightType();
             if (kLightType)
@@ -32630,21 +33432,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _transitionTime = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTransitionTime = true;
             }
 		
 		}
 
 
-       void LightStateActionImpl::ResetTransitionTime()
-	   {
-	   		isSetTransitionTime = false; 
-			_transitionTime = {0};
-			
-	   }
-       bool LightStateActionImpl::IsSetTransitionTime() const
-	   {
-			return isSetTransitionTime;
-	   }
+        void LightStateActionImpl::ResetTransitionTime()
+        {
+            _isSetTransitionTime = false; 
+            _transitionTime = {0};
+
+        }
+        bool LightStateActionImpl::IsSetTransitionTime() const
+        {
+            return _isSetTransitionTime;
+        }
+        bool LightStateActionImpl::IsSetLightType() const
+        {
+            return _isSetLightType;
+        }
+        bool LightStateActionImpl::IsSetLightState() const
+        {
+            return _isSetLightState;
+        }
 
         IOpenScenarioFlexElement* LightTypeImpl::GetOpenScenarioFlexElement()
         {
@@ -32664,12 +33475,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _vehicleLight = vehicleLight;
             _userDefinedLight = {};
+            _isSetVehicleLight = true;
         }
 
         void LightTypeImpl::SetUserDefinedLight(std::shared_ptr<IUserDefinedLightWriter> userDefinedLight)
         {
             _userDefinedLight = userDefinedLight;
             _vehicleLight = {};
+            _isSetUserDefinedLight = true;
         }
 
         std::shared_ptr<void> LightTypeImpl::GetAdapter(const std::string classifier)
@@ -32867,6 +33680,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool LightTypeImpl::IsSetVehicleLight() const
+        {
+            return _isSetVehicleLight;
+        }
+        bool LightTypeImpl::IsSetUserDefinedLight() const
+        {
+            return _isSetUserDefinedLight;
+        }
 
         IOpenScenarioFlexElement* LongitudinalActionImpl::GetOpenScenarioFlexElement()
         {
@@ -32891,8 +33712,7 @@ namespace NET_ASAM_OPENSCENARIO
             _speedAction = speedAction;
             _longitudinalDistanceAction = {};
             _speedProfileAction = {};
-			// set the indicator to true
-            isSetSpeedAction = true;          
+            _isSetSpeedAction = true;
         }
 
         void LongitudinalActionImpl::SetLongitudinalDistanceAction(std::shared_ptr<ILongitudinalDistanceActionWriter> longitudinalDistanceAction)
@@ -32900,8 +33720,7 @@ namespace NET_ASAM_OPENSCENARIO
             _longitudinalDistanceAction = longitudinalDistanceAction;
             _speedAction = {};
             _speedProfileAction = {};
-			// set the indicator to true
-            isSetLongitudinalDistanceAction = true;          
+            _isSetLongitudinalDistanceAction = true;
         }
 
         void LongitudinalActionImpl::SetSpeedProfileAction(std::shared_ptr<ISpeedProfileActionWriter> speedProfileAction)
@@ -32909,8 +33728,7 @@ namespace NET_ASAM_OPENSCENARIO
             _speedProfileAction = speedProfileAction;
             _speedAction = {};
             _longitudinalDistanceAction = {};
-			// set the indicator to true
-            isSetSpeedProfileAction = true;          
+            _isSetSpeedProfileAction = true;
         }
 
         std::shared_ptr<void> LongitudinalActionImpl::GetAdapter(const std::string classifier)
@@ -33130,36 +33948,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void LongitudinalActionImpl::ResetSpeedAction()
-	   {
-	   		isSetSpeedAction = false; 
-			_speedAction = {};
-			
-	   }
-       bool LongitudinalActionImpl::IsSetSpeedAction() const
-	   {
-			return isSetSpeedAction;
-	   }
-       void LongitudinalActionImpl::ResetLongitudinalDistanceAction()
-	   {
-	   		isSetLongitudinalDistanceAction = false; 
-			_longitudinalDistanceAction = {};
-			
-	   }
-       bool LongitudinalActionImpl::IsSetLongitudinalDistanceAction() const
-	   {
-			return isSetLongitudinalDistanceAction;
-	   }
-       void LongitudinalActionImpl::ResetSpeedProfileAction()
-	   {
-	   		isSetSpeedProfileAction = false; 
-			_speedProfileAction = {};
-			
-	   }
-       bool LongitudinalActionImpl::IsSetSpeedProfileAction() const
-	   {
-			return isSetSpeedProfileAction;
-	   }
+        void LongitudinalActionImpl::ResetSpeedAction()
+        {
+            _isSetSpeedAction = false; 
+            _speedAction = {};
+
+        }
+        bool LongitudinalActionImpl::IsSetSpeedAction() const
+        {
+            return _isSetSpeedAction;
+        }
+        void LongitudinalActionImpl::ResetLongitudinalDistanceAction()
+        {
+            _isSetLongitudinalDistanceAction = false; 
+            _longitudinalDistanceAction = {};
+
+        }
+        bool LongitudinalActionImpl::IsSetLongitudinalDistanceAction() const
+        {
+            return _isSetLongitudinalDistanceAction;
+        }
+        void LongitudinalActionImpl::ResetSpeedProfileAction()
+        {
+            _isSetSpeedProfileAction = false; 
+            _speedProfileAction = {};
+
+        }
+        bool LongitudinalActionImpl::IsSetSpeedProfileAction() const
+        {
+            return _isSetSpeedProfileAction;
+        }
 
         IOpenScenarioFlexElement* LongitudinalDistanceActionImpl::GetOpenScenarioFlexElement()
         {
@@ -33203,57 +34021,55 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _continuous = continuous;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS);
+            _isSetContinuous = true;
         }
 
         void LongitudinalDistanceActionImpl::SetCoordinateSystem(const CoordinateSystem coordinateSystem)
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
-			// set the indicator to true
-            isSetCoordinateSystem = true;          
+            _isSetCoordinateSystem = true;
         }
 
         void LongitudinalDistanceActionImpl::SetDisplacement(const LongitudinalDisplacement displacement)
         {
             _displacement = displacement;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISPLACEMENT);
-			// set the indicator to true
-            isSetDisplacement = true;          
+            _isSetDisplacement = true;
         }
 
         void LongitudinalDistanceActionImpl::SetDistance(const double distance)
         {
             _distance = distance;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE);
-			// set the indicator to true
-            isSetDistance = true;          
+            _isSetDistance = true;
         }
 
         void LongitudinalDistanceActionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void LongitudinalDistanceActionImpl::SetFreespace(const bool freespace)
         {
             _freespace = freespace;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE);
+            _isSetFreespace = true;
         }
 
         void LongitudinalDistanceActionImpl::SetTimeGap(const double timeGap)
         {
             _timeGap = timeGap;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME_GAP);
-			// set the indicator to true
-            isSetTimeGap = true;          
+            _isSetTimeGap = true;
         }
 
         void LongitudinalDistanceActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraintsWriter> dynamicConstraints)
         {
             _dynamicConstraints = dynamicConstraints;
-			// set the indicator to true
-            isSetDynamicConstraints = true;          
+            _isSetDynamicConstraints = true;
         }
 
         std::shared_ptr<void> LongitudinalDistanceActionImpl::GetAdapter(const std::string classifier)
@@ -33530,6 +34346,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetContinuous = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM)
             {
@@ -33539,6 +34356,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _coordinateSystem = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetCoordinateSystem = true;
                 }
                 else
                 {
@@ -33554,6 +34372,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _displacement = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetDisplacement = true;
                 }
                 else
                 {
@@ -33566,6 +34385,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _distance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDistance = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
@@ -33573,18 +34393,21 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TIME_GAP)
             {
                 // Simple type
                 _timeGap = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTimeGap = true;
             }
         }
 
@@ -33654,10 +34477,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_timeGap = GetTimeGap();
             // clone indicators
-            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
-            	clonedObject->isSetDisplacement = isSetDisplacement;
-            	clonedObject->isSetDistance = isSetDistance;
-            	clonedObject->isSetTimeGap = isSetTimeGap;
+            clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
+            clonedObject->_isSetDisplacement = _isSetDisplacement;
+            clonedObject->_isSetDistance = _isSetDistance;
+            clonedObject->_isSetTimeGap = _isSetTimeGap;
             // clone children
             const auto kDynamicConstraints =  GetWriterDynamicConstraints();
             if (kDynamicConstraints)
@@ -33748,12 +34571,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _continuous = value;
                 AddResolvedParameter(attributeKey);
+                _isSetContinuous = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
 		
 		}
@@ -33764,67 +34589,81 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _distance = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDistance = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TIME_GAP)
             {
                 // Simple type
                 _timeGap = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTimeGap = true;
             }
 		
 		}
 
 
-       void LongitudinalDistanceActionImpl::ResetCoordinateSystem()
-	   {
-	   		isSetCoordinateSystem = false; 
-			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-			
-	   }
-       bool LongitudinalDistanceActionImpl::IsSetCoordinateSystem() const
-	   {
-			return isSetCoordinateSystem;
-	   }
-       void LongitudinalDistanceActionImpl::ResetDisplacement()
-	   {
-	   		isSetDisplacement = false; 
-			_displacement = {LongitudinalDisplacement::LongitudinalDisplacementEnum::TRAILING_REFERENCED_ENTITY};
-			
-	   }
-       bool LongitudinalDistanceActionImpl::IsSetDisplacement() const
-	   {
-			return isSetDisplacement;
-	   }
-       void LongitudinalDistanceActionImpl::ResetDistance()
-	   {
-	   		isSetDistance = false; 
-			_distance = {};
-			
-	   }
-       bool LongitudinalDistanceActionImpl::IsSetDistance() const
-	   {
-			return isSetDistance;
-	   }
-       void LongitudinalDistanceActionImpl::ResetTimeGap()
-	   {
-	   		isSetTimeGap = false; 
-			_timeGap = {};
-			
-	   }
-       bool LongitudinalDistanceActionImpl::IsSetTimeGap() const
-	   {
-			return isSetTimeGap;
-	   }
-       void LongitudinalDistanceActionImpl::ResetDynamicConstraints()
-	   {
-	   		isSetDynamicConstraints = false; 
-			_dynamicConstraints = {};
-			
-	   }
-       bool LongitudinalDistanceActionImpl::IsSetDynamicConstraints() const
-	   {
-			return isSetDynamicConstraints;
-	   }
+        bool LongitudinalDistanceActionImpl::IsSetContinuous() const
+        {
+            return _isSetContinuous;
+        }
+        void LongitudinalDistanceActionImpl::ResetCoordinateSystem()
+        {
+            _isSetCoordinateSystem = false; 
+            _coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+
+        }
+        bool LongitudinalDistanceActionImpl::IsSetCoordinateSystem() const
+        {
+            return _isSetCoordinateSystem;
+        }
+        void LongitudinalDistanceActionImpl::ResetDisplacement()
+        {
+            _isSetDisplacement = false; 
+            _displacement = {LongitudinalDisplacement::LongitudinalDisplacementEnum::TRAILING_REFERENCED_ENTITY};
+
+        }
+        bool LongitudinalDistanceActionImpl::IsSetDisplacement() const
+        {
+            return _isSetDisplacement;
+        }
+        void LongitudinalDistanceActionImpl::ResetDistance()
+        {
+            _isSetDistance = false; 
+            _distance = {};
+
+        }
+        bool LongitudinalDistanceActionImpl::IsSetDistance() const
+        {
+            return _isSetDistance;
+        }
+        bool LongitudinalDistanceActionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        bool LongitudinalDistanceActionImpl::IsSetFreespace() const
+        {
+            return _isSetFreespace;
+        }
+        void LongitudinalDistanceActionImpl::ResetTimeGap()
+        {
+            _isSetTimeGap = false; 
+            _timeGap = {};
+
+        }
+        bool LongitudinalDistanceActionImpl::IsSetTimeGap() const
+        {
+            return _isSetTimeGap;
+        }
+        void LongitudinalDistanceActionImpl::ResetDynamicConstraints()
+        {
+            _isSetDynamicConstraints = false; 
+            _dynamicConstraints = {};
+
+        }
+        bool LongitudinalDistanceActionImpl::IsSetDynamicConstraints() const
+        {
+            return _isSetDynamicConstraints;
+        }
 
         IOpenScenarioFlexElement* ManeuverImpl::GetOpenScenarioFlexElement()
         {
@@ -33890,18 +34729,19 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void ManeuverImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
-			// set the indicator to true
-            isSetParameterDeclarations = true;          
+            _isSetParameterDeclarations = true;
         }
 
         void ManeuverImpl::SetEvents(std::vector<std::shared_ptr<IEventWriter>>& events)
         {
             _events = events;
+            _isSetEvents = true;
         }
 
         std::shared_ptr<void> ManeuverImpl::GetAdapter(const std::string classifier)
@@ -34010,6 +34850,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -34176,21 +35017,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void ManeuverImpl::ResetParameterDeclarations()
-	   {
-	   		isSetParameterDeclarations = false; 
-			_parameterDeclarations = {};
-			
-	   }
-       bool ManeuverImpl::IsSetParameterDeclarations() const
-	   {
-			return isSetParameterDeclarations;
-	   }
+        bool ManeuverImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void ManeuverImpl::ResetParameterDeclarations()
+        {
+            _isSetParameterDeclarations = false; 
+            _parameterDeclarations = {};
+
+        }
+        bool ManeuverImpl::IsSetParameterDeclarations() const
+        {
+            return _isSetParameterDeclarations;
+        }
+        bool ManeuverImpl::IsSetEvents() const
+        {
+            return _isSetEvents;
+        }
 
         IOpenScenarioFlexElement* ManeuverCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -34205,6 +35055,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ManeuverCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectoryWriter> directory)
         {
             _directory = directory;
+            _isSetDirectory = true;
         }
 
         std::shared_ptr<void> ManeuverCatalogLocationImpl::GetAdapter(const std::string classifier)
@@ -34380,6 +35231,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ManeuverCatalogLocationImpl::IsSetDirectory() const
+        {
+            return _isSetDirectory;
+        }
 
         IOpenScenarioFlexElement* ManeuverGroupImpl::GetOpenScenarioFlexElement()
         {
@@ -34453,31 +35308,32 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _maximumExecutionCount = maximumExecutionCount;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAXIMUM_EXECUTION_COUNT);
+            _isSetMaximumExecutionCount = true;
         }
 
         void ManeuverGroupImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void ManeuverGroupImpl::SetActors(std::shared_ptr<IActorsWriter> actors)
         {
             _actors = actors;
+            _isSetActors = true;
         }
 
         void ManeuverGroupImpl::SetCatalogReferences(std::vector<std::shared_ptr<ICatalogReferenceWriter>>& catalogReferences)
         {
             _catalogReferences = catalogReferences;
-			// set the indicator to true
-            isSetCatalogReferences = true;          
+            _isSetCatalogReferences = true;
         }
 
         void ManeuverGroupImpl::SetManeuvers(std::vector<std::shared_ptr<IManeuverWriter>>& maneuvers)
         {
             _maneuvers = maneuvers;
-			// set the indicator to true
-            isSetManeuvers = true;          
+            _isSetManeuvers = true;
         }
 
         std::shared_ptr<void> ManeuverGroupImpl::GetAdapter(const std::string classifier)
@@ -34622,12 +35478,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maximumExecutionCount = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaximumExecutionCount = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -34799,6 +35657,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maximumExecutionCount = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaximumExecutionCount = true;
             }
 		
 		}
@@ -34809,31 +35668,44 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void ManeuverGroupImpl::ResetCatalogReferences()
-	   {
-	   		isSetCatalogReferences = false; 
-			_catalogReferences = {};
-			
-	   }
-       bool ManeuverGroupImpl::IsSetCatalogReferences() const
-	   {
-			return isSetCatalogReferences;
-	   }
-       void ManeuverGroupImpl::ResetManeuvers()
-	   {
-	   		isSetManeuvers = false; 
-			_maneuvers = {};
-			
-	   }
-       bool ManeuverGroupImpl::IsSetManeuvers() const
-	   {
-			return isSetManeuvers;
-	   }
+        bool ManeuverGroupImpl::IsSetMaximumExecutionCount() const
+        {
+            return _isSetMaximumExecutionCount;
+        }
+        bool ManeuverGroupImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool ManeuverGroupImpl::IsSetActors() const
+        {
+            return _isSetActors;
+        }
+        void ManeuverGroupImpl::ResetCatalogReferences()
+        {
+            _isSetCatalogReferences = false; 
+            _catalogReferences = {};
+
+        }
+        bool ManeuverGroupImpl::IsSetCatalogReferences() const
+        {
+            return _isSetCatalogReferences;
+        }
+        void ManeuverGroupImpl::ResetManeuvers()
+        {
+            _isSetManeuvers = false; 
+            _maneuvers = {};
+
+        }
+        bool ManeuverGroupImpl::IsSetManeuvers() const
+        {
+            return _isSetManeuvers;
+        }
 
         IOpenScenarioFlexElement* ManualGearImpl::GetOpenScenarioFlexElement()
         {
@@ -34849,6 +35721,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _number = number;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER);
+            _isSetNumber = true;
         }
 
         std::shared_ptr<void> ManualGearImpl::GetAdapter(const std::string classifier)
@@ -34966,6 +35839,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _number = ParserHelper::ParseInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetNumber = true;
             }
         }
 
@@ -35043,11 +35917,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _number = value;
                 AddResolvedParameter(attributeKey);
+                _isSetNumber = true;
             }
 		
 		}
 
 
+        bool ManualGearImpl::IsSetNumber() const
+        {
+            return _isSetNumber;
+        }
 
         IOpenScenarioFlexElement* MiscObjectImpl::GetOpenScenarioFlexElement()
         {
@@ -35108,43 +35987,46 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _mass = mass;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS);
+            _isSetMass = true;
         }
 
         void MiscObjectImpl::SetMiscObjectCategory(const MiscObjectCategory miscObjectCategory)
         {
             _miscObjectCategory = miscObjectCategory;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY);
+            _isSetMiscObjectCategory = true;
         }
 
         void MiscObjectImpl::SetModel3d(const std::string model3d)
         {
             _model3d = model3d;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D);
-			// set the indicator to true
-            isSetModel3d = true;          
+            _isSetModel3d = true;
         }
 
         void MiscObjectImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void MiscObjectImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
-			// set the indicator to true
-            isSetParameterDeclarations = true;          
+            _isSetParameterDeclarations = true;
         }
 
         void MiscObjectImpl::SetBoundingBox(std::shared_ptr<IBoundingBoxWriter> boundingBox)
         {
             _boundingBox = boundingBox;
+            _isSetBoundingBox = true;
         }
 
         void MiscObjectImpl::SetProperties(std::shared_ptr<IPropertiesWriter> properties)
         {
             _properties = properties;
+            _isSetProperties = true;
         }
 
         std::shared_ptr<void> MiscObjectImpl::GetAdapter(const std::string classifier)
@@ -35339,6 +36221,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _mass = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMass = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MISC_OBJECT_CATEGORY)
             {
@@ -35348,6 +36231,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _miscObjectCategory = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetMiscObjectCategory = true;
                 }
                 else
                 {
@@ -35360,12 +36244,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _model3d = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetModel3d = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -35455,7 +36341,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_name = GetName();
             // clone indicators
-            	clonedObject->isSetModel3d = isSetModel3d;
+            clonedObject->_isSetModel3d = _isSetModel3d;
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -35570,12 +36456,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _model3d = value;
                 AddResolvedParameter(attributeKey);
+                _isSetModel3d = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
@@ -35586,31 +36474,52 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _mass = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMass = true;
             }
 		
 		}
 
 
-       void MiscObjectImpl::ResetModel3d()
-	   {
-	   		isSetModel3d = false; 
-			_model3d = {};
-			
-	   }
-       bool MiscObjectImpl::IsSetModel3d() const
-	   {
-			return isSetModel3d;
-	   }
-       void MiscObjectImpl::ResetParameterDeclarations()
-	   {
-	   		isSetParameterDeclarations = false; 
-			_parameterDeclarations = {};
-			
-	   }
-       bool MiscObjectImpl::IsSetParameterDeclarations() const
-	   {
-			return isSetParameterDeclarations;
-	   }
+        bool MiscObjectImpl::IsSetMass() const
+        {
+            return _isSetMass;
+        }
+        bool MiscObjectImpl::IsSetMiscObjectCategory() const
+        {
+            return _isSetMiscObjectCategory;
+        }
+        void MiscObjectImpl::ResetModel3d()
+        {
+            _isSetModel3d = false; 
+            _model3d = {};
+
+        }
+        bool MiscObjectImpl::IsSetModel3d() const
+        {
+            return _isSetModel3d;
+        }
+        bool MiscObjectImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void MiscObjectImpl::ResetParameterDeclarations()
+        {
+            _isSetParameterDeclarations = false; 
+            _parameterDeclarations = {};
+
+        }
+        bool MiscObjectImpl::IsSetParameterDeclarations() const
+        {
+            return _isSetParameterDeclarations;
+        }
+        bool MiscObjectImpl::IsSetBoundingBox() const
+        {
+            return _isSetBoundingBox;
+        }
+        bool MiscObjectImpl::IsSetProperties() const
+        {
+            return _isSetProperties;
+        }
 
         IOpenScenarioFlexElement* MiscObjectCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -35625,6 +36534,7 @@ namespace NET_ASAM_OPENSCENARIO
         void MiscObjectCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectoryWriter> directory)
         {
             _directory = directory;
+            _isSetDirectory = true;
         }
 
         std::shared_ptr<void> MiscObjectCatalogLocationImpl::GetAdapter(const std::string classifier)
@@ -35800,6 +36710,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool MiscObjectCatalogLocationImpl::IsSetDirectory() const
+        {
+            return _isSetDirectory;
+        }
 
         IOpenScenarioFlexElement* ModifyRuleImpl::GetOpenScenarioFlexElement()
         {
@@ -35819,16 +36733,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _addValue = addValue;
             _multiplyByValue = {};
-			// set the indicator to true
-            isSetAddValue = true;          
+            _isSetAddValue = true;
         }
 
         void ModifyRuleImpl::SetMultiplyByValue(std::shared_ptr<IParameterMultiplyByValueRuleWriter> multiplyByValue)
         {
             _multiplyByValue = multiplyByValue;
             _addValue = {};
-			// set the indicator to true
-            isSetMultiplyByValue = true;          
+            _isSetMultiplyByValue = true;
         }
 
         std::shared_ptr<void> ModifyRuleImpl::GetAdapter(const std::string classifier)
@@ -36026,26 +36938,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void ModifyRuleImpl::ResetAddValue()
-	   {
-	   		isSetAddValue = false; 
-			_addValue = {};
-			
-	   }
-       bool ModifyRuleImpl::IsSetAddValue() const
-	   {
-			return isSetAddValue;
-	   }
-       void ModifyRuleImpl::ResetMultiplyByValue()
-	   {
-	   		isSetMultiplyByValue = false; 
-			_multiplyByValue = {};
-			
-	   }
-       bool ModifyRuleImpl::IsSetMultiplyByValue() const
-	   {
-			return isSetMultiplyByValue;
-	   }
+        void ModifyRuleImpl::ResetAddValue()
+        {
+            _isSetAddValue = false; 
+            _addValue = {};
+
+        }
+        bool ModifyRuleImpl::IsSetAddValue() const
+        {
+            return _isSetAddValue;
+        }
+        void ModifyRuleImpl::ResetMultiplyByValue()
+        {
+            _isSetMultiplyByValue = false; 
+            _multiplyByValue = {};
+
+        }
+        bool ModifyRuleImpl::IsSetMultiplyByValue() const
+        {
+            return _isSetMultiplyByValue;
+        }
 
         IOpenScenarioFlexElement* NoneImpl::GetOpenScenarioFlexElement()
         {
@@ -36223,19 +37135,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _expectedValue = expectedValue;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE);
+            _isSetExpectedValue = true;
         }
 
         void NormalDistributionImpl::SetVariance(const double variance)
         {
             _variance = variance;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VARIANCE);
+            _isSetVariance = true;
         }
 
         void NormalDistributionImpl::SetRange(std::shared_ptr<IRangeWriter> range)
         {
             _range = range;
-			// set the indicator to true
-            isSetRange = true;          
+            _isSetRange = true;
         }
 
         std::shared_ptr<void> NormalDistributionImpl::GetAdapter(const std::string classifier)
@@ -36384,12 +37297,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _expectedValue = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetExpectedValue = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VARIANCE)
             {
                 // Simple type
                 _variance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetVariance = true;
             }
         }
 
@@ -36491,27 +37406,37 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _expectedValue = value;
                 AddResolvedParameter(attributeKey);
+                _isSetExpectedValue = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VARIANCE)
             {
                 // Simple type
                 _variance = value;
                 AddResolvedParameter(attributeKey);
+                _isSetVariance = true;
             }
 		
 		}
 
 
-       void NormalDistributionImpl::ResetRange()
-	   {
-	   		isSetRange = false; 
-			_range = {};
-			
-	   }
-       bool NormalDistributionImpl::IsSetRange() const
-	   {
-			return isSetRange;
-	   }
+        bool NormalDistributionImpl::IsSetExpectedValue() const
+        {
+            return _isSetExpectedValue;
+        }
+        bool NormalDistributionImpl::IsSetVariance() const
+        {
+            return _isSetVariance;
+        }
+        void NormalDistributionImpl::ResetRange()
+        {
+            _isSetRange = false; 
+            _range = {};
+
+        }
+        bool NormalDistributionImpl::IsSetRange() const
+        {
+            return _isSetRange;
+        }
 
         IOpenScenarioFlexElement* NurbsImpl::GetOpenScenarioFlexElement()
         {
@@ -36577,16 +37502,19 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _order = order;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ORDER);
+            _isSetOrder = true;
         }
 
         void NurbsImpl::SetControlPoints(std::vector<std::shared_ptr<IControlPointWriter>>& controlPoints)
         {
             _controlPoints = controlPoints;
+            _isSetControlPoints = true;
         }
 
         void NurbsImpl::SetKnots(std::vector<std::shared_ptr<IKnotWriter>>& knots)
         {
             _knots = knots;
+            _isSetKnots = true;
         }
 
         std::shared_ptr<void> NurbsImpl::GetAdapter(const std::string classifier)
@@ -36704,6 +37632,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _order = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetOrder = true;
             }
         }
 
@@ -36842,11 +37771,24 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _order = value;
                 AddResolvedParameter(attributeKey);
+                _isSetOrder = true;
             }
 		
 		}
 
 
+        bool NurbsImpl::IsSetOrder() const
+        {
+            return _isSetOrder;
+        }
+        bool NurbsImpl::IsSetControlPoints() const
+        {
+            return _isSetControlPoints;
+        }
+        bool NurbsImpl::IsSetKnots() const
+        {
+            return _isSetKnots;
+        }
 
         IOpenScenarioFlexElement* ObjectControllerImpl::GetOpenScenarioFlexElement()
         {
@@ -36866,16 +37808,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _catalogReference = catalogReference;
             _controller = {};
-			// set the indicator to true
-            isSetCatalogReference = true;          
+            _isSetCatalogReference = true;
         }
 
         void ObjectControllerImpl::SetController(std::shared_ptr<IControllerWriter> controller)
         {
             _controller = controller;
             _catalogReference = {};
-			// set the indicator to true
-            isSetController = true;          
+            _isSetController = true;
         }
 
         std::shared_ptr<void> ObjectControllerImpl::GetAdapter(const std::string classifier)
@@ -37073,26 +38013,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void ObjectControllerImpl::ResetCatalogReference()
-	   {
-	   		isSetCatalogReference = false; 
-			_catalogReference = {};
-			
-	   }
-       bool ObjectControllerImpl::IsSetCatalogReference() const
-	   {
-			return isSetCatalogReference;
-	   }
-       void ObjectControllerImpl::ResetController()
-	   {
-	   		isSetController = false; 
-			_controller = {};
-			
-	   }
-       bool ObjectControllerImpl::IsSetController() const
-	   {
-			return isSetController;
-	   }
+        void ObjectControllerImpl::ResetCatalogReference()
+        {
+            _isSetCatalogReference = false; 
+            _catalogReference = {};
+
+        }
+        bool ObjectControllerImpl::IsSetCatalogReference() const
+        {
+            return _isSetCatalogReference;
+        }
+        void ObjectControllerImpl::ResetController()
+        {
+            _isSetController = false; 
+            _controller = {};
+
+        }
+        bool ObjectControllerImpl::IsSetController() const
+        {
+            return _isSetController;
+        }
 
         IOpenScenarioFlexElement* OffroadConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -37108,6 +38048,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _duration = duration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION);
+            _isSetDuration = true;
         }
 
         std::shared_ptr<void> OffroadConditionImpl::GetAdapter(const std::string classifier)
@@ -37225,6 +38166,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _duration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDuration = true;
             }
         }
 
@@ -37302,11 +38244,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _duration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDuration = true;
             }
 		
 		}
 
 
+        bool OffroadConditionImpl::IsSetDuration() const
+        {
+            return _isSetDuration;
+        }
 
         IOpenScenarioFlexElement* OpenScenarioImpl::GetOpenScenarioFlexElement()
         {
@@ -37325,11 +38272,13 @@ namespace NET_ASAM_OPENSCENARIO
         void OpenScenarioImpl::SetFileHeader(std::shared_ptr<IFileHeaderWriter> fileHeader)
         {
             _fileHeader = fileHeader;
+            _isSetFileHeader = true;
         }
 
         void OpenScenarioImpl::SetOpenScenarioCategory(std::shared_ptr<IOpenScenarioCategoryWriter> openScenarioCategory)
         {
             _openScenarioCategory = openScenarioCategory;
+            _isSetOpenScenarioCategory = true;
         }
 
         std::shared_ptr<void> OpenScenarioImpl::GetAdapter(const std::string classifier)
@@ -37527,6 +38476,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool OpenScenarioImpl::IsSetFileHeader() const
+        {
+            return _isSetFileHeader;
+        }
+        bool OpenScenarioImpl::IsSetOpenScenarioCategory() const
+        {
+            return _isSetOpenScenarioCategory;
+        }
 
         IOpenScenarioFlexElement* OpenScenarioCategoryImpl::GetOpenScenarioFlexElement()
         {
@@ -37551,6 +38508,7 @@ namespace NET_ASAM_OPENSCENARIO
             _scenarioDefinition = scenarioDefinition;
             _catalogDefinition = {};
             _parameterValueDistributionDefinition = {};
+            _isSetScenarioDefinition = true;
         }
 
         void OpenScenarioCategoryImpl::SetCatalogDefinition(std::shared_ptr<ICatalogDefinitionWriter> catalogDefinition)
@@ -37558,6 +38516,7 @@ namespace NET_ASAM_OPENSCENARIO
             _catalogDefinition = catalogDefinition;
             _scenarioDefinition = {};
             _parameterValueDistributionDefinition = {};
+            _isSetCatalogDefinition = true;
         }
 
         void OpenScenarioCategoryImpl::SetParameterValueDistributionDefinition(std::shared_ptr<IParameterValueDistributionDefinitionWriter> parameterValueDistributionDefinition)
@@ -37565,6 +38524,7 @@ namespace NET_ASAM_OPENSCENARIO
             _parameterValueDistributionDefinition = parameterValueDistributionDefinition;
             _scenarioDefinition = {};
             _catalogDefinition = {};
+            _isSetParameterValueDistributionDefinition = true;
         }
 
         std::shared_ptr<void> OpenScenarioCategoryImpl::GetAdapter(const std::string classifier)
@@ -37784,6 +38744,18 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool OpenScenarioCategoryImpl::IsSetScenarioDefinition() const
+        {
+            return _isSetScenarioDefinition;
+        }
+        bool OpenScenarioCategoryImpl::IsSetCatalogDefinition() const
+        {
+            return _isSetCatalogDefinition;
+        }
+        bool OpenScenarioCategoryImpl::IsSetParameterValueDistributionDefinition() const
+        {
+            return _isSetParameterValueDistributionDefinition;
+        }
 
         IOpenScenarioFlexElement* OrientationImpl::GetOpenScenarioFlexElement()
         {
@@ -37811,32 +38783,28 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _h = h;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H);
-			// set the indicator to true
-            isSetH = true;          
+            _isSetH = true;
         }
 
         void OrientationImpl::SetP(const double p)
         {
             _p = p;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P);
-			// set the indicator to true
-            isSetP = true;          
+            _isSetP = true;
         }
 
         void OrientationImpl::SetR(const double r)
         {
             _r = r;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R);
-			// set the indicator to true
-            isSetR = true;          
+            _isSetR = true;
         }
 
         void OrientationImpl::SetType(const ReferenceContext type)
         {
             _type = type;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE);
-			// set the indicator to true
-            isSetType = true;          
+            _isSetType = true;
         }
 
         std::shared_ptr<void> OrientationImpl::GetAdapter(const std::string classifier)
@@ -38031,18 +38999,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _h = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetH = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__P)
             {
                 // Simple type
                 _p = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetP = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__R)
             {
                 // Simple type
                 _r = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetR = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TYPE)
             {
@@ -38052,6 +39023,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _type = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetType = true;
                 }
                 else
                 {
@@ -38109,10 +39081,10 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_type = ReferenceContext::GetFromLiteral(kType.GetLiteral());
             }
             // clone indicators
-            	clonedObject->isSetH = isSetH;
-            	clonedObject->isSetP = isSetP;
-            	clonedObject->isSetR = isSetR;
-            	clonedObject->isSetType = isSetType;
+            clonedObject->_isSetH = _isSetH;
+            clonedObject->_isSetP = _isSetP;
+            clonedObject->_isSetR = _isSetR;
+            clonedObject->_isSetType = _isSetType;
             // clone children
             return clonedObject;
         }
@@ -38159,63 +39131,66 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _h = value;
                 AddResolvedParameter(attributeKey);
+                _isSetH = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__P)
             {
                 // Simple type
                 _p = value;
                 AddResolvedParameter(attributeKey);
+                _isSetP = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__R)
             {
                 // Simple type
                 _r = value;
                 AddResolvedParameter(attributeKey);
+                _isSetR = true;
             }
 		
 		}
 
 
-       void OrientationImpl::ResetH()
-	   {
-	   		isSetH = false; 
-			_h = {0};
-			
-	   }
-       bool OrientationImpl::IsSetH() const
-	   {
-			return isSetH;
-	   }
-       void OrientationImpl::ResetP()
-	   {
-	   		isSetP = false; 
-			_p = {0};
-			
-	   }
-       bool OrientationImpl::IsSetP() const
-	   {
-			return isSetP;
-	   }
-       void OrientationImpl::ResetR()
-	   {
-	   		isSetR = false; 
-			_r = {0};
-			
-	   }
-       bool OrientationImpl::IsSetR() const
-	   {
-			return isSetR;
-	   }
-       void OrientationImpl::ResetType()
-	   {
-	   		isSetType = false; 
-			_type = {ReferenceContext::ReferenceContextEnum::ABSOLUTE};
-			
-	   }
-       bool OrientationImpl::IsSetType() const
-	   {
-			return isSetType;
-	   }
+        void OrientationImpl::ResetH()
+        {
+            _isSetH = false; 
+            _h = {0};
+
+        }
+        bool OrientationImpl::IsSetH() const
+        {
+            return _isSetH;
+        }
+        void OrientationImpl::ResetP()
+        {
+            _isSetP = false; 
+            _p = {0};
+
+        }
+        bool OrientationImpl::IsSetP() const
+        {
+            return _isSetP;
+        }
+        void OrientationImpl::ResetR()
+        {
+            _isSetR = false; 
+            _r = {0};
+
+        }
+        bool OrientationImpl::IsSetR() const
+        {
+            return _isSetR;
+        }
+        void OrientationImpl::ResetType()
+        {
+            _isSetType = false; 
+            _type = {ReferenceContext::ReferenceContextEnum::ABSOLUTE};
+
+        }
+        bool OrientationImpl::IsSetType() const
+        {
+            return _isSetType;
+        }
 
         IOpenScenarioFlexElement* OverrideBrakeActionImpl::GetOpenScenarioFlexElement()
         {
@@ -38239,21 +39214,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _active = active;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE);
+            _isSetActive = true;
         }
 
         void OverrideBrakeActionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
-			// set the indicator to true
-            isSetValue = true;          
+            _isSetValue = true;
         }
 
         void OverrideBrakeActionImpl::SetBrakeInput(std::shared_ptr<IBrakeInputWriter> brakeInput)
         {
             _brakeInput = brakeInput;
-			// set the indicator to true
-            isSetBrakeInput = true;          
+            _isSetBrakeInput = true;
         }
 
         std::shared_ptr<void> OverrideBrakeActionImpl::GetAdapter(const std::string classifier)
@@ -38407,12 +39381,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -38461,7 +39437,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetValue = isSetValue;
+            clonedObject->_isSetValue = _isSetValue;
             // clone children
             const auto kBrakeInput =  GetWriterBrakeInput();
             if (kBrakeInput)
@@ -38515,6 +39491,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = value;
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
 		
 		}
@@ -38525,31 +39502,36 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void OverrideBrakeActionImpl::ResetValue()
-	   {
-	   		isSetValue = false; 
-			_value = {};
-			
-	   }
-       bool OverrideBrakeActionImpl::IsSetValue() const
-	   {
-			return isSetValue;
-	   }
-       void OverrideBrakeActionImpl::ResetBrakeInput()
-	   {
-	   		isSetBrakeInput = false; 
-			_brakeInput = {};
-			
-	   }
-       bool OverrideBrakeActionImpl::IsSetBrakeInput() const
-	   {
-			return isSetBrakeInput;
-	   }
+        bool OverrideBrakeActionImpl::IsSetActive() const
+        {
+            return _isSetActive;
+        }
+        void OverrideBrakeActionImpl::ResetValue()
+        {
+            _isSetValue = false; 
+            _value = {};
+
+        }
+        bool OverrideBrakeActionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
+        void OverrideBrakeActionImpl::ResetBrakeInput()
+        {
+            _isSetBrakeInput = false; 
+            _brakeInput = {};
+
+        }
+        bool OverrideBrakeActionImpl::IsSetBrakeInput() const
+        {
+            return _isSetBrakeInput;
+        }
 
         IOpenScenarioFlexElement* OverrideClutchActionImpl::GetOpenScenarioFlexElement()
         {
@@ -38573,20 +39555,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _active = active;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE);
+            _isSetActive = true;
         }
 
         void OverrideClutchActionImpl::SetMaxRate(const double maxRate)
         {
             _maxRate = maxRate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_RATE);
-			// set the indicator to true
-            isSetMaxRate = true;          
+            _isSetMaxRate = true;
         }
 
         void OverrideClutchActionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> OverrideClutchActionImpl::GetAdapter(const std::string classifier)
@@ -38763,18 +39746,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_RATE)
             {
                 // Simple type
                 _maxRate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -38820,7 +39806,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetMaxRate = isSetMaxRate;
+            clonedObject->_isSetMaxRate = _isSetMaxRate;
             // clone children
             return clonedObject;
         }
@@ -38857,6 +39843,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = value;
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
 		
 		}
@@ -38867,27 +39854,37 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxRate = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void OverrideClutchActionImpl::ResetMaxRate()
-	   {
-	   		isSetMaxRate = false; 
-			_maxRate = {};
-			
-	   }
-       bool OverrideClutchActionImpl::IsSetMaxRate() const
-	   {
-			return isSetMaxRate;
-	   }
+        bool OverrideClutchActionImpl::IsSetActive() const
+        {
+            return _isSetActive;
+        }
+        void OverrideClutchActionImpl::ResetMaxRate()
+        {
+            _isSetMaxRate = false; 
+            _maxRate = {};
+
+        }
+        bool OverrideClutchActionImpl::IsSetMaxRate() const
+        {
+            return _isSetMaxRate;
+        }
+        bool OverrideClutchActionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* OverrideControllerValueActionImpl::GetOpenScenarioFlexElement()
         {
@@ -38922,43 +39919,37 @@ namespace NET_ASAM_OPENSCENARIO
         void OverrideControllerValueActionImpl::SetThrottle(std::shared_ptr<IOverrideThrottleActionWriter> throttle)
         {
             _throttle = throttle;
-			// set the indicator to true
-            isSetThrottle = true;          
+            _isSetThrottle = true;
         }
 
         void OverrideControllerValueActionImpl::SetBrake(std::shared_ptr<IOverrideBrakeActionWriter> brake)
         {
             _brake = brake;
-			// set the indicator to true
-            isSetBrake = true;          
+            _isSetBrake = true;
         }
 
         void OverrideControllerValueActionImpl::SetClutch(std::shared_ptr<IOverrideClutchActionWriter> clutch)
         {
             _clutch = clutch;
-			// set the indicator to true
-            isSetClutch = true;          
+            _isSetClutch = true;
         }
 
         void OverrideControllerValueActionImpl::SetParkingBrake(std::shared_ptr<IOverrideParkingBrakeActionWriter> parkingBrake)
         {
             _parkingBrake = parkingBrake;
-			// set the indicator to true
-            isSetParkingBrake = true;          
+            _isSetParkingBrake = true;
         }
 
         void OverrideControllerValueActionImpl::SetSteeringWheel(std::shared_ptr<IOverrideSteeringWheelActionWriter> steeringWheel)
         {
             _steeringWheel = steeringWheel;
-			// set the indicator to true
-            isSetSteeringWheel = true;          
+            _isSetSteeringWheel = true;
         }
 
         void OverrideControllerValueActionImpl::SetGear(std::shared_ptr<IOverrideGearActionWriter> gear)
         {
             _gear = gear;
-			// set the indicator to true
-            isSetGear = true;          
+            _isSetGear = true;
         }
 
         std::shared_ptr<void> OverrideControllerValueActionImpl::GetAdapter(const std::string classifier)
@@ -39244,66 +40235,66 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void OverrideControllerValueActionImpl::ResetThrottle()
-	   {
-	   		isSetThrottle = false; 
-			_throttle = {};
-			
-	   }
-       bool OverrideControllerValueActionImpl::IsSetThrottle() const
-	   {
-			return isSetThrottle;
-	   }
-       void OverrideControllerValueActionImpl::ResetBrake()
-	   {
-	   		isSetBrake = false; 
-			_brake = {};
-			
-	   }
-       bool OverrideControllerValueActionImpl::IsSetBrake() const
-	   {
-			return isSetBrake;
-	   }
-       void OverrideControllerValueActionImpl::ResetClutch()
-	   {
-	   		isSetClutch = false; 
-			_clutch = {};
-			
-	   }
-       bool OverrideControllerValueActionImpl::IsSetClutch() const
-	   {
-			return isSetClutch;
-	   }
-       void OverrideControllerValueActionImpl::ResetParkingBrake()
-	   {
-	   		isSetParkingBrake = false; 
-			_parkingBrake = {};
-			
-	   }
-       bool OverrideControllerValueActionImpl::IsSetParkingBrake() const
-	   {
-			return isSetParkingBrake;
-	   }
-       void OverrideControllerValueActionImpl::ResetSteeringWheel()
-	   {
-	   		isSetSteeringWheel = false; 
-			_steeringWheel = {};
-			
-	   }
-       bool OverrideControllerValueActionImpl::IsSetSteeringWheel() const
-	   {
-			return isSetSteeringWheel;
-	   }
-       void OverrideControllerValueActionImpl::ResetGear()
-	   {
-	   		isSetGear = false; 
-			_gear = {};
-			
-	   }
-       bool OverrideControllerValueActionImpl::IsSetGear() const
-	   {
-			return isSetGear;
-	   }
+        void OverrideControllerValueActionImpl::ResetThrottle()
+        {
+            _isSetThrottle = false; 
+            _throttle = {};
+
+        }
+        bool OverrideControllerValueActionImpl::IsSetThrottle() const
+        {
+            return _isSetThrottle;
+        }
+        void OverrideControllerValueActionImpl::ResetBrake()
+        {
+            _isSetBrake = false; 
+            _brake = {};
+
+        }
+        bool OverrideControllerValueActionImpl::IsSetBrake() const
+        {
+            return _isSetBrake;
+        }
+        void OverrideControllerValueActionImpl::ResetClutch()
+        {
+            _isSetClutch = false; 
+            _clutch = {};
+
+        }
+        bool OverrideControllerValueActionImpl::IsSetClutch() const
+        {
+            return _isSetClutch;
+        }
+        void OverrideControllerValueActionImpl::ResetParkingBrake()
+        {
+            _isSetParkingBrake = false; 
+            _parkingBrake = {};
+
+        }
+        bool OverrideControllerValueActionImpl::IsSetParkingBrake() const
+        {
+            return _isSetParkingBrake;
+        }
+        void OverrideControllerValueActionImpl::ResetSteeringWheel()
+        {
+            _isSetSteeringWheel = false; 
+            _steeringWheel = {};
+
+        }
+        bool OverrideControllerValueActionImpl::IsSetSteeringWheel() const
+        {
+            return _isSetSteeringWheel;
+        }
+        void OverrideControllerValueActionImpl::ResetGear()
+        {
+            _isSetGear = false; 
+            _gear = {};
+
+        }
+        bool OverrideControllerValueActionImpl::IsSetGear() const
+        {
+            return _isSetGear;
+        }
 
         IOpenScenarioFlexElement* OverrideGearActionImpl::GetOpenScenarioFlexElement()
         {
@@ -39327,21 +40318,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _active = active;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE);
+            _isSetActive = true;
         }
 
         void OverrideGearActionImpl::SetNumber(const double number)
         {
             _number = number;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER);
-			// set the indicator to true
-            isSetNumber = true;          
+            _isSetNumber = true;
         }
 
         void OverrideGearActionImpl::SetGear(std::shared_ptr<IGearWriter> gear)
         {
             _gear = gear;
-			// set the indicator to true
-            isSetGear = true;          
+            _isSetGear = true;
         }
 
         std::shared_ptr<void> OverrideGearActionImpl::GetAdapter(const std::string classifier)
@@ -39495,12 +40485,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NUMBER)
             {
                 // Simple type
                 _number = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetNumber = true;
             }
         }
 
@@ -39549,7 +40541,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_number = GetNumber();
             // clone indicators
-            	clonedObject->isSetNumber = isSetNumber;
+            clonedObject->_isSetNumber = _isSetNumber;
             // clone children
             const auto kGear =  GetWriterGear();
             if (kGear)
@@ -39603,6 +40595,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = value;
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
 		
 		}
@@ -39613,31 +40606,36 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _number = value;
                 AddResolvedParameter(attributeKey);
+                _isSetNumber = true;
             }
 		
 		}
 
 
-       void OverrideGearActionImpl::ResetNumber()
-	   {
-	   		isSetNumber = false; 
-			_number = {};
-			
-	   }
-       bool OverrideGearActionImpl::IsSetNumber() const
-	   {
-			return isSetNumber;
-	   }
-       void OverrideGearActionImpl::ResetGear()
-	   {
-	   		isSetGear = false; 
-			_gear = {};
-			
-	   }
-       bool OverrideGearActionImpl::IsSetGear() const
-	   {
-			return isSetGear;
-	   }
+        bool OverrideGearActionImpl::IsSetActive() const
+        {
+            return _isSetActive;
+        }
+        void OverrideGearActionImpl::ResetNumber()
+        {
+            _isSetNumber = false; 
+            _number = {};
+
+        }
+        bool OverrideGearActionImpl::IsSetNumber() const
+        {
+            return _isSetNumber;
+        }
+        void OverrideGearActionImpl::ResetGear()
+        {
+            _isSetGear = false; 
+            _gear = {};
+
+        }
+        bool OverrideGearActionImpl::IsSetGear() const
+        {
+            return _isSetGear;
+        }
 
         IOpenScenarioFlexElement* OverrideParkingBrakeActionImpl::GetOpenScenarioFlexElement()
         {
@@ -39661,21 +40659,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _active = active;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE);
+            _isSetActive = true;
         }
 
         void OverrideParkingBrakeActionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
-			// set the indicator to true
-            isSetValue = true;          
+            _isSetValue = true;
         }
 
         void OverrideParkingBrakeActionImpl::SetBrakeInput(std::shared_ptr<IBrakeInputWriter> brakeInput)
         {
             _brakeInput = brakeInput;
-			// set the indicator to true
-            isSetBrakeInput = true;          
+            _isSetBrakeInput = true;
         }
 
         std::shared_ptr<void> OverrideParkingBrakeActionImpl::GetAdapter(const std::string classifier)
@@ -39829,12 +40826,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -39883,7 +40882,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetValue = isSetValue;
+            clonedObject->_isSetValue = _isSetValue;
             // clone children
             const auto kBrakeInput =  GetWriterBrakeInput();
             if (kBrakeInput)
@@ -39937,6 +40936,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = value;
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
 		
 		}
@@ -39947,31 +40947,36 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void OverrideParkingBrakeActionImpl::ResetValue()
-	   {
-	   		isSetValue = false; 
-			_value = {};
-			
-	   }
-       bool OverrideParkingBrakeActionImpl::IsSetValue() const
-	   {
-			return isSetValue;
-	   }
-       void OverrideParkingBrakeActionImpl::ResetBrakeInput()
-	   {
-	   		isSetBrakeInput = false; 
-			_brakeInput = {};
-			
-	   }
-       bool OverrideParkingBrakeActionImpl::IsSetBrakeInput() const
-	   {
-			return isSetBrakeInput;
-	   }
+        bool OverrideParkingBrakeActionImpl::IsSetActive() const
+        {
+            return _isSetActive;
+        }
+        void OverrideParkingBrakeActionImpl::ResetValue()
+        {
+            _isSetValue = false; 
+            _value = {};
+
+        }
+        bool OverrideParkingBrakeActionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
+        void OverrideParkingBrakeActionImpl::ResetBrakeInput()
+        {
+            _isSetBrakeInput = false; 
+            _brakeInput = {};
+
+        }
+        bool OverrideParkingBrakeActionImpl::IsSetBrakeInput() const
+        {
+            return _isSetBrakeInput;
+        }
 
         IOpenScenarioFlexElement* OverrideSteeringWheelActionImpl::GetOpenScenarioFlexElement()
         {
@@ -39999,28 +41004,28 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _active = active;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE);
+            _isSetActive = true;
         }
 
         void OverrideSteeringWheelActionImpl::SetMaxRate(const double maxRate)
         {
             _maxRate = maxRate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_RATE);
-			// set the indicator to true
-            isSetMaxRate = true;          
+            _isSetMaxRate = true;
         }
 
         void OverrideSteeringWheelActionImpl::SetMaxTorque(const double maxTorque)
         {
             _maxTorque = maxTorque;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_TORQUE);
-			// set the indicator to true
-            isSetMaxTorque = true;          
+            _isSetMaxTorque = true;
         }
 
         void OverrideSteeringWheelActionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> OverrideSteeringWheelActionImpl::GetAdapter(const std::string classifier)
@@ -40224,24 +41229,28 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_RATE)
             {
                 // Simple type
                 _maxRate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_TORQUE)
             {
                 // Simple type
                 _maxTorque = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxTorque = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -40289,8 +41298,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetMaxRate = isSetMaxRate;
-            	clonedObject->isSetMaxTorque = isSetMaxTorque;
+            clonedObject->_isSetMaxRate = _isSetMaxRate;
+            clonedObject->_isSetMaxTorque = _isSetMaxTorque;
             // clone children
             return clonedObject;
         }
@@ -40327,6 +41336,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = value;
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
 		
 		}
@@ -40337,43 +41347,54 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxRate = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_TORQUE)
             {
                 // Simple type
                 _maxTorque = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxTorque = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void OverrideSteeringWheelActionImpl::ResetMaxRate()
-	   {
-	   		isSetMaxRate = false; 
-			_maxRate = {};
-			
-	   }
-       bool OverrideSteeringWheelActionImpl::IsSetMaxRate() const
-	   {
-			return isSetMaxRate;
-	   }
-       void OverrideSteeringWheelActionImpl::ResetMaxTorque()
-	   {
-	   		isSetMaxTorque = false; 
-			_maxTorque = {};
-			
-	   }
-       bool OverrideSteeringWheelActionImpl::IsSetMaxTorque() const
-	   {
-			return isSetMaxTorque;
-	   }
+        bool OverrideSteeringWheelActionImpl::IsSetActive() const
+        {
+            return _isSetActive;
+        }
+        void OverrideSteeringWheelActionImpl::ResetMaxRate()
+        {
+            _isSetMaxRate = false; 
+            _maxRate = {};
+
+        }
+        bool OverrideSteeringWheelActionImpl::IsSetMaxRate() const
+        {
+            return _isSetMaxRate;
+        }
+        void OverrideSteeringWheelActionImpl::ResetMaxTorque()
+        {
+            _isSetMaxTorque = false; 
+            _maxTorque = {};
+
+        }
+        bool OverrideSteeringWheelActionImpl::IsSetMaxTorque() const
+        {
+            return _isSetMaxTorque;
+        }
+        bool OverrideSteeringWheelActionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* OverrideThrottleActionImpl::GetOpenScenarioFlexElement()
         {
@@ -40397,20 +41418,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _active = active;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ACTIVE);
+            _isSetActive = true;
         }
 
         void OverrideThrottleActionImpl::SetMaxRate(const double maxRate)
         {
             _maxRate = maxRate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_RATE);
-			// set the indicator to true
-            isSetMaxRate = true;          
+            _isSetMaxRate = true;
         }
 
         void OverrideThrottleActionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> OverrideThrottleActionImpl::GetAdapter(const std::string classifier)
@@ -40587,18 +41609,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_RATE)
             {
                 // Simple type
                 _maxRate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -40644,7 +41669,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetMaxRate = isSetMaxRate;
+            clonedObject->_isSetMaxRate = _isSetMaxRate;
             // clone children
             return clonedObject;
         }
@@ -40681,6 +41706,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _active = value;
                 AddResolvedParameter(attributeKey);
+                _isSetActive = true;
             }
 		
 		}
@@ -40691,27 +41717,37 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxRate = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void OverrideThrottleActionImpl::ResetMaxRate()
-	   {
-	   		isSetMaxRate = false; 
-			_maxRate = {};
-			
-	   }
-       bool OverrideThrottleActionImpl::IsSetMaxRate() const
-	   {
-			return isSetMaxRate;
-	   }
+        bool OverrideThrottleActionImpl::IsSetActive() const
+        {
+            return _isSetActive;
+        }
+        void OverrideThrottleActionImpl::ResetMaxRate()
+        {
+            _isSetMaxRate = false; 
+            _maxRate = {};
+
+        }
+        bool OverrideThrottleActionImpl::IsSetMaxRate() const
+        {
+            return _isSetMaxRate;
+        }
+        bool OverrideThrottleActionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* ParameterActionImpl::GetOpenScenarioFlexElement()
         {
@@ -40735,22 +41771,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _parameterRef = parameterRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF);
+            _isSetParameterRef = true;
         }
 
         void ParameterActionImpl::SetSetAction(std::shared_ptr<IParameterSetActionWriter> setAction)
         {
             _setAction = setAction;
             _modifyAction = {};
-			// set the indicator to true
-            isSetSetAction = true;          
+            _isSetSetAction = true;
         }
 
         void ParameterActionImpl::SetModifyAction(std::shared_ptr<IParameterModifyActionWriter> modifyAction)
         {
             _modifyAction = modifyAction;
             _setAction = {};
-			// set the indicator to true
-            isSetModifyAction = true;          
+            _isSetModifyAction = true;
         }
 
         std::shared_ptr<void> ParameterActionImpl::GetAdapter(const std::string classifier)
@@ -40868,6 +41903,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(parameterLiteralValue);
                 _parameterRef = std::dynamic_pointer_cast<INamedReference<IParameterDeclaration>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetParameterRef = true;
             }
         }
 
@@ -41005,26 +42041,30 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void ParameterActionImpl::ResetSetAction()
-	   {
-	   		isSetSetAction = false; 
-			_setAction = {};
-			
-	   }
-       bool ParameterActionImpl::IsSetSetAction() const
-	   {
-			return isSetSetAction;
-	   }
-       void ParameterActionImpl::ResetModifyAction()
-	   {
-	   		isSetModifyAction = false; 
-			_modifyAction = {};
-			
-	   }
-       bool ParameterActionImpl::IsSetModifyAction() const
-	   {
-			return isSetModifyAction;
-	   }
+        bool ParameterActionImpl::IsSetParameterRef() const
+        {
+            return _isSetParameterRef;
+        }
+        void ParameterActionImpl::ResetSetAction()
+        {
+            _isSetSetAction = false; 
+            _setAction = {};
+
+        }
+        bool ParameterActionImpl::IsSetSetAction() const
+        {
+            return _isSetSetAction;
+        }
+        void ParameterActionImpl::ResetModifyAction()
+        {
+            _isSetModifyAction = false; 
+            _modifyAction = {};
+
+        }
+        bool ParameterActionImpl::IsSetModifyAction() const
+        {
+            return _isSetModifyAction;
+        }
 
         IOpenScenarioFlexElement* ParameterAddValueRuleImpl::GetOpenScenarioFlexElement()
         {
@@ -41040,6 +42080,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> ParameterAddValueRuleImpl::GetAdapter(const std::string classifier)
@@ -41157,6 +42198,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -41234,11 +42276,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool ParameterAddValueRuleImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* ParameterAssignmentImpl::GetOpenScenarioFlexElement()
         {
@@ -41257,12 +42304,14 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterAssignmentImpl::SetParameterRef(std::shared_ptr<INamedReference<IParameterDeclaration>> parameterRef)
         {
             _parameterRef = parameterRef;
+            _isSetParameterRef = true;
         }
 
         void ParameterAssignmentImpl::SetValue(const std::string value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> ParameterAssignmentImpl::GetAdapter(const std::string classifier)
@@ -41372,6 +42421,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -41481,6 +42531,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
@@ -41490,6 +42541,14 @@ namespace NET_ASAM_OPENSCENARIO
 			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
 		}
 
+        bool ParameterAssignmentImpl::IsSetParameterRef() const
+        {
+            return _isSetParameterRef;
+        }
+        bool ParameterAssignmentImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* ParameterConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -41513,18 +42572,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _parameterRef = parameterRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_REF);
+            _isSetParameterRef = true;
         }
 
         void ParameterConditionImpl::SetRule(const Rule rule)
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void ParameterConditionImpl::SetValue(const std::string value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> ParameterConditionImpl::GetAdapter(const std::string classifier)
@@ -41680,6 +42742,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(parameterLiteralValue);
                 _parameterRef = std::dynamic_pointer_cast<INamedReference<IParameterDeclaration>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetParameterRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -41689,6 +42752,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -41701,6 +42765,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -41826,11 +42891,24 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool ParameterConditionImpl::IsSetParameterRef() const
+        {
+            return _isSetParameterRef;
+        }
+        bool ParameterConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool ParameterConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* ParameterDeclarationImpl::GetOpenScenarioFlexElement()
         {
@@ -41878,25 +42956,27 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterDeclarationImpl::SetName(const std::string name)
         {
             _name = name;
+            _isSetName = true;
         }
 
         void ParameterDeclarationImpl::SetParameterType(const ParameterType parameterType)
         {
             _parameterType = parameterType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_TYPE);
+            _isSetParameterType = true;
         }
 
         void ParameterDeclarationImpl::SetValue(const std::string value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         void ParameterDeclarationImpl::SetConstraintGroups(std::vector<std::shared_ptr<IValueConstraintGroupWriter>>& constraintGroups)
         {
             _constraintGroups = constraintGroups;
-			// set the indicator to true
-            isSetConstraintGroups = true;          
+            _isSetConstraintGroups = true;
         }
 
         std::shared_ptr<void> ParameterDeclarationImpl::GetAdapter(const std::string classifier)
@@ -42032,6 +43112,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _parameterType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetParameterType = true;
                 }
                 else
                 {
@@ -42044,6 +43125,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -42186,6 +43268,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
@@ -42195,16 +43278,28 @@ namespace NET_ASAM_OPENSCENARIO
 			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
 		}
 
-       void ParameterDeclarationImpl::ResetConstraintGroups()
-	   {
-	   		isSetConstraintGroups = false; 
-			_constraintGroups = {};
-			
-	   }
-       bool ParameterDeclarationImpl::IsSetConstraintGroups() const
-	   {
-			return isSetConstraintGroups;
-	   }
+        bool ParameterDeclarationImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool ParameterDeclarationImpl::IsSetParameterType() const
+        {
+            return _isSetParameterType;
+        }
+        bool ParameterDeclarationImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
+        void ParameterDeclarationImpl::ResetConstraintGroups()
+        {
+            _isSetConstraintGroups = false; 
+            _constraintGroups = {};
+
+        }
+        bool ParameterDeclarationImpl::IsSetConstraintGroups() const
+        {
+            return _isSetConstraintGroups;
+        }
 
         IOpenScenarioFlexElement* ParameterModifyActionImpl::GetOpenScenarioFlexElement()
         {
@@ -42219,6 +43314,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterModifyActionImpl::SetRule(std::shared_ptr<IModifyRuleWriter> rule)
         {
             _rule = rule;
+            _isSetRule = true;
         }
 
         std::shared_ptr<void> ParameterModifyActionImpl::GetAdapter(const std::string classifier)
@@ -42394,6 +43490,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ParameterModifyActionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
 
         IOpenScenarioFlexElement* ParameterMultiplyByValueRuleImpl::GetOpenScenarioFlexElement()
         {
@@ -42409,6 +43509,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> ParameterMultiplyByValueRuleImpl::GetAdapter(const std::string classifier)
@@ -42526,6 +43627,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -42603,11 +43705,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool ParameterMultiplyByValueRuleImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* ParameterSetActionImpl::GetOpenScenarioFlexElement()
         {
@@ -42623,6 +43730,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> ParameterSetActionImpl::GetAdapter(const std::string classifier)
@@ -42731,6 +43839,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -42817,11 +43926,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool ParameterSetActionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* ParameterValueDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -42840,11 +43954,13 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterValueDistributionImpl::SetScenarioFile(std::shared_ptr<IFileWriter> scenarioFile)
         {
             _scenarioFile = scenarioFile;
+            _isSetScenarioFile = true;
         }
 
         void ParameterValueDistributionImpl::SetDistributionDefinition(std::shared_ptr<IDistributionDefinitionWriter> distributionDefinition)
         {
             _distributionDefinition = distributionDefinition;
+            _isSetDistributionDefinition = true;
         }
 
         std::shared_ptr<void> ParameterValueDistributionImpl::GetAdapter(const std::string classifier)
@@ -43042,6 +44158,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ParameterValueDistributionImpl::IsSetScenarioFile() const
+        {
+            return _isSetScenarioFile;
+        }
+        bool ParameterValueDistributionImpl::IsSetDistributionDefinition() const
+        {
+            return _isSetDistributionDefinition;
+        }
 
         IOpenScenarioFlexElement* ParameterValueDistributionDefinitionImpl::GetOpenScenarioFlexElement()
         {
@@ -43056,6 +44180,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterValueDistributionDefinitionImpl::SetParameterValueDistribution(std::shared_ptr<IParameterValueDistributionWriter> parameterValueDistribution)
         {
             _parameterValueDistribution = parameterValueDistribution;
+            _isSetParameterValueDistribution = true;
         }
 
         std::shared_ptr<void> ParameterValueDistributionDefinitionImpl::GetAdapter(const std::string classifier)
@@ -43231,6 +44356,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ParameterValueDistributionDefinitionImpl::IsSetParameterValueDistribution() const
+        {
+            return _isSetParameterValueDistribution;
+        }
 
         IOpenScenarioFlexElement* ParameterValueSetImpl::GetOpenScenarioFlexElement()
         {
@@ -43266,6 +44395,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterValueSetImpl::SetParameterAssignments(std::vector<std::shared_ptr<IParameterAssignmentWriter>>& parameterAssignments)
         {
             _parameterAssignments = parameterAssignments;
+            _isSetParameterAssignments = true;
         }
 
         std::shared_ptr<void> ParameterValueSetImpl::GetAdapter(const std::string classifier)
@@ -43448,6 +44578,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ParameterValueSetImpl::IsSetParameterAssignments() const
+        {
+            return _isSetParameterAssignments;
+        }
 
         IOpenScenarioFlexElement* PedestrianImpl::GetOpenScenarioFlexElement()
         {
@@ -43516,59 +44650,60 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _mass = mass;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS);
+            _isSetMass = true;
         }
 
         void PedestrianImpl::SetModel(const std::string model)
         {
             _model = model;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL);
-			// set the indicator to true
-            isSetModel = true;          
+            _isSetModel = true;
         }
 
         void PedestrianImpl::SetModel3d(const std::string model3d)
         {
             _model3d = model3d;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D);
-			// set the indicator to true
-            isSetModel3d = true;          
+            _isSetModel3d = true;
         }
 
         void PedestrianImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void PedestrianImpl::SetPedestrianCategory(const PedestrianCategory pedestrianCategory)
         {
             _pedestrianCategory = pedestrianCategory;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY);
+            _isSetPedestrianCategory = true;
         }
 
         void PedestrianImpl::SetRole(const Role role)
         {
             _role = role;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROLE);
-			// set the indicator to true
-            isSetRole = true;          
+            _isSetRole = true;
         }
 
         void PedestrianImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
-			// set the indicator to true
-            isSetParameterDeclarations = true;          
+            _isSetParameterDeclarations = true;
         }
 
         void PedestrianImpl::SetBoundingBox(std::shared_ptr<IBoundingBoxWriter> boundingBox)
         {
             _boundingBox = boundingBox;
+            _isSetBoundingBox = true;
         }
 
         void PedestrianImpl::SetProperties(std::shared_ptr<IPropertiesWriter> properties)
         {
             _properties = properties;
+            _isSetProperties = true;
         }
 
         std::shared_ptr<void> PedestrianImpl::GetAdapter(const std::string classifier)
@@ -43809,24 +44944,28 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _mass = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMass = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MODEL)
             {
                 // Simple type
                 _model = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetModel = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MODEL3D)
             {
                 // Simple type
                 _model3d = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetModel3d = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PEDESTRIAN_CATEGORY)
             {
@@ -43836,6 +44975,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _pedestrianCategory = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetPedestrianCategory = true;
                 }
                 else
                 {
@@ -43851,6 +44991,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _role = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRole = true;
                 }
                 else
                 {
@@ -43954,9 +45095,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_role = Role::GetFromLiteral(kRole.GetLiteral());
             }
             // clone indicators
-            	clonedObject->isSetModel = isSetModel;
-            	clonedObject->isSetModel3d = isSetModel3d;
-            	clonedObject->isSetRole = isSetRole;
+            clonedObject->_isSetModel = _isSetModel;
+            clonedObject->_isSetModel3d = _isSetModel3d;
+            clonedObject->_isSetRole = _isSetRole;
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -44081,18 +45222,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _model = value;
                 AddResolvedParameter(attributeKey);
+                _isSetModel = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MODEL3D)
             {
                 // Simple type
                 _model3d = value;
                 AddResolvedParameter(attributeKey);
+                _isSetModel3d = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
@@ -44103,51 +45247,72 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _mass = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMass = true;
             }
 		
 		}
 
 
-       void PedestrianImpl::ResetModel()
-	   {
-	   		isSetModel = false; 
-			_model = {};
-			
-	   }
-       bool PedestrianImpl::IsSetModel() const
-	   {
-			return isSetModel;
-	   }
-       void PedestrianImpl::ResetModel3d()
-	   {
-	   		isSetModel3d = false; 
-			_model3d = {};
-			
-	   }
-       bool PedestrianImpl::IsSetModel3d() const
-	   {
-			return isSetModel3d;
-	   }
-       void PedestrianImpl::ResetRole()
-	   {
-	   		isSetRole = false; 
-			_role = {Role::RoleEnum::NONE};
-			
-	   }
-       bool PedestrianImpl::IsSetRole() const
-	   {
-			return isSetRole;
-	   }
-       void PedestrianImpl::ResetParameterDeclarations()
-	   {
-	   		isSetParameterDeclarations = false; 
-			_parameterDeclarations = {};
-			
-	   }
-       bool PedestrianImpl::IsSetParameterDeclarations() const
-	   {
-			return isSetParameterDeclarations;
-	   }
+        bool PedestrianImpl::IsSetMass() const
+        {
+            return _isSetMass;
+        }
+        void PedestrianImpl::ResetModel()
+        {
+            _isSetModel = false; 
+            _model = {};
+
+        }
+        bool PedestrianImpl::IsSetModel() const
+        {
+            return _isSetModel;
+        }
+        void PedestrianImpl::ResetModel3d()
+        {
+            _isSetModel3d = false; 
+            _model3d = {};
+
+        }
+        bool PedestrianImpl::IsSetModel3d() const
+        {
+            return _isSetModel3d;
+        }
+        bool PedestrianImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool PedestrianImpl::IsSetPedestrianCategory() const
+        {
+            return _isSetPedestrianCategory;
+        }
+        void PedestrianImpl::ResetRole()
+        {
+            _isSetRole = false; 
+            _role = {Role::RoleEnum::NONE};
+
+        }
+        bool PedestrianImpl::IsSetRole() const
+        {
+            return _isSetRole;
+        }
+        void PedestrianImpl::ResetParameterDeclarations()
+        {
+            _isSetParameterDeclarations = false; 
+            _parameterDeclarations = {};
+
+        }
+        bool PedestrianImpl::IsSetParameterDeclarations() const
+        {
+            return _isSetParameterDeclarations;
+        }
+        bool PedestrianImpl::IsSetBoundingBox() const
+        {
+            return _isSetBoundingBox;
+        }
+        bool PedestrianImpl::IsSetProperties() const
+        {
+            return _isSetProperties;
+        }
 
         IOpenScenarioFlexElement* PedestrianAnimationImpl::GetOpenScenarioFlexElement()
         {
@@ -44192,23 +45357,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _motion = motion;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MOTION);
-			// set the indicator to true
-            isSetMotion = true;          
+            _isSetMotion = true;
         }
 
         void PedestrianAnimationImpl::SetUserDefinedPedestrianAnimation(const std::string userDefinedPedestrianAnimation)
         {
             _userDefinedPedestrianAnimation = userDefinedPedestrianAnimation;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__USER_DEFINED_PEDESTRIAN_ANIMATION);
-			// set the indicator to true
-            isSetUserDefinedPedestrianAnimation = true;          
+            _isSetUserDefinedPedestrianAnimation = true;
         }
 
         void PedestrianAnimationImpl::SetGestures(std::vector<std::shared_ptr<IPedestrianGestureWriter>>& gestures)
         {
             _gestures = gestures;
-			// set the indicator to true
-            isSetGestures = true;          
+            _isSetGestures = true;
         }
 
         std::shared_ptr<void> PedestrianAnimationImpl::GetAdapter(const std::string classifier)
@@ -44343,6 +45505,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _motion = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetMotion = true;
                 }
                 else
                 {
@@ -44355,6 +45518,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _userDefinedPedestrianAnimation = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetUserDefinedPedestrianAnimation = true;
             }
         }
 
@@ -44410,8 +45574,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_userDefinedPedestrianAnimation = GetUserDefinedPedestrianAnimation();
             // clone indicators
-            	clonedObject->isSetMotion = isSetMotion;
-            	clonedObject->isSetUserDefinedPedestrianAnimation = isSetUserDefinedPedestrianAnimation;
+            clonedObject->_isSetMotion = _isSetMotion;
+            clonedObject->_isSetUserDefinedPedestrianAnimation = _isSetUserDefinedPedestrianAnimation;
             // clone children
             const auto kGestures =  GetWriterGestures();
             if (!kGestures.empty())
@@ -44492,41 +45656,42 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _userDefinedPedestrianAnimation = value;
                 AddResolvedParameter(attributeKey);
+                _isSetUserDefinedPedestrianAnimation = true;
             }
 		
 		}
 
 
-       void PedestrianAnimationImpl::ResetMotion()
-	   {
-	   		isSetMotion = false; 
-			_motion = {};
-			
-	   }
-       bool PedestrianAnimationImpl::IsSetMotion() const
-	   {
-			return isSetMotion;
-	   }
-       void PedestrianAnimationImpl::ResetUserDefinedPedestrianAnimation()
-	   {
-	   		isSetUserDefinedPedestrianAnimation = false; 
-			_userDefinedPedestrianAnimation = {};
-			
-	   }
-       bool PedestrianAnimationImpl::IsSetUserDefinedPedestrianAnimation() const
-	   {
-			return isSetUserDefinedPedestrianAnimation;
-	   }
-       void PedestrianAnimationImpl::ResetGestures()
-	   {
-	   		isSetGestures = false; 
-			_gestures = {};
-			
-	   }
-       bool PedestrianAnimationImpl::IsSetGestures() const
-	   {
-			return isSetGestures;
-	   }
+        void PedestrianAnimationImpl::ResetMotion()
+        {
+            _isSetMotion = false; 
+            _motion = {};
+
+        }
+        bool PedestrianAnimationImpl::IsSetMotion() const
+        {
+            return _isSetMotion;
+        }
+        void PedestrianAnimationImpl::ResetUserDefinedPedestrianAnimation()
+        {
+            _isSetUserDefinedPedestrianAnimation = false; 
+            _userDefinedPedestrianAnimation = {};
+
+        }
+        bool PedestrianAnimationImpl::IsSetUserDefinedPedestrianAnimation() const
+        {
+            return _isSetUserDefinedPedestrianAnimation;
+        }
+        void PedestrianAnimationImpl::ResetGestures()
+        {
+            _isSetGestures = false; 
+            _gestures = {};
+
+        }
+        bool PedestrianAnimationImpl::IsSetGestures() const
+        {
+            return _isSetGestures;
+        }
 
         IOpenScenarioFlexElement* PedestrianCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -44541,6 +45706,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PedestrianCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectoryWriter> directory)
         {
             _directory = directory;
+            _isSetDirectory = true;
         }
 
         std::shared_ptr<void> PedestrianCatalogLocationImpl::GetAdapter(const std::string classifier)
@@ -44716,6 +45882,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool PedestrianCatalogLocationImpl::IsSetDirectory() const
+        {
+            return _isSetDirectory;
+        }
 
         IOpenScenarioFlexElement* PedestrianGestureImpl::GetOpenScenarioFlexElement()
         {
@@ -44731,6 +45901,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _gesture = gesture;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__GESTURE);
+            _isSetGesture = true;
         }
 
         std::shared_ptr<void> PedestrianGestureImpl::GetAdapter(const std::string classifier)
@@ -44842,6 +46013,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _gesture = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetGesture = true;
                 }
                 else
                 {
@@ -44934,6 +46106,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool PedestrianGestureImpl::IsSetGesture() const
+        {
+            return _isSetGesture;
+        }
 
         IOpenScenarioFlexElement* PerformanceImpl::GetOpenScenarioFlexElement()
         {
@@ -44965,34 +46141,35 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _maxAcceleration = maxAcceleration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION);
+            _isSetMaxAcceleration = true;
         }
 
         void PerformanceImpl::SetMaxAccelerationRate(const double maxAccelerationRate)
         {
             _maxAccelerationRate = maxAccelerationRate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION_RATE);
-			// set the indicator to true
-            isSetMaxAccelerationRate = true;          
+            _isSetMaxAccelerationRate = true;
         }
 
         void PerformanceImpl::SetMaxDeceleration(const double maxDeceleration)
         {
             _maxDeceleration = maxDeceleration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION);
+            _isSetMaxDeceleration = true;
         }
 
         void PerformanceImpl::SetMaxDecelerationRate(const double maxDecelerationRate)
         {
             _maxDecelerationRate = maxDecelerationRate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION_RATE);
-			// set the indicator to true
-            isSetMaxDecelerationRate = true;          
+            _isSetMaxDecelerationRate = true;
         }
 
         void PerformanceImpl::SetMaxSpeed(const double maxSpeed)
         {
             _maxSpeed = maxSpeed;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED);
+            _isSetMaxSpeed = true;
         }
 
         std::shared_ptr<void> PerformanceImpl::GetAdapter(const std::string classifier)
@@ -45218,30 +46395,35 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxAcceleration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxAcceleration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION_RATE)
             {
                 // Simple type
                 _maxAccelerationRate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxAccelerationRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION)
             {
                 // Simple type
                 _maxDeceleration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxDeceleration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION_RATE)
             {
                 // Simple type
                 _maxDecelerationRate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxDecelerationRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED)
             {
                 // Simple type
                 _maxSpeed = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMaxSpeed = true;
             }
         }
 
@@ -45291,8 +46473,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_maxSpeed = GetMaxSpeed();
             // clone indicators
-            	clonedObject->isSetMaxAccelerationRate = isSetMaxAccelerationRate;
-            	clonedObject->isSetMaxDecelerationRate = isSetMaxDecelerationRate;
+            clonedObject->_isSetMaxAccelerationRate = _isSetMaxAccelerationRate;
+            clonedObject->_isSetMaxDecelerationRate = _isSetMaxDecelerationRate;
             // clone children
             return clonedObject;
         }
@@ -45329,55 +46511,72 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _maxAcceleration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxAcceleration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_ACCELERATION_RATE)
             {
                 // Simple type
                 _maxAccelerationRate = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxAccelerationRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION)
             {
                 // Simple type
                 _maxDeceleration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxDeceleration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_DECELERATION_RATE)
             {
                 // Simple type
                 _maxDecelerationRate = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxDecelerationRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MAX_SPEED)
             {
                 // Simple type
                 _maxSpeed = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMaxSpeed = true;
             }
 		
 		}
 
 
-       void PerformanceImpl::ResetMaxAccelerationRate()
-	   {
-	   		isSetMaxAccelerationRate = false; 
-			_maxAccelerationRate = {};
-			
-	   }
-       bool PerformanceImpl::IsSetMaxAccelerationRate() const
-	   {
-			return isSetMaxAccelerationRate;
-	   }
-       void PerformanceImpl::ResetMaxDecelerationRate()
-	   {
-	   		isSetMaxDecelerationRate = false; 
-			_maxDecelerationRate = {};
-			
-	   }
-       bool PerformanceImpl::IsSetMaxDecelerationRate() const
-	   {
-			return isSetMaxDecelerationRate;
-	   }
+        bool PerformanceImpl::IsSetMaxAcceleration() const
+        {
+            return _isSetMaxAcceleration;
+        }
+        void PerformanceImpl::ResetMaxAccelerationRate()
+        {
+            _isSetMaxAccelerationRate = false; 
+            _maxAccelerationRate = {};
+
+        }
+        bool PerformanceImpl::IsSetMaxAccelerationRate() const
+        {
+            return _isSetMaxAccelerationRate;
+        }
+        bool PerformanceImpl::IsSetMaxDeceleration() const
+        {
+            return _isSetMaxDeceleration;
+        }
+        void PerformanceImpl::ResetMaxDecelerationRate()
+        {
+            _isSetMaxDecelerationRate = false; 
+            _maxDecelerationRate = {};
+
+        }
+        bool PerformanceImpl::IsSetMaxDecelerationRate() const
+        {
+            return _isSetMaxDecelerationRate;
+        }
+        bool PerformanceImpl::IsSetMaxSpeed() const
+        {
+            return _isSetMaxSpeed;
+        }
 
         IOpenScenarioFlexElement* PhaseImpl::GetOpenScenarioFlexElement()
         {
@@ -45426,26 +46625,26 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _duration = duration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION);
+            _isSetDuration = true;
         }
 
         void PhaseImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void PhaseImpl::SetTrafficSignalStates(std::vector<std::shared_ptr<ITrafficSignalStateWriter>>& trafficSignalStates)
         {
             _trafficSignalStates = trafficSignalStates;
-			// set the indicator to true
-            isSetTrafficSignalStates = true;          
+            _isSetTrafficSignalStates = true;
         }
 
         void PhaseImpl::SetTrafficeSignalGroupState(std::shared_ptr<ITrafficSignalGroupStateWriter> trafficeSignalGroupState)
         {
             _trafficeSignalGroupState = trafficeSignalGroupState;
-			// set the indicator to true
-            isSetTrafficeSignalGroupState = true;          
+            _isSetTrafficeSignalGroupState = true;
         }
 
         std::shared_ptr<void> PhaseImpl::GetAdapter(const std::string classifier)
@@ -45590,12 +46789,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _duration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDuration = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -45739,6 +46940,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
@@ -45749,31 +46951,40 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _duration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDuration = true;
             }
 		
 		}
 
 
-       void PhaseImpl::ResetTrafficSignalStates()
-	   {
-	   		isSetTrafficSignalStates = false; 
-			_trafficSignalStates = {};
-			
-	   }
-       bool PhaseImpl::IsSetTrafficSignalStates() const
-	   {
-			return isSetTrafficSignalStates;
-	   }
-       void PhaseImpl::ResetTrafficeSignalGroupState()
-	   {
-	   		isSetTrafficeSignalGroupState = false; 
-			_trafficeSignalGroupState = {};
-			
-	   }
-       bool PhaseImpl::IsSetTrafficeSignalGroupState() const
-	   {
-			return isSetTrafficeSignalGroupState;
-	   }
+        bool PhaseImpl::IsSetDuration() const
+        {
+            return _isSetDuration;
+        }
+        bool PhaseImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void PhaseImpl::ResetTrafficSignalStates()
+        {
+            _isSetTrafficSignalStates = false; 
+            _trafficSignalStates = {};
+
+        }
+        bool PhaseImpl::IsSetTrafficSignalStates() const
+        {
+            return _isSetTrafficSignalStates;
+        }
+        void PhaseImpl::ResetTrafficeSignalGroupState()
+        {
+            _isSetTrafficeSignalGroupState = false; 
+            _trafficeSignalGroupState = {};
+
+        }
+        bool PhaseImpl::IsSetTrafficeSignalGroupState() const
+        {
+            return _isSetTrafficeSignalGroupState;
+        }
 
         IOpenScenarioFlexElement* PoissonDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -45793,13 +47004,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _expectedValue = expectedValue;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__EXPECTED_VALUE);
+            _isSetExpectedValue = true;
         }
 
         void PoissonDistributionImpl::SetRange(std::shared_ptr<IRangeWriter> range)
         {
             _range = range;
-			// set the indicator to true
-            isSetRange = true;          
+            _isSetRange = true;
         }
 
         std::shared_ptr<void> PoissonDistributionImpl::GetAdapter(const std::string classifier)
@@ -45921,6 +47132,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _expectedValue = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetExpectedValue = true;
             }
         }
 
@@ -46020,21 +47232,26 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _expectedValue = value;
                 AddResolvedParameter(attributeKey);
+                _isSetExpectedValue = true;
             }
 		
 		}
 
 
-       void PoissonDistributionImpl::ResetRange()
-	   {
-	   		isSetRange = false; 
-			_range = {};
-			
-	   }
-       bool PoissonDistributionImpl::IsSetRange() const
-	   {
-			return isSetRange;
-	   }
+        bool PoissonDistributionImpl::IsSetExpectedValue() const
+        {
+            return _isSetExpectedValue;
+        }
+        void PoissonDistributionImpl::ResetRange()
+        {
+            _isSetRange = false; 
+            _range = {};
+
+        }
+        bool PoissonDistributionImpl::IsSetRange() const
+        {
+            return _isSetRange;
+        }
 
         IOpenScenarioFlexElement* PolylineImpl::GetOpenScenarioFlexElement()
         {
@@ -46070,6 +47287,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PolylineImpl::SetVertices(std::vector<std::shared_ptr<IVertexWriter>>& vertices)
         {
             _vertices = vertices;
+            _isSetVertices = true;
         }
 
         std::shared_ptr<void> PolylineImpl::GetAdapter(const std::string classifier)
@@ -46252,6 +47470,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool PolylineImpl::IsSetVertices() const
+        {
+            return _isSetVertices;
+        }
 
         IOpenScenarioFlexElement* PositionImpl::GetOpenScenarioFlexElement()
         {
@@ -46311,8 +47533,7 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
-			// set the indicator to true
-            isSetWorldPosition = true;          
+            _isSetWorldPosition = true;
         }
 
         void PositionImpl::SetRelativeWorldPosition(std::shared_ptr<IRelativeWorldPositionWriter> relativeWorldPosition)
@@ -46327,8 +47548,7 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
-			// set the indicator to true
-            isSetRelativeWorldPosition = true;          
+            _isSetRelativeWorldPosition = true;
         }
 
         void PositionImpl::SetRelativeObjectPosition(std::shared_ptr<IRelativeObjectPositionWriter> relativeObjectPosition)
@@ -46343,8 +47563,7 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
-			// set the indicator to true
-            isSetRelativeObjectPosition = true;          
+            _isSetRelativeObjectPosition = true;
         }
 
         void PositionImpl::SetRoadPosition(std::shared_ptr<IRoadPositionWriter> roadPosition)
@@ -46359,8 +47578,7 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
-			// set the indicator to true
-            isSetRoadPosition = true;          
+            _isSetRoadPosition = true;
         }
 
         void PositionImpl::SetRelativeRoadPosition(std::shared_ptr<IRelativeRoadPositionWriter> relativeRoadPosition)
@@ -46375,8 +47593,7 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
-			// set the indicator to true
-            isSetRelativeRoadPosition = true;          
+            _isSetRelativeRoadPosition = true;
         }
 
         void PositionImpl::SetLanePosition(std::shared_ptr<ILanePositionWriter> lanePosition)
@@ -46391,8 +47608,7 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
-			// set the indicator to true
-            isSetLanePosition = true;          
+            _isSetLanePosition = true;
         }
 
         void PositionImpl::SetRelativeLanePosition(std::shared_ptr<IRelativeLanePositionWriter> relativeLanePosition)
@@ -46407,8 +47623,7 @@ namespace NET_ASAM_OPENSCENARIO
             _routePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
-			// set the indicator to true
-            isSetRelativeLanePosition = true;          
+            _isSetRelativeLanePosition = true;
         }
 
         void PositionImpl::SetRoutePosition(std::shared_ptr<IRoutePositionWriter> routePosition)
@@ -46423,8 +47638,7 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeLanePosition = {};
             _geoPosition = {};
             _trajectoryPosition = {};
-			// set the indicator to true
-            isSetRoutePosition = true;          
+            _isSetRoutePosition = true;
         }
 
         void PositionImpl::SetGeoPosition(std::shared_ptr<IGeoPositionWriter> geoPosition)
@@ -46439,8 +47653,7 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeLanePosition = {};
             _routePosition = {};
             _trajectoryPosition = {};
-			// set the indicator to true
-            isSetGeoPosition = true;          
+            _isSetGeoPosition = true;
         }
 
         void PositionImpl::SetTrajectoryPosition(std::shared_ptr<ITrajectoryPositionWriter> trajectoryPosition)
@@ -46455,8 +47668,7 @@ namespace NET_ASAM_OPENSCENARIO
             _relativeLanePosition = {};
             _routePosition = {};
             _geoPosition = {};
-			// set the indicator to true
-            isSetTrajectoryPosition = true;          
+            _isSetTrajectoryPosition = true;
         }
 
         std::shared_ptr<void> PositionImpl::GetAdapter(const std::string classifier)
@@ -46830,106 +48042,106 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void PositionImpl::ResetWorldPosition()
-	   {
-	   		isSetWorldPosition = false; 
-			_worldPosition = {};
-			
-	   }
-       bool PositionImpl::IsSetWorldPosition() const
-	   {
-			return isSetWorldPosition;
-	   }
-       void PositionImpl::ResetRelativeWorldPosition()
-	   {
-	   		isSetRelativeWorldPosition = false; 
-			_relativeWorldPosition = {};
-			
-	   }
-       bool PositionImpl::IsSetRelativeWorldPosition() const
-	   {
-			return isSetRelativeWorldPosition;
-	   }
-       void PositionImpl::ResetRelativeObjectPosition()
-	   {
-	   		isSetRelativeObjectPosition = false; 
-			_relativeObjectPosition = {};
-			
-	   }
-       bool PositionImpl::IsSetRelativeObjectPosition() const
-	   {
-			return isSetRelativeObjectPosition;
-	   }
-       void PositionImpl::ResetRoadPosition()
-	   {
-	   		isSetRoadPosition = false; 
-			_roadPosition = {};
-			
-	   }
-       bool PositionImpl::IsSetRoadPosition() const
-	   {
-			return isSetRoadPosition;
-	   }
-       void PositionImpl::ResetRelativeRoadPosition()
-	   {
-	   		isSetRelativeRoadPosition = false; 
-			_relativeRoadPosition = {};
-			
-	   }
-       bool PositionImpl::IsSetRelativeRoadPosition() const
-	   {
-			return isSetRelativeRoadPosition;
-	   }
-       void PositionImpl::ResetLanePosition()
-	   {
-	   		isSetLanePosition = false; 
-			_lanePosition = {};
-			
-	   }
-       bool PositionImpl::IsSetLanePosition() const
-	   {
-			return isSetLanePosition;
-	   }
-       void PositionImpl::ResetRelativeLanePosition()
-	   {
-	   		isSetRelativeLanePosition = false; 
-			_relativeLanePosition = {};
-			
-	   }
-       bool PositionImpl::IsSetRelativeLanePosition() const
-	   {
-			return isSetRelativeLanePosition;
-	   }
-       void PositionImpl::ResetRoutePosition()
-	   {
-	   		isSetRoutePosition = false; 
-			_routePosition = {};
-			
-	   }
-       bool PositionImpl::IsSetRoutePosition() const
-	   {
-			return isSetRoutePosition;
-	   }
-       void PositionImpl::ResetGeoPosition()
-	   {
-	   		isSetGeoPosition = false; 
-			_geoPosition = {};
-			
-	   }
-       bool PositionImpl::IsSetGeoPosition() const
-	   {
-			return isSetGeoPosition;
-	   }
-       void PositionImpl::ResetTrajectoryPosition()
-	   {
-	   		isSetTrajectoryPosition = false; 
-			_trajectoryPosition = {};
-			
-	   }
-       bool PositionImpl::IsSetTrajectoryPosition() const
-	   {
-			return isSetTrajectoryPosition;
-	   }
+        void PositionImpl::ResetWorldPosition()
+        {
+            _isSetWorldPosition = false; 
+            _worldPosition = {};
+
+        }
+        bool PositionImpl::IsSetWorldPosition() const
+        {
+            return _isSetWorldPosition;
+        }
+        void PositionImpl::ResetRelativeWorldPosition()
+        {
+            _isSetRelativeWorldPosition = false; 
+            _relativeWorldPosition = {};
+
+        }
+        bool PositionImpl::IsSetRelativeWorldPosition() const
+        {
+            return _isSetRelativeWorldPosition;
+        }
+        void PositionImpl::ResetRelativeObjectPosition()
+        {
+            _isSetRelativeObjectPosition = false; 
+            _relativeObjectPosition = {};
+
+        }
+        bool PositionImpl::IsSetRelativeObjectPosition() const
+        {
+            return _isSetRelativeObjectPosition;
+        }
+        void PositionImpl::ResetRoadPosition()
+        {
+            _isSetRoadPosition = false; 
+            _roadPosition = {};
+
+        }
+        bool PositionImpl::IsSetRoadPosition() const
+        {
+            return _isSetRoadPosition;
+        }
+        void PositionImpl::ResetRelativeRoadPosition()
+        {
+            _isSetRelativeRoadPosition = false; 
+            _relativeRoadPosition = {};
+
+        }
+        bool PositionImpl::IsSetRelativeRoadPosition() const
+        {
+            return _isSetRelativeRoadPosition;
+        }
+        void PositionImpl::ResetLanePosition()
+        {
+            _isSetLanePosition = false; 
+            _lanePosition = {};
+
+        }
+        bool PositionImpl::IsSetLanePosition() const
+        {
+            return _isSetLanePosition;
+        }
+        void PositionImpl::ResetRelativeLanePosition()
+        {
+            _isSetRelativeLanePosition = false; 
+            _relativeLanePosition = {};
+
+        }
+        bool PositionImpl::IsSetRelativeLanePosition() const
+        {
+            return _isSetRelativeLanePosition;
+        }
+        void PositionImpl::ResetRoutePosition()
+        {
+            _isSetRoutePosition = false; 
+            _routePosition = {};
+
+        }
+        bool PositionImpl::IsSetRoutePosition() const
+        {
+            return _isSetRoutePosition;
+        }
+        void PositionImpl::ResetGeoPosition()
+        {
+            _isSetGeoPosition = false; 
+            _geoPosition = {};
+
+        }
+        bool PositionImpl::IsSetGeoPosition() const
+        {
+            return _isSetGeoPosition;
+        }
+        void PositionImpl::ResetTrajectoryPosition()
+        {
+            _isSetTrajectoryPosition = false; 
+            _trajectoryPosition = {};
+
+        }
+        bool PositionImpl::IsSetTrajectoryPosition() const
+        {
+            return _isSetTrajectoryPosition;
+        }
 
         IOpenScenarioFlexElement* PositionInLaneCoordinatesImpl::GetOpenScenarioFlexElement()
         {
@@ -46953,20 +48165,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _laneId = laneId;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_ID);
+            _isSetLaneId = true;
         }
 
         void PositionInLaneCoordinatesImpl::SetLaneOffset(const double laneOffset)
         {
             _laneOffset = laneOffset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET);
-			// set the indicator to true
-            isSetLaneOffset = true;          
+            _isSetLaneOffset = true;
         }
 
         void PositionInLaneCoordinatesImpl::SetPathS(const double pathS)
         {
             _pathS = pathS;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH_S);
+            _isSetPathS = true;
         }
 
         std::shared_ptr<void> PositionInLaneCoordinatesImpl::GetAdapter(const std::string classifier)
@@ -47134,18 +48347,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _laneId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLaneId = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__LANE_OFFSET)
             {
                 // Simple type
                 _laneOffset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLaneOffset = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PATH_S)
             {
                 // Simple type
                 _pathS = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetPathS = true;
             }
         }
 
@@ -47191,7 +48407,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_pathS = GetPathS();
             // clone indicators
-            	clonedObject->isSetLaneOffset = isSetLaneOffset;
+            clonedObject->_isSetLaneOffset = _isSetLaneOffset;
             // clone children
             return clonedObject;
         }
@@ -47237,6 +48453,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _laneId = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLaneId = true;
             }
 		
 		}
@@ -47247,27 +48464,37 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _laneOffset = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLaneOffset = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PATH_S)
             {
                 // Simple type
                 _pathS = value;
                 AddResolvedParameter(attributeKey);
+                _isSetPathS = true;
             }
 		
 		}
 
 
-       void PositionInLaneCoordinatesImpl::ResetLaneOffset()
-	   {
-	   		isSetLaneOffset = false; 
-			_laneOffset = {0};
-			
-	   }
-       bool PositionInLaneCoordinatesImpl::IsSetLaneOffset() const
-	   {
-			return isSetLaneOffset;
-	   }
+        bool PositionInLaneCoordinatesImpl::IsSetLaneId() const
+        {
+            return _isSetLaneId;
+        }
+        void PositionInLaneCoordinatesImpl::ResetLaneOffset()
+        {
+            _isSetLaneOffset = false; 
+            _laneOffset = {0};
+
+        }
+        bool PositionInLaneCoordinatesImpl::IsSetLaneOffset() const
+        {
+            return _isSetLaneOffset;
+        }
+        bool PositionInLaneCoordinatesImpl::IsSetPathS() const
+        {
+            return _isSetPathS;
+        }
 
         IOpenScenarioFlexElement* PositionInRoadCoordinatesImpl::GetOpenScenarioFlexElement()
         {
@@ -47287,12 +48514,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _pathS = pathS;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PATH_S);
+            _isSetPathS = true;
         }
 
         void PositionInRoadCoordinatesImpl::SetT(const double t)
         {
             _t = t;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T);
+            _isSetT = true;
         }
 
         std::shared_ptr<void> PositionInRoadCoordinatesImpl::GetAdapter(const std::string classifier)
@@ -47437,12 +48666,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _pathS = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetPathS = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__T)
             {
                 // Simple type
                 _t = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetT = true;
             }
         }
 
@@ -47522,17 +48753,27 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _pathS = value;
                 AddResolvedParameter(attributeKey);
+                _isSetPathS = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__T)
             {
                 // Simple type
                 _t = value;
                 AddResolvedParameter(attributeKey);
+                _isSetT = true;
             }
 		
 		}
 
 
+        bool PositionInRoadCoordinatesImpl::IsSetPathS() const
+        {
+            return _isSetPathS;
+        }
+        bool PositionInRoadCoordinatesImpl::IsSetT() const
+        {
+            return _isSetT;
+        }
 
         IOpenScenarioFlexElement* PositionOfCurrentEntityImpl::GetOpenScenarioFlexElement()
         {
@@ -47548,6 +48789,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         std::shared_ptr<void> PositionOfCurrentEntityImpl::GetAdapter(const std::string classifier)
@@ -47657,6 +48899,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
         }
 
@@ -47754,6 +48997,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool PositionOfCurrentEntityImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
 
         IOpenScenarioFlexElement* PrecipitationImpl::GetOpenScenarioFlexElement()
         {
@@ -47777,22 +49024,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _intensity = intensity;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INTENSITY);
-			// set the indicator to true
-            isSetIntensity = true;          
+            _isSetIntensity = true;
         }
 
         void PrecipitationImpl::SetPrecipitationIntensity(const double precipitationIntensity)
         {
             _precipitationIntensity = precipitationIntensity;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_INTENSITY);
-			// set the indicator to true
-            isSetPrecipitationIntensity = true;          
+            _isSetPrecipitationIntensity = true;
         }
 
         void PrecipitationImpl::SetPrecipitationType(const PrecipitationType precipitationType)
         {
             _precipitationType = precipitationType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE);
+            _isSetPrecipitationType = true;
         }
 
         std::shared_ptr<void> PrecipitationImpl::GetAdapter(const std::string classifier)
@@ -47960,12 +49206,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _intensity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetIntensity = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_INTENSITY)
             {
                 // Simple type
                 _precipitationIntensity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetPrecipitationIntensity = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_TYPE)
             {
@@ -47975,6 +49223,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _precipitationType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetPrecipitationType = true;
                 }
                 else
                 {
@@ -48030,8 +49279,8 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_precipitationType = PrecipitationType::GetFromLiteral(kPrecipitationType.GetLiteral());
             }
             // clone indicators
-            	clonedObject->isSetIntensity = isSetIntensity;
-            	clonedObject->isSetPrecipitationIntensity = isSetPrecipitationIntensity;
+            clonedObject->_isSetIntensity = _isSetIntensity;
+            clonedObject->_isSetPrecipitationIntensity = _isSetPrecipitationIntensity;
             // clone children
             return clonedObject;
         }
@@ -48078,37 +49327,43 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _intensity = value;
                 AddResolvedParameter(attributeKey);
+                _isSetIntensity = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__PRECIPITATION_INTENSITY)
             {
                 // Simple type
                 _precipitationIntensity = value;
                 AddResolvedParameter(attributeKey);
+                _isSetPrecipitationIntensity = true;
             }
 		
 		}
 
 
-       void PrecipitationImpl::ResetIntensity()
-	   {
-	   		isSetIntensity = false; 
-			_intensity = {};
-			
-	   }
-       bool PrecipitationImpl::IsSetIntensity() const
-	   {
-			return isSetIntensity;
-	   }
-       void PrecipitationImpl::ResetPrecipitationIntensity()
-	   {
-	   		isSetPrecipitationIntensity = false; 
-			_precipitationIntensity = {};
-			
-	   }
-       bool PrecipitationImpl::IsSetPrecipitationIntensity() const
-	   {
-			return isSetPrecipitationIntensity;
-	   }
+        void PrecipitationImpl::ResetIntensity()
+        {
+            _isSetIntensity = false; 
+            _intensity = {};
+
+        }
+        bool PrecipitationImpl::IsSetIntensity() const
+        {
+            return _isSetIntensity;
+        }
+        void PrecipitationImpl::ResetPrecipitationIntensity()
+        {
+            _isSetPrecipitationIntensity = false; 
+            _precipitationIntensity = {};
+
+        }
+        bool PrecipitationImpl::IsSetPrecipitationIntensity() const
+        {
+            return _isSetPrecipitationIntensity;
+        }
+        bool PrecipitationImpl::IsSetPrecipitationType() const
+        {
+            return _isSetPrecipitationType;
+        }
 
         IOpenScenarioFlexElement* PrivateImpl::GetOpenScenarioFlexElement()
         {
@@ -48149,11 +49404,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void PrivateImpl::SetPrivateActions(std::vector<std::shared_ptr<IPrivateActionWriter>>& privateActions)
         {
             _privateActions = privateActions;
+            _isSetPrivateActions = true;
         }
 
         std::shared_ptr<void> PrivateImpl::GetAdapter(const std::string classifier)
@@ -48263,6 +49520,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
         }
 
@@ -48393,6 +49651,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool PrivateImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        bool PrivateImpl::IsSetPrivateActions() const
+        {
+            return _isSetPrivateActions;
+        }
 
         IOpenScenarioFlexElement* PrivateActionImpl::GetOpenScenarioFlexElement()
         {
@@ -48447,8 +49713,7 @@ namespace NET_ASAM_OPENSCENARIO
             _teleportAction = {};
             _routingAction = {};
             _appearanceAction = {};
-			// set the indicator to true
-            isSetLongitudinalAction = true;          
+            _isSetLongitudinalAction = true;
         }
 
         void PrivateActionImpl::SetLateralAction(std::shared_ptr<ILateralActionWriter> lateralAction)
@@ -48462,8 +49727,7 @@ namespace NET_ASAM_OPENSCENARIO
             _teleportAction = {};
             _routingAction = {};
             _appearanceAction = {};
-			// set the indicator to true
-            isSetLateralAction = true;          
+            _isSetLateralAction = true;
         }
 
         void PrivateActionImpl::SetVisibilityAction(std::shared_ptr<IVisibilityActionWriter> visibilityAction)
@@ -48477,8 +49741,7 @@ namespace NET_ASAM_OPENSCENARIO
             _teleportAction = {};
             _routingAction = {};
             _appearanceAction = {};
-			// set the indicator to true
-            isSetVisibilityAction = true;          
+            _isSetVisibilityAction = true;
         }
 
         void PrivateActionImpl::SetSynchronizeAction(std::shared_ptr<ISynchronizeActionWriter> synchronizeAction)
@@ -48492,8 +49755,7 @@ namespace NET_ASAM_OPENSCENARIO
             _teleportAction = {};
             _routingAction = {};
             _appearanceAction = {};
-			// set the indicator to true
-            isSetSynchronizeAction = true;          
+            _isSetSynchronizeAction = true;
         }
 
         void PrivateActionImpl::SetActivateControllerAction(std::shared_ptr<IActivateControllerActionWriter> activateControllerAction)
@@ -48507,8 +49769,7 @@ namespace NET_ASAM_OPENSCENARIO
             _teleportAction = {};
             _routingAction = {};
             _appearanceAction = {};
-			// set the indicator to true
-            isSetActivateControllerAction = true;          
+            _isSetActivateControllerAction = true;
         }
 
         void PrivateActionImpl::SetControllerAction(std::shared_ptr<IControllerActionWriter> controllerAction)
@@ -48522,8 +49783,7 @@ namespace NET_ASAM_OPENSCENARIO
             _teleportAction = {};
             _routingAction = {};
             _appearanceAction = {};
-			// set the indicator to true
-            isSetControllerAction = true;          
+            _isSetControllerAction = true;
         }
 
         void PrivateActionImpl::SetTeleportAction(std::shared_ptr<ITeleportActionWriter> teleportAction)
@@ -48537,8 +49797,7 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerAction = {};
             _routingAction = {};
             _appearanceAction = {};
-			// set the indicator to true
-            isSetTeleportAction = true;          
+            _isSetTeleportAction = true;
         }
 
         void PrivateActionImpl::SetRoutingAction(std::shared_ptr<IRoutingActionWriter> routingAction)
@@ -48552,8 +49811,7 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerAction = {};
             _teleportAction = {};
             _appearanceAction = {};
-			// set the indicator to true
-            isSetRoutingAction = true;          
+            _isSetRoutingAction = true;
         }
 
         void PrivateActionImpl::SetAppearanceAction(std::shared_ptr<IAppearanceActionWriter> appearanceAction)
@@ -48567,8 +49825,7 @@ namespace NET_ASAM_OPENSCENARIO
             _controllerAction = {};
             _teleportAction = {};
             _routingAction = {};
-			// set the indicator to true
-            isSetAppearanceAction = true;          
+            _isSetAppearanceAction = true;
         }
 
         std::shared_ptr<void> PrivateActionImpl::GetAdapter(const std::string classifier)
@@ -48920,96 +50177,96 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void PrivateActionImpl::ResetLongitudinalAction()
-	   {
-	   		isSetLongitudinalAction = false; 
-			_longitudinalAction = {};
-			
-	   }
-       bool PrivateActionImpl::IsSetLongitudinalAction() const
-	   {
-			return isSetLongitudinalAction;
-	   }
-       void PrivateActionImpl::ResetLateralAction()
-	   {
-	   		isSetLateralAction = false; 
-			_lateralAction = {};
-			
-	   }
-       bool PrivateActionImpl::IsSetLateralAction() const
-	   {
-			return isSetLateralAction;
-	   }
-       void PrivateActionImpl::ResetVisibilityAction()
-	   {
-	   		isSetVisibilityAction = false; 
-			_visibilityAction = {};
-			
-	   }
-       bool PrivateActionImpl::IsSetVisibilityAction() const
-	   {
-			return isSetVisibilityAction;
-	   }
-       void PrivateActionImpl::ResetSynchronizeAction()
-	   {
-	   		isSetSynchronizeAction = false; 
-			_synchronizeAction = {};
-			
-	   }
-       bool PrivateActionImpl::IsSetSynchronizeAction() const
-	   {
-			return isSetSynchronizeAction;
-	   }
-       void PrivateActionImpl::ResetActivateControllerAction()
-	   {
-	   		isSetActivateControllerAction = false; 
-			_activateControllerAction = {};
-			
-	   }
-       bool PrivateActionImpl::IsSetActivateControllerAction() const
-	   {
-			return isSetActivateControllerAction;
-	   }
-       void PrivateActionImpl::ResetControllerAction()
-	   {
-	   		isSetControllerAction = false; 
-			_controllerAction = {};
-			
-	   }
-       bool PrivateActionImpl::IsSetControllerAction() const
-	   {
-			return isSetControllerAction;
-	   }
-       void PrivateActionImpl::ResetTeleportAction()
-	   {
-	   		isSetTeleportAction = false; 
-			_teleportAction = {};
-			
-	   }
-       bool PrivateActionImpl::IsSetTeleportAction() const
-	   {
-			return isSetTeleportAction;
-	   }
-       void PrivateActionImpl::ResetRoutingAction()
-	   {
-	   		isSetRoutingAction = false; 
-			_routingAction = {};
-			
-	   }
-       bool PrivateActionImpl::IsSetRoutingAction() const
-	   {
-			return isSetRoutingAction;
-	   }
-       void PrivateActionImpl::ResetAppearanceAction()
-	   {
-	   		isSetAppearanceAction = false; 
-			_appearanceAction = {};
-			
-	   }
-       bool PrivateActionImpl::IsSetAppearanceAction() const
-	   {
-			return isSetAppearanceAction;
-	   }
+        void PrivateActionImpl::ResetLongitudinalAction()
+        {
+            _isSetLongitudinalAction = false; 
+            _longitudinalAction = {};
+
+        }
+        bool PrivateActionImpl::IsSetLongitudinalAction() const
+        {
+            return _isSetLongitudinalAction;
+        }
+        void PrivateActionImpl::ResetLateralAction()
+        {
+            _isSetLateralAction = false; 
+            _lateralAction = {};
+
+        }
+        bool PrivateActionImpl::IsSetLateralAction() const
+        {
+            return _isSetLateralAction;
+        }
+        void PrivateActionImpl::ResetVisibilityAction()
+        {
+            _isSetVisibilityAction = false; 
+            _visibilityAction = {};
+
+        }
+        bool PrivateActionImpl::IsSetVisibilityAction() const
+        {
+            return _isSetVisibilityAction;
+        }
+        void PrivateActionImpl::ResetSynchronizeAction()
+        {
+            _isSetSynchronizeAction = false; 
+            _synchronizeAction = {};
+
+        }
+        bool PrivateActionImpl::IsSetSynchronizeAction() const
+        {
+            return _isSetSynchronizeAction;
+        }
+        void PrivateActionImpl::ResetActivateControllerAction()
+        {
+            _isSetActivateControllerAction = false; 
+            _activateControllerAction = {};
+
+        }
+        bool PrivateActionImpl::IsSetActivateControllerAction() const
+        {
+            return _isSetActivateControllerAction;
+        }
+        void PrivateActionImpl::ResetControllerAction()
+        {
+            _isSetControllerAction = false; 
+            _controllerAction = {};
+
+        }
+        bool PrivateActionImpl::IsSetControllerAction() const
+        {
+            return _isSetControllerAction;
+        }
+        void PrivateActionImpl::ResetTeleportAction()
+        {
+            _isSetTeleportAction = false; 
+            _teleportAction = {};
+
+        }
+        bool PrivateActionImpl::IsSetTeleportAction() const
+        {
+            return _isSetTeleportAction;
+        }
+        void PrivateActionImpl::ResetRoutingAction()
+        {
+            _isSetRoutingAction = false; 
+            _routingAction = {};
+
+        }
+        bool PrivateActionImpl::IsSetRoutingAction() const
+        {
+            return _isSetRoutingAction;
+        }
+        void PrivateActionImpl::ResetAppearanceAction()
+        {
+            _isSetAppearanceAction = false; 
+            _appearanceAction = {};
+
+        }
+        bool PrivateActionImpl::IsSetAppearanceAction() const
+        {
+            return _isSetAppearanceAction;
+        }
 
         IOpenScenarioFlexElement* ProbabilityDistributionSetImpl::GetOpenScenarioFlexElement()
         {
@@ -49045,6 +50302,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ProbabilityDistributionSetImpl::SetElements(std::vector<std::shared_ptr<IProbabilityDistributionSetElementWriter>>& elements)
         {
             _elements = elements;
+            _isSetElements = true;
         }
 
         std::shared_ptr<void> ProbabilityDistributionSetImpl::GetAdapter(const std::string classifier)
@@ -49227,6 +50485,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ProbabilityDistributionSetImpl::IsSetElements() const
+        {
+            return _isSetElements;
+        }
 
         IOpenScenarioFlexElement* ProbabilityDistributionSetElementImpl::GetOpenScenarioFlexElement()
         {
@@ -49246,12 +50508,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         void ProbabilityDistributionSetElementImpl::SetWeight(const double weight)
         {
             _weight = weight;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT);
+            _isSetWeight = true;
         }
 
         std::shared_ptr<void> ProbabilityDistributionSetElementImpl::GetAdapter(const std::string classifier)
@@ -49392,12 +50656,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WEIGHT)
             {
                 // Simple type
                 _weight = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
         }
 
@@ -49486,6 +50752,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
@@ -49496,11 +50763,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _weight = value;
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
 		
 		}
 
 
+        bool ProbabilityDistributionSetElementImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
+        bool ProbabilityDistributionSetElementImpl::IsSetWeight() const
+        {
+            return _isSetWeight;
+        }
 
         IOpenScenarioFlexElement* PropertiesImpl::GetOpenScenarioFlexElement()
         {
@@ -49586,22 +50862,19 @@ namespace NET_ASAM_OPENSCENARIO
         void PropertiesImpl::SetProperties(std::vector<std::shared_ptr<IPropertyWriter>>& properties)
         {
             _properties = properties;
-			// set the indicator to true
-            isSetProperties = true;          
+            _isSetProperties = true;
         }
 
         void PropertiesImpl::SetFiles(std::vector<std::shared_ptr<IFileWriter>>& files)
         {
             _files = files;
-			// set the indicator to true
-            isSetFiles = true;          
+            _isSetFiles = true;
         }
 
         void PropertiesImpl::SetCustomContent(std::vector<std::shared_ptr<ICustomContentWriter>>& customContent)
         {
             _customContent = customContent;
-			// set the indicator to true
-            isSetCustomContent = true;          
+            _isSetCustomContent = true;
         }
 
         std::shared_ptr<void> PropertiesImpl::GetAdapter(const std::string classifier)
@@ -49840,36 +51113,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void PropertiesImpl::ResetProperties()
-	   {
-	   		isSetProperties = false; 
-			_properties = {};
-			
-	   }
-       bool PropertiesImpl::IsSetProperties() const
-	   {
-			return isSetProperties;
-	   }
-       void PropertiesImpl::ResetFiles()
-	   {
-	   		isSetFiles = false; 
-			_files = {};
-			
-	   }
-       bool PropertiesImpl::IsSetFiles() const
-	   {
-			return isSetFiles;
-	   }
-       void PropertiesImpl::ResetCustomContent()
-	   {
-	   		isSetCustomContent = false; 
-			_customContent = {};
-			
-	   }
-       bool PropertiesImpl::IsSetCustomContent() const
-	   {
-			return isSetCustomContent;
-	   }
+        void PropertiesImpl::ResetProperties()
+        {
+            _isSetProperties = false; 
+            _properties = {};
+
+        }
+        bool PropertiesImpl::IsSetProperties() const
+        {
+            return _isSetProperties;
+        }
+        void PropertiesImpl::ResetFiles()
+        {
+            _isSetFiles = false; 
+            _files = {};
+
+        }
+        bool PropertiesImpl::IsSetFiles() const
+        {
+            return _isSetFiles;
+        }
+        void PropertiesImpl::ResetCustomContent()
+        {
+            _isSetCustomContent = false; 
+            _customContent = {};
+
+        }
+        bool PropertiesImpl::IsSetCustomContent() const
+        {
+            return _isSetCustomContent;
+        }
 
         IOpenScenarioFlexElement* PropertyImpl::GetOpenScenarioFlexElement()
         {
@@ -49889,12 +51162,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void PropertyImpl::SetValue(const std::string value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> PropertyImpl::GetAdapter(const std::string classifier)
@@ -50026,12 +51301,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -50125,17 +51402,27 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool PropertyImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool PropertyImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* RangeImpl::GetOpenScenarioFlexElement()
         {
@@ -50155,12 +51442,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _lowerLimit = lowerLimit;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__LOWER_LIMIT);
+            _isSetLowerLimit = true;
         }
 
         void RangeImpl::SetUpperLimit(const double upperLimit)
         {
             _upperLimit = upperLimit;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__UPPER_LIMIT);
+            _isSetUpperLimit = true;
         }
 
         std::shared_ptr<void> RangeImpl::GetAdapter(const std::string classifier)
@@ -50305,12 +51594,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _lowerLimit = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetLowerLimit = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__UPPER_LIMIT)
             {
                 // Simple type
                 _upperLimit = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetUpperLimit = true;
             }
         }
 
@@ -50390,17 +51681,27 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _lowerLimit = value;
                 AddResolvedParameter(attributeKey);
+                _isSetLowerLimit = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__UPPER_LIMIT)
             {
                 // Simple type
                 _upperLimit = value;
                 AddResolvedParameter(attributeKey);
+                _isSetUpperLimit = true;
             }
 		
 		}
 
 
+        bool RangeImpl::IsSetLowerLimit() const
+        {
+            return _isSetLowerLimit;
+        }
+        bool RangeImpl::IsSetUpperLimit() const
+        {
+            return _isSetUpperLimit;
+        }
 
         IOpenScenarioFlexElement* ReachPositionConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -50420,11 +51721,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _tolerance = tolerance;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TOLERANCE);
+            _isSetTolerance = true;
         }
 
         void ReachPositionConditionImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         std::shared_ptr<void> ReachPositionConditionImpl::GetAdapter(const std::string classifier)
@@ -50546,6 +51849,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _tolerance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTolerance = true;
             }
         }
 
@@ -50645,11 +51949,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _tolerance = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTolerance = true;
             }
 		
 		}
 
 
+        bool ReachPositionConditionImpl::IsSetTolerance() const
+        {
+            return _isSetTolerance;
+        }
+        bool ReachPositionConditionImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
 
         IOpenScenarioFlexElement* RelativeClearanceConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -50727,42 +52040,40 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _distanceBackward = distanceBackward;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE_BACKWARD);
-			// set the indicator to true
-            isSetDistanceBackward = true;          
+            _isSetDistanceBackward = true;
         }
 
         void RelativeClearanceConditionImpl::SetDistanceForward(const double distanceForward)
         {
             _distanceForward = distanceForward;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE_FORWARD);
-			// set the indicator to true
-            isSetDistanceForward = true;          
+            _isSetDistanceForward = true;
         }
 
         void RelativeClearanceConditionImpl::SetFreeSpace(const bool freeSpace)
         {
             _freeSpace = freeSpace;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREE_SPACE);
+            _isSetFreeSpace = true;
         }
 
         void RelativeClearanceConditionImpl::SetOppositeLanes(const bool oppositeLanes)
         {
             _oppositeLanes = oppositeLanes;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OPPOSITE_LANES);
+            _isSetOppositeLanes = true;
         }
 
         void RelativeClearanceConditionImpl::SetRelativeLaneRange(std::vector<std::shared_ptr<IRelativeLaneRangeWriter>>& relativeLaneRange)
         {
             _relativeLaneRange = relativeLaneRange;
-			// set the indicator to true
-            isSetRelativeLaneRange = true;          
+            _isSetRelativeLaneRange = true;
         }
 
         void RelativeClearanceConditionImpl::SetEntityRef(std::vector<std::shared_ptr<IEntityRefWriter>>& entityRef)
         {
             _entityRef = entityRef;
-			// set the indicator to true
-            isSetEntityRef = true;          
+            _isSetEntityRef = true;
         }
 
         std::shared_ptr<void> RelativeClearanceConditionImpl::GetAdapter(const std::string classifier)
@@ -50966,24 +52277,28 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _distanceBackward = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDistanceBackward = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DISTANCE_FORWARD)
             {
                 // Simple type
                 _distanceForward = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDistanceForward = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREE_SPACE)
             {
                 // Simple type
                 _freeSpace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFreeSpace = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OPPOSITE_LANES)
             {
                 // Simple type
                 _oppositeLanes = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetOppositeLanes = true;
             }
         }
 
@@ -51047,8 +52362,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_oppositeLanes = GetOppositeLanes();
             // clone indicators
-            	clonedObject->isSetDistanceBackward = isSetDistanceBackward;
-            	clonedObject->isSetDistanceForward = isSetDistanceForward;
+            clonedObject->_isSetDistanceBackward = _isSetDistanceBackward;
+            clonedObject->_isSetDistanceForward = _isSetDistanceForward;
             // clone children
             const auto kRelativeLaneRange =  GetWriterRelativeLaneRange();
             if (!kRelativeLaneRange.empty())
@@ -51130,12 +52445,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _freeSpace = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFreeSpace = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OPPOSITE_LANES)
             {
                 // Simple type
                 _oppositeLanes = value;
                 AddResolvedParameter(attributeKey);
+                _isSetOppositeLanes = true;
             }
 		
 		}
@@ -51146,57 +52463,67 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _distanceBackward = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDistanceBackward = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DISTANCE_FORWARD)
             {
                 // Simple type
                 _distanceForward = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDistanceForward = true;
             }
 		
 		}
 
 
-       void RelativeClearanceConditionImpl::ResetDistanceBackward()
-	   {
-	   		isSetDistanceBackward = false; 
-			_distanceBackward = {0};
-			
-	   }
-       bool RelativeClearanceConditionImpl::IsSetDistanceBackward() const
-	   {
-			return isSetDistanceBackward;
-	   }
-       void RelativeClearanceConditionImpl::ResetDistanceForward()
-	   {
-	   		isSetDistanceForward = false; 
-			_distanceForward = {0};
-			
-	   }
-       bool RelativeClearanceConditionImpl::IsSetDistanceForward() const
-	   {
-			return isSetDistanceForward;
-	   }
-       void RelativeClearanceConditionImpl::ResetRelativeLaneRange()
-	   {
-	   		isSetRelativeLaneRange = false; 
-			_relativeLaneRange = {};
-			
-	   }
-       bool RelativeClearanceConditionImpl::IsSetRelativeLaneRange() const
-	   {
-			return isSetRelativeLaneRange;
-	   }
-       void RelativeClearanceConditionImpl::ResetEntityRef()
-	   {
-	   		isSetEntityRef = false; 
-			_entityRef = {};
-			
-	   }
-       bool RelativeClearanceConditionImpl::IsSetEntityRef() const
-	   {
-			return isSetEntityRef;
-	   }
+        void RelativeClearanceConditionImpl::ResetDistanceBackward()
+        {
+            _isSetDistanceBackward = false; 
+            _distanceBackward = {0};
+
+        }
+        bool RelativeClearanceConditionImpl::IsSetDistanceBackward() const
+        {
+            return _isSetDistanceBackward;
+        }
+        void RelativeClearanceConditionImpl::ResetDistanceForward()
+        {
+            _isSetDistanceForward = false; 
+            _distanceForward = {0};
+
+        }
+        bool RelativeClearanceConditionImpl::IsSetDistanceForward() const
+        {
+            return _isSetDistanceForward;
+        }
+        bool RelativeClearanceConditionImpl::IsSetFreeSpace() const
+        {
+            return _isSetFreeSpace;
+        }
+        bool RelativeClearanceConditionImpl::IsSetOppositeLanes() const
+        {
+            return _isSetOppositeLanes;
+        }
+        void RelativeClearanceConditionImpl::ResetRelativeLaneRange()
+        {
+            _isSetRelativeLaneRange = false; 
+            _relativeLaneRange = {};
+
+        }
+        bool RelativeClearanceConditionImpl::IsSetRelativeLaneRange() const
+        {
+            return _isSetRelativeLaneRange;
+        }
+        void RelativeClearanceConditionImpl::ResetEntityRef()
+        {
+            _isSetEntityRef = false; 
+            _entityRef = {};
+
+        }
+        bool RelativeClearanceConditionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
 
         IOpenScenarioFlexElement* RelativeDistanceConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -51236,46 +52563,49 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
-			// set the indicator to true
-            isSetCoordinateSystem = true;          
+            _isSetCoordinateSystem = true;
         }
 
         void RelativeDistanceConditionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void RelativeDistanceConditionImpl::SetFreespace(const bool freespace)
         {
             _freespace = freespace;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE);
+            _isSetFreespace = true;
         }
 
         void RelativeDistanceConditionImpl::SetRelativeDistanceType(const RelativeDistanceType relativeDistanceType)
         {
             _relativeDistanceType = relativeDistanceType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
+            _isSetRelativeDistanceType = true;
         }
 
         void RelativeDistanceConditionImpl::SetRoutingAlgorithm(const RoutingAlgorithm routingAlgorithm)
         {
             _routingAlgorithm = routingAlgorithm;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROUTING_ALGORITHM);
-			// set the indicator to true
-            isSetRoutingAlgorithm = true;          
+            _isSetRoutingAlgorithm = true;
         }
 
         void RelativeDistanceConditionImpl::SetRule(const Rule rule)
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void RelativeDistanceConditionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> RelativeDistanceConditionImpl::GetAdapter(const std::string classifier)
@@ -51543,6 +52873,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _coordinateSystem = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetCoordinateSystem = true;
                 }
                 else
                 {
@@ -51556,12 +52887,14 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE)
             {
@@ -51571,6 +52904,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _relativeDistanceType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRelativeDistanceType = true;
                 }
                 else
                 {
@@ -51586,6 +52920,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _routingAlgorithm = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRoutingAlgorithm = true;
                 }
                 else
                 {
@@ -51601,6 +52936,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -51613,6 +52949,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -51685,8 +53022,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
-            	clonedObject->isSetRoutingAlgorithm = isSetRoutingAlgorithm;
+            clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
+            clonedObject->_isSetRoutingAlgorithm = _isSetRoutingAlgorithm;
             // clone children
             return clonedObject;
         }
@@ -51770,6 +53107,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _freespace = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
 		
 		}
@@ -51780,31 +53118,52 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void RelativeDistanceConditionImpl::ResetCoordinateSystem()
-	   {
-	   		isSetCoordinateSystem = false; 
-			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-			
-	   }
-       bool RelativeDistanceConditionImpl::IsSetCoordinateSystem() const
-	   {
-			return isSetCoordinateSystem;
-	   }
-       void RelativeDistanceConditionImpl::ResetRoutingAlgorithm()
-	   {
-	   		isSetRoutingAlgorithm = false; 
-			_routingAlgorithm = {RoutingAlgorithm::RoutingAlgorithmEnum::UNDEFINED};
-			
-	   }
-       bool RelativeDistanceConditionImpl::IsSetRoutingAlgorithm() const
-	   {
-			return isSetRoutingAlgorithm;
-	   }
+        void RelativeDistanceConditionImpl::ResetCoordinateSystem()
+        {
+            _isSetCoordinateSystem = false; 
+            _coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+
+        }
+        bool RelativeDistanceConditionImpl::IsSetCoordinateSystem() const
+        {
+            return _isSetCoordinateSystem;
+        }
+        bool RelativeDistanceConditionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        bool RelativeDistanceConditionImpl::IsSetFreespace() const
+        {
+            return _isSetFreespace;
+        }
+        bool RelativeDistanceConditionImpl::IsSetRelativeDistanceType() const
+        {
+            return _isSetRelativeDistanceType;
+        }
+        void RelativeDistanceConditionImpl::ResetRoutingAlgorithm()
+        {
+            _isSetRoutingAlgorithm = false; 
+            _routingAlgorithm = {RoutingAlgorithm::RoutingAlgorithmEnum::UNDEFINED};
+
+        }
+        bool RelativeDistanceConditionImpl::IsSetRoutingAlgorithm() const
+        {
+            return _isSetRoutingAlgorithm;
+        }
+        bool RelativeDistanceConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool RelativeDistanceConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* RelativeLanePositionImpl::GetOpenScenarioFlexElement()
         {
@@ -51840,43 +53199,41 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _dLane = dLane;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__D_LANE);
+            _isSetDLane = true;
         }
 
         void RelativeLanePositionImpl::SetDs(const double ds)
         {
             _ds = ds;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS);
-			// set the indicator to true
-            isSetDs = true;          
+            _isSetDs = true;
         }
 
         void RelativeLanePositionImpl::SetDsLane(const double dsLane)
         {
             _dsLane = dsLane;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS_LANE);
-			// set the indicator to true
-            isSetDsLane = true;          
+            _isSetDsLane = true;
         }
 
         void RelativeLanePositionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void RelativeLanePositionImpl::SetOffset(const double offset)
         {
             _offset = offset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET);
-			// set the indicator to true
-            isSetOffset = true;          
+            _isSetOffset = true;
         }
 
         void RelativeLanePositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
-			// set the indicator to true
-            isSetOrientation = true;          
+            _isSetOrientation = true;
         }
 
         std::shared_ptr<void> RelativeLanePositionImpl::GetAdapter(const std::string classifier)
@@ -52107,18 +53464,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _dLane = ParserHelper::ParseInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDLane = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DS)
             {
                 // Simple type
                 _ds = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDs = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DS_LANE)
             {
                 // Simple type
                 _dsLane = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDsLane = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
@@ -52126,12 +53486,14 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
             {
                 // Simple type
                 _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetOffset = true;
             }
         }
 
@@ -52189,9 +53551,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_offset = GetOffset();
             // clone indicators
-            	clonedObject->isSetDs = isSetDs;
-            	clonedObject->isSetDsLane = isSetDsLane;
-            	clonedObject->isSetOffset = isSetOffset;
+            clonedObject->_isSetDs = _isSetDs;
+            clonedObject->_isSetDsLane = _isSetDsLane;
+            clonedObject->_isSetOffset = _isSetOffset;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -52267,18 +53629,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _ds = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDs = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DS_LANE)
             {
                 // Simple type
                 _dsLane = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDsLane = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
             {
                 // Simple type
                 _offset = value;
                 AddResolvedParameter(attributeKey);
+                _isSetOffset = true;
             }
 		
 		}
@@ -52289,51 +53654,60 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _dLane = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDLane = true;
             }
 		
 		}
 
 
-       void RelativeLanePositionImpl::ResetDs()
-	   {
-	   		isSetDs = false; 
-			_ds = {};
-			
-	   }
-       bool RelativeLanePositionImpl::IsSetDs() const
-	   {
-			return isSetDs;
-	   }
-       void RelativeLanePositionImpl::ResetDsLane()
-	   {
-	   		isSetDsLane = false; 
-			_dsLane = {};
-			
-	   }
-       bool RelativeLanePositionImpl::IsSetDsLane() const
-	   {
-			return isSetDsLane;
-	   }
-       void RelativeLanePositionImpl::ResetOffset()
-	   {
-	   		isSetOffset = false; 
-			_offset = {0};
-			
-	   }
-       bool RelativeLanePositionImpl::IsSetOffset() const
-	   {
-			return isSetOffset;
-	   }
-       void RelativeLanePositionImpl::ResetOrientation()
-	   {
-	   		isSetOrientation = false; 
-			_orientation = {};
-			
-	   }
-       bool RelativeLanePositionImpl::IsSetOrientation() const
-	   {
-			return isSetOrientation;
-	   }
+        bool RelativeLanePositionImpl::IsSetDLane() const
+        {
+            return _isSetDLane;
+        }
+        void RelativeLanePositionImpl::ResetDs()
+        {
+            _isSetDs = false; 
+            _ds = {};
+
+        }
+        bool RelativeLanePositionImpl::IsSetDs() const
+        {
+            return _isSetDs;
+        }
+        void RelativeLanePositionImpl::ResetDsLane()
+        {
+            _isSetDsLane = false; 
+            _dsLane = {};
+
+        }
+        bool RelativeLanePositionImpl::IsSetDsLane() const
+        {
+            return _isSetDsLane;
+        }
+        bool RelativeLanePositionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        void RelativeLanePositionImpl::ResetOffset()
+        {
+            _isSetOffset = false; 
+            _offset = {0};
+
+        }
+        bool RelativeLanePositionImpl::IsSetOffset() const
+        {
+            return _isSetOffset;
+        }
+        void RelativeLanePositionImpl::ResetOrientation()
+        {
+            _isSetOrientation = false; 
+            _orientation = {};
+
+        }
+        bool RelativeLanePositionImpl::IsSetOrientation() const
+        {
+            return _isSetOrientation;
+        }
 
         IOpenScenarioFlexElement* RelativeLaneRangeImpl::GetOpenScenarioFlexElement()
         {
@@ -52353,16 +53727,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _from = from;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FROM);
-			// set the indicator to true
-            isSetFrom = true;          
+            _isSetFrom = true;
         }
 
         void RelativeLaneRangeImpl::SetTo(const int to)
         {
             _to = to;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TO);
-			// set the indicator to true
-            isSetTo = true;          
+            _isSetTo = true;
         }
 
         std::shared_ptr<void> RelativeLaneRangeImpl::GetAdapter(const std::string classifier)
@@ -52507,12 +53879,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _from = ParserHelper::ParseInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFrom = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TO)
             {
                 // Simple type
                 _to = ParserHelper::ParseInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTo = true;
             }
         }
 
@@ -52556,8 +53930,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_to = GetTo();
             // clone indicators
-            	clonedObject->isSetFrom = isSetFrom;
-            	clonedObject->isSetTo = isSetTo;
+            clonedObject->_isSetFrom = _isSetFrom;
+            clonedObject->_isSetTo = _isSetTo;
             // clone children
             return clonedObject;
         }
@@ -52594,37 +53968,39 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _from = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFrom = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TO)
             {
                 // Simple type
                 _to = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTo = true;
             }
 		
 		}
 
 
-       void RelativeLaneRangeImpl::ResetFrom()
-	   {
-	   		isSetFrom = false; 
-			_from = {};
-			
-	   }
-       bool RelativeLaneRangeImpl::IsSetFrom() const
-	   {
-			return isSetFrom;
-	   }
-       void RelativeLaneRangeImpl::ResetTo()
-	   {
-	   		isSetTo = false; 
-			_to = {};
-			
-	   }
-       bool RelativeLaneRangeImpl::IsSetTo() const
-	   {
-			return isSetTo;
-	   }
+        void RelativeLaneRangeImpl::ResetFrom()
+        {
+            _isSetFrom = false; 
+            _from = {};
+
+        }
+        bool RelativeLaneRangeImpl::IsSetFrom() const
+        {
+            return _isSetFrom;
+        }
+        void RelativeLaneRangeImpl::ResetTo()
+        {
+            _isSetTo = false; 
+            _to = {};
+
+        }
+        bool RelativeLaneRangeImpl::IsSetTo() const
+        {
+            return _isSetTo;
+        }
 
         IOpenScenarioFlexElement* RelativeObjectPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -52656,33 +54032,34 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _dx = dx;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DX);
+            _isSetDx = true;
         }
 
         void RelativeObjectPositionImpl::SetDy(const double dy)
         {
             _dy = dy;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DY);
+            _isSetDy = true;
         }
 
         void RelativeObjectPositionImpl::SetDz(const double dz)
         {
             _dz = dz;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DZ);
-			// set the indicator to true
-            isSetDz = true;          
+            _isSetDz = true;
         }
 
         void RelativeObjectPositionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void RelativeObjectPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
-			// set the indicator to true
-            isSetOrientation = true;          
+            _isSetOrientation = true;
         }
 
         std::shared_ptr<void> RelativeObjectPositionImpl::GetAdapter(const std::string classifier)
@@ -52881,18 +54258,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _dx = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDx = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DY)
             {
                 // Simple type
                 _dy = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDy = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DZ)
             {
                 // Simple type
                 _dz = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDz = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
@@ -52900,6 +54280,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
         }
 
@@ -52955,7 +54336,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_entityRef = proxy;
             
             // clone indicators
-            	clonedObject->isSetDz = isSetDz;
+            clonedObject->_isSetDz = _isSetDz;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -53031,43 +54412,58 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _dx = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDx = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DY)
             {
                 // Simple type
                 _dy = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDy = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DZ)
             {
                 // Simple type
                 _dz = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDz = true;
             }
 		
 		}
 
 
-       void RelativeObjectPositionImpl::ResetDz()
-	   {
-	   		isSetDz = false; 
-			_dz = {0};
-			
-	   }
-       bool RelativeObjectPositionImpl::IsSetDz() const
-	   {
-			return isSetDz;
-	   }
-       void RelativeObjectPositionImpl::ResetOrientation()
-	   {
-	   		isSetOrientation = false; 
-			_orientation = {};
-			
-	   }
-       bool RelativeObjectPositionImpl::IsSetOrientation() const
-	   {
-			return isSetOrientation;
-	   }
+        bool RelativeObjectPositionImpl::IsSetDx() const
+        {
+            return _isSetDx;
+        }
+        bool RelativeObjectPositionImpl::IsSetDy() const
+        {
+            return _isSetDy;
+        }
+        void RelativeObjectPositionImpl::ResetDz()
+        {
+            _isSetDz = false; 
+            _dz = {0};
+
+        }
+        bool RelativeObjectPositionImpl::IsSetDz() const
+        {
+            return _isSetDz;
+        }
+        bool RelativeObjectPositionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        void RelativeObjectPositionImpl::ResetOrientation()
+        {
+            _isSetOrientation = false; 
+            _orientation = {};
+
+        }
+        bool RelativeObjectPositionImpl::IsSetOrientation() const
+        {
+            return _isSetOrientation;
+        }
 
         IOpenScenarioFlexElement* RelativeRoadPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -53095,25 +54491,27 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _ds = ds;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DS);
+            _isSetDs = true;
         }
 
         void RelativeRoadPositionImpl::SetDt(const double dt)
         {
             _dt = dt;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DT);
+            _isSetDt = true;
         }
 
         void RelativeRoadPositionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void RelativeRoadPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
-			// set the indicator to true
-            isSetOrientation = true;          
+            _isSetOrientation = true;
         }
 
         std::shared_ptr<void> RelativeRoadPositionImpl::GetAdapter(const std::string classifier)
@@ -53285,12 +54683,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _ds = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDs = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DT)
             {
                 // Simple type
                 _dt = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDt = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
@@ -53298,6 +54698,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
         }
 
@@ -53426,27 +54827,41 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _ds = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDs = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DT)
             {
                 // Simple type
                 _dt = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDt = true;
             }
 		
 		}
 
 
-       void RelativeRoadPositionImpl::ResetOrientation()
-	   {
-	   		isSetOrientation = false; 
-			_orientation = {};
-			
-	   }
-       bool RelativeRoadPositionImpl::IsSetOrientation() const
-	   {
-			return isSetOrientation;
-	   }
+        bool RelativeRoadPositionImpl::IsSetDs() const
+        {
+            return _isSetDs;
+        }
+        bool RelativeRoadPositionImpl::IsSetDt() const
+        {
+            return _isSetDt;
+        }
+        bool RelativeRoadPositionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        void RelativeRoadPositionImpl::ResetOrientation()
+        {
+            _isSetOrientation = false; 
+            _orientation = {};
+
+        }
+        bool RelativeRoadPositionImpl::IsSetOrientation() const
+        {
+            return _isSetOrientation;
+        }
 
         IOpenScenarioFlexElement* RelativeSpeedConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -53474,26 +54889,28 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _direction = direction;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DIRECTION);
-			// set the indicator to true
-            isSetDirection = true;          
+            _isSetDirection = true;
         }
 
         void RelativeSpeedConditionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void RelativeSpeedConditionImpl::SetRule(const Rule rule)
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void RelativeSpeedConditionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> RelativeSpeedConditionImpl::GetAdapter(const std::string classifier)
@@ -53683,6 +55100,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _direction = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetDirection = true;
                 }
                 else
                 {
@@ -53696,6 +55114,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -53705,6 +55124,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -53717,6 +55137,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -53775,7 +55196,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetDirection = isSetDirection;
+            clonedObject->_isSetDirection = _isSetDirection;
             // clone children
             return clonedObject;
         }
@@ -53849,21 +55270,34 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void RelativeSpeedConditionImpl::ResetDirection()
-	   {
-	   		isSetDirection = false; 
-			_direction = {};
-			
-	   }
-       bool RelativeSpeedConditionImpl::IsSetDirection() const
-	   {
-			return isSetDirection;
-	   }
+        void RelativeSpeedConditionImpl::ResetDirection()
+        {
+            _isSetDirection = false; 
+            _direction = {};
+
+        }
+        bool RelativeSpeedConditionImpl::IsSetDirection() const
+        {
+            return _isSetDirection;
+        }
+        bool RelativeSpeedConditionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        bool RelativeSpeedConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool RelativeSpeedConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* RelativeSpeedToMasterImpl::GetOpenScenarioFlexElement()
         {
@@ -53887,19 +55321,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _speedTargetValueType = speedTargetValueType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
+            _isSetSpeedTargetValueType = true;
         }
 
         void RelativeSpeedToMasterImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         void RelativeSpeedToMasterImpl::SetSteadyState(std::shared_ptr<ISteadyStateWriter> steadyState)
         {
             _steadyState = steadyState;
-			// set the indicator to true
-            isSetSteadyState = true;          
+            _isSetSteadyState = true;
         }
 
         std::shared_ptr<void> RelativeSpeedToMasterImpl::GetAdapter(const std::string classifier)
@@ -54047,6 +55482,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _speedTargetValueType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetSpeedTargetValueType = true;
                 }
                 else
                 {
@@ -54059,6 +55495,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -54174,21 +55611,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void RelativeSpeedToMasterImpl::ResetSteadyState()
-	   {
-	   		isSetSteadyState = false; 
-			_steadyState = {};
-			
-	   }
-       bool RelativeSpeedToMasterImpl::IsSetSteadyState() const
-	   {
-			return isSetSteadyState;
-	   }
+        bool RelativeSpeedToMasterImpl::IsSetSpeedTargetValueType() const
+        {
+            return _isSetSpeedTargetValueType;
+        }
+        bool RelativeSpeedToMasterImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
+        void RelativeSpeedToMasterImpl::ResetSteadyState()
+        {
+            _isSetSteadyState = false; 
+            _steadyState = {};
+
+        }
+        bool RelativeSpeedToMasterImpl::IsSetSteadyState() const
+        {
+            return _isSetSteadyState;
+        }
 
         IOpenScenarioFlexElement* RelativeTargetLaneImpl::GetOpenScenarioFlexElement()
         {
@@ -54208,12 +55654,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void RelativeTargetLaneImpl::SetValue(const int value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> RelativeTargetLaneImpl::GetAdapter(const std::string classifier)
@@ -54355,12 +55803,14 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -54465,11 +55915,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool RelativeTargetLaneImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        bool RelativeTargetLaneImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* RelativeTargetLaneOffsetImpl::GetOpenScenarioFlexElement()
         {
@@ -54489,12 +55948,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void RelativeTargetLaneOffsetImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> RelativeTargetLaneOffsetImpl::GetAdapter(const std::string classifier)
@@ -54636,12 +56097,14 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -54746,11 +56209,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool RelativeTargetLaneOffsetImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        bool RelativeTargetLaneOffsetImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* RelativeTargetSpeedImpl::GetOpenScenarioFlexElement()
         {
@@ -54778,24 +56250,28 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _continuous = continuous;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTINUOUS);
+            _isSetContinuous = true;
         }
 
         void RelativeTargetSpeedImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void RelativeTargetSpeedImpl::SetSpeedTargetValueType(const SpeedTargetValueType speedTargetValueType)
         {
             _speedTargetValueType = speedTargetValueType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE);
+            _isSetSpeedTargetValueType = true;
         }
 
         void RelativeTargetSpeedImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> RelativeTargetSpeedImpl::GetAdapter(const std::string classifier)
@@ -54991,6 +56467,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _continuous = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetContinuous = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
@@ -54998,6 +56475,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPEED_TARGET_VALUE_TYPE)
             {
@@ -55007,6 +56485,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _speedTargetValueType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetSpeedTargetValueType = true;
                 }
                 else
                 {
@@ -55019,6 +56498,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -55141,6 +56621,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _continuous = value;
                 AddResolvedParameter(attributeKey);
+                _isSetContinuous = true;
             }
 		
 		}
@@ -55151,11 +56632,28 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool RelativeTargetSpeedImpl::IsSetContinuous() const
+        {
+            return _isSetContinuous;
+        }
+        bool RelativeTargetSpeedImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        bool RelativeTargetSpeedImpl::IsSetSpeedTargetValueType() const
+        {
+            return _isSetSpeedTargetValueType;
+        }
+        bool RelativeTargetSpeedImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* RelativeWorldPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -55187,33 +56685,34 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _dx = dx;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DX);
+            _isSetDx = true;
         }
 
         void RelativeWorldPositionImpl::SetDy(const double dy)
         {
             _dy = dy;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DY);
+            _isSetDy = true;
         }
 
         void RelativeWorldPositionImpl::SetDz(const double dz)
         {
             _dz = dz;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DZ);
-			// set the indicator to true
-            isSetDz = true;          
+            _isSetDz = true;
         }
 
         void RelativeWorldPositionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void RelativeWorldPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
-			// set the indicator to true
-            isSetOrientation = true;          
+            _isSetOrientation = true;
         }
 
         std::shared_ptr<void> RelativeWorldPositionImpl::GetAdapter(const std::string classifier)
@@ -55412,18 +56911,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _dx = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDx = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DY)
             {
                 // Simple type
                 _dy = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDy = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DZ)
             {
                 // Simple type
                 _dz = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDz = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF)
             {
@@ -55431,6 +56933,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
         }
 
@@ -55486,7 +56989,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_entityRef = proxy;
             
             // clone indicators
-            	clonedObject->isSetDz = isSetDz;
+            clonedObject->_isSetDz = _isSetDz;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -55562,43 +57065,58 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _dx = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDx = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DY)
             {
                 // Simple type
                 _dy = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDy = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DZ)
             {
                 // Simple type
                 _dz = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDz = true;
             }
 		
 		}
 
 
-       void RelativeWorldPositionImpl::ResetDz()
-	   {
-	   		isSetDz = false; 
-			_dz = {0};
-			
-	   }
-       bool RelativeWorldPositionImpl::IsSetDz() const
-	   {
-			return isSetDz;
-	   }
-       void RelativeWorldPositionImpl::ResetOrientation()
-	   {
-	   		isSetOrientation = false; 
-			_orientation = {};
-			
-	   }
-       bool RelativeWorldPositionImpl::IsSetOrientation() const
-	   {
-			return isSetOrientation;
-	   }
+        bool RelativeWorldPositionImpl::IsSetDx() const
+        {
+            return _isSetDx;
+        }
+        bool RelativeWorldPositionImpl::IsSetDy() const
+        {
+            return _isSetDy;
+        }
+        void RelativeWorldPositionImpl::ResetDz()
+        {
+            _isSetDz = false; 
+            _dz = {0};
+
+        }
+        bool RelativeWorldPositionImpl::IsSetDz() const
+        {
+            return _isSetDz;
+        }
+        bool RelativeWorldPositionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        void RelativeWorldPositionImpl::ResetOrientation()
+        {
+            _isSetOrientation = false; 
+            _orientation = {};
+
+        }
+        bool RelativeWorldPositionImpl::IsSetOrientation() const
+        {
+            return _isSetOrientation;
+        }
 
         IOpenScenarioFlexElement* RoadConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -55622,21 +57140,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _frictionScaleFactor = frictionScaleFactor;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FRICTION_SCALE_FACTOR);
+            _isSetFrictionScaleFactor = true;
         }
 
         void RoadConditionImpl::SetWetness(const Wetness wetness)
         {
             _wetness = wetness;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WETNESS);
-			// set the indicator to true
-            isSetWetness = true;          
+            _isSetWetness = true;
         }
 
         void RoadConditionImpl::SetProperties(std::shared_ptr<IPropertiesWriter> properties)
         {
             _properties = properties;
-			// set the indicator to true
-            isSetProperties = true;          
+            _isSetProperties = true;
         }
 
         std::shared_ptr<void> RoadConditionImpl::GetAdapter(const std::string classifier)
@@ -55781,6 +57298,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _frictionScaleFactor = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFrictionScaleFactor = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__WETNESS)
             {
@@ -55790,6 +57308,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _wetness = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetWetness = true;
                 }
                 else
                 {
@@ -55848,7 +57367,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_wetness = Wetness::GetFromLiteral(kWetness.GetLiteral());
             }
             // clone indicators
-            	clonedObject->isSetWetness = isSetWetness;
+            clonedObject->_isSetWetness = _isSetWetness;
             // clone children
             const auto kProperties =  GetWriterProperties();
             if (kProperties)
@@ -55912,31 +57431,36 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _frictionScaleFactor = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFrictionScaleFactor = true;
             }
 		
 		}
 
 
-       void RoadConditionImpl::ResetWetness()
-	   {
-	   		isSetWetness = false; 
-			_wetness = {};
-			
-	   }
-       bool RoadConditionImpl::IsSetWetness() const
-	   {
-			return isSetWetness;
-	   }
-       void RoadConditionImpl::ResetProperties()
-	   {
-	   		isSetProperties = false; 
-			_properties = {};
-			
-	   }
-       bool RoadConditionImpl::IsSetProperties() const
-	   {
-			return isSetProperties;
-	   }
+        bool RoadConditionImpl::IsSetFrictionScaleFactor() const
+        {
+            return _isSetFrictionScaleFactor;
+        }
+        void RoadConditionImpl::ResetWetness()
+        {
+            _isSetWetness = false; 
+            _wetness = {};
+
+        }
+        bool RoadConditionImpl::IsSetWetness() const
+        {
+            return _isSetWetness;
+        }
+        void RoadConditionImpl::ResetProperties()
+        {
+            _isSetProperties = false; 
+            _properties = {};
+
+        }
+        bool RoadConditionImpl::IsSetProperties() const
+        {
+            return _isSetProperties;
+        }
 
         IOpenScenarioFlexElement* RoadNetworkImpl::GetOpenScenarioFlexElement()
         {
@@ -55984,29 +57508,25 @@ namespace NET_ASAM_OPENSCENARIO
         void RoadNetworkImpl::SetLogicFile(std::shared_ptr<IFileWriter> logicFile)
         {
             _logicFile = logicFile;
-			// set the indicator to true
-            isSetLogicFile = true;          
+            _isSetLogicFile = true;
         }
 
         void RoadNetworkImpl::SetSceneGraphFile(std::shared_ptr<IFileWriter> sceneGraphFile)
         {
             _sceneGraphFile = sceneGraphFile;
-			// set the indicator to true
-            isSetSceneGraphFile = true;          
+            _isSetSceneGraphFile = true;
         }
 
         void RoadNetworkImpl::SetTrafficSignals(std::vector<std::shared_ptr<ITrafficSignalControllerWriter>>& trafficSignals)
         {
             _trafficSignals = trafficSignals;
-			// set the indicator to true
-            isSetTrafficSignals = true;          
+            _isSetTrafficSignals = true;
         }
 
         void RoadNetworkImpl::SetUsedArea(std::shared_ptr<IUsedAreaWriter> usedArea)
         {
             _usedArea = usedArea;
-			// set the indicator to true
-            isSetUsedArea = true;          
+            _isSetUsedArea = true;
         }
 
         std::shared_ptr<void> RoadNetworkImpl::GetAdapter(const std::string classifier)
@@ -56258,46 +57778,46 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void RoadNetworkImpl::ResetLogicFile()
-	   {
-	   		isSetLogicFile = false; 
-			_logicFile = {};
-			
-	   }
-       bool RoadNetworkImpl::IsSetLogicFile() const
-	   {
-			return isSetLogicFile;
-	   }
-       void RoadNetworkImpl::ResetSceneGraphFile()
-	   {
-	   		isSetSceneGraphFile = false; 
-			_sceneGraphFile = {};
-			
-	   }
-       bool RoadNetworkImpl::IsSetSceneGraphFile() const
-	   {
-			return isSetSceneGraphFile;
-	   }
-       void RoadNetworkImpl::ResetTrafficSignals()
-	   {
-	   		isSetTrafficSignals = false; 
-			_trafficSignals = {};
-			
-	   }
-       bool RoadNetworkImpl::IsSetTrafficSignals() const
-	   {
-			return isSetTrafficSignals;
-	   }
-       void RoadNetworkImpl::ResetUsedArea()
-	   {
-	   		isSetUsedArea = false; 
-			_usedArea = {};
-			
-	   }
-       bool RoadNetworkImpl::IsSetUsedArea() const
-	   {
-			return isSetUsedArea;
-	   }
+        void RoadNetworkImpl::ResetLogicFile()
+        {
+            _isSetLogicFile = false; 
+            _logicFile = {};
+
+        }
+        bool RoadNetworkImpl::IsSetLogicFile() const
+        {
+            return _isSetLogicFile;
+        }
+        void RoadNetworkImpl::ResetSceneGraphFile()
+        {
+            _isSetSceneGraphFile = false; 
+            _sceneGraphFile = {};
+
+        }
+        bool RoadNetworkImpl::IsSetSceneGraphFile() const
+        {
+            return _isSetSceneGraphFile;
+        }
+        void RoadNetworkImpl::ResetTrafficSignals()
+        {
+            _isSetTrafficSignals = false; 
+            _trafficSignals = {};
+
+        }
+        bool RoadNetworkImpl::IsSetTrafficSignals() const
+        {
+            return _isSetTrafficSignals;
+        }
+        void RoadNetworkImpl::ResetUsedArea()
+        {
+            _isSetUsedArea = false; 
+            _usedArea = {};
+
+        }
+        bool RoadNetworkImpl::IsSetUsedArea() const
+        {
+            return _isSetUsedArea;
+        }
 
         IOpenScenarioFlexElement* RoadPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -56325,25 +57845,27 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _roadId = roadId;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROAD_ID);
+            _isSetRoadId = true;
         }
 
         void RoadPositionImpl::SetS(const double s)
         {
             _s = s;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S);
+            _isSetS = true;
         }
 
         void RoadPositionImpl::SetT(const double t)
         {
             _t = t;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T);
+            _isSetT = true;
         }
 
         void RoadPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
-			// set the indicator to true
-            isSetOrientation = true;          
+            _isSetOrientation = true;
         }
 
         std::shared_ptr<void> RoadPositionImpl::GetAdapter(const std::string classifier)
@@ -56515,18 +58037,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _roadId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetRoadId = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__S)
             {
                 // Simple type
                 _s = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetS = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__T)
             {
                 // Simple type
                 _t = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetT = true;
             }
         }
 
@@ -56639,6 +58164,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _roadId = value;
                 AddResolvedParameter(attributeKey);
+                _isSetRoadId = true;
             }
 		
 		}
@@ -56649,27 +58175,41 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _s = value;
                 AddResolvedParameter(attributeKey);
+                _isSetS = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__T)
             {
                 // Simple type
                 _t = value;
                 AddResolvedParameter(attributeKey);
+                _isSetT = true;
             }
 		
 		}
 
 
-       void RoadPositionImpl::ResetOrientation()
-	   {
-	   		isSetOrientation = false; 
-			_orientation = {};
-			
-	   }
-       bool RoadPositionImpl::IsSetOrientation() const
-	   {
-			return isSetOrientation;
-	   }
+        bool RoadPositionImpl::IsSetRoadId() const
+        {
+            return _isSetRoadId;
+        }
+        bool RoadPositionImpl::IsSetS() const
+        {
+            return _isSetS;
+        }
+        bool RoadPositionImpl::IsSetT() const
+        {
+            return _isSetT;
+        }
+        void RoadPositionImpl::ResetOrientation()
+        {
+            _isSetOrientation = false; 
+            _orientation = {};
+
+        }
+        bool RoadPositionImpl::IsSetOrientation() const
+        {
+            return _isSetOrientation;
+        }
 
         IOpenScenarioFlexElement* RouteImpl::GetOpenScenarioFlexElement()
         {
@@ -56739,24 +58279,26 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _closed = closed;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CLOSED);
+            _isSetClosed = true;
         }
 
         void RouteImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void RouteImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
-			// set the indicator to true
-            isSetParameterDeclarations = true;          
+            _isSetParameterDeclarations = true;
         }
 
         void RouteImpl::SetWaypoints(std::vector<std::shared_ptr<IWaypointWriter>>& waypoints)
         {
             _waypoints = waypoints;
+            _isSetWaypoints = true;
         }
 
         std::shared_ptr<void> RouteImpl::GetAdapter(const std::string classifier)
@@ -56897,12 +58439,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _closed = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetClosed = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -57071,6 +58615,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _closed = value;
                 AddResolvedParameter(attributeKey);
+                _isSetClosed = true;
             }
 		
 		}
@@ -57081,21 +58626,34 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void RouteImpl::ResetParameterDeclarations()
-	   {
-	   		isSetParameterDeclarations = false; 
-			_parameterDeclarations = {};
-			
-	   }
-       bool RouteImpl::IsSetParameterDeclarations() const
-	   {
-			return isSetParameterDeclarations;
-	   }
+        bool RouteImpl::IsSetClosed() const
+        {
+            return _isSetClosed;
+        }
+        bool RouteImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void RouteImpl::ResetParameterDeclarations()
+        {
+            _isSetParameterDeclarations = false; 
+            _parameterDeclarations = {};
+
+        }
+        bool RouteImpl::IsSetParameterDeclarations() const
+        {
+            return _isSetParameterDeclarations;
+        }
+        bool RouteImpl::IsSetWaypoints() const
+        {
+            return _isSetWaypoints;
+        }
 
         IOpenScenarioFlexElement* RouteCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -57110,6 +58668,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RouteCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectoryWriter> directory)
         {
             _directory = directory;
+            _isSetDirectory = true;
         }
 
         std::shared_ptr<void> RouteCatalogLocationImpl::GetAdapter(const std::string classifier)
@@ -57285,6 +58844,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool RouteCatalogLocationImpl::IsSetDirectory() const
+        {
+            return _isSetDirectory;
+        }
 
         IOpenScenarioFlexElement* RoutePositionImpl::GetOpenScenarioFlexElement()
         {
@@ -57307,18 +58870,19 @@ namespace NET_ASAM_OPENSCENARIO
         void RoutePositionImpl::SetRouteRef(std::shared_ptr<IRouteRefWriter> routeRef)
         {
             _routeRef = routeRef;
+            _isSetRouteRef = true;
         }
 
         void RoutePositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
-			// set the indicator to true
-            isSetOrientation = true;          
+            _isSetOrientation = true;
         }
 
         void RoutePositionImpl::SetInRoutePosition(std::shared_ptr<IInRoutePositionWriter> inRoutePosition)
         {
             _inRoutePosition = inRoutePosition;
+            _isSetInRoutePosition = true;
         }
 
         std::shared_ptr<void> RoutePositionImpl::GetAdapter(const std::string classifier)
@@ -57538,16 +59102,24 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void RoutePositionImpl::ResetOrientation()
-	   {
-	   		isSetOrientation = false; 
-			_orientation = {};
-			
-	   }
-       bool RoutePositionImpl::IsSetOrientation() const
-	   {
-			return isSetOrientation;
-	   }
+        bool RoutePositionImpl::IsSetRouteRef() const
+        {
+            return _isSetRouteRef;
+        }
+        void RoutePositionImpl::ResetOrientation()
+        {
+            _isSetOrientation = false; 
+            _orientation = {};
+
+        }
+        bool RoutePositionImpl::IsSetOrientation() const
+        {
+            return _isSetOrientation;
+        }
+        bool RoutePositionImpl::IsSetInRoutePosition() const
+        {
+            return _isSetInRoutePosition;
+        }
 
         IOpenScenarioFlexElement* RouteRefImpl::GetOpenScenarioFlexElement()
         {
@@ -57567,16 +59139,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _route = route;
             _catalogReference = {};
-			// set the indicator to true
-            isSetRoute = true;          
+            _isSetRoute = true;
         }
 
         void RouteRefImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _route = {};
-			// set the indicator to true
-            isSetCatalogReference = true;          
+            _isSetCatalogReference = true;
         }
 
         std::shared_ptr<void> RouteRefImpl::GetAdapter(const std::string classifier)
@@ -57774,26 +59344,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void RouteRefImpl::ResetRoute()
-	   {
-	   		isSetRoute = false; 
-			_route = {};
-			
-	   }
-       bool RouteRefImpl::IsSetRoute() const
-	   {
-			return isSetRoute;
-	   }
-       void RouteRefImpl::ResetCatalogReference()
-	   {
-	   		isSetCatalogReference = false; 
-			_catalogReference = {};
-			
-	   }
-       bool RouteRefImpl::IsSetCatalogReference() const
-	   {
-			return isSetCatalogReference;
-	   }
+        void RouteRefImpl::ResetRoute()
+        {
+            _isSetRoute = false; 
+            _route = {};
+
+        }
+        bool RouteRefImpl::IsSetRoute() const
+        {
+            return _isSetRoute;
+        }
+        void RouteRefImpl::ResetCatalogReference()
+        {
+            _isSetCatalogReference = false; 
+            _catalogReference = {};
+
+        }
+        bool RouteRefImpl::IsSetCatalogReference() const
+        {
+            return _isSetCatalogReference;
+        }
 
         IOpenScenarioFlexElement* RoutingActionImpl::GetOpenScenarioFlexElement()
         {
@@ -57818,8 +59388,7 @@ namespace NET_ASAM_OPENSCENARIO
             _assignRouteAction = assignRouteAction;
             _followTrajectoryAction = {};
             _acquirePositionAction = {};
-			// set the indicator to true
-            isSetAssignRouteAction = true;          
+            _isSetAssignRouteAction = true;
         }
 
         void RoutingActionImpl::SetFollowTrajectoryAction(std::shared_ptr<IFollowTrajectoryActionWriter> followTrajectoryAction)
@@ -57827,8 +59396,7 @@ namespace NET_ASAM_OPENSCENARIO
             _followTrajectoryAction = followTrajectoryAction;
             _assignRouteAction = {};
             _acquirePositionAction = {};
-			// set the indicator to true
-            isSetFollowTrajectoryAction = true;          
+            _isSetFollowTrajectoryAction = true;
         }
 
         void RoutingActionImpl::SetAcquirePositionAction(std::shared_ptr<IAcquirePositionActionWriter> acquirePositionAction)
@@ -57836,8 +59404,7 @@ namespace NET_ASAM_OPENSCENARIO
             _acquirePositionAction = acquirePositionAction;
             _assignRouteAction = {};
             _followTrajectoryAction = {};
-			// set the indicator to true
-            isSetAcquirePositionAction = true;          
+            _isSetAcquirePositionAction = true;
         }
 
         std::shared_ptr<void> RoutingActionImpl::GetAdapter(const std::string classifier)
@@ -58057,36 +59624,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void RoutingActionImpl::ResetAssignRouteAction()
-	   {
-	   		isSetAssignRouteAction = false; 
-			_assignRouteAction = {};
-			
-	   }
-       bool RoutingActionImpl::IsSetAssignRouteAction() const
-	   {
-			return isSetAssignRouteAction;
-	   }
-       void RoutingActionImpl::ResetFollowTrajectoryAction()
-	   {
-	   		isSetFollowTrajectoryAction = false; 
-			_followTrajectoryAction = {};
-			
-	   }
-       bool RoutingActionImpl::IsSetFollowTrajectoryAction() const
-	   {
-			return isSetFollowTrajectoryAction;
-	   }
-       void RoutingActionImpl::ResetAcquirePositionAction()
-	   {
-	   		isSetAcquirePositionAction = false; 
-			_acquirePositionAction = {};
-			
-	   }
-       bool RoutingActionImpl::IsSetAcquirePositionAction() const
-	   {
-			return isSetAcquirePositionAction;
-	   }
+        void RoutingActionImpl::ResetAssignRouteAction()
+        {
+            _isSetAssignRouteAction = false; 
+            _assignRouteAction = {};
+
+        }
+        bool RoutingActionImpl::IsSetAssignRouteAction() const
+        {
+            return _isSetAssignRouteAction;
+        }
+        void RoutingActionImpl::ResetFollowTrajectoryAction()
+        {
+            _isSetFollowTrajectoryAction = false; 
+            _followTrajectoryAction = {};
+
+        }
+        bool RoutingActionImpl::IsSetFollowTrajectoryAction() const
+        {
+            return _isSetFollowTrajectoryAction;
+        }
+        void RoutingActionImpl::ResetAcquirePositionAction()
+        {
+            _isSetAcquirePositionAction = false; 
+            _acquirePositionAction = {};
+
+        }
+        bool RoutingActionImpl::IsSetAcquirePositionAction() const
+        {
+            return _isSetAcquirePositionAction;
+        }
 
         IOpenScenarioFlexElement* ScenarioDefinitionImpl::GetOpenScenarioFlexElement()
         {
@@ -58163,35 +59730,37 @@ namespace NET_ASAM_OPENSCENARIO
         void ScenarioDefinitionImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
-			// set the indicator to true
-            isSetParameterDeclarations = true;          
+            _isSetParameterDeclarations = true;
         }
 
         void ScenarioDefinitionImpl::SetVariableDeclarations(std::vector<std::shared_ptr<IVariableDeclarationWriter>>& variableDeclarations)
         {
             _variableDeclarations = variableDeclarations;
-			// set the indicator to true
-            isSetVariableDeclarations = true;          
+            _isSetVariableDeclarations = true;
         }
 
         void ScenarioDefinitionImpl::SetCatalogLocations(std::shared_ptr<ICatalogLocationsWriter> catalogLocations)
         {
             _catalogLocations = catalogLocations;
+            _isSetCatalogLocations = true;
         }
 
         void ScenarioDefinitionImpl::SetRoadNetwork(std::shared_ptr<IRoadNetworkWriter> roadNetwork)
         {
             _roadNetwork = roadNetwork;
+            _isSetRoadNetwork = true;
         }
 
         void ScenarioDefinitionImpl::SetEntities(std::shared_ptr<IEntitiesWriter> entities)
         {
             _entities = entities;
+            _isSetEntities = true;
         }
 
         void ScenarioDefinitionImpl::SetStoryboard(std::shared_ptr<IStoryboardWriter> storyboard)
         {
             _storyboard = storyboard;
+            _isSetStoryboard = true;
         }
 
         std::shared_ptr<void> ScenarioDefinitionImpl::GetAdapter(const std::string classifier)
@@ -58512,26 +60081,42 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void ScenarioDefinitionImpl::ResetParameterDeclarations()
-	   {
-	   		isSetParameterDeclarations = false; 
-			_parameterDeclarations = {};
-			
-	   }
-       bool ScenarioDefinitionImpl::IsSetParameterDeclarations() const
-	   {
-			return isSetParameterDeclarations;
-	   }
-       void ScenarioDefinitionImpl::ResetVariableDeclarations()
-	   {
-	   		isSetVariableDeclarations = false; 
-			_variableDeclarations = {};
-			
-	   }
-       bool ScenarioDefinitionImpl::IsSetVariableDeclarations() const
-	   {
-			return isSetVariableDeclarations;
-	   }
+        void ScenarioDefinitionImpl::ResetParameterDeclarations()
+        {
+            _isSetParameterDeclarations = false; 
+            _parameterDeclarations = {};
+
+        }
+        bool ScenarioDefinitionImpl::IsSetParameterDeclarations() const
+        {
+            return _isSetParameterDeclarations;
+        }
+        void ScenarioDefinitionImpl::ResetVariableDeclarations()
+        {
+            _isSetVariableDeclarations = false; 
+            _variableDeclarations = {};
+
+        }
+        bool ScenarioDefinitionImpl::IsSetVariableDeclarations() const
+        {
+            return _isSetVariableDeclarations;
+        }
+        bool ScenarioDefinitionImpl::IsSetCatalogLocations() const
+        {
+            return _isSetCatalogLocations;
+        }
+        bool ScenarioDefinitionImpl::IsSetRoadNetwork() const
+        {
+            return _isSetRoadNetwork;
+        }
+        bool ScenarioDefinitionImpl::IsSetEntities() const
+        {
+            return _isSetEntities;
+        }
+        bool ScenarioDefinitionImpl::IsSetStoryboard() const
+        {
+            return _isSetStoryboard;
+        }
 
         IOpenScenarioFlexElement* ScenarioObjectImpl::GetOpenScenarioFlexElement()
         {
@@ -58576,18 +60161,19 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void ScenarioObjectImpl::SetEntityObject(std::shared_ptr<IEntityObjectWriter> entityObject)
         {
             _entityObject = entityObject;
+            _isSetEntityObject = true;
         }
 
         void ScenarioObjectImpl::SetObjectController(std::vector<std::shared_ptr<IObjectControllerWriter>>& objectController)
         {
             _objectController = objectController;
-			// set the indicator to true
-            isSetObjectController = true;          
+            _isSetObjectController = true;
         }
 
         std::shared_ptr<void> ScenarioObjectImpl::GetAdapter(const std::string classifier)
@@ -58700,6 +60286,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -58841,21 +60428,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void ScenarioObjectImpl::ResetObjectController()
-	   {
-	   		isSetObjectController = false; 
-			_objectController = {};
-			
-	   }
-       bool ScenarioObjectImpl::IsSetObjectController() const
-	   {
-			return isSetObjectController;
-	   }
+        bool ScenarioObjectImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool ScenarioObjectImpl::IsSetEntityObject() const
+        {
+            return _isSetEntityObject;
+        }
+        void ScenarioObjectImpl::ResetObjectController()
+        {
+            _isSetObjectController = false; 
+            _objectController = {};
+
+        }
+        bool ScenarioObjectImpl::IsSetObjectController() const
+        {
+            return _isSetObjectController;
+        }
 
         IOpenScenarioFlexElement* SelectedEntitiesImpl::GetOpenScenarioFlexElement()
         {
@@ -58917,16 +60513,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             _byType = {};
-			// set the indicator to true
-            isSetEntityRef = true;          
+            _isSetEntityRef = true;
         }
 
         void SelectedEntitiesImpl::SetByType(std::vector<std::shared_ptr<IByTypeWriter>>& byType)
         {
             _byType = byType;
             _entityRef = {};
-			// set the indicator to true
-            isSetByType = true;          
+            _isSetByType = true;
         }
 
         std::shared_ptr<void> SelectedEntitiesImpl::GetAdapter(const std::string classifier)
@@ -59137,26 +60731,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void SelectedEntitiesImpl::ResetEntityRef()
-	   {
-	   		isSetEntityRef = false; 
-			_entityRef = {};
-			
-	   }
-       bool SelectedEntitiesImpl::IsSetEntityRef() const
-	   {
-			return isSetEntityRef;
-	   }
-       void SelectedEntitiesImpl::ResetByType()
-	   {
-	   		isSetByType = false; 
-			_byType = {};
-			
-	   }
-       bool SelectedEntitiesImpl::IsSetByType() const
-	   {
-			return isSetByType;
-	   }
+        void SelectedEntitiesImpl::ResetEntityRef()
+        {
+            _isSetEntityRef = false; 
+            _entityRef = {};
+
+        }
+        bool SelectedEntitiesImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        void SelectedEntitiesImpl::ResetByType()
+        {
+            _isSetByType = false; 
+            _byType = {};
+
+        }
+        bool SelectedEntitiesImpl::IsSetByType() const
+        {
+            return _isSetByType;
+        }
 
         IOpenScenarioFlexElement* SensorReferenceImpl::GetOpenScenarioFlexElement()
         {
@@ -59172,6 +60766,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         std::shared_ptr<void> SensorReferenceImpl::GetAdapter(const std::string classifier)
@@ -59280,6 +60875,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -59366,11 +60962,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
+        bool SensorReferenceImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
 
         IOpenScenarioFlexElement* SensorReferenceSetImpl::GetOpenScenarioFlexElement()
         {
@@ -59406,6 +61007,7 @@ namespace NET_ASAM_OPENSCENARIO
         void SensorReferenceSetImpl::SetSensorReferences(std::vector<std::shared_ptr<ISensorReferenceWriter>>& sensorReferences)
         {
             _sensorReferences = sensorReferences;
+            _isSetSensorReferences = true;
         }
 
         std::shared_ptr<void> SensorReferenceSetImpl::GetAdapter(const std::string classifier)
@@ -59588,6 +61190,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool SensorReferenceSetImpl::IsSetSensorReferences() const
+        {
+            return _isSetSensorReferences;
+        }
 
         IOpenScenarioFlexElement* ShapeImpl::GetOpenScenarioFlexElement()
         {
@@ -59612,8 +61218,7 @@ namespace NET_ASAM_OPENSCENARIO
             _polyline = polyline;
             _clothoid = {};
             _nurbs = {};
-			// set the indicator to true
-            isSetPolyline = true;          
+            _isSetPolyline = true;
         }
 
         void ShapeImpl::SetClothoid(std::shared_ptr<IClothoidWriter> clothoid)
@@ -59621,8 +61226,7 @@ namespace NET_ASAM_OPENSCENARIO
             _clothoid = clothoid;
             _polyline = {};
             _nurbs = {};
-			// set the indicator to true
-            isSetClothoid = true;          
+            _isSetClothoid = true;
         }
 
         void ShapeImpl::SetNurbs(std::shared_ptr<INurbsWriter> nurbs)
@@ -59630,8 +61234,7 @@ namespace NET_ASAM_OPENSCENARIO
             _nurbs = nurbs;
             _polyline = {};
             _clothoid = {};
-			// set the indicator to true
-            isSetNurbs = true;          
+            _isSetNurbs = true;
         }
 
         std::shared_ptr<void> ShapeImpl::GetAdapter(const std::string classifier)
@@ -59851,36 +61454,36 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void ShapeImpl::ResetPolyline()
-	   {
-	   		isSetPolyline = false; 
-			_polyline = {};
-			
-	   }
-       bool ShapeImpl::IsSetPolyline() const
-	   {
-			return isSetPolyline;
-	   }
-       void ShapeImpl::ResetClothoid()
-	   {
-	   		isSetClothoid = false; 
-			_clothoid = {};
-			
-	   }
-       bool ShapeImpl::IsSetClothoid() const
-	   {
-			return isSetClothoid;
-	   }
-       void ShapeImpl::ResetNurbs()
-	   {
-	   		isSetNurbs = false; 
-			_nurbs = {};
-			
-	   }
-       bool ShapeImpl::IsSetNurbs() const
-	   {
-			return isSetNurbs;
-	   }
+        void ShapeImpl::ResetPolyline()
+        {
+            _isSetPolyline = false; 
+            _polyline = {};
+
+        }
+        bool ShapeImpl::IsSetPolyline() const
+        {
+            return _isSetPolyline;
+        }
+        void ShapeImpl::ResetClothoid()
+        {
+            _isSetClothoid = false; 
+            _clothoid = {};
+
+        }
+        bool ShapeImpl::IsSetClothoid() const
+        {
+            return _isSetClothoid;
+        }
+        void ShapeImpl::ResetNurbs()
+        {
+            _isSetNurbs = false; 
+            _nurbs = {};
+
+        }
+        bool ShapeImpl::IsSetNurbs() const
+        {
+            return _isSetNurbs;
+        }
 
         IOpenScenarioFlexElement* SimulationTimeConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -59900,12 +61503,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void SimulationTimeConditionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> SimulationTimeConditionImpl::GetAdapter(const std::string classifier)
@@ -60049,6 +61654,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -60061,6 +61667,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -60154,11 +61761,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool SimulationTimeConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool SimulationTimeConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* SpeedActionImpl::GetOpenScenarioFlexElement()
         {
@@ -60177,11 +61793,13 @@ namespace NET_ASAM_OPENSCENARIO
         void SpeedActionImpl::SetSpeedActionDynamics(std::shared_ptr<ITransitionDynamicsWriter> speedActionDynamics)
         {
             _speedActionDynamics = speedActionDynamics;
+            _isSetSpeedActionDynamics = true;
         }
 
         void SpeedActionImpl::SetSpeedActionTarget(std::shared_ptr<ISpeedActionTargetWriter> speedActionTarget)
         {
             _speedActionTarget = speedActionTarget;
+            _isSetSpeedActionTarget = true;
         }
 
         std::shared_ptr<void> SpeedActionImpl::GetAdapter(const std::string classifier)
@@ -60379,6 +61997,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool SpeedActionImpl::IsSetSpeedActionDynamics() const
+        {
+            return _isSetSpeedActionDynamics;
+        }
+        bool SpeedActionImpl::IsSetSpeedActionTarget() const
+        {
+            return _isSetSpeedActionTarget;
+        }
 
         IOpenScenarioFlexElement* SpeedActionTargetImpl::GetOpenScenarioFlexElement()
         {
@@ -60398,16 +62024,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _relativeTargetSpeed = relativeTargetSpeed;
             _absoluteTargetSpeed = {};
-			// set the indicator to true
-            isSetRelativeTargetSpeed = true;          
+            _isSetRelativeTargetSpeed = true;
         }
 
         void SpeedActionTargetImpl::SetAbsoluteTargetSpeed(std::shared_ptr<IAbsoluteTargetSpeedWriter> absoluteTargetSpeed)
         {
             _absoluteTargetSpeed = absoluteTargetSpeed;
             _relativeTargetSpeed = {};
-			// set the indicator to true
-            isSetAbsoluteTargetSpeed = true;          
+            _isSetAbsoluteTargetSpeed = true;
         }
 
         std::shared_ptr<void> SpeedActionTargetImpl::GetAdapter(const std::string classifier)
@@ -60605,26 +62229,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void SpeedActionTargetImpl::ResetRelativeTargetSpeed()
-	   {
-	   		isSetRelativeTargetSpeed = false; 
-			_relativeTargetSpeed = {};
-			
-	   }
-       bool SpeedActionTargetImpl::IsSetRelativeTargetSpeed() const
-	   {
-			return isSetRelativeTargetSpeed;
-	   }
-       void SpeedActionTargetImpl::ResetAbsoluteTargetSpeed()
-	   {
-	   		isSetAbsoluteTargetSpeed = false; 
-			_absoluteTargetSpeed = {};
-			
-	   }
-       bool SpeedActionTargetImpl::IsSetAbsoluteTargetSpeed() const
-	   {
-			return isSetAbsoluteTargetSpeed;
-	   }
+        void SpeedActionTargetImpl::ResetRelativeTargetSpeed()
+        {
+            _isSetRelativeTargetSpeed = false; 
+            _relativeTargetSpeed = {};
+
+        }
+        bool SpeedActionTargetImpl::IsSetRelativeTargetSpeed() const
+        {
+            return _isSetRelativeTargetSpeed;
+        }
+        void SpeedActionTargetImpl::ResetAbsoluteTargetSpeed()
+        {
+            _isSetAbsoluteTargetSpeed = false; 
+            _absoluteTargetSpeed = {};
+
+        }
+        bool SpeedActionTargetImpl::IsSetAbsoluteTargetSpeed() const
+        {
+            return _isSetAbsoluteTargetSpeed;
+        }
 
         IOpenScenarioFlexElement* SpeedConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -60648,20 +62272,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _direction = direction;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DIRECTION);
-			// set the indicator to true
-            isSetDirection = true;          
+            _isSetDirection = true;
         }
 
         void SpeedConditionImpl::SetRule(const Rule rule)
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void SpeedConditionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> SpeedConditionImpl::GetAdapter(const std::string classifier)
@@ -60828,6 +62453,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _direction = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetDirection = true;
                 }
                 else
                 {
@@ -60843,6 +62469,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -60855,6 +62482,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -60908,7 +62536,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetDirection = isSetDirection;
+            clonedObject->_isSetDirection = _isSetDirection;
             // clone children
             return clonedObject;
         }
@@ -60960,21 +62588,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void SpeedConditionImpl::ResetDirection()
-	   {
-	   		isSetDirection = false; 
-			_direction = {};
-			
-	   }
-       bool SpeedConditionImpl::IsSetDirection() const
-	   {
-			return isSetDirection;
-	   }
+        void SpeedConditionImpl::ResetDirection()
+        {
+            _isSetDirection = false; 
+            _direction = {};
+
+        }
+        bool SpeedConditionImpl::IsSetDirection() const
+        {
+            return _isSetDirection;
+        }
+        bool SpeedConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool SpeedConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* SpeedProfileActionImpl::GetOpenScenarioFlexElement()
         {
@@ -61023,26 +62660,26 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
-			// set the indicator to true
-            isSetEntityRef = true;          
+            _isSetEntityRef = true;
         }
 
         void SpeedProfileActionImpl::SetFollowingMode(const FollowingMode followingMode)
         {
             _followingMode = followingMode;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE);
+            _isSetFollowingMode = true;
         }
 
         void SpeedProfileActionImpl::SetDynamicConstraints(std::shared_ptr<IDynamicConstraintsWriter> dynamicConstraints)
         {
             _dynamicConstraints = dynamicConstraints;
-			// set the indicator to true
-            isSetDynamicConstraints = true;          
+            _isSetDynamicConstraints = true;
         }
 
         void SpeedProfileActionImpl::SetSpeedProfileEntry(std::vector<std::shared_ptr<ISpeedProfileEntryWriter>>& speedProfileEntry)
         {
             _speedProfileEntry = speedProfileEntry;
+            _isSetSpeedProfileEntry = true;
         }
 
         std::shared_ptr<void> SpeedProfileActionImpl::GetAdapter(const std::string classifier)
@@ -61179,6 +62816,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE)
             {
@@ -61188,6 +62826,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _followingMode = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetFollowingMode = true;
                 }
                 else
                 {
@@ -61257,7 +62896,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_followingMode = FollowingMode::GetFromLiteral(kFollowingMode.GetLiteral());
             }
             // clone indicators
-            	clonedObject->isSetEntityRef = isSetEntityRef;
+            clonedObject->_isSetEntityRef = _isSetEntityRef;
             // clone children
             const auto kDynamicConstraints =  GetWriterDynamicConstraints();
             if (kDynamicConstraints)
@@ -61363,26 +63002,34 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void SpeedProfileActionImpl::ResetEntityRef()
-	   {
-	   		isSetEntityRef = false; 
-        	_entityRef = nullptr;
-			
-	   }
-       bool SpeedProfileActionImpl::IsSetEntityRef() const
-	   {
-			return isSetEntityRef;
-	   }
-       void SpeedProfileActionImpl::ResetDynamicConstraints()
-	   {
-	   		isSetDynamicConstraints = false; 
-			_dynamicConstraints = {};
-			
-	   }
-       bool SpeedProfileActionImpl::IsSetDynamicConstraints() const
-	   {
-			return isSetDynamicConstraints;
-	   }
+        void SpeedProfileActionImpl::ResetEntityRef()
+        {
+            _isSetEntityRef = false; 
+            _entityRef = nullptr;
+
+        }
+        bool SpeedProfileActionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        bool SpeedProfileActionImpl::IsSetFollowingMode() const
+        {
+            return _isSetFollowingMode;
+        }
+        void SpeedProfileActionImpl::ResetDynamicConstraints()
+        {
+            _isSetDynamicConstraints = false; 
+            _dynamicConstraints = {};
+
+        }
+        bool SpeedProfileActionImpl::IsSetDynamicConstraints() const
+        {
+            return _isSetDynamicConstraints;
+        }
+        bool SpeedProfileActionImpl::IsSetSpeedProfileEntry() const
+        {
+            return _isSetSpeedProfileEntry;
+        }
 
         IOpenScenarioFlexElement* SpeedProfileEntryImpl::GetOpenScenarioFlexElement()
         {
@@ -61402,14 +63049,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _speed = speed;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED);
+            _isSetSpeed = true;
         }
 
         void SpeedProfileEntryImpl::SetTime(const double time)
         {
             _time = time;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME);
-			// set the indicator to true
-            isSetTime = true;          
+            _isSetTime = true;
         }
 
         std::shared_ptr<void> SpeedProfileEntryImpl::GetAdapter(const std::string classifier)
@@ -61554,12 +63201,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _speed = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetSpeed = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TIME)
             {
                 // Simple type
                 _time = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTime = true;
             }
         }
 
@@ -61603,7 +63252,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_time = GetTime();
             // clone indicators
-            	clonedObject->isSetTime = isSetTime;
+            clonedObject->_isSetTime = _isSetTime;
             // clone children
             return clonedObject;
         }
@@ -61640,27 +63289,33 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _speed = value;
                 AddResolvedParameter(attributeKey);
+                _isSetSpeed = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TIME)
             {
                 // Simple type
                 _time = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTime = true;
             }
 		
 		}
 
 
-       void SpeedProfileEntryImpl::ResetTime()
-	   {
-	   		isSetTime = false; 
-			_time = {};
-			
-	   }
-       bool SpeedProfileEntryImpl::IsSetTime() const
-	   {
-			return isSetTime;
-	   }
+        bool SpeedProfileEntryImpl::IsSetSpeed() const
+        {
+            return _isSetSpeed;
+        }
+        void SpeedProfileEntryImpl::ResetTime()
+        {
+            _isSetTime = false; 
+            _time = {};
+
+        }
+        bool SpeedProfileEntryImpl::IsSetTime() const
+        {
+            return _isSetTime;
+        }
 
         IOpenScenarioFlexElement* StandStillConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -61676,6 +63331,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _duration = duration;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DURATION);
+            _isSetDuration = true;
         }
 
         std::shared_ptr<void> StandStillConditionImpl::GetAdapter(const std::string classifier)
@@ -61793,6 +63449,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _duration = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDuration = true;
             }
         }
 
@@ -61870,11 +63527,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _duration = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDuration = true;
             }
 		
 		}
 
 
+        bool StandStillConditionImpl::IsSetDuration() const
+        {
+            return _isSetDuration;
+        }
 
         IOpenScenarioFlexElement* SteadyStateImpl::GetOpenScenarioFlexElement()
         {
@@ -61894,12 +63556,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _targetDistanceSteadyState = targetDistanceSteadyState;
             _targetTimeSteadyState = {};
+            _isSetTargetDistanceSteadyState = true;
         }
 
         void SteadyStateImpl::SetTargetTimeSteadyState(std::shared_ptr<ITargetTimeSteadyStateWriter> targetTimeSteadyState)
         {
             _targetTimeSteadyState = targetTimeSteadyState;
             _targetDistanceSteadyState = {};
+            _isSetTargetTimeSteadyState = true;
         }
 
         std::shared_ptr<void> SteadyStateImpl::GetAdapter(const std::string classifier)
@@ -62097,6 +63761,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool SteadyStateImpl::IsSetTargetDistanceSteadyState() const
+        {
+            return _isSetTargetDistanceSteadyState;
+        }
+        bool SteadyStateImpl::IsSetTargetTimeSteadyState() const
+        {
+            return _isSetTargetTimeSteadyState;
+        }
 
         IOpenScenarioFlexElement* StochasticImpl::GetOpenScenarioFlexElement()
         {
@@ -62141,19 +63813,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _numberOfTestRuns = numberOfTestRuns;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_TEST_RUNS);
+            _isSetNumberOfTestRuns = true;
         }
 
         void StochasticImpl::SetRandomSeed(const double randomSeed)
         {
             _randomSeed = randomSeed;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RANDOM_SEED);
-			// set the indicator to true
-            isSetRandomSeed = true;          
+            _isSetRandomSeed = true;
         }
 
         void StochasticImpl::SetStochasticDistributions(std::vector<std::shared_ptr<IStochasticDistributionWriter>>& stochasticDistributions)
         {
             _stochasticDistributions = stochasticDistributions;
+            _isSetStochasticDistributions = true;
         }
 
         std::shared_ptr<void> StochasticImpl::GetAdapter(const std::string classifier)
@@ -62303,12 +63976,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _numberOfTestRuns = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetNumberOfTestRuns = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RANDOM_SEED)
             {
                 // Simple type
                 _randomSeed = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetRandomSeed = true;
             }
         }
 
@@ -62360,7 +64035,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_randomSeed = GetRandomSeed();
             // clone indicators
-            	clonedObject->isSetRandomSeed = isSetRandomSeed;
+            clonedObject->_isSetRandomSeed = _isSetRandomSeed;
             // clone children
             const auto kStochasticDistributions =  GetWriterStochasticDistributions();
             if (!kStochasticDistributions.empty())
@@ -62422,6 +64097,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _numberOfTestRuns = value;
                 AddResolvedParameter(attributeKey);
+                _isSetNumberOfTestRuns = true;
             }
 		
 		}
@@ -62432,21 +64108,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _randomSeed = value;
                 AddResolvedParameter(attributeKey);
+                _isSetRandomSeed = true;
             }
 		
 		}
 
 
-       void StochasticImpl::ResetRandomSeed()
-	   {
-	   		isSetRandomSeed = false; 
-			_randomSeed = {};
-			
-	   }
-       bool StochasticImpl::IsSetRandomSeed() const
-	   {
-			return isSetRandomSeed;
-	   }
+        bool StochasticImpl::IsSetNumberOfTestRuns() const
+        {
+            return _isSetNumberOfTestRuns;
+        }
+        void StochasticImpl::ResetRandomSeed()
+        {
+            _isSetRandomSeed = false; 
+            _randomSeed = {};
+
+        }
+        bool StochasticImpl::IsSetRandomSeed() const
+        {
+            return _isSetRandomSeed;
+        }
+        bool StochasticImpl::IsSetStochasticDistributions() const
+        {
+            return _isSetStochasticDistributions;
+        }
 
         IOpenScenarioFlexElement* StochasticDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -62466,11 +64151,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _parameterName = parameterName;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PARAMETER_NAME);
+            _isSetParameterName = true;
         }
 
         void StochasticDistributionImpl::SetStochasticDistributionType(std::shared_ptr<IStochasticDistributionTypeWriter> stochasticDistributionType)
         {
             _stochasticDistributionType = stochasticDistributionType;
+            _isSetStochasticDistributionType = true;
         }
 
         std::shared_ptr<void> StochasticDistributionImpl::GetAdapter(const std::string classifier)
@@ -62583,6 +64270,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _parameterName = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetParameterName = true;
             }
         }
 
@@ -62691,11 +64379,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _parameterName = value;
                 AddResolvedParameter(attributeKey);
+                _isSetParameterName = true;
             }
 		
 		}
 
 
+        bool StochasticDistributionImpl::IsSetParameterName() const
+        {
+            return _isSetParameterName;
+        }
+        bool StochasticDistributionImpl::IsSetStochasticDistributionType() const
+        {
+            return _isSetStochasticDistributionType;
+        }
 
         IOpenScenarioFlexElement* StochasticDistributionTypeImpl::GetOpenScenarioFlexElement()
         {
@@ -62735,6 +64432,7 @@ namespace NET_ASAM_OPENSCENARIO
             _poissonDistribution = {};
             _histogram = {};
             _userDefinedDistribution = {};
+            _isSetProbabilityDistributionSet = true;
         }
 
         void StochasticDistributionTypeImpl::SetNormalDistribution(std::shared_ptr<INormalDistributionWriter> normalDistribution)
@@ -62745,6 +64443,7 @@ namespace NET_ASAM_OPENSCENARIO
             _poissonDistribution = {};
             _histogram = {};
             _userDefinedDistribution = {};
+            _isSetNormalDistribution = true;
         }
 
         void StochasticDistributionTypeImpl::SetUniformDistribution(std::shared_ptr<IUniformDistributionWriter> uniformDistribution)
@@ -62755,6 +64454,7 @@ namespace NET_ASAM_OPENSCENARIO
             _poissonDistribution = {};
             _histogram = {};
             _userDefinedDistribution = {};
+            _isSetUniformDistribution = true;
         }
 
         void StochasticDistributionTypeImpl::SetPoissonDistribution(std::shared_ptr<IPoissonDistributionWriter> poissonDistribution)
@@ -62765,6 +64465,7 @@ namespace NET_ASAM_OPENSCENARIO
             _uniformDistribution = {};
             _histogram = {};
             _userDefinedDistribution = {};
+            _isSetPoissonDistribution = true;
         }
 
         void StochasticDistributionTypeImpl::SetHistogram(std::shared_ptr<IHistogramWriter> histogram)
@@ -62775,6 +64476,7 @@ namespace NET_ASAM_OPENSCENARIO
             _uniformDistribution = {};
             _poissonDistribution = {};
             _userDefinedDistribution = {};
+            _isSetHistogram = true;
         }
 
         void StochasticDistributionTypeImpl::SetUserDefinedDistribution(std::shared_ptr<IUserDefinedDistributionWriter> userDefinedDistribution)
@@ -62785,6 +64487,7 @@ namespace NET_ASAM_OPENSCENARIO
             _uniformDistribution = {};
             _poissonDistribution = {};
             _histogram = {};
+            _isSetUserDefinedDistribution = true;
         }
 
         std::shared_ptr<void> StochasticDistributionTypeImpl::GetAdapter(const std::string classifier)
@@ -63070,6 +64773,30 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool StochasticDistributionTypeImpl::IsSetProbabilityDistributionSet() const
+        {
+            return _isSetProbabilityDistributionSet;
+        }
+        bool StochasticDistributionTypeImpl::IsSetNormalDistribution() const
+        {
+            return _isSetNormalDistribution;
+        }
+        bool StochasticDistributionTypeImpl::IsSetUniformDistribution() const
+        {
+            return _isSetUniformDistribution;
+        }
+        bool StochasticDistributionTypeImpl::IsSetPoissonDistribution() const
+        {
+            return _isSetPoissonDistribution;
+        }
+        bool StochasticDistributionTypeImpl::IsSetHistogram() const
+        {
+            return _isSetHistogram;
+        }
+        bool StochasticDistributionTypeImpl::IsSetUserDefinedDistribution() const
+        {
+            return _isSetUserDefinedDistribution;
+        }
 
         IOpenScenarioFlexElement* StoryImpl::GetOpenScenarioFlexElement()
         {
@@ -63135,18 +64862,19 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void StoryImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
-			// set the indicator to true
-            isSetParameterDeclarations = true;          
+            _isSetParameterDeclarations = true;
         }
 
         void StoryImpl::SetActs(std::vector<std::shared_ptr<IActWriter>>& acts)
         {
             _acts = acts;
+            _isSetActs = true;
         }
 
         std::shared_ptr<void> StoryImpl::GetAdapter(const std::string classifier)
@@ -63255,6 +64983,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -63421,21 +65150,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void StoryImpl::ResetParameterDeclarations()
-	   {
-	   		isSetParameterDeclarations = false; 
-			_parameterDeclarations = {};
-			
-	   }
-       bool StoryImpl::IsSetParameterDeclarations() const
-	   {
-			return isSetParameterDeclarations;
-	   }
+        bool StoryImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void StoryImpl::ResetParameterDeclarations()
+        {
+            _isSetParameterDeclarations = false; 
+            _parameterDeclarations = {};
+
+        }
+        bool StoryImpl::IsSetParameterDeclarations() const
+        {
+            return _isSetParameterDeclarations;
+        }
+        bool StoryImpl::IsSetActs() const
+        {
+            return _isSetActs;
+        }
 
         IOpenScenarioFlexElement* StoryboardImpl::GetOpenScenarioFlexElement()
         {
@@ -63479,18 +65217,19 @@ namespace NET_ASAM_OPENSCENARIO
         void StoryboardImpl::SetInit(std::shared_ptr<IInitWriter> init)
         {
             _init = init;
+            _isSetInit = true;
         }
 
         void StoryboardImpl::SetStories(std::vector<std::shared_ptr<IStoryWriter>>& stories)
         {
             _stories = stories;
-			// set the indicator to true
-            isSetStories = true;          
+            _isSetStories = true;
         }
 
         void StoryboardImpl::SetStopTrigger(std::shared_ptr<ITriggerWriter> stopTrigger)
         {
             _stopTrigger = stopTrigger;
+            _isSetStopTrigger = true;
         }
 
         std::shared_ptr<void> StoryboardImpl::GetAdapter(const std::string classifier)
@@ -63721,16 +65460,24 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void StoryboardImpl::ResetStories()
-	   {
-	   		isSetStories = false; 
-			_stories = {};
-			
-	   }
-       bool StoryboardImpl::IsSetStories() const
-	   {
-			return isSetStories;
-	   }
+        bool StoryboardImpl::IsSetInit() const
+        {
+            return _isSetInit;
+        }
+        void StoryboardImpl::ResetStories()
+        {
+            _isSetStories = false; 
+            _stories = {};
+
+        }
+        bool StoryboardImpl::IsSetStories() const
+        {
+            return _isSetStories;
+        }
+        bool StoryboardImpl::IsSetStopTrigger() const
+        {
+            return _isSetStopTrigger;
+        }
 
         IOpenScenarioFlexElement* StoryboardElementStateConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -63754,18 +65501,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _state = state;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE);
+            _isSetState = true;
         }
 
         void StoryboardElementStateConditionImpl::SetStoryboardElementRef(std::shared_ptr<INamedReference<IStoryboardElement>> storyboardElementRef)
         {
             _storyboardElementRef = storyboardElementRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_REF);
+            _isSetStoryboardElementRef = true;
         }
 
         void StoryboardElementStateConditionImpl::SetStoryboardElementType(const StoryboardElementType storyboardElementType)
         {
             _storyboardElementType = storyboardElementType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE);
+            _isSetStoryboardElementType = true;
         }
 
         std::shared_ptr<void> StoryboardElementStateConditionImpl::GetAdapter(const std::string classifier)
@@ -63923,6 +65673,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _state = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetState = true;
                 }
                 else
                 {
@@ -63936,6 +65687,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IStoryboardElement>>(parameterLiteralValue);
                 _storyboardElementRef = std::dynamic_pointer_cast<INamedReference<IStoryboardElement>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetStoryboardElementRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STORYBOARD_ELEMENT_TYPE)
             {
@@ -63945,6 +65697,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _storyboardElementType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetStoryboardElementType = true;
                 }
                 else
                 {
@@ -64075,6 +65828,18 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool StoryboardElementStateConditionImpl::IsSetState() const
+        {
+            return _isSetState;
+        }
+        bool StoryboardElementStateConditionImpl::IsSetStoryboardElementRef() const
+        {
+            return _isSetStoryboardElementRef;
+        }
+        bool StoryboardElementStateConditionImpl::IsSetStoryboardElementType() const
+        {
+            return _isSetStoryboardElementType;
+        }
 
         IOpenScenarioFlexElement* SunImpl::GetOpenScenarioFlexElement()
         {
@@ -64102,28 +65867,28 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _azimuth = azimuth;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__AZIMUTH);
+            _isSetAzimuth = true;
         }
 
         void SunImpl::SetElevation(const double elevation)
         {
             _elevation = elevation;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ELEVATION);
+            _isSetElevation = true;
         }
 
         void SunImpl::SetIlluminance(const double illuminance)
         {
             _illuminance = illuminance;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ILLUMINANCE);
-			// set the indicator to true
-            isSetIlluminance = true;          
+            _isSetIlluminance = true;
         }
 
         void SunImpl::SetIntensity(const double intensity)
         {
             _intensity = intensity;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INTENSITY);
-			// set the indicator to true
-            isSetIntensity = true;          
+            _isSetIntensity = true;
         }
 
         std::shared_ptr<void> SunImpl::GetAdapter(const std::string classifier)
@@ -64322,24 +66087,28 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _azimuth = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAzimuth = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ELEVATION)
             {
                 // Simple type
                 _elevation = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetElevation = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ILLUMINANCE)
             {
                 // Simple type
                 _illuminance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetIlluminance = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__INTENSITY)
             {
                 // Simple type
                 _intensity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetIntensity = true;
             }
         }
 
@@ -64387,8 +66156,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_intensity = GetIntensity();
             // clone indicators
-            	clonedObject->isSetIlluminance = isSetIlluminance;
-            	clonedObject->isSetIntensity = isSetIntensity;
+            clonedObject->_isSetIlluminance = _isSetIlluminance;
+            clonedObject->_isSetIntensity = _isSetIntensity;
             // clone children
             return clonedObject;
         }
@@ -64425,49 +66194,61 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _azimuth = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAzimuth = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ELEVATION)
             {
                 // Simple type
                 _elevation = value;
                 AddResolvedParameter(attributeKey);
+                _isSetElevation = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ILLUMINANCE)
             {
                 // Simple type
                 _illuminance = value;
                 AddResolvedParameter(attributeKey);
+                _isSetIlluminance = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__INTENSITY)
             {
                 // Simple type
                 _intensity = value;
                 AddResolvedParameter(attributeKey);
+                _isSetIntensity = true;
             }
 		
 		}
 
 
-       void SunImpl::ResetIlluminance()
-	   {
-	   		isSetIlluminance = false; 
-			_illuminance = {0};
-			
-	   }
-       bool SunImpl::IsSetIlluminance() const
-	   {
-			return isSetIlluminance;
-	   }
-       void SunImpl::ResetIntensity()
-	   {
-	   		isSetIntensity = false; 
-			_intensity = {};
-			
-	   }
-       bool SunImpl::IsSetIntensity() const
-	   {
-			return isSetIntensity;
-	   }
+        bool SunImpl::IsSetAzimuth() const
+        {
+            return _isSetAzimuth;
+        }
+        bool SunImpl::IsSetElevation() const
+        {
+            return _isSetElevation;
+        }
+        void SunImpl::ResetIlluminance()
+        {
+            _isSetIlluminance = false; 
+            _illuminance = {0};
+
+        }
+        bool SunImpl::IsSetIlluminance() const
+        {
+            return _isSetIlluminance;
+        }
+        void SunImpl::ResetIntensity()
+        {
+            _isSetIntensity = false; 
+            _intensity = {};
+
+        }
+        bool SunImpl::IsSetIntensity() const
+        {
+            return _isSetIntensity;
+        }
 
         IOpenScenarioFlexElement* SynchronizeActionImpl::GetOpenScenarioFlexElement()
         {
@@ -64503,39 +66284,39 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _masterEntityRef = masterEntityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASTER_ENTITY_REF);
+            _isSetMasterEntityRef = true;
         }
 
         void SynchronizeActionImpl::SetTargetTolerance(const double targetTolerance)
         {
             _targetTolerance = targetTolerance;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE);
-			// set the indicator to true
-            isSetTargetTolerance = true;          
+            _isSetTargetTolerance = true;
         }
 
         void SynchronizeActionImpl::SetTargetToleranceMaster(const double targetToleranceMaster)
         {
             _targetToleranceMaster = targetToleranceMaster;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE_MASTER);
-			// set the indicator to true
-            isSetTargetToleranceMaster = true;          
+            _isSetTargetToleranceMaster = true;
         }
 
         void SynchronizeActionImpl::SetTargetPositionMaster(std::shared_ptr<IPositionWriter> targetPositionMaster)
         {
             _targetPositionMaster = targetPositionMaster;
+            _isSetTargetPositionMaster = true;
         }
 
         void SynchronizeActionImpl::SetTargetPosition(std::shared_ptr<IPositionWriter> targetPosition)
         {
             _targetPosition = targetPosition;
+            _isSetTargetPosition = true;
         }
 
         void SynchronizeActionImpl::SetFinalSpeed(std::shared_ptr<IFinalSpeedWriter> finalSpeed)
         {
             _finalSpeed = finalSpeed;
-			// set the indicator to true
-            isSetFinalSpeed = true;          
+            _isSetFinalSpeed = true;
         }
 
         std::shared_ptr<void> SynchronizeActionImpl::GetAdapter(const std::string classifier)
@@ -64716,18 +66497,21 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _masterEntityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetMasterEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE)
             {
                 // Simple type
                 _targetTolerance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTargetTolerance = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE_MASTER)
             {
                 // Simple type
                 _targetToleranceMaster = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTargetToleranceMaster = true;
             }
         }
 
@@ -64791,8 +66575,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_targetToleranceMaster = GetTargetToleranceMaster();
             // clone indicators
-            	clonedObject->isSetTargetTolerance = isSetTargetTolerance;
-            	clonedObject->isSetTargetToleranceMaster = isSetTargetToleranceMaster;
+            clonedObject->_isSetTargetTolerance = _isSetTargetTolerance;
+            clonedObject->_isSetTargetToleranceMaster = _isSetTargetToleranceMaster;
             // clone children
             const auto kTargetPositionMaster =  GetWriterTargetPositionMaster();
             if (kTargetPositionMaster)
@@ -64894,47 +66678,61 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _targetTolerance = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTargetTolerance = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TARGET_TOLERANCE_MASTER)
             {
                 // Simple type
                 _targetToleranceMaster = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTargetToleranceMaster = true;
             }
 		
 		}
 
 
-       void SynchronizeActionImpl::ResetTargetTolerance()
-	   {
-	   		isSetTargetTolerance = false; 
-			_targetTolerance = {};
-			
-	   }
-       bool SynchronizeActionImpl::IsSetTargetTolerance() const
-	   {
-			return isSetTargetTolerance;
-	   }
-       void SynchronizeActionImpl::ResetTargetToleranceMaster()
-	   {
-	   		isSetTargetToleranceMaster = false; 
-			_targetToleranceMaster = {};
-			
-	   }
-       bool SynchronizeActionImpl::IsSetTargetToleranceMaster() const
-	   {
-			return isSetTargetToleranceMaster;
-	   }
-       void SynchronizeActionImpl::ResetFinalSpeed()
-	   {
-	   		isSetFinalSpeed = false; 
-			_finalSpeed = {};
-			
-	   }
-       bool SynchronizeActionImpl::IsSetFinalSpeed() const
-	   {
-			return isSetFinalSpeed;
-	   }
+        bool SynchronizeActionImpl::IsSetMasterEntityRef() const
+        {
+            return _isSetMasterEntityRef;
+        }
+        void SynchronizeActionImpl::ResetTargetTolerance()
+        {
+            _isSetTargetTolerance = false; 
+            _targetTolerance = {};
+
+        }
+        bool SynchronizeActionImpl::IsSetTargetTolerance() const
+        {
+            return _isSetTargetTolerance;
+        }
+        void SynchronizeActionImpl::ResetTargetToleranceMaster()
+        {
+            _isSetTargetToleranceMaster = false; 
+            _targetToleranceMaster = {};
+
+        }
+        bool SynchronizeActionImpl::IsSetTargetToleranceMaster() const
+        {
+            return _isSetTargetToleranceMaster;
+        }
+        bool SynchronizeActionImpl::IsSetTargetPositionMaster() const
+        {
+            return _isSetTargetPositionMaster;
+        }
+        bool SynchronizeActionImpl::IsSetTargetPosition() const
+        {
+            return _isSetTargetPosition;
+        }
+        void SynchronizeActionImpl::ResetFinalSpeed()
+        {
+            _isSetFinalSpeed = false; 
+            _finalSpeed = {};
+
+        }
+        bool SynchronizeActionImpl::IsSetFinalSpeed() const
+        {
+            return _isSetFinalSpeed;
+        }
 
         IOpenScenarioFlexElement* TargetDistanceSteadyStateImpl::GetOpenScenarioFlexElement()
         {
@@ -64950,6 +66748,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _distance = distance;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DISTANCE);
+            _isSetDistance = true;
         }
 
         std::shared_ptr<void> TargetDistanceSteadyStateImpl::GetAdapter(const std::string classifier)
@@ -65067,6 +66866,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _distance = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDistance = true;
             }
         }
 
@@ -65144,11 +66944,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _distance = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDistance = true;
             }
 		
 		}
 
 
+        bool TargetDistanceSteadyStateImpl::IsSetDistance() const
+        {
+            return _isSetDistance;
+        }
 
         IOpenScenarioFlexElement* TargetTimeSteadyStateImpl::GetOpenScenarioFlexElement()
         {
@@ -65164,6 +66969,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _time = time;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME);
+            _isSetTime = true;
         }
 
         std::shared_ptr<void> TargetTimeSteadyStateImpl::GetAdapter(const std::string classifier)
@@ -65281,6 +67087,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _time = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTime = true;
             }
         }
 
@@ -65358,11 +67165,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _time = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTime = true;
             }
 		
 		}
 
 
+        bool TargetTimeSteadyStateImpl::IsSetTime() const
+        {
+            return _isSetTime;
+        }
 
         IOpenScenarioFlexElement* TeleportActionImpl::GetOpenScenarioFlexElement()
         {
@@ -65377,6 +67189,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TeleportActionImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         std::shared_ptr<void> TeleportActionImpl::GetAdapter(const std::string classifier)
@@ -65552,6 +67365,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool TeleportActionImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
 
         IOpenScenarioFlexElement* TimeHeadwayConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -65595,56 +67412,56 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _alongRoute = alongRoute;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE);
-			// set the indicator to true
-            isSetAlongRoute = true;          
+            _isSetAlongRoute = true;
         }
 
         void TimeHeadwayConditionImpl::SetCoordinateSystem(const CoordinateSystem coordinateSystem)
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
-			// set the indicator to true
-            isSetCoordinateSystem = true;          
+            _isSetCoordinateSystem = true;
         }
 
         void TimeHeadwayConditionImpl::SetEntityRef(std::shared_ptr<INamedReference<IEntity>> entityRef)
         {
             _entityRef = entityRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ENTITY_REF);
+            _isSetEntityRef = true;
         }
 
         void TimeHeadwayConditionImpl::SetFreespace(const bool freespace)
         {
             _freespace = freespace;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE);
+            _isSetFreespace = true;
         }
 
         void TimeHeadwayConditionImpl::SetRelativeDistanceType(const RelativeDistanceType relativeDistanceType)
         {
             _relativeDistanceType = relativeDistanceType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
-			// set the indicator to true
-            isSetRelativeDistanceType = true;          
+            _isSetRelativeDistanceType = true;
         }
 
         void TimeHeadwayConditionImpl::SetRoutingAlgorithm(const RoutingAlgorithm routingAlgorithm)
         {
             _routingAlgorithm = routingAlgorithm;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROUTING_ALGORITHM);
-			// set the indicator to true
-            isSetRoutingAlgorithm = true;          
+            _isSetRoutingAlgorithm = true;
         }
 
         void TimeHeadwayConditionImpl::SetRule(const Rule rule)
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void TimeHeadwayConditionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> TimeHeadwayConditionImpl::GetAdapter(const std::string classifier)
@@ -65936,6 +67753,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAlongRoute = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM)
             {
@@ -65945,6 +67763,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _coordinateSystem = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetCoordinateSystem = true;
                 }
                 else
                 {
@@ -65958,12 +67777,14 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IEntity>>(parameterLiteralValue);
                 _entityRef = std::dynamic_pointer_cast<INamedReference<IEntity>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetEntityRef = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE)
             {
@@ -65973,6 +67794,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _relativeDistanceType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRelativeDistanceType = true;
                 }
                 else
                 {
@@ -65988,6 +67810,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _routingAlgorithm = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRoutingAlgorithm = true;
                 }
                 else
                 {
@@ -66003,6 +67826,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -66015,6 +67839,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -66089,10 +67914,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetAlongRoute = isSetAlongRoute;
-            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
-            	clonedObject->isSetRelativeDistanceType = isSetRelativeDistanceType;
-            	clonedObject->isSetRoutingAlgorithm = isSetRoutingAlgorithm;
+            clonedObject->_isSetAlongRoute = _isSetAlongRoute;
+            clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
+            clonedObject->_isSetRelativeDistanceType = _isSetRelativeDistanceType;
+            clonedObject->_isSetRoutingAlgorithm = _isSetRoutingAlgorithm;
             // clone children
             return clonedObject;
         }
@@ -66176,12 +68001,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _alongRoute = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAlongRoute = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
 		
 		}
@@ -66192,51 +68019,68 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void TimeHeadwayConditionImpl::ResetAlongRoute()
-	   {
-	   		isSetAlongRoute = false; 
-			_alongRoute = {};
-			
-	   }
-       bool TimeHeadwayConditionImpl::IsSetAlongRoute() const
-	   {
-			return isSetAlongRoute;
-	   }
-       void TimeHeadwayConditionImpl::ResetCoordinateSystem()
-	   {
-	   		isSetCoordinateSystem = false; 
-			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-			
-	   }
-       bool TimeHeadwayConditionImpl::IsSetCoordinateSystem() const
-	   {
-			return isSetCoordinateSystem;
-	   }
-       void TimeHeadwayConditionImpl::ResetRelativeDistanceType()
-	   {
-	   		isSetRelativeDistanceType = false; 
-			_relativeDistanceType = {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
-			
-	   }
-       bool TimeHeadwayConditionImpl::IsSetRelativeDistanceType() const
-	   {
-			return isSetRelativeDistanceType;
-	   }
-       void TimeHeadwayConditionImpl::ResetRoutingAlgorithm()
-	   {
-	   		isSetRoutingAlgorithm = false; 
-			_routingAlgorithm = {};
-			
-	   }
-       bool TimeHeadwayConditionImpl::IsSetRoutingAlgorithm() const
-	   {
-			return isSetRoutingAlgorithm;
-	   }
+        void TimeHeadwayConditionImpl::ResetAlongRoute()
+        {
+            _isSetAlongRoute = false; 
+            _alongRoute = {};
+
+        }
+        bool TimeHeadwayConditionImpl::IsSetAlongRoute() const
+        {
+            return _isSetAlongRoute;
+        }
+        void TimeHeadwayConditionImpl::ResetCoordinateSystem()
+        {
+            _isSetCoordinateSystem = false; 
+            _coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+
+        }
+        bool TimeHeadwayConditionImpl::IsSetCoordinateSystem() const
+        {
+            return _isSetCoordinateSystem;
+        }
+        bool TimeHeadwayConditionImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
+        bool TimeHeadwayConditionImpl::IsSetFreespace() const
+        {
+            return _isSetFreespace;
+        }
+        void TimeHeadwayConditionImpl::ResetRelativeDistanceType()
+        {
+            _isSetRelativeDistanceType = false; 
+            _relativeDistanceType = {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
+
+        }
+        bool TimeHeadwayConditionImpl::IsSetRelativeDistanceType() const
+        {
+            return _isSetRelativeDistanceType;
+        }
+        void TimeHeadwayConditionImpl::ResetRoutingAlgorithm()
+        {
+            _isSetRoutingAlgorithm = false; 
+            _routingAlgorithm = {};
+
+        }
+        bool TimeHeadwayConditionImpl::IsSetRoutingAlgorithm() const
+        {
+            return _isSetRoutingAlgorithm;
+        }
+        bool TimeHeadwayConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool TimeHeadwayConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* TimeOfDayImpl::GetOpenScenarioFlexElement()
         {
@@ -66256,12 +68100,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _animation = animation;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ANIMATION);
+            _isSetAnimation = true;
         }
 
         void TimeOfDayImpl::SetDateTime(const DateTime dateTime)
         {
             _dateTime = dateTime;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME);
+            _isSetDateTime = true;
         }
 
         std::shared_ptr<void> TimeOfDayImpl::GetAdapter(const std::string classifier)
@@ -66411,12 +68257,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _animation = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAnimation = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__DATE_TIME)
             {
                 // Simple type
                 _dateTime = ParserHelper::ParseDateTime(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDateTime = true;
             }
         }
 
@@ -66496,6 +68344,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _animation = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAnimation = true;
             }
 		
 		}
@@ -66506,11 +68355,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _dateTime = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDateTime = true;
             }
 		
 		}
 
 
+        bool TimeOfDayImpl::IsSetAnimation() const
+        {
+            return _isSetAnimation;
+        }
+        bool TimeOfDayImpl::IsSetDateTime() const
+        {
+            return _isSetDateTime;
+        }
 
         IOpenScenarioFlexElement* TimeOfDayConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -66530,12 +68388,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _dateTime = dateTime;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DATE_TIME);
+            _isSetDateTime = true;
         }
 
         void TimeOfDayConditionImpl::SetRule(const Rule rule)
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         std::shared_ptr<void> TimeOfDayConditionImpl::GetAdapter(const std::string classifier)
@@ -66676,6 +68536,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _dateTime = ParserHelper::ParseDateTime(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDateTime = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -66685,6 +68546,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -66784,11 +68646,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _dateTime = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDateTime = true;
             }
 		
 		}
 
 
+        bool TimeOfDayConditionImpl::IsSetDateTime() const
+        {
+            return _isSetDateTime;
+        }
+        bool TimeOfDayConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
 
         IOpenScenarioFlexElement* TimeReferenceImpl::GetOpenScenarioFlexElement()
         {
@@ -66808,16 +68679,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _none = none;
             _timing = {};
-			// set the indicator to true
-            isSetNone = true;          
+            _isSetNone = true;
         }
 
         void TimeReferenceImpl::SetTiming(std::shared_ptr<ITimingWriter> timing)
         {
             _timing = timing;
             _none = {};
-			// set the indicator to true
-            isSetTiming = true;          
+            _isSetTiming = true;
         }
 
         std::shared_ptr<void> TimeReferenceImpl::GetAdapter(const std::string classifier)
@@ -67015,26 +68884,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void TimeReferenceImpl::ResetNone()
-	   {
-	   		isSetNone = false; 
-			_none = {};
-			
-	   }
-       bool TimeReferenceImpl::IsSetNone() const
-	   {
-			return isSetNone;
-	   }
-       void TimeReferenceImpl::ResetTiming()
-	   {
-	   		isSetTiming = false; 
-			_timing = {};
-			
-	   }
-       bool TimeReferenceImpl::IsSetTiming() const
-	   {
-			return isSetTiming;
-	   }
+        void TimeReferenceImpl::ResetNone()
+        {
+            _isSetNone = false; 
+            _none = {};
+
+        }
+        bool TimeReferenceImpl::IsSetNone() const
+        {
+            return _isSetNone;
+        }
+        void TimeReferenceImpl::ResetTiming()
+        {
+            _isSetTiming = false; 
+            _timing = {};
+
+        }
+        bool TimeReferenceImpl::IsSetTiming() const
+        {
+            return _isSetTiming;
+        }
 
         IOpenScenarioFlexElement* TimeToCollisionConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -67078,55 +68947,55 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _alongRoute = alongRoute;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ALONG_ROUTE);
-			// set the indicator to true
-            isSetAlongRoute = true;          
+            _isSetAlongRoute = true;
         }
 
         void TimeToCollisionConditionImpl::SetCoordinateSystem(const CoordinateSystem coordinateSystem)
         {
             _coordinateSystem = coordinateSystem;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM);
-			// set the indicator to true
-            isSetCoordinateSystem = true;          
+            _isSetCoordinateSystem = true;
         }
 
         void TimeToCollisionConditionImpl::SetFreespace(const bool freespace)
         {
             _freespace = freespace;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FREESPACE);
+            _isSetFreespace = true;
         }
 
         void TimeToCollisionConditionImpl::SetRelativeDistanceType(const RelativeDistanceType relativeDistanceType)
         {
             _relativeDistanceType = relativeDistanceType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE);
-			// set the indicator to true
-            isSetRelativeDistanceType = true;          
+            _isSetRelativeDistanceType = true;
         }
 
         void TimeToCollisionConditionImpl::SetRoutingAlgorithm(const RoutingAlgorithm routingAlgorithm)
         {
             _routingAlgorithm = routingAlgorithm;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROUTING_ALGORITHM);
-			// set the indicator to true
-            isSetRoutingAlgorithm = true;          
+            _isSetRoutingAlgorithm = true;
         }
 
         void TimeToCollisionConditionImpl::SetRule(const Rule rule)
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void TimeToCollisionConditionImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         void TimeToCollisionConditionImpl::SetTimeToCollisionConditionTarget(std::shared_ptr<ITimeToCollisionConditionTargetWriter> timeToCollisionConditionTarget)
         {
             _timeToCollisionConditionTarget = timeToCollisionConditionTarget;
+            _isSetTimeToCollisionConditionTarget = true;
         }
 
         std::shared_ptr<void> TimeToCollisionConditionImpl::GetAdapter(const std::string classifier)
@@ -67399,6 +69268,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _alongRoute = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAlongRoute = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__COORDINATE_SYSTEM)
             {
@@ -67408,6 +69278,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _coordinateSystem = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetCoordinateSystem = true;
                 }
                 else
                 {
@@ -67420,6 +69291,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _freespace = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RELATIVE_DISTANCE_TYPE)
             {
@@ -67429,6 +69301,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _relativeDistanceType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRelativeDistanceType = true;
                 }
                 else
                 {
@@ -67444,6 +69317,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _routingAlgorithm = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRoutingAlgorithm = true;
                 }
                 else
                 {
@@ -67459,6 +69333,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -67471,6 +69346,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -67545,10 +69421,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetAlongRoute = isSetAlongRoute;
-            	clonedObject->isSetCoordinateSystem = isSetCoordinateSystem;
-            	clonedObject->isSetRelativeDistanceType = isSetRelativeDistanceType;
-            	clonedObject->isSetRoutingAlgorithm = isSetRoutingAlgorithm;
+            clonedObject->_isSetAlongRoute = _isSetAlongRoute;
+            clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
+            clonedObject->_isSetRelativeDistanceType = _isSetRelativeDistanceType;
+            clonedObject->_isSetRoutingAlgorithm = _isSetRoutingAlgorithm;
             // clone children
             const auto kTimeToCollisionConditionTarget =  GetWriterTimeToCollisionConditionTarget();
             if (kTimeToCollisionConditionTarget)
@@ -67627,12 +69503,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _alongRoute = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAlongRoute = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__FREESPACE)
             {
                 // Simple type
                 _freespace = value;
                 AddResolvedParameter(attributeKey);
+                _isSetFreespace = true;
             }
 		
 		}
@@ -67643,51 +69521,68 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void TimeToCollisionConditionImpl::ResetAlongRoute()
-	   {
-	   		isSetAlongRoute = false; 
-			_alongRoute = {};
-			
-	   }
-       bool TimeToCollisionConditionImpl::IsSetAlongRoute() const
-	   {
-			return isSetAlongRoute;
-	   }
-       void TimeToCollisionConditionImpl::ResetCoordinateSystem()
-	   {
-	   		isSetCoordinateSystem = false; 
-			_coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
-			
-	   }
-       bool TimeToCollisionConditionImpl::IsSetCoordinateSystem() const
-	   {
-			return isSetCoordinateSystem;
-	   }
-       void TimeToCollisionConditionImpl::ResetRelativeDistanceType()
-	   {
-	   		isSetRelativeDistanceType = false; 
-			_relativeDistanceType = {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
-			
-	   }
-       bool TimeToCollisionConditionImpl::IsSetRelativeDistanceType() const
-	   {
-			return isSetRelativeDistanceType;
-	   }
-       void TimeToCollisionConditionImpl::ResetRoutingAlgorithm()
-	   {
-	   		isSetRoutingAlgorithm = false; 
-			_routingAlgorithm = {};
-			
-	   }
-       bool TimeToCollisionConditionImpl::IsSetRoutingAlgorithm() const
-	   {
-			return isSetRoutingAlgorithm;
-	   }
+        void TimeToCollisionConditionImpl::ResetAlongRoute()
+        {
+            _isSetAlongRoute = false; 
+            _alongRoute = {};
+
+        }
+        bool TimeToCollisionConditionImpl::IsSetAlongRoute() const
+        {
+            return _isSetAlongRoute;
+        }
+        void TimeToCollisionConditionImpl::ResetCoordinateSystem()
+        {
+            _isSetCoordinateSystem = false; 
+            _coordinateSystem = {CoordinateSystem::CoordinateSystemEnum::ENTITY};
+
+        }
+        bool TimeToCollisionConditionImpl::IsSetCoordinateSystem() const
+        {
+            return _isSetCoordinateSystem;
+        }
+        bool TimeToCollisionConditionImpl::IsSetFreespace() const
+        {
+            return _isSetFreespace;
+        }
+        void TimeToCollisionConditionImpl::ResetRelativeDistanceType()
+        {
+            _isSetRelativeDistanceType = false; 
+            _relativeDistanceType = {RelativeDistanceType::RelativeDistanceTypeEnum::EUCLIDIAN_DISTANCE};
+
+        }
+        bool TimeToCollisionConditionImpl::IsSetRelativeDistanceType() const
+        {
+            return _isSetRelativeDistanceType;
+        }
+        void TimeToCollisionConditionImpl::ResetRoutingAlgorithm()
+        {
+            _isSetRoutingAlgorithm = false; 
+            _routingAlgorithm = {};
+
+        }
+        bool TimeToCollisionConditionImpl::IsSetRoutingAlgorithm() const
+        {
+            return _isSetRoutingAlgorithm;
+        }
+        bool TimeToCollisionConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool TimeToCollisionConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
+        bool TimeToCollisionConditionImpl::IsSetTimeToCollisionConditionTarget() const
+        {
+            return _isSetTimeToCollisionConditionTarget;
+        }
 
         IOpenScenarioFlexElement* TimeToCollisionConditionTargetImpl::GetOpenScenarioFlexElement()
         {
@@ -67707,16 +69602,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _position = position;
             _entityRef = {};
-			// set the indicator to true
-            isSetPosition = true;          
+            _isSetPosition = true;
         }
 
         void TimeToCollisionConditionTargetImpl::SetEntityRef(std::shared_ptr<IEntityRefWriter> entityRef)
         {
             _entityRef = entityRef;
             _position = {};
-			// set the indicator to true
-            isSetEntityRef = true;          
+            _isSetEntityRef = true;
         }
 
         std::shared_ptr<void> TimeToCollisionConditionTargetImpl::GetAdapter(const std::string classifier)
@@ -67914,26 +69807,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void TimeToCollisionConditionTargetImpl::ResetPosition()
-	   {
-	   		isSetPosition = false; 
-			_position = {};
-			
-	   }
-       bool TimeToCollisionConditionTargetImpl::IsSetPosition() const
-	   {
-			return isSetPosition;
-	   }
-       void TimeToCollisionConditionTargetImpl::ResetEntityRef()
-	   {
-	   		isSetEntityRef = false; 
-			_entityRef = {};
-			
-	   }
-       bool TimeToCollisionConditionTargetImpl::IsSetEntityRef() const
-	   {
-			return isSetEntityRef;
-	   }
+        void TimeToCollisionConditionTargetImpl::ResetPosition()
+        {
+            _isSetPosition = false; 
+            _position = {};
+
+        }
+        bool TimeToCollisionConditionTargetImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
+        void TimeToCollisionConditionTargetImpl::ResetEntityRef()
+        {
+            _isSetEntityRef = false; 
+            _entityRef = {};
+
+        }
+        bool TimeToCollisionConditionTargetImpl::IsSetEntityRef() const
+        {
+            return _isSetEntityRef;
+        }
 
         IOpenScenarioFlexElement* TimingImpl::GetOpenScenarioFlexElement()
         {
@@ -67957,18 +69850,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _domainAbsoluteRelative = domainAbsoluteRelative;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DOMAIN_ABSOLUTE_RELATIVE);
+            _isSetDomainAbsoluteRelative = true;
         }
 
         void TimingImpl::SetOffset(const double offset)
         {
             _offset = offset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET);
+            _isSetOffset = true;
         }
 
         void TimingImpl::SetScale(const double scale)
         {
             _scale = scale;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SCALE);
+            _isSetScale = true;
         }
 
         std::shared_ptr<void> TimingImpl::GetAdapter(const std::string classifier)
@@ -68139,6 +70035,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _domainAbsoluteRelative = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetDomainAbsoluteRelative = true;
                 }
                 else
                 {
@@ -68151,12 +70048,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetOffset = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SCALE)
             {
                 // Simple type
                 _scale = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetScale = true;
             }
         }
 
@@ -68252,17 +70151,31 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _offset = value;
                 AddResolvedParameter(attributeKey);
+                _isSetOffset = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SCALE)
             {
                 // Simple type
                 _scale = value;
                 AddResolvedParameter(attributeKey);
+                _isSetScale = true;
             }
 		
 		}
 
 
+        bool TimingImpl::IsSetDomainAbsoluteRelative() const
+        {
+            return _isSetDomainAbsoluteRelative;
+        }
+        bool TimingImpl::IsSetOffset() const
+        {
+            return _isSetOffset;
+        }
+        bool TimingImpl::IsSetScale() const
+        {
+            return _isSetScale;
+        }
 
         IOpenScenarioFlexElement* TrafficActionImpl::GetOpenScenarioFlexElement()
         {
@@ -68294,8 +70207,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _trafficName = trafficName;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_NAME);
-			// set the indicator to true
-            isSetTrafficName = true;          
+            _isSetTrafficName = true;
         }
 
         void TrafficActionImpl::SetTrafficSourceAction(std::shared_ptr<ITrafficSourceActionWriter> trafficSourceAction)
@@ -68304,8 +70216,7 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSinkAction = {};
             _trafficSwarmAction = {};
             _trafficStopAction = {};
-			// set the indicator to true
-            isSetTrafficSourceAction = true;          
+            _isSetTrafficSourceAction = true;
         }
 
         void TrafficActionImpl::SetTrafficSinkAction(std::shared_ptr<ITrafficSinkActionWriter> trafficSinkAction)
@@ -68314,8 +70225,7 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSourceAction = {};
             _trafficSwarmAction = {};
             _trafficStopAction = {};
-			// set the indicator to true
-            isSetTrafficSinkAction = true;          
+            _isSetTrafficSinkAction = true;
         }
 
         void TrafficActionImpl::SetTrafficSwarmAction(std::shared_ptr<ITrafficSwarmActionWriter> trafficSwarmAction)
@@ -68324,8 +70234,7 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSourceAction = {};
             _trafficSinkAction = {};
             _trafficStopAction = {};
-			// set the indicator to true
-            isSetTrafficSwarmAction = true;          
+            _isSetTrafficSwarmAction = true;
         }
 
         void TrafficActionImpl::SetTrafficStopAction(std::shared_ptr<ITrafficStopActionWriter> trafficStopAction)
@@ -68334,8 +70243,7 @@ namespace NET_ASAM_OPENSCENARIO
             _trafficSourceAction = {};
             _trafficSinkAction = {};
             _trafficSwarmAction = {};
-			// set the indicator to true
-            isSetTrafficStopAction = true;          
+            _isSetTrafficStopAction = true;
         }
 
         std::shared_ptr<void> TrafficActionImpl::GetAdapter(const std::string classifier)
@@ -68460,6 +70368,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _trafficName = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTrafficName = true;
             }
         }
 
@@ -68521,7 +70430,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_trafficName = GetTrafficName();
             // clone indicators
-            	clonedObject->isSetTrafficName = isSetTrafficName;
+            clonedObject->_isSetTrafficName = _isSetTrafficName;
             // clone children
             const auto kTrafficSourceAction =  GetWriterTrafficSourceAction();
             if (kTrafficSourceAction)
@@ -68623,61 +70532,62 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _trafficName = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTrafficName = true;
             }
 		
 		}
 
 
-       void TrafficActionImpl::ResetTrafficName()
-	   {
-	   		isSetTrafficName = false; 
-			_trafficName = {};
-			
-	   }
-       bool TrafficActionImpl::IsSetTrafficName() const
-	   {
-			return isSetTrafficName;
-	   }
-       void TrafficActionImpl::ResetTrafficSourceAction()
-	   {
-	   		isSetTrafficSourceAction = false; 
-			_trafficSourceAction = {};
-			
-	   }
-       bool TrafficActionImpl::IsSetTrafficSourceAction() const
-	   {
-			return isSetTrafficSourceAction;
-	   }
-       void TrafficActionImpl::ResetTrafficSinkAction()
-	   {
-	   		isSetTrafficSinkAction = false; 
-			_trafficSinkAction = {};
-			
-	   }
-       bool TrafficActionImpl::IsSetTrafficSinkAction() const
-	   {
-			return isSetTrafficSinkAction;
-	   }
-       void TrafficActionImpl::ResetTrafficSwarmAction()
-	   {
-	   		isSetTrafficSwarmAction = false; 
-			_trafficSwarmAction = {};
-			
-	   }
-       bool TrafficActionImpl::IsSetTrafficSwarmAction() const
-	   {
-			return isSetTrafficSwarmAction;
-	   }
-       void TrafficActionImpl::ResetTrafficStopAction()
-	   {
-	   		isSetTrafficStopAction = false; 
-			_trafficStopAction = {};
-			
-	   }
-       bool TrafficActionImpl::IsSetTrafficStopAction() const
-	   {
-			return isSetTrafficStopAction;
-	   }
+        void TrafficActionImpl::ResetTrafficName()
+        {
+            _isSetTrafficName = false; 
+            _trafficName = {};
+
+        }
+        bool TrafficActionImpl::IsSetTrafficName() const
+        {
+            return _isSetTrafficName;
+        }
+        void TrafficActionImpl::ResetTrafficSourceAction()
+        {
+            _isSetTrafficSourceAction = false; 
+            _trafficSourceAction = {};
+
+        }
+        bool TrafficActionImpl::IsSetTrafficSourceAction() const
+        {
+            return _isSetTrafficSourceAction;
+        }
+        void TrafficActionImpl::ResetTrafficSinkAction()
+        {
+            _isSetTrafficSinkAction = false; 
+            _trafficSinkAction = {};
+
+        }
+        bool TrafficActionImpl::IsSetTrafficSinkAction() const
+        {
+            return _isSetTrafficSinkAction;
+        }
+        void TrafficActionImpl::ResetTrafficSwarmAction()
+        {
+            _isSetTrafficSwarmAction = false; 
+            _trafficSwarmAction = {};
+
+        }
+        bool TrafficActionImpl::IsSetTrafficSwarmAction() const
+        {
+            return _isSetTrafficSwarmAction;
+        }
+        void TrafficActionImpl::ResetTrafficStopAction()
+        {
+            _isSetTrafficStopAction = false; 
+            _trafficStopAction = {};
+
+        }
+        bool TrafficActionImpl::IsSetTrafficStopAction() const
+        {
+            return _isSetTrafficStopAction;
+        }
 
         IOpenScenarioFlexElement* TrafficDefinitionImpl::GetOpenScenarioFlexElement()
         {
@@ -68705,23 +70615,25 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void TrafficDefinitionImpl::SetVehicleCategoryDistribution(std::shared_ptr<IVehicleCategoryDistributionWriter> vehicleCategoryDistribution)
         {
             _vehicleCategoryDistribution = vehicleCategoryDistribution;
+            _isSetVehicleCategoryDistribution = true;
         }
 
         void TrafficDefinitionImpl::SetVehicleRoleDistribution(std::shared_ptr<IVehicleRoleDistributionWriter> vehicleRoleDistribution)
         {
             _vehicleRoleDistribution = vehicleRoleDistribution;
-			// set the indicator to true
-            isSetVehicleRoleDistribution = true;          
+            _isSetVehicleRoleDistribution = true;
         }
 
         void TrafficDefinitionImpl::SetControllerDistribution(std::shared_ptr<IControllerDistributionWriter> controllerDistribution)
         {
             _controllerDistribution = controllerDistribution;
+            _isSetControllerDistribution = true;
         }
 
         std::shared_ptr<void> TrafficDefinitionImpl::GetAdapter(const std::string classifier)
@@ -68842,6 +70754,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -68986,21 +70899,34 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void TrafficDefinitionImpl::ResetVehicleRoleDistribution()
-	   {
-	   		isSetVehicleRoleDistribution = false; 
-			_vehicleRoleDistribution = {};
-			
-	   }
-       bool TrafficDefinitionImpl::IsSetVehicleRoleDistribution() const
-	   {
-			return isSetVehicleRoleDistribution;
-	   }
+        bool TrafficDefinitionImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool TrafficDefinitionImpl::IsSetVehicleCategoryDistribution() const
+        {
+            return _isSetVehicleCategoryDistribution;
+        }
+        void TrafficDefinitionImpl::ResetVehicleRoleDistribution()
+        {
+            _isSetVehicleRoleDistribution = false; 
+            _vehicleRoleDistribution = {};
+
+        }
+        bool TrafficDefinitionImpl::IsSetVehicleRoleDistribution() const
+        {
+            return _isSetVehicleRoleDistribution;
+        }
+        bool TrafficDefinitionImpl::IsSetControllerDistribution() const
+        {
+            return _isSetControllerDistribution;
+        }
 
         IOpenScenarioFlexElement* TrafficSignalActionImpl::GetOpenScenarioFlexElement()
         {
@@ -69020,16 +70946,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _trafficSignalControllerAction = trafficSignalControllerAction;
             _trafficSignalStateAction = {};
-			// set the indicator to true
-            isSetTrafficSignalControllerAction = true;          
+            _isSetTrafficSignalControllerAction = true;
         }
 
         void TrafficSignalActionImpl::SetTrafficSignalStateAction(std::shared_ptr<ITrafficSignalStateActionWriter> trafficSignalStateAction)
         {
             _trafficSignalStateAction = trafficSignalStateAction;
             _trafficSignalControllerAction = {};
-			// set the indicator to true
-            isSetTrafficSignalStateAction = true;          
+            _isSetTrafficSignalStateAction = true;
         }
 
         std::shared_ptr<void> TrafficSignalActionImpl::GetAdapter(const std::string classifier)
@@ -69227,26 +71151,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void TrafficSignalActionImpl::ResetTrafficSignalControllerAction()
-	   {
-	   		isSetTrafficSignalControllerAction = false; 
-			_trafficSignalControllerAction = {};
-			
-	   }
-       bool TrafficSignalActionImpl::IsSetTrafficSignalControllerAction() const
-	   {
-			return isSetTrafficSignalControllerAction;
-	   }
-       void TrafficSignalActionImpl::ResetTrafficSignalStateAction()
-	   {
-	   		isSetTrafficSignalStateAction = false; 
-			_trafficSignalStateAction = {};
-			
-	   }
-       bool TrafficSignalActionImpl::IsSetTrafficSignalStateAction() const
-	   {
-			return isSetTrafficSignalStateAction;
-	   }
+        void TrafficSignalActionImpl::ResetTrafficSignalControllerAction()
+        {
+            _isSetTrafficSignalControllerAction = false; 
+            _trafficSignalControllerAction = {};
+
+        }
+        bool TrafficSignalActionImpl::IsSetTrafficSignalControllerAction() const
+        {
+            return _isSetTrafficSignalControllerAction;
+        }
+        void TrafficSignalActionImpl::ResetTrafficSignalStateAction()
+        {
+            _isSetTrafficSignalStateAction = false; 
+            _trafficSignalStateAction = {};
+
+        }
+        bool TrafficSignalActionImpl::IsSetTrafficSignalStateAction() const
+        {
+            return _isSetTrafficSignalStateAction;
+        }
 
         IOpenScenarioFlexElement* TrafficSignalConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -69266,12 +71190,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void TrafficSignalConditionImpl::SetState(const std::string state)
         {
             _state = state;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE);
+            _isSetState = true;
         }
 
         std::shared_ptr<void> TrafficSignalConditionImpl::GetAdapter(const std::string classifier)
@@ -69403,12 +71329,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 // Simple type
                 _state = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetState = true;
             }
         }
 
@@ -69502,17 +71430,27 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 // Simple type
                 _state = value;
                 AddResolvedParameter(attributeKey);
+                _isSetState = true;
             }
 		
 		}
 
 
+        bool TrafficSignalConditionImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool TrafficSignalConditionImpl::IsSetState() const
+        {
+            return _isSetState;
+        }
 
         IOpenScenarioFlexElement* TrafficSignalControllerImpl::GetOpenScenarioFlexElement()
         {
@@ -69561,29 +71499,27 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _delay = delay;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DELAY);
-			// set the indicator to true
-            isSetDelay = true;          
+            _isSetDelay = true;
         }
 
         void TrafficSignalControllerImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void TrafficSignalControllerImpl::SetReference(const std::string reference)
         {
             _reference = reference;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__REFERENCE);
-			// set the indicator to true
-            isSetReference = true;          
+            _isSetReference = true;
         }
 
         void TrafficSignalControllerImpl::SetPhases(std::vector<std::shared_ptr<IPhaseWriter>>& phases)
         {
             _phases = phases;
-			// set the indicator to true
-            isSetPhases = true;          
+            _isSetPhases = true;
         }
 
         std::shared_ptr<void> TrafficSignalControllerImpl::GetAdapter(const std::string classifier)
@@ -69747,18 +71683,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _delay = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDelay = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REFERENCE)
             {
                 // Simple type
                 _reference = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetReference = true;
             }
         }
 
@@ -69812,8 +71751,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_reference = GetReference();
             // clone indicators
-            	clonedObject->isSetDelay = isSetDelay;
-            	clonedObject->isSetReference = isSetReference;
+            clonedObject->_isSetDelay = _isSetDelay;
+            clonedObject->_isSetReference = _isSetReference;
             // clone children
             const auto kPhases =  GetWriterPhases();
             if (!kPhases.empty())
@@ -69889,12 +71828,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__REFERENCE)
             {
                 // Simple type
                 _reference = value;
                 AddResolvedParameter(attributeKey);
+                _isSetReference = true;
             }
 		
 		}
@@ -69905,41 +71846,46 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _delay = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDelay = true;
             }
 		
 		}
 
 
-       void TrafficSignalControllerImpl::ResetDelay()
-	   {
-	   		isSetDelay = false; 
-			_delay = {};
-			
-	   }
-       bool TrafficSignalControllerImpl::IsSetDelay() const
-	   {
-			return isSetDelay;
-	   }
-       void TrafficSignalControllerImpl::ResetReference()
-	   {
-	   		isSetReference = false; 
-			_reference = {};
-			
-	   }
-       bool TrafficSignalControllerImpl::IsSetReference() const
-	   {
-			return isSetReference;
-	   }
-       void TrafficSignalControllerImpl::ResetPhases()
-	   {
-	   		isSetPhases = false; 
-			_phases = {};
-			
-	   }
-       bool TrafficSignalControllerImpl::IsSetPhases() const
-	   {
-			return isSetPhases;
-	   }
+        void TrafficSignalControllerImpl::ResetDelay()
+        {
+            _isSetDelay = false; 
+            _delay = {};
+
+        }
+        bool TrafficSignalControllerImpl::IsSetDelay() const
+        {
+            return _isSetDelay;
+        }
+        bool TrafficSignalControllerImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void TrafficSignalControllerImpl::ResetReference()
+        {
+            _isSetReference = false; 
+            _reference = {};
+
+        }
+        bool TrafficSignalControllerImpl::IsSetReference() const
+        {
+            return _isSetReference;
+        }
+        void TrafficSignalControllerImpl::ResetPhases()
+        {
+            _isSetPhases = false; 
+            _phases = {};
+
+        }
+        bool TrafficSignalControllerImpl::IsSetPhases() const
+        {
+            return _isSetPhases;
+        }
 
         IOpenScenarioFlexElement* TrafficSignalControllerActionImpl::GetOpenScenarioFlexElement()
         {
@@ -69980,19 +71926,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _phase = phase;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PHASE);
+            _isSetPhase = true;
         }
 
         void TrafficSignalControllerActionImpl::SetTrafficSignalControllerRef(std::shared_ptr<INamedReference<ITrafficSignalController>> trafficSignalControllerRef)
         {
             _trafficSignalControllerRef = trafficSignalControllerRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF);
+            _isSetTrafficSignalControllerRef = true;
         }
 
         void TrafficSignalControllerActionImpl::SetPhaseRef(std::vector<std::shared_ptr<IPhase>>& phaseRef)
         {
             _phaseRef = phaseRef;
-			// set the indicator to true
-            isSetPhaseRef = true;          
+            _isSetPhaseRef = true;
         }
 
         std::shared_ptr<void> TrafficSignalControllerActionImpl::GetAdapter(const std::string classifier)
@@ -70124,6 +72071,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _phase = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetPhase = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
             {
@@ -70131,6 +72079,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(parameterLiteralValue);
                 _trafficSignalControllerRef = std::dynamic_pointer_cast<INamedReference<ITrafficSignalController>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetTrafficSignalControllerRef = true;
             }
         }
 
@@ -70240,21 +72189,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _phase = value;
                 AddResolvedParameter(attributeKey);
+                _isSetPhase = true;
             }
 		
 		}
 
 
-       void TrafficSignalControllerActionImpl::ResetPhaseRef()
-	   {
-	   		isSetPhaseRef = false; 
-			_phaseRef = {};
-			
-	   }
-       bool TrafficSignalControllerActionImpl::IsSetPhaseRef() const
-	   {
-			return isSetPhaseRef;
-	   }
+        bool TrafficSignalControllerActionImpl::IsSetPhase() const
+        {
+            return _isSetPhase;
+        }
+        bool TrafficSignalControllerActionImpl::IsSetTrafficSignalControllerRef() const
+        {
+            return _isSetTrafficSignalControllerRef;
+        }
+        void TrafficSignalControllerActionImpl::ResetPhaseRef()
+        {
+            _isSetPhaseRef = false; 
+            _phaseRef = {};
+
+        }
+        bool TrafficSignalControllerActionImpl::IsSetPhaseRef() const
+        {
+            return _isSetPhaseRef;
+        }
 
         IOpenScenarioFlexElement* TrafficSignalControllerConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -70295,19 +72253,20 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _phase = phase;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__PHASE);
+            _isSetPhase = true;
         }
 
         void TrafficSignalControllerConditionImpl::SetTrafficSignalControllerRef(std::shared_ptr<INamedReference<ITrafficSignalController>> trafficSignalControllerRef)
         {
             _trafficSignalControllerRef = trafficSignalControllerRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF);
+            _isSetTrafficSignalControllerRef = true;
         }
 
         void TrafficSignalControllerConditionImpl::SetPhaseRef(std::vector<std::shared_ptr<IPhase>>& phaseRef)
         {
             _phaseRef = phaseRef;
-			// set the indicator to true
-            isSetPhaseRef = true;          
+            _isSetPhaseRef = true;
         }
 
         std::shared_ptr<void> TrafficSignalControllerConditionImpl::GetAdapter(const std::string classifier)
@@ -70439,6 +72398,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _phase = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetPhase = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_CONTROLLER_REF)
             {
@@ -70446,6 +72406,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(parameterLiteralValue);
                 _trafficSignalControllerRef = std::dynamic_pointer_cast<INamedReference<ITrafficSignalController>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetTrafficSignalControllerRef = true;
             }
         }
 
@@ -70555,21 +72516,30 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _phase = value;
                 AddResolvedParameter(attributeKey);
+                _isSetPhase = true;
             }
 		
 		}
 
 
-       void TrafficSignalControllerConditionImpl::ResetPhaseRef()
-	   {
-	   		isSetPhaseRef = false; 
-			_phaseRef = {};
-			
-	   }
-       bool TrafficSignalControllerConditionImpl::IsSetPhaseRef() const
-	   {
-			return isSetPhaseRef;
-	   }
+        bool TrafficSignalControllerConditionImpl::IsSetPhase() const
+        {
+            return _isSetPhase;
+        }
+        bool TrafficSignalControllerConditionImpl::IsSetTrafficSignalControllerRef() const
+        {
+            return _isSetTrafficSignalControllerRef;
+        }
+        void TrafficSignalControllerConditionImpl::ResetPhaseRef()
+        {
+            _isSetPhaseRef = false; 
+            _phaseRef = {};
+
+        }
+        bool TrafficSignalControllerConditionImpl::IsSetPhaseRef() const
+        {
+            return _isSetPhaseRef;
+        }
 
         IOpenScenarioFlexElement* TrafficSignalGroupStateImpl::GetOpenScenarioFlexElement()
         {
@@ -70585,6 +72555,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _state = state;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE);
+            _isSetState = true;
         }
 
         std::shared_ptr<void> TrafficSignalGroupStateImpl::GetAdapter(const std::string classifier)
@@ -70693,6 +72664,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _state = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetState = true;
             }
         }
 
@@ -70779,11 +72751,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _state = value;
                 AddResolvedParameter(attributeKey);
+                _isSetState = true;
             }
 		
 		}
 
 
+        bool TrafficSignalGroupStateImpl::IsSetState() const
+        {
+            return _isSetState;
+        }
 
         IOpenScenarioFlexElement* TrafficSignalStateImpl::GetOpenScenarioFlexElement()
         {
@@ -70803,12 +72780,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _state = state;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE);
+            _isSetState = true;
         }
 
         void TrafficSignalStateImpl::SetTrafficSignalId(const std::string trafficSignalId)
         {
             _trafficSignalId = trafficSignalId;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID);
+            _isSetTrafficSignalId = true;
         }
 
         std::shared_ptr<void> TrafficSignalStateImpl::GetAdapter(const std::string classifier)
@@ -70940,12 +72919,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _state = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetState = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID)
             {
                 // Simple type
                 _trafficSignalId = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTrafficSignalId = true;
             }
         }
 
@@ -71039,17 +73020,27 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _state = value;
                 AddResolvedParameter(attributeKey);
+                _isSetState = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC_SIGNAL_ID)
             {
                 // Simple type
                 _trafficSignalId = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTrafficSignalId = true;
             }
 		
 		}
 
 
+        bool TrafficSignalStateImpl::IsSetState() const
+        {
+            return _isSetState;
+        }
+        bool TrafficSignalStateImpl::IsSetTrafficSignalId() const
+        {
+            return _isSetTrafficSignalId;
+        }
 
         IOpenScenarioFlexElement* TrafficSignalStateActionImpl::GetOpenScenarioFlexElement()
         {
@@ -71069,12 +73060,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void TrafficSignalStateActionImpl::SetState(const std::string state)
         {
             _state = state;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__STATE);
+            _isSetState = true;
         }
 
         std::shared_ptr<void> TrafficSignalStateActionImpl::GetAdapter(const std::string classifier)
@@ -71206,12 +73199,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 // Simple type
                 _state = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetState = true;
             }
         }
 
@@ -71305,17 +73300,27 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__STATE)
             {
                 // Simple type
                 _state = value;
                 AddResolvedParameter(attributeKey);
+                _isSetState = true;
             }
 		
 		}
 
 
+        bool TrafficSignalStateActionImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool TrafficSignalStateActionImpl::IsSetState() const
+        {
+            return _isSetState;
+        }
 
         IOpenScenarioFlexElement* TrafficSinkActionImpl::GetOpenScenarioFlexElement()
         {
@@ -71343,26 +73348,26 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _radius = radius;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RADIUS);
+            _isSetRadius = true;
         }
 
         void TrafficSinkActionImpl::SetRate(const double rate)
         {
             _rate = rate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RATE);
-			// set the indicator to true
-            isSetRate = true;          
+            _isSetRate = true;
         }
 
         void TrafficSinkActionImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         void TrafficSinkActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinitionWriter> trafficDefinition)
         {
             _trafficDefinition = trafficDefinition;
-			// set the indicator to true
-            isSetTrafficDefinition = true;          
+            _isSetTrafficDefinition = true;
         }
 
         std::shared_ptr<void> TrafficSinkActionImpl::GetAdapter(const std::string classifier)
@@ -71515,12 +73520,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _radius = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetRadius = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RATE)
             {
                 // Simple type
                 _rate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetRate = true;
             }
         }
 
@@ -71574,7 +73581,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_rate = GetRate();
             // clone indicators
-            	clonedObject->isSetRate = isSetRate;
+            clonedObject->_isSetRate = _isSetRate;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -71641,37 +73648,47 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _radius = value;
                 AddResolvedParameter(attributeKey);
+                _isSetRadius = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RATE)
             {
                 // Simple type
                 _rate = value;
                 AddResolvedParameter(attributeKey);
+                _isSetRate = true;
             }
 		
 		}
 
 
-       void TrafficSinkActionImpl::ResetRate()
-	   {
-	   		isSetRate = false; 
-			_rate = {};
-			
-	   }
-       bool TrafficSinkActionImpl::IsSetRate() const
-	   {
-			return isSetRate;
-	   }
-       void TrafficSinkActionImpl::ResetTrafficDefinition()
-	   {
-	   		isSetTrafficDefinition = false; 
-			_trafficDefinition = {};
-			
-	   }
-       bool TrafficSinkActionImpl::IsSetTrafficDefinition() const
-	   {
-			return isSetTrafficDefinition;
-	   }
+        bool TrafficSinkActionImpl::IsSetRadius() const
+        {
+            return _isSetRadius;
+        }
+        void TrafficSinkActionImpl::ResetRate()
+        {
+            _isSetRate = false; 
+            _rate = {};
+
+        }
+        bool TrafficSinkActionImpl::IsSetRate() const
+        {
+            return _isSetRate;
+        }
+        bool TrafficSinkActionImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
+        void TrafficSinkActionImpl::ResetTrafficDefinition()
+        {
+            _isSetTrafficDefinition = false; 
+            _trafficDefinition = {};
+
+        }
+        bool TrafficSinkActionImpl::IsSetTrafficDefinition() const
+        {
+            return _isSetTrafficDefinition;
+        }
 
         IOpenScenarioFlexElement* TrafficSourceActionImpl::GetOpenScenarioFlexElement()
         {
@@ -71707,38 +73724,40 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _radius = radius;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RADIUS);
+            _isSetRadius = true;
         }
 
         void TrafficSourceActionImpl::SetRate(const double rate)
         {
             _rate = rate;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RATE);
+            _isSetRate = true;
         }
 
         void TrafficSourceActionImpl::SetSpeed(const double speed)
         {
             _speed = speed;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED);
-			// set the indicator to true
-            isSetSpeed = true;          
+            _isSetSpeed = true;
         }
 
         void TrafficSourceActionImpl::SetVelocity(const double velocity)
         {
             _velocity = velocity;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VELOCITY);
-			// set the indicator to true
-            isSetVelocity = true;          
+            _isSetVelocity = true;
         }
 
         void TrafficSourceActionImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         void TrafficSourceActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinitionWriter> trafficDefinition)
         {
             _trafficDefinition = trafficDefinition;
+            _isSetTrafficDefinition = true;
         }
 
         std::shared_ptr<void> TrafficSourceActionImpl::GetAdapter(const std::string classifier)
@@ -71945,24 +73964,28 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _radius = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetRadius = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RATE)
             {
                 // Simple type
                 _rate = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPEED)
             {
                 // Simple type
                 _speed = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetSpeed = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VELOCITY)
             {
                 // Simple type
                 _velocity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetVelocity = true;
             }
         }
 
@@ -72020,8 +74043,8 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_velocity = GetVelocity();
             // clone indicators
-            	clonedObject->isSetSpeed = isSetSpeed;
-            	clonedObject->isSetVelocity = isSetVelocity;
+            clonedObject->_isSetSpeed = _isSetSpeed;
+            clonedObject->_isSetVelocity = _isSetVelocity;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -72088,49 +74111,69 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _radius = value;
                 AddResolvedParameter(attributeKey);
+                _isSetRadius = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RATE)
             {
                 // Simple type
                 _rate = value;
                 AddResolvedParameter(attributeKey);
+                _isSetRate = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPEED)
             {
                 // Simple type
                 _speed = value;
                 AddResolvedParameter(attributeKey);
+                _isSetSpeed = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VELOCITY)
             {
                 // Simple type
                 _velocity = value;
                 AddResolvedParameter(attributeKey);
+                _isSetVelocity = true;
             }
 		
 		}
 
 
-       void TrafficSourceActionImpl::ResetSpeed()
-	   {
-	   		isSetSpeed = false; 
-			_speed = {};
-			
-	   }
-       bool TrafficSourceActionImpl::IsSetSpeed() const
-	   {
-			return isSetSpeed;
-	   }
-       void TrafficSourceActionImpl::ResetVelocity()
-	   {
-	   		isSetVelocity = false; 
-			_velocity = {};
-			
-	   }
-       bool TrafficSourceActionImpl::IsSetVelocity() const
-	   {
-			return isSetVelocity;
-	   }
+        bool TrafficSourceActionImpl::IsSetRadius() const
+        {
+            return _isSetRadius;
+        }
+        bool TrafficSourceActionImpl::IsSetRate() const
+        {
+            return _isSetRate;
+        }
+        void TrafficSourceActionImpl::ResetSpeed()
+        {
+            _isSetSpeed = false; 
+            _speed = {};
+
+        }
+        bool TrafficSourceActionImpl::IsSetSpeed() const
+        {
+            return _isSetSpeed;
+        }
+        void TrafficSourceActionImpl::ResetVelocity()
+        {
+            _isSetVelocity = false; 
+            _velocity = {};
+
+        }
+        bool TrafficSourceActionImpl::IsSetVelocity() const
+        {
+            return _isSetVelocity;
+        }
+        bool TrafficSourceActionImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
+        bool TrafficSourceActionImpl::IsSetTrafficDefinition() const
+        {
+            return _isSetTrafficDefinition;
+        }
 
         IOpenScenarioFlexElement* TrafficStopActionImpl::GetOpenScenarioFlexElement()
         {
@@ -72336,62 +74379,66 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _innerRadius = innerRadius;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__INNER_RADIUS);
+            _isSetInnerRadius = true;
         }
 
         void TrafficSwarmActionImpl::SetNumberOfVehicles(const uint32_t numberOfVehicles)
         {
             _numberOfVehicles = numberOfVehicles;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES);
+            _isSetNumberOfVehicles = true;
         }
 
         void TrafficSwarmActionImpl::SetOffset(const double offset)
         {
             _offset = offset;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__OFFSET);
+            _isSetOffset = true;
         }
 
         void TrafficSwarmActionImpl::SetSemiMajorAxis(const double semiMajorAxis)
         {
             _semiMajorAxis = semiMajorAxis;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS);
+            _isSetSemiMajorAxis = true;
         }
 
         void TrafficSwarmActionImpl::SetSemiMinorAxis(const double semiMinorAxis)
         {
             _semiMinorAxis = semiMinorAxis;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS);
+            _isSetSemiMinorAxis = true;
         }
 
         void TrafficSwarmActionImpl::SetVelocity(const double velocity)
         {
             _velocity = velocity;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VELOCITY);
-			// set the indicator to true
-            isSetVelocity = true;          
+            _isSetVelocity = true;
         }
 
         void TrafficSwarmActionImpl::SetCentralObject(std::shared_ptr<ICentralSwarmObjectWriter> centralObject)
         {
             _centralObject = centralObject;
+            _isSetCentralObject = true;
         }
 
         void TrafficSwarmActionImpl::SetTrafficDefinition(std::shared_ptr<ITrafficDefinitionWriter> trafficDefinition)
         {
             _trafficDefinition = trafficDefinition;
+            _isSetTrafficDefinition = true;
         }
 
         void TrafficSwarmActionImpl::SetInitialSpeedRange(std::shared_ptr<IRangeWriter> initialSpeedRange)
         {
             _initialSpeedRange = initialSpeedRange;
-			// set the indicator to true
-            isSetInitialSpeedRange = true;          
+            _isSetInitialSpeedRange = true;
         }
 
         void TrafficSwarmActionImpl::SetDirectionOfTravelDistribution(std::shared_ptr<IDirectionOfTravelDistributionWriter> directionOfTravelDistribution)
         {
             _directionOfTravelDistribution = directionOfTravelDistribution;
-			// set the indicator to true
-            isSetDirectionOfTravelDistribution = true;          
+            _isSetDirectionOfTravelDistribution = true;
         }
 
         std::shared_ptr<void> TrafficSwarmActionImpl::GetAdapter(const std::string classifier)
@@ -72665,36 +74712,42 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _innerRadius = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetInnerRadius = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NUMBER_OF_VEHICLES)
             {
                 // Simple type
                 _numberOfVehicles = ParserHelper::ParseUnsignedInt(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetNumberOfVehicles = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
             {
                 // Simple type
                 _offset = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetOffset = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS)
             {
                 // Simple type
                 _semiMajorAxis = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetSemiMajorAxis = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS)
             {
                 // Simple type
                 _semiMinorAxis = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetSemiMinorAxis = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VELOCITY)
             {
                 // Simple type
                 _velocity = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetVelocity = true;
             }
         }
 
@@ -72766,7 +74819,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_velocity = GetVelocity();
             // clone indicators
-            	clonedObject->isSetVelocity = isSetVelocity;
+            clonedObject->_isSetVelocity = _isSetVelocity;
             // clone children
             const auto kCentralObject =  GetWriterCentralObject();
             if (kCentralObject)
@@ -72859,6 +74912,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _numberOfVehicles = value;
                 AddResolvedParameter(attributeKey);
+                _isSetNumberOfVehicles = true;
             }
 		
 		}
@@ -72869,65 +74923,98 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _innerRadius = value;
                 AddResolvedParameter(attributeKey);
+                _isSetInnerRadius = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__OFFSET)
             {
                 // Simple type
                 _offset = value;
                 AddResolvedParameter(attributeKey);
+                _isSetOffset = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SEMI_MAJOR_AXIS)
             {
                 // Simple type
                 _semiMajorAxis = value;
                 AddResolvedParameter(attributeKey);
+                _isSetSemiMajorAxis = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SEMI_MINOR_AXIS)
             {
                 // Simple type
                 _semiMinorAxis = value;
                 AddResolvedParameter(attributeKey);
+                _isSetSemiMinorAxis = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VELOCITY)
             {
                 // Simple type
                 _velocity = value;
                 AddResolvedParameter(attributeKey);
+                _isSetVelocity = true;
             }
 		
 		}
 
 
-       void TrafficSwarmActionImpl::ResetVelocity()
-	   {
-	   		isSetVelocity = false; 
-			_velocity = {};
-			
-	   }
-       bool TrafficSwarmActionImpl::IsSetVelocity() const
-	   {
-			return isSetVelocity;
-	   }
-       void TrafficSwarmActionImpl::ResetInitialSpeedRange()
-	   {
-	   		isSetInitialSpeedRange = false; 
-			_initialSpeedRange = {};
-			
-	   }
-       bool TrafficSwarmActionImpl::IsSetInitialSpeedRange() const
-	   {
-			return isSetInitialSpeedRange;
-	   }
-       void TrafficSwarmActionImpl::ResetDirectionOfTravelDistribution()
-	   {
-	   		isSetDirectionOfTravelDistribution = false; 
-			_directionOfTravelDistribution = {};
-			
-	   }
-       bool TrafficSwarmActionImpl::IsSetDirectionOfTravelDistribution() const
-	   {
-			return isSetDirectionOfTravelDistribution;
-	   }
+        bool TrafficSwarmActionImpl::IsSetInnerRadius() const
+        {
+            return _isSetInnerRadius;
+        }
+        bool TrafficSwarmActionImpl::IsSetNumberOfVehicles() const
+        {
+            return _isSetNumberOfVehicles;
+        }
+        bool TrafficSwarmActionImpl::IsSetOffset() const
+        {
+            return _isSetOffset;
+        }
+        bool TrafficSwarmActionImpl::IsSetSemiMajorAxis() const
+        {
+            return _isSetSemiMajorAxis;
+        }
+        bool TrafficSwarmActionImpl::IsSetSemiMinorAxis() const
+        {
+            return _isSetSemiMinorAxis;
+        }
+        void TrafficSwarmActionImpl::ResetVelocity()
+        {
+            _isSetVelocity = false; 
+            _velocity = {};
+
+        }
+        bool TrafficSwarmActionImpl::IsSetVelocity() const
+        {
+            return _isSetVelocity;
+        }
+        bool TrafficSwarmActionImpl::IsSetCentralObject() const
+        {
+            return _isSetCentralObject;
+        }
+        bool TrafficSwarmActionImpl::IsSetTrafficDefinition() const
+        {
+            return _isSetTrafficDefinition;
+        }
+        void TrafficSwarmActionImpl::ResetInitialSpeedRange()
+        {
+            _isSetInitialSpeedRange = false; 
+            _initialSpeedRange = {};
+
+        }
+        bool TrafficSwarmActionImpl::IsSetInitialSpeedRange() const
+        {
+            return _isSetInitialSpeedRange;
+        }
+        void TrafficSwarmActionImpl::ResetDirectionOfTravelDistribution()
+        {
+            _isSetDirectionOfTravelDistribution = false; 
+            _directionOfTravelDistribution = {};
+
+        }
+        bool TrafficSwarmActionImpl::IsSetDirectionOfTravelDistribution() const
+        {
+            return _isSetDirectionOfTravelDistribution;
+        }
 
         IOpenScenarioFlexElement* TrajectoryImpl::GetOpenScenarioFlexElement()
         {
@@ -72976,24 +75063,26 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _closed = closed;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CLOSED);
+            _isSetClosed = true;
         }
 
         void TrajectoryImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void TrajectoryImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
-			// set the indicator to true
-            isSetParameterDeclarations = true;          
+            _isSetParameterDeclarations = true;
         }
 
         void TrajectoryImpl::SetShape(std::shared_ptr<IShapeWriter> shape)
         {
             _shape = shape;
+            _isSetShape = true;
         }
 
         std::shared_ptr<void> TrajectoryImpl::GetAdapter(const std::string classifier)
@@ -73138,12 +75227,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _closed = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetClosed = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
         }
 
@@ -73306,6 +75397,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _closed = value;
                 AddResolvedParameter(attributeKey);
+                _isSetClosed = true;
             }
 		
 		}
@@ -73316,21 +75408,34 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
 
 
-       void TrajectoryImpl::ResetParameterDeclarations()
-	   {
-	   		isSetParameterDeclarations = false; 
-			_parameterDeclarations = {};
-			
-	   }
-       bool TrajectoryImpl::IsSetParameterDeclarations() const
-	   {
-			return isSetParameterDeclarations;
-	   }
+        bool TrajectoryImpl::IsSetClosed() const
+        {
+            return _isSetClosed;
+        }
+        bool TrajectoryImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void TrajectoryImpl::ResetParameterDeclarations()
+        {
+            _isSetParameterDeclarations = false; 
+            _parameterDeclarations = {};
+
+        }
+        bool TrajectoryImpl::IsSetParameterDeclarations() const
+        {
+            return _isSetParameterDeclarations;
+        }
+        bool TrajectoryImpl::IsSetShape() const
+        {
+            return _isSetShape;
+        }
 
         IOpenScenarioFlexElement* TrajectoryCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -73345,6 +75450,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrajectoryCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectoryWriter> directory)
         {
             _directory = directory;
+            _isSetDirectory = true;
         }
 
         std::shared_ptr<void> TrajectoryCatalogLocationImpl::GetAdapter(const std::string classifier)
@@ -73520,6 +75626,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool TrajectoryCatalogLocationImpl::IsSetDirectory() const
+        {
+            return _isSetDirectory;
+        }
 
         IOpenScenarioFlexElement* TrajectoryFollowingModeImpl::GetOpenScenarioFlexElement()
         {
@@ -73535,6 +75645,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _followingMode = followingMode;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE);
+            _isSetFollowingMode = true;
         }
 
         std::shared_ptr<void> TrajectoryFollowingModeImpl::GetAdapter(const std::string classifier)
@@ -73646,6 +75757,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _followingMode = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetFollowingMode = true;
                 }
                 else
                 {
@@ -73738,6 +75850,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool TrajectoryFollowingModeImpl::IsSetFollowingMode() const
+        {
+            return _isSetFollowingMode;
+        }
 
         IOpenScenarioFlexElement* TrajectoryPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -73765,26 +75881,26 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _s = s;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__S);
+            _isSetS = true;
         }
 
         void TrajectoryPositionImpl::SetT(const double t)
         {
             _t = t;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__T);
-			// set the indicator to true
-            isSetT = true;          
+            _isSetT = true;
         }
 
         void TrajectoryPositionImpl::SetOrientation(std::shared_ptr<IOrientationWriter> orientation)
         {
             _orientation = orientation;
-			// set the indicator to true
-            isSetOrientation = true;          
+            _isSetOrientation = true;
         }
 
         void TrajectoryPositionImpl::SetTrajectoryRef(std::shared_ptr<ITrajectoryRefWriter> trajectoryRef)
         {
             _trajectoryRef = trajectoryRef;
+            _isSetTrajectoryRef = true;
         }
 
         std::shared_ptr<void> TrajectoryPositionImpl::GetAdapter(const std::string classifier)
@@ -73937,12 +76053,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _s = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetS = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__T)
             {
                 // Simple type
                 _t = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetT = true;
             }
         }
 
@@ -73996,7 +76114,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_t = GetT();
             // clone indicators
-            	clonedObject->isSetT = isSetT;
+            clonedObject->_isSetT = _isSetT;
             // clone children
             const auto kOrientation =  GetWriterOrientation();
             if (kOrientation)
@@ -74063,37 +76181,47 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _s = value;
                 AddResolvedParameter(attributeKey);
+                _isSetS = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__T)
             {
                 // Simple type
                 _t = value;
                 AddResolvedParameter(attributeKey);
+                _isSetT = true;
             }
 		
 		}
 
 
-       void TrajectoryPositionImpl::ResetT()
-	   {
-	   		isSetT = false; 
-			_t = {0};
-			
-	   }
-       bool TrajectoryPositionImpl::IsSetT() const
-	   {
-			return isSetT;
-	   }
-       void TrajectoryPositionImpl::ResetOrientation()
-	   {
-	   		isSetOrientation = false; 
-			_orientation = {};
-			
-	   }
-       bool TrajectoryPositionImpl::IsSetOrientation() const
-	   {
-			return isSetOrientation;
-	   }
+        bool TrajectoryPositionImpl::IsSetS() const
+        {
+            return _isSetS;
+        }
+        void TrajectoryPositionImpl::ResetT()
+        {
+            _isSetT = false; 
+            _t = {0};
+
+        }
+        bool TrajectoryPositionImpl::IsSetT() const
+        {
+            return _isSetT;
+        }
+        void TrajectoryPositionImpl::ResetOrientation()
+        {
+            _isSetOrientation = false; 
+            _orientation = {};
+
+        }
+        bool TrajectoryPositionImpl::IsSetOrientation() const
+        {
+            return _isSetOrientation;
+        }
+        bool TrajectoryPositionImpl::IsSetTrajectoryRef() const
+        {
+            return _isSetTrajectoryRef;
+        }
 
         IOpenScenarioFlexElement* TrajectoryRefImpl::GetOpenScenarioFlexElement()
         {
@@ -74113,12 +76241,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _trajectory = trajectory;
             _catalogReference = {};
+            _isSetTrajectory = true;
         }
 
         void TrajectoryRefImpl::SetCatalogReference(std::shared_ptr<ICatalogReferenceWriter> catalogReference)
         {
             _catalogReference = catalogReference;
             _trajectory = {};
+            _isSetCatalogReference = true;
         }
 
         std::shared_ptr<void> TrajectoryRefImpl::GetAdapter(const std::string classifier)
@@ -74316,6 +76446,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool TrajectoryRefImpl::IsSetTrajectory() const
+        {
+            return _isSetTrajectory;
+        }
+        bool TrajectoryRefImpl::IsSetCatalogReference() const
+        {
+            return _isSetCatalogReference;
+        }
 
         IOpenScenarioFlexElement* TransitionDynamicsImpl::GetOpenScenarioFlexElement()
         {
@@ -74343,26 +76481,28 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _dynamicsDimension = dynamicsDimension;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_DIMENSION);
+            _isSetDynamicsDimension = true;
         }
 
         void TransitionDynamicsImpl::SetDynamicsShape(const DynamicsShape dynamicsShape)
         {
             _dynamicsShape = dynamicsShape;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DYNAMICS_SHAPE);
+            _isSetDynamicsShape = true;
         }
 
         void TransitionDynamicsImpl::SetFollowingMode(const FollowingMode followingMode)
         {
             _followingMode = followingMode;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FOLLOWING_MODE);
-			// set the indicator to true
-            isSetFollowingMode = true;          
+            _isSetFollowingMode = true;
         }
 
         void TransitionDynamicsImpl::SetValue(const double value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> TransitionDynamicsImpl::GetAdapter(const std::string classifier)
@@ -74552,6 +76692,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _dynamicsDimension = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetDynamicsDimension = true;
                 }
                 else
                 {
@@ -74567,6 +76708,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _dynamicsShape = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetDynamicsShape = true;
                 }
                 else
                 {
@@ -74582,6 +76724,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _followingMode = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetFollowingMode = true;
                 }
                 else
                 {
@@ -74594,6 +76737,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -74653,7 +76797,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_value = GetValue();
             // clone indicators
-            	clonedObject->isSetFollowingMode = isSetFollowingMode;
+            clonedObject->_isSetFollowingMode = _isSetFollowingMode;
             // clone children
             return clonedObject;
         }
@@ -74710,21 +76854,34 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
-       void TransitionDynamicsImpl::ResetFollowingMode()
-	   {
-	   		isSetFollowingMode = false; 
-			_followingMode = {FollowingMode::FollowingModeEnum::POSITION};
-			
-	   }
-       bool TransitionDynamicsImpl::IsSetFollowingMode() const
-	   {
-			return isSetFollowingMode;
-	   }
+        bool TransitionDynamicsImpl::IsSetDynamicsDimension() const
+        {
+            return _isSetDynamicsDimension;
+        }
+        bool TransitionDynamicsImpl::IsSetDynamicsShape() const
+        {
+            return _isSetDynamicsShape;
+        }
+        void TransitionDynamicsImpl::ResetFollowingMode()
+        {
+            _isSetFollowingMode = false; 
+            _followingMode = {FollowingMode::FollowingModeEnum::POSITION};
+
+        }
+        bool TransitionDynamicsImpl::IsSetFollowingMode() const
+        {
+            return _isSetFollowingMode;
+        }
+        bool TransitionDynamicsImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* TraveledDistanceConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -74740,6 +76897,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> TraveledDistanceConditionImpl::GetAdapter(const std::string classifier)
@@ -74857,6 +77015,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -74934,11 +77093,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool TraveledDistanceConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* TriggerImpl::GetOpenScenarioFlexElement()
         {
@@ -74974,8 +77138,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TriggerImpl::SetConditionGroups(std::vector<std::shared_ptr<IConditionGroupWriter>>& conditionGroups)
         {
             _conditionGroups = conditionGroups;
-			// set the indicator to true
-            isSetConditionGroups = true;          
+            _isSetConditionGroups = true;
         }
 
         std::shared_ptr<void> TriggerImpl::GetAdapter(const std::string classifier)
@@ -75158,16 +77321,16 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void TriggerImpl::ResetConditionGroups()
-	   {
-	   		isSetConditionGroups = false; 
-			_conditionGroups = {};
-			
-	   }
-       bool TriggerImpl::IsSetConditionGroups() const
-	   {
-			return isSetConditionGroups;
-	   }
+        void TriggerImpl::ResetConditionGroups()
+        {
+            _isSetConditionGroups = false; 
+            _conditionGroups = {};
+
+        }
+        bool TriggerImpl::IsSetConditionGroups() const
+        {
+            return _isSetConditionGroups;
+        }
 
         IOpenScenarioFlexElement* TriggeringEntitiesImpl::GetOpenScenarioFlexElement()
         {
@@ -75208,11 +77371,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _triggeringEntitiesRule = triggeringEntitiesRule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRIGGERING_ENTITIES_RULE);
+            _isSetTriggeringEntitiesRule = true;
         }
 
         void TriggeringEntitiesImpl::SetEntityRefs(std::vector<std::shared_ptr<IEntityRefWriter>>& entityRefs)
         {
             _entityRefs = entityRefs;
+            _isSetEntityRefs = true;
         }
 
         std::shared_ptr<void> TriggeringEntitiesImpl::GetAdapter(const std::string classifier)
@@ -75324,6 +77489,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _triggeringEntitiesRule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetTriggeringEntitiesRule = true;
                 }
                 else
                 {
@@ -75449,6 +77615,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool TriggeringEntitiesImpl::IsSetTriggeringEntitiesRule() const
+        {
+            return _isSetTriggeringEntitiesRule;
+        }
+        bool TriggeringEntitiesImpl::IsSetEntityRefs() const
+        {
+            return _isSetEntityRefs;
+        }
 
         IOpenScenarioFlexElement* UniformDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -75463,6 +77637,7 @@ namespace NET_ASAM_OPENSCENARIO
         void UniformDistributionImpl::SetRange(std::shared_ptr<IRangeWriter> range)
         {
             _range = range;
+            _isSetRange = true;
         }
 
         std::shared_ptr<void> UniformDistributionImpl::GetAdapter(const std::string classifier)
@@ -75638,6 +77813,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool UniformDistributionImpl::IsSetRange() const
+        {
+            return _isSetRange;
+        }
 
         IOpenScenarioFlexElement* UsedAreaImpl::GetOpenScenarioFlexElement()
         {
@@ -75673,6 +77852,7 @@ namespace NET_ASAM_OPENSCENARIO
         void UsedAreaImpl::SetPositions(std::vector<std::shared_ptr<IPositionWriter>>& positions)
         {
             _positions = positions;
+            _isSetPositions = true;
         }
 
         std::shared_ptr<void> UsedAreaImpl::GetAdapter(const std::string classifier)
@@ -75855,6 +78035,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool UsedAreaImpl::IsSetPositions() const
+        {
+            return _isSetPositions;
+        }
 
         IOpenScenarioFlexElement* UserDefinedActionImpl::GetOpenScenarioFlexElement()
         {
@@ -75869,6 +78053,7 @@ namespace NET_ASAM_OPENSCENARIO
         void UserDefinedActionImpl::SetCustomCommandAction(std::shared_ptr<ICustomCommandActionWriter> customCommandAction)
         {
             _customCommandAction = customCommandAction;
+            _isSetCustomCommandAction = true;
         }
 
         std::shared_ptr<void> UserDefinedActionImpl::GetAdapter(const std::string classifier)
@@ -76044,6 +78229,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool UserDefinedActionImpl::IsSetCustomCommandAction() const
+        {
+            return _isSetCustomCommandAction;
+        }
 
         IOpenScenarioFlexElement* UserDefinedAnimationImpl::GetOpenScenarioFlexElement()
         {
@@ -76059,6 +78248,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _userDefinedAnimationType = userDefinedAnimationType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__USER_DEFINED_ANIMATION_TYPE);
+            _isSetUserDefinedAnimationType = true;
         }
 
         std::shared_ptr<void> UserDefinedAnimationImpl::GetAdapter(const std::string classifier)
@@ -76167,6 +78357,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _userDefinedAnimationType = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetUserDefinedAnimationType = true;
             }
         }
 
@@ -76253,11 +78444,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _userDefinedAnimationType = value;
                 AddResolvedParameter(attributeKey);
+                _isSetUserDefinedAnimationType = true;
             }
 		
 		}
 
 
+        bool UserDefinedAnimationImpl::IsSetUserDefinedAnimationType() const
+        {
+            return _isSetUserDefinedAnimationType;
+        }
 
         IOpenScenarioFlexElement* UserDefinedComponentImpl::GetOpenScenarioFlexElement()
         {
@@ -76273,6 +78469,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _userDefinedComponentType = userDefinedComponentType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__USER_DEFINED_COMPONENT_TYPE);
+            _isSetUserDefinedComponentType = true;
         }
 
         std::shared_ptr<void> UserDefinedComponentImpl::GetAdapter(const std::string classifier)
@@ -76381,6 +78578,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _userDefinedComponentType = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetUserDefinedComponentType = true;
             }
         }
 
@@ -76467,11 +78665,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _userDefinedComponentType = value;
                 AddResolvedParameter(attributeKey);
+                _isSetUserDefinedComponentType = true;
             }
 		
 		}
 
 
+        bool UserDefinedComponentImpl::IsSetUserDefinedComponentType() const
+        {
+            return _isSetUserDefinedComponentType;
+        }
 
         IOpenScenarioFlexElement* UserDefinedDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -76491,12 +78694,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _content = content;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CONTENT);
+            _isSetContent = true;
         }
 
         void UserDefinedDistributionImpl::SetType(const std::string type)
         {
             _type = type;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TYPE);
+            _isSetType = true;
         }
 
         std::shared_ptr<void> UserDefinedDistributionImpl::GetAdapter(const std::string classifier)
@@ -76628,12 +78833,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _content = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetContent = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TYPE)
             {
                 // Simple type
                 _type = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetType = true;
             }
         }
 
@@ -76725,17 +78932,27 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _content = value;
                 AddResolvedParameter(attributeKey);
+                _isSetContent = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TYPE)
             {
                 // Simple type
                 _type = value;
                 AddResolvedParameter(attributeKey);
+                _isSetType = true;
             }
 		
 		}
 
 
+        bool UserDefinedDistributionImpl::IsSetContent() const
+        {
+            return _isSetContent;
+        }
+        bool UserDefinedDistributionImpl::IsSetType() const
+        {
+            return _isSetType;
+        }
 
         IOpenScenarioFlexElement* UserDefinedLightImpl::GetOpenScenarioFlexElement()
         {
@@ -76751,6 +78968,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _userDefinedLightType = userDefinedLightType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__USER_DEFINED_LIGHT_TYPE);
+            _isSetUserDefinedLightType = true;
         }
 
         std::shared_ptr<void> UserDefinedLightImpl::GetAdapter(const std::string classifier)
@@ -76859,6 +79077,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _userDefinedLightType = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetUserDefinedLightType = true;
             }
         }
 
@@ -76945,11 +79164,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _userDefinedLightType = value;
                 AddResolvedParameter(attributeKey);
+                _isSetUserDefinedLightType = true;
             }
 		
 		}
 
 
+        bool UserDefinedLightImpl::IsSetUserDefinedLightType() const
+        {
+            return _isSetUserDefinedLightType;
+        }
 
         IOpenScenarioFlexElement* UserDefinedValueConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -76973,18 +79197,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void UserDefinedValueConditionImpl::SetRule(const Rule rule)
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void UserDefinedValueConditionImpl::SetValue(const std::string value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> UserDefinedValueConditionImpl::GetAdapter(const std::string classifier)
@@ -77139,6 +79366,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__RULE)
             {
@@ -77148,6 +79376,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -77160,6 +79389,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -77269,17 +79499,31 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool UserDefinedValueConditionImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool UserDefinedValueConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool UserDefinedValueConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* ValueConstraintImpl::GetOpenScenarioFlexElement()
         {
@@ -77299,12 +79543,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void ValueConstraintImpl::SetValue(const std::string value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> ValueConstraintImpl::GetAdapter(const std::string classifier)
@@ -77439,6 +79685,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -77451,6 +79698,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -77553,6 +79801,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
@@ -77562,6 +79811,14 @@ namespace NET_ASAM_OPENSCENARIO
 			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
 		}
 
+        bool ValueConstraintImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool ValueConstraintImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* ValueConstraintGroupImpl::GetOpenScenarioFlexElement()
         {
@@ -77597,6 +79854,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ValueConstraintGroupImpl::SetConstraints(std::vector<std::shared_ptr<IValueConstraintWriter>>& constraints)
         {
             _constraints = constraints;
+            _isSetConstraints = true;
         }
 
         std::shared_ptr<void> ValueConstraintGroupImpl::GetAdapter(const std::string classifier)
@@ -77779,6 +80037,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ValueConstraintGroupImpl::IsSetConstraints() const
+        {
+            return _isSetConstraints;
+        }
 
         IOpenScenarioFlexElement* ValueSetDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -77814,6 +80076,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ValueSetDistributionImpl::SetParameterValueSets(std::vector<std::shared_ptr<IParameterValueSetWriter>>& parameterValueSets)
         {
             _parameterValueSets = parameterValueSets;
+            _isSetParameterValueSets = true;
         }
 
         std::shared_ptr<void> ValueSetDistributionImpl::GetAdapter(const std::string classifier)
@@ -77996,6 +80259,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool ValueSetDistributionImpl::IsSetParameterValueSets() const
+        {
+            return _isSetParameterValueSets;
+        }
 
         IOpenScenarioFlexElement* VariableActionImpl::GetOpenScenarioFlexElement()
         {
@@ -78019,22 +80286,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _variableRef = variableRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VARIABLE_REF);
+            _isSetVariableRef = true;
         }
 
         void VariableActionImpl::SetSetAction(std::shared_ptr<IVariableSetActionWriter> setAction)
         {
             _setAction = setAction;
             _modifyAction = {};
-			// set the indicator to true
-            isSetSetAction = true;          
+            _isSetSetAction = true;
         }
 
         void VariableActionImpl::SetModifyAction(std::shared_ptr<IVariableModifyActionWriter> modifyAction)
         {
             _modifyAction = modifyAction;
             _setAction = {};
-			// set the indicator to true
-            isSetModifyAction = true;          
+            _isSetModifyAction = true;
         }
 
         std::shared_ptr<void> VariableActionImpl::GetAdapter(const std::string classifier)
@@ -78152,6 +80418,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IVariableDeclaration>>(parameterLiteralValue);
                 _variableRef = std::dynamic_pointer_cast<INamedReference<IVariableDeclaration>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetVariableRef = true;
             }
         }
 
@@ -78289,26 +80556,30 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void VariableActionImpl::ResetSetAction()
-	   {
-	   		isSetSetAction = false; 
-			_setAction = {};
-			
-	   }
-       bool VariableActionImpl::IsSetSetAction() const
-	   {
-			return isSetSetAction;
-	   }
-       void VariableActionImpl::ResetModifyAction()
-	   {
-	   		isSetModifyAction = false; 
-			_modifyAction = {};
-			
-	   }
-       bool VariableActionImpl::IsSetModifyAction() const
-	   {
-			return isSetModifyAction;
-	   }
+        bool VariableActionImpl::IsSetVariableRef() const
+        {
+            return _isSetVariableRef;
+        }
+        void VariableActionImpl::ResetSetAction()
+        {
+            _isSetSetAction = false; 
+            _setAction = {};
+
+        }
+        bool VariableActionImpl::IsSetSetAction() const
+        {
+            return _isSetSetAction;
+        }
+        void VariableActionImpl::ResetModifyAction()
+        {
+            _isSetModifyAction = false; 
+            _modifyAction = {};
+
+        }
+        bool VariableActionImpl::IsSetModifyAction() const
+        {
+            return _isSetModifyAction;
+        }
 
         IOpenScenarioFlexElement* VariableAddValueRuleImpl::GetOpenScenarioFlexElement()
         {
@@ -78324,6 +80595,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> VariableAddValueRuleImpl::GetAdapter(const std::string classifier)
@@ -78441,6 +80713,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -78518,11 +80791,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool VariableAddValueRuleImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* VariableConditionImpl::GetOpenScenarioFlexElement()
         {
@@ -78546,18 +80824,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _rule = rule;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__RULE);
+            _isSetRule = true;
         }
 
         void VariableConditionImpl::SetValue(const std::string value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         void VariableConditionImpl::SetVariableRef(std::shared_ptr<INamedReference<IVariableDeclaration>> variableRef)
         {
             _variableRef = variableRef;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VARIABLE_REF);
+            _isSetVariableRef = true;
         }
 
         std::shared_ptr<void> VariableConditionImpl::GetAdapter(const std::string classifier)
@@ -78715,6 +80996,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _rule = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRule = true;
                 }
                 else
                 {
@@ -78727,6 +81009,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VARIABLE_REF)
             {
@@ -78734,6 +81017,7 @@ namespace NET_ASAM_OPENSCENARIO
                 const auto kProxy = std::make_shared<NamedReferenceProxy<IVariableDeclaration>>(parameterLiteralValue);
                 _variableRef = std::dynamic_pointer_cast<INamedReference<IVariableDeclaration>>(kProxy);
                 AddResolvedParameter(attributeKey);
+                _isSetVariableRef = true;
             }
         }
 
@@ -78859,11 +81143,24 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool VariableConditionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
+        bool VariableConditionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
+        bool VariableConditionImpl::IsSetVariableRef() const
+        {
+            return _isSetVariableRef;
+        }
 
         IOpenScenarioFlexElement* VariableDeclarationImpl::GetOpenScenarioFlexElement()
         {
@@ -78887,18 +81184,21 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void VariableDeclarationImpl::SetValue(const std::string value)
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         void VariableDeclarationImpl::SetVariableType(const ParameterType variableType)
         {
             _variableType = variableType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VARIABLE_TYPE);
+            _isSetVariableType = true;
         }
 
         std::shared_ptr<void> VariableDeclarationImpl::GetAdapter(const std::string classifier)
@@ -79053,12 +81353,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VARIABLE_TYPE)
             {
@@ -79068,6 +81370,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _variableType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetVariableType = true;
                 }
                 else
                 {
@@ -79183,12 +81486,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE)
             {
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
@@ -79198,6 +81503,18 @@ namespace NET_ASAM_OPENSCENARIO
 			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
 		}
 
+        bool VariableDeclarationImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        bool VariableDeclarationImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
+        bool VariableDeclarationImpl::IsSetVariableType() const
+        {
+            return _isSetVariableType;
+        }
 
         IOpenScenarioFlexElement* VariableModifyActionImpl::GetOpenScenarioFlexElement()
         {
@@ -79212,6 +81529,7 @@ namespace NET_ASAM_OPENSCENARIO
         void VariableModifyActionImpl::SetRule(std::shared_ptr<IVariableModifyRuleWriter> rule)
         {
             _rule = rule;
+            _isSetRule = true;
         }
 
         std::shared_ptr<void> VariableModifyActionImpl::GetAdapter(const std::string classifier)
@@ -79387,6 +81705,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool VariableModifyActionImpl::IsSetRule() const
+        {
+            return _isSetRule;
+        }
 
         IOpenScenarioFlexElement* VariableModifyRuleImpl::GetOpenScenarioFlexElement()
         {
@@ -79406,16 +81728,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _addValue = addValue;
             _multiplyByValue = {};
-			// set the indicator to true
-            isSetAddValue = true;          
+            _isSetAddValue = true;
         }
 
         void VariableModifyRuleImpl::SetMultiplyByValue(std::shared_ptr<IVariableMultiplyByValueRuleWriter> multiplyByValue)
         {
             _multiplyByValue = multiplyByValue;
             _addValue = {};
-			// set the indicator to true
-            isSetMultiplyByValue = true;          
+            _isSetMultiplyByValue = true;
         }
 
         std::shared_ptr<void> VariableModifyRuleImpl::GetAdapter(const std::string classifier)
@@ -79613,26 +81933,26 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
-       void VariableModifyRuleImpl::ResetAddValue()
-	   {
-	   		isSetAddValue = false; 
-			_addValue = {};
-			
-	   }
-       bool VariableModifyRuleImpl::IsSetAddValue() const
-	   {
-			return isSetAddValue;
-	   }
-       void VariableModifyRuleImpl::ResetMultiplyByValue()
-	   {
-	   		isSetMultiplyByValue = false; 
-			_multiplyByValue = {};
-			
-	   }
-       bool VariableModifyRuleImpl::IsSetMultiplyByValue() const
-	   {
-			return isSetMultiplyByValue;
-	   }
+        void VariableModifyRuleImpl::ResetAddValue()
+        {
+            _isSetAddValue = false; 
+            _addValue = {};
+
+        }
+        bool VariableModifyRuleImpl::IsSetAddValue() const
+        {
+            return _isSetAddValue;
+        }
+        void VariableModifyRuleImpl::ResetMultiplyByValue()
+        {
+            _isSetMultiplyByValue = false; 
+            _multiplyByValue = {};
+
+        }
+        bool VariableModifyRuleImpl::IsSetMultiplyByValue() const
+        {
+            return _isSetMultiplyByValue;
+        }
 
         IOpenScenarioFlexElement* VariableMultiplyByValueRuleImpl::GetOpenScenarioFlexElement()
         {
@@ -79648,6 +81968,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> VariableMultiplyByValueRuleImpl::GetAdapter(const std::string classifier)
@@ -79765,6 +82086,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -79842,11 +82164,16 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
 
 
+        bool VariableMultiplyByValueRuleImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* VariableSetActionImpl::GetOpenScenarioFlexElement()
         {
@@ -79862,6 +82189,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _value = value;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VALUE);
+            _isSetValue = true;
         }
 
         std::shared_ptr<void> VariableSetActionImpl::GetAdapter(const std::string classifier)
@@ -79970,6 +82298,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
         }
 
@@ -80056,6 +82385,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _value = value;
                 AddResolvedParameter(attributeKey);
+                _isSetValue = true;
             }
 		
 		}
@@ -80065,6 +82395,10 @@ namespace NET_ASAM_OPENSCENARIO
 			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
 		}
 
+        bool VariableSetActionImpl::IsSetValue() const
+        {
+            return _isSetValue;
+        }
 
         IOpenScenarioFlexElement* VehicleImpl::GetOpenScenarioFlexElement()
         {
@@ -80137,63 +82471,65 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _mass = mass;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MASS);
-			// set the indicator to true
-            isSetMass = true;          
+            _isSetMass = true;
         }
 
         void VehicleImpl::SetModel3d(const std::string model3d)
         {
             _model3d = model3d;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__MODEL3D);
-			// set the indicator to true
-            isSetModel3d = true;          
+            _isSetModel3d = true;
         }
 
         void VehicleImpl::SetName(const std::string name)
         {
             _name = name;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__NAME);
+            _isSetName = true;
         }
 
         void VehicleImpl::SetRole(const Role role)
         {
             _role = role;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROLE);
-			// set the indicator to true
-            isSetRole = true;          
+            _isSetRole = true;
         }
 
         void VehicleImpl::SetVehicleCategory(const VehicleCategory vehicleCategory)
         {
             _vehicleCategory = vehicleCategory;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_CATEGORY);
+            _isSetVehicleCategory = true;
         }
 
         void VehicleImpl::SetParameterDeclarations(std::vector<std::shared_ptr<IParameterDeclarationWriter>>& parameterDeclarations)
         {
             _parameterDeclarations = parameterDeclarations;
-			// set the indicator to true
-            isSetParameterDeclarations = true;          
+            _isSetParameterDeclarations = true;
         }
 
         void VehicleImpl::SetBoundingBox(std::shared_ptr<IBoundingBoxWriter> boundingBox)
         {
             _boundingBox = boundingBox;
+            _isSetBoundingBox = true;
         }
 
         void VehicleImpl::SetPerformance(std::shared_ptr<IPerformanceWriter> performance)
         {
             _performance = performance;
+            _isSetPerformance = true;
         }
 
         void VehicleImpl::SetAxles(std::shared_ptr<IAxlesWriter> axles)
         {
             _axles = axles;
+            _isSetAxles = true;
         }
 
         void VehicleImpl::SetProperties(std::shared_ptr<IPropertiesWriter> properties)
         {
             _properties = properties;
+            _isSetProperties = true;
         }
 
         std::shared_ptr<void> VehicleImpl::GetAdapter(const std::string classifier)
@@ -80419,18 +82755,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _mass = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetMass = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__MODEL3D)
             {
                 // Simple type
                 _model3d = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetModel3d = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = ParserHelper::ParseString(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__ROLE)
             {
@@ -80440,6 +82779,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _role = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRole = true;
                 }
                 else
                 {
@@ -80455,6 +82795,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _vehicleCategory = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetVehicleCategory = true;
                 }
                 else
                 {
@@ -80566,9 +82907,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_vehicleCategory = VehicleCategory::GetFromLiteral(kVehicleCategory.GetLiteral());
             }
             // clone indicators
-            	clonedObject->isSetMass = isSetMass;
-            	clonedObject->isSetModel3d = isSetModel3d;
-            	clonedObject->isSetRole = isSetRole;
+            clonedObject->_isSetMass = _isSetMass;
+            clonedObject->_isSetModel3d = _isSetModel3d;
+            clonedObject->_isSetRole = _isSetRole;
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
@@ -80714,12 +83055,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _model3d = value;
                 AddResolvedParameter(attributeKey);
+                _isSetModel3d = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__NAME)
             {
                 // Simple type
                 _name = value;
                 AddResolvedParameter(attributeKey);
+                _isSetName = true;
             }
 		
 		}
@@ -80730,51 +83073,76 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _mass = value;
                 AddResolvedParameter(attributeKey);
+                _isSetMass = true;
             }
 		
 		}
 
 
-       void VehicleImpl::ResetMass()
-	   {
-	   		isSetMass = false; 
-			_mass = {};
-			
-	   }
-       bool VehicleImpl::IsSetMass() const
-	   {
-			return isSetMass;
-	   }
-       void VehicleImpl::ResetModel3d()
-	   {
-	   		isSetModel3d = false; 
-			_model3d = {};
-			
-	   }
-       bool VehicleImpl::IsSetModel3d() const
-	   {
-			return isSetModel3d;
-	   }
-       void VehicleImpl::ResetRole()
-	   {
-	   		isSetRole = false; 
-			_role = {Role::RoleEnum::NONE};
-			
-	   }
-       bool VehicleImpl::IsSetRole() const
-	   {
-			return isSetRole;
-	   }
-       void VehicleImpl::ResetParameterDeclarations()
-	   {
-	   		isSetParameterDeclarations = false; 
-			_parameterDeclarations = {};
-			
-	   }
-       bool VehicleImpl::IsSetParameterDeclarations() const
-	   {
-			return isSetParameterDeclarations;
-	   }
+        void VehicleImpl::ResetMass()
+        {
+            _isSetMass = false; 
+            _mass = {};
+
+        }
+        bool VehicleImpl::IsSetMass() const
+        {
+            return _isSetMass;
+        }
+        void VehicleImpl::ResetModel3d()
+        {
+            _isSetModel3d = false; 
+            _model3d = {};
+
+        }
+        bool VehicleImpl::IsSetModel3d() const
+        {
+            return _isSetModel3d;
+        }
+        bool VehicleImpl::IsSetName() const
+        {
+            return _isSetName;
+        }
+        void VehicleImpl::ResetRole()
+        {
+            _isSetRole = false; 
+            _role = {Role::RoleEnum::NONE};
+
+        }
+        bool VehicleImpl::IsSetRole() const
+        {
+            return _isSetRole;
+        }
+        bool VehicleImpl::IsSetVehicleCategory() const
+        {
+            return _isSetVehicleCategory;
+        }
+        void VehicleImpl::ResetParameterDeclarations()
+        {
+            _isSetParameterDeclarations = false; 
+            _parameterDeclarations = {};
+
+        }
+        bool VehicleImpl::IsSetParameterDeclarations() const
+        {
+            return _isSetParameterDeclarations;
+        }
+        bool VehicleImpl::IsSetBoundingBox() const
+        {
+            return _isSetBoundingBox;
+        }
+        bool VehicleImpl::IsSetPerformance() const
+        {
+            return _isSetPerformance;
+        }
+        bool VehicleImpl::IsSetAxles() const
+        {
+            return _isSetAxles;
+        }
+        bool VehicleImpl::IsSetProperties() const
+        {
+            return _isSetProperties;
+        }
 
         IOpenScenarioFlexElement* VehicleCatalogLocationImpl::GetOpenScenarioFlexElement()
         {
@@ -80789,6 +83157,7 @@ namespace NET_ASAM_OPENSCENARIO
         void VehicleCatalogLocationImpl::SetDirectory(std::shared_ptr<IDirectoryWriter> directory)
         {
             _directory = directory;
+            _isSetDirectory = true;
         }
 
         std::shared_ptr<void> VehicleCatalogLocationImpl::GetAdapter(const std::string classifier)
@@ -80964,6 +83333,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool VehicleCatalogLocationImpl::IsSetDirectory() const
+        {
+            return _isSetDirectory;
+        }
 
         IOpenScenarioFlexElement* VehicleCategoryDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -80999,6 +83372,7 @@ namespace NET_ASAM_OPENSCENARIO
         void VehicleCategoryDistributionImpl::SetVehicleCategoryDistributionEntries(std::vector<std::shared_ptr<IVehicleCategoryDistributionEntryWriter>>& vehicleCategoryDistributionEntries)
         {
             _vehicleCategoryDistributionEntries = vehicleCategoryDistributionEntries;
+            _isSetVehicleCategoryDistributionEntries = true;
         }
 
         std::shared_ptr<void> VehicleCategoryDistributionImpl::GetAdapter(const std::string classifier)
@@ -81181,6 +83555,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool VehicleCategoryDistributionImpl::IsSetVehicleCategoryDistributionEntries() const
+        {
+            return _isSetVehicleCategoryDistributionEntries;
+        }
 
         IOpenScenarioFlexElement* VehicleCategoryDistributionEntryImpl::GetOpenScenarioFlexElement()
         {
@@ -81200,12 +83578,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _category = category;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CATEGORY);
+            _isSetCategory = true;
         }
 
         void VehicleCategoryDistributionEntryImpl::SetWeight(const double weight)
         {
             _weight = weight;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT);
+            _isSetWeight = true;
         }
 
         std::shared_ptr<void> VehicleCategoryDistributionEntryImpl::GetAdapter(const std::string classifier)
@@ -81349,6 +83729,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _category = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetCategory = true;
                 }
                 else
                 {
@@ -81361,6 +83742,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _weight = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
         }
 
@@ -81454,11 +83836,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _weight = value;
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
 		
 		}
 
 
+        bool VehicleCategoryDistributionEntryImpl::IsSetCategory() const
+        {
+            return _isSetCategory;
+        }
+        bool VehicleCategoryDistributionEntryImpl::IsSetWeight() const
+        {
+            return _isSetWeight;
+        }
 
         IOpenScenarioFlexElement* VehicleComponentImpl::GetOpenScenarioFlexElement()
         {
@@ -81474,6 +83865,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _vehicleComponentType = vehicleComponentType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_COMPONENT_TYPE);
+            _isSetVehicleComponentType = true;
         }
 
         std::shared_ptr<void> VehicleComponentImpl::GetAdapter(const std::string classifier)
@@ -81585,6 +83977,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _vehicleComponentType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetVehicleComponentType = true;
                 }
                 else
                 {
@@ -81677,6 +84070,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool VehicleComponentImpl::IsSetVehicleComponentType() const
+        {
+            return _isSetVehicleComponentType;
+        }
 
         IOpenScenarioFlexElement* VehicleLightImpl::GetOpenScenarioFlexElement()
         {
@@ -81692,6 +84089,7 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _vehicleLightType = vehicleLightType;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__VEHICLE_LIGHT_TYPE);
+            _isSetVehicleLightType = true;
         }
 
         std::shared_ptr<void> VehicleLightImpl::GetAdapter(const std::string classifier)
@@ -81803,6 +84201,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _vehicleLightType = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetVehicleLightType = true;
                 }
                 else
                 {
@@ -81895,6 +84294,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool VehicleLightImpl::IsSetVehicleLightType() const
+        {
+            return _isSetVehicleLightType;
+        }
 
         IOpenScenarioFlexElement* VehicleRoleDistributionImpl::GetOpenScenarioFlexElement()
         {
@@ -81930,6 +84333,7 @@ namespace NET_ASAM_OPENSCENARIO
         void VehicleRoleDistributionImpl::SetVehicleRoleDistributionEntries(std::vector<std::shared_ptr<IVehicleRoleDistributionEntryWriter>>& vehicleRoleDistributionEntries)
         {
             _vehicleRoleDistributionEntries = vehicleRoleDistributionEntries;
+            _isSetVehicleRoleDistributionEntries = true;
         }
 
         std::shared_ptr<void> VehicleRoleDistributionImpl::GetAdapter(const std::string classifier)
@@ -82112,6 +84516,10 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool VehicleRoleDistributionImpl::IsSetVehicleRoleDistributionEntries() const
+        {
+            return _isSetVehicleRoleDistributionEntries;
+        }
 
         IOpenScenarioFlexElement* VehicleRoleDistributionEntryImpl::GetOpenScenarioFlexElement()
         {
@@ -82131,12 +84539,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _role = role;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROLE);
+            _isSetRole = true;
         }
 
         void VehicleRoleDistributionEntryImpl::SetWeight(const double weight)
         {
             _weight = weight;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__WEIGHT);
+            _isSetWeight = true;
         }
 
         std::shared_ptr<void> VehicleRoleDistributionEntryImpl::GetAdapter(const std::string classifier)
@@ -82280,6 +84690,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _role = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRole = true;
                 }
                 else
                 {
@@ -82292,6 +84703,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _weight = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
         }
 
@@ -82385,11 +84797,20 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _weight = value;
                 AddResolvedParameter(attributeKey);
+                _isSetWeight = true;
             }
 		
 		}
 
 
+        bool VehicleRoleDistributionEntryImpl::IsSetRole() const
+        {
+            return _isSetRole;
+        }
+        bool VehicleRoleDistributionEntryImpl::IsSetWeight() const
+        {
+            return _isSetWeight;
+        }
 
         IOpenScenarioFlexElement* VertexImpl::GetOpenScenarioFlexElement()
         {
@@ -82409,13 +84830,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _time = time;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TIME);
-			// set the indicator to true
-            isSetTime = true;          
+            _isSetTime = true;
         }
 
         void VertexImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         std::shared_ptr<void> VertexImpl::GetAdapter(const std::string classifier)
@@ -82537,6 +84958,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _time = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTime = true;
             }
         }
 
@@ -82583,7 +85005,7 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_time = GetTime();
             // clone indicators
-            	clonedObject->isSetTime = isSetTime;
+            clonedObject->_isSetTime = _isSetTime;
             // clone children
             const auto kPosition =  GetWriterPosition();
             if (kPosition)
@@ -82637,21 +85059,26 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _time = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTime = true;
             }
 		
 		}
 
 
-       void VertexImpl::ResetTime()
-	   {
-	   		isSetTime = false; 
-			_time = {};
-			
-	   }
-       bool VertexImpl::IsSetTime() const
-	   {
-			return isSetTime;
-	   }
+        void VertexImpl::ResetTime()
+        {
+            _isSetTime = false; 
+            _time = {};
+
+        }
+        bool VertexImpl::IsSetTime() const
+        {
+            return _isSetTime;
+        }
+        bool VertexImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
 
         IOpenScenarioFlexElement* VisibilityActionImpl::GetOpenScenarioFlexElement()
         {
@@ -82679,25 +85106,27 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _graphics = graphics;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__GRAPHICS);
+            _isSetGraphics = true;
         }
 
         void VisibilityActionImpl::SetSensors(const bool sensors)
         {
             _sensors = sensors;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SENSORS);
+            _isSetSensors = true;
         }
 
         void VisibilityActionImpl::SetTraffic(const bool traffic)
         {
             _traffic = traffic;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TRAFFIC);
+            _isSetTraffic = true;
         }
 
         void VisibilityActionImpl::SetSensorReferenceSet(std::shared_ptr<ISensorReferenceSetWriter> sensorReferenceSet)
         {
             _sensorReferenceSet = sensorReferenceSet;
-			// set the indicator to true
-            isSetSensorReferenceSet = true;          
+            _isSetSensorReferenceSet = true;
         }
 
         std::shared_ptr<void> VisibilityActionImpl::GetAdapter(const std::string classifier)
@@ -82873,18 +85302,21 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _graphics = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetGraphics = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SENSORS)
             {
                 // Simple type
                 _sensors = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetSensors = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC)
             {
                 // Simple type
                 _traffic = ParserHelper::ParseBoolean(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTraffic = true;
             }
         }
 
@@ -82988,33 +85420,48 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _graphics = value;
                 AddResolvedParameter(attributeKey);
+                _isSetGraphics = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SENSORS)
             {
                 // Simple type
                 _sensors = value;
                 AddResolvedParameter(attributeKey);
+                _isSetSensors = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TRAFFIC)
             {
                 // Simple type
                 _traffic = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTraffic = true;
             }
 		
 		}
 
 
-       void VisibilityActionImpl::ResetSensorReferenceSet()
-	   {
-	   		isSetSensorReferenceSet = false; 
-			_sensorReferenceSet = {};
-			
-	   }
-       bool VisibilityActionImpl::IsSetSensorReferenceSet() const
-	   {
-			return isSetSensorReferenceSet;
-	   }
+        bool VisibilityActionImpl::IsSetGraphics() const
+        {
+            return _isSetGraphics;
+        }
+        bool VisibilityActionImpl::IsSetSensors() const
+        {
+            return _isSetSensors;
+        }
+        bool VisibilityActionImpl::IsSetTraffic() const
+        {
+            return _isSetTraffic;
+        }
+        void VisibilityActionImpl::ResetSensorReferenceSet()
+        {
+            _isSetSensorReferenceSet = false; 
+            _sensorReferenceSet = {};
+
+        }
+        bool VisibilityActionImpl::IsSetSensorReferenceSet() const
+        {
+            return _isSetSensorReferenceSet;
+        }
 
         IOpenScenarioFlexElement* WaypointImpl::GetOpenScenarioFlexElement()
         {
@@ -83034,11 +85481,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _routeStrategy = routeStrategy;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ROUTE_STRATEGY);
+            _isSetRouteStrategy = true;
         }
 
         void WaypointImpl::SetPosition(std::shared_ptr<IPositionWriter> position)
         {
             _position = position;
+            _isSetPosition = true;
         }
 
         std::shared_ptr<void> WaypointImpl::GetAdapter(const std::string classifier)
@@ -83154,6 +85603,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _routeStrategy = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetRouteStrategy = true;
                 }
                 else
                 {
@@ -83268,6 +85718,14 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
 
+        bool WaypointImpl::IsSetRouteStrategy() const
+        {
+            return _isSetRouteStrategy;
+        }
+        bool WaypointImpl::IsSetPosition() const
+        {
+            return _isSetPosition;
+        }
 
         IOpenScenarioFlexElement* WeatherImpl::GetOpenScenarioFlexElement()
         {
@@ -83315,67 +85773,58 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _atmosphericPressure = atmosphericPressure;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__ATMOSPHERIC_PRESSURE);
-			// set the indicator to true
-            isSetAtmosphericPressure = true;          
+            _isSetAtmosphericPressure = true;
         }
 
         void WeatherImpl::SetCloudState(const CloudState cloudState)
         {
             _cloudState = cloudState;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE);
-			// set the indicator to true
-            isSetCloudState = true;          
+            _isSetCloudState = true;
         }
 
         void WeatherImpl::SetFractionalCloudCover(const FractionalCloudCover fractionalCloudCover)
         {
             _fractionalCloudCover = fractionalCloudCover;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__FRACTIONAL_CLOUD_COVER);
-			// set the indicator to true
-            isSetFractionalCloudCover = true;          
+            _isSetFractionalCloudCover = true;
         }
 
         void WeatherImpl::SetTemperature(const double temperature)
         {
             _temperature = temperature;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__TEMPERATURE);
-			// set the indicator to true
-            isSetTemperature = true;          
+            _isSetTemperature = true;
         }
 
         void WeatherImpl::SetSun(std::shared_ptr<ISunWriter> sun)
         {
             _sun = sun;
-			// set the indicator to true
-            isSetSun = true;          
+            _isSetSun = true;
         }
 
         void WeatherImpl::SetFog(std::shared_ptr<IFogWriter> fog)
         {
             _fog = fog;
-			// set the indicator to true
-            isSetFog = true;          
+            _isSetFog = true;
         }
 
         void WeatherImpl::SetPrecipitation(std::shared_ptr<IPrecipitationWriter> precipitation)
         {
             _precipitation = precipitation;
-			// set the indicator to true
-            isSetPrecipitation = true;          
+            _isSetPrecipitation = true;
         }
 
         void WeatherImpl::SetWind(std::shared_ptr<IWindWriter> wind)
         {
             _wind = wind;
-			// set the indicator to true
-            isSetWind = true;          
+            _isSetWind = true;
         }
 
         void WeatherImpl::SetDomeImage(std::shared_ptr<IDomeImageWriter> domeImage)
         {
             _domeImage = domeImage;
-			// set the indicator to true
-            isSetDomeImage = true;          
+            _isSetDomeImage = true;
         }
 
         std::shared_ptr<void> WeatherImpl::GetAdapter(const std::string classifier)
@@ -83586,6 +86035,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _atmosphericPressure = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetAtmosphericPressure = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__CLOUD_STATE)
             {
@@ -83595,6 +86045,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _cloudState = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetCloudState = true;
                 }
                 else
                 {
@@ -83610,6 +86061,7 @@ namespace NET_ASAM_OPENSCENARIO
                 {
                     _fractionalCloudCover = kResult;
                     AddResolvedParameter(attributeKey);
+                    _isSetFractionalCloudCover = true;
                 }
                 else
                 {
@@ -83622,6 +86074,7 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _temperature = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetTemperature = true;
             }
         }
 
@@ -83702,10 +86155,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_temperature = GetTemperature();
             // clone indicators
-            	clonedObject->isSetAtmosphericPressure = isSetAtmosphericPressure;
-            	clonedObject->isSetCloudState = isSetCloudState;
-            	clonedObject->isSetFractionalCloudCover = isSetFractionalCloudCover;
-            	clonedObject->isSetTemperature = isSetTemperature;
+            clonedObject->_isSetAtmosphericPressure = _isSetAtmosphericPressure;
+            clonedObject->_isSetCloudState = _isSetCloudState;
+            clonedObject->_isSetFractionalCloudCover = _isSetFractionalCloudCover;
+            clonedObject->_isSetTemperature = _isSetTemperature;
             // clone children
             const auto kSun =  GetWriterSun();
             if (kSun)
@@ -83826,107 +86279,109 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _atmosphericPressure = value;
                 AddResolvedParameter(attributeKey);
+                _isSetAtmosphericPressure = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__TEMPERATURE)
             {
                 // Simple type
                 _temperature = value;
                 AddResolvedParameter(attributeKey);
+                _isSetTemperature = true;
             }
 		
 		}
 
 
-       void WeatherImpl::ResetAtmosphericPressure()
-	   {
-	   		isSetAtmosphericPressure = false; 
-			_atmosphericPressure = {};
-			
-	   }
-       bool WeatherImpl::IsSetAtmosphericPressure() const
-	   {
-			return isSetAtmosphericPressure;
-	   }
-       void WeatherImpl::ResetCloudState()
-	   {
-	   		isSetCloudState = false; 
-			_cloudState = {};
-			
-	   }
-       bool WeatherImpl::IsSetCloudState() const
-	   {
-			return isSetCloudState;
-	   }
-       void WeatherImpl::ResetFractionalCloudCover()
-	   {
-	   		isSetFractionalCloudCover = false; 
-			_fractionalCloudCover = {};
-			
-	   }
-       bool WeatherImpl::IsSetFractionalCloudCover() const
-	   {
-			return isSetFractionalCloudCover;
-	   }
-       void WeatherImpl::ResetTemperature()
-	   {
-	   		isSetTemperature = false; 
-			_temperature = {};
-			
-	   }
-       bool WeatherImpl::IsSetTemperature() const
-	   {
-			return isSetTemperature;
-	   }
-       void WeatherImpl::ResetSun()
-	   {
-	   		isSetSun = false; 
-			_sun = {};
-			
-	   }
-       bool WeatherImpl::IsSetSun() const
-	   {
-			return isSetSun;
-	   }
-       void WeatherImpl::ResetFog()
-	   {
-	   		isSetFog = false; 
-			_fog = {};
-			
-	   }
-       bool WeatherImpl::IsSetFog() const
-	   {
-			return isSetFog;
-	   }
-       void WeatherImpl::ResetPrecipitation()
-	   {
-	   		isSetPrecipitation = false; 
-			_precipitation = {};
-			
-	   }
-       bool WeatherImpl::IsSetPrecipitation() const
-	   {
-			return isSetPrecipitation;
-	   }
-       void WeatherImpl::ResetWind()
-	   {
-	   		isSetWind = false; 
-			_wind = {};
-			
-	   }
-       bool WeatherImpl::IsSetWind() const
-	   {
-			return isSetWind;
-	   }
-       void WeatherImpl::ResetDomeImage()
-	   {
-	   		isSetDomeImage = false; 
-			_domeImage = {};
-			
-	   }
-       bool WeatherImpl::IsSetDomeImage() const
-	   {
-			return isSetDomeImage;
-	   }
+        void WeatherImpl::ResetAtmosphericPressure()
+        {
+            _isSetAtmosphericPressure = false; 
+            _atmosphericPressure = {};
+
+        }
+        bool WeatherImpl::IsSetAtmosphericPressure() const
+        {
+            return _isSetAtmosphericPressure;
+        }
+        void WeatherImpl::ResetCloudState()
+        {
+            _isSetCloudState = false; 
+            _cloudState = {};
+
+        }
+        bool WeatherImpl::IsSetCloudState() const
+        {
+            return _isSetCloudState;
+        }
+        void WeatherImpl::ResetFractionalCloudCover()
+        {
+            _isSetFractionalCloudCover = false; 
+            _fractionalCloudCover = {};
+
+        }
+        bool WeatherImpl::IsSetFractionalCloudCover() const
+        {
+            return _isSetFractionalCloudCover;
+        }
+        void WeatherImpl::ResetTemperature()
+        {
+            _isSetTemperature = false; 
+            _temperature = {};
+
+        }
+        bool WeatherImpl::IsSetTemperature() const
+        {
+            return _isSetTemperature;
+        }
+        void WeatherImpl::ResetSun()
+        {
+            _isSetSun = false; 
+            _sun = {};
+
+        }
+        bool WeatherImpl::IsSetSun() const
+        {
+            return _isSetSun;
+        }
+        void WeatherImpl::ResetFog()
+        {
+            _isSetFog = false; 
+            _fog = {};
+
+        }
+        bool WeatherImpl::IsSetFog() const
+        {
+            return _isSetFog;
+        }
+        void WeatherImpl::ResetPrecipitation()
+        {
+            _isSetPrecipitation = false; 
+            _precipitation = {};
+
+        }
+        bool WeatherImpl::IsSetPrecipitation() const
+        {
+            return _isSetPrecipitation;
+        }
+        void WeatherImpl::ResetWind()
+        {
+            _isSetWind = false; 
+            _wind = {};
+
+        }
+        bool WeatherImpl::IsSetWind() const
+        {
+            return _isSetWind;
+        }
+        void WeatherImpl::ResetDomeImage()
+        {
+            _isSetDomeImage = false; 
+            _domeImage = {};
+
+        }
+        bool WeatherImpl::IsSetDomeImage() const
+        {
+            return _isSetDomeImage;
+        }
 
         IOpenScenarioFlexElement* WindImpl::GetOpenScenarioFlexElement()
         {
@@ -83946,12 +86401,14 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _direction = direction;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__DIRECTION);
+            _isSetDirection = true;
         }
 
         void WindImpl::SetSpeed(const double speed)
         {
             _speed = speed;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__SPEED);
+            _isSetSpeed = true;
         }
 
         std::shared_ptr<void> WindImpl::GetAdapter(const std::string classifier)
@@ -84096,12 +86553,14 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _direction = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetDirection = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPEED)
             {
                 // Simple type
                 _speed = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetSpeed = true;
             }
         }
 
@@ -84181,17 +86640,27 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _direction = value;
                 AddResolvedParameter(attributeKey);
+                _isSetDirection = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__SPEED)
             {
                 // Simple type
                 _speed = value;
                 AddResolvedParameter(attributeKey);
+                _isSetSpeed = true;
             }
 		
 		}
 
 
+        bool WindImpl::IsSetDirection() const
+        {
+            return _isSetDirection;
+        }
+        bool WindImpl::IsSetSpeed() const
+        {
+            return _isSetSpeed;
+        }
 
         IOpenScenarioFlexElement* WorldPositionImpl::GetOpenScenarioFlexElement()
         {
@@ -84227,44 +86696,42 @@ namespace NET_ASAM_OPENSCENARIO
         {
             _h = h;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__H);
-			// set the indicator to true
-            isSetH = true;          
+            _isSetH = true;
         }
 
         void WorldPositionImpl::SetP(const double p)
         {
             _p = p;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__P);
-			// set the indicator to true
-            isSetP = true;          
+            _isSetP = true;
         }
 
         void WorldPositionImpl::SetR(const double r)
         {
             _r = r;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__R);
-			// set the indicator to true
-            isSetR = true;          
+            _isSetR = true;
         }
 
         void WorldPositionImpl::SetX(const double x)
         {
             _x = x;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__X);
+            _isSetX = true;
         }
 
         void WorldPositionImpl::SetY(const double y)
         {
             _y = y;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Y);
+            _isSetY = true;
         }
 
         void WorldPositionImpl::SetZ(const double z)
         {
             _z = z;
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__Z);
-			// set the indicator to true
-            isSetZ = true;          
+            _isSetZ = true;
         }
 
         std::shared_ptr<void> WorldPositionImpl::GetAdapter(const std::string classifier)
@@ -84517,36 +86984,42 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _h = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetH = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__P)
             {
                 // Simple type
                 _p = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetP = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__R)
             {
                 // Simple type
                 _r = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetR = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__X)
             {
                 // Simple type
                 _x = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetX = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Y)
             {
                 // Simple type
                 _y = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetY = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Z)
             {
                 // Simple type
                 _z = ParserHelper::ParseDouble(logger, parameterLiteralValue, *GetTextmarker(attributeKey));
                 AddResolvedParameter(attributeKey);
+                _isSetZ = true;
             }
         }
 
@@ -84598,10 +87071,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->_z = GetZ();
             // clone indicators
-            	clonedObject->isSetH = isSetH;
-            	clonedObject->isSetP = isSetP;
-            	clonedObject->isSetR = isSetR;
-            	clonedObject->isSetZ = isSetZ;
+            clonedObject->_isSetH = _isSetH;
+            clonedObject->_isSetP = _isSetP;
+            clonedObject->_isSetR = _isSetR;
+            clonedObject->_isSetZ = _isSetZ;
             // clone children
             return clonedObject;
         }
@@ -84638,81 +87111,95 @@ namespace NET_ASAM_OPENSCENARIO
                 // Simple type
                 _h = value;
                 AddResolvedParameter(attributeKey);
+                _isSetH = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__P)
             {
                 // Simple type
                 _p = value;
                 AddResolvedParameter(attributeKey);
+                _isSetP = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__R)
             {
                 // Simple type
                 _r = value;
                 AddResolvedParameter(attributeKey);
+                _isSetR = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__X)
             {
                 // Simple type
                 _x = value;
                 AddResolvedParameter(attributeKey);
+                _isSetX = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Y)
             {
                 // Simple type
                 _y = value;
                 AddResolvedParameter(attributeKey);
+                _isSetY = true;
             }
             else if (attributeKey == OSC_CONSTANTS::ATTRIBUTE__Z)
             {
                 // Simple type
                 _z = value;
                 AddResolvedParameter(attributeKey);
+                _isSetZ = true;
             }
 		
 		}
 
 
-       void WorldPositionImpl::ResetH()
-	   {
-	   		isSetH = false; 
-			_h = {0};
-			
-	   }
-       bool WorldPositionImpl::IsSetH() const
-	   {
-			return isSetH;
-	   }
-       void WorldPositionImpl::ResetP()
-	   {
-	   		isSetP = false; 
-			_p = {0};
-			
-	   }
-       bool WorldPositionImpl::IsSetP() const
-	   {
-			return isSetP;
-	   }
-       void WorldPositionImpl::ResetR()
-	   {
-	   		isSetR = false; 
-			_r = {0};
-			
-	   }
-       bool WorldPositionImpl::IsSetR() const
-	   {
-			return isSetR;
-	   }
-       void WorldPositionImpl::ResetZ()
-	   {
-	   		isSetZ = false; 
-			_z = {0};
-			
-	   }
-       bool WorldPositionImpl::IsSetZ() const
-	   {
-			return isSetZ;
-	   }
+        void WorldPositionImpl::ResetH()
+        {
+            _isSetH = false; 
+            _h = {0};
+
+        }
+        bool WorldPositionImpl::IsSetH() const
+        {
+            return _isSetH;
+        }
+        void WorldPositionImpl::ResetP()
+        {
+            _isSetP = false; 
+            _p = {0};
+
+        }
+        bool WorldPositionImpl::IsSetP() const
+        {
+            return _isSetP;
+        }
+        void WorldPositionImpl::ResetR()
+        {
+            _isSetR = false; 
+            _r = {0};
+
+        }
+        bool WorldPositionImpl::IsSetR() const
+        {
+            return _isSetR;
+        }
+        bool WorldPositionImpl::IsSetX() const
+        {
+            return _isSetX;
+        }
+        bool WorldPositionImpl::IsSetY() const
+        {
+            return _isSetY;
+        }
+        void WorldPositionImpl::ResetZ()
+        {
+            _isSetZ = false; 
+            _z = {0};
+
+        }
+        bool WorldPositionImpl::IsSetZ() const
+        {
+            return _isSetZ;
+        }
     }
 }
 

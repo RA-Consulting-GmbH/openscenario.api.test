@@ -85,13 +85,12 @@ namespace NET_ASAM_OPENSCENARIO
 <%-}}-%>
 
 <%-properties.each{ property ->-%>
-<%-if (property.lower == 0) {-%>
             /**
             * Retrieves whether property <%=property.name.toMemberName()%> is set
-            * @return true when the optional property is set
+            * @return true when the property is set
             */
             virtual bool IsSet<%=property.name.toClassName()%>() const = 0;
-<%-}}-%>
+<%-}-%>
 
         };
 
