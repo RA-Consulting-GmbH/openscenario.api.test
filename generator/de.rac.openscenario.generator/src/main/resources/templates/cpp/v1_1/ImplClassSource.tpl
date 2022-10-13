@@ -112,7 +112,7 @@ namespace NET_ASAM_OPENSCENARIO
 <%-if (property.isParameterizableProperty()){-%>
             //RemoveAttributeParameter(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>);
 <%-}-%>
-			_isSet<%=property.name.toClassName()%> = true;
+            _isSet<%=property.name.toClassName()%> = true;
         }
 <%-}-%>
 
@@ -368,8 +368,8 @@ namespace NET_ASAM_OPENSCENARIO
             <%-}-%>
             <%-}-%>
             // clone indicators
-            <%-properties.findAll(){property -> property.lower == 0}.each{ property ->-%>          
-            	clonedObject->_isSet<%=property.name.toClassName()%> = _isSet<%=property.name.toClassName()%>;
+            <%-properties.findAll(){property -> property.lower == 0}.each{ property ->-%>
+            clonedObject->_isSet<%=property.name.toClassName()%> = _isSet<%=property.name.toClassName()%>;
             <%-}-%>
             // clone children
             <%-properties = element.getXmlElementProperties();-%>
@@ -535,33 +535,31 @@ namespace NET_ASAM_OPENSCENARIO
 <%-addResolveFunction(element, "dateTime", "DateTime")-%>
 
 <%-if (helper.hasStringTypedValue(element)){-%>
-		bool <%=element.name.toClassName()%>Impl::IsTypedStringAttribute(std::string& attributeKey)
-		{
-			return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
-		}
+        bool <%=element.name.toClassName()%>Impl::IsTypedStringAttribute(std::string& attributeKey)
+        {
+            return (attributeKey == OSC_CONSTANTS::ATTRIBUTE__VALUE);
+        }
 <%-}-%>	
 
 <%-properties = element.umlProperties-%>
 <%-properties.each{ property ->-%>
 <%-if (property.lower == 0) {-%>
-       void <%=element.name.toClassName()%>Impl::Reset<%=property.name.toClassName()%>()
-	   {
-	   		_isSet<%=property.name.toClassName()%> = false; 
-	   		<%- if (property.isProxy() && !property.isList()){-%>
-        	_<%=property.name.toMemberName()%> = nullptr;
-			<%-}else{-%>
-			_<%=property.name.toMemberName()%> = {<%=defaultValueHelper.getDefaultValue(element.name.toClassName(),property.name.toMemberName())%>};
-			<%-}-%>
-			
-	   }
-<%-}-%>
-       bool <%=element.name.toClassName()%>Impl::IsSet<%=property.name.toClassName()%>() const
-	   {
-			return _isSet<%=property.name.toClassName()%>;
-	   }
-<%-}-%>
+        void <%=element.name.toClassName()%>Impl::Reset<%=property.name.toClassName()%>()
+        {
+            _isSet<%=property.name.toClassName()%> = false; 
+            <%- if (property.isProxy() && !property.isList()){-%>
+            _<%=property.name.toMemberName()%> = nullptr;
+            <%-}else{-%>
+            _<%=property.name.toMemberName()%> = {<%=defaultValueHelper.getDefaultValue(element.name.toClassName(),property.name.toMemberName())%>};
+            <%-}-%>
 
-
+        }
+<%-}-%>
+        bool <%=element.name.toClassName()%>Impl::IsSet<%=property.name.toClassName()%>() const
+        {
+            return _isSet<%=property.name.toClassName()%>;
+        }
+<%-}-%>
 <%-}-%>
     }
 }

@@ -64,6 +64,7 @@
 #include "TestFlexInterfaceV1_2.h"
 #include "TestInjectedParametersV1_2.h"
 #include "TestWriterApiV1_2.h"
+#include "TestCardinalityV1_2.h"
 #endif
 
 #ifdef SUPPORT_OSC_1_0
@@ -263,6 +264,7 @@ bool TestV1_2(std::string basePath)
 	NET_ASAM_OPENSCENARIO::v1_2::TestVariableValidation testVariableValidation(basePath);
 	NET_ASAM_OPENSCENARIO::v1_2::TestDeprecatedValidation testDeprecatedValidation(basePath);
 	NET_ASAM_OPENSCENARIO::v1_2::TestExamplesOsc testExamplesOsc(basePath);
+    NET_ASAM_OPENSCENARIO::v1_2::TestCardinality testCardinality(basePath);
 
 	auto result = true;
 
@@ -350,6 +352,9 @@ bool TestV1_2(std::string basePath)
 	result = testDeprecatedValidation.TestValidation() && result;
 
 	result = testExamplesOsc.TestScenarios() && result;
+
+    result = testCardinality.TestEmptyStory() && result;
+    result = testCardinality.TestMultipleGroupElements() && result;
 	
 	return result;
 }

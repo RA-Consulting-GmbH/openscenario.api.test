@@ -263,7 +263,9 @@
                         <VehicleCategoryDistributionEntry category="car" weight="2"></VehicleCategoryDistributionEntry>
                       </VehicleCategoryDistribution>
                       <ControllerDistribution>
-                        <ControllerDistributionEntry weight="2"></ControllerDistributionEntry>
+                        <ControllerDistributionEntry  weight="2" >
+                            <CatalogReference catalogName="DriverCatalog" entryName="DefaultDriver"/>
+                        </ControllerDistributionEntry>
                       </ControllerDistribution>
                     </TrafficDefinition>
                   </TrafficSourceAction>
@@ -280,7 +282,9 @@
                         <VehicleCategoryDistributionEntry category="car" weight="2"></VehicleCategoryDistributionEntry>
                       </VehicleCategoryDistribution>
                       <ControllerDistribution>
-                        <ControllerDistributionEntry weight="2"></ControllerDistributionEntry>
+                        <ControllerDistributionEntry  weight="2" >
+                            <CatalogReference catalogName="DriverCatalog" entryName="DefaultDriver"/>
+                        </ControllerDistributionEntry>
                       </ControllerDistribution>
                     </TrafficDefinition>
                     <InitialSpeedRange upperLimit="3" lowerLimit="4"/>

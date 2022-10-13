@@ -73,7 +73,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AbsoluteSpeedCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteSpeed>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -140,7 +140,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AbsoluteTargetLaneCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteTargetLane>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -207,7 +207,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AbsoluteTargetLaneOffsetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteTargetLaneOffset>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -274,7 +274,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AbsoluteTargetSpeedCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAbsoluteTargetSpeed>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -347,7 +347,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AccelerationConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAccelerationCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -414,7 +414,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AcquirePositionActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAcquirePositionAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -494,7 +494,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ActCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAct>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -551,16 +551,16 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetGlobalAction();
+            elementsDefined += object->IsSetGlobalAction()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__GLOBAL_ACTION );
-            oneElementDefined ^= object->IsSetUserDefinedAction();
+            elementsDefined += object->IsSetUserDefinedAction()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__USER_DEFINED_ACTION );
-            oneElementDefined ^= object->IsSetPrivateAction();
+            elementsDefined += object->IsSetPrivateAction()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__PRIVATE_ACTION );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -572,7 +572,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -639,7 +639,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ActorsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IActors>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -706,7 +706,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AddEntityActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAddEntityAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -797,7 +797,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AxleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAxle>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -870,7 +870,7 @@ namespace NET_ASAM_OPENSCENARIO
         void AxlesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IAxles>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -943,7 +943,7 @@ namespace NET_ASAM_OPENSCENARIO
         void BoundingBoxCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IBoundingBox>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1016,7 +1016,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ByEntityConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IByEntityCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1083,7 +1083,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ByObjectTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IByObjectType>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1150,7 +1150,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ByTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IByType>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1217,7 +1217,7 @@ namespace NET_ASAM_OPENSCENARIO
         void CatalogDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICatalogDefinition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1290,7 +1290,7 @@ namespace NET_ASAM_OPENSCENARIO
         void CatalogReferenceCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICatalogReference>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1369,7 +1369,7 @@ namespace NET_ASAM_OPENSCENARIO
         void CenterCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICenter>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1436,7 +1436,7 @@ namespace NET_ASAM_OPENSCENARIO
         void CentralSwarmObjectCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICentralSwarmObject>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1515,7 +1515,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ClothoidCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IClothoid>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1584,14 +1584,14 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetByEntityCondition();
+            elementsDefined += object->IsSetByEntityCondition()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__BY_ENTITY_CONDITION );
-            oneElementDefined ^= object->IsSetByValueCondition();
+            elementsDefined += object->IsSetByValueCondition()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__BY_VALUE_CONDITION );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -1603,7 +1603,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1671,7 +1671,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ConditionGroupCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IConditionGroup>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1738,7 +1738,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ControlPointCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IControlPoint>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1811,7 +1811,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ControllerCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IController>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1878,7 +1878,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ControllerCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IControllerCatalogLocation>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -1946,7 +1946,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ControllerDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IControllerDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2003,14 +2003,14 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetController();
+            elementsDefined += object->IsSetController()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__CONTROLLER );
-            oneElementDefined ^= object->IsSetCatalogReference();
+            elementsDefined += object->IsSetCatalogReference()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -2022,7 +2022,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ControllerDistributionEntryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IControllerDistributionEntry>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2095,7 +2095,7 @@ namespace NET_ASAM_OPENSCENARIO
         void CustomCommandActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ICustomCommandAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2162,7 +2162,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DeterministicMultiParameterDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicMultiParameterDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2229,7 +2229,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DeterministicMultiParameterDistributionTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicMultiParameterDistributionType>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2280,14 +2280,14 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetDeterministicMultiParameterDistribution();
+            elementsDefined += object->IsSetDeterministicMultiParameterDistribution()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DETERMINISTIC_MULTI_PARAMETER_DISTRIBUTION );
-            oneElementDefined ^= object->IsSetDeterministicSingleParameterDistribution();
+            elementsDefined += object->IsSetDeterministicSingleParameterDistribution()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DETERMINISTIC_SINGLE_PARAMETER_DISTRIBUTION );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -2299,7 +2299,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DeterministicParameterDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicParameterDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2372,7 +2372,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DeterministicSingleParameterDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicSingleParameterDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2423,16 +2423,16 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetDistributionSet();
+            elementsDefined += object->IsSetDistributionSet()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DISTRIBUTION_SET );
-            oneElementDefined ^= object->IsSetDistributionRange();
+            elementsDefined += object->IsSetDistributionRange()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DISTRIBUTION_RANGE );
-            oneElementDefined ^= object->IsSetUserDefinedDistribution();
+            elementsDefined += object->IsSetUserDefinedDistribution()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__USER_DEFINED_DISTRIBUTION );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -2444,7 +2444,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DeterministicSingleParameterDistributionTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDeterministicSingleParameterDistributionType>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2523,7 +2523,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DimensionsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDimensions>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2590,7 +2590,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DirectoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDirectory>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2675,7 +2675,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DistanceConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDistanceCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2726,14 +2726,14 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetDeterministic();
+            elementsDefined += object->IsSetDeterministic()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DETERMINISTIC );
-            oneElementDefined ^= object->IsSetStochastic();
+            elementsDefined += object->IsSetStochastic()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__STOCHASTIC );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -2745,7 +2745,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DistributionDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionDefinition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2818,7 +2818,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DistributionRangeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionRange>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2886,7 +2886,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DistributionSetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionSet>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -2953,7 +2953,7 @@ namespace NET_ASAM_OPENSCENARIO
         void DistributionSetElementCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IDistributionSetElement>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3020,7 +3020,7 @@ namespace NET_ASAM_OPENSCENARIO
         void EndOfRoadConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEndOfRoadCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3077,14 +3077,14 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetAddEntityAction();
+            elementsDefined += object->IsSetAddEntityAction()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__ADD_ENTITY_ACTION );
-            oneElementDefined ^= object->IsSetDeleteEntityAction();
+            elementsDefined += object->IsSetDeleteEntityAction()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__DELETE_ENTITY_ACTION );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -3096,7 +3096,7 @@ namespace NET_ASAM_OPENSCENARIO
         void EntityActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEntityAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3163,7 +3163,7 @@ namespace NET_ASAM_OPENSCENARIO
         void EntityRefCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEntityRef>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3236,7 +3236,7 @@ namespace NET_ASAM_OPENSCENARIO
         void EntitySelectionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEntitySelection>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3303,7 +3303,7 @@ namespace NET_ASAM_OPENSCENARIO
         void EnvironmentCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEnvironment>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3370,7 +3370,7 @@ namespace NET_ASAM_OPENSCENARIO
         void EnvironmentCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEnvironmentCatalogLocation>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3450,7 +3450,7 @@ namespace NET_ASAM_OPENSCENARIO
         void EventCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IEvent>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3517,7 +3517,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ExternalObjectReferenceCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IExternalObjectReference>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3584,7 +3584,7 @@ namespace NET_ASAM_OPENSCENARIO
         void FileCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IFile>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3675,7 +3675,7 @@ namespace NET_ASAM_OPENSCENARIO
         void FileHeaderCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IFileHeader>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3742,7 +3742,7 @@ namespace NET_ASAM_OPENSCENARIO
         void FogCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IFog>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3815,7 +3815,7 @@ namespace NET_ASAM_OPENSCENARIO
         void FollowTrajectoryActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IFollowTrajectoryAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3888,7 +3888,7 @@ namespace NET_ASAM_OPENSCENARIO
         void GeoPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IGeoPosition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -3956,7 +3956,7 @@ namespace NET_ASAM_OPENSCENARIO
         void HistogramCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IHistogram>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4029,7 +4029,7 @@ namespace NET_ASAM_OPENSCENARIO
         void HistogramBinCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IHistogramBin>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4096,7 +4096,7 @@ namespace NET_ASAM_OPENSCENARIO
         void InfrastructureActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IInfrastructureAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4163,7 +4163,7 @@ namespace NET_ASAM_OPENSCENARIO
         void InitCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IInit>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4230,7 +4230,7 @@ namespace NET_ASAM_OPENSCENARIO
         void KnotCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IKnot>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4303,7 +4303,7 @@ namespace NET_ASAM_OPENSCENARIO
         void LaneChangeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILaneChangeAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4382,7 +4382,7 @@ namespace NET_ASAM_OPENSCENARIO
         void LaneOffsetActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILaneOffsetAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4449,7 +4449,7 @@ namespace NET_ASAM_OPENSCENARIO
         void LaneOffsetActionDynamicsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILaneOffsetActionDynamics>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4528,7 +4528,7 @@ namespace NET_ASAM_OPENSCENARIO
         void LanePositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILanePosition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4607,7 +4607,7 @@ namespace NET_ASAM_OPENSCENARIO
         void LateralDistanceActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILateralDistanceAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4674,7 +4674,7 @@ namespace NET_ASAM_OPENSCENARIO
         void LicenseCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILicense>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4753,7 +4753,7 @@ namespace NET_ASAM_OPENSCENARIO
         void LongitudinalDistanceActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ILongitudinalDistanceAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4827,7 +4827,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ManeuverCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IManeuver>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4894,7 +4894,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ManeuverCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IManeuverCatalogLocation>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -4973,7 +4973,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ManeuverGroupCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IManeuverGroup>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5064,7 +5064,7 @@ namespace NET_ASAM_OPENSCENARIO
         void MiscObjectCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IMiscObject>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5131,7 +5131,7 @@ namespace NET_ASAM_OPENSCENARIO
         void MiscObjectCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IMiscObjectCatalogLocation>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5204,7 +5204,7 @@ namespace NET_ASAM_OPENSCENARIO
         void NormalDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<INormalDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5285,7 +5285,7 @@ namespace NET_ASAM_OPENSCENARIO
         void NurbsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<INurbs>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5352,7 +5352,7 @@ namespace NET_ASAM_OPENSCENARIO
         void OffroadConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOffroadCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5425,7 +5425,7 @@ namespace NET_ASAM_OPENSCENARIO
         void OpenScenarioCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOpenScenario>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5476,16 +5476,16 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetScenarioDefinition();
+            elementsDefined += object->IsSetScenarioDefinition()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__SCENARIO_DEFINITION );
-            oneElementDefined ^= object->IsSetCatalogDefinition();
+            elementsDefined += object->IsSetCatalogDefinition()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__CATALOG_DEFINITION );
-            oneElementDefined ^= object->IsSetParameterValueDistributionDefinition();
+            elementsDefined += object->IsSetParameterValueDistributionDefinition()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__PARAMETER_VALUE_DISTRIBUTION_DEFINITION );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -5497,7 +5497,7 @@ namespace NET_ASAM_OPENSCENARIO
         void OpenScenarioCategoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOpenScenarioCategory>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5570,7 +5570,7 @@ namespace NET_ASAM_OPENSCENARIO
         void OverrideBrakeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideBrakeAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5643,7 +5643,7 @@ namespace NET_ASAM_OPENSCENARIO
         void OverrideClutchActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideClutchAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5716,7 +5716,7 @@ namespace NET_ASAM_OPENSCENARIO
         void OverrideGearActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideGearAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5789,7 +5789,7 @@ namespace NET_ASAM_OPENSCENARIO
         void OverrideParkingBrakeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideParkingBrakeAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5862,7 +5862,7 @@ namespace NET_ASAM_OPENSCENARIO
         void OverrideSteeringWheelActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideSteeringWheelAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5935,7 +5935,7 @@ namespace NET_ASAM_OPENSCENARIO
         void OverrideThrottleActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IOverrideThrottleAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -5992,14 +5992,14 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetSetAction();
+            elementsDefined += object->IsSetSetAction()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__SET_ACTION );
-            oneElementDefined ^= object->IsSetModifyAction();
+            elementsDefined += object->IsSetModifyAction()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__MODIFY_ACTION );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -6011,7 +6011,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6078,7 +6078,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterAddValueRuleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterAddValueRule>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6151,7 +6151,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterAssignmentCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterAssignment>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6230,7 +6230,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6309,7 +6309,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterDeclarationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterDeclaration>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6376,7 +6376,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterModifyActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterModifyAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6443,7 +6443,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterMultiplyByValueRuleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterMultiplyByValueRule>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6510,7 +6510,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterSetActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterSetAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6583,7 +6583,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterValueDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterValueDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6650,7 +6650,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterValueDistributionDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterValueDistributionDefinition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6718,7 +6718,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ParameterValueSetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IParameterValueSet>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6809,7 +6809,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PedestrianCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPedestrian>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6876,7 +6876,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PedestrianCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPedestrianCatalogLocation>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -6955,7 +6955,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PerformanceCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPerformance>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7028,7 +7028,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PhaseCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPhase>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7095,7 +7095,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PoissonDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPoissonDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7163,7 +7163,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PolylineCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPolyline>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7236,7 +7236,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PositionInLaneCoordinatesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPositionInLaneCoordinates>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7309,7 +7309,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PositionInRoadCoordinatesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPositionInRoadCoordinates>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7376,7 +7376,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PositionOfCurrentEntityCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPositionOfCurrentEntity>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7443,7 +7443,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PrecipitationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPrecipitation>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7517,7 +7517,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PrivateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IPrivate>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7585,7 +7585,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ProbabilityDistributionSetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IProbabilityDistributionSet>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7658,7 +7658,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ProbabilityDistributionSetElementCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IProbabilityDistributionSetElement>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7731,7 +7731,7 @@ namespace NET_ASAM_OPENSCENARIO
         void PropertyCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IProperty>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7804,7 +7804,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RangeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRange>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7877,7 +7877,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ReachPositionConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IReachPositionCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -7968,7 +7968,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeDistanceConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeDistanceCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8041,7 +8041,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeLanePositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeLanePosition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8120,7 +8120,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeObjectPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeObjectPosition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8199,7 +8199,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeRoadPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeRoadPosition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8278,7 +8278,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeSpeedConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeSpeedCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8351,7 +8351,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeSpeedToMasterCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeSpeedToMaster>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8424,7 +8424,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeTargetLaneCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeTargetLane>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8497,7 +8497,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeTargetLaneOffsetCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeTargetLaneOffset>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8582,7 +8582,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeTargetSpeedCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeTargetSpeed>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8661,7 +8661,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RelativeWorldPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRelativeWorldPosition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8728,7 +8728,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RoadConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRoadCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8807,7 +8807,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RoadPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRoadPosition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8887,7 +8887,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RouteCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRoute>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -8954,7 +8954,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RouteCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRouteCatalogLocation>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9027,7 +9027,7 @@ namespace NET_ASAM_OPENSCENARIO
         void RoutePositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IRoutePosition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9112,7 +9112,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ScenarioDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IScenarioDefinition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9185,7 +9185,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ScenarioObjectCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IScenarioObject>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9258,7 +9258,7 @@ namespace NET_ASAM_OPENSCENARIO
         void SimulationTimeConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISimulationTimeCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9331,7 +9331,7 @@ namespace NET_ASAM_OPENSCENARIO
         void SpeedActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISpeedAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9404,7 +9404,7 @@ namespace NET_ASAM_OPENSCENARIO
         void SpeedConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISpeedCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9471,7 +9471,7 @@ namespace NET_ASAM_OPENSCENARIO
         void StandStillConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStandStillCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9522,14 +9522,14 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetTargetDistanceSteadyState();
+            elementsDefined += object->IsSetTargetDistanceSteadyState()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__TARGET_DISTANCE_STEADY_STATE );
-            oneElementDefined ^= object->IsSetTargetTimeSteadyState();
+            elementsDefined += object->IsSetTargetTimeSteadyState()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__TARGET_TIME_STEADY_STATE );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -9541,7 +9541,7 @@ namespace NET_ASAM_OPENSCENARIO
         void SteadyStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISteadyState>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9615,7 +9615,7 @@ namespace NET_ASAM_OPENSCENARIO
         void StochasticCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStochastic>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9688,7 +9688,7 @@ namespace NET_ASAM_OPENSCENARIO
         void StochasticDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStochasticDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9739,22 +9739,22 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetProbabilityDistributionSet();
+            elementsDefined += object->IsSetProbabilityDistributionSet()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__PROBABILITY_DISTRIBUTION_SET );
-            oneElementDefined ^= object->IsSetNormalDistribution();
+            elementsDefined += object->IsSetNormalDistribution()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__NORMAL_DISTRIBUTION );
-            oneElementDefined ^= object->IsSetUniformDistribution();
+            elementsDefined += object->IsSetUniformDistribution()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__UNIFORM_DISTRIBUTION );
-            oneElementDefined ^= object->IsSetPoissonDistribution();
+            elementsDefined += object->IsSetPoissonDistribution()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__POISSON_DISTRIBUTION );
-            oneElementDefined ^= object->IsSetHistogram();
+            elementsDefined += object->IsSetHistogram()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__HISTOGRAM );
-            oneElementDefined ^= object->IsSetUserDefinedDistribution();
+            elementsDefined += object->IsSetUserDefinedDistribution()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__USER_DEFINED_DISTRIBUTION );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -9766,7 +9766,7 @@ namespace NET_ASAM_OPENSCENARIO
         void StochasticDistributionTypeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStochasticDistributionType>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9840,7 +9840,7 @@ namespace NET_ASAM_OPENSCENARIO
         void StoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStory>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9920,7 +9920,7 @@ namespace NET_ASAM_OPENSCENARIO
         void StoryboardCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStoryboard>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -9999,7 +9999,7 @@ namespace NET_ASAM_OPENSCENARIO
         void StoryboardElementStateConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IStoryboardElementStateCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10078,7 +10078,7 @@ namespace NET_ASAM_OPENSCENARIO
         void SunCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISun>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10157,7 +10157,7 @@ namespace NET_ASAM_OPENSCENARIO
         void SynchronizeActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ISynchronizeAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10214,11 +10214,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             //Xor elements check
-            bool oneElementDefined = false;
-            std::vector<std::string> propertiesName;
-
-            if (!oneElementDefined)
-                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
         }
@@ -10229,7 +10224,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TargetDistanceSteadyStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITargetDistanceSteadyState>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10286,11 +10281,6 @@ namespace NET_ASAM_OPENSCENARIO
             }
 
             //Xor elements check
-            bool oneElementDefined = false;
-            std::vector<std::string> propertiesName;
-
-            if (!oneElementDefined)
-                violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
         }
@@ -10301,7 +10291,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TargetTimeSteadyStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITargetTimeSteadyState>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10368,7 +10358,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TeleportActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITeleportAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10453,7 +10443,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TimeHeadwayConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITimeHeadwayCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10526,7 +10516,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TimeOfDayCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITimeOfDay>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10599,7 +10589,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TimeOfDayConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITimeOfDayCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10684,7 +10674,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TimeToCollisionConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITimeToCollisionCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10763,7 +10753,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TimingCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITiming>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10842,7 +10832,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficDefinitionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficDefinition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10915,7 +10905,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSignalConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -10982,7 +10972,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSignalControllerCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalController>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11055,7 +11045,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSignalControllerActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalControllerAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11128,7 +11118,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSignalControllerConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalControllerCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11201,7 +11191,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSignalStateCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalState>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11274,7 +11264,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSignalStateActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSignalStateAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11347,7 +11337,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSinkActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSinkAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11432,7 +11422,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSourceActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSourceAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11535,7 +11525,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrafficSwarmActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrafficSwarmAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11614,7 +11604,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrajectoryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectory>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11681,7 +11671,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrajectoryCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryCatalogLocation>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11748,7 +11738,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrajectoryFollowingModeCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryFollowingMode>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11821,7 +11811,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrajectoryPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryPosition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11872,14 +11862,14 @@ namespace NET_ASAM_OPENSCENARIO
             std::vector<CardinalityViolation> violations;
 
             //Xor elements check
-            bool oneElementDefined = false;
+            uint16_t elementsDefined = 0;
             std::vector<std::string> propertiesName;
-            oneElementDefined ^= object->IsSetTrajectory();
+            elementsDefined += object->IsSetTrajectory()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__TRAJECTORY );
-            oneElementDefined ^= object->IsSetCatalogReference();
+            elementsDefined += object->IsSetCatalogReference()?1:0;
             propertiesName.push_back( OSC_CONSTANTS::ELEMENT__CATALOG_REFERENCE );
 
-            if (!oneElementDefined)
+            if (elementsDefined != 1)
                 violations.push_back( CardinalityViolation(propertiesName, 0, 1, VIOLATION_TYPE::REQUIRED_XOR) );
 
             return violations;
@@ -11891,7 +11881,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TrajectoryRefCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITrajectoryRef>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -11970,7 +11960,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TransitionDynamicsCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITransitionDynamics>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12037,7 +12027,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TraveledDistanceConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITraveledDistanceCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12111,7 +12101,7 @@ namespace NET_ASAM_OPENSCENARIO
         void TriggeringEntitiesCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<ITriggeringEntities>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12178,7 +12168,7 @@ namespace NET_ASAM_OPENSCENARIO
         void UniformDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IUniformDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12246,7 +12236,7 @@ namespace NET_ASAM_OPENSCENARIO
         void UsedAreaCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IUsedArea>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12313,7 +12303,7 @@ namespace NET_ASAM_OPENSCENARIO
         void UserDefinedActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IUserDefinedAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12386,7 +12376,7 @@ namespace NET_ASAM_OPENSCENARIO
         void UserDefinedDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IUserDefinedDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12465,7 +12455,7 @@ namespace NET_ASAM_OPENSCENARIO
         void UserDefinedValueConditionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IUserDefinedValueCondition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12538,7 +12528,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ValueConstraintCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IValueConstraint>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12606,7 +12596,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ValueConstraintGroupCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IValueConstraintGroup>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12674,7 +12664,7 @@ namespace NET_ASAM_OPENSCENARIO
         void ValueSetDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IValueSetDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12771,7 +12761,7 @@ namespace NET_ASAM_OPENSCENARIO
         void VehicleCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVehicle>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12838,7 +12828,7 @@ namespace NET_ASAM_OPENSCENARIO
         void VehicleCatalogLocationCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVehicleCatalogLocation>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12906,7 +12896,7 @@ namespace NET_ASAM_OPENSCENARIO
         void VehicleCategoryDistributionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVehicleCategoryDistribution>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -12979,7 +12969,7 @@ namespace NET_ASAM_OPENSCENARIO
         void VehicleCategoryDistributionEntryCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVehicleCategoryDistributionEntry>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -13046,7 +13036,7 @@ namespace NET_ASAM_OPENSCENARIO
         void VertexCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVertex>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -13125,7 +13115,7 @@ namespace NET_ASAM_OPENSCENARIO
         void VisibilityActionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IVisibilityAction>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -13198,7 +13188,7 @@ namespace NET_ASAM_OPENSCENARIO
         void WaypointCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IWaypoint>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -13271,7 +13261,7 @@ namespace NET_ASAM_OPENSCENARIO
         void WindCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IWind>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));
@@ -13344,7 +13334,7 @@ namespace NET_ASAM_OPENSCENARIO
         void WorldPositionCardinalityCheckerRule::ApplyRuleInFileContext(std::shared_ptr<IParserMessageLogger> messageLogger, std::shared_ptr<IOpenScenarioModelElement> object)
         {
             auto  violations = GetAllViolations(std::dynamic_pointer_cast<IWorldPosition>(object));
-            
+
             for (auto&& violation : violations)
             {
                 auto msg = FileContentMessage(GetMsg(violation), ERROR, *GetTextmarker(object));

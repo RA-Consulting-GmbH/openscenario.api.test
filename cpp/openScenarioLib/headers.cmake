@@ -407,6 +407,7 @@ set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_CHECKER} )
 
 set( HEADERS_GENERATED_1_2_CHECKER_MODEL
     "generated/v1_2/checker/model/CardinalityCheckerRulesV1_2.h"
+    "generated/v1_2/checker/model/CardinalityCheckerHelperV1_2.h"
     "generated/v1_2/checker/model/UnionCheckerRulesV1_2.h"
 )
 set( ALL_HEADERS ${ALL_HEADERS} ${HEADERS_GENERATED_1_2_CHECKER_MODEL} )

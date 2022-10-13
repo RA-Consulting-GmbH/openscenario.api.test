@@ -28,6 +28,7 @@
 #include "OscConstantsV1_2.h"
 #include "Textmarker.h"
 #include "ApiClassImplV1_2.h"
+#include "CardinalityCheckerHelperV1_2.h"
 #include "XmlScenarioLoaderV1_2.h"
 #include "XmlScenarioLoaderFactoryV1_2.h"
 #include "OpenScenarioProcessingHelperV1_2.h"
@@ -97,10 +98,16 @@ namespace NET_ASAM_OPENSCENARIO
                         messageLogger->LogMessage(msg);
                     }
                 }
-
             }
 
-			
+            if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel::ERROR).empty())
+            {
+                //run cardinality checks if no errors in resolving parameters
+                auto scenarioChecker = std::make_shared<ScenarioCheckerImpl>();
+                CardinalityCheckerHelper::AddAllCardinalityCheckerRules(scenarioChecker);
+                scenarioChecker->CheckScenarioInFileContext(messageLogger, openScenario);
+            }
+
             return openScenario;
         }
 
