@@ -4,29 +4,6 @@
   <ParameterValueDistribution>
     <ScenarioFile filepath="../Scenarios/ALKS_Scenario_4.3_2_FollowLeadVehicleEmergencyBrake_TEMPLATE.xosc" />
     <Deterministic>
-      <DeterministicSingleParameterDistribution parameterName="Road">
-        <DistributionSet>
-          <Element value="./ALKS_Road_straight.xodr" />
-          <Element value="./ALKS_Road_left_radius_250m.xodr" />
-          <Element value="./ALKS_Road_right_radius_250m.xodr" />
-          <Element value="./ALKS_Road_left_radius_1000m.xodr" />
-          <Element value="./ALKS_Road_right_radius_1000m.xodr" />
-        </DistributionSet>
-      </DeterministicSingleParameterDistribution>
-      <DeterministicSingleParameterDistribution parameterName="LeadVehicle_Deceleration_Rate_mps2">
-        <DistributionSet>
-          <Element value="6.0" />
-        </DistributionSet>
-      </DeterministicSingleParameterDistribution>
-      <DeterministicSingleParameterDistribution parameterName="LeadVehicle_Model">
-        <DistributionSet>
-          <Element value="car" />
-          <Element value="truck" />
-          <Element value="van" />
-          <Element value="bus" />
-          <Element value="motorbike" />
-        </DistributionSet>
-      </DeterministicSingleParameterDistribution>
       <DeterministicMultiParameterDistribution>
         <ValueSetDistribution>
           <ParameterValueSet>
@@ -59,11 +36,6 @@
           </ParameterValueSet>
         </ValueSetDistribution>
       </DeterministicMultiParameterDistribution>
-      <DeterministicSingleParameterDistribution parameterName="LeadVehicle_Init_LateralOffset_m">
-        <DistributionRange stepWidth="0.5">
-          <Range lowerLimit="-1.75" upperLimit="1.75" />
-        </DistributionRange>
-      </DeterministicSingleParameterDistribution>
     </Deterministic>
   </ParameterValueDistribution>
 </OpenSCENARIO>

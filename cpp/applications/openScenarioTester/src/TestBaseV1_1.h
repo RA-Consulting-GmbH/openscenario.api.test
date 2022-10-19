@@ -32,7 +32,7 @@ namespace NET_ASAM_OPENSCENARIO
 		protected:
 			std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger> _messageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::INFO);
 
-			const std::string kInputDir = u8"TestResources/OpenScenarioTester/";
+			const std::string kInputDir = u8"test-rc/";
 
 			std::string _executablePath;
 

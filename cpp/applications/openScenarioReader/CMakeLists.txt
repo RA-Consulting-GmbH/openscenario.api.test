@@ -16,16 +16,12 @@ endif( WIN32 )
 ################################################################
 # Update rc file
 RAC_GET_PRODUCT_INFO( "${CMAKE_CURRENT_SOURCE_DIR}/productInfo.txt" )
-configure_file( "${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc" )
+configure_file( "${CMAKE_CURRENT_SOURCE_DIR}/../../common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc" )
 
 
 ################################################################
 # This is needed because of the way the cmakefiles for ANTLR4-Cpp-src are written
 unset( CMAKE_BUILD_TYPE CACHE )
-################################################################
-# Set compile output folder
-RAC_SET_FOLDERS()
-message ( STATUS "Building all into: ${CMAKE_BINARY_DIR}" )
 
 
 ################################################################
@@ -35,61 +31,6 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../common )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/TinyXML2 )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/Filesystem )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../externalLibs/UtfCpp )
-
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_0/parser )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/expression )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/v1_1/parser )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/export )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/checker/tree )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/expression )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/parser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/parser/modelgroup )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/parser/type )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/simple/struct )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/src/xmlIndexer )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/api/writer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/xmlParser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_0/export/xml )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/api/writer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/xmlParser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/v1_1/export/xml )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../openScenarioLib/generated/antlr/xmlParser )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc )
 
 
 ################################################################
@@ -168,14 +109,17 @@ endif()
 
 target_link_libraries( ${PROJECT_NAME} OpenScenarioLib )
 
+POST_BUILD_COPY_DEPENDENT_LIB(OpenScenarioLib ${PROJECT_NAME})
+POST_BUILD_COPY_DEPENDENT_LIB(ExpressionsLib ${PROJECT_NAME})
+POST_BUILD_COPY_ANTLR_RUNTIME_FILES(${PROJECT_NAME})
 
+
+						   
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /utf-8 /we4828" ) # ${osc_extra_static_compile_flags}" )
     set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
-    set_target_properties( 
-        ${PROJECT_NAME} PROPERTIES
-        VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(Configuration)" )
+	set_target_properties( ${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "$<TARGET_FILE_DIR:${PROJECT_NAME}>" )
 endif()
 

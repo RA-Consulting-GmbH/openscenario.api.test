@@ -19,16 +19,29 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <iomanip>
+#include <map>
 
 #include "ErrorLevel.h"
 #include "FileContentMessage.h"
 #include "IParserMessageLogger.h"
 #include "SimpleMessageLogger.h"
 #include "Textmarker.h"
+#ifdef SUPPORT_OSC_1_0
 #include "ApiClassImplV1_0.h"
-#include "XmlScenarioImportLoaderFactoryV1_1.h"
-#include "ApiClassImplV1_1.h"
 #include "XmlScenarioImportLoaderFactoryV1_0.h"
+#endif
+
+#ifdef SUPPORT_OSC_1_1
+#include "ApiClassImplV1_1.h"
+#include "XmlScenarioImportLoaderFactoryV1_1.h"
+#endif
+
+#ifdef SUPPORT_OSC_1_2
+#include "ApiClassImplV1_2.h"
+#include "XmlScenarioImportLoaderFactoryV1_2.h"
+#endif
+
 #include "ScenarioLoaderException.h"
 #include "FileResourceLocator.h"
 #include "../common/version.h"
@@ -39,6 +52,37 @@
 // echo "#pragma once" > headerWithExports.h ; for fullfile in `find ../../../ -name "*.h" -exec grep -l -h -e "OPENSCENARIOLIB_EXP" \{\} \;` ; do echo "#include \"${fullfile##*/}\"" >> headerWithExports.h ; done
 #include "headerWithExports.h"
 #include "NamedReferenceProxy.h"
+#ifdef SUPPORT_OSC_1_0
+#include "UnionCheckerRulesV1_0.h"
+#include "RangeCheckerRulesV1_0.h"
+#include "OpenScenarioXmlExporterV1_0.h"
+#include "XmlParsersV1_0.h"
+#include "CatalogCacheV1_0.h"
+#include "CatalogReferenceParserContextV1_0.h"
+#include "ParameterResolverV1_0.h"
+#endif
+
+#ifdef SUPPORT_OSC_1_1
+#include "UnionCheckerRulesV1_1.h"
+#include "RangeCheckerRulesV1_1.h"
+#include "OpenScenarioXmlExporterV1_1.h"
+#include "XmlParsersV1_1.h"
+#include "CatalogCacheV1_1.h"
+#include "CatalogReferenceParserContextV1_1.h"
+#include "ExpressionResolverV1_1.h"    
+#include "ExpressionResolverStackV1_1.h"
+#endif
+
+#ifdef SUPPORT_OSC_1_2
+#include "UnionCheckerRulesV1_2.h"
+#include "RangeCheckerRulesV1_2.h"
+#include "OpenScenarioXmlExporterV1_2.h"
+#include "XmlParsersV1_2.h"
+#include "CatalogCacheV1_2.h"
+#include "CatalogReferenceParserContextV1_2.h"
+#include "ExpressionResolverV1_2.h"    
+#include "ExpressionResolverStackV1_2.h"
+#endif
 #endif
 
 
@@ -57,23 +101,36 @@
  */
 
 static NET_ASAM_OPENSCENARIO::ErrorLevel logLevel = NET_ASAM_OPENSCENARIO::ErrorLevel::INFO;
-static std::string VERSION_1_0 = "v1_1";
-static std::string VERSION_1_1 = "v1_0";
+static std::string VERSION_1_0 = "v1_0";
+static std::string VERSION_1_1 = "v1_1";
+static std::string VERSION_1_2 = "v1_2";
 
-
+#ifdef SUPPORT_OSC_1_0
 std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl> ExecuteImportParsing(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger, std::map<std::string, std::string>& injectionParameters)
 {
 	auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_0::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
 	auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 	return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_0::OpenScenarioImpl).name()));
 }
+#endif
 
+#ifdef SUPPORT_OSC_1_1
 std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_1::OpenScenarioImpl> ExecuteImportParsingV1_1(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger, std::map<std::string, std::string>& injectionParameters)
 {
 	auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_1::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
 	auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
 	return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_1::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_1::OpenScenarioImpl).name()));
 }
+#endif
+
+#ifdef SUPPORT_OSC_1_2
+std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl> ExecuteImportParsingV1_2(std::string& filename, std::shared_ptr<NET_ASAM_OPENSCENARIO::SimpleMessageLogger>& messageLogger, std::shared_ptr <NET_ASAM_OPENSCENARIO::IParserMessageLogger> catalogMessageLogger, std::map<std::string, std::string>& injectionParameters)
+{
+	auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_2::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
+	auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
+	return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl).name()));
+}
+#endif
 
 std::string GetFilledString(const size_t length, const char charToFill) 
 {
@@ -214,12 +271,30 @@ int CheckFile(std::string& inputFileName, std::string& paramFileName, std::strin
 
     try
     {
-        if (version == VERSION_1_1)
+        if (version == VERSION_1_2)
         {
-            ExecuteImportParsingV1_1(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+#ifdef SUPPORT_OSC_1_2
+        	ExecuteImportParsingV1_2(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+#else
+			std::cout << "Standard Version 1.2 is not supported. Compile Reader with SUPPORT_OSC_1_2 option." << std::endl;
+			result = ERROR_RESULT;
+#endif
+        } else if(version == VERSION_1_1)
+		{
+#ifdef SUPPORT_OSC_1_1
+    	ExecuteImportParsingV1_1(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+#else
+		std::cout << "Standard Version 1.1 is not supported. Compile Reader with SUPPORT_OSC_1_1 option." << std::endl;
+		result = ERROR_RESULT;
+#endif
         } else
         {
-            ExecuteImportParsing(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+#ifdef SUPPORT_OSC_1_0
+			ExecuteImportParsing(inputFileName, messageLogger, catalogMessageLogger, injectedParamters);
+#else
+			std::cout << "Standard Version 1.0 is not supported. Compile Reader with SUPPORT_OSC_1_0 option." << std::endl;
+			result = ERROR_RESULT;
+#endif
         }
 
         for (auto&& message : messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(logLevel))
@@ -278,7 +353,7 @@ int wmain(int argc, wchar_t** argv)
     versionStream << MAJORVERSION << "." << MINORVERSION << "." << PATCHNUMBER;
     const std::string kVersion = versionStream.str();
 	std::stringstream hHeaderStream;
-	hHeaderStream << "*ASAM OpenSCENARIO " << kVersion << " Checker(2021) *";
+	hHeaderStream << "*ASAM OpenSCENARIO " << kVersion << " Checker(2022) *";
 	const std::string kHeader = hHeaderStream.str();
     const std::string kHeaderFillString = GetFilledString(kHeader.length(), '*');
 
@@ -329,25 +404,33 @@ int wmain(int argc, wchar_t** argv)
             if (argc == 6 && std::wstring(argv[5]) == L"-v1_1")
             {
                 version = VERSION_1_1;
+            }else if (argc == 6 && std::wstring(argv[5]) == L"-v1_2")
+            {
+				version = VERSION_1_2;
             }
         }
         else if (argc == 4 && std::wstring(argv[3]) == L"-v1_1")
         {
             version = VERSION_1_1;
         }
+		else if (argc == 4 && std::wstring(argv[3]) == L"-v1_2")
+		{
+			version = VERSION_1_2;
+		}
 
         isCommandLineParsable = true;
     }
 
     if (!isCommandLineParsable)
     {
-        std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1]] | -v]" << std::endl;
+	std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1|-v1_2]] | -v]" << std::endl;
         std::cout << "Options:" << std::endl;
         std::cout << "-i\t<filename> file to be validated" << std::endl;
         std::cout << "-d\t<directory> directory to be validated" << std::endl;
         std::cout << "-p\t<paramfilename> a file with name/value pairs. One line per name/value pair. tab separated" << std::endl;
-        std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
-        std::cout << "-v\tprint program version" << std::endl;
+		std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
+		std::cout << "-v1_2\tUse standard version 1.2" << std::endl;
+		std::cout << "-v\tprint program version" << std::endl;
 
         return USAGE_RESULT;
     }
@@ -363,7 +446,7 @@ int wmain(int argc, wchar_t** argv)
             NET_ASAM_OPENSCENARIO::FileResourceLocator fileLocator;
             auto filePaths = fileLocator.GetSymbolicFilenamesInSymbolicDir(inputDirectoryName);
             for (auto file : filePaths)
-                result = CheckFile(file, paramFileName) == SUCCESS_RESULT ? result : ERROR_RESULT;
+                result = CheckFile(file, paramFileName, version) == SUCCESS_RESULT ? result : ERROR_RESULT;
         }
         catch (NET_ASAM_OPENSCENARIO::ResourceNotFoundException& e)
         {
@@ -416,24 +499,33 @@ int main(int argc, char** argv)
             {
                 version = VERSION_1_1;
             }
+            else if (argc == 6 && std::string(argv[5]) == "-v1_2")
+			{
+				version = VERSION_1_2;
+			}
         }
         else if (argc == 4 && std::string(argv[3]) == "-v1_1")
         {
             version = VERSION_1_1;
         }
+		else if (argc == 4 && std::string(argv[3]) == "-v1_2")
+		{
+			version = VERSION_1_2;
+		}
 
         isCommandLineParsable = true;
     }
 
     if (!isCommandLineParsable)
     {
-        std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1]] | -v]" << std::endl;
+        std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1|-v1_2]] | -v]" << std::endl;
         std::cout << "Options:" << std::endl;
         std::cout << "-i\t<filename> file to be validated" << std::endl;
         std::cout << "-d\t<directory> directory to be validated" << std::endl;
         std::cout << "-p\t<paramfilename> a file with name/value pairs. One line per name/value pair. tab separated" << std::endl;
-        std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
-        std::cout << "-v\tprint program version" << std::endl;
+		std::cout << "-v1_1\tUse standard version 1.1" << std::endl;
+		std::cout << "-v1_2\tUse standard version 1.2" << std::endl;
+		std::cout << "-v\tprint program version" << std::endl;
 
         return USAGE_RESULT;
     }

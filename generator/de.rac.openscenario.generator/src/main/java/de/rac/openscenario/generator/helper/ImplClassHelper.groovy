@@ -81,7 +81,10 @@ public class ImplClassHelper {
 	public boolean hasStringTypedValue(UmlType type) {
 		return  (type.name == "ParameterDeclaration"
 				|| type.name == "ParameterAssignment"
-				|| type.name == "ValueConstraint")
+				|| type.name == "ValueConstraint"
+				|| type.name == "VariableDeclaration"
+				|| type.name == "VariableSetAction"
+				)
 		
 	}
 	

@@ -190,6 +190,20 @@ public class UmlClass extends UmlType {
 		return false;
 	}
 	
+	@Memoized
+	public  boolean doPropertiesContainXorElements()
+	{
+		//count properties with xor elements and if not 0 add checks for xor elements
+		//umlClass.isModelGroupChoice() does not work well for all elements eg TargetDistanceSteadyState
+		boolean xorElements = false;
+		umlProperties.each{ property ->
+			if (property.appliedStereotypes.find(){s -> s.getName() == "xor"}) 
+				xorElements = xorElements || true;
+		}
+		
+		return xorElements;
+	}
+	
 	
 	@Memoized
 	public   boolean isModelGroupSequence()

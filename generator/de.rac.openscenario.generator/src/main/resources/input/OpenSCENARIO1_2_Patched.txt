@@ -1,0 +1,3 @@
+Removed tags from class License to remove OSDcomplextType.
+OSDcomplextType ist not explicitly assigned but comes throuigh the backdoor when defining the tags modelGroup and mixed.
+

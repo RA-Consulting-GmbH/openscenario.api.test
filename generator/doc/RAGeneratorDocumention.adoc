@@ -13,7 +13,8 @@ RA Consulting GmbH, https://www-rac.de[www-rac.de]
 |Version |Date |Author |Changes
 |1.0.0 |12/16/2020 |Andreas Hege |Initial Documentation
 |1.2.0 |07/05/2021 |Andreas Hege |Eliminated Java
-| | | |
+|1.2.1 |06/23/2021 |Andreas Hege |Changed sceenshots
+|1.2.3 |08/19/2021 |Andreas Hege |Added docker generation
 |====================================================
 
 Table : Change log
@@ -113,19 +114,18 @@ image:image7.png[image,width=511,height=543]
 * Browse into the workspace folder and choose the suggested project +
 image:image8.png[image,width=604,height=466]
 * Try to build the project in Eclipse. Select pom.xml in the project, right click and choose _Run As->Maven install_.
-* Alternatively with command line: Change into the project directory (de.rac.openscenario.generator-1.1.0) and execute _mvn install_
+* Alternatively with command line: Change into the project directory (de.rac.openscenario.generator-1.2.1) and execute _mvn install_
 * Everything should work so far.
 
 == Generating code
 
 Now, as everything is installed and the project is added, let’s get familiar with running the generator.
 
-=== The executable generator classes
+=== The executable generator class
 
-There are two generator classes that are executable. One for each supported platform:
+This class is executable.
 
 * de.rac.openscenario.generator.cpp.GeneratorCpp.groovy
-* de.rac.openscenario.generator.java.GeneratorJava.groovy
 
 Start each of them by right-click on the class and choose _Run As.->Java Application_
 
@@ -144,7 +144,10 @@ The input comes as a part of the project and contains the following files:
 The input directory is included in the project (src/main/resources/input:
 
 * *OpenSCENARIO_Ea_1.0.0.xmi*: The UML snapshot model from OpenSCENARIO 1.0.0 as an Enterprise Architect XMI 2.1 export.
-* *RangeCheckerRules.json*: A structured file that describes the range constraints in a formal way.
+* *RangeCheckerRules_1.0.0.json*: A structured file that describes the range constraints in a formal way.
+* *OpenSCENARIO_Ea_1.1.0.xmi*: Same as 'OpenSCENARIO_Ea_1.0.0.xmi' for model version 1.1.0.
+* *RangeCheckerRules_1.1.0.json*: Same as 'RangeCheckerRules_1.0.0.json' for model version 1.1.0.
+* *DefaultValues_1.1.0.json*: The dfault values for the properties.
 
 ==== Output directory
 
@@ -169,10 +172,82 @@ image:image11.png[image,width=604,height=177]
 To run the generator from the command line we first have to package the results in a self-contained jar with any dependencies.
 
 * Select the pom.xml right click and choose _Run As->Maven install_ (if not done before)
-* Now, in the _target_ folder of the project a self-contained jar is created. de.rac.openscenario.generator-1.1.0-jar-with-dependencies.jar
+* Now, in the _target_ folder of the project a self-contained jar is created. de.rac.openscenario.generator-1.2.1-jar-with-dependencies.jar
 * With your command interpreter: change into the _target_ directory
 * Add the self-contained package to the classpath. +
-`set CLASSPATH=de.rac.openscenario.generator-1.1.0-jar-with-dependencies.jar` 
+`set CLASSPATH=de.rac.openscenario.generator-1.2.1-jar-with-dependencies.jar` 
 * Run the main class with java and the command line arguments +
 `java de.rac.openscenario.generator.cpp.GeneratorCpp C:\temp\GenOut` +
 image:image12.png[image,width=604,height=316]
+
+== Running the generator from docker
+So far, we've learned how to install all the tools, that are needed to finally run the generator.
+Installation might be painful on local computers, including the need for admin rights, licenses, setting environment variables etc.
+Thererfore an recipe is provided how to run the generator without any tool installation beside docker application itself.
+
+=== Installation
+We need to https://docs.docker.com/get-docker/[install Docker] on our system.
+
+=== Usage
+To use the generator container, we have to build the image and run it.
+
+==== Building the image
+As long as the 'Dockerfile' does not change, this only needs to be done once.
+
+On Windows, we can use the  batch file './generator/build.bat'.
+
+Otherwise, run
+```
+:\> docker build --no-cache --tag openscenario/osc-generator 
+```
+
+within the 'generator' folder of this repo (where the 'Dockerfile' resides).
+
+If everything went well, we now will find an image called `openscenario/osc-generator` on our system:
+
+``` 
+:\> docker images
+REPOSITORY                       TAG                      IMAGE ID       CREATED         SIZE
+openscenario/osc-generator       latest                   baef5d341579   2 minutes ago   663MB
+```
+==== Running the image for generation
+
+Once the image has been built, we can run it in a fire-and-forget manner by calling:
+
+```
+:\> docker run --rm --volume LOCAL_OUTPUT_DIR:/outputDir openscenario/osc-generator ./generate.sh
+```
+
+Alternatively, on Windows, we might use the 'generator/runGenerator.bat'.
+This will create a temporary container from the image and run the shell script generate.sh within the container.
+The generated files are created in the volume that is mapped to the `/outputDir` container folder.
+As soon as the container has finished its job, it will exit and will be deleted completely.
+
+The most important argument in the above Docker commandline is the mapping to to the `/outputDir` volume.
+Here, you need to pass the absolute path of your output folder on the host machine (e.g. 'D:\osc-api\openscenario.api.test\cpp\openScenarioLib\generated') where your code is generated into.
+
+Here is an example command-line
+
+```
+:\> docker run --rm --volume "D:\osc-api\openscenario.api.test\cpp\openScenarioLib\generated":/outputDir openscenario/osc-generator ./generate.sh
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

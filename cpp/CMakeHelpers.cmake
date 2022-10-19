@@ -67,19 +67,7 @@ macro (RAC_SET_BUILD_PARAM)
 endmacro (RAC_SET_BUILD_PARAM)
 
 
-################################################################
-# Set folders
-macro (RAC_SET_FOLDERS)
-    # Reflect static / shared build in ouput folder
-    set( LIB_BINDING_TYPE "static" )
-    if( ${BUILD_SHARED_LIBS} )
-        set( LIB_BINDING_TYPE "shared" )
-    endif()
-    # On Windows CMAKE_BUILD_TYPE is empty, but the build type is added automatically as defined in the MSBuild-call (Release/Debug)
-    set( CMAKE_BINARY_DIR ${CMAKE_SOURCE_DIR}/build/output/${PLATFORM_PARAM}_${LIB_BINDING_TYPE}/${CMAKE_BUILD_TYPE} )
-    set( EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR} )
-    set( LIBRARY_OUTPUT_PATH ${CMAKE_BINARY_DIR} )
-endmacro (RAC_SET_FOLDERS)
+
 
 
 ################################################################
@@ -153,3 +141,45 @@ function (RAC_GET_PRODUCT_INFO productInfoFilepath)
     string(REGEX MATCH "FILE_DESCRIPTION=([^\r\n]*)[ \t\r\n]+" _ ${productInfo_txt})
     set(FILE_DESCRIPTION ${CMAKE_MATCH_1} PARENT_SCOPE)
 endfunction (RAC_GET_PRODUCT_INFO)
+################################################################
+# Copy the resources for testing
+# @param dependentLibName name of the dependent lib target
+# @param targetName name of the target
+function(POST_BUILD_COPY_DEPENDENT_LIB dependentLibName targetName)
+if (BUILD_SHARED_LIBS)
+	add_custom_command(TARGET ${targetName} POST_BUILD
+			COMMAND ${CMAKE_COMMAND} -E copy
+					"$<TARGET_FILE:${dependentLibName}>"
+					"$<TARGET_FILE_DIR:${targetName}>"
+			COMMAND ${CMAKE_COMMAND} -E echo "Copying '${dependentLibName}' to '$<TARGET_FILE_DIR:${targetName}>'"
+		   )
+endif()
+endfunction()
+
+################################################################
+# Copy the antlr4 runtime libraries
+# @param targetName name of the target
+function(POST_BUILD_COPY_ANTLR_RUNTIME_FILES targetName)
+if (BUILD_SHARED_LIBS)
+add_custom_command(TARGET ${targetName}
+                   POST_BUILD
+                   COMMAND ${CMAKE_COMMAND}
+                           -E copy ${ANTLR4_RUNTIME_LIBRARIES}
+						   "$<TARGET_FILE_DIR:${targetName}>")
+endif()
+endfunction()
+
+################################################################
+# Copy the resources for testing
+function(POST_BUILD_ADD_COPY_TEST_RESOURCES targetName dirTestResourceFiles)
+
+# silently ignored when the directories already exist
+make_directory (${dirTestResourceFiles})
+		
+add_custom_command(TARGET ${targetName} POST_BUILD
+		# Create the output directory
+        COMMAND ${CMAKE_COMMAND} -E make_directory $<TARGET_FILE_DIR:${targetName}>/test-rc
+        COMMAND ${CMAKE_COMMAND} -E copy_directory ${dirTestResourceFiles} $<TARGET_FILE_DIR:${targetName}>/test-rc
+       )
+endfunction()
+

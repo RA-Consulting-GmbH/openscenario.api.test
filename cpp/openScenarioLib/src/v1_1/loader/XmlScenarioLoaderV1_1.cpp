@@ -20,6 +20,8 @@
 #include <ANTLRInputStream.h>
 #include "XMLLexer.h"
 #include <XMLParserListener.h>
+
+#include "CardinalityCheckerHelperV1_1.h"
 #include "ScenarioCheckerImplV1_1.h"
 #include "XmlParsersV1_1.h"
 #include "CatalogReferenceParserContextV1_1.h"
@@ -137,11 +139,18 @@ namespace NET_ASAM_OPENSCENARIO
                 if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel::ERROR).empty())
                 {
                     // Check 
-                    ScenarioCheckerImpl scenarioChecker;
                     OpenScenarioProcessingHelper::Resolve(messageLogger, openScenarioImpl, injectedParameters);
                     openScenarioImpl->AddAdapter(typeid(ICatalogReferenceProvider).name(), std::dynamic_pointer_cast<ICatalogReferenceProvider>(parserContext));
                     auto scenarioCheckerImpl = std::make_shared<ScenarioCheckerImpl>();
                     openScenarioImpl->AddAdapter(typeid(IScenarioChecker).name(), scenarioCheckerImpl);
+                }
+
+                if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel::ERROR).empty())
+                {
+                    //run cardinality checks if no errors in resolving parameters
+                    auto scenarioChecker = std::make_shared<ScenarioCheckerImpl>();
+                    CardinalityCheckerHelper::AddAllCardinalityCheckerRules(scenarioChecker);
+                    scenarioChecker->CheckScenarioInFileContext(messageLogger, openScenarioImpl);
                 }
 
                 return openScenarioImpl;

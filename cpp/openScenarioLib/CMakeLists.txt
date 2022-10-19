@@ -20,13 +20,7 @@ endif()
 ################################################################
 # Update rc file
 RAC_GET_PRODUCT_INFO("${CMAKE_CURRENT_SOURCE_DIR}/productInfo.txt")
-configure_file("${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc")
-
-
-################################################################
-# Set compile output folder
-RAC_SET_FOLDERS()
-message ( STATUS "Building all into: ${CMAKE_BINARY_DIR}" )
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/../common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc")
 
 
 ################################################################
@@ -37,76 +31,6 @@ antlr_target(XMLParser ${CMAKE_CURRENT_SOURCE_DIR}/src/antlr/XMLParser.g4 PARSER
              DEPENDS_ANTLR XMLLexer
              COMPILE_FLAGS -lib ${ANTLR_XMLLexer_OUTPUT_DIR})
 
-
-################################################################
-# Include folders
-include_directories( ${ANTLR4_INCLUDE_DIRS} )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/parser )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/catalog )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/expression )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/parser )
-
-#generated
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/api/writer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/model )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/catalog)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/xmlParser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/export/xml )
-
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/api/writer )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/model )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/range )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/catalog)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/xmlParser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/export/xml )
-include_directories(${ANTLR_XMLLexer_OUTPUT_DIR})
-include_directories(${ANTLR_XMLParser_OUTPUT_DIR})
-
-#external files
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/Filesystem)
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/TinyXML2 )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/UtfCpp )
-
-#version independent
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/api )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/checker )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/checker/tree )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/checker/model )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/common )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/export )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/impl )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/loader )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parameter )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/expression )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser/modelgroup )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/parser/type )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/simple/struct )
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/src/xmlIndexer )
-
-#expressionsLib
-include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/../expressionsLib/inc)
 
 
 ################################################################
@@ -151,19 +75,14 @@ if( MSVC )
     source_group( Sources\\Common\\Simple\\Struct FILES ${SOURCES_SIMPLE_STRUCT})
     source_group( Sources\\Common\\XmlIndexer FILES ${SOURCES_XMLINDEXER})
 
+if (SUPPORT_OSC_1_0)
     source_group( Sources\\V1_0\\Catalog FILES ${SOURCES_V1_0_CATALOG})
     source_group( Sources\\V1_0\\Checker FILES ${SOURCES_V1_0_CHECKER})
     source_group( Sources\\V1_0\\Loader FILES ${SOURCES_V1_0_LOADER})
     source_group( Sources\\V1_0\\Parameter FILES ${SOURCES_V1_0_PARAMETER})
     source_group( Sources\\V1_0\\Parser FILES ${SOURCES_V1_0_PARSER})
-
-    source_group( Sources\\V1_1\\Catalog FILES ${SOURCES_V1_1_CATALOG})
-    source_group( Sources\\V1_1\\Checker FILES ${SOURCES_V1_1_CHECKER})
-    source_group( Sources\\V1_1\\Loader FILES ${SOURCES_V1_1_LOADER})
-    source_group( Sources\\V1_1\\Expression FILES ${SOURCES_V1_1_EXPRESSION})
-    source_group( Sources\\V1_1\\Parser FILES ${SOURCES_V1_1_PARSER})
-  
-    source_group( Sources\\v1_0\\Generated\\Api FILES ${SOURCES_GENERATED_1_0_API} )
+ 
+	source_group( Sources\\v1_0\\Generated\\Api FILES ${SOURCES_GENERATED_1_0_API} )
     source_group( Sources\\v1_0\\Generated\\Checker\\Impl FILES ${SOURCES_GENERATED_1_0_CHECKER_IMPL} )
     source_group( Sources\\v1_0\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_1_0_CHECKER_RANGE} )
     source_group( Sources\\v1_0\\Generated\\Catalog FILES ${SOURCES_GENERATED_1_0_CATALOG} )
@@ -171,6 +90,32 @@ if( MSVC )
     source_group( Sources\\v1_0\\Generated\\Impl FILES ${SOURCES_GENERATED_1_0_IMPL} )
     source_group( Sources\\v1_0\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_0_XMLPARSER} )
     source_group( Sources\\v1_0\\Generated\\XmlExporter FILES ${SOURCES_GENERATED_1_0_XMLEXPORTER} )
+	
+	source_group( Headers\\v1_0\\Catalog FILES ${HEADERS_CATALOG_1_0})
+    source_group( Headers\\v1_0\\Loaders FILES ${HEADERS_LOADER_1_0})
+    source_group( Headers\\v1_0\\Parameter FILES ${HEADERS_PARAMETER_1_0})
+    source_group( Headers\\v1_0\\Parser FILES ${HEADERS_PARSER_1_0})
+    source_group( Headers\\v1_0\\Checker FILES ${HEADERS_CHECKER_1_0})
+	
+	source_group( Headers\\v1_0\\Generated\\Api FILES ${HEADERS_GENERATED_1_0_API} )
+    source_group( Headers\\v1_0\\Generated\\Api\\Writer FILES ${HEADERS_GENERATED_1_0_API_WRITER} )
+    source_group( Headers\\v1_0\\Generated\\Common FILES ${HEADERS_GENERATED_1_0_COMMON} )
+    source_group( Headers\\v1_0\\Generated\\Checker FILES ${HEADERS_GENERATED_1_0_CHECKER} )
+    source_group( Headers\\v1_0\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_1_0_CHECKER_MODEL} )
+    source_group( Headers\\v1_0\\Generated\\Checker\\Impl FILES ${HEADERS_GENERATED_1_0_CHECKER_IMPL} )
+    source_group( Headers\\v1_0\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_1_0_CHECKER_RANGE} )
+    source_group( Headers\\v1_0\\Generated\\Catalog FILES ${HEADERS_GENERATED_1_0_CATALOG} )
+    source_group( Headers\\v1_0\\Generated\\Impl FILES ${HEADERS_GENERATED_1_0_IMPL} )
+    source_group( Headers\\v1_0\\Generated\\XmlParser FILES ${HEADERS_GENERATED_1_0_XMLPARSER} )
+    source_group( Headers\\v1_0\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_1_0_XMLEXPORTER} )
+endif (SUPPORT_OSC_1_0)
+
+if (SUPPORT_OSC_1_1)
+    source_group( Sources\\V1_1\\Catalog FILES ${SOURCES_V1_1_CATALOG})
+    source_group( Sources\\V1_1\\Checker FILES ${SOURCES_V1_1_CHECKER})
+    source_group( Sources\\V1_1\\Loader FILES ${SOURCES_V1_1_LOADER})
+    source_group( Sources\\V1_1\\Expression FILES ${SOURCES_V1_1_EXPRESSION})
+    source_group( Sources\\V1_1\\Parser FILES ${SOURCES_V1_1_PARSER})
 
     source_group( Sources\\v1_1\\Generated\\Api FILES ${SOURCES_GENERATED_1_1_API} )
     source_group( Sources\\v1_1\\Generated\\Checker\\Impl FILES ${SOURCES_GENERATED_1_1_CHECKER_IMPL} )
@@ -180,7 +125,64 @@ if( MSVC )
     source_group( Sources\\v1_1\\Generated\\Impl FILES ${SOURCES_GENERATED_1_1_IMPL} )
     source_group( Sources\\v1_1\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_1_XMLPARSER} )
     source_group( Sources\\v1_1\\Generated\\XmlExporter FILES ${SOURCES_GENERATED_1_1_XMLEXPORTER} )
+	
+	source_group( Headers\\v1_1\\Catalog FILES ${HEADERS_CATALOG_1_1})
+    source_group( Headers\\v1_1\\Loaders FILES ${HEADERS_LOADER_1_1})
+    source_group( Headers\\v1_1\\Expression FILES ${HEADERS_EXPRESSION_1_1})
+    source_group( Headers\\v1_1\\Parser FILES ${HEADERS_PARSER_1_1})
+    source_group( Headers\\v1_1\\Checker FILES ${HEADERS_CHECKER_1_1})
   
+    source_group( Headers\\v1_1\\Generated\\Api FILES ${HEADERS_GENERATED_1_1_API} )
+    source_group( Headers\\v1_1\\Generated\\Api\\Writer FILES ${HEADERS_GENERATED_1_1_API_WRITER} )
+    source_group( Headers\\v1_1\\Generated\\Common FILES ${HEADERS_GENERATED_1_1_COMMON} )
+    source_group( Headers\\v1_1\\Generated\\Checker FILES ${HEADERS_GENERATED_1_1_CHECKER} )
+    source_group( Headers\\v1_1\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_1_1_CHECKER_MODEL} )
+    source_group( Headers\\v1_1\\Generated\\Checker\\Impl FILES ${HEADERS_GENERATED_1_1_CHECKER_IMPL} )
+    source_group( Headers\\v1_1\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_1_1_CHECKER_RANGE} )
+    source_group( Headers\\v1_1\\Generated\\Catalog FILES ${HEADERS_GENERATED_1_1_CATALOG} )
+    source_group( Headers\\v1_1\\Generated\\Impl FILES ${HEADERS_GENERATED_1_1_IMPL} )
+    source_group( Headers\\v1_1\\Generated\\XmlParser FILES ${HEADERS_GENERATED_1_1_XMLPARSER} )
+    source_group( Headers\\v1_1\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_1_1_XMLEXPORTER} )
+
+
+endif (SUPPORT_OSC_1_1)
+	
+if (SUPPORT_OSC_1_2)
+    source_group( Sources\\V1_2\\Catalog FILES ${SOURCES_V1_2_CATALOG})
+    source_group( Sources\\V1_2\\Checker FILES ${SOURCES_V1_2_CHECKER})
+    source_group( Sources\\V1_2\\Loader FILES ${SOURCES_V1_2_LOADER})
+    source_group( Sources\\V1_2\\Expression FILES ${SOURCES_V1_2_EXPRESSION})
+    source_group( Sources\\V1_2\\Parameter FILES ${SOURCES_V1_2_PARAMETER})
+    source_group( Sources\\V1_2\\Parser FILES ${SOURCES_V1_2_PARSER})
+
+	source_group( Sources\\v1_2\\Generated\\Api FILES ${SOURCES_GENERATED_1_2_API} )
+    source_group( Sources\\v1_2\\Generated\\Checker\\Impl FILES ${SOURCES_GENERATED_1_2_CHECKER_IMPL} )
+    source_group( Sources\\v1_2\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_1_2_CHECKER_RANGE} )
+    source_group( Sources\\v1_2\\Generated\\Catalog FILES ${SOURCES_GENERATED_1_2_CATALOG} )
+    source_group( Sources\\v1_2\\Generated\\Checker\\Model FILES ${SOURCES_GENERATED_1_2_CHECKER_MODEL} )
+    source_group( Sources\\v1_2\\Generated\\Impl FILES ${SOURCES_GENERATED_1_2_IMPL} )
+    source_group( Sources\\v1_2\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_2_XMLPARSER} )
+    source_group( Sources\\v1_2\\Generated\\XmlExporter FILES ${SOURCES_GENERATED_1_2_XMLEXPORTER} )
+	
+	source_group( Headers\\v1_2\\Catalog FILES ${HEADERS_CATALOG_1_2})
+    source_group( Headers\\v1_2\\Loaders FILES ${HEADERS_LOADER_1_2})
+    source_group( Headers\\v1_2\\Expression FILES ${HEADERS_EXPRESSION_1_2})
+    source_group( Headers\\v1_2\\Parser FILES ${HEADERS_PARSER_1_2})
+    source_group( Headers\\v1_2\\Checker FILES ${HEADERS_CHECKER_1_2})
+	
+	source_group( Headers\\v1_2\\Generated\\Api FILES ${HEADERS_GENERATED_1_2_API} )
+    source_group( Headers\\v1_2\\Generated\\Api\\Writer FILES ${HEADERS_GENERATED_1_2_API_WRITER} )
+    source_group( Headers\\v1_2\\Generated\\Common FILES ${HEADERS_GENERATED_1_2_COMMON} )
+    source_group( Headers\\v1_2\\Generated\\Checker FILES ${HEADERS_GENERATED_1_2_CHECKER} )
+    source_group( Headers\\v1_2\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_1_2_CHECKER_MODEL} )
+    source_group( Headers\\v1_2\\Generated\\Checker\\Impl FILES ${HEADERS_GENERATED_1_2_CHECKER_IMPL} )
+    source_group( Headers\\v1_2\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_1_2_CHECKER_RANGE} )
+    source_group( Headers\\v1_2\\Generated\\Catalog FILES ${HEADERS_GENERATED_1_2_CATALOG} )
+    source_group( Headers\\v1_2\\Generated\\Impl FILES ${HEADERS_GENERATED_1_2_IMPL} )
+    source_group( Headers\\v1_2\\Generated\\XmlParser FILES ${HEADERS_GENERATED_1_2_XMLPARSER} )
+    source_group( Headers\\v1_2\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_1_2_XMLEXPORTER} )
+endif (SUPPORT_OSC_1_2)
+   
     # Groups for header files
     source_group( Headers FILES ${HEADERS} )
 
@@ -201,41 +203,10 @@ if( MSVC )
     source_group( Headers\\Common\\Simple\\Struct FILES ${HEADERS_COMMON_SIMPLE_STRUCT})
     source_group( Headers\\Common\\XmlIndexer FILES ${HEADERS_COMMON_XMLINDEXER})
 
-    source_group( Headers\\v1_0\\Catalog FILES ${HEADERS_CATALOG})
-    source_group( Headers\\v1_0\\Loaders FILES ${HEADERS_LOADER_1_0})
-    source_group( Headers\\v1_0\\Parameter FILES ${HEADERS_PARAMETER_1_0})
-    source_group( Headers\\v1_0\\Parser FILES ${HEADERS_PARSER_1_0})
-    source_group( Headers\\v1_0\\Checker FILES ${HEADERS_CHECKER_1_0})
 
-    source_group( Headers\\v1_1\\Catalog FILES ${HEADERS_CATALOG})
-    source_group( Headers\\v1_1\\Loaders FILES ${HEADERS_LOADER_1_1})
-    source_group( Headers\\v1_1\\Expression FILES ${HEADERS_EXPRESSION_1_1})
-    source_group( Headers\\v1_1\\Parser FILES ${HEADERS_PARSER_1_1})
-    source_group( Headers\\v1_1\\Checker FILES ${HEADERS_CHECKER_1_1})
-  
-    source_group( Headers\\v1_0\\Generated\\Api FILES ${HEADERS_GENERATED_1_0_API} )
-    source_group( Headers\\v1_0\\Generated\\Api\\Writer FILES ${HEADERS_GENERATED_1_0_API_WRITER} )
-    source_group( Headers\\v1_0\\Generated\\Common FILES ${HEADERS_GENERATED_1_0_COMMON} )
-    source_group( Headers\\v1_0\\Generated\\Checker FILES ${HEADERS_GENERATED_1_0_CHECKER} )
-    source_group( Headers\\v1_0\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_1_0_CHECKER_MODEL} )
-    source_group( Headers\\v1_0\\Generated\\Checker\\Impl FILES ${HEADERS_GENERATED_1_0_CHECKER_IMPL} )
-    source_group( Headers\\v1_0\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_1_0_CHECKER_RANGE} )
-    source_group( Headers\\v1_0\\Generated\\Catalog FILES ${HEADERS_GENERATED_1_0_CATALOG} )
-    source_group( Headers\\v1_0\\Generated\\Impl FILES ${HEADERS_GENERATED_1_0_IMPL} )
-    source_group( Headers\\v1_0\\Generated\\XmlParser FILES ${HEADERS_GENERATED_1_0_XMLPARSER} )
-    source_group( Headers\\v1_0\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_1_0_XMLEXPORTER} )
-  
-    source_group( Headers\\v1_1\\Generated\\Api FILES ${HEADERS_GENERATED_1_1_API} )
-    source_group( Headers\\v1_1\\Generated\\Api\\Writer FILES ${HEADERS_GENERATED_1_1_API_WRITER} )
-    source_group( Headers\\v1_1\\Generated\\Common FILES ${HEADERS_GENERATED_1_1_COMMON} )
-    source_group( Headers\\v1_1\\Generated\\Checker FILES ${HEADERS_GENERATED_1_1_CHECKER} )
-    source_group( Headers\\v1_1\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_1_1_CHECKER_MODEL} )
-    source_group( Headers\\v1_1\\Generated\\Checker\\Impl FILES ${HEADERS_GENERATED_1_1_CHECKER_IMPL} )
-    source_group( Headers\\v1_1\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_1_1_CHECKER_RANGE} )
-    source_group( Headers\\v1_1\\Generated\\Catalog FILES ${HEADERS_GENERATED_1_1_CATALOG} )
-    source_group( Headers\\v1_1\\Generated\\Impl FILES ${HEADERS_GENERATED_1_1_IMPL} )
-    source_group( Headers\\v1_1\\Generated\\XmlParser FILES ${HEADERS_GENERATED_1_1_XMLPARSER} )
-    source_group( Headers\\v1_1\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_1_1_XMLEXPORTER} )
+
+    
+
 
     source_group( Antlr FILES ${ANTLR_XMLLexer_CXX_OUTPUTS} ${ANTLR_XMLParser_CXX_OUTPUTS})
 
@@ -266,11 +237,123 @@ if( MSVC )
     endif()
 endif()
 
+if (SUPPORT_OSC_1_0)
+target_include_directories( ${PROJECT_NAME}
+	PUBLIC
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/loader"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/parameter"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_0/parser"
+	#generated
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/api"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/api/writer"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/model"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/checker/range"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/xmlParser"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_0/export/xml" 
+)
+endif (SUPPORT_OSC_1_0)
+
+if (SUPPORT_OSC_1_1)
+target_include_directories( ${PROJECT_NAME}
+	PUBLIC
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/loader"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/parameter"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/expression"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_1/parser"
+
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/api"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/api/writer"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/model"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/checker/range"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/xmlParser"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_1/export/xml" 
+)
+endif (SUPPORT_OSC_1_1)
+
+
+if (SUPPORT_OSC_1_2)
+target_include_directories( ${PROJECT_NAME}
+	PUBLIC
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/loader"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/parameter"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/expression"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_2/parser"
+
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/api"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/api/writer"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker/model"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/checker/range"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/xmlParser"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/export/xml" 
+)
+endif (SUPPORT_OSC_1_2)
+
+################################################################
+# Include folders
+#external files
+target_include_directories( ${PROJECT_NAME}
+	PUBLIC
+	${ANTLR4_INCLUDE_DIRS}
+	"${CMAKE_CURRENT_SOURCE_DIR}/../common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/Filesystem"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/TinyXML2"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../externalLibs/UtfCpp"
+
+#version independent
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/api"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/checker/tree"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/checker/model"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/export"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/loader"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/parameter"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/expression"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/parser"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/parser/modelgroup"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/parser/type"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/simple/struct"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/xmlIndexer" 
+    ${ANTLR_XMLLexer_OUTPUT_DIR}
+    ${ANTLR_XMLParser_OUTPUT_DIR}
+)
+
+if( ${BUILD_SHARED_LIBS} )
+   set( ANTLR_STATIC_SHARED  antlr4_shared )
+   message( STATUS "${PROJECT_NAME}: using Antlr shared" )
+else()
+   set( ANTLR_STATIC_SHARED  antlr4_static )
+   message( STATUS "${PROJECT_NAME}: using Antlr static" )
+endif()
+
 # Add libs
 target_link_libraries( ${PROJECT_NAME} 
-                PUBLIC ExpressionsLib
+                PUBLIC ExpressionsLib ${ANTLR_STATIC_SHARED}
                        )
 
+set_target_properties( ${PROJECT_NAME} PROPERTIES ANTLR4_RUNTIME_LIBRARIES "${ANTLR4_RUNTIME_LIBRARIES}" )
 
 ################################################################
 # Linux lib versioning
@@ -283,6 +366,6 @@ endif()
  ################################################################
 # Visual Studio solution folders
 if( MSVC )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251 /utf-8 /we4828")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /wd4251 /utf-8 /we4828 ")
     set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Core )
 endif()

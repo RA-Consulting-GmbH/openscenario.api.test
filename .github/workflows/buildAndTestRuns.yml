@@ -9,6 +9,8 @@ on:
         - master
         - dev
         
+    workflow_dispatch:
+        
 jobs:
   LinuxSharedDebugBuild:
     runs-on: ubuntu-latest
@@ -34,7 +36,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/Linux_shared/Debug
+        cd cpp/build/cgDebugMakeShared/applications/openScenarioTester
         chmod a+x *
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
         ./OpenScenarioTester && (exit 0) 
@@ -64,7 +66,7 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/Linux_shared/Release
+        cd cpp/build/cgReleaseMakeShared/applications/openScenarioTester
         chmod a+x *
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
         ./OpenScenarioTester && (exit 0) 
@@ -94,7 +96,7 @@ jobs:
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/Linux_static/Debug
+        cd cpp/build/cgDebugMakeStatic/applications/openScenarioTester
         chmod a+x *
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
         ./OpenScenarioTester && (exit 0) 
@@ -124,7 +126,7 @@ jobs:
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/Linux_static/Release
+        cd cpp/build/cgReleaseMakeStatic/applications/openScenarioTester
         chmod a+x *
         export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:.
         ./OpenScenarioTester && (exit 0) 
@@ -137,17 +139,17 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Debug
-      run: cmake -S ./cpp --preset="VS2019-Win32-shared"
+      run: cmake -S ./cpp --preset="VS2022-Win32-shared"
       
     - name: build solution Debug
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-Win32-shared" --config Debug
+        cmake --build --preset="Build-VS2022-Win32-shared" --config Debug
     
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/Win32_shared/Debug
+        cd cpp/build/cgMultiVS2022Win32Shared/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -158,17 +160,17 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-Win32-shared"
+      run: cmake -S ./cpp --preset="VS2022-Win32-shared"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-Win32-shared" --config Release
+        cmake --build --preset="Build-VS2022-Win32-shared" --config Release
 
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/Win32_shared/Release
+        cd cpp/build/cgMultiVS2022Win32Shared/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -179,17 +181,17 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Debug
-      run: cmake -S ./cpp --preset="VS2019-x64-shared"
+      run: cmake -S ./cpp --preset="VS2022-x64-shared"
       
     - name: build solution Debug
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-x64-shared" --config Debug
+        cmake --build --preset="Build-VS2022-x64-shared" --config Debug
     
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/x64_shared/Debug
+        cd cpp/build/cgMultiVS2022x64Shared/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -200,17 +202,17 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-x64-shared"
+      run: cmake -S ./cpp --preset="VS2022-x64-shared"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-x64-shared" --config Release
+        cmake --build --preset="Build-VS2022-x64-shared" --config Release
 
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/x64_shared/Release
+        cd cpp/build/cgMultiVS2022x64Shared/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -221,17 +223,17 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Debug
-      run: cmake -S ./cpp --preset="VS2019-Win32-static"
+      run: cmake -S ./cpp --preset="VS2022-Win32-static"
       
     - name: build solution Debug
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-Win32-static" --config Debug
+        cmake --build --preset="Build-VS2022-Win32-static" --config Debug
     
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/Win32_static/Debug
+        cd cpp/build/cgMultiVS2022Win32Static/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -242,17 +244,17 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-Win32-static"
+      run: cmake -S ./cpp --preset="VS2022-Win32-static"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-Win32-static" --config Release
+        cmake --build --preset="Build-VS2022-Win32-static" --config Release
 
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/Win32_static/Release
+        cd cpp/build/cgMultiVS2022Win32Static/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -263,17 +265,17 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Debug
-      run: cmake -S ./cpp --preset="VS2019-x64-static"
+      run: cmake -S ./cpp --preset="VS2022-x64-static"
       
     - name: build solution Debug
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-x64-static" --config Debug
+        cmake --build --preset="Build-VS2022-x64-static" --config Debug
     
     - name: test Debug
       shell: bash
       run: |
-        cd cpp/build/output/x64_static/Debug
+        cd cpp/build/cgMultiVS2022x64Static/applications/openScenarioTester/Debug
         ./OpenScenarioTester && (exit 0) 
 
 
@@ -284,15 +286,15 @@ jobs:
     - uses: actions/checkout@v2
     
     - name: cmake generate solution Release
-      run: cmake -S ./cpp --preset="VS2019-x64-static"
+      run: cmake -S ./cpp --preset="VS2022-x64-static"
       
     - name: build solution Release
       run: |
         cd cpp
-        cmake --build --preset="Build-VS2019-x64-static" --config Release
+        cmake --build --preset="Build-VS2022-x64-static" --config Release
 
     - name: test Release
       shell: bash
       run: |
-        cd cpp/build/output/x64_static/Release
+        cd cpp/build/cgMultiVS2022x64Static/applications/openScenarioTester/Release
         ./OpenScenarioTester && (exit 0) 

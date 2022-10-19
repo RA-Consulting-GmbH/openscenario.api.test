@@ -16,13 +16,7 @@ endif( WIN32 )
 ################################################################
 # Update rc file
 RAC_GET_PRODUCT_INFO( "${CMAKE_CURRENT_SOURCE_DIR}/productInfo.txt" )
-configure_file( "${CMAKE_SOURCE_DIR}/common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc" )
-
-
-################################################################
-# Set compile output folder
-RAC_SET_FOLDERS()
-message ( STATUS "Building all into: ${CMAKE_BINARY_DIR}" )
+configure_file( "${CMAKE_CURRENT_SOURCE_DIR}/../../common/rc.template" "${CMAKE_CURRENT_SOURCE_DIR}/rc/${PROJECT_NAME}.rc" )
 
 
 ################################################################
@@ -117,14 +111,12 @@ add_executable( ${PROJECT_NAME}
 # Add libs
 target_link_libraries( ${PROJECT_NAME} 
                PRIVATE ExpressionsLib
-                       #${ANTLR_STATIC_SHARED}
                        )
 
 # Add include dirs
 target_include_directories( ${PROJECT_NAME}
                     PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/test
                             ${CMAKE_CURRENT_SOURCE_DIR}/../../common
-                            ${CMAKE_CURRENT_SOURCE_DIR}/../../expressionsLib/inc
                             ${CMAKE_CURRENT_SOURCE_DIR}/thirdParty/nlohmann/inc
                             ${CMAKE_CURRENT_SOURCE_DIR}/antlr4cpp_generated_src/OscParamDefLexer
                             ${ANTLR4_INCLUDE_DIRS}
@@ -135,7 +127,8 @@ target_include_directories( ${PROJECT_NAME}
 #if( CMAKE_CXX_COMPILER_ID MATCHES "MSVC" )
 if( MSVC )
     if( ${BUILD_SHARED_LIBS} )
-        target_compile_options( ${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>" )        
+        target_compile_options( ${PROJECT_NAME} PRIVATE "/MD$<$<CONFIG:Debug>:d>" )    
+				
     else()
         target_compile_options( ${PROJECT_NAME} PRIVATE "/MT$<$<CONFIG:Debug>:d>" )
     endif()
@@ -143,11 +136,13 @@ endif()
 
 list( APPEND CMAKE_CTEST_ARGUMENTS "--output-on-failure" )
 
+POST_BUILD_COPY_DEPENDENT_LIB(ExpressionsLib ${PROJECT_NAME})
+POST_BUILD_COPY_ANTLR_RUNTIME_FILES(${PROJECT_NAME})
 
 ################################################################
 # Visual Studio solution settings
 if( MSVC )
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4251" ) # ${osc_extra_static_compile_flags}" )
     set_target_properties( ${PROJECT_NAME} PROPERTIES FOLDER Apps )
-    set_target_properties( ${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_BINARY_DIR}/$(Configuration)" )
+	set_target_properties( ${PROJECT_NAME} PROPERTIES VS_DEBUGGER_WORKING_DIRECTORY "$<TARGET_FILE_DIR:${PROJECT_NAME}>" )
 endif()

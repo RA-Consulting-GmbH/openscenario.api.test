@@ -4,11 +4,28 @@ cmake_minimum_required(VERSION 3.8.2)
 project(OpenScenario-Cpp)
 message(STATUS "${PROJECT_NAME}")
 
+################################################################
+# Preprocessor settings
+option(SUPPORT_OSC_1_0 "Build the artifacts supporting OSC standard version 1.0" ON)
+option(SUPPORT_OSC_1_1 "Build the artifacts supporting OSC standard version 1.1" ON)
+option(SUPPORT_OSC_1_2 "Build the artifacts supporting OSC standard version 1.2" ON)
+
+if (SUPPORT_OSC_1_0)
+	add_definitions(-DSUPPORT_OSC_1_0)	
+endif (SUPPORT_OSC_1_0)
+if (SUPPORT_OSC_1_1)
+	add_definitions(-DSUPPORT_OSC_1_1)	
+endif (SUPPORT_OSC_1_1)
+if (SUPPORT_OSC_1_2)
+	add_definitions(-DSUPPORT_OSC_1_2)	
+endif (SUPPORT_OSC_1_2)
+
+
 
 ################################################################
 # Write msbuild.exe for Windows build
 if(MSVC)
-    write_file("${CMAKE_SOURCE_DIR}/buildArtifact/msbuildcmd.txt" "cmd,${CMAKE_VS_MSBUILD_COMMAND}")
+    write_file("${CMAKE_CURRENT_SOURCE_DIR}/buildArtifact/msbuildcmd.txt" "cmd,${CMAKE_VS_MSBUILD_COMMAND}")
 endif(MSVC)
 
 
@@ -90,18 +107,16 @@ message(STATUS "Subprojects:")
 # Set compile output folder for OpenSCENARIO core libs
 # This is needed because of the way the makefiles for ANTLR4-Cpp-src are written
 unset(CMAKE_BUILD_TYPE CACHE)
-RAC_SET_FOLDERS()
-message(STATUS "Building all into: ${CMAKE_BINARY_DIR}")
     
 # CoreLibraries
-add_subdirectory(openScenarioLib ${PROJECT_BINARY_DIR}/openScenarioLib)
-add_subdirectory(expressionsLib ${PROJECT_BINARY_DIR}/expressionsLib)
+add_subdirectory(openScenarioLib)
+add_subdirectory(expressionsLib)
 
 # Applications
-add_subdirectory(applications/openScenarioReader ${PROJECT_BINARY_DIR}/applications/openScenarioReader)
-add_subdirectory(applications/openScenarioTester ${PROJECT_BINARY_DIR}/applications/openScenarioTester)
-add_subdirectory(applications/indexerTester ${PROJECT_BINARY_DIR}/applications/indexerTester)
-add_subdirectory(applications/expressionsTester ${PROJECT_BINARY_DIR}/applications/expressionsTester)
+add_subdirectory(applications/openScenarioReader)
+add_subdirectory(applications/openScenarioTester)
+add_subdirectory(applications/indexerTester)
+add_subdirectory(applications/expressionsTester)
 
 
 ################################################################

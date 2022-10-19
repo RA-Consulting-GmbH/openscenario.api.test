@@ -1,0 +1,609 @@
+{
+    "ActivateControllerAction": {
+        "lighting": {
+            "default": "None",
+            "typeName": "boolean"
+        }, 
+		"lateral": {
+            "default": "None",
+            "typeName": "boolean"
+        },
+		"animation": {
+            "default": "None",
+            "typeName": "boolean"
+        },
+        "longitudinal": {
+            "default": "None",
+            "typeName": "boolean"
+        }
+    },
+	 "AnimationAction": {
+        "animationDuration": {
+            "default": "None",
+            "typeName": "double"
+        }, 
+        "loop": {
+            "default": "false",
+            "typeName": "boolean"
+        }
+    },
+	 "AnimationFile": {
+        "animationDuration": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "AssignControllerAction": {
+        "activateLateral": {
+            "default": "None",
+            "typeName": "boolean"
+        },
+        "activateLongitudinal": {
+            "default": "None",
+            "typeName": "boolean"
+        },
+        "activateAnimation": {
+            "default": "None",
+            "typeName": "boolean"
+        },
+        "activateLighting": {
+            "default": "None",
+            "typeName": "boolean"
+        }
+    },
+	"Brake": {
+        "maxRate": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "Clothoid": {
+        "curvatureDot": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "curvaturePrime": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "startTime": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "stopTime": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "ControlPoint": {
+        "time": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "weight": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+     "Controller": {
+        "controllerType": {
+            "default": "movement",
+            "typeName": "ControllerType"
+        }
+    },
+    "DistanceCondition": {
+        "alongRoute": {
+            "default": "None",
+            "typeName": "boolean"
+        },
+        "coordinateSystem": {
+            "default": "entity",
+            "typeName": "CoordinateSystem"
+        },
+        "relativeDistanceType": {
+            "default": "euclidianDistance",
+            "typeName": "RelativeDistanceType"
+        },
+        "routingAlgorithm": {
+            "default": "undefined",
+            "typeName": "RoutingAlgorithm"
+        }
+    },
+    "DynamicConstraints": {
+        "maxAcceleration": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "maxDeceleration": {
+            "default": "None",
+            "typeName": "double"
+        }, 
+		"maxAccelerationRate": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "maxDecelerationRate": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "maxSpeed": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "DomeImage": {
+        "azimuthOffset": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "Event": {
+        "maximumExecutionCount": {
+            "default": "1",
+            "typeName": "unsignedInt"
+        }
+    },
+    "FollowTrajectoryAction": {
+        "initialDistanceOffset": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "GeoPosition": {
+        "altitude": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "height": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "latitude": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "longitude": {
+            "default": "0",
+            "typeName": "double"
+        },
+		"longitudeDeg": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "LaneChangeAction": {
+        "targetLaneOffset": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "LaneOffsetActionDynamics": {
+        "maxLateralAcc": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "LanePosition": {
+        "offset": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "LateralDistanceAction": {
+        "coordinateSystem": {
+            "default": "entity",
+            "typeName": "CoordinateSystem"
+        },
+        "displacement": {
+            "default": "any",
+            "typeName": "LateralDisplacement"
+        },
+        "distance": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "License": {
+        "resource": {
+            "default": "None",
+            "typeName": "string"
+        },
+        "spdxId": {
+            "default": "None",
+            "typeName": "string"
+        }
+    },
+    "LongitudinalDistanceAction": {
+        "coordinateSystem": {
+            "default": "entity",
+            "typeName": "CoordinateSystem"
+        },
+        "displacement": {
+            "default": "trailingReferencedEntity",
+            "typeName": "LongitudinalDisplacement"
+        },
+        "distance": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "timeGap": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+	"LightState": {
+        "flashingOffDuration": {
+            "default": "0.5",
+            "typeName": "double"
+        },
+        "flashingOnDuration": {
+            "default": "0.5",
+            "typeName": "double"
+        },
+        "luminousIntensity": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+	"LightStateAction": {
+        "transitionTime": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "MiscObject": {
+        "model3d": {
+            "default": "None",
+            "typeName": "string"
+        }
+    },
+    "Orientation": {
+        "h": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "p": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "r": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "type": {
+            "default": "absolute",
+            "typeName": "ReferenceContext"
+        }
+    },
+    "OverrideBrakeAction": {
+        "value": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+	"OverrideClutchAction": {
+        "maxRate": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+	"OverrideGearAction": {
+        "number": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+	"OverrideParkingBrakeAction": {
+        "value": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+	"OverrideSteeringWheelAction": {
+        "maxRate": {
+            "default": "None",
+            "typeName": "double"
+        },
+		"maxTorque": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+	"OverrideThrottleAction": {
+        "maxRate": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "Pedestrian": {
+        "model": {
+            "default": "None",
+            "typeName": "string"
+        },
+        "model3d": {
+            "default": "None",
+            "typeName": "string"
+        },
+        "role": {
+            "default": "none",
+            "typeName": "Role"
+        }
+    },
+    "PedestrianAnimation": {
+        "motion": {
+            "default": "None",
+            "typeName": "PedestrianMotionType"
+        },
+        "userDefinedPedestrianAnimation": {
+            "default": "None",
+            "typeName": "string"
+        }
+    },
+	"Performance": {
+        "maxAccelerationRate": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "maxDecelerationRate": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "PositionInLaneCoordinates": {
+        "laneOffset": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "Precipitation": {
+        "intensity": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "precipitationIntensity": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "RelativeClearanceCondition": {
+        "distanceBackward": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "distanceForward": {
+            "default": "0",
+            "typeName": "double"
+        }
+		
+    },
+    "RelativeDistanceCondition": {
+        "coordinateSystem": {
+            "default": "entity",
+            "typeName": "CoordinateSystem"
+        },
+		"routingAlgorithm": {
+            "default": "undefined",
+            "typeName": "RoutingAlgorithm"
+        }
+    },
+    "RelativeLanePosition": {
+        "ds": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "dsLane": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "offset": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "RelativeLaneRange": {
+        "from": {
+            "default": "None",
+            "typeName": "int"
+        },
+        "to": {
+            "default": "None",
+            "typeName": "int"
+        }
+    },
+    "RelativeObjectPosition": {
+        "dz": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "RelativeSpeedCondition": {
+        "direction": {
+            "default": "None",
+            "typeName": "DirectionalDimension"
+        }
+    },
+    "RelativeWorldPosition": {
+        "dz": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "RoadCondition": {
+        "wetness": {
+            "default": "None",
+            "typeName": "Wetness"
+        }
+    },
+	"SpeedCondition": {
+        "direction": {
+            "default": "None",
+            "typeName": "DirectionalDimension"
+        }
+    },
+	"SpeedProfileEntry": {
+        "time": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "Stochastic": {
+        "randomSeed": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "Sun": {
+        "illuminance": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "intensity": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "SynchronizeAction": {
+        "targetTolerance": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "targetToleranceMaster": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "TimeHeadwayCondition": {
+        "alongRoute": {
+            "default": "None",
+            "typeName": "boolean"
+        },
+        "coordinateSystem": {
+            "default": "entity",
+            "typeName": "CoordinateSystem"
+        },
+        "relativeDistanceType": {
+            "default": "euclidianDistance",
+            "typeName": "RelativeDistanceType"
+        }
+    },
+    "TimeToCollisionCondition": {
+        "alongRoute": {
+            "default": "None",
+            "typeName": "boolean"
+        },
+        "coordinateSystem": {
+            "default": "entity",
+            "typeName": "CoordinateSystem"
+        },
+        "relativeDistanceType": {
+            "default": "euclidianDistance",
+            "typeName": "RelativeDistanceType"
+        }
+    },
+    "TrafficAction": {
+        "trafficName": {
+            "default": "None",
+            "typeName": "string"
+        }
+    },
+    "TrafficSignalController": {
+        "delay": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "reference": {
+            "default": "None",
+            "typeName": "string"
+        }
+    },
+    "TrafficSinkAction": {
+        "rate": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "TrafficSourceAction": {
+        "velocity": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "speed": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "TrafficSwarmAction": {
+        "velocity": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "TrajectoryPosition": {
+        "t": {
+            "default": "0",
+            "typeName": "double"
+        }
+    },
+    "TransitionDynamics": {
+        "followingMode": {
+            "default": "position",
+            "typeName": "FollowingMode"
+        }
+    },
+    "Vehicle": {
+        "mass": {
+            "default": "None",
+            "typeName": "double"
+        },
+        "model3d": {
+            "default": "None",
+            "typeName": "string"
+        },
+        "role": {
+            "default": "none",
+            "typeName": "Role"
+        }
+    },
+    "Vertex": {
+        "time": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "Weather": {
+        "atmosphericPressure": {
+            "default": "None",
+            "typeName": "double"
+        },
+		"fractionalCloudCover": {
+            "default": "None",
+            "typeName": "FractionalCloudCover"
+        },
+        "cloudState": {
+            "default": "None",
+            "typeName": "CloudState"
+        },
+        "temperature": {
+            "default": "None",
+            "typeName": "double"
+        }
+    },
+    "WorldPosition": {
+        "h": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "p": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "r": {
+            "default": "0",
+            "typeName": "double"
+        },
+        "z": {
+            "default": "0",
+            "typeName": "double"
+        }
+    }
+}

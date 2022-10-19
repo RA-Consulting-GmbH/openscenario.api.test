@@ -119,7 +119,7 @@ if [ $CMV_MAJOR -ge 3 ] && [ $CMV_MINOR -ge 19 ]; then
                 echo -e "\nCompiling Linux $BINDING_TYPE $BUILD_TYPE ..."
                 cmake --build --preset="Build-Linux-$BINDING_TYPE-$BUILD_TYPE" $PAR
             fi
-            echo -e "\nFinished building$MAKE_TEXT Linux $BINDING_TYPE $BUILD_TYPE"
+            echo -e "\nFinished building $MAKE_TEXT Linux $BINDING_TYPE $BUILD_TYPE"
         done
     done
 
@@ -153,7 +153,7 @@ else
                 echo -e "\nCompiling Linux $BINDING_TYPE $BUILD_TYPE ..."
                 make $PAR
             fi
-            echo -e "\nFinished building$MAKE_TEXT Linux $BINDING_TYPE $BUILD_TYPE"
+            echo -e "\nFinished building $MAKE_TEXT Linux $BINDING_TYPE $BUILD_TYPE"
             cd "$LOCAL_CWD"
         done
     done

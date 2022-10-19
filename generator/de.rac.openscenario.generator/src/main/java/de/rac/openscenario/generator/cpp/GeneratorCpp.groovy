@@ -29,6 +29,7 @@ import de.rac.openscenario.generator.helper.ApiClassWriterFactoryInterfaceHelper
 import de.rac.openscenario.generator.helper.ApiClassWriterInterfaceHelper
 import de.rac.openscenario.generator.helper.ApiEnumerationHelper
 import de.rac.openscenario.generator.helper.ApiInterfaceHelper
+import de.rac.openscenario.generator.helper.CardinalityCheckerHelper
 import de.rac.openscenario.generator.helper.CardinalityCheckerRuleHelper
 import de.rac.openscenario.generator.helper.CatalogHelperHelper
 import de.rac.openscenario.generator.helper.ConstantClassHelper
@@ -56,7 +57,8 @@ public class GeneratorCpp {
 
 	private static final String V1_0 = "v1_0"
 	private static final String V1_1 = "v1_1"
-
+	private static final String V1_2 = "v1_2"
+	
 	private static versionMap = [:];
 
 	static {
@@ -72,6 +74,13 @@ public class GeneratorCpp {
 		versionMap[V1_1]["rangeCheckerRulesFile"] = "input/RangeCheckerRules_1.1.0.json";
 		versionMap[V1_1]["fileSuffix"] = "V1_1";
 		versionMap[V1_1]["oscVersion"] = "1.1";
+		
+		versionMap[V1_2] = [:];
+		versionMap[V1_2]["modelFile"] = "input/OpenSCENARIO_Ea_1.2.0.xmi";
+		versionMap[V1_2]["defaultValues"] = "input/DefaultValues_1.2.0.json";
+		versionMap[V1_2]["rangeCheckerRulesFile"] = "input/RangeCheckerRules_1.2.0.json";
+		versionMap[V1_2]["fileSuffix"] = "V1_2";
+		versionMap[V1_2]["oscVersion"] = "1.2";
 
 	}
 	public static void main(String[] args) {
@@ -189,7 +198,7 @@ public class GeneratorCpp {
 			System.out.println("-- Xml Parser Classes for ${key}");
 			binding["helper"] = new XmlParserClassHelper();
 			def all = umlModel.getClasses();
-			def sublist = all.collate( all.size().intdiv(2) +1 );
+			def sublist = all.collate( all.size().intdiv(4) +1 );
 			template = templateProcessor.getTemplate('XmlParserClass');
 			processor("xmlParser", "XmlParsers${versionProperties["fileSuffix"]}.h"){
 				return templateApplication(template, umlModel.getClasses());
@@ -201,6 +210,14 @@ public class GeneratorCpp {
 			
 			processor("xmlParser", "XmlParsers2${versionProperties["fileSuffix"]}.cpp"){
 				return templateApplication(template, sublist[1]);
+			}
+			
+			processor("xmlParser", "XmlParsers3${versionProperties["fileSuffix"]}.cpp"){
+				return templateApplication(template, sublist[2]);
+			}
+			
+			processor("xmlParser", "XmlParsers4${versionProperties["fileSuffix"]}.cpp"){
+				return templateApplication(template, sublist[3]);
 			}
 
 			// OK (template classes)
@@ -306,6 +323,22 @@ public class GeneratorCpp {
 				return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
 			}
 
+			if (key != "v1_0") //only implemented for OSC 1.1 and OSC 1.2
+			{
+				System.out.println("-- Cardinality Checker Helper Header for ${key}");
+				binding["helper"] = new CardinalityCheckerHelper()
+				template = templateProcessor.getTemplate('CardinalityCheckerHelper');
+				processor("checker/model", "CardinalityCheckerHelper${versionProperties["fileSuffix"]}.h"){
+					return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
+				}
+				
+				System.out.println("-- Cardinality Checker Helper Source for ${key}");
+				binding["helper"] = new CardinalityCheckerHelper()
+				template = templateProcessor.getTemplate('CardinalityCheckerHelperSource');
+				processor("checker/model", "CardinalityCheckerHelper${versionProperties["fileSuffix"]}.cpp"){
+					return templateApplication(template, umlModel.getClasses().findAll(){  UmlClass umlClass-> !umlClass.umlProperties.findAll(){UmlProperty p -> !p.isOptional() && !p.isOptionalUnboundList()}.isEmpty()});
+				}
+			}
 			System.out.println("-- OSC Writer Interface for ${key}");
 			binding["helper"] = new ApiClassWriterInterfaceHelper();
 			template = templateProcessor.getTemplate('ApiWriterInterface');
