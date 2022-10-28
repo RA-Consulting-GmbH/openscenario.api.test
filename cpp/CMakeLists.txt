@@ -66,6 +66,7 @@ endif()
 
 set(ANTLR4_TAG 4.8)
 set(ANTLR4_ZIP_REPOSITORY ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/antlr/antlr4-${ANTLR4_TAG}.zip)
+set(ANTLR4_MINGW_PATCH ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/antlr/antlr4-${ANTLR4_TAG}-mingw.patch)
 set(ANTLR_EXECUTABLE ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/antlr/antlr-${ANTLR4_TAG}-complete.jar)
 
 # add external build for antlrcpp

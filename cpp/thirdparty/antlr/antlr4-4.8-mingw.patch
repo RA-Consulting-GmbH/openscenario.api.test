@@ -1,0 +1,12 @@
+diff -Naur antlr4-4.8.orig/runtime/Cpp/runtime/src/atn/LexerATNSimulator.h antlr4-4.8/runtime/Cpp/runtime/src/atn/LexerATNSimulator.h
+--- antlr4-4.8.orig/runtime/Cpp/runtime/src/atn/LexerATNSimulator.h	2020-01-19 17:18:55.000000000 +0100
++++ antlr4-4.8/runtime/Cpp/runtime/src/atn/LexerATNSimulator.h	2022-11-04 15:47:49.240727000 +0100
+@@ -15,7 +15,7 @@
+   /// "dup" of ParserInterpreter
+   class ANTLR4CPP_PUBLIC LexerATNSimulator : public ATNSimulator {
+   protected:
+-    class SimState {
++    class ANTLR4CPP_PUBLIC SimState {
+     public:
+       virtual ~SimState();
+ 
