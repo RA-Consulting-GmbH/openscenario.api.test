@@ -1,21 +1,18 @@
 #!/bin/bash
 
-
 ################################################################
 # get script folder
 ################################################################
-SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
-
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 
 ################################################################
 # Check for parameters; print help
 ################################################################
-if [ "$1" == "" ] && [ "$2" == "" ] ; then
+if [ "$1" == "" ] && [ "$2" == "" ]; then
     echo "Parameters missing."
     echo "Usage: $0 <OpenSCENARIO API folder> shared|static"
     exit -1
 fi
-
 
 ################################################################
 # Parse cmd line params
@@ -26,25 +23,23 @@ BINDING_TYPE="ON"
 BINDING_TYPE_CAP="SHARED"
 for i in $*; do
     case "$i" in
-    "debug")
-        BUILD_TYPE="debug"
-        BUILD_TYPE_CAP="Debug"
-        ;;
-    "static")
-        BINDING_TYPE="OFF"
-        BINDING_TYPE_CAP="STATIC"
-        ;;
-    *) ;;
+        "debug")
+            BUILD_TYPE="debug"
+            BUILD_TYPE_CAP="Debug"
+            ;;
+        "static")
+            BINDING_TYPE="OFF"
+            BINDING_TYPE_CAP="STATIC"
+            ;;
+        *) ;;
     esac
 done
-
 
 ################################################################
 # cd to artifact folder
 ################################################################
 OPEN_SCEANARIO_API=$1
 cd "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
-
 
 ################################################################
 # CMakeLists.txt prefix
@@ -114,12 +109,12 @@ message ( \"Building all into: \${CMAKE_BINARY_DIR}\" )
 
 
 ################################################################
-# Include folders" > CMakeLists.txt
+# Include folders" >CMakeLists.txt
 
 # CMakeLists.txt includes
-for i in `find ./include -type d -print` ; do
-    j=`echo $i | cut -c3-`
-    echo "include_directories( \${CMAKE_SOURCE_DIR}/$j )" >> CMakeLists.txt
+for i in $(find ./include -type d -print); do
+    j=$(echo $i | cut -c3-)
+    echo "include_directories( \${CMAKE_SOURCE_DIR}/$j )" >>CMakeLists.txt
 done
 
 # CMakeLists.txt sources, headers, target def
@@ -245,4 +240,4 @@ if( BUILD_SHARED_LIBS )
             )
     endif()
 endif()
-" >> CMakeLists.txt
+" >>CMakeLists.txt

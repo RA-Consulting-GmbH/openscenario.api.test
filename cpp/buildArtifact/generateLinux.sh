@@ -1,10 +1,8 @@
 #!/bin/bash
 
-
 ################################
 # Script-Dir: https://stackoverflow.com/questions/59895/get-the-source-directory-of-a-bash-script-from-within-the-script-itself
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
-
 
 ################################
 # Print help
@@ -19,14 +17,12 @@ if [ "$1" == "" ] || [ $1 == "h" ] || [ $1 == "help" ] || [ $1 == "-h" ] || [ $1
     exit 0
 fi
 
-
 ################################
 # Check if cmake is installed
 command -v cmake >/dev/null 2>&1 || {
     echo >&2 "cmake is required to build the software. Please install cmake and add its bin path to the PATH environment variable. Aborting"
     exit 1
 }
-
 
 ################################
 # Parse cmd line params
@@ -38,16 +34,16 @@ if [ $1 == "all" ]; then
     MAKE_TEXT=" and compiling"
     for i in $*; do
         case "$i" in
-        "release")
-            BUILD_TYPES="release"
-            ;;
-        "shared")
-            BINDING_TYPES="shared"
-            ;;
-        "parallel")
-            PAR="-j 4"
-            ;;
-        *) ;;
+            "release")
+                BUILD_TYPES="release"
+                ;;
+            "shared")
+                BINDING_TYPES="shared"
+                ;;
+            "parallel")
+                PAR="-j 4"
+                ;;
+            *) ;;
         esac
     done
 # Single config build
@@ -58,29 +54,27 @@ else
     MAKE_TEXT=""
     for i in $*; do
         case "$i" in
-        "debug")
-            BUILD_TYPES="debug"
-            ;;
-        "static")
-            BINDING_TYPES="static"
-            ;;
-        "make")
-            MAKE="yes"
-            MAKE_TEXT=" and compiling"
-            ;;
-        "parallel")
-            PAR="-j 4"
-            ;;
-        *) ;;
+            "debug")
+                BUILD_TYPES="debug"
+                ;;
+            "static")
+                BINDING_TYPES="static"
+                ;;
+            "make")
+                MAKE="yes"
+                MAKE_TEXT=" and compiling"
+                ;;
+            "parallel")
+                PAR="-j 4"
+                ;;
+            *) ;;
         esac
     done
 fi
 
-
 ################################
 # Remember user dir
 USER_DIR="$(pwd)"
-
 
 ################################
 # Root-Dir
@@ -96,13 +90,11 @@ echo "OpenSCENARIO root dir: $ROOT_DIR"
 cd "$ROOT_DIR/cpp"
 echo "Entering $ROOT_DIR/cpp"
 
-
 ################################
 # Get cmake version
 CMV=$(cmake --version | egrep -o "[0-9]+\.[0-9]+")
 CMV_MAJOR=$(echo $CMV | cut -d '.' -f1 -)
 CMV_MINOR=$(echo $CMV | cut -d '.' -f2 -)
-
 
 ################################################################################
 # Build the release binaries cmake version dependent
@@ -158,7 +150,6 @@ else
         done
     done
 fi
-
 
 ################################
 # Return to user dir
