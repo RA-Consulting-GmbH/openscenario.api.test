@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: update system
       run:  sudo apt-get update
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: update system
       run:  sudo apt-get update
@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: update system
       run:  sudo apt-get update
@@ -106,7 +106,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: update system
       run:  sudo apt-get update
@@ -136,7 +136,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Debug
       run: cmake -S ./cpp --preset="VS2022-Win32-shared"
@@ -157,7 +157,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Release
       run: cmake -S ./cpp --preset="VS2022-Win32-shared"
@@ -178,7 +178,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Debug
       run: cmake -S ./cpp --preset="VS2022-x64-shared"
@@ -199,7 +199,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Release
       run: cmake -S ./cpp --preset="VS2022-x64-shared"
@@ -220,7 +220,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Debug
       run: cmake -S ./cpp --preset="VS2022-Win32-static"
@@ -241,7 +241,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Release
       run: cmake -S ./cpp --preset="VS2022-Win32-static"
@@ -262,7 +262,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Debug
       run: cmake -S ./cpp --preset="VS2022-x64-static"
@@ -283,7 +283,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Release
       run: cmake -S ./cpp --preset="VS2022-x64-static"
