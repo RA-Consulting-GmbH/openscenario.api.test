@@ -1,1 +1,1 @@
-for i in `ls *.sh`; do sed -i $'s/\r$//' $i; done
+for i in $(ls *.sh); do sed -i $'s/\r$//' $i; done
