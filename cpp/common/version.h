@@ -23,4 +23,4 @@
 
 #define MAJORVERSION 1
 #define MINORVERSION 3
-#define PATCHNUMBER 0
+#define PATCHNUMBER 1
