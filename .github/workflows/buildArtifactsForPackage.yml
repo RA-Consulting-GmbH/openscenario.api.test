@@ -14,7 +14,7 @@ jobs:
     needs: [LinuxSharedReleaseBuild, LinuxStaticReleaseBuild, Win32SharedReleaseBuild, Win32StaticReleaseBuild, x64SharedReleaseBuild, x64StaticReleaseBuild]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: update system
       run:  sudo apt-get update
@@ -22,7 +22,7 @@ jobs:
 
     # Linux builds
     # - name: get artifacts LinuxSharedDebug
-    #   uses: actions/download-artifact@v2
+    #   uses: actions/download-artifact@v3
     #   with:
     #     name: LinuxSharedDebug
     #     path: ./cpp/build
@@ -34,7 +34,7 @@ jobs:
     #     rm out.tgz
 
     - name: get artifacts LinuxSharedRelease
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: LinuxSharedRelease
         path: ./cpp/build
@@ -46,7 +46,7 @@ jobs:
         rm out.tgz
 
     # - name: get artifacts LinuxStaticDebug
-    #   uses: actions/download-artifact@v2
+    #   uses: actions/download-artifact@v3
     #   with:
     #     name: LinuxStaticDebug
     #     path: ./cpp/build
@@ -58,7 +58,7 @@ jobs:
     #     rm out.tgz
 
     - name: get artifacts LinuxStaticRelease
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: LinuxStaticRelease
         path: ./cpp/build
@@ -71,7 +71,7 @@ jobs:
 
     # Win32 builds
     # - name: get artifacts Win32SharedDebug
-    #   uses: actions/download-artifact@v2
+    #   uses: actions/download-artifact@v3
     #   with:
     #     name: Win32SharedDebug
     #     path: ./cpp/build
@@ -83,7 +83,7 @@ jobs:
     #     rm out.tgz
 
     - name: get artifacts Win32SharedRelease
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: Win32SharedRelease
         path: ./cpp/build
@@ -95,7 +95,7 @@ jobs:
         rm out.tgz
 
     # - name: get artifacts Win32StaticDebug
-    #   uses: actions/download-artifact@v2
+    #   uses: actions/download-artifact@v3
     #   with:
     #     name: Win32StaticDebug
     #     path: ./cpp/build
@@ -107,7 +107,7 @@ jobs:
     #     rm out.tgz
 
     - name: get artifacts Win32StaticRelease
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: Win32StaticRelease
         path: ./cpp/build
@@ -120,7 +120,7 @@ jobs:
 
     # x64 builds
     # - name: get artifacts x64SharedDebug
-    #   uses: actions/download-artifact@v2
+    #   uses: actions/download-artifact@v3
     #   with:
     #     name: x64SharedDebug
     #     path: ./cpp/build
@@ -132,7 +132,7 @@ jobs:
     #     rm out.tgz
 
     - name: get artifacts x64SharedRelease
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: x64SharedRelease
         path: ./cpp/build
@@ -144,7 +144,7 @@ jobs:
         rm out.tgz
 
     # - name: get artifacts x64StaticDebug
-    #   uses: actions/download-artifact@v2
+    #   uses: actions/download-artifact@v3
     #   with:
     #     name: x64StaticDebug
     #     path: ./cpp/build
@@ -156,7 +156,7 @@ jobs:
     #     rm out.tgz
 
     - name: get artifacts x64StaticRelease
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: x64StaticRelease
         path: ./cpp/build
@@ -200,7 +200,7 @@ jobs:
       run: ls ./cpp/buildArtifact/OpenSCENARIO*
 
     - name: publish artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: ${{ github.event.inputs.name }}
         path: ./cpp/buildArtifact/OpenSCENARIO*
@@ -211,7 +211,7 @@ jobs:
   #   runs-on: ubuntu-latest
     
   #   steps:
-  #   - uses: actions/checkout@v2
+  #   - uses: actions/checkout@v3
 
   #   - name: update system
   #     run:  sudo apt-get update
@@ -235,7 +235,7 @@ jobs:
   #      tar -zcf out.tgz cg*
 
   #   - name: publish artifact
-  #     uses: actions/upload-artifact@v2
+  #     uses: actions/upload-artifact@v3
   #     with: 
   #       name: LinuxSharedDebug
   #       path: ./cpp/build/out.tgz
@@ -245,7 +245,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: update system
       run:  sudo apt-get update
@@ -269,7 +269,7 @@ jobs:
         tar -zcf out.tgz cg*
 
     - name: publish artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with: 
         name: LinuxSharedRelease
         path: ./cpp/build/out.tgz
@@ -280,7 +280,7 @@ jobs:
   #   runs-on: ubuntu-latest
     
   #   steps:
-  #   - uses: actions/checkout@v2
+  #   - uses: actions/checkout@v3
 
   #   - name: update system
   #     run:  sudo apt-get update
@@ -304,7 +304,7 @@ jobs:
   #       tar -zcf out.tgz cg*
 
   #     - name: publish artifact
-  #       uses: actions/upload-artifact@v2
+  #       uses: actions/upload-artifact@v3
   #       with:
   #         name: LinuxStaticDebug
   #         path: ./cpp/build/out.tgz
@@ -314,7 +314,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: update system
       run:  sudo apt-get update
@@ -338,7 +338,7 @@ jobs:
         tar -zcf out.tgz cg*
 
     - name: publish artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: LinuxStaticRelease
         path: ./cpp/build/out.tgz
@@ -349,7 +349,7 @@ jobs:
   #   runs-on: windows-latest
     
   #   steps:
-  #   - uses: actions/checkout@v2
+  #   - uses: actions/checkout@v3
     
   #   - name: cmake generate solution Debug
   #     run: cmake -S ./cpp --preset="VS2022-Win32-shared"
@@ -366,7 +366,7 @@ jobs:
   #       tar -zcf out.tgz cg*
 
   #     - name: publish artifact
-  #       uses: actions/upload-artifact@v2
+  #       uses: actions/upload-artifact@v3
   #       with:
   #         name: Win32SharedDebug
   #         path: ./cpp/build/out.tgz
@@ -376,7 +376,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Release
       run: cmake -S ./cpp --preset="VS2022-Win32-shared"
@@ -393,7 +393,7 @@ jobs:
         tar -zcf out.tgz cg*
 
     - name: publish artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Win32SharedRelease
         path: ./cpp/build/out.tgz
@@ -404,7 +404,7 @@ jobs:
   #   runs-on: windows-latest
     
   #   steps:
-  #   - uses: actions/checkout@v2
+  #   - uses: actions/checkout@v3
     
   #   - name: cmake generate solution Debug
   #     run: cmake -S ./cpp --preset="VS2022-Win32-static"
@@ -421,7 +421,7 @@ jobs:
   #       tar -zcf out.tgz cg*
 
   #     - name: publish artifact
-  #       uses: actions/upload-artifact@v2
+  #       uses: actions/upload-artifact@v3
   #       with:
   #         name: Win32StaticDebug
   #         path: ./cpp/build/out.tgz
@@ -431,7 +431,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Release
       run: cmake -S ./cpp --preset="VS2022-Win32-static"
@@ -448,7 +448,7 @@ jobs:
         tar -zcf out.tgz cg*
 
     - name: publish artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Win32StaticRelease
         path: ./cpp/build/out.tgz
@@ -459,7 +459,7 @@ jobs:
   #   runs-on: windows-latest
     
   #   steps:
-  #   - uses: actions/checkout@v2
+  #   - uses: actions/checkout@v3
     
   #   - name: cmake generate solution Debug
   #     run: cmake -S ./cpp --preset="VS2022-x64-shared"
@@ -476,7 +476,7 @@ jobs:
   #       tar -zcf out.tgz cg*
 
   #     - name: publish artifact
-  #       uses: actions/upload-artifact@v2
+  #       uses: actions/upload-artifact@v3
   #       with:
   #         name: x64SharedDebug
   #         path: ./cpp/build/out.tgz
@@ -486,7 +486,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Release
       run: cmake -S ./cpp --preset="VS2022-x64-shared"
@@ -503,7 +503,7 @@ jobs:
         tar -zcf out.tgz cg*
 
     - name: publish artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: x64SharedRelease
         path: ./cpp/build/out.tgz
@@ -514,7 +514,7 @@ jobs:
   #   runs-on: windows-latest
     
   #   steps:
-  #   - uses: actions/checkout@v2
+  #   - uses: actions/checkout@v3
     
   #   - name: cmake generate solution Debug
   #     run: cmake -S ./cpp --preset="VS2022-x64-static"
@@ -531,7 +531,7 @@ jobs:
   #       tar -zcf out.tgz cg*
 
   #     - name: publish artifact
-  #       uses: actions/upload-artifact@v2
+  #       uses: actions/upload-artifact@v3
   #       with:
   #         name: x64StaticDebug
   #         path: ./cpp/build/out.tgz
@@ -541,7 +541,7 @@ jobs:
     runs-on: windows-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: cmake generate solution Release
       run: cmake -S ./cpp --preset="VS2022-x64-static"
@@ -558,7 +558,7 @@ jobs:
         tar -zcf out.tgz cg*
 
     - name: publish artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: x64StaticRelease
         path: ./cpp/build/out.tgz
