@@ -27,7 +27,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    class ContentMessage
+    class OPENSCENARIOLIB_EXP ContentMessage
     {
 
     private:
@@ -42,7 +42,7 @@ namespace NET_ASAM_OPENSCENARIO
          * @param errorLevel the error level of the message
          */
 		OPENSCENARIOLIB_EXP ContentMessage(const std::string message = "", const ErrorLevel errorLevel = INFO);
-		OPENSCENARIOLIB_EXP virtual ~ContentMessage() = default;
+		OPENSCENARIOLIB_EXP virtual ~ContentMessage();
     	
         /**
          * The text of a message

@@ -34,7 +34,9 @@ namespace NET_ASAM_OPENSCENARIO
 		
 		int TestReader::ExecuteSystemCommand( std::string& command )
 		{
-	#ifdef WIN32
+	#if defined (__MINGW32__) || defined (__MINGW64__)
+			return system(command.c_str());
+	#elif defined (WIN32)
 			std::wstring wstringCommand;
 			if (!FileResourceLocator::Utf8ToWstring(command, wstringCommand)) { return -1; }
 			return _wsystem(wstringCommand.c_str() );

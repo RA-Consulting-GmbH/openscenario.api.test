@@ -27,6 +27,8 @@ namespace NET_ASAM_OPENSCENARIO
 {
     ContentMessage::ContentMessage(const std::string message, const ErrorLevel errorLevel): _message(message), _errorLevel(errorLevel) {}
 
+    ContentMessage::~ContentMessage() {}
+
     std::string ContentMessage::GetMsg()
     {
         return _message;
