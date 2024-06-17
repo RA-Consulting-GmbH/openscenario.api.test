@@ -70,7 +70,15 @@ namespace NET_ASAM_OPENSCENARIO
                         parser->Parse(indexedElement, parserContext, object);
                         currentListIndex = this->MoveForwardToLastElementParsed(indexedElements, currentListIndex, parserContext->GetLastElementParsed());
                         lastElementParsed = parserContext->GetLastElementParsed();
-                        _occuredElementList.emplace(std::make_pair(parser, currentOccurs + 1));
+                        auto it = _occuredElementList.find(parser);
+                        if (it != _occuredElementList.end()) 
+                        {
+                            it->second = currentOccurs + 1;
+                        } 
+                        else 
+                        {
+                            _occuredElementList.emplace(parser, currentOccurs + 1);
+                        }
                     }
                     else
                     {
