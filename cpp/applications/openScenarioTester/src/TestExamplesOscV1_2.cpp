@@ -82,6 +82,7 @@ namespace NET_ASAM_OPENSCENARIO
 				"SlowPrecedingVehicleStochasticParameterSet.xosc",
 				"SynchronizedArrivalToIntersection.xosc",
 				"TrafficJam.xosc",
+				"FollowTrajectory_Nurbs.xosc",
 			};
 			return TestFiles(scenarioFiles, pathNameScenarios);
 		}
