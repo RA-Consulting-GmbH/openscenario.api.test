@@ -104,6 +104,30 @@ if (SUPPORT_OSC_1_2)
 	)
 endif (SUPPORT_OSC_1_2)
 
+if (SUPPORT_OSC_1_3)
+	set( HEADERS
+	  ${HEADERS}
+	  "src/TestDeprecatedV1_3.h"
+	  "src/TestExamplesV1_3.h"
+	  "src/TestBaseV1_3.h"
+	  "src/TestFilesV1_3.h"
+	  "src/TestReaderV1_3.h"
+	  "src/TestWriterApiV1_3.h"
+	  "src/TestImportsV1_3.h"
+	  "src/TestSimpleDemosV1_3.h"
+	  "src/TestRangeCheckerV1_3.h"
+	  "src/TestFlexInterfaceV1_3.h"
+	  "src/TestVersionCheckerV1_3.h"
+	  "src/TestInjectedParametersV1_3.h"
+	  "src/TestAlksV1_3.h"
+	  "src/TestParameterValidationV1_3.h"  
+	  "src/TestVariableValidationV1_3.h"  
+	  "src/TestDeprecatedValidationV1_3.h"
+	  "src/TestExamplesOscV1_3.h"
+      "src/TestCardinalityV1_3.h"
+	)
+endif (SUPPORT_OSC_1_3)
+
 if (SUPPORT_OSC_1_0)
 set( HEADERS_HELPER
     ${HEADERS_HELPER}
@@ -124,6 +148,13 @@ set( HEADERS_HELPER
 	"src/helper/EgoCheckerRuleV1_2.h"
 )
 endif (SUPPORT_OSC_1_2)
+
+if (SUPPORT_OSC_1_3)
+set( HEADERS_HELPER
+    ${HEADERS_HELPER}
+	"src/helper/EgoCheckerRuleV1_3.h"
+)
+endif (SUPPORT_OSC_1_3)
 
 # Source files
 set( SOURCES
@@ -194,6 +225,30 @@ set( SOURCES
 )
 endif (SUPPORT_OSC_1_2)
 
+if (SUPPORT_OSC_1_3)
+set( SOURCES
+    ${SOURCES}
+	"src/TestBaseV1_3.cpp"
+    "src/TestExamplesV1_3.cpp"
+    "src/TestFilesV1_3.cpp"
+    "src/TestFlexInterfaceV1_3.cpp"
+    "src/TestImportsV1_3.cpp"
+    "src/TestInjectedParametersV1_3.cpp"
+    "src/TestRangeCheckerV1_3.cpp"
+    "src/TestReaderV1_3.cpp"
+    "src/TestSimpleDemosV1_3.cpp"
+    "src/TestVersionCheckerV1_3.cpp"
+    "src/TestWriterApiV1_3.cpp"
+    "src/TestDeprecatedV1_3.cpp"
+    "src/TestAlksV1_3.cpp"
+	"src/TestParameterValidationV1_3.cpp"
+	"src/TestVariableValidationV1_3.cpp"
+	"src/TestDeprecatedValidationV1_3.cpp"
+	"src/TestExamplesOscV1_3.cpp"
+    "src/TestCardinalityV1_3.cpp"
+)
+endif (SUPPORT_OSC_1_3)
+
 if (SUPPORT_OSC_1_0)
 set( SOURCES_HELPER
     ${SOURCES_HELPER}
@@ -214,6 +269,13 @@ set( SOURCES_HELPER
 	"src/helper/EgoCheckerRuleV1_2.cpp"
 )
 endif (SUPPORT_OSC_1_2)
+
+if (SUPPORT_OSC_1_3)
+set( SOURCES_HELPER
+    ${SOURCES_HELPER}
+	"src/helper/EgoCheckerRuleV1_3.cpp"
+)
+endif (SUPPORT_OSC_1_3)
 
 # Resource files
 if( MSVC )

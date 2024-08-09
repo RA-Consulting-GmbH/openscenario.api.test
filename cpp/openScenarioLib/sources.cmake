@@ -374,3 +374,91 @@ set( SOURCES_GENERATED_1_2_XMLEXPORTER # SOURCES_GENERATED_1_2_XMLEXPORTER_
 set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_2_XMLEXPORTER} )
 
 endif (SUPPORT_OSC_1_2)
+
+################################################
+## V1_3
+################################
+if (SUPPORT_OSC_1_3)
+# Sources hand crafted
+set( SOURCES_V1_3_LOADER
+    "src/v1_3/loader/OpenScenarioProcessingHelperV1_3.cpp"
+    "src/v1_3/loader/XmlScenarioImportLoaderFactoryV1_3.cpp"
+    "src/v1_3/loader/XmlScenarioImportLoaderV1_3.cpp"
+    "src/v1_3/loader/XmlScenarioLoaderFactoryV1_3.cpp"
+    "src/v1_3/loader/XmlScenarioLoaderV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_V1_3_LOADER} )
+
+set( SOURCES_V1_3_EXPRESSION
+    "src/v1_3/expression/ExpressionResolverV1_3.cpp"
+    "src/v1_3/expression/ExpressionResolverStackV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_V1_3_EXPRESSION} )
+set( SOURCES_V1_3_PARSER
+    "src/v1_3/parser/CatalogReferenceParserContextV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_V1_3_PARSER} )
+
+set( SOURCES_V1_3_CHECKER
+    "src/v1_3/checker/ParameterDeclarationCheckerV1_3.cpp"
+    "src/v1_3/checker/VariableCheckerV1_3.cpp"
+    "src/v1_3/checker/DeprecatedCheckerV1_3.cpp"
+    "src/v1_3/checker/VersionCheckerRuleV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_V1_3_CHECKER} )
+
+set( SOURCES_V1_3_CATALOG
+    "src/v1_3/catalog/CatalogCacheV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_V1_3_CATALOG} )
+
+################################
+# Sources generated
+set( SOURCES_GENERATED_1_3_API
+    "generated/v1_3/api/EnumerationsV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_3_API} )
+
+set( SOURCES_GENERATED_1_3_CHECKER_MODEL
+    "generated/v1_3/checker/model/UnionCheckerRulesV1_3.cpp"
+    "generated/v1_3/checker/model/CardinalityCheckerRulesV1_3.cpp"
+    "generated/v1_3/checker/model/CardinalityCheckerHelperV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_3_CHECKER_MODEL} )
+
+set( SOURCES_GENERATED_1_3_CHECKER_IMPL
+   "generated/v1_3/checker/impl/ScenarioCheckerImplV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_3_CHECKER_IMPL} )
+
+set( SOURCES_GENERATED_1_3_CHECKER_RANGE
+    "generated/v1_3/checker/range/RangeCheckerRulesV1_3.cpp"
+    "generated/v1_3/checker/range/RangeCheckerHelperV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_3_CHECKER_RANGE} )
+
+set( SOURCES_GENERATED_1_3_CATALOG
+    "generated/v1_3/catalog/CatalogHelperV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_3_CATALOG} )
+
+set( SOURCES_GENERATED_1_3_IMPL
+    "generated/v1_3/impl/ApiClassImplV1_3.cpp"
+    "generated/v1_3/impl/OpenScenarioWriterFactoryImplV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_3_IMPL} )
+
+set( SOURCES_GENERATED_1_3_XMLPARSER
+    "generated/v1_3/xmlParser/XmlParsers1V1_3.cpp"
+    "generated/v1_3/xmlParser/XmlParsers2V1_3.cpp"
+    "generated/v1_3/xmlParser/XmlParsers3V1_3.cpp"
+    "generated/v1_3/xmlParser/XmlParsers4V1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_3_XMLPARSER} )
+
+set( SOURCES_GENERATED_1_3_XMLEXPORTER # SOURCES_GENERATED_1_3_XMLEXPORTER_
+    "generated/v1_3/export/xml/OpenScenarioXmlExporterV1_3.cpp"
+)
+set( ALL_SOURCES ${ALL_SOURCES} ${SOURCES_GENERATED_1_3_XMLEXPORTER} )
+
+endif (SUPPORT_OSC_1_3)

@@ -182,6 +182,42 @@ if (SUPPORT_OSC_1_2)
     source_group( Headers\\v1_2\\Generated\\XmlParser FILES ${HEADERS_GENERATED_1_2_XMLPARSER} )
     source_group( Headers\\v1_2\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_1_2_XMLEXPORTER} )
 endif (SUPPORT_OSC_1_2)
+
+if (SUPPORT_OSC_1_3)
+    source_group( Sources\\V1_3\\Catalog FILES ${SOURCES_V1_3_CATALOG})
+    source_group( Sources\\V1_3\\Checker FILES ${SOURCES_V1_3_CHECKER})
+    source_group( Sources\\V1_3\\Loader FILES ${SOURCES_V1_3_LOADER})
+    source_group( Sources\\V1_3\\Expression FILES ${SOURCES_V1_3_EXPRESSION})
+    source_group( Sources\\V1_3\\Parameter FILES ${SOURCES_V1_3_PARAMETER})
+    source_group( Sources\\V1_3\\Parser FILES ${SOURCES_V1_3_PARSER})
+
+	source_group( Sources\\v1_3\\Generated\\Api FILES ${SOURCES_GENERATED_1_3_API} )
+    source_group( Sources\\v1_3\\Generated\\Checker\\Impl FILES ${SOURCES_GENERATED_1_3_CHECKER_IMPL} )
+    source_group( Sources\\v1_3\\Generated\\Checker\\Range FILES ${SOURCES_GENERATED_1_3_CHECKER_RANGE} )
+    source_group( Sources\\v1_3\\Generated\\Catalog FILES ${SOURCES_GENERATED_1_3_CATALOG} )
+    source_group( Sources\\v1_3\\Generated\\Checker\\Model FILES ${SOURCES_GENERATED_1_3_CHECKER_MODEL} )
+    source_group( Sources\\v1_3\\Generated\\Impl FILES ${SOURCES_GENERATED_1_3_IMPL} )
+    source_group( Sources\\v1_3\\Generated\\XmlParser FILES ${SOURCES_GENERATED_1_3_XMLPARSER} )
+    source_group( Sources\\v1_3\\Generated\\XmlExporter FILES ${SOURCES_GENERATED_1_3_XMLEXPORTER} )
+	
+	source_group( Headers\\v1_3\\Catalog FILES ${HEADERS_CATALOG_1_3})
+    source_group( Headers\\v1_3\\Loaders FILES ${HEADERS_LOADER_1_3})
+    source_group( Headers\\v1_3\\Expression FILES ${HEADERS_EXPRESSION_1_3})
+    source_group( Headers\\v1_3\\Parser FILES ${HEADERS_PARSER_1_3})
+    source_group( Headers\\v1_3\\Checker FILES ${HEADERS_CHECKER_1_3})
+	
+	source_group( Headers\\v1_3\\Generated\\Api FILES ${HEADERS_GENERATED_1_3_API} )
+    source_group( Headers\\v1_3\\Generated\\Api\\Writer FILES ${HEADERS_GENERATED_1_3_API_WRITER} )
+    source_group( Headers\\v1_3\\Generated\\Common FILES ${HEADERS_GENERATED_1_3_COMMON} )
+    source_group( Headers\\v1_3\\Generated\\Checker FILES ${HEADERS_GENERATED_1_3_CHECKER} )
+    source_group( Headers\\v1_3\\Generated\\Checker\\Model FILES ${HEADERS_GENERATED_1_3_CHECKER_MODEL} )
+    source_group( Headers\\v1_3\\Generated\\Checker\\Impl FILES ${HEADERS_GENERATED_1_3_CHECKER_IMPL} )
+    source_group( Headers\\v1_3\\Generated\\Checker\\Range FILES ${HEADERS_GENERATED_1_3_CHECKER_RANGE} )
+    source_group( Headers\\v1_3\\Generated\\Catalog FILES ${HEADERS_GENERATED_1_3_CATALOG} )
+    source_group( Headers\\v1_3\\Generated\\Impl FILES ${HEADERS_GENERATED_1_3_IMPL} )
+    source_group( Headers\\v1_3\\Generated\\XmlParser FILES ${HEADERS_GENERATED_1_3_XMLPARSER} )
+    source_group( Headers\\v1_3\\Generated\\Export\\Xml FILES ${HEADERS_GENERATED_1_3_XMLEXPORTER} )
+endif (SUPPORT_OSC_1_3)
    
     # Groups for header files
     source_group( Headers FILES ${HEADERS} )
@@ -308,6 +344,30 @@ target_include_directories( ${PROJECT_NAME}
 	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_2/export/xml" 
 )
 endif (SUPPORT_OSC_1_2)
+
+if (SUPPORT_OSC_1_3)
+target_include_directories( ${PROJECT_NAME}
+	PUBLIC
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_3/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_3/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_3/loader"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_3/parameter"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_3/expression"
+	"${CMAKE_CURRENT_SOURCE_DIR}/src/v1_3/parser"
+
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/api"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/api/writer"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/common"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/checker"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/checker/model"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/checker/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/checker/range"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/catalog"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/impl"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/xmlParser"
+	"${CMAKE_CURRENT_SOURCE_DIR}/generated/v1_3/export/xml" 
+)
+endif (SUPPORT_OSC_1_3)
 
 ################################################################
 # Include folders
