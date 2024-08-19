@@ -16,7 +16,9 @@ if( ${BUILD_SHARED_LIBS} )
     add_definitions( -DEXPORT_OSC_EXPR )
 endif()
 
-
+################################################################
+# Update linker settings
+set(CMAKE_BUILD_RPATH "\$ORIGIN")
 
 ################################################################
 # Update rc file
