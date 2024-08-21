@@ -34,6 +34,17 @@ AND : 'and';
 OR : 'or';
 FALSE_LITERAL : 'false';
 TRUE_LITERAL : 'true';
+
+SIN: 'sin';
+COS: 'cos';
+TAN: 'tan';
+ASIN: 'asin';
+ACOS: 'acos';
+ATAN: 'atan';
+SIGN: 'sign';
+ABS: 'abs';
+MAX: 'max';
+MIN: 'min';
 	
 fragment INT :   '0' | [1-9] [0-9]* ; // no leading zeros
 fragment EXP :   [Ee] [+\-]? INT ; // \- since - means "range" inside [...]

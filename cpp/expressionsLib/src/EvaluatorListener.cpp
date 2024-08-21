@@ -333,6 +333,39 @@ namespace OscExpression
 			result = ExprValue::CreateDoubleValue(round(firstExprValue->getDoubleValue()));
 			this->valueStack.push(result);
 		}
+		else if (ctx->func->getType() == OscExprLexer::SIN) {
+			result = ExprValue::CreateDoubleValue(sin(firstExprValue->getDoubleValue()));
+			this->valueStack.push(result);
+		}
+		else if (ctx->func->getType() == OscExprLexer::COS) {
+			result = ExprValue::CreateDoubleValue(cos(firstExprValue->getDoubleValue()));
+			this->valueStack.push(result);
+		}
+		else if (ctx->func->getType() == OscExprLexer::TAN) {
+			result = ExprValue::CreateDoubleValue(tan(firstExprValue->getDoubleValue()));
+			this->valueStack.push(result);
+		}
+		else if (ctx->func->getType() == OscExprLexer::ASIN) {
+			result = ExprValue::CreateDoubleValue(asin(firstExprValue->getDoubleValue()));
+			this->valueStack.push(result);
+		}
+		else if (ctx->func->getType() == OscExprLexer::ACOS) {
+			result = ExprValue::CreateDoubleValue(acos(firstExprValue->getDoubleValue()));
+			this->valueStack.push(result);
+		}
+		else if (ctx->func->getType() == OscExprLexer::ATAN) {
+			result = ExprValue::CreateDoubleValue(atan(firstExprValue->getDoubleValue()));
+			this->valueStack.push(result);
+		}
+		else if (ctx->func->getType() == OscExprLexer::SIGN)
+		{
+ 			result = ExprValue::CreateDoubleValue((firstExprValue->getDoubleValue() > 0) - (firstExprValue->getDoubleValue() < 0));
+			this->valueStack.push(result);
+		}
+		else if (ctx->func->getType() == OscExprLexer::ABS) {
+			result = ExprValue::CreateDoubleValue(abs(firstExprValue->getDoubleValue()));
+			this->valueStack.push(result);
+		}
 	}
 	
 	void EvaluatorListener::exitNumLiteral(OscExprParser::NumLiteralContext *ctx)
@@ -494,6 +527,26 @@ namespace OscExpression
 			}
 
 			result = ExprValue::CreateDoubleValue(powResult);
+			this->valueStack.push(result);
+		}	
+		else if (ctx->func->getType() == OscExprLexer::MAX) 
+		{
+			double firstValue = -1;
+			double secondValue = -1;
+			firstValue = firstExprValue->getDoubleValue();
+			secondValue = secondExprValue->getDoubleValue();		
+
+			result = ExprValue::CreateDoubleValue(std::max(firstValue, secondValue));
+			this->valueStack.push(result);
+		}
+		else if (ctx->func->getType() == OscExprLexer::MIN) 
+		{
+			double firstValue = -1;
+			double secondValue = -1;
+			firstValue = firstExprValue->getDoubleValue();
+			secondValue = secondExprValue->getDoubleValue();
+
+			result = ExprValue::CreateDoubleValue(std::min(firstValue, secondValue));
 			this->valueStack.push(result);
 		}
 	}

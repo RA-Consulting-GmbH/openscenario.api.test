@@ -27,4 +27,14 @@ expr: func=POW OPEN_BRACKET expr COLON expr CLOSE_BRACKET # FunctionTwoArguments
 	| TRUE_LITERAL #TrueLiteral
 	| ID # IdExpr
 	| OPEN_BRACKET expr CLOSE_BRACKET  # SquaredExpr
+	| func=SIN OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument 
+	| func=COS OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument 
+	| func=TAN OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument 
+	| func=ASIN OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument 
+	| func=ACOS OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument 
+	| func=ATAN OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument 
+	| func=SIGN OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument 
+	| func=ABS OPEN_BRACKET expr CLOSE_BRACKET # FunctionOneArgument 
+	| func=MAX OPEN_BRACKET expr COLON expr CLOSE_BRACKET # FunctionTwoArguments 
+	| func=MIN OPEN_BRACKET expr COLON expr CLOSE_BRACKET # FunctionTwoArguments 
 	;
