@@ -143,6 +143,7 @@ public class GeneratorCpp {
 			def templateApplicationOrig = CommonTemplateProcessor.getTemplateApplication();
 			def templateApplication = templateApplicationOrig.curry(binding);
 			def TemplateProcessor templateProcessor = new TemplateProcessor(TemplateProcessor.CPP, key)
+			def TemplateProcessor templateProcessorJson = new TemplateProcessor(TemplateProcessor.JSON, key)
 			// put the directory in the Closure
 
 			processor  = processor.curry(outputDir);
@@ -403,7 +404,16 @@ public class GeneratorCpp {
 			{
 				return templateApplication(template, umlModel);
 			}
-		}
+			
+			
+			System.out.println("-- Model as Json for  ${key}");
+			binding["helper"] = new ApiClassInterfaceHelper();
+			template = templateProcessorJson.getTemplate('ModelAsJson');
+			processor("modelasjson", "Model${versionProperties["fileSuffix"]}.json")
+			{
+				return templateApplication(template, null);
+			}
+		}		
 	}
 
 
@@ -452,6 +462,44 @@ public class GeneratorCpp {
 			}
 		}
 
+		def static toName(UmlType type) {
+			if (type.isPrimitiveType())
+			{
+				if (type.name == "string")
+				{
+					return "std::string";
+
+				}else if (type.name == "unsignedInt")
+				{
+					return "uint32_t";
+
+				}else if (type.name == "int")
+				{
+					return "int";
+
+				}else if (type.name == "unsignedShort")
+				{
+					return "uint16_t";
+				}else if (type.name == "dateTime")
+				{
+					return "DateTime";
+				}else if (type.name == "boolean")
+				{
+					return "bool";
+
+				}else if (type.name == "double")
+				{
+					return "double"
+				}
+			}else if (type.isEnumeration())
+			{
+				return type.name.toClassName();
+			}else
+			{
+				return type.name.toClassName();
+			}
+		}
+		
 		def static toCppWriterName(UmlType type) {
 			if (type.isPrimitiveType())
 			{

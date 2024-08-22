@@ -23,13 +23,14 @@ import de.rac.generator.basic.CommonTemplateProcessor
 class TemplateProcessor {
   
     public static final String CPP = "cpp";
+	public static final String JSON = "json";
 
     private String type;
 	private String version;
 	
     TemplateProcessor(String type, String version)
     {
-      assert(type.equals(CPP))
+      assert(type.equals(CPP) || type.equals(JSON))
       assert(version.equals("v1_0") || version.equals("v1_1") || version.equals("v1_2") || version.equals("v1_3"))
       this.type = type;
 	  this.version = version;

@@ -16,8 +16,10 @@ if( ${BUILD_SHARED_LIBS} )
     add_definitions( -DEXPORT_OSC_EXPR )
 endif()
 
-
-
+################################################################
+# Update linker settings
+set(CMAKE_BUILD_RPATH "\$ORIGIN")
+ 
 ################################################################
 # Update rc file
 RAC_GET_PRODUCT_INFO("${CMAKE_CURRENT_SOURCE_DIR}/productInfo.txt")
