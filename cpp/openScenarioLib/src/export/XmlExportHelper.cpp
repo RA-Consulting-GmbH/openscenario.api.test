@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+#include <sstream>
+#include <iomanip>
 
 #include "XmlExportHelper.h"
 #include "MemLeakDetection.h"
@@ -29,7 +31,9 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::string XmlExportHelper::ToXmlStringFromDouble(const double value)
         {
-            return std::to_string(value);
+            std::stringstream s;
+            s << std::setprecision(std::numeric_limits<double>::digits10) << value;
+            return s.str(); 
         }
 
          std::string XmlExportHelper::ToXmlStringFromString(const std::string value)
