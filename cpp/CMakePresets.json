@@ -519,6 +519,42 @@
             "hidden": true
         },
         {
+            "name": "Cross-shared",
+            "cacheVariables": {
+                "BUILD_SHARED_LIBS": {
+                    "type": "BOOL",
+                    "value": "ON"
+                },
+                "CMAKE_C_COMPILER": {
+                    "type": "STRING",
+                    "value": "/usr/bin/x86_64-w64-mingw32-gcc"
+                },
+                "CMAKE_CXX_COMPILER": {
+                    "type": "STRING",
+                    "value": "/usr/bin/x86_64-w64-mingw32-g++"
+                },
+                "CMAKE_SYSTEM_NAME": {
+                    "type": "STRING",
+                    "value": "Windows"
+                },
+                "CMAKE_SYSTEM_VERSION": {
+                    "type": "STRING",
+                    "value": "10.0"
+                },
+                "CMAKE_CXX_STANDARD": {
+                    "type": "STRING",
+                    "value": "11"
+                }
+            },
+            "environment": {
+                "PR_ENV_BINDING": "Shared"
+            },
+            "inherits": [
+                "Unix-Makefiles"
+            ],
+            "hidden": true
+        },
+        {
             "name": "Linux-shared-debug",
             "displayName": "Linux shared debug",
             "description": "Build using Unix Makefiles",
@@ -576,9 +612,24 @@
                 "Build-type-relWithDebInfo"
             ],
             "hidden": true
+        },
+        {
+            "name": "Cross-shared-release",
+            "displayName": "Cross shared release",
+            "description": "Build using cross compilation",
+            "inherits": [
+                "Cross-shared",
+                "Build-type-release"
+            ]
         }
     ],
     "buildPresets": [
+        {
+            "name": "Build-Cross-shared-release",
+            "description": "Build the shared project with cross compilation",
+            "displayName": "Build Cross shared release",
+            "configurePreset": "Cross-shared-release"
+        },
         {
             "name": "Build-Linux-shared-release",
             "description": "Build shared release using Unix Makefiles",
