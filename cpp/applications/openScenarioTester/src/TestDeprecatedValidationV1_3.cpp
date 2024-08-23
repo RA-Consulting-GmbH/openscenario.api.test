@@ -32,7 +32,7 @@ namespace NET_ASAM_OPENSCENARIO
 			try
 			{
 				ClearMessageLogger();
-				const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerDeprecationValidationErrors1_2.xosc";
+				const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerDeprecationValidationErrors1_3.xosc";
 				(void)ExecuteParsing(kFilename);
 				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Attribute 'height' is deprecated and must not be used with attribute 'altitude'.", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(137, 16, kFilename)));

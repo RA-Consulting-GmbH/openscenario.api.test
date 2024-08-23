@@ -36,7 +36,7 @@ namespace NET_ASAM_OPENSCENARIO
 			try 
 			{
 				ClearMessageLogger();
-				const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerVariables1_2.xosc";
+				const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerVariables1_3.xosc";
 				(void) ExecuteParsing(kFilename);
 				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 
@@ -62,7 +62,7 @@ namespace NET_ASAM_OPENSCENARIO
 			try
 			{
 				ClearMessageLogger();
-				const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerVariablesWrongDataTypes1_2.xosc";
+				const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerVariablesWrongDataTypes1_3.xosc";
 				(void)ExecuteParsing(kFilename);
 				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Value 'wrongBoolean' cannot be parsed into 'boolean'.", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(23, 67, kFilename)));
@@ -95,7 +95,7 @@ namespace NET_ASAM_OPENSCENARIO
 			try
 			{
 				ClearMessageLogger();
-				const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerVariablesNotDefined1_2.xosc";
+				const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerVariablesNotDefined1_3.xosc";
 				(void)ExecuteParsing(kFilename);
 				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Variable 'notDefined' is not defined.", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(147, 36, kFilename)));
@@ -122,7 +122,7 @@ namespace NET_ASAM_OPENSCENARIO
 			try
 			{
 				ClearMessageLogger();
-				const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerVariablesWrongAction1_2.xosc";
+				const std::string kFilename = _executablePath + "/" + kInputDir + "DoubleLaneChangerVariablesWrongAction1_3.xosc";
 				(void)ExecuteParsing(kFilename);  
 				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Value 'wrongBoolean' cannot be parsed into 'boolean'.", NET_ASAM_OPENSCENARIO::ERROR, NET_ASAM_OPENSCENARIO::Textmarker(157, 35, kFilename)));

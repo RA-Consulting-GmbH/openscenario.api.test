@@ -39,7 +39,7 @@ namespace NET_ASAM_OPENSCENARIO
 			auto msgLogger = std::dynamic_pointer_cast<NET_ASAM_OPENSCENARIO::IParserMessageLogger>(_messageLogger);
 
 			// Instantiating the factory
-			std::string fileName = _executablePath + "/" + kInputDir + "DoubleLaneChangerDeprecated1_2.xosc";
+			std::string fileName = _executablePath + "/" + kInputDir + "DoubleLaneChangerDeprecated1_3.xosc";
 			auto loaderFactory = XmlScenarioLoaderFactory(fileName);
 
 			// Creating the loader

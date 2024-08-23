@@ -57,7 +57,7 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
 			command += " -i " + _executablePath + "/" + kInputDir + "simpleImport/simpleImport.xosc";
-			command += " -v1_2 ";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			return Assert( SUCCESS_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 		}
@@ -66,7 +66,7 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			std::string command(DOT_SLASH); command.append("OpenScenarioReader");
 			command += " -i " + _executablePath + "/" + kInputDir + "simpleImportnonAsciiPathßäöü/simpleImport.xosc";
-			command += " -v1_2 ";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			return Assert(SUCCESS_RESULT == ExecuteSystemCommand(command), ASSERT_LOCATION);
 		}
@@ -75,7 +75,7 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
 			command += " -d " + _executablePath + "/" + kInputDir + "goodDirectory";
-			command += " -v1_2 ";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			return Assert( SUCCESS_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 		}
@@ -84,7 +84,7 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
 			command += " -d " + _executablePath + "/" + kInputDir + "badDirectory";
-			command += " -v1_2 ";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			return Assert( ERROR_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 		}
@@ -93,7 +93,7 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
 			command += " -i " "testFileNotFound";
-			command += " -v1_2 ";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			auto res = Assert( ERROR_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 			res = res && Assert( "Scenario file not found 'testFileNotFound'" == GetLine( kResultFileName, 4 ), ASSERT_LOCATION );
@@ -104,7 +104,7 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
 			command += " -d " "testDirectoryNotFound";
-			command += " -v1_2 ";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			auto res = Assert( ERROR_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 			res = res && Assert( "'testDirectoryNotFound' does not exists or is not a directory." == GetLine( kResultFileName, 4 ), ASSERT_LOCATION );
@@ -114,8 +114,8 @@ namespace NET_ASAM_OPENSCENARIO
 		bool TestReader::TestWithErrors() const
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
-			command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerParamsError1_2.xosc";
-			command += " -v1_2 ";
+			command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerParamsError1_3.xosc";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			auto res = Assert( ERROR_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 			res = res && Assert( "Validation failed with 3 errors and 1 warnings." == GetLine( kResultFileName, 12 ), ASSERT_LOCATION );
@@ -128,16 +128,16 @@ namespace NET_ASAM_OPENSCENARIO
 			command += " Test ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			auto res = Assert( USAGE_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
-			res = res && Assert( "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1|-v1_2]] | -v]" == GetLine( kResultFileName, 4 ), ASSERT_LOCATION );
+			res = res && Assert( "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1|-v1_2|-v1_3]] | -v]" == GetLine( kResultFileName, 4 ), ASSERT_LOCATION );
 			return res;
 		}
 
 		bool TestReader::TestWithParamFile() const
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
-			command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams1_2.xosc";
+			command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams1_3.xosc";
 			command += " -p " + _executablePath + "/" + kInputDir + "params.conf";
-			command += " -v1_2 ";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			auto res = Assert( ERROR_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 			res = res && Assert( "\ttestBoolean\ttrue" == GetLine( kResultFileName, 5 ), ASSERT_LOCATION );
@@ -153,9 +153,9 @@ namespace NET_ASAM_OPENSCENARIO
 		bool TestReader::TestWithParamFileSyntaxError() const
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
-			command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams1_2.xosc";
+			command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams1_3.xosc";
 			command += " -p " + _executablePath + "/" + kInputDir + "paramsSyntaxError.conf";
-			command += " -v1_2 ";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			auto res = Assert( ERROR_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 			res = res && Assert( "Syntax error in parameter file: line 8" == GetLine( kResultFileName, 4 ), ASSERT_LOCATION );
@@ -165,9 +165,9 @@ namespace NET_ASAM_OPENSCENARIO
 		bool TestReader::TestWithParamFileSyntaxError2() const
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
-			command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams1_2.xosc";
+			command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams1_3.xosc";
 			command += " -p " + _executablePath + "/" + kInputDir + "paramsSyntaxError2.conf";
-			command += " -v1_2 ";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			auto res = Assert( ERROR_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 			res = res && Assert( "Syntax error in parameter file: line 5" == GetLine( kResultFileName, 4 ), ASSERT_LOCATION );
@@ -177,9 +177,9 @@ namespace NET_ASAM_OPENSCENARIO
 		bool TestReader::TestWithParamFileNotFound() const
 		{
 			std::string command( DOT_SLASH ); command.append( "OpenScenarioReader" );
-			command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams1_2.xosc";
+			command += " -i " + _executablePath + "/" + kInputDir + "DoubleLaneChangerInjectedParams1_3.xosc";
 			command += " -p paramsNotFound.conf";
-			command += " -v1_2 ";
+			command += " -v1_3 ";
 			command += " > " + _executablePath + "/" + kInputDir + kResultFileName;
 			auto res = Assert( ERROR_RESULT == ExecuteSystemCommand( command ), ASSERT_LOCATION );
 			res = res && Assert( "paramsfile not found" == GetLine( kResultFileName, 4 ), ASSERT_LOCATION );

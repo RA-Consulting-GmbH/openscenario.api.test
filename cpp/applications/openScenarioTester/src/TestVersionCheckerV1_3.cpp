@@ -43,7 +43,7 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			try 
 			{
-				std::string filename = _executablePath + "/" + kInputDir + "DoubleLaneChanger1_2.xosc";
+				std::string filename = _executablePath + "/" + kInputDir + "DoubleLaneChanger1_3.xosc";
 				auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteParsing(filename));
 				auto treeMessageLogger = std::make_shared<NET_ASAM_OPENSCENARIO::TreeMessageLogger>(NET_ASAM_OPENSCENARIO::ErrorLevel::WARNING);
 

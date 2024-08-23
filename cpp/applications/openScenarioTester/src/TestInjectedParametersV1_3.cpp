@@ -30,7 +30,7 @@ namespace NET_ASAM_OPENSCENARIO
 			try
 			{
 				const std::map<std::string, std::string> kEmptyMap;
-				(void)ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams1_2.xosc", kEmptyMap);
+				(void)ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams1_3.xosc", kEmptyMap);
 				return true;
 			}
 			catch( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e )
@@ -45,7 +45,7 @@ namespace NET_ASAM_OPENSCENARIO
 			try
 			{
 				const std::map<std::string, std::string> kEmptyMap;
-				(void)ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams1_2.xosc", kEmptyMap);
+				(void)ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams1_3.xosc", kEmptyMap);
 				return true;
 			}
 			catch( NET_ASAM_OPENSCENARIO::ScenarioLoaderException& e )
@@ -69,7 +69,7 @@ namespace NET_ASAM_OPENSCENARIO
 
 			try
 			{
-				auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams1_2.xosc", injectedParamters));
+				auto openScenario = std::dynamic_pointer_cast<IOpenScenario>(ExecuteParsing(_executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams1_3.xosc", injectedParamters));
 
 				auto filePath = openScenario->GetOpenScenarioCategory()->GetScenarioDefinition()->GetRoadNetwork()->GetLogicFile()->GetFilepath();
 				
@@ -118,7 +118,7 @@ namespace NET_ASAM_OPENSCENARIO
 			try
 			{
 				ClearMessageLogger();
-				std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams1_2.xosc";
+				std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams1_3.xosc";
 				(void) ExecuteParsing(filename, injectedParamters);
 				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Injected parameter 'testInteger': Cannot convert 'wrongInteger' to an int. Number format error. Injected parameter is ignored.",
@@ -150,7 +150,7 @@ namespace NET_ASAM_OPENSCENARIO
 			try
 			{
 				ClearMessageLogger();
-				std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams1_2.xosc";
+				std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChangerInjectedParams1_3.xosc";
 				(void) ExecuteParsing(filename, injectedParamters);
 				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
@@ -172,7 +172,7 @@ namespace NET_ASAM_OPENSCENARIO
 			try
 			{
 				ClearMessageLogger();
-				std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChanger1_2.xosc";
+				std::string filename = _executablePath + "/" +  kInputDir + "DoubleLaneChanger1_3.xosc";
 				(void) ExecuteParsing(filename, injectedParamters);
 				std::vector<NET_ASAM_OPENSCENARIO::FileContentMessage> messages;
 				messages.push_back(NET_ASAM_OPENSCENARIO::FileContentMessage("Injected parameter 'notDefined' must be declared as a global parameter. Injected parameter is ignored.",
