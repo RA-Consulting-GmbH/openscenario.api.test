@@ -735,11 +735,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterAssignments = catalogReferenceWriter->GetWriterParameterAssignments();
             if (!kParameterAssignments.empty())
             {
-                tinyxml2::XMLNode* parameterAssignmentsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENT.c_str());
+                tinyxml2::XMLNode* parameterAssignmentsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENTS.c_str());
                 elementNode->InsertEndChild(parameterAssignmentsWrapperElement);
                 for (auto parameterAssignmentsWriterItem : kParameterAssignments)
                 {
-                    tinyxml2::XMLNode* parameterAssignmentsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENTS.c_str());
+                    tinyxml2::XMLNode* parameterAssignmentsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_ASSIGNMENT.c_str());
                     parameterAssignmentsWrapperElement->InsertEndChild(parameterAssignmentsElement);
                     FillParameterAssignmentNode(document, parameterAssignmentsElement, parameterAssignmentsWriterItem);
                 }
@@ -980,11 +980,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterDeclarations = controllerWriter->GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
+                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
                 elementNode->InsertEndChild(parameterDeclarationsWrapperElement);
                 for (auto parameterDeclarationsWriterItem : kParameterDeclarations)
                 {
-                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
+                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
                     parameterDeclarationsWrapperElement->InsertEndChild(parameterDeclarationsElement);
                     FillParameterDeclarationNode(document, parameterDeclarationsElement, parameterDeclarationsWriterItem);
                 }
@@ -1671,11 +1671,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterDeclarations = environmentWriter->GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
+                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
                 elementNode->InsertEndChild(parameterDeclarationsWrapperElement);
                 for (auto parameterDeclarationsWriterItem : kParameterDeclarations)
                 {
-                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
+                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
                     parameterDeclarationsWrapperElement->InsertEndChild(parameterDeclarationsElement);
                     FillParameterDeclarationNode(document, parameterDeclarationsElement, parameterDeclarationsWriterItem);
                 }
@@ -2575,11 +2575,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterDeclarations = maneuverWriter->GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
+                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
                 elementNode->InsertEndChild(parameterDeclarationsWrapperElement);
                 for (auto parameterDeclarationsWriterItem : kParameterDeclarations)
                 {
-                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
+                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
                     parameterDeclarationsWrapperElement->InsertEndChild(parameterDeclarationsElement);
                     FillParameterDeclarationNode(document, parameterDeclarationsElement, parameterDeclarationsWriterItem);
                 }
@@ -2703,11 +2703,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterDeclarations = miscObjectWriter->GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
+                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
                 elementNode->InsertEndChild(parameterDeclarationsWrapperElement);
                 for (auto parameterDeclarationsWriterItem : kParameterDeclarations)
                 {
-                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
+                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
                     parameterDeclarationsWrapperElement->InsertEndChild(parameterDeclarationsElement);
                     FillParameterDeclarationNode(document, parameterDeclarationsElement, parameterDeclarationsWriterItem);
                 }
@@ -3386,11 +3386,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterDeclarations = pedestrianWriter->GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
+                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
                 elementNode->InsertEndChild(parameterDeclarationsWrapperElement);
                 for (auto parameterDeclarationsWriterItem : kParameterDeclarations)
                 {
-                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
+                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
                     parameterDeclarationsWrapperElement->InsertEndChild(parameterDeclarationsElement);
                     FillParameterDeclarationNode(document, parameterDeclarationsElement, parameterDeclarationsWriterItem);
                 }
@@ -4316,11 +4316,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kTrafficSignals = roadNetworkWriter->GetWriterTrafficSignals();
             if (!kTrafficSignals.empty())
             {
-                tinyxml2::XMLNode* trafficSignalsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER.c_str());
+                tinyxml2::XMLNode* trafficSignalsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNALS.c_str());
                 elementNode->InsertEndChild(trafficSignalsWrapperElement);
                 for (auto trafficSignalsWriterItem : kTrafficSignals)
                 {
-                    tinyxml2::XMLNode* trafficSignalsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNALS.c_str());
+                    tinyxml2::XMLNode* trafficSignalsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__TRAFFIC_SIGNAL_CONTROLLER.c_str());
                     trafficSignalsWrapperElement->InsertEndChild(trafficSignalsElement);
                     FillTrafficSignalControllerNode(document, trafficSignalsElement, trafficSignalsWriterItem);
                 }
@@ -4397,11 +4397,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterDeclarations = routeWriter->GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
+                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
                 elementNode->InsertEndChild(parameterDeclarationsWrapperElement);
                 for (auto parameterDeclarationsWriterItem : kParameterDeclarations)
                 {
-                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
+                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
                     parameterDeclarationsWrapperElement->InsertEndChild(parameterDeclarationsElement);
                     FillParameterDeclarationNode(document, parameterDeclarationsElement, parameterDeclarationsWriterItem);
                 }
@@ -4508,11 +4508,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterDeclarations = scenarioDefinitionWriter->GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
+                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
                 elementNode->InsertEndChild(parameterDeclarationsWrapperElement);
                 for (auto parameterDeclarationsWriterItem : kParameterDeclarations)
                 {
-                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
+                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
                     parameterDeclarationsWrapperElement->InsertEndChild(parameterDeclarationsElement);
                     FillParameterDeclarationNode(document, parameterDeclarationsElement, parameterDeclarationsWriterItem);
                 }
@@ -4858,11 +4858,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterDeclarations = storyWriter->GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
+                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
                 elementNode->InsertEndChild(parameterDeclarationsWrapperElement);
                 for (auto parameterDeclarationsWriterItem : kParameterDeclarations)
                 {
-                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
+                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
                     parameterDeclarationsWrapperElement->InsertEndChild(parameterDeclarationsElement);
                     FillParameterDeclarationNode(document, parameterDeclarationsElement, parameterDeclarationsWriterItem);
                 }
@@ -5729,11 +5729,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterDeclarations = trajectoryWriter->GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
+                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
                 elementNode->InsertEndChild(parameterDeclarationsWrapperElement);
                 for (auto parameterDeclarationsWriterItem : kParameterDeclarations)
                 {
-                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
+                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
                     parameterDeclarationsWrapperElement->InsertEndChild(parameterDeclarationsElement);
                     FillParameterDeclarationNode(document, parameterDeclarationsElement, parameterDeclarationsWriterItem);
                 }
@@ -6108,11 +6108,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kParameterDeclarations = vehicleWriter->GetWriterParameterDeclarations();
             if (!kParameterDeclarations.empty())
             {
-                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
+                tinyxml2::XMLNode* parameterDeclarationsWrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
                 elementNode->InsertEndChild(parameterDeclarationsWrapperElement);
                 for (auto parameterDeclarationsWriterItem : kParameterDeclarations)
                 {
-                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATIONS.c_str());
+                    tinyxml2::XMLNode* parameterDeclarationsElement = document->NewElement(OSC_CONSTANTS::ELEMENT__PARAMETER_DECLARATION.c_str());
                     parameterDeclarationsWrapperElement->InsertEndChild(parameterDeclarationsElement);
                     FillParameterDeclarationNode(document, parameterDeclarationsElement, parameterDeclarationsWriterItem);
                 }

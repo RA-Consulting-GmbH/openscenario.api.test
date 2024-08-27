@@ -125,11 +125,11 @@ namespace NET_ASAM_OPENSCENARIO
             const auto k<%=property.name.toClassName()%> = <%=umlClass.name.toMemberName()%>Writer->GetWriter<%=property.name.toClassName()%>();
             if (!k<%=property.name.toClassName()%>.empty())
             {
-                tinyxml2::XMLNode* <%=property.name.toMemberName()%>WrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__<%=property.getXsdWrapperElementName().toUpperNameFromMemberName()%>.c_str());
+                tinyxml2::XMLNode* <%=property.name.toMemberName()%>WrapperElement = document->NewElement(OSC_CONSTANTS::ELEMENT__<%=property.getXmlTagName().toUpperNameFromMemberName()%>.c_str());
                 elementNode->InsertEndChild(<%=property.name.toMemberName()%>WrapperElement);
                 for (auto <%=property.name.toMemberName()%>WriterItem : k<%=property.name.toClassName()%>)
                 {
-                    tinyxml2::XMLNode* <%=property.name.toMemberName()%>Element = document->NewElement(OSC_CONSTANTS::ELEMENT__<%=property.getXmlTagName().toUpperNameFromMemberName()%>.c_str());
+                    tinyxml2::XMLNode* <%=property.name.toMemberName()%>Element = document->NewElement(OSC_CONSTANTS::ELEMENT__<%=property.getXsdWrapperElementName().toUpperNameFromMemberName()%>.c_str());
                     <%=property.name.toMemberName()%>WrapperElement->InsertEndChild(<%=property.name.toMemberName()%>Element);
                     Fill<%=property.type.name.toClassName()%>Node(document, <%=property.name.toMemberName()%>Element, <%=property.name.toMemberName()%>WriterItem);
                 }
