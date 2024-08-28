@@ -40,9 +40,12 @@ namespace NET_ASAM_OPENSCENARIO
 
             try
             {
+                tinyxml2::XMLDeclaration* declaration = document->NewDeclaration();
+                document->InsertFirstChild(declaration);
+			
                 tinyxml2::XMLNode* root = document->NewElement("OpenSCENARIO");
-                document->InsertFirstChild(root);
-                FillOpenScenarioNode(document, root, openScenarioWriter);    
+                document->InsertEndChild(root);
+                FillOpenScenarioNode(document, root, openScenarioWriter);   
             }
             catch (std::exception& e)
             {
