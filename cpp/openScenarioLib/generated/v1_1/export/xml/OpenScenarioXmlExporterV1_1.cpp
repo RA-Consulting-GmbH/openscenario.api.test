@@ -1087,13 +1087,9 @@ namespace NET_ASAM_OPENSCENARIO
         {
             // Add Attributes (Parameters)
             const auto kContent = customCommandActionWriter->GetContent();
-            if (customCommandActionWriter->IsContentParameterized())
+            if (!kContent.empty())
             {
-                elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTENT.c_str(), customCommandActionWriter->GetParameterFromContent().c_str());
-            }
-            else
-            {
-                elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTENT.c_str(), XmlExportHelper::ToXmlStringFromString( kContent).c_str());
+                elementNode->InsertEndChild(document->NewText(kContent.c_str()));
             }
             const auto kType = customCommandActionWriter->GetType();
             if (customCommandActionWriter->IsTypeParameterized())
@@ -2436,13 +2432,9 @@ namespace NET_ASAM_OPENSCENARIO
         {
             // Add Attributes (Parameters)
             const auto kText = licenseWriter->GetText();
-            if (!( kText.empty()))
+            if (!kText.empty())
             {
-                elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TEXT.c_str(), XmlExportHelper::ToXmlStringFromString( kText).c_str());
-            }
-			else if (licenseWriter->IsTextParameterized())
-            {
-                elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__TEXT.c_str(), licenseWriter->GetParameterFromText().c_str());
+                elementNode->InsertEndChild(document->NewText(kText.c_str()));
             }
             const auto kName = licenseWriter->GetName();
             if (licenseWriter->IsNameParameterized())
@@ -5963,13 +5955,9 @@ namespace NET_ASAM_OPENSCENARIO
         {
             // Add Attributes (Parameters)
             const auto kContent = userDefinedDistributionWriter->GetContent();
-            if (userDefinedDistributionWriter->IsContentParameterized())
+            if (!kContent.empty())
             {
-                elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTENT.c_str(), userDefinedDistributionWriter->GetParameterFromContent().c_str());
-            }
-            else
-            {
-                elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__CONTENT.c_str(), XmlExportHelper::ToXmlStringFromString( kContent).c_str());
+                elementNode->InsertEndChild(document->NewText(kContent.c_str()));
             }
             const auto kType = userDefinedDistributionWriter->GetType();
             if (userDefinedDistributionWriter->IsTypeParameterized())

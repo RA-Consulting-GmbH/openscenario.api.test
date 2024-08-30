@@ -45,7 +45,7 @@ namespace NET_ASAM_OPENSCENARIO
 			
                 tinyxml2::XMLNode* root = document->NewElement("OpenSCENARIO");
                 document->InsertEndChild(root);
-                FillOpenScenarioNode(document, root, openScenarioWriter);   
+                FillOpenScenarioNode(document, root, openScenarioWriter);    
             }
             catch (std::exception& e)
             {
@@ -61,7 +61,13 @@ namespace NET_ASAM_OPENSCENARIO
         {
             // Add Attributes (Parameters)
 			<%- umlClass.umlProperties.findAll(){p-> !p.isTransient()}.each{ property -> -%>
-			<%- if (property.isParameterizableProperty() && !property.isProxy()){-%>
+			<%- if (property.isSimpleContentProperty()){-%>
+            const auto k<%=property.name.toClassName()%> = <%=umlClass.name.toMemberName()%>Writer->Get<%=property.name.toClassName()%>();
+            if (!k<%=property.name.toClassName()%>.empty())
+            {
+                elementNode->InsertEndChild(document->NewText(k<%=property.name.toClassName()%>.c_str()));
+            }
+			<%-}else if (property.isParameterizableProperty() && !property.isProxy()){-%>
             const auto k<%=property.name.toClassName()%> = <%=umlClass.name.toMemberName()%>Writer->Get<%=property.name.toClassName()%>();
 				<%-if (property.isOptional()){-%>
             if (!( k<%=property.name.toClassName()%><%=property.type.toCppIsDefaultValue()%>))
@@ -105,12 +111,6 @@ namespace NET_ASAM_OPENSCENARIO
 				<%-} else {-%>
                 elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>.c_str(), k<%=property.name.toClassName()%>.GetLiteral().c_str());
 				<%-}-%>
-            }
-			<%-}else if (umlClass.isSimpleContent()){-%>
-            const auto k<%=property.name.toClassName()%> = <%=umlClass.name.toMemberName()%>Writer->Get<%=property.name.toClassName()%>();
-            if (!k<%=property.name.toClassName()%>.empty())
-            {
-                elementNode->InsertEndChild(document->NewText(k<%=property.name.toClassName()%>.c_str()));
             }
 			<%-}else if (!property.isList()){-%>
             const auto k<%=property.name.toClassName()%> = <%=umlClass.name.toMemberName()%>Writer->GetWriter<%=property.name.toClassName()%>();
