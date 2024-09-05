@@ -13,7 +13,7 @@ on:
         
 jobs:
   LinuxSharedDebugBuild:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     
     steps:
     - uses: actions/checkout@v3
@@ -43,7 +43,7 @@ jobs:
 
     
   LinuxSharedReleaseBuild:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     
     steps:
     - uses: actions/checkout@v3
@@ -73,7 +73,7 @@ jobs:
 
 
   LinuxStaticDebugBuild:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     
     steps:
     - uses: actions/checkout@v3
@@ -103,7 +103,7 @@ jobs:
 
 
   LinuxStaticReleaseBuild:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     
     steps:
     - uses: actions/checkout@v3
@@ -133,7 +133,7 @@ jobs:
 
 
   Win32SharedDebugBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -154,7 +154,7 @@ jobs:
 
 
   Win32SharedReleaseBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -175,7 +175,7 @@ jobs:
 
 
   Win64SharedDebugBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -196,7 +196,7 @@ jobs:
 
 
   Win64SharedReleaseBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -217,7 +217,7 @@ jobs:
 
 
   Win32StaticDebugBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -238,7 +238,7 @@ jobs:
 
 
   Win32StaticReleaseBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -259,7 +259,7 @@ jobs:
 
 
   Win64StaticDebugBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -280,7 +280,7 @@ jobs:
 
 
   Win64StaticReleaseBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
