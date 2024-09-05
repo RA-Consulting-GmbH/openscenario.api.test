@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
+  <FileHeader author="ASAM e.V." date="2021-02-05T18:50:17" description="Simple Overtaker example" revMajor="1" revMinor="2"/>
+  <ParameterDeclarations/>
+  <CatalogLocations>
+    <VehicleCatalog>
+      <Directory path="Catalogs/Vehicles"/>
+    </VehicleCatalog>
+  </CatalogLocations>
+  <RoadNetwork>
+    <LogicFile filepath="Databases/SampleDatabase.xodr"/>
+  </RoadNetwork>
+  <Entities>
+    <ScenarioObject name="Vehicle 1">
+      <Vehicle name="Vehicle 1" vehicleCategory="car">
+        <ParameterDeclarations/>
+        <BoundingBox>
+          <Center x="1.3" y="0.0" z="0.75"/>
+          <Dimensions width="1.8" length="4.5" height="1.5"/>
+        </BoundingBox>
+        <Performance maxSpeed="200.0" maxDeceleration="30.0" maxAcceleration="200.0"/>
+        <Axles>
+          <FrontAxle positionZ="0.4" trackWidth="1.68" positionX="2.98" maxSteering="0.5235987756" wheelDiameter="0.8"/>
+          <RearAxle positionZ="0.4" trackWidth="1.68" positionX="0.0" maxSteering="0.5235987756" wheelDiameter="0.8"/>
+        </Axles>
+        <Properties/>
+      </Vehicle>
+      <ObjectController/>
+    </ScenarioObject>
+    <ScenarioObject name="Vehicle 2">
+      <Vehicle name="Vehicle 2" vehicleCategory="car">
+        <ParameterDeclarations/>
+        <BoundingBox>
+          <Center x="1.4" y="0.0" z="0.9"/>
+          <Dimensions width="2.0" length="5.0" height="1.8"/>
+        </BoundingBox>
+        <Performance maxSpeed="200.0" maxDeceleration="30.0" maxAcceleration="200.0"/>
+        <Axles>
+          <FrontAxle positionZ="0.4" trackWidth="1.68" positionX="2.98" maxSteering="0.5235987756" wheelDiameter="0.8"/>
+          <RearAxle positionZ="0.4" trackWidth="1.68" positionX="0.0" maxSteering="0.5235987756" wheelDiameter="0.8"/>
+        </Axles>
+        <Properties/>
+      </Vehicle>
+      <ObjectController/>
+    </ScenarioObject>
+  </Entities>
+  <Storyboard>
+    <Init>
+      <Actions>
+        <Private entityRef="Vehicle 1">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <RoadPosition roadId="3" s="2.0" t="-11.0">
+                  <Orientation h="0.0" p="0.0" r="0.0" type="relative"/>
+                </RoadPosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+          <PrivateAction>
+            <LongitudinalAction>
+              <SpeedAction>
+                <SpeedActionDynamics dynamicsDimension="time" dynamicsShape="step" value="0.0"/>
+                <SpeedActionTarget>
+                  <AbsoluteTargetSpeed value="41.6666666667"/>
+                </SpeedActionTarget>
+              </SpeedAction>
+            </LongitudinalAction>
+          </PrivateAction>
+        </Private>
+        <Private entityRef="Vehicle 2">
+          <PrivateAction>
+            <TeleportAction>
+              <Position>
+                <RoadPosition roadId="3" s="60.0" t="-11.0">
+                  <Orientation h="0.0" p="0.0" r="0.0" type="relative"/>
+                </RoadPosition>
+              </Position>
+            </TeleportAction>
+          </PrivateAction>
+          <PrivateAction>
+            <LongitudinalAction>
+              <SpeedAction>
+                <SpeedActionDynamics dynamicsDimension="time" dynamicsShape="step" value="0.0"/>
+                <SpeedActionTarget>
+                  <AbsoluteTargetSpeed value="36.1111111111"/>
+                </SpeedActionTarget>
+              </SpeedAction>
+            </LongitudinalAction>
+          </PrivateAction>
+        </Private>
+      </Actions>
+    </Init>
+    <Story name="Story 1">
+      <ParameterDeclarations/>
+      <Act name="Act 1">
+        <ManeuverGroup maximumExecutionCount="1" name="ManeuverGroup 1">
+          <Actors selectTriggeringEntities="false">
+            <EntityRef entityRef="Vehicle 1"/>
+          </Actors>
+          <Maneuver name="Maneuver 1">
+            <ParameterDeclarations/>
+            <Event priority="override" maximumExecutionCount="1" name="Turn left">
+              <Action name="Lane Change">
+                <PrivateAction>
+                  <LateralAction>
+                    <LaneChangeAction targetLaneOffset="0.0238800048828">
+                      <LaneChangeActionDynamics dynamicsDimension="distance" dynamicsShape="cubic" value="36.6430664063"/>
+                      <LaneChangeTarget>
+                        <AbsoluteTargetLane value="-3"/>
+                      </LaneChangeTarget>
+                    </LaneChangeAction>
+                  </LateralAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition delay="0.0" conditionEdge="rising" name="Relative Distance">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="Vehicle 1"/>
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <RelativeDistanceCondition freespace="false" rule="lessThan" entityRef="Vehicle 2" value="20.0" relativeDistanceType="longitudinal"/>
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+            <Event priority="override" maximumExecutionCount="1" name="Turn right">
+              <Action name="Lane Change">
+                <PrivateAction>
+                  <LateralAction>
+                    <LaneChangeAction>
+                      <LaneChangeActionDynamics dynamicsDimension="distance" dynamicsShape="cubic" value="20.0"/>
+                      <LaneChangeTarget>
+                        <AbsoluteTargetLane value="-4"/>
+                      </LaneChangeTarget>
+                    </LaneChangeAction>
+                  </LateralAction>
+                </PrivateAction>
+              </Action>
+              <StartTrigger>
+                <ConditionGroup>
+                  <Condition delay="0.0" conditionEdge="rising" name="Relative Distance">
+                    <ByEntityCondition>
+                      <TriggeringEntities triggeringEntitiesRule="any">
+                        <EntityRef entityRef="Vehicle 2"/>
+                      </TriggeringEntities>
+                      <EntityCondition>
+                        <RelativeDistanceCondition freespace="false" rule="greaterThan" entityRef="Vehicle 1" value="10.0" relativeDistanceType="longitudinal"/>
+                      </EntityCondition>
+                    </ByEntityCondition>
+                  </Condition>
+                  <Condition delay="0.0" conditionEdge="none" name="Simulation Time">
+                    <ByValueCondition>
+                      <SimulationTimeCondition rule="greaterThan" value="5.0"/>
+                    </ByValueCondition>
+                  </Condition>
+                </ConditionGroup>
+              </StartTrigger>
+            </Event>
+          </Maneuver>
+        </ManeuverGroup>
+        <StartTrigger>
+          <ConditionGroup>
+            <Condition delay="0.0" conditionEdge="rising" name="Simulation Time">
+              <ByValueCondition>
+                <SimulationTimeCondition rule="greaterThan" value="0.0"/>
+              </ByValueCondition>
+            </Condition>
+          </ConditionGroup>
+        </StartTrigger>
+      </Act>
+    </Story>
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition delay="0.0" conditionEdge="rising" name="Time limit">
+          <ByValueCondition>
+            <SimulationTimeCondition rule="greaterThan" value="20.0"/>
+          </ByValueCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
+  </Storyboard>
+</OpenSCENARIO>
