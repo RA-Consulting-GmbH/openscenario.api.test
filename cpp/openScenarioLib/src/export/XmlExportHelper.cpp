@@ -17,6 +17,7 @@
 
 #include <sstream>
 #include <iomanip>
+#include <limits>
 
 #include "XmlExportHelper.h"
 #include "MemLeakDetection.h"
