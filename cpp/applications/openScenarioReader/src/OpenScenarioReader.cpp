@@ -466,7 +466,7 @@ int wmain(int argc, wchar_t** argv)
 
     if (!isCommandLineParsable)
     {
-	std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1|-v1_2|v1_3]] | -v]" << std::endl;
+	std::cout << "OpenScenarioChecker [[{-i <filename>|-d <dirname>} [-p <paramfilename>] [-v1_1|-v1_2|-v1_3]] | -v]" << std::endl;
         std::cout << "Options:" << std::endl;
         std::cout << "-i\t<filename> file to be validated" << std::endl;
         std::cout << "-d\t<directory> directory to be validated" << std::endl;

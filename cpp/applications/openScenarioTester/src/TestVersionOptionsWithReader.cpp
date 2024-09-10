@@ -64,6 +64,11 @@ namespace NET_ASAM_OPENSCENARIO
 		return TestOptionNotSetVersion("1_2", "Standard Version 1.2 is not supported. Compile Reader with SUPPORT_OSC_1_2 option.");
 	}
 
+	bool TestVersionOptionsWithReader::TestOptionNotSetVersion1_3() const
+	{
+		return TestOptionNotSetVersion("1_3", "Standard Version 1.3 is not supported. Compile Reader with SUPPORT_OSC_1_3 option.");
+	}
+
 	bool TestVersionOptionsWithReader::TestOptionNotSetVersion(std::string version, std::string errorMessage) const
 	{
 		std::string command(DOT_SLASH); command.append("OpenScenarioReader");

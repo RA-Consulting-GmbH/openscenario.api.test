@@ -48,6 +48,7 @@ namespace NET_ASAM_OPENSCENARIO
 			bool TestOptionNotSetVersion1_0() const;
 			bool TestOptionNotSetVersion1_1() const;
 			bool TestOptionNotSetVersion1_2() const;
+			bool TestOptionNotSetVersion1_3() const;
 			bool TestOptionNotSetVersion(std::string version, std::string errorMessage) const;
 			//bool TestOptionNotSetVersion1_1() const;
 			//bool TestOptionNotSetVersion1_2() const;
