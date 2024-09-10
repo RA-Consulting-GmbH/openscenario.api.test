@@ -154,7 +154,7 @@ std::shared_ptr<NET_ASAM_OPENSCENARIO::v1_3::OpenScenarioImpl> ExecuteImportPars
 {
     auto loaderFactory = NET_ASAM_OPENSCENARIO::v1_3::XmlScenarioImportLoaderFactory(catalogMessageLogger, filename);
     auto loader = loaderFactory.CreateLoader(std::make_shared<NET_ASAM_OPENSCENARIO::FileResourceLocator>());
-    return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_3::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_2::OpenScenarioImpl).name()));
+    return std::static_pointer_cast<NET_ASAM_OPENSCENARIO::v1_3::OpenScenarioImpl>(loader->Load(messageLogger, injectionParameters)->GetAdapter(typeid(NET_ASAM_OPENSCENARIO::v1_3::OpenScenarioImpl).name()));
 }
 #endif
 
