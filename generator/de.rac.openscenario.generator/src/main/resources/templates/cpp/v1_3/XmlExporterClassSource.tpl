@@ -70,7 +70,7 @@ namespace NET_ASAM_OPENSCENARIO
 			<%-}else if (property.isParameterizableProperty() && !property.isProxy()){-%>
             const auto k<%=property.name.toClassName()%> = <%=umlClass.name.toMemberName()%>Writer->Get<%=property.name.toClassName()%>();
 				<%-if (property.isOptional()){-%>
-            if (!( k<%=property.name.toClassName()%><%=property.type.toCppIsDefaultValue()%>))
+            if (!( k<%=property.name.toClassName()%><%=property.type.toCppIsDefaultValue()%>) || <%=umlClass.name.toMemberName()%>Writer->IsSet<%=property.name.toClassName()%>())
             {
 					<%-if (property.type.isPrimitiveType()){-%>
                 elementNode->ToElement()->SetAttribute(OSC_CONSTANTS::ATTRIBUTE__<%=property.name.toUpperNameFromMemberName()%>.c_str(), XmlExportHelper::ToXmlStringFrom<%=property.type.name.toClassName()%>( k<%=property.name.toClassName()%>).c_str());
