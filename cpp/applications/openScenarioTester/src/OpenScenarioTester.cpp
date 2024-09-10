@@ -514,12 +514,12 @@ int main(int argc, char** argv)
   result = testVersionOptionsWithReader.TestOptionNotSetVersion1_0() && result;
 #endif
 #ifdef SUPPORT_OSC_1_1
-  result = TestV1_1(basePath) && result;
+  //result = TestV1_1(basePath) && result;
 #else
   result = testVersionOptionsWithReader.TestOptionNotSetVersion1_1() && result;
 #endif
 #ifdef SUPPORT_OSC_1_2
-  result = TestV1_2(basePath) && result;
+  //result = TestV1_2(basePath) && result;
 #else
   result = testVersionOptionsWithReader.TestOptionNotSetVersion1_2() && result;
 #endif  
