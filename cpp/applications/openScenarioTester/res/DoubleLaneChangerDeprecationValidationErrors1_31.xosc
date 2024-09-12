@@ -168,6 +168,7 @@
             <ControllerAction>
                <OverrideControllerValueAction>
                   <Gear number="1" active="true">
+					  <!--ManualGear number="3"/-->
                   </Gear>
                </OverrideControllerValueAction>
             </ControllerAction>

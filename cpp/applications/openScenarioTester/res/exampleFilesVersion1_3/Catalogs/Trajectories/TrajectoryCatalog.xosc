@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/OpenSCENARIO.xsd">
-  <FileHeader revMajor="1" revMinor="2" date="2021-01-13T10:00:00" description="Trajectory Catalog" author="ASAM e.V." />
+  <FileHeader revMajor="1" revMinor="3" date="2021-01-13T10:00:00" description="Trajectory Catalog" author="ASAM e.V." />
   <Catalog name="TrajectoryCatalog">
     <Trajectory name="FabriksgatanNorthToSouth" closed="false">
       <Shape>

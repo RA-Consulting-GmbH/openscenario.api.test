@@ -67,11 +67,11 @@ namespace NET_ASAM_OPENSCENARIO
 		{
 			std::vector<std::string> scenarioFiles =
 			{
+				"CloseVehicleCrossing.xosc",
 				"CutIn.xosc",
 				"DoubleLaneChanger.xosc",
 				"EndOfTrafficJam.xosc",
 				"EndofTrafficJamNeighboringLaneOccupied.xosc",
-				"EndOfTrafficJamParameterSet.xosc",
 				"FastOvertakeWithReInitialization.xosc",
 				"Overtaker.xosc",
 				"SequentialEvents_0-100-0kph_Explicit.xosc",
@@ -82,7 +82,7 @@ namespace NET_ASAM_OPENSCENARIO
 				"SlowPrecedingVehicleStochasticParameterSet.xosc",
 				"SynchronizedArrivalToIntersection.xosc",
 				"TrafficJam.xosc",
-				"FollowTrajectory_Nurbs.xosc",
+				"TrailerConnect.xosc",
 			};
 			return TestFiles(scenarioFiles, pathNameScenarios);
 		}

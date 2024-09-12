@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
-  <FileHeader revMajor="1" revMinor="2" date="2020-02-21T10:00:00" description="Synchronize example" author="ASAM e.V." />
+  <FileHeader revMajor="1" revMinor="3" date="2020-02-21T10:00:00" description="Synchronize example" author="ASAM e.V." />
   <ParameterDeclarations>
     <ParameterDeclaration name="HostVehicle" parameterType="string" value="car1" />
     <ParameterDeclaration name="NPCVehicle" parameterType="string" value="car2" />
@@ -104,7 +104,7 @@
     </Init>
     <Story name="LTAPStory">
       <ParameterDeclarations>
-        <ParameterDeclaration parameterType="string" name="$owner" value="NPC" />
+        <ParameterDeclaration parameterType="string" name="owner" value="NPC" />
       </ParameterDeclarations>
       <Act name="LTAPActNPC">
         <ManeuverGroup maximumExecutionCount="1" name="LTAPSequence">
@@ -123,7 +123,7 @@
                       <LanePosition roadId="3" laneId="-1" offset="0" s="$NPCSyncPointS" />
                     </TargetPosition>
                     <FinalSpeed>
-                      <RelativeSpeedToMaster speedTargetValueType="delta" value="$NPCFinalRelativeSpeed" >
+                      <RelativeSpeedToMaster speedTargetValueType="delta" value="$NPCFinalRelativeSpeed">
                         <TargetDistanceSteadyState distance="10" />
                       </RelativeSpeedToMaster>
                     </FinalSpeed>
@@ -132,7 +132,7 @@
               </Action>
               <StartTrigger>
                 <ConditionGroup>
-                  <Condition name="SyncConditionNPC" delay="0.0" conditionEdge="rising">
+                  <Condition name="SyncConditionNPC" delay="0" conditionEdge="rising">
                     <ByEntityCondition>
                       <TriggeringEntities triggeringEntitiesRule="any">
                         <EntityRef entityRef="$owner" />
@@ -151,17 +151,23 @@
             </Event>
           </Maneuver>
         </ManeuverGroup>
-        <StartTrigger>
-          <ConditionGroup>
-            <Condition name="LtapActStartConditionNPC" delay="0" conditionEdge="rising">
-              <ByValueCondition>
-                <SimulationTimeCondition value="0" rule="greaterThan" />
-              </ByValueCondition>
-            </Condition>
-          </ConditionGroup>
-        </StartTrigger>
       </Act>
     </Story>
-    <StopTrigger />
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="End_of_simulation" delay="0" conditionEdge="none">
+          <ByEntityCondition>
+            <TriggeringEntities triggeringEntitiesRule="all">
+              <EntityRef entityRef="Ego" />
+            </TriggeringEntities>
+            <EntityCondition>
+              <CollisionCondition>
+                <EntityRef entityRef="NPC" />
+              </CollisionCondition>
+            </EntityCondition>
+          </ByEntityCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
   </Storyboard>
 </OpenSCENARIO>

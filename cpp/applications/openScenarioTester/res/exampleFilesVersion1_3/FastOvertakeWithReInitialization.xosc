@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
-  <FileHeader revMajor="1" revMinor="2" date="2020-02-21T10:00:00" description="Fast Overtake with Re-Initialization example" author="ASAM e.V." />
+  <FileHeader revMajor="1" revMinor="3" date="2020-02-21T10:00:00" description="Fast Overtake with Re-Initialization example" author="ASAM e.V." />
   <ParameterDeclarations />
   <CatalogLocations>
     <VehicleCatalog>
@@ -124,15 +124,6 @@
             </Event>
           </Maneuver>
         </ManeuverGroup>
-        <StartTrigger>
-          <ConditionGroup>
-            <Condition name="" delay="0" conditionEdge="rising">
-              <ByValueCondition>
-                <SimulationTimeCondition value="0" rule="greaterThan" />
-              </ByValueCondition>
-            </Condition>
-          </ConditionGroup>
-        </StartTrigger>
       </Act>
       <Act name="MyAct2">
         <ManeuverGroup maximumExecutionCount="1" name="MySequence2">
@@ -176,17 +167,21 @@
             </Event>
           </Maneuver>
         </ManeuverGroup>
-        <StartTrigger>
-          <ConditionGroup>
-            <Condition name="" delay="0" conditionEdge="rising">
-              <ByValueCondition>
-                <SimulationTimeCondition value="0" rule="greaterThan" />
-              </ByValueCondition>
-            </Condition>
-          </ConditionGroup>
-        </StartTrigger>
       </Act>
     </Story>
-    <StopTrigger />
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="End_of_Simulation" delay="0" conditionEdge="rising">
+          <ByEntityCondition>
+            <TriggeringEntities triggeringEntitiesRule="all">
+              <EntityRef entityRef="A2"></EntityRef>
+            </TriggeringEntities>
+            <EntityCondition>
+              <RelativeDistanceCondition freespace="false" relativeDistanceType="longitudinal" value="500" rule="greaterOrEqual" entityRef="A1" />
+            </EntityCondition>
+          </ByEntityCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
   </Storyboard>
 </OpenSCENARIO>

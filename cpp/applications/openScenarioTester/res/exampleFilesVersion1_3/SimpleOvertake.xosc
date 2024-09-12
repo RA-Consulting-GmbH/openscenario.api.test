@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
-  <FileHeader author="ASAM e.V." date="2021-02-05T18:50:17" description="Simple Overtaker example" revMajor="1" revMinor="2"/>
+  <FileHeader author="ASAM e.V." date="2021-02-05T18:50:17" description="Simple Overtaker example" revMajor="1" revMinor="3"/>
   <ParameterDeclarations/>
   <CatalogLocations>
     <VehicleCatalog>
@@ -25,7 +25,6 @@
         </Axles>
         <Properties/>
       </Vehicle>
-      <ObjectController/>
     </ScenarioObject>
     <ScenarioObject name="Vehicle 2">
       <Vehicle name="Vehicle 2" vehicleCategory="car">
@@ -41,7 +40,6 @@
         </Axles>
         <Properties/>
       </Vehicle>
-      <ObjectController/>
     </ScenarioObject>
   </Entities>
   <Storyboard>
@@ -105,7 +103,7 @@
                 <PrivateAction>
                   <LateralAction>
                     <LaneChangeAction targetLaneOffset="0.0238800048828">
-                      <LaneChangeActionDynamics dynamicsDimension="distance" dynamicsShape="cubic" value="36.6430664063"/>
+                      <LaneChangeActionDynamics dynamicsDimension="distance" dynamicsShape="cubic" value="200.0"/>
                       <LaneChangeTarget>
                         <AbsoluteTargetLane value="-3"/>
                       </LaneChangeTarget>
@@ -121,7 +119,7 @@
                         <EntityRef entityRef="Vehicle 1"/>
                       </TriggeringEntities>
                       <EntityCondition>
-                        <RelativeDistanceCondition freespace="false" rule="lessThan" entityRef="Vehicle 2" value="20.0" relativeDistanceType="longitudinal"/>
+                        <RelativeDistanceCondition freespace="false" rule="lessThan" entityRef="Vehicle 2" value="30.0" relativeDistanceType="longitudinal"/>
                       </EntityCondition>
                     </ByEntityCondition>
                   </Condition>
@@ -133,7 +131,7 @@
                 <PrivateAction>
                   <LateralAction>
                     <LaneChangeAction>
-                      <LaneChangeActionDynamics dynamicsDimension="distance" dynamicsShape="cubic" value="20.0"/>
+                      <LaneChangeActionDynamics dynamicsDimension="time" dynamicsShape="sinusoidal" value="4.0"/>
                       <LaneChangeTarget>
                         <AbsoluteTargetLane value="-4"/>
                       </LaneChangeTarget>
@@ -163,15 +161,6 @@
             </Event>
           </Maneuver>
         </ManeuverGroup>
-        <StartTrigger>
-          <ConditionGroup>
-            <Condition delay="0.0" conditionEdge="rising" name="Simulation Time">
-              <ByValueCondition>
-                <SimulationTimeCondition rule="greaterThan" value="0.0"/>
-              </ByValueCondition>
-            </Condition>
-          </ConditionGroup>
-        </StartTrigger>
       </Act>
     </Story>
     <StopTrigger>

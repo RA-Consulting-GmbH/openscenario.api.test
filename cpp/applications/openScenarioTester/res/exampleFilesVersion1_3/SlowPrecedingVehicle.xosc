@@ -1,18 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
-  <FileHeader revMajor="1" revMinor="2" date="2020-02-21T10:00:00" description="Slow Preceding Vehicle example" author="ASAM e.V." />
+  <FileHeader revMajor="1" revMinor="3" date="2020-02-21T10:00:00" description="Slow Preceding Vehicle example" author="ASAM e.V." />
   <ParameterDeclarations>
-    <ParameterDeclaration name="Road_Logics" parameterType="string" value="Databases/AB_RQ31_R2000.xodr" />
-    <ParameterDeclaration name="Road_SceneGraph" parameterType="string" value="Databases/AB_RQ31_R2000.opt.osgb" />
     <ParameterDeclaration name="Ego_Speed" parameterType="double" value="27.778" />
-    <ParameterDeclaration name="Ego_RelLonPosA1" parameterType="double" value="-200.0" />
     <ParameterDeclaration name="A1_Speed" parameterType="double" value="22.222" />
-    <ParameterDeclaration name="A1_Category" parameterType="string" value="car" />
+    <ParameterDeclaration name="Time_Of_Day" parameterType="dateTime" value="2024-03-21T12:00:00" />
+    <ParameterDeclaration name="Sun_Azimuth" parameterType="double" value="3.1415" />
+    <ParameterDeclaration name="Sun_Elevation" parameterType="double" value="0.8" />
   </ParameterDeclarations>
   <CatalogLocations />
   <RoadNetwork>
-    <LogicFile filepath="$Road_Logics" />
-    <SceneGraphFile filepath="$Road_SceneGraph" />
+    <LogicFile filepath="Databases/AB_RQ31_R2000.xodr" />
   </RoadNetwork>
   <Entities>
     <ScenarioObject name="Ego">
@@ -27,22 +25,10 @@
           <FrontAxle maxSteering="0.5" wheelDiameter="0.6" trackWidth="1.8" positionX="3.1" positionZ="0.3" />
           <RearAxle maxSteering="0.0" wheelDiameter="0.6" trackWidth="1.8" positionX="0.0" positionZ="0.3" />
         </Axles>
-        <Properties />
       </Vehicle>
-      <ObjectController>
-        <Controller name="HAF_Driver">
-          <Properties>
-            <Property name="weight" value="60.0" />
-            <Property name="height" value="1.8" />
-            <Property name="eyeDistance" value="0.065" />
-            <Property name="age" value="28" />
-            <Property name="sex" value="female" />
-          </Properties>
-        </Controller>
-      </ObjectController>
     </ScenarioObject>
     <ScenarioObject name="A1">
-      <Vehicle name="Default_Car" vehicleCategory="$A1_Category">
+      <Vehicle name="Default_Car" vehicleCategory="car">
         <ParameterDeclarations />
         <Performance maxSpeed="69.444" maxAcceleration="200" maxDeceleration="10.0" />
         <BoundingBox>
@@ -53,19 +39,7 @@
           <FrontAxle maxSteering="0.5" wheelDiameter="0.5" trackWidth="1.75" positionX="2.8" positionZ="0.25" />
           <RearAxle maxSteering="0.0" wheelDiameter="0.5" trackWidth="1.75" positionX="0.0" positionZ="0.25" />
         </Axles>
-        <Properties />
       </Vehicle>
-      <ObjectController>
-        <Controller name="Default_Driver">
-          <Properties>
-            <Property name="weight" value="80.0" />
-            <Property name="height" value="1.88" />
-            <Property name="eyeDistance" value="0.07" />
-            <Property name="age" value="32" />
-            <Property name="sex" value="male" />
-          </Properties>
-        </Controller>
-      </ObjectController>
     </ScenarioObject>
   </Entities>
   <Storyboard>
@@ -74,9 +48,9 @@
         <GlobalAction>
           <EnvironmentAction>
             <Environment name="Environment1">
-              <TimeOfDay animation="false" dateTime="2020-02-21T12:00:00" />
+              <TimeOfDay animation="false" dateTime="$Time_Of_Day" />
               <Weather fractionalCloudCover="zeroOktas">
-                <Sun intensity="1.0" azimuth="0.0" elevation="1.571" />
+                <Sun illuminance="100000.0" azimuth="$Sun_Azimuth" elevation="$Sun_Elevation" />
                 <Fog visualRange="100000.0" />
                 <Precipitation precipitationType="dry" precipitationIntensity="0.0" />
               </Weather>
@@ -98,7 +72,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <RelativeLanePosition entityRef="A1" dLane="0" ds="$Ego_RelLonPosA1" />
+                <RelativeLanePosition entityRef="A1" dLane="0" ds="-200.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -124,6 +98,30 @@
         </Private>
       </Actions>
     </Init>
-    <StopTrigger />
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="End_of_simulation_based_on_distance" delay="0" conditionEdge="none">
+          <ByEntityCondition>
+            <TriggeringEntities triggeringEntitiesRule="all">
+              <EntityRef entityRef="Ego"></EntityRef>
+            </TriggeringEntities>
+            <EntityCondition>
+              <TimeToCollisionCondition freespace="true" value="0.5" rule="lessThan">
+                <TimeToCollisionConditionTarget>
+                  <EntityRef entityRef="A1" />
+                </TimeToCollisionConditionTarget>
+              </TimeToCollisionCondition>
+            </EntityCondition>
+          </ByEntityCondition>
+        </Condition>
+      </ConditionGroup>
+      <ConditionGroup>
+        <Condition name="End_of_simulation_after_time" delay="0" conditionEdge="none">
+          <ByValueCondition>
+            <SimulationTimeCondition value="50" rule="greaterThan" />
+          </ByValueCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
   </Storyboard>
 </OpenSCENARIO>

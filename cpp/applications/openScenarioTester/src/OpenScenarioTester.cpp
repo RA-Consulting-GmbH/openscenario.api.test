@@ -484,9 +484,9 @@ bool TestV1_3(std::string basePath)
 	result = testVariableValidation.TestVariableNotDefined() && result;	
 	result = testVariableValidation.TestValidationWrongSetAction() && result;
 
-	//result = testDeprecatedValidation.TestValidation() && result;
+	result = testDeprecatedValidation.TestValidation() && result;
 
-	//result = testExamplesOsc.TestScenarios() && result;
+	result = testExamplesOsc.TestScenarios() && result;
 
 	result = testCardinality.TestEmptyStory() && result;
 	result = testCardinality.TestMultipleGroupElements() && result;

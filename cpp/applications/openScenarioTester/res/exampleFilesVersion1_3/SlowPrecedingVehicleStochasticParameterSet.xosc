@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
-  <FileHeader revMajor="1" revMinor="2" date="2021-02-17T12:00:00+01:00" description="Determines parameter set for scenario" author="ASAM e.V." />
+  <FileHeader revMajor="1" revMinor="3" date="2021-02-17T12:00:00+01:00" description="Determines parameter set for scenario" author="ASAM e.V." />
   <ParameterValueDistribution>
     <ScenarioFile filepath="SlowPrecedingVehicle.xosc" />
     <Stochastic numberOfTestRuns="100" randomSeed="1">

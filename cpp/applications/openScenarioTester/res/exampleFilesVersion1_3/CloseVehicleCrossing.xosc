@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
-  <FileHeader revMajor="1" revMinor="2" date="2021-01-13T10:00:00" description="An example where the ego arrives at a 4 way junction as 2 closely timed non-egos cross." author="ASAM e.V." />
+  <FileHeader revMajor="1" revMinor="3" date="2021-01-13T10:00:00" description="An example where the ego arrives at a 4 way junction as 2 closely timed non-egos cross." author="ASAM e.V." />
   <ParameterDeclarations>
     <ParameterDeclaration name="Road_Logics" parameterType="string" value="Databases/fabriksgatan.xodr" />
     <ParameterDeclaration name="Road_SceneGraph" parameterType="string" value="Databases/fabriksgatan.osgb" />
@@ -30,19 +30,7 @@
           <FrontAxle maxSteering="0.5" wheelDiameter="0.6" trackWidth="1.8" positionX="3.1" positionZ="0.3" />
           <RearAxle maxSteering="0.0" wheelDiameter="0.6" trackWidth="1.8" positionX="0.0" positionZ="0.3" />
         </Axles>
-        <Properties />
       </Vehicle>
-      <ObjectController>
-        <Controller name="HAF_Driver">
-          <Properties>
-            <Property name="weight" value="60.0" />
-            <Property name="height" value="1.8" />
-            <Property name="eyeDistance" value="0.065" />
-            <Property name="age" value="28" />
-            <Property name="sex" value="female" />
-          </Properties>
-        </Controller>
-      </ObjectController>
     </ScenarioObject>
     <ScenarioObject name="A1">
       <Vehicle name="Default_Car" vehicleCategory="car">
@@ -56,19 +44,7 @@
           <FrontAxle maxSteering="0.5" wheelDiameter="0.5" trackWidth="1.75" positionX="2.8" positionZ="0.25" />
           <RearAxle maxSteering="0.0" wheelDiameter="0.5" trackWidth="1.75" positionX="0.0" positionZ="0.25" />
         </Axles>
-        <Properties />
       </Vehicle>
-      <ObjectController>
-        <Controller name="Default_Driver">
-          <Properties>
-            <Property name="weight" value="80.0" />
-            <Property name="height" value="1.88" />
-            <Property name="eyeDistance" value="0.07" />
-            <Property name="age" value="32" />
-            <Property name="sex" value="male" />
-          </Properties>
-        </Controller>
-      </ObjectController>
     </ScenarioObject>
     <ScenarioObject name="A2">
       <Vehicle name="Default_Car" vehicleCategory="car">
@@ -82,19 +58,7 @@
           <FrontAxle maxSteering="0.5" wheelDiameter="0.5" trackWidth="1.75" positionX="2.8" positionZ="0.25" />
           <RearAxle maxSteering="0.0" wheelDiameter="0.5" trackWidth="1.75" positionX="0.0" positionZ="0.25" />
         </Axles>
-        <Properties />
       </Vehicle>
-      <ObjectController>
-        <Controller name="Default_Driver">
-          <Properties>
-            <Property name="weight" value="80.0" />
-            <Property name="height" value="1.88" />
-            <Property name="eyeDistance" value="0.07" />
-            <Property name="age" value="32" />
-            <Property name="sex" value="male" />
-          </Properties>
-        </Controller>
-      </ObjectController>
     </ScenarioObject>
   </Entities>
   <Storyboard>
@@ -105,7 +69,7 @@
             <Environment name="Environment1">
               <TimeOfDay animation="false" dateTime="2020-02-21T12:00:00" />
               <Weather fractionalCloudCover="zeroOktas">
-                <Sun intensity="1.0" azimuth="0.0" elevation="1.571" />
+                <Sun illuminance="100000.0" azimuth="0.0" elevation="1.571" />
                 <Fog visualRange="100000.0" />
                 <Precipitation precipitationType="dry" precipitationIntensity="0.0" />
               </Weather>
@@ -127,7 +91,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <LanePosition roadId="3" laneId="-1" s="5.0" />
+                <LanePosition roadId="3" laneId="-1" s="8.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -183,19 +147,9 @@
                   </RoutingAction>
                 </PrivateAction>
               </Action>
-              <StartTrigger />
             </Event>
           </Maneuver>
         </ManeuverGroup>
-        <StartTrigger>
-          <ConditionGroup>
-            <Condition name="" delay="0" conditionEdge="rising">
-              <ByValueCondition>
-                <SimulationTimeCondition value="0" rule="greaterThan" />
-              </ByValueCondition>
-            </Condition>
-          </ConditionGroup>
-        </StartTrigger>
       </Act>
     </Story>
     <Story name="A2_Story">
@@ -221,21 +175,33 @@
                   </RoutingAction>
                 </PrivateAction>
               </Action>
-              <StartTrigger />
             </Event>
           </Maneuver>
         </ManeuverGroup>
         <StartTrigger>
           <ConditionGroup>
-            <Condition name="" delay="0" conditionEdge="rising">
+            <Condition name="Start_of_A2" delay="0" conditionEdge="rising">
               <ByValueCondition>
-                <SimulationTimeCondition value="0" rule="greaterThan" />
+                <SimulationTimeCondition value="0.3" rule="greaterThan" />
               </ByValueCondition>
             </Condition>
           </ConditionGroup>
         </StartTrigger>
       </Act>
     </Story>
-    <StopTrigger />
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="End_of_simulation" delay="0" conditionEdge="none">
+          <ByEntityCondition>
+            <TriggeringEntities triggeringEntitiesRule="all">
+              <EntityRef entityRef="A2" />
+            </TriggeringEntities>
+            <EntityCondition>
+              <TraveledDistanceCondition value="320"></TraveledDistanceCondition>
+            </EntityCondition>
+          </ByEntityCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
   </Storyboard>
 </OpenSCENARIO>

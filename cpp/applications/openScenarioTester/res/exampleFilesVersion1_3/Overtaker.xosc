@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
-  <FileHeader revMajor="1" revMinor="2" date="2020-02-21T10:00:00" description="Overtaker example" author="ASAM e.V."/>
+  <FileHeader revMajor="1" revMinor="3" date="2020-02-21T10:00:00" description="Overtaker example" author="ASAM e.V."/>
   <ParameterDeclarations>
     <ParameterDeclaration parameterType="string" name="owner" value="A1"/>
   </ParameterDeclarations>
@@ -94,7 +94,7 @@
                         <EntityRef entityRef="$owner"/>
                       </TriggeringEntities>
                       <EntityCondition>
-						<RelativeDistanceCondition value="3.0000000000000000e+01" entityRef="Ego" rule="lessThan" relativeDistanceType="longitudinal" freespace="false"/>
+                        <RelativeDistanceCondition value="3.0000000000000000e+01" entityRef="Ego" rule="lessThan" relativeDistanceType="longitudinal" freespace="false"/>
                       </EntityCondition>
                     </ByEntityCondition>
                   </Condition>
@@ -122,7 +122,7 @@
                         <EntityRef entityRef="$owner"/>
                       </TriggeringEntities>
                       <EntityCondition>
-					    <RelativeDistanceCondition value="5.0000000000000000e+00" entityRef="Ego" rule="greaterThan" relativeDistanceType="longitudinal" freespace="false"/>
+                        <RelativeDistanceCondition value="5.0000000000000000e+00" entityRef="Ego" rule="greaterThan" relativeDistanceType="longitudinal" freespace="false"/>
                       </EntityCondition>
                     </ByEntityCondition>
                   </Condition>
@@ -131,17 +131,21 @@
             </Event>
           </Maneuver>
         </ManeuverGroup>
-        <StartTrigger>
-          <ConditionGroup>
-            <Condition name="" delay="0" conditionEdge="rising">
-              <ByValueCondition>
-                <SimulationTimeCondition value="0" rule="greaterThan"/>
-              </ByValueCondition>
-            </Condition>
-          </ConditionGroup>
-        </StartTrigger>
       </Act>
     </Story>
-    <StopTrigger/>
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="End_of_Simulation" delay="10.0" conditionEdge="falling">
+          <ByEntityCondition>
+            <TriggeringEntities triggeringEntitiesRule="all">
+              <EntityRef entityRef="$owner" />
+            </TriggeringEntities>
+            <EntityCondition>
+              <RelativeDistanceCondition freespace="false" relativeDistanceType="lateral" value="0.5" rule="greaterThan" entityRef="Ego" />
+            </EntityCondition>
+          </ByEntityCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
   </Storyboard>
 </OpenSCENARIO>

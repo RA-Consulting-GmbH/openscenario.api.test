@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/OpenSCENARIO.xsd">
-  <FileHeader revMajor="1" revMinor="2" date="2020-02-21T10:00:00" description="Example - Vehicle Catalog" author="ASAM e.V." />
+  <FileHeader revMajor="1" revMinor="3" date="2020-02-21T10:00:00" description="Example - Vehicle Catalog" author="ASAM e.V." />
   <Catalog name="VehicleCatalog">
-    <Vehicle name="car1" vehicleCategory="car" model3d="white_limousine_model">
+    <Vehicle name="car1" vehicleCategory="car">
       <BoundingBox>
         <Center x="1.4" y="0.0" z="0.9" />
         <Dimensions width="2.0" length="5.0" height="1.8" />
       </BoundingBox>
       <Performance maxSpeed="69" maxAcceleration="200" maxDeceleration="30" />
       <Axles>
-				<FrontAxle maxSteering="0.5235987756" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4"/>
-				<RearAxle maxSteering="0.5235987756" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4"/>
+        <FrontAxle maxSteering="0.5235987756" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4"/>
+        <RearAxle maxSteering="0.5235987756" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4"/>
       </Axles>
-      <Properties />
     </Vehicle>
     <Vehicle name="car2" vehicleCategory="car">
       <BoundingBox>
@@ -21,10 +20,23 @@
       </BoundingBox>
       <Performance maxSpeed="70" maxAcceleration="200" maxDeceleration="30" />
       <Axles>
-				<FrontAxle maxSteering="0.5235987756" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4" />
-				<RearAxle maxSteering="0.5235987756" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4" />
+        <FrontAxle maxSteering="0.5235987756" wheelDiameter="0.8" trackWidth="1.68" positionX="2.98" positionZ="0.4" />
+        <RearAxle maxSteering="0.5235987756" wheelDiameter="0.8" trackWidth="1.68" positionX="0" positionZ="0.4" />
       </Axles>
+      <TrailerHitch dx="-1.2"/>
       <Properties />
+    </Vehicle>
+    <Vehicle name="car_trailer" vehicleCategory="trailer">
+      <BoundingBox>
+          <Center x="0.87" y="0.0" z="0.61"/>
+          <Dimensions width="2.06" length="4.94" height="1.22"/>
+      </BoundingBox>
+      <Performance maxSpeed="${250/3.6}" maxDeceleration="10" maxAcceleration="5"/>
+      <Axles>
+          <RearAxle maxSteering="0.0" wheelDiameter="0.6" trackWidth="1.68" positionX="0.0" positionZ="0.3"/>
+      </Axles>
+      <TrailerCoupler dx="3.25"/>
+      <Properties/>
     </Vehicle>
   </Catalog>
 </OpenSCENARIO>

@@ -44,6 +44,9 @@
                         <link>
                         </link>
                         <roadMark sOffset="0.0000000000000000e+00" type="broken" weight="standard" color="standard" width="1.2000000000000000e-01" laneChange="both" height="1.9999999552965164e-02">
+                            <type name="broken" width="1.2000000000000000e-01" >
+                                <line length="3.0000000000000000e+00" space="8.0000000000000000e+00" tOffset="0.0000000000000000e+00" sOffset="0.0000000000000000e+00" rule="caution" width="1.2000000000000000e-01"/>
+                            </type>
                         </roadMark>
                     </lane>
                 </center>
@@ -114,6 +117,9 @@
                         <link>
                         </link>
                         <roadMark sOffset="0.0000000000000000e+00" type="broken" weight="standard" color="standard" width="1.2000000000000000e-01" laneChange="both" height="1.9999999552965164e-02">
+                            <type name="broken" width="1.2000000000000000e-01" >
+                                <line length="3.0000000000000000e+00" space="8.0000000000000000e+00" tOffset="0.0000000000000000e+00" sOffset="0.0000000000000000e+00" rule="caution" width="1.2000000000000000e-01"/>
+                            </type>
                         </roadMark>
                     </lane>
                 </center>
@@ -193,6 +199,9 @@
                         <link>
                         </link>
                         <roadMark sOffset="0.0000000000000000e+00" type="broken" weight="standard" color="standard" width="1.2000000000000000e-01" laneChange="both" height="1.9999999552965164e-02">
+                            <type name="broken" width="1.2000000000000000e-01" >
+                                <line length="3.0000000000000000e+00" space="8.0000000000000000e+00" tOffset="0.0000000000000000e+00" sOffset="0.0000000000000000e+00" rule="caution" width="1.2000000000000000e-01"/>
+                            </type>
                         </roadMark>
                     </lane>
                 </center>
@@ -263,6 +272,9 @@
                         <link>
                         </link>
                         <roadMark sOffset="0.0000000000000000e+00" type="broken" weight="standard" color="standard" width="1.2000000000000000e-01" laneChange="both" height="1.9999999552965164e-02">
+                            <type name="broken" width="1.2000000000000000e-01" >
+                                <line length="3.0000000000000000e+00" space="8.0000000000000000e+00" tOffset="0.0000000000000000e+00" sOffset="0.0000000000000000e+00" rule="caution" width="1.2000000000000000e-01"/>
+                            </type>
                         </roadMark>
                     </lane>
                 </center>
@@ -509,6 +521,9 @@
                         <link>
                         </link>
                         <roadMark sOffset="0.0000000000000000e+00" type="broken" weight="standard" color="standard" width="1.2000000000000000e-01" laneChange="both" height="1.9999999552965164e-02">
+                            <type name="broken" width="1.2000000000000000e-01" >
+                                <line length="4.0000000000000000e+00" space="4.0000000000000000e+00" tOffset="0.0000000000000000e+00" sOffset="4.0000000000000000e+00" rule="caution" width="1.2000000000000000e-01"/>
+                            </type>
                         </roadMark>
                     </lane>
                 </center>
@@ -860,15 +875,6 @@
         <connection id="2" incomingRoad="0" connectingRoad="10" contactPoint="start">
             <laneLink from="1" to="-1"/>
         </connection>
-        <connection id="12" incomingRoad="0" connectingRoad="14" contactPoint="end">
-            <laneLink from="-1" to="-1"/>
-        </connection>
-        <connection id="15" incomingRoad="0" connectingRoad="5" contactPoint="end">
-            <laneLink from="-1" to="-1"/>
-        </connection>
-        <connection id="16" incomingRoad="0" connectingRoad="11" contactPoint="end">
-            <laneLink from="-1" to="-1"/>
-        </connection>
         <connection id="3" incomingRoad="1" connectingRoad="5" contactPoint="start">
             <laneLink from="1" to="-1"/>
         </connection>
@@ -879,15 +885,6 @@
         </connection>
         <connection id="5" incomingRoad="1" connectingRoad="7" contactPoint="start">
             <laneLink from="1" to="-1"/>
-        </connection>
-        <connection id="17" incomingRoad="1" connectingRoad="8" contactPoint="end">
-            <laneLink from="-1" to="-1"/>
-        </connection>
-        <connection id="18" incomingRoad="1" connectingRoad="15" contactPoint="end">
-            <laneLink from="-1" to="-1"/>
-        </connection>
-        <connection id="19" incomingRoad="1" connectingRoad="12" contactPoint="end">
-            <laneLink from="-1" to="-1"/>
         </connection>
         <connection id="6" incomingRoad="2" connectingRoad="14" contactPoint="start">
             <laneLink from="-1" to="-1"/>
@@ -900,15 +897,6 @@
             <laneLink from="-2" to="-2"/>
             <laneLink from="-3" to="-3"/>
         </connection>
-        <connection id="13" incomingRoad="2" connectingRoad="6" contactPoint="end">
-            <laneLink from="1" to="-1"/>
-        </connection>
-        <connection id="14" incomingRoad="2" connectingRoad="9" contactPoint="end">
-            <laneLink from="1" to="-1"/>
-        </connection>
-        <connection id="20" incomingRoad="2" connectingRoad="13" contactPoint="end">
-            <laneLink from="1" to="-1"/>
-        </connection>
         <connection id="9" incomingRoad="3" connectingRoad="11" contactPoint="start">
             <laneLink from="-1" to="-1"/>
             <laneLink from="-2" to="-2"/>
@@ -919,15 +907,6 @@
         </connection>
         <connection id="11" incomingRoad="3" connectingRoad="13" contactPoint="start">
             <laneLink from="-1" to="-1"/>
-        </connection>
-        <connection id="21" incomingRoad="3" connectingRoad="10" contactPoint="end">
-            <laneLink from="1" to="-1"/>
-        </connection>
-        <connection id="22" incomingRoad="3" connectingRoad="7" contactPoint="end">
-            <laneLink from="1" to="-1"/>
-        </connection>
-        <connection id="23" incomingRoad="3" connectingRoad="16" contactPoint="end">
-            <laneLink from="1" to="-1"/>
         </connection>
     </junction>
 </OpenDRIVE>

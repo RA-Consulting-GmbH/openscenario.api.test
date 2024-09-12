@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
-  <FileHeader revMajor="1" revMinor="2" date="2020-02-21T10:00:00" description="Traffic Jam example" author="ASAM e.V."/>
-  <ParameterDeclarations/>
+  <FileHeader revMajor="1" revMinor="3" date="2020-02-21T10:00:00" description="Traffic Jam example" author="ASAM e.V." />
+  <ParameterDeclarations />
   <CatalogLocations>
     <VehicleCatalog>
-      <Directory path="Catalogs/Vehicles"/>
+      <Directory path="Catalogs/Vehicles" />
     </VehicleCatalog>
   </CatalogLocations>
   <RoadNetwork>
@@ -12,25 +12,25 @@
   </RoadNetwork>
   <Entities>
     <ScenarioObject name="Ego">
-      <CatalogReference catalogName="VehicleCatalog" entryName="car1"/>
+      <CatalogReference catalogName="VehicleCatalog" entryName="car1" />
     </ScenarioObject>
     <ScenarioObject name="A1">
-      <CatalogReference catalogName="VehicleCatalog" entryName="car2"/>
+      <CatalogReference catalogName="VehicleCatalog" entryName="car2" />
     </ScenarioObject>
     <ScenarioObject name="A2">
-      <CatalogReference catalogName="VehicleCatalog" entryName="car2"/>
+      <CatalogReference catalogName="VehicleCatalog" entryName="car2" />
     </ScenarioObject>
     <ScenarioObject name="A3">
-      <CatalogReference catalogName="VehicleCatalog" entryName="car2"/>
+      <CatalogReference catalogName="VehicleCatalog" entryName="car2" />
     </ScenarioObject>
     <ScenarioObject name="A4">
-      <CatalogReference catalogName="VehicleCatalog" entryName="car2"/>
+      <CatalogReference catalogName="VehicleCatalog" entryName="car2" />
     </ScenarioObject>
     <ScenarioObject name="A5">
-      <CatalogReference catalogName="VehicleCatalog" entryName="car2"/>
+      <CatalogReference catalogName="VehicleCatalog" entryName="car2" />
     </ScenarioObject>
     <ScenarioObject name="A6">
-      <CatalogReference catalogName="VehicleCatalog" entryName="car2"/>
+      <CatalogReference catalogName="VehicleCatalog" entryName="car2" />
     </ScenarioObject>
   </Entities>
   <Storyboard>
@@ -40,9 +40,9 @@
           <PrivateAction>
             <LongitudinalAction>
               <SpeedAction>
-                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time"/>
+                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time" />
                 <SpeedActionTarget>
-                  <AbsoluteTargetSpeed value="3.6111111111111107e+01"/>
+                  <AbsoluteTargetSpeed value="36.1" />
                 </SpeedActionTarget>
               </SpeedAction>
             </LongitudinalAction>
@@ -50,7 +50,7 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="1.6340584937764976e+02" y="3.5079025268554688e+02" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+                <WorldPosition x="163.4" y="350.8" z="0.0" h="1.570796" p="0.0" r="0.0" />
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -59,9 +59,9 @@
           <PrivateAction>
             <LongitudinalAction>
               <SpeedAction>
-                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time"/>
+                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time" />
                 <SpeedActionTarget>
-                  <AbsoluteTargetSpeed value="0.0000000000000000e+00"/>
+                  <AbsoluteTargetSpeed value="0.0" />
                 </SpeedActionTarget>
               </SpeedAction>
             </LongitudinalAction>
@@ -69,7 +69,9 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="1.7038618469238281e+02" y="4.9598831176757812e+02" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+                <RelativeLanePosition entityRef="Ego" dLane="-2" ds="145.0" offset="-0.6">
+                  <Orientation type="relative" />
+                </RelativeLanePosition>
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -78,9 +80,9 @@
           <PrivateAction>
             <LongitudinalAction>
               <SpeedAction>
-                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time"/>
+                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time" />
                 <SpeedActionTarget>
-                  <AbsoluteTargetSpeed value="0.0000000000000000e+00"/>
+                  <AbsoluteTargetSpeed value="0.0" />
                 </SpeedActionTarget>
               </SpeedAction>
             </LongitudinalAction>
@@ -88,7 +90,9 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="1.6767727661132812e+02" y="4.9856939697265625e+02" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+                <RelativeObjectPosition entityRef="A1" dx="8.0" dy="0.0">
+                  <Orientation type="relative" />
+                </RelativeObjectPosition>
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -97,9 +101,9 @@
           <PrivateAction>
             <LongitudinalAction>
               <SpeedAction>
-                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time"/>
+                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time" />
                 <SpeedActionTarget>
-                  <AbsoluteTargetSpeed value="0.0000000000000000e+00"/>
+                  <AbsoluteTargetSpeed value="0.0" />
                 </SpeedActionTarget>
               </SpeedAction>
             </LongitudinalAction>
@@ -107,7 +111,9 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="1.6238928222656250e+02" y="5.0160592651367188e+02" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+                <RelativeLanePosition entityRef="A1" dLane="1" ds="3.0" offset="-1.6">
+                  <Orientation type="relative" />
+                </RelativeLanePosition>
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -116,9 +122,9 @@
           <PrivateAction>
             <LongitudinalAction>
               <SpeedAction>
-                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time"/>
+                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time" />
                 <SpeedActionTarget>
-                  <AbsoluteTargetSpeed value="0.0000000000000000e+00"/>
+                  <AbsoluteTargetSpeed value="0.0" />
                 </SpeedActionTarget>
               </SpeedAction>
             </LongitudinalAction>
@@ -126,7 +132,9 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="1.7032408142089844e+02" y="5.0427667236328125e+02" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+                <RelativeObjectPosition entityRef="A3" dx="8" dy="0">
+                  <Orientation type="relative" />
+                </RelativeObjectPosition>
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -135,9 +143,9 @@
           <PrivateAction>
             <LongitudinalAction>
               <SpeedAction>
-                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time"/>
+                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time" />
                 <SpeedActionTarget>
-                  <AbsoluteTargetSpeed value="0.0000000000000000e+00"/>
+                  <AbsoluteTargetSpeed value="0.0" />
                 </SpeedActionTarget>
               </SpeedAction>
             </LongitudinalAction>
@@ -145,7 +153,9 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="1.6761517333984375e+02" y="5.0685775756835938e+02" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+                <RelativeRoadPosition entityRef="Ego" ds="151" dt="0.9">
+                  <Orientation type="relative" />
+                </RelativeRoadPosition>
               </Position>
             </TeleportAction>
           </PrivateAction>
@@ -154,9 +164,9 @@
           <PrivateAction>
             <LongitudinalAction>
               <SpeedAction>
-                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time"/>
+                <SpeedActionDynamics dynamicsShape="step" value="0" dynamicsDimension="time" />
                 <SpeedActionTarget>
-                  <AbsoluteTargetSpeed value="0.0000000000000000e+00"/>
+                  <AbsoluteTargetSpeed value="0.0" />
                 </SpeedActionTarget>
               </SpeedAction>
             </LongitudinalAction>
@@ -164,13 +174,23 @@
           <PrivateAction>
             <TeleportAction>
               <Position>
-                <WorldPosition x="1.6232717895507812e+02" y="5.0989428710937500e+02" z="0.0000000000000000e+00" h="1.5707963267948966e+00" p="0.0000000000000000e+00" r="0.0000000000000000e+00"/>
+                <RelativeObjectPosition entityRef="A5" dx="8" dy="0">
+                  <Orientation type="relative" />
+                </RelativeObjectPosition>
               </Position>
             </TeleportAction>
           </PrivateAction>
         </Private>
       </Actions>
     </Init>
-    <StopTrigger/>
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="End_of_Simulation" delay="0" conditionEdge="none">
+          <ByValueCondition>
+            <SimulationTimeCondition value="10" rule="greaterThan" />
+          </ByValueCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
   </Storyboard>
 </OpenSCENARIO>

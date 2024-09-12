@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OpenSCENARIO xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../Schema/OpenSCENARIO.xsd">
-  <FileHeader revMajor="1" revMinor="2" date="2020-02-21T10:00:00" description="Double Lane Changer example" author="ASAM e.V."/>
+  <FileHeader revMajor="1" revMinor="3" date="2020-02-21T10:00:00" description="Double Lane Changer example" author="ASAM e.V."/>
   <ParameterDeclarations>
     <ParameterDeclaration parameterType="string" name="owner" value="A1"/>
   </ParameterDeclarations>
@@ -148,17 +148,21 @@
             </Event>
           </Maneuver>
         </ManeuverGroup>
-        <StartTrigger>
-          <ConditionGroup>
-            <Condition name="" delay="0" conditionEdge="rising">
-              <ByValueCondition>
-                <SimulationTimeCondition value="0" rule="greaterThan"/>
-              </ByValueCondition>
-            </Condition>
-          </ConditionGroup>
-        </StartTrigger>
       </Act>
     </Story>
-    <StopTrigger/>
+    <StopTrigger>
+      <ConditionGroup>
+        <Condition name="Overtake_finished" delay="0" conditionEdge="rising">
+          <ByEntityCondition>
+            <TriggeringEntities triggeringEntitiesRule="all">
+              <EntityRef entityRef="A1" />
+            </TriggeringEntities>
+            <EntityCondition>
+              <RelativeDistanceCondition freespace="false" relativeDistanceType="longitudinal" value="50" rule="greaterThan" entityRef="A2" />
+            </EntityCondition>
+          </ByEntityCondition>
+        </Condition>
+      </ConditionGroup>
+    </StopTrigger>
   </Storyboard>
 </OpenSCENARIO>
