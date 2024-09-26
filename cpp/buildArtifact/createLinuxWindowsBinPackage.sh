@@ -85,7 +85,7 @@ cp -r "${SCRIPT_DIR}/../applications/openScenarioTester/res" "${SCRIPT_DIR}/${OP
 # copy LICENSE and NOTICE
 ################################################################
 cp "${SCRIPT_DIR}/../../LICENSE" "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
-cp "${SCRIPT_DIR}/../../NOTICE"
+cp "${SCRIPT_DIR}/../../NOTICE" "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
 
 ################################################################
 # prepare lib files
