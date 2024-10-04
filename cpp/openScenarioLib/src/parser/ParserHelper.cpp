@@ -31,10 +31,20 @@ namespace NET_ASAM_OPENSCENARIO
         return xmlValue;
     }
 
-   uint32_t ParserHelper::ParseUnsignedInt(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
+    uint32_t ParserHelper::ParseUnsignedInt(IParserMessageLogger& messageLogger, std::string& xmlValue, Textmarker& textMarker)
     {
-        try 
+        for (auto ch : xmlValue)
         {
+            if (!std::isdigit(ch) && ch != '-')
+            {
+                auto msg = FileContentMessage("Cannot convert '" + xmlValue + "' to an unsignedInteger. Number format error.", ERROR, textMarker);
+                messageLogger.LogMessage(msg);
+                return 0;
+            }
+        }
+        
+        try 
+        {           
             const auto kResult = std::stoll(xmlValue, nullptr, 0);
             if (kResult > UNSIGNED_INT_MAX_VALUE || kResult < 0)
             {
