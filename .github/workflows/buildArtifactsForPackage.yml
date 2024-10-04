@@ -10,7 +10,7 @@ on:
 
 jobs:
   CreatePackage:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [LinuxSharedReleaseBuild, LinuxStaticReleaseBuild, Win32SharedReleaseBuild, Win32StaticReleaseBuild, x64SharedReleaseBuild, x64StaticReleaseBuild]
 
     steps:
@@ -242,7 +242,7 @@ jobs:
 
 
   LinuxSharedReleaseBuild:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     
     steps:
     - uses: actions/checkout@v3
@@ -311,7 +311,7 @@ jobs:
 
 
   LinuxStaticReleaseBuild:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     
     steps:
     - uses: actions/checkout@v3
@@ -373,7 +373,7 @@ jobs:
 
 
   Win32SharedReleaseBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -428,7 +428,7 @@ jobs:
 
 
   Win32StaticReleaseBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -483,7 +483,7 @@ jobs:
 
 
   x64SharedReleaseBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -538,7 +538,7 @@ jobs:
 
 
   x64StaticReleaseBuild:
-    runs-on: windows-latest
+    runs-on: windows-2022
     
     steps:
     - uses: actions/checkout@v3
@@ -562,5 +562,3 @@ jobs:
       with:
         name: x64StaticRelease
         path: ./cpp/build/out.tgz
-
-
