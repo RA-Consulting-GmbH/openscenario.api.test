@@ -218,7 +218,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             const auto kSteadyState =  GetWriterSteadyState();
@@ -457,7 +457,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -687,7 +687,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -908,7 +908,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -1185,7 +1185,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -1682,7 +1682,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kManeuverGroups =  GetWriterManeuverGroups();
@@ -2039,7 +2039,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kGlobalAction =  GetWriterGlobalAction();
@@ -2387,9 +2387,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_lateral = GetLateral();
+            clonedObject->SetLateral(GetLateral());
             // Simple type
-            clonedObject->_longitudinal = GetLongitudinal();
+            clonedObject->SetLongitudinal(GetLongitudinal());
             // clone indicators
             clonedObject->_isSetLateral = _isSetLateral;
             clonedObject->_isSetLongitudinal = _isSetLongitudinal;
@@ -2674,7 +2674,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_selectTriggeringEntities = GetSelectTriggeringEntities();
+            clonedObject->SetSelectTriggeringEntities(GetSelectTriggeringEntities());
             // clone indicators
             // clone children
             const auto kEntityRefs =  GetWriterEntityRefs();
@@ -3209,9 +3209,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_activateLateral = GetActivateLateral();
+            clonedObject->SetActivateLateral(GetActivateLateral());
             // Simple type
-            clonedObject->_activateLongitudinal = GetActivateLongitudinal();
+            clonedObject->SetActivateLongitudinal(GetActivateLongitudinal());
             // clone indicators
             clonedObject->_isSetActivateLateral = _isSetActivateLateral;
             clonedObject->_isSetActivateLongitudinal = _isSetActivateLongitudinal;
@@ -3931,15 +3931,15 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_maxSteering = GetMaxSteering();
+            clonedObject->SetMaxSteering(GetMaxSteering());
             // Simple type
-            clonedObject->_positionX = GetPositionX();
+            clonedObject->SetPositionX(GetPositionX());
             // Simple type
-            clonedObject->_positionZ = GetPositionZ();
+            clonedObject->SetPositionZ(GetPositionZ());
             // Simple type
-            clonedObject->_trackWidth = GetTrackWidth();
+            clonedObject->SetTrackWidth(GetTrackWidth());
             // Simple type
-            clonedObject->_wheelDiameter = GetWheelDiameter();
+            clonedObject->SetWheelDiameter(GetWheelDiameter());
             // clone indicators
             // clone children
             return clonedObject;
@@ -6213,7 +6213,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             clonedObject->_isSetName = _isSetName;
             // clone children
@@ -7464,9 +7464,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_catalogName = GetCatalogName();
+            clonedObject->SetCatalogName(GetCatalogName());
             // Simple type
-            clonedObject->_entryName = GetEntryName();
+            clonedObject->SetEntryName(GetEntryName());
             // clone indicators
             // clone children
             const auto kParameterAssignments =  GetWriterParameterAssignments();
@@ -7840,11 +7840,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_x = GetX();
+            clonedObject->SetX(GetX());
             // Simple type
-            clonedObject->_y = GetY();
+            clonedObject->SetY(GetY());
             // Simple type
-            clonedObject->_z = GetZ();
+            clonedObject->SetZ(GetZ());
             // clone indicators
             // clone children
             return clonedObject;
@@ -8558,17 +8558,17 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_curvature = GetCurvature();
+            clonedObject->SetCurvature(GetCurvature());
             // Simple type
-            clonedObject->_curvatureDot = GetCurvatureDot();
+            clonedObject->SetCurvatureDot(GetCurvatureDot());
             // Simple type
-            clonedObject->_curvaturePrime = GetCurvaturePrime();
+            clonedObject->SetCurvaturePrime(GetCurvaturePrime());
             // Simple type
-            clonedObject->_length = GetLength();
+            clonedObject->SetLength(GetLength());
             // Simple type
-            clonedObject->_startTime = GetStartTime();
+            clonedObject->SetStartTime(GetStartTime());
             // Simple type
-            clonedObject->_stopTime = GetStopTime();
+            clonedObject->SetStopTime(GetStopTime());
             // clone indicators
             clonedObject->_isSetCurvatureDot = _isSetCurvatureDot;
             clonedObject->_isSetCurvaturePrime = _isSetCurvaturePrime;
@@ -9274,9 +9274,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_conditionEdge = ConditionEdge::GetFromLiteral(kConditionEdge.GetLiteral());
             }
             // Simple type
-            clonedObject->_delay = GetDelay();
+            clonedObject->SetDelay(GetDelay());
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kByEntityCondition =  GetWriterByEntityCondition();
@@ -9871,9 +9871,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_time = GetTime();
+            clonedObject->SetTime(GetTime());
             // Simple type
-            clonedObject->_weight = GetWeight();
+            clonedObject->SetWeight(GetWeight());
             // clone indicators
             clonedObject->_isSetTime = _isSetTime;
             clonedObject->_isSetWeight = _isSetWeight;
@@ -10209,7 +10209,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
@@ -11234,7 +11234,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_weight = GetWeight();
+            clonedObject->SetWeight(GetWeight());
             // clone indicators
             // clone children
             const auto kController =  GetWriterController();
@@ -11537,7 +11537,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_type = GetType();
+            clonedObject->SetType(GetType());
             // clone indicators
             // clone children
             return clonedObject;
@@ -12795,7 +12795,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_parameterName = GetParameterName();
+            clonedObject->SetParameterName(GetParameterName());
             // clone indicators
             // clone children
             const auto kDeterministicSingleParameterDistributionType =  GetWriterDeterministicSingleParameterDistributionType();
@@ -13408,11 +13408,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_height = GetHeight();
+            clonedObject->SetHeight(GetHeight());
             // Simple type
-            clonedObject->_length = GetLength();
+            clonedObject->SetLength(GetLength());
             // Simple type
-            clonedObject->_width = GetWidth();
+            clonedObject->SetWidth(GetWidth());
             // clone indicators
             // clone children
             return clonedObject;
@@ -13646,7 +13646,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_path = GetPath();
+            clonedObject->SetPath(GetPath());
             // clone indicators
             // clone children
             return clonedObject;
@@ -14140,7 +14140,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_alongRoute = GetAlongRoute();
+            clonedObject->SetAlongRoute(GetAlongRoute());
             // Enumeration Type
             const auto kCoordinateSystem = GetCoordinateSystem();
             if ( kCoordinateSystem.GetLiteral() != "UNKNOWN" )
@@ -14148,7 +14148,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_coordinateSystem = CoordinateSystem::GetFromLiteral(kCoordinateSystem.GetLiteral());
             }
             // Simple type
-            clonedObject->_freespace = GetFreespace();
+            clonedObject->SetFreespace(GetFreespace());
             // Enumeration Type
             const auto kRelativeDistanceType = GetRelativeDistanceType();
             if ( kRelativeDistanceType.GetLiteral() != "UNKNOWN" )
@@ -14162,7 +14162,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             clonedObject->_isSetAlongRoute = _isSetAlongRoute;
             clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
@@ -14734,7 +14734,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_stepWidth = GetStepWidth();
+            clonedObject->SetStepWidth(GetStepWidth());
             // clone indicators
             // clone children
             const auto kRange =  GetWriterRange();
@@ -15189,7 +15189,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -15509,11 +15509,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_maxAcceleration = GetMaxAcceleration();
+            clonedObject->SetMaxAcceleration(GetMaxAcceleration());
             // Simple type
-            clonedObject->_maxDeceleration = GetMaxDeceleration();
+            clonedObject->SetMaxDeceleration(GetMaxDeceleration());
             // Simple type
-            clonedObject->_maxSpeed = GetMaxSpeed();
+            clonedObject->SetMaxSpeed(GetMaxSpeed());
             // clone indicators
             clonedObject->_isSetMaxAcceleration = _isSetMaxAcceleration;
             clonedObject->_isSetMaxDeceleration = _isSetMaxDeceleration;
@@ -15777,7 +15777,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_duration = GetDuration();
+            clonedObject->SetDuration(GetDuration());
             // clone indicators
             // clone children
             return clonedObject;
@@ -18097,7 +18097,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kMembers =  GetWriterMembers();
@@ -18455,7 +18455,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
@@ -19379,9 +19379,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_maximumExecutionCount = GetMaximumExecutionCount();
+            clonedObject->SetMaximumExecutionCount(GetMaximumExecutionCount());
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // Enumeration Type
             const auto kPriority = GetPriority();
             if ( kPriority.GetLiteral() != "UNKNOWN" )
@@ -19700,7 +19700,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             return clonedObject;
@@ -19921,7 +19921,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_filepath = GetFilepath();
+            clonedObject->SetFilepath(GetFilepath());
             // clone indicators
             // clone children
             return clonedObject;
@@ -20347,15 +20347,15 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_author = GetAuthor();
+            clonedObject->SetAuthor(GetAuthor());
             // Simple type
-            clonedObject->_date = GetDate();
+            clonedObject->SetDate(GetDate());
             // Simple type
-            clonedObject->_description = GetDescription();
+            clonedObject->SetDescription(GetDescription());
             // Simple type
-            clonedObject->_revMajor = GetRevMajor();
+            clonedObject->SetRevMajor(GetRevMajor());
             // Simple type
-            clonedObject->_revMinor = GetRevMinor();
+            clonedObject->SetRevMinor(GetRevMinor());
             // clone indicators
             // clone children
             const auto kLicense =  GetWriterLicense();
@@ -20932,7 +20932,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_visualRange = GetVisualRange();
+            clonedObject->SetVisualRange(GetVisualRange());
             // clone indicators
             // clone children
             const auto kBoundingBox =  GetWriterBoundingBox();
@@ -21275,7 +21275,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_initialDistanceOffset = GetInitialDistanceOffset();
+            clonedObject->SetInitialDistanceOffset(GetInitialDistanceOffset());
             // clone indicators
             clonedObject->_isSetInitialDistanceOffset = _isSetInitialDistanceOffset;
             // clone children
@@ -21719,11 +21719,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_height = GetHeight();
+            clonedObject->SetHeight(GetHeight());
             // Simple type
-            clonedObject->_latitude = GetLatitude();
+            clonedObject->SetLatitude(GetLatitude());
             // Simple type
-            clonedObject->_longitude = GetLongitude();
+            clonedObject->SetLongitude(GetLongitude());
             // clone indicators
             clonedObject->_isSetHeight = _isSetHeight;
             // clone children
@@ -22629,7 +22629,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_weight = GetWeight();
+            clonedObject->SetWeight(GetWeight());
             // clone indicators
             // clone children
             const auto kRange =  GetWriterRange();
@@ -23915,7 +23915,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -24174,7 +24174,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_targetLaneOffset = GetTargetLaneOffset();
+            clonedObject->SetTargetLaneOffset(GetTargetLaneOffset());
             // clone indicators
             clonedObject->_isSetTargetLaneOffset = _isSetTargetLaneOffset;
             // clone children
@@ -24722,7 +24722,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_continuous = GetContinuous();
+            clonedObject->SetContinuous(GetContinuous());
             // clone indicators
             // clone children
             const auto kLaneOffsetActionDynamics =  GetWriterLaneOffsetActionDynamics();
@@ -25037,7 +25037,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_dynamicsShape = DynamicsShape::GetFromLiteral(kDynamicsShape.GetLiteral());
             }
             // Simple type
-            clonedObject->_maxLateralAcc = GetMaxLateralAcc();
+            clonedObject->SetMaxLateralAcc(GetMaxLateralAcc());
             // clone indicators
             clonedObject->_isSetMaxLateralAcc = _isSetMaxLateralAcc;
             // clone children
@@ -25669,13 +25669,13 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_laneId = GetLaneId();
+            clonedObject->SetLaneId(GetLaneId());
             // Simple type
-            clonedObject->_offset = GetOffset();
+            clonedObject->SetOffset(GetOffset());
             // Simple type
-            clonedObject->_roadId = GetRoadId();
+            clonedObject->SetRoadId(GetRoadId());
             // Simple type
-            clonedObject->_s = GetS();
+            clonedObject->SetS(GetS());
             // clone indicators
             clonedObject->_isSetOffset = _isSetOffset;
             // clone children
@@ -26527,7 +26527,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_continuous = GetContinuous();
+            clonedObject->SetContinuous(GetContinuous());
             // Enumeration Type
             const auto kCoordinateSystem = GetCoordinateSystem();
             if ( kCoordinateSystem.GetLiteral() != "UNKNOWN" )
@@ -26541,14 +26541,14 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_displacement = LateralDisplacement::GetFromLiteral(kDisplacement.GetLiteral());
             }
             // Simple type
-            clonedObject->_distance = GetDistance();
+            clonedObject->SetDistance(GetDistance());
             // Proxy
             auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
             // Simple type
-            clonedObject->_freespace = GetFreespace();
+            clonedObject->SetFreespace(GetFreespace());
             // clone indicators
             clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
             clonedObject->_isSetDisplacement = _isSetDisplacement;
@@ -27006,11 +27006,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // Simple type
-            clonedObject->_resource = GetResource();
+            clonedObject->SetResource(GetResource());
             // Simple type
-            clonedObject->_spdxId = GetSpdxId();
+            clonedObject->SetSpdxId(GetSpdxId());
             // clone indicators
             clonedObject->_isSetResource = _isSetResource;
             clonedObject->_isSetSpdxId = _isSetSpdxId;
@@ -27853,7 +27853,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_continuous = GetContinuous();
+            clonedObject->SetContinuous(GetContinuous());
             // Enumeration Type
             const auto kCoordinateSystem = GetCoordinateSystem();
             if ( kCoordinateSystem.GetLiteral() != "UNKNOWN" )
@@ -27867,16 +27867,16 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_displacement = LongitudinalDisplacement::GetFromLiteral(kDisplacement.GetLiteral());
             }
             // Simple type
-            clonedObject->_distance = GetDistance();
+            clonedObject->SetDistance(GetDistance());
             // Proxy
             auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
             // Simple type
-            clonedObject->_freespace = GetFreespace();
+            clonedObject->SetFreespace(GetFreespace());
             // Simple type
-            clonedObject->_timeGap = GetTimeGap();
+            clonedObject->SetTimeGap(GetTimeGap());
             // clone indicators
             clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
             clonedObject->_isSetDisplacement = _isSetDisplacement;
@@ -28327,7 +28327,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
@@ -28947,9 +28947,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_maximumExecutionCount = GetMaximumExecutionCount();
+            clonedObject->SetMaximumExecutionCount(GetMaximumExecutionCount());
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kActors =  GetWriterActors();
@@ -29509,7 +29509,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_mass = GetMass();
+            clonedObject->SetMass(GetMass());
             // Enumeration Type
             const auto kMiscObjectCategory = GetMiscObjectCategory();
             if ( kMiscObjectCategory.GetLiteral() != "UNKNOWN" )
@@ -29517,9 +29517,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_miscObjectCategory = MiscObjectCategory::GetFromLiteral(kMiscObjectCategory.GetLiteral());
             }
             // Simple type
-            clonedObject->_model3d = GetModel3d();
+            clonedObject->SetModel3d(GetModel3d());
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             clonedObject->_isSetModel3d = _isSetModel3d;
             // clone children
@@ -30529,9 +30529,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_expectedValue = GetExpectedValue();
+            clonedObject->SetExpectedValue(GetExpectedValue());
             // Simple type
-            clonedObject->_variance = GetVariance();
+            clonedObject->SetVariance(GetVariance());
             // clone indicators
             // clone children
             const auto kRange =  GetWriterRange();
@@ -30868,7 +30868,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_order = GetOrder();
+            clonedObject->SetOrder(GetOrder());
             // clone indicators
             // clone children
             const auto kControlPoints =  GetWriterControlPoints();
@@ -31386,7 +31386,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_duration = GetDuration();
+            clonedObject->SetDuration(GetDuration());
             // clone indicators
             // clone children
             return clonedObject;
@@ -32249,11 +32249,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_h = GetH();
+            clonedObject->SetH(GetH());
             // Simple type
-            clonedObject->_p = GetP();
+            clonedObject->SetP(GetP());
             // Simple type
-            clonedObject->_r = GetR();
+            clonedObject->SetR(GetR());
             // Enumeration Type
             const auto kType = GetType();
             if ( kType.GetLiteral() != "UNKNOWN" )
@@ -32594,9 +32594,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_active = GetActive();
+            clonedObject->SetActive(GetActive());
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -32882,9 +32882,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_active = GetActive();
+            clonedObject->SetActive(GetActive());
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -33580,9 +33580,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_active = GetActive();
+            clonedObject->SetActive(GetActive());
             // Simple type
-            clonedObject->_number = GetNumber();
+            clonedObject->SetNumber(GetNumber());
             // clone indicators
             // clone children
             return clonedObject;
@@ -33868,9 +33868,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_active = GetActive();
+            clonedObject->SetActive(GetActive());
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -34156,9 +34156,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_active = GetActive();
+            clonedObject->SetActive(GetActive());
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -34444,9 +34444,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_active = GetActive();
+            clonedObject->SetActive(GetActive());
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -34999,7 +34999,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -35227,7 +35227,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_parameterRef = proxy;
             
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -35577,7 +35577,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -35934,7 +35934,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // Enumeration Type
             const auto kParameterType = GetParameterType();
             if ( kParameterType.GetLiteral() != "UNKNOWN" )
@@ -35942,7 +35942,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_parameterType = ParameterType::GetFromLiteral(kParameterType.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             const auto kConstraintGroups =  GetWriterConstraintGroups();
@@ -36428,7 +36428,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -36640,7 +36640,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -37786,13 +37786,13 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_mass = GetMass();
+            clonedObject->SetMass(GetMass());
             // Simple type
-            clonedObject->_model = GetModel();
+            clonedObject->SetModel(GetModel());
             // Simple type
-            clonedObject->_model3d = GetModel3d();
+            clonedObject->SetModel3d(GetModel3d());
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // Enumeration Type
             const auto kPedestrianCategory = GetPedestrianCategory();
             if ( kPedestrianCategory.GetLiteral() != "UNKNOWN" )
@@ -38459,11 +38459,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_maxAcceleration = GetMaxAcceleration();
+            clonedObject->SetMaxAcceleration(GetMaxAcceleration());
             // Simple type
-            clonedObject->_maxDeceleration = GetMaxDeceleration();
+            clonedObject->SetMaxDeceleration(GetMaxDeceleration());
             // Simple type
-            clonedObject->_maxSpeed = GetMaxSpeed();
+            clonedObject->SetMaxSpeed(GetMaxSpeed());
             // clone indicators
             // clone children
             return clonedObject;
@@ -38786,9 +38786,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_duration = GetDuration();
+            clonedObject->SetDuration(GetDuration());
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kTrafficSignalStates =  GetWriterTrafficSignalStates();
@@ -39087,7 +39087,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_expectedValue = GetExpectedValue();
+            clonedObject->SetExpectedValue(GetExpectedValue());
             // clone indicators
             // clone children
             const auto kRange =  GetWriterRange();
@@ -40311,11 +40311,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_laneId = GetLaneId();
+            clonedObject->SetLaneId(GetLaneId());
             // Simple type
-            clonedObject->_laneOffset = GetLaneOffset();
+            clonedObject->SetLaneOffset(GetLaneOffset());
             // Simple type
-            clonedObject->_pathS = GetPathS();
+            clonedObject->SetPathS(GetPathS());
             // clone indicators
             clonedObject->_isSetLaneOffset = _isSetLaneOffset;
             // clone children
@@ -40623,9 +40623,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_pathS = GetPathS();
+            clonedObject->SetPathS(GetPathS());
             // Simple type
-            clonedObject->_t = GetT();
+            clonedObject->SetT(GetT());
             // clone indicators
             // clone children
             return clonedObject;
@@ -41179,9 +41179,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_intensity = GetIntensity();
+            clonedObject->SetIntensity(GetIntensity());
             // Simple type
-            clonedObject->_precipitationIntensity = GetPrecipitationIntensity();
+            clonedObject->SetPrecipitationIntensity(GetPrecipitationIntensity());
             // Enumeration Type
             const auto kPrecipitationType = GetPrecipitationType();
             if ( kPrecipitationType.GetLiteral() != "UNKNOWN" )
@@ -42555,9 +42555,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // Simple type
-            clonedObject->_weight = GetWeight();
+            clonedObject->SetWeight(GetWeight());
             // clone indicators
             // clone children
             return clonedObject;
@@ -43131,9 +43131,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -43424,9 +43424,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_lowerLimit = GetLowerLimit();
+            clonedObject->SetLowerLimit(GetLowerLimit());
             // Simple type
-            clonedObject->_upperLimit = GetUpperLimit();
+            clonedObject->SetUpperLimit(GetUpperLimit());
             // clone indicators
             // clone children
             return clonedObject;
@@ -43677,7 +43677,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_tolerance = GetTolerance();
+            clonedObject->SetTolerance(GetTolerance());
             // clone indicators
             // clone children
             const auto kPosition =  GetWriterPosition();
@@ -44172,7 +44172,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_entityRef = proxy;
             
             // Simple type
-            clonedObject->_freespace = GetFreespace();
+            clonedObject->SetFreespace(GetFreespace());
             // Enumeration Type
             const auto kRelativeDistanceType = GetRelativeDistanceType();
             if ( kRelativeDistanceType.GetLiteral() != "UNKNOWN" )
@@ -44186,7 +44186,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
             // clone children
@@ -44688,18 +44688,18 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_dLane = GetDLane();
+            clonedObject->SetDLane(GetDLane());
             // Simple type
-            clonedObject->_ds = GetDs();
+            clonedObject->SetDs(GetDs());
             // Simple type
-            clonedObject->_dsLane = GetDsLane();
+            clonedObject->SetDsLane(GetDsLane());
             // Proxy
             auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
             clonedObject->_entityRef = proxy;
             
             // Simple type
-            clonedObject->_offset = GetOffset();
+            clonedObject->SetOffset(GetOffset());
             // clone indicators
             clonedObject->_isSetDs = _isSetDs;
             clonedObject->_isSetDsLane = _isSetDsLane;
@@ -45182,11 +45182,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_dx = GetDx();
+            clonedObject->SetDx(GetDx());
             // Simple type
-            clonedObject->_dy = GetDy();
+            clonedObject->SetDy(GetDy());
             // Simple type
-            clonedObject->_dz = GetDz();
+            clonedObject->SetDz(GetDz());
             // Proxy
             auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
@@ -45600,9 +45600,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_ds = GetDs();
+            clonedObject->SetDs(GetDs());
             // Simple type
-            clonedObject->_dt = GetDt();
+            clonedObject->SetDt(GetDt());
             // Proxy
             auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
@@ -45995,7 +45995,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -46331,7 +46331,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_speedTargetValueType = SpeedTargetValueType::GetFromLiteral(kSpeedTargetValueType.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             const auto kSteadyState =  GetWriterSteadyState();
@@ -46640,7 +46640,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_entityRef = proxy;
             
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -46934,7 +46934,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_entityRef = proxy;
             
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -47323,7 +47323,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_continuous = GetContinuous();
+            clonedObject->SetContinuous(GetContinuous());
             // Proxy
             auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
@@ -47336,7 +47336,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_speedTargetValueType = SpeedTargetValueType::GetFromLiteral(kSpeedTargetValueType.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -47763,11 +47763,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_dx = GetDx();
+            clonedObject->SetDx(GetDx());
             // Simple type
-            clonedObject->_dy = GetDy();
+            clonedObject->SetDy(GetDy());
             // Simple type
-            clonedObject->_dz = GetDz();
+            clonedObject->SetDz(GetDz());
             // Proxy
             auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
@@ -48094,7 +48094,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_frictionScaleFactor = GetFrictionScaleFactor();
+            clonedObject->SetFrictionScaleFactor(GetFrictionScaleFactor());
             // clone indicators
             // clone children
             const auto kProperties =  GetWriterProperties();
@@ -48804,11 +48804,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_roadId = GetRoadId();
+            clonedObject->SetRoadId(GetRoadId());
             // Simple type
-            clonedObject->_s = GetS();
+            clonedObject->SetS(GetS());
             // Simple type
-            clonedObject->_t = GetT();
+            clonedObject->SetT(GetT());
             // clone indicators
             // clone children
             const auto kOrientation =  GetWriterOrientation();
@@ -49230,9 +49230,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_closed = GetClosed();
+            clonedObject->SetClosed(GetClosed());
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
@@ -50959,7 +50959,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kEntityObject =  GetWriterEntityObject();
@@ -51878,7 +51878,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -52643,7 +52643,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -52878,7 +52878,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_duration = GetDuration();
+            clonedObject->SetDuration(GetDuration());
             // clone indicators
             // clone children
             return clonedObject;
@@ -53420,9 +53420,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_numberOfTestRuns = GetNumberOfTestRuns();
+            clonedObject->SetNumberOfTestRuns(GetNumberOfTestRuns());
             // Simple type
-            clonedObject->_randomSeed = GetRandomSeed();
+            clonedObject->SetRandomSeed(GetRandomSeed());
             // clone indicators
             clonedObject->_isSetRandomSeed = _isSetRandomSeed;
             // clone children
@@ -53704,7 +53704,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_parameterName = GetParameterName();
+            clonedObject->SetParameterName(GetParameterName());
             // clone indicators
             // clone children
             const auto kStochasticDistributionType =  GetWriterStochasticDistributionType();
@@ -54448,7 +54448,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
@@ -55486,11 +55486,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_azimuth = GetAzimuth();
+            clonedObject->SetAzimuth(GetAzimuth());
             // Simple type
-            clonedObject->_elevation = GetElevation();
+            clonedObject->SetElevation(GetElevation());
             // Simple type
-            clonedObject->_intensity = GetIntensity();
+            clonedObject->SetIntensity(GetIntensity());
             // clone indicators
             // clone children
             return clonedObject;
@@ -55882,9 +55882,9 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_masterEntityRef = proxy;
             
             // Simple type
-            clonedObject->_targetTolerance = GetTargetTolerance();
+            clonedObject->SetTargetTolerance(GetTargetTolerance());
             // Simple type
-            clonedObject->_targetToleranceMaster = GetTargetToleranceMaster();
+            clonedObject->SetTargetToleranceMaster(GetTargetToleranceMaster());
             // clone indicators
             clonedObject->_isSetTargetTolerance = _isSetTargetTolerance;
             clonedObject->_isSetTargetToleranceMaster = _isSetTargetToleranceMaster;
@@ -56217,7 +56217,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_distance = GetDistance();
+            clonedObject->SetDistance(GetDistance());
             // clone indicators
             // clone children
             return clonedObject;
@@ -56438,7 +56438,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_time = GetTime();
+            clonedObject->SetTime(GetTime());
             // clone indicators
             // clone children
             return clonedObject;
@@ -57140,7 +57140,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_alongRoute = GetAlongRoute();
+            clonedObject->SetAlongRoute(GetAlongRoute());
             // Enumeration Type
             const auto kCoordinateSystem = GetCoordinateSystem();
             if ( kCoordinateSystem.GetLiteral() != "UNKNOWN" )
@@ -57153,7 +57153,7 @@ namespace NET_ASAM_OPENSCENARIO
             clonedObject->_entityRef = proxy;
             
             // Simple type
-            clonedObject->_freespace = GetFreespace();
+            clonedObject->SetFreespace(GetFreespace());
             // Enumeration Type
             const auto kRelativeDistanceType = GetRelativeDistanceType();
             if ( kRelativeDistanceType.GetLiteral() != "UNKNOWN" )
@@ -57167,7 +57167,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             clonedObject->_isSetAlongRoute = _isSetAlongRoute;
             clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
@@ -57543,9 +57543,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_animation = GetAnimation();
+            clonedObject->SetAnimation(GetAnimation());
             // Simple type
-            clonedObject->_dateTime = GetDateTime();
+            clonedObject->SetDateTime(GetDateTime());
             // clone indicators
             // clone children
             return clonedObject;
@@ -57831,7 +57831,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_dateTime = GetDateTime();
+            clonedObject->SetDateTime(GetDateTime());
             // Enumeration Type
             const auto kRule = GetRule();
             if ( kRule.GetLiteral() != "UNKNOWN" )
@@ -58580,7 +58580,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_alongRoute = GetAlongRoute();
+            clonedObject->SetAlongRoute(GetAlongRoute());
             // Enumeration Type
             const auto kCoordinateSystem = GetCoordinateSystem();
             if ( kCoordinateSystem.GetLiteral() != "UNKNOWN" )
@@ -58588,7 +58588,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_coordinateSystem = CoordinateSystem::GetFromLiteral(kCoordinateSystem.GetLiteral());
             }
             // Simple type
-            clonedObject->_freespace = GetFreespace();
+            clonedObject->SetFreespace(GetFreespace());
             // Enumeration Type
             const auto kRelativeDistanceType = GetRelativeDistanceType();
             if ( kRelativeDistanceType.GetLiteral() != "UNKNOWN" )
@@ -58602,7 +58602,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             clonedObject->_isSetAlongRoute = _isSetAlongRoute;
             clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
@@ -59268,9 +59268,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_domainAbsoluteRelative = ReferenceContext::GetFromLiteral(kDomainAbsoluteRelative.GetLiteral());
             }
             // Simple type
-            clonedObject->_offset = GetOffset();
+            clonedObject->SetOffset(GetOffset());
             // Simple type
-            clonedObject->_scale = GetScale();
+            clonedObject->SetScale(GetScale());
             // clone indicators
             // clone children
             return clonedObject;
@@ -59595,7 +59595,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_trafficName = GetTrafficName();
+            clonedObject->SetTrafficName(GetTrafficName());
             // clone indicators
             clonedObject->_isSetTrafficName = _isSetTrafficName;
             // clone children
@@ -59957,7 +59957,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kVehicleCategoryDistribution =  GetWriterVehicleCategoryDistribution();
@@ -60501,9 +60501,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // Simple type
-            clonedObject->_state = GetState();
+            clonedObject->SetState(GetState());
             // clone indicators
             // clone children
             return clonedObject;
@@ -60870,11 +60870,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_delay = GetDelay();
+            clonedObject->SetDelay(GetDelay());
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // Simple type
-            clonedObject->_reference = GetReference();
+            clonedObject->SetReference(GetReference());
             // clone indicators
             clonedObject->_isSetDelay = _isSetDelay;
             clonedObject->_isSetReference = _isSetReference;
@@ -61244,7 +61244,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_phase = GetPhase();
+            clonedObject->SetPhase(GetPhase());
             // Proxy
             auto proxy = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<ITrafficSignalController>>(GetTrafficSignalControllerRef()));
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
@@ -61571,7 +61571,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_phase = GetPhase();
+            clonedObject->SetPhase(GetPhase());
             // Proxy
             auto proxy = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<ITrafficSignalController>>(GetTrafficSignalControllerRef()));
             proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
@@ -61870,9 +61870,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_state = GetState();
+            clonedObject->SetState(GetState());
             // Simple type
-            clonedObject->_trafficSignalId = GetTrafficSignalId();
+            clonedObject->SetTrafficSignalId(GetTrafficSignalId());
             // clone indicators
             // clone children
             return clonedObject;
@@ -62150,9 +62150,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // Simple type
-            clonedObject->_state = GetState();
+            clonedObject->SetState(GetState());
             // clone indicators
             // clone children
             return clonedObject;
@@ -62481,9 +62481,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_radius = GetRadius();
+            clonedObject->SetRadius(GetRadius());
             // Simple type
-            clonedObject->_rate = GetRate();
+            clonedObject->SetRate(GetRate());
             // clone indicators
             clonedObject->_isSetRate = _isSetRate;
             // clone children
@@ -62894,11 +62894,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_radius = GetRadius();
+            clonedObject->SetRadius(GetRadius());
             // Simple type
-            clonedObject->_rate = GetRate();
+            clonedObject->SetRate(GetRate());
             // Simple type
-            clonedObject->_velocity = GetVelocity();
+            clonedObject->SetVelocity(GetVelocity());
             // clone indicators
             clonedObject->_isSetVelocity = _isSetVelocity;
             // clone children
@@ -63608,17 +63608,17 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_innerRadius = GetInnerRadius();
+            clonedObject->SetInnerRadius(GetInnerRadius());
             // Simple type
-            clonedObject->_numberOfVehicles = GetNumberOfVehicles();
+            clonedObject->SetNumberOfVehicles(GetNumberOfVehicles());
             // Simple type
-            clonedObject->_offset = GetOffset();
+            clonedObject->SetOffset(GetOffset());
             // Simple type
-            clonedObject->_semiMajorAxis = GetSemiMajorAxis();
+            clonedObject->SetSemiMajorAxis(GetSemiMajorAxis());
             // Simple type
-            clonedObject->_semiMinorAxis = GetSemiMinorAxis();
+            clonedObject->SetSemiMinorAxis(GetSemiMinorAxis());
             // Simple type
-            clonedObject->_velocity = GetVelocity();
+            clonedObject->SetVelocity(GetVelocity());
             // clone indicators
             clonedObject->_isSetVelocity = _isSetVelocity;
             // clone children
@@ -64062,9 +64062,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_closed = GetClosed();
+            clonedObject->SetClosed(GetClosed());
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // clone indicators
             // clone children
             const auto kParameterDeclarations =  GetWriterParameterDeclarations();
@@ -64865,9 +64865,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_s = GetS();
+            clonedObject->SetS(GetS());
             // Simple type
-            clonedObject->_t = GetT();
+            clonedObject->SetT(GetT());
             // clone indicators
             clonedObject->_isSetT = _isSetT;
             // clone children
@@ -65494,7 +65494,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_dynamicsShape = DynamicsShape::GetFromLiteral(kDynamicsShape.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -65738,7 +65738,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -67121,7 +67121,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_type = GetType();
+            clonedObject->SetType(GetType());
             // clone indicators
             // clone children
             return clonedObject;
@@ -67449,7 +67449,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // Enumeration Type
             const auto kRule = GetRule();
             if ( kRule.GetLiteral() != "UNKNOWN" )
@@ -67457,7 +67457,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -67764,7 +67764,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_rule = Rule::GetFromLiteral(kRule.GetLiteral());
             }
             // Simple type
-            clonedObject->_value = GetValue();
+            clonedObject->SetValue(GetValue());
             // clone indicators
             // clone children
             return clonedObject;
@@ -68723,11 +68723,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_mass = GetMass();
+            clonedObject->SetMass(GetMass());
             // Simple type
-            clonedObject->_model3d = GetModel3d();
+            clonedObject->SetModel3d(GetModel3d());
             // Simple type
-            clonedObject->_name = GetName();
+            clonedObject->SetName(GetName());
             // Enumeration Type
             const auto kVehicleCategory = GetVehicleCategory();
             if ( kVehicleCategory.GetLiteral() != "UNKNOWN" )
@@ -69600,7 +69600,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_category = VehicleCategory::GetFromLiteral(kCategory.GetLiteral());
             }
             // Simple type
-            clonedObject->_weight = GetWeight();
+            clonedObject->SetWeight(GetWeight());
             // clone indicators
             // clone children
             return clonedObject;
@@ -69854,7 +69854,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_time = GetTime();
+            clonedObject->SetTime(GetTime());
             // clone indicators
             clonedObject->_isSetTime = _isSetTime;
             // clone children
@@ -70193,11 +70193,11 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_graphics = GetGraphics();
+            clonedObject->SetGraphics(GetGraphics());
             // Simple type
-            clonedObject->_sensors = GetSensors();
+            clonedObject->SetSensors(GetSensors());
             // Simple type
-            clonedObject->_traffic = GetTraffic();
+            clonedObject->SetTraffic(GetTraffic());
             // clone indicators
             // clone children
             return clonedObject;
@@ -70875,7 +70875,7 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_atmosphericPressure = GetAtmosphericPressure();
+            clonedObject->SetAtmosphericPressure(GetAtmosphericPressure());
             // Enumeration Type
             const auto kCloudState = GetCloudState();
             if ( kCloudState.GetLiteral() != "UNKNOWN" )
@@ -70883,7 +70883,7 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_cloudState = CloudState::GetFromLiteral(kCloudState.GetLiteral());
             }
             // Simple type
-            clonedObject->_temperature = GetTemperature();
+            clonedObject->SetTemperature(GetTemperature());
             // clone indicators
             clonedObject->_isSetAtmosphericPressure = _isSetAtmosphericPressure;
             clonedObject->_isSetCloudState = _isSetCloudState;
@@ -71291,9 +71291,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_direction = GetDirection();
+            clonedObject->SetDirection(GetDirection());
             // Simple type
-            clonedObject->_speed = GetSpeed();
+            clonedObject->SetSpeed(GetSpeed());
             // clone indicators
             // clone children
             return clonedObject;
@@ -71750,17 +71750,17 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Simple type
-            clonedObject->_h = GetH();
+            clonedObject->SetH(GetH());
             // Simple type
-            clonedObject->_p = GetP();
+            clonedObject->SetP(GetP());
             // Simple type
-            clonedObject->_r = GetR();
+            clonedObject->SetR(GetR());
             // Simple type
-            clonedObject->_x = GetX();
+            clonedObject->SetX(GetX());
             // Simple type
-            clonedObject->_y = GetY();
+            clonedObject->SetY(GetY());
             // Simple type
-            clonedObject->_z = GetZ();
+            clonedObject->SetZ(GetZ());
             // clone indicators
             clonedObject->_isSetH = _isSetH;
             clonedObject->_isSetP = _isSetP;

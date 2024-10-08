@@ -357,7 +357,7 @@ namespace NET_ASAM_OPENSCENARIO
             
             <%-} else if (property.type.isPrimitiveType()) {-%>
             // Simple type
-            clonedObject->_<%=property.name.toMemberName()%> = Get<%=property.name.toClassName()%>();
+			clonedObject->Set<%=property.name.toClassName()%>(Get<%=property.name.toClassName()%>());
             <%-} else {-%>
             // Enumeration Type
             const auto k<%=property.name.toClassName()%> = Get<%=property.name.toClassName()%>();
