@@ -94,6 +94,10 @@ if(ANTLR4_ZIP_REPOSITORY)
           -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
           # -DCMAKE_CXX_STANDARD:STRING=17 # if desired, compile the runtime with a different C++ standard
           # -DCMAKE_CXX_STANDARD:STRING=${CMAKE_CXX_STANDARD} # alternatively, compile the runtime with the same C++ standard as the outer project
+          -DCMAKE_C_COMPILER:STRING=${CMAKE_C_COMPILER}
+          -DCMAKE_CXX_COMPILER:STRING=${CMAKE_CXX_COMPILER}
+          -DCMAKE_SYSTEM_NAME:STRING=${CMAKE_SYSTEM_NAME}
+          -DCMAKE_SYSTEM_VERSION:STRING=${CMAKE_SYSTEM_VERSION}
       INSTALL_COMMAND ""
       EXCLUDE_FROM_ALL 1)
 else()
