@@ -31,7 +31,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OpenScenarioWriterFactoryImpl: public IOpenScenarioWriterFactory  
+        class OPENSCENARIOLIB_EXP OpenScenarioWriterFactoryImpl: public IOpenScenarioWriterFactory  
         {
         public:
 

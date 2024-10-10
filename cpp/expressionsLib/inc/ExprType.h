@@ -157,7 +157,7 @@ namespace OscExpression
 	public:
 
 		// No default constructor
-		OSC_EXPR_EXP ExprType() = delete;
+		ExprType() = delete;
 
 		/**
 		 * Retrieves the literal from this object.

@@ -123,8 +123,7 @@ namespace NET_ASAM_OPENSCENARIO
             {
                 return "";
             }
-            std::ifstream file(path);
-
+            std::ifstream file(path.c_str());
 #elif defined (__linux__) || defined (__APPLE__)
             std::ifstream file( _executablePath + "/" + kInputDir + fileName);
 #else
