@@ -2623,9 +2623,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetAnimation(GetAnimation());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IController>>(GetControllerRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_controllerRef = proxy;
+            auto proxycontrollerRef = std::make_shared<NamedReferenceProxy<IController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IController>>(GetControllerRef()));
+            proxycontrollerRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_controllerRef = proxycontrollerRef;
             
             // Simple type
             clonedObject->SetLateral(GetLateral());
@@ -2634,9 +2634,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetLongitudinal(GetLongitudinal());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IObjectController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IObjectController>>(GetObjectControllerRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_objectControllerRef = proxy;
+            auto proxyobjectControllerRef = std::make_shared<NamedReferenceProxy<IObjectController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IObjectController>>(GetObjectControllerRef()));
+            proxyobjectControllerRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_objectControllerRef = proxyobjectControllerRef;
             
             // clone indicators
             clonedObject->_isSetAnimation = _isSetAnimation;
@@ -11173,9 +11173,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // clone indicators
             // clone children
@@ -14944,9 +14944,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetTrailerRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_trailerRef = proxy;
+            auto proxytrailerRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetTrailerRef()));
+            proxytrailerRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_trailerRef = proxytrailerRef;
             
             // clone indicators
             // clone children
@@ -22880,9 +22880,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // clone indicators
             // clone children
@@ -24960,9 +24960,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // clone indicators
             // clone children
@@ -34409,9 +34409,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetDistance(GetDistance());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // Simple type
             clonedObject->SetFreespace(GetFreespace());
@@ -37098,9 +37098,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetDistance(GetDistance());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // Simple type
             clonedObject->SetFreespace(GetFreespace());
@@ -44927,9 +44927,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IParameterDeclaration>>(GetParameterRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_parameterRef = proxy;
+            auto proxyparameterRef = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IParameterDeclaration>>(GetParameterRef()));
+            proxyparameterRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_parameterRef = proxyparameterRef;
             
             // clone indicators
             // clone children
@@ -45423,9 +45423,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IParameterDeclaration>>(GetParameterRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_parameterRef = proxy;
+            auto proxyparameterRef = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IParameterDeclaration>>(GetParameterRef()));
+            proxyparameterRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_parameterRef = proxyparameterRef;
             
             // Simple type
             clonedObject->SetValue(GetValue());
@@ -45767,9 +45767,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IParameterDeclaration>>(GetParameterRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_parameterRef = proxy;
+            auto proxyparameterRef = std::make_shared<NamedReferenceProxy<IParameterDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IParameterDeclaration>>(GetParameterRef()));
+            proxyparameterRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_parameterRef = proxyparameterRef;
             
             // Enumeration Type
             const auto kRule = GetRule();
@@ -52069,9 +52069,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // clone indicators
             // clone children
@@ -52698,9 +52698,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // clone indicators
             // clone children
@@ -55623,9 +55623,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_coordinateSystem = CoordinateSystem::GetFromLiteral(kCoordinateSystem.GetLiteral());
             }
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // clone indicators
             clonedObject->_isSetCoordinateSystem = _isSetCoordinateSystem;
@@ -56773,9 +56773,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_coordinateSystem = CoordinateSystem::GetFromLiteral(kCoordinateSystem.GetLiteral());
             }
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // Simple type
             clonedObject->SetFreespace(GetFreespace());
@@ -57322,9 +57322,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetDsLane(GetDsLane());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // Simple type
             clonedObject->SetOffset(GetOffset());
@@ -58109,9 +58109,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetDz(GetDz());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // clone indicators
             clonedObject->_isSetDz = _isSetDz;
@@ -58525,9 +58525,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetDt(GetDt());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // clone indicators
             // clone children
@@ -58961,9 +58961,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_direction = DirectionalDimension::GetFromLiteral(kDirection.GetLiteral());
             }
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // Enumeration Type
             const auto kRule = GetRule();
@@ -59628,9 +59628,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // Simple type
             clonedObject->SetValue(GetValue());
@@ -59922,9 +59922,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // Simple type
             clonedObject->SetValue(GetValue());
@@ -60318,9 +60318,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetContinuous(GetContinuous());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // Enumeration Type
             const auto kSpeedTargetValueType = GetSpeedTargetValueType();
@@ -60762,9 +60762,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetDz(GetDz());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // clone indicators
             clonedObject->_isSetDz = _isSetDz;
@@ -66188,9 +66188,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IMonitorDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IMonitorDeclaration>>(GetMonitorRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_monitorRef = proxy;
+            auto proxymonitorRef = std::make_shared<NamedReferenceProxy<IMonitorDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IMonitorDeclaration>>(GetMonitorRef()));
+            proxymonitorRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_monitorRef = proxymonitorRef;
             
             // Simple type
             clonedObject->SetValue(GetValue());
@@ -67970,9 +67970,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // Enumeration Type
             const auto kFollowingMode = GetFollowingMode();
@@ -70888,9 +70888,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_state = StoryboardElementState::GetFromLiteral(kState.GetLiteral());
             }
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IStoryboardElement>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IStoryboardElement>>(GetStoryboardElementRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_storyboardElementRef = proxy;
+            auto proxystoryboardElementRef = std::make_shared<NamedReferenceProxy<IStoryboardElement>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IStoryboardElement>>(GetStoryboardElementRef()));
+            proxystoryboardElementRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_storyboardElementRef = proxystoryboardElementRef;
             
             // Enumeration Type
             const auto kStoryboardElementType = GetStoryboardElementType();
@@ -71705,9 +71705,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetMasterEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_masterEntityRef = proxy;
+            auto proxymasterEntityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetMasterEntityRef()));
+            proxymasterEntityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_masterEntityRef = proxymasterEntityRef;
             
             // Simple type
             clonedObject->SetTargetTolerance(GetTargetTolerance());
@@ -73026,9 +73026,9 @@ namespace NET_ASAM_OPENSCENARIO
                 clonedObject->_coordinateSystem = CoordinateSystem::GetFromLiteral(kCoordinateSystem.GetLiteral());
             }
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_entityRef = proxy;
+            auto proxyentityRef = std::make_shared<NamedReferenceProxy<IEntity>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IEntity>>(GetEntityRef()));
+            proxyentityRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_entityRef = proxyentityRef;
             
             // Simple type
             clonedObject->SetFreespace(GetFreespace());
@@ -78397,9 +78397,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetPhase(GetPhase());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<ITrafficSignalController>>(GetTrafficSignalControllerRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_trafficSignalControllerRef = proxy;
+            auto proxytrafficSignalControllerRef = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<ITrafficSignalController>>(GetTrafficSignalControllerRef()));
+            proxytrafficSignalControllerRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_trafficSignalControllerRef = proxytrafficSignalControllerRef;
             
             // clone indicators
             // clone children
@@ -78724,9 +78724,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetPhase(GetPhase());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<ITrafficSignalController>>(GetTrafficSignalControllerRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_trafficSignalControllerRef = proxy;
+            auto proxytrafficSignalControllerRef = std::make_shared<NamedReferenceProxy<ITrafficSignalController>>(*std::dynamic_pointer_cast<NamedReferenceProxy<ITrafficSignalController>>(GetTrafficSignalControllerRef()));
+            proxytrafficSignalControllerRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_trafficSignalControllerRef = proxytrafficSignalControllerRef;
             
             // clone indicators
             // clone children
@@ -87876,9 +87876,9 @@ namespace NET_ASAM_OPENSCENARIO
 				
             // clone attributes;
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IVariableDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IVariableDeclaration>>(GetVariableRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_variableRef = proxy;
+            auto proxyvariableRef = std::make_shared<NamedReferenceProxy<IVariableDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IVariableDeclaration>>(GetVariableRef()));
+            proxyvariableRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_variableRef = proxyvariableRef;
             
             // clone indicators
             // clone children
@@ -88461,9 +88461,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Simple type
             clonedObject->SetValue(GetValue());
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<IVariableDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IVariableDeclaration>>(GetVariableRef()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_variableRef = proxy;
+            auto proxyvariableRef = std::make_shared<NamedReferenceProxy<IVariableDeclaration>>(*std::dynamic_pointer_cast<NamedReferenceProxy<IVariableDeclaration>>(GetVariableRef()));
+            proxyvariableRef->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_variableRef = proxyvariableRef;
             
             // clone indicators
             // clone children

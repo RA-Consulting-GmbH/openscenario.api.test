@@ -351,13 +351,13 @@ namespace NET_ASAM_OPENSCENARIO
             <%-properties.each{ property -> -%>
             <%-if (property.isProxy()){-%>
             // Proxy
-            auto proxy = std::make_shared<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(*std::dynamic_pointer_cast<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(Get<%=property.name.toClassName()%>()));
-            proxy->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
-            clonedObject->_<%=property.name.toMemberName()%> = proxy;
+            auto proxy<%=property.name.toMemberName()%> = std::make_shared<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(*std::dynamic_pointer_cast<NamedReferenceProxy<I<%=property.type.name.toClassName()%>>>(Get<%=property.name.toClassName()%>()));
+            proxy<%=property.name.toMemberName()%>->SetParent(std::static_pointer_cast<IOpenScenarioModelElement>(clonedObject));
+            clonedObject->_<%=property.name.toMemberName()%> = proxy<%=property.name.toMemberName()%>;
             
             <%-} else if (property.type.isPrimitiveType()) {-%>
             // Simple type
-            clonedObject->_<%=property.name.toMemberName()%> = Get<%=property.name.toClassName()%>();
+            clonedObject->Set<%=property.name.toClassName()%>(Get<%=property.name.toClassName()%>());
             <%-} else {-%>
             // Enumeration Type
             const auto k<%=property.name.toClassName()%> = Get<%=property.name.toClassName()%>();

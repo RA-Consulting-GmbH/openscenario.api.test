@@ -6091,12 +6091,12 @@ namespace NET_ASAM_OPENSCENARIO
             typedObject->SetText(content);
         }
   
-        LicenseXmlParser::LicenseXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions) :
-           /* to check: XmlComplexTypeParser(messageLogger, filename, parserOptions)
+        LicenseXmlParser::LicenseXmlParser(IParserMessageLogger& messageLogger, std::string& filename, ParserOptions& parserOptions): 
+            XmlSimpleContentParser(messageLogger, filename, parserOptions)
         {
-            _subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
-        }*/
-            XmlSimpleContentParser(messageLogger, filename, parserOptions) {}
+            //_subElementParser = std::make_shared<SubElementParser>(messageLogger, filename, parserOptions);
+        }
+        
 
         /**
          * This is a automatic generated file according to the OpenSCENARIO specification version 1.3

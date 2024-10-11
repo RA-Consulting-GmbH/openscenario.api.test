@@ -9480,14 +9480,14 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class LicenseXmlParser: public XmlSimpleContentParser // to check: XmlComplexTypeParser
+        class LicenseXmlParser: public XmlSimpleContentParser
         {
 
         protected:
             std::map<std::string, std::shared_ptr<IAttributeParser>> GetAttributeNameToAttributeParserMap() override;
         protected:
             void SetContentProperty(const std::string content, std::shared_ptr<BaseImpl> object) override;
-            bool IsContentRequired() override;          
+            bool IsContentRequired() override;
 
 
         public:
