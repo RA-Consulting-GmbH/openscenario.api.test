@@ -82,6 +82,12 @@ cp -f "${SCRIPT_DIR}/../CMakeHelpers.cmake" "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}
 cp -r "${SCRIPT_DIR}/../applications/openScenarioTester/res" "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
 
 ################################################################
+# copy LICENSE and NOTICE
+################################################################
+cp "${SCRIPT_DIR}/../../LICENSE" "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
+cp "${SCRIPT_DIR}/../../NOTICE" "${SCRIPT_DIR}/${OPEN_SCEANARIO_API}"
+
+################################################################
 # prepare lib files
 ################################################################
 # check if libraries are already compiled
