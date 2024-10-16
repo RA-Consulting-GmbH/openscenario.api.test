@@ -27,7 +27,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    class OPENSCENARIOLIB_EXP ContentMessage
+    class ContentMessage
     {
 
     private:
