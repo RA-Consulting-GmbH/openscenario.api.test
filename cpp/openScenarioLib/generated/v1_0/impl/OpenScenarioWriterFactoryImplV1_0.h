@@ -35,379 +35,379 @@ namespace NET_ASAM_OPENSCENARIO
         {
         public:
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteSpeedWriter> CreateAbsoluteSpeedWriter() override;
+            std::shared_ptr<IAbsoluteSpeedWriter> CreateAbsoluteSpeedWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteTargetLaneWriter> CreateAbsoluteTargetLaneWriter() override;
+            std::shared_ptr<IAbsoluteTargetLaneWriter> CreateAbsoluteTargetLaneWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteTargetLaneOffsetWriter> CreateAbsoluteTargetLaneOffsetWriter() override;
+            std::shared_ptr<IAbsoluteTargetLaneOffsetWriter> CreateAbsoluteTargetLaneOffsetWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAbsoluteTargetSpeedWriter> CreateAbsoluteTargetSpeedWriter() override;
+            std::shared_ptr<IAbsoluteTargetSpeedWriter> CreateAbsoluteTargetSpeedWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAccelerationConditionWriter> CreateAccelerationConditionWriter() override;
+            std::shared_ptr<IAccelerationConditionWriter> CreateAccelerationConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAcquirePositionActionWriter> CreateAcquirePositionActionWriter() override;
+            std::shared_ptr<IAcquirePositionActionWriter> CreateAcquirePositionActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IActWriter> CreateActWriter() override;
+            std::shared_ptr<IActWriter> CreateActWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IActionWriter> CreateActionWriter() override;
+            std::shared_ptr<IActionWriter> CreateActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IActivateControllerActionWriter> CreateActivateControllerActionWriter() override;
+            std::shared_ptr<IActivateControllerActionWriter> CreateActivateControllerActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IActorsWriter> CreateActorsWriter() override;
+            std::shared_ptr<IActorsWriter> CreateActorsWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAddEntityActionWriter> CreateAddEntityActionWriter() override;
+            std::shared_ptr<IAddEntityActionWriter> CreateAddEntityActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAssignControllerActionWriter> CreateAssignControllerActionWriter() override;
+            std::shared_ptr<IAssignControllerActionWriter> CreateAssignControllerActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAssignRouteActionWriter> CreateAssignRouteActionWriter() override;
+            std::shared_ptr<IAssignRouteActionWriter> CreateAssignRouteActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAxleWriter> CreateAxleWriter() override;
+            std::shared_ptr<IAxleWriter> CreateAxleWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IAxlesWriter> CreateAxlesWriter() override;
+            std::shared_ptr<IAxlesWriter> CreateAxlesWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IBoundingBoxWriter> CreateBoundingBoxWriter() override;
+            std::shared_ptr<IBoundingBoxWriter> CreateBoundingBoxWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IByEntityConditionWriter> CreateByEntityConditionWriter() override;
+            std::shared_ptr<IByEntityConditionWriter> CreateByEntityConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IByObjectTypeWriter> CreateByObjectTypeWriter() override;
+            std::shared_ptr<IByObjectTypeWriter> CreateByObjectTypeWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IByTypeWriter> CreateByTypeWriter() override;
+            std::shared_ptr<IByTypeWriter> CreateByTypeWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IByValueConditionWriter> CreateByValueConditionWriter() override;
+            std::shared_ptr<IByValueConditionWriter> CreateByValueConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogWriter> CreateCatalogWriter() override;
+            std::shared_ptr<ICatalogWriter> CreateCatalogWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogDefinitionWriter> CreateCatalogDefinitionWriter() override;
+            std::shared_ptr<ICatalogDefinitionWriter> CreateCatalogDefinitionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogLocationsWriter> CreateCatalogLocationsWriter() override;
+            std::shared_ptr<ICatalogLocationsWriter> CreateCatalogLocationsWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ICatalogReferenceWriter> CreateCatalogReferenceWriter() override;
+            std::shared_ptr<ICatalogReferenceWriter> CreateCatalogReferenceWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ICenterWriter> CreateCenterWriter() override;
+            std::shared_ptr<ICenterWriter> CreateCenterWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ICentralSwarmObjectWriter> CreateCentralSwarmObjectWriter() override;
+            std::shared_ptr<ICentralSwarmObjectWriter> CreateCentralSwarmObjectWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IClothoidWriter> CreateClothoidWriter() override;
+            std::shared_ptr<IClothoidWriter> CreateClothoidWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ICollisionConditionWriter> CreateCollisionConditionWriter() override;
+            std::shared_ptr<ICollisionConditionWriter> CreateCollisionConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IConditionWriter> CreateConditionWriter() override;
+            std::shared_ptr<IConditionWriter> CreateConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IConditionGroupWriter> CreateConditionGroupWriter() override;
+            std::shared_ptr<IConditionGroupWriter> CreateConditionGroupWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IControlPointWriter> CreateControlPointWriter() override;
+            std::shared_ptr<IControlPointWriter> CreateControlPointWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IControllerWriter> CreateControllerWriter() override;
+            std::shared_ptr<IControllerWriter> CreateControllerWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IControllerActionWriter> CreateControllerActionWriter() override;
+            std::shared_ptr<IControllerActionWriter> CreateControllerActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IControllerCatalogLocationWriter> CreateControllerCatalogLocationWriter() override;
+            std::shared_ptr<IControllerCatalogLocationWriter> CreateControllerCatalogLocationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IControllerDistributionWriter> CreateControllerDistributionWriter() override;
+            std::shared_ptr<IControllerDistributionWriter> CreateControllerDistributionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IControllerDistributionEntryWriter> CreateControllerDistributionEntryWriter() override;
+            std::shared_ptr<IControllerDistributionEntryWriter> CreateControllerDistributionEntryWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ICustomCommandActionWriter> CreateCustomCommandActionWriter() override;
+            std::shared_ptr<ICustomCommandActionWriter> CreateCustomCommandActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IDeleteEntityActionWriter> CreateDeleteEntityActionWriter() override;
+            std::shared_ptr<IDeleteEntityActionWriter> CreateDeleteEntityActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IDimensionsWriter> CreateDimensionsWriter() override;
+            std::shared_ptr<IDimensionsWriter> CreateDimensionsWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IDirectoryWriter> CreateDirectoryWriter() override;
+            std::shared_ptr<IDirectoryWriter> CreateDirectoryWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IDistanceConditionWriter> CreateDistanceConditionWriter() override;
+            std::shared_ptr<IDistanceConditionWriter> CreateDistanceConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IDynamicConstraintsWriter> CreateDynamicConstraintsWriter() override;
+            std::shared_ptr<IDynamicConstraintsWriter> CreateDynamicConstraintsWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEndOfRoadConditionWriter> CreateEndOfRoadConditionWriter() override;
+            std::shared_ptr<IEndOfRoadConditionWriter> CreateEndOfRoadConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEntitiesWriter> CreateEntitiesWriter() override;
+            std::shared_ptr<IEntitiesWriter> CreateEntitiesWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEntityActionWriter> CreateEntityActionWriter() override;
+            std::shared_ptr<IEntityActionWriter> CreateEntityActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEntityConditionWriter> CreateEntityConditionWriter() override;
+            std::shared_ptr<IEntityConditionWriter> CreateEntityConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEntityObjectWriter> CreateEntityObjectWriter() override;
+            std::shared_ptr<IEntityObjectWriter> CreateEntityObjectWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEntityRefWriter> CreateEntityRefWriter() override;
+            std::shared_ptr<IEntityRefWriter> CreateEntityRefWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEntitySelectionWriter> CreateEntitySelectionWriter() override;
+            std::shared_ptr<IEntitySelectionWriter> CreateEntitySelectionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEnvironmentWriter> CreateEnvironmentWriter() override;
+            std::shared_ptr<IEnvironmentWriter> CreateEnvironmentWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEnvironmentActionWriter> CreateEnvironmentActionWriter() override;
+            std::shared_ptr<IEnvironmentActionWriter> CreateEnvironmentActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEnvironmentCatalogLocationWriter> CreateEnvironmentCatalogLocationWriter() override;
+            std::shared_ptr<IEnvironmentCatalogLocationWriter> CreateEnvironmentCatalogLocationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IEventWriter> CreateEventWriter() override;
+            std::shared_ptr<IEventWriter> CreateEventWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IFileWriter> CreateFileWriter() override;
+            std::shared_ptr<IFileWriter> CreateFileWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IFileHeaderWriter> CreateFileHeaderWriter() override;
+            std::shared_ptr<IFileHeaderWriter> CreateFileHeaderWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IFinalSpeedWriter> CreateFinalSpeedWriter() override;
+            std::shared_ptr<IFinalSpeedWriter> CreateFinalSpeedWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IFogWriter> CreateFogWriter() override;
+            std::shared_ptr<IFogWriter> CreateFogWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IFollowTrajectoryActionWriter> CreateFollowTrajectoryActionWriter() override;
+            std::shared_ptr<IFollowTrajectoryActionWriter> CreateFollowTrajectoryActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IGlobalActionWriter> CreateGlobalActionWriter() override;
+            std::shared_ptr<IGlobalActionWriter> CreateGlobalActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IInRoutePositionWriter> CreateInRoutePositionWriter() override;
+            std::shared_ptr<IInRoutePositionWriter> CreateInRoutePositionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IInfrastructureActionWriter> CreateInfrastructureActionWriter() override;
+            std::shared_ptr<IInfrastructureActionWriter> CreateInfrastructureActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IInitWriter> CreateInitWriter() override;
+            std::shared_ptr<IInitWriter> CreateInitWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IInitActionsWriter> CreateInitActionsWriter() override;
+            std::shared_ptr<IInitActionsWriter> CreateInitActionsWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IKnotWriter> CreateKnotWriter() override;
+            std::shared_ptr<IKnotWriter> CreateKnotWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ILaneChangeActionWriter> CreateLaneChangeActionWriter() override;
+            std::shared_ptr<ILaneChangeActionWriter> CreateLaneChangeActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ILaneChangeTargetWriter> CreateLaneChangeTargetWriter() override;
+            std::shared_ptr<ILaneChangeTargetWriter> CreateLaneChangeTargetWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ILaneOffsetActionWriter> CreateLaneOffsetActionWriter() override;
+            std::shared_ptr<ILaneOffsetActionWriter> CreateLaneOffsetActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ILaneOffsetActionDynamicsWriter> CreateLaneOffsetActionDynamicsWriter() override;
+            std::shared_ptr<ILaneOffsetActionDynamicsWriter> CreateLaneOffsetActionDynamicsWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ILaneOffsetTargetWriter> CreateLaneOffsetTargetWriter() override;
+            std::shared_ptr<ILaneOffsetTargetWriter> CreateLaneOffsetTargetWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ILanePositionWriter> CreateLanePositionWriter() override;
+            std::shared_ptr<ILanePositionWriter> CreateLanePositionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ILateralActionWriter> CreateLateralActionWriter() override;
+            std::shared_ptr<ILateralActionWriter> CreateLateralActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ILateralDistanceActionWriter> CreateLateralDistanceActionWriter() override;
+            std::shared_ptr<ILateralDistanceActionWriter> CreateLateralDistanceActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ILongitudinalActionWriter> CreateLongitudinalActionWriter() override;
+            std::shared_ptr<ILongitudinalActionWriter> CreateLongitudinalActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ILongitudinalDistanceActionWriter> CreateLongitudinalDistanceActionWriter() override;
+            std::shared_ptr<ILongitudinalDistanceActionWriter> CreateLongitudinalDistanceActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IManeuverWriter> CreateManeuverWriter() override;
+            std::shared_ptr<IManeuverWriter> CreateManeuverWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IManeuverCatalogLocationWriter> CreateManeuverCatalogLocationWriter() override;
+            std::shared_ptr<IManeuverCatalogLocationWriter> CreateManeuverCatalogLocationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IManeuverGroupWriter> CreateManeuverGroupWriter() override;
+            std::shared_ptr<IManeuverGroupWriter> CreateManeuverGroupWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IMiscObjectWriter> CreateMiscObjectWriter() override;
+            std::shared_ptr<IMiscObjectWriter> CreateMiscObjectWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IMiscObjectCatalogLocationWriter> CreateMiscObjectCatalogLocationWriter() override;
+            std::shared_ptr<IMiscObjectCatalogLocationWriter> CreateMiscObjectCatalogLocationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IModifyRuleWriter> CreateModifyRuleWriter() override;
+            std::shared_ptr<IModifyRuleWriter> CreateModifyRuleWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<INoneWriter> CreateNoneWriter() override;
+            std::shared_ptr<INoneWriter> CreateNoneWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<INurbsWriter> CreateNurbsWriter() override;
+            std::shared_ptr<INurbsWriter> CreateNurbsWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IObjectControllerWriter> CreateObjectControllerWriter() override;
+            std::shared_ptr<IObjectControllerWriter> CreateObjectControllerWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOffroadConditionWriter> CreateOffroadConditionWriter() override;
+            std::shared_ptr<IOffroadConditionWriter> CreateOffroadConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOpenScenarioWriter> CreateOpenScenarioWriter() override;
+            std::shared_ptr<IOpenScenarioWriter> CreateOpenScenarioWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOpenScenarioCategoryWriter> CreateOpenScenarioCategoryWriter() override;
+            std::shared_ptr<IOpenScenarioCategoryWriter> CreateOpenScenarioCategoryWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOrientationWriter> CreateOrientationWriter() override;
+            std::shared_ptr<IOrientationWriter> CreateOrientationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideBrakeActionWriter> CreateOverrideBrakeActionWriter() override;
+            std::shared_ptr<IOverrideBrakeActionWriter> CreateOverrideBrakeActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideClutchActionWriter> CreateOverrideClutchActionWriter() override;
+            std::shared_ptr<IOverrideClutchActionWriter> CreateOverrideClutchActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideControllerValueActionWriter> CreateOverrideControllerValueActionWriter() override;
+            std::shared_ptr<IOverrideControllerValueActionWriter> CreateOverrideControllerValueActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideGearActionWriter> CreateOverrideGearActionWriter() override;
+            std::shared_ptr<IOverrideGearActionWriter> CreateOverrideGearActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideParkingBrakeActionWriter> CreateOverrideParkingBrakeActionWriter() override;
+            std::shared_ptr<IOverrideParkingBrakeActionWriter> CreateOverrideParkingBrakeActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideSteeringWheelActionWriter> CreateOverrideSteeringWheelActionWriter() override;
+            std::shared_ptr<IOverrideSteeringWheelActionWriter> CreateOverrideSteeringWheelActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IOverrideThrottleActionWriter> CreateOverrideThrottleActionWriter() override;
+            std::shared_ptr<IOverrideThrottleActionWriter> CreateOverrideThrottleActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterActionWriter> CreateParameterActionWriter() override;
+            std::shared_ptr<IParameterActionWriter> CreateParameterActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterAddValueRuleWriter> CreateParameterAddValueRuleWriter() override;
+            std::shared_ptr<IParameterAddValueRuleWriter> CreateParameterAddValueRuleWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterAssignmentWriter> CreateParameterAssignmentWriter() override;
+            std::shared_ptr<IParameterAssignmentWriter> CreateParameterAssignmentWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterConditionWriter> CreateParameterConditionWriter() override;
+            std::shared_ptr<IParameterConditionWriter> CreateParameterConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterDeclarationWriter> CreateParameterDeclarationWriter() override;
+            std::shared_ptr<IParameterDeclarationWriter> CreateParameterDeclarationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterModifyActionWriter> CreateParameterModifyActionWriter() override;
+            std::shared_ptr<IParameterModifyActionWriter> CreateParameterModifyActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterMultiplyByValueRuleWriter> CreateParameterMultiplyByValueRuleWriter() override;
+            std::shared_ptr<IParameterMultiplyByValueRuleWriter> CreateParameterMultiplyByValueRuleWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IParameterSetActionWriter> CreateParameterSetActionWriter() override;
+            std::shared_ptr<IParameterSetActionWriter> CreateParameterSetActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPedestrianWriter> CreatePedestrianWriter() override;
+            std::shared_ptr<IPedestrianWriter> CreatePedestrianWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPedestrianCatalogLocationWriter> CreatePedestrianCatalogLocationWriter() override;
+            std::shared_ptr<IPedestrianCatalogLocationWriter> CreatePedestrianCatalogLocationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPerformanceWriter> CreatePerformanceWriter() override;
+            std::shared_ptr<IPerformanceWriter> CreatePerformanceWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPhaseWriter> CreatePhaseWriter() override;
+            std::shared_ptr<IPhaseWriter> CreatePhaseWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPolylineWriter> CreatePolylineWriter() override;
+            std::shared_ptr<IPolylineWriter> CreatePolylineWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPositionWriter> CreatePositionWriter() override;
+            std::shared_ptr<IPositionWriter> CreatePositionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPositionInLaneCoordinatesWriter> CreatePositionInLaneCoordinatesWriter() override;
+            std::shared_ptr<IPositionInLaneCoordinatesWriter> CreatePositionInLaneCoordinatesWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPositionInRoadCoordinatesWriter> CreatePositionInRoadCoordinatesWriter() override;
+            std::shared_ptr<IPositionInRoadCoordinatesWriter> CreatePositionInRoadCoordinatesWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPositionOfCurrentEntityWriter> CreatePositionOfCurrentEntityWriter() override;
+            std::shared_ptr<IPositionOfCurrentEntityWriter> CreatePositionOfCurrentEntityWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPrecipitationWriter> CreatePrecipitationWriter() override;
+            std::shared_ptr<IPrecipitationWriter> CreatePrecipitationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPrivateWriter> CreatePrivateWriter() override;
+            std::shared_ptr<IPrivateWriter> CreatePrivateWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPrivateActionWriter> CreatePrivateActionWriter() override;
+            std::shared_ptr<IPrivateActionWriter> CreatePrivateActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPropertiesWriter> CreatePropertiesWriter() override;
+            std::shared_ptr<IPropertiesWriter> CreatePropertiesWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IPropertyWriter> CreatePropertyWriter() override;
+            std::shared_ptr<IPropertyWriter> CreatePropertyWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IReachPositionConditionWriter> CreateReachPositionConditionWriter() override;
+            std::shared_ptr<IReachPositionConditionWriter> CreateReachPositionConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeDistanceConditionWriter> CreateRelativeDistanceConditionWriter() override;
+            std::shared_ptr<IRelativeDistanceConditionWriter> CreateRelativeDistanceConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeLanePositionWriter> CreateRelativeLanePositionWriter() override;
+            std::shared_ptr<IRelativeLanePositionWriter> CreateRelativeLanePositionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeObjectPositionWriter> CreateRelativeObjectPositionWriter() override;
+            std::shared_ptr<IRelativeObjectPositionWriter> CreateRelativeObjectPositionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeRoadPositionWriter> CreateRelativeRoadPositionWriter() override;
+            std::shared_ptr<IRelativeRoadPositionWriter> CreateRelativeRoadPositionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeSpeedConditionWriter> CreateRelativeSpeedConditionWriter() override;
+            std::shared_ptr<IRelativeSpeedConditionWriter> CreateRelativeSpeedConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeSpeedToMasterWriter> CreateRelativeSpeedToMasterWriter() override;
+            std::shared_ptr<IRelativeSpeedToMasterWriter> CreateRelativeSpeedToMasterWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeTargetLaneWriter> CreateRelativeTargetLaneWriter() override;
+            std::shared_ptr<IRelativeTargetLaneWriter> CreateRelativeTargetLaneWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeTargetLaneOffsetWriter> CreateRelativeTargetLaneOffsetWriter() override;
+            std::shared_ptr<IRelativeTargetLaneOffsetWriter> CreateRelativeTargetLaneOffsetWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeTargetSpeedWriter> CreateRelativeTargetSpeedWriter() override;
+            std::shared_ptr<IRelativeTargetSpeedWriter> CreateRelativeTargetSpeedWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRelativeWorldPositionWriter> CreateRelativeWorldPositionWriter() override;
+            std::shared_ptr<IRelativeWorldPositionWriter> CreateRelativeWorldPositionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRoadConditionWriter> CreateRoadConditionWriter() override;
+            std::shared_ptr<IRoadConditionWriter> CreateRoadConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRoadNetworkWriter> CreateRoadNetworkWriter() override;
+            std::shared_ptr<IRoadNetworkWriter> CreateRoadNetworkWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRoadPositionWriter> CreateRoadPositionWriter() override;
+            std::shared_ptr<IRoadPositionWriter> CreateRoadPositionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRouteWriter> CreateRouteWriter() override;
+            std::shared_ptr<IRouteWriter> CreateRouteWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRouteCatalogLocationWriter> CreateRouteCatalogLocationWriter() override;
+            std::shared_ptr<IRouteCatalogLocationWriter> CreateRouteCatalogLocationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRoutePositionWriter> CreateRoutePositionWriter() override;
+            std::shared_ptr<IRoutePositionWriter> CreateRoutePositionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRouteRefWriter> CreateRouteRefWriter() override;
+            std::shared_ptr<IRouteRefWriter> CreateRouteRefWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IRoutingActionWriter> CreateRoutingActionWriter() override;
+            std::shared_ptr<IRoutingActionWriter> CreateRoutingActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IScenarioDefinitionWriter> CreateScenarioDefinitionWriter() override;
+            std::shared_ptr<IScenarioDefinitionWriter> CreateScenarioDefinitionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IScenarioObjectWriter> CreateScenarioObjectWriter() override;
+            std::shared_ptr<IScenarioObjectWriter> CreateScenarioObjectWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ISelectedEntitiesWriter> CreateSelectedEntitiesWriter() override;
+            std::shared_ptr<ISelectedEntitiesWriter> CreateSelectedEntitiesWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IShapeWriter> CreateShapeWriter() override;
+            std::shared_ptr<IShapeWriter> CreateShapeWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ISimulationTimeConditionWriter> CreateSimulationTimeConditionWriter() override;
+            std::shared_ptr<ISimulationTimeConditionWriter> CreateSimulationTimeConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ISpeedActionWriter> CreateSpeedActionWriter() override;
+            std::shared_ptr<ISpeedActionWriter> CreateSpeedActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ISpeedActionTargetWriter> CreateSpeedActionTargetWriter() override;
+            std::shared_ptr<ISpeedActionTargetWriter> CreateSpeedActionTargetWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ISpeedConditionWriter> CreateSpeedConditionWriter() override;
+            std::shared_ptr<ISpeedConditionWriter> CreateSpeedConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IStandStillConditionWriter> CreateStandStillConditionWriter() override;
+            std::shared_ptr<IStandStillConditionWriter> CreateStandStillConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IStoryWriter> CreateStoryWriter() override;
+            std::shared_ptr<IStoryWriter> CreateStoryWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IStoryboardWriter> CreateStoryboardWriter() override;
+            std::shared_ptr<IStoryboardWriter> CreateStoryboardWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IStoryboardElementStateConditionWriter> CreateStoryboardElementStateConditionWriter() override;
+            std::shared_ptr<IStoryboardElementStateConditionWriter> CreateStoryboardElementStateConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ISunWriter> CreateSunWriter() override;
+            std::shared_ptr<ISunWriter> CreateSunWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ISynchronizeActionWriter> CreateSynchronizeActionWriter() override;
+            std::shared_ptr<ISynchronizeActionWriter> CreateSynchronizeActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITeleportActionWriter> CreateTeleportActionWriter() override;
+            std::shared_ptr<ITeleportActionWriter> CreateTeleportActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITimeHeadwayConditionWriter> CreateTimeHeadwayConditionWriter() override;
+            std::shared_ptr<ITimeHeadwayConditionWriter> CreateTimeHeadwayConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITimeOfDayWriter> CreateTimeOfDayWriter() override;
+            std::shared_ptr<ITimeOfDayWriter> CreateTimeOfDayWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITimeOfDayConditionWriter> CreateTimeOfDayConditionWriter() override;
+            std::shared_ptr<ITimeOfDayConditionWriter> CreateTimeOfDayConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITimeReferenceWriter> CreateTimeReferenceWriter() override;
+            std::shared_ptr<ITimeReferenceWriter> CreateTimeReferenceWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITimeToCollisionConditionWriter> CreateTimeToCollisionConditionWriter() override;
+            std::shared_ptr<ITimeToCollisionConditionWriter> CreateTimeToCollisionConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITimeToCollisionConditionTargetWriter> CreateTimeToCollisionConditionTargetWriter() override;
+            std::shared_ptr<ITimeToCollisionConditionTargetWriter> CreateTimeToCollisionConditionTargetWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITimingWriter> CreateTimingWriter() override;
+            std::shared_ptr<ITimingWriter> CreateTimingWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficActionWriter> CreateTrafficActionWriter() override;
+            std::shared_ptr<ITrafficActionWriter> CreateTrafficActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficDefinitionWriter> CreateTrafficDefinitionWriter() override;
+            std::shared_ptr<ITrafficDefinitionWriter> CreateTrafficDefinitionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalActionWriter> CreateTrafficSignalActionWriter() override;
+            std::shared_ptr<ITrafficSignalActionWriter> CreateTrafficSignalActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalConditionWriter> CreateTrafficSignalConditionWriter() override;
+            std::shared_ptr<ITrafficSignalConditionWriter> CreateTrafficSignalConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalControllerWriter> CreateTrafficSignalControllerWriter() override;
+            std::shared_ptr<ITrafficSignalControllerWriter> CreateTrafficSignalControllerWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalControllerActionWriter> CreateTrafficSignalControllerActionWriter() override;
+            std::shared_ptr<ITrafficSignalControllerActionWriter> CreateTrafficSignalControllerActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalControllerConditionWriter> CreateTrafficSignalControllerConditionWriter() override;
+            std::shared_ptr<ITrafficSignalControllerConditionWriter> CreateTrafficSignalControllerConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalStateWriter> CreateTrafficSignalStateWriter() override;
+            std::shared_ptr<ITrafficSignalStateWriter> CreateTrafficSignalStateWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSignalStateActionWriter> CreateTrafficSignalStateActionWriter() override;
+            std::shared_ptr<ITrafficSignalStateActionWriter> CreateTrafficSignalStateActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSinkActionWriter> CreateTrafficSinkActionWriter() override;
+            std::shared_ptr<ITrafficSinkActionWriter> CreateTrafficSinkActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSourceActionWriter> CreateTrafficSourceActionWriter() override;
+            std::shared_ptr<ITrafficSourceActionWriter> CreateTrafficSourceActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrafficSwarmActionWriter> CreateTrafficSwarmActionWriter() override;
+            std::shared_ptr<ITrafficSwarmActionWriter> CreateTrafficSwarmActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryWriter> CreateTrajectoryWriter() override;
+            std::shared_ptr<ITrajectoryWriter> CreateTrajectoryWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryCatalogLocationWriter> CreateTrajectoryCatalogLocationWriter() override;
+            std::shared_ptr<ITrajectoryCatalogLocationWriter> CreateTrajectoryCatalogLocationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITrajectoryFollowingModeWriter> CreateTrajectoryFollowingModeWriter() override;
+            std::shared_ptr<ITrajectoryFollowingModeWriter> CreateTrajectoryFollowingModeWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITransitionDynamicsWriter> CreateTransitionDynamicsWriter() override;
+            std::shared_ptr<ITransitionDynamicsWriter> CreateTransitionDynamicsWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITraveledDistanceConditionWriter> CreateTraveledDistanceConditionWriter() override;
+            std::shared_ptr<ITraveledDistanceConditionWriter> CreateTraveledDistanceConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITriggerWriter> CreateTriggerWriter() override;
+            std::shared_ptr<ITriggerWriter> CreateTriggerWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<ITriggeringEntitiesWriter> CreateTriggeringEntitiesWriter() override;
+            std::shared_ptr<ITriggeringEntitiesWriter> CreateTriggeringEntitiesWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IUserDefinedActionWriter> CreateUserDefinedActionWriter() override;
+            std::shared_ptr<IUserDefinedActionWriter> CreateUserDefinedActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IUserDefinedValueConditionWriter> CreateUserDefinedValueConditionWriter() override;
+            std::shared_ptr<IUserDefinedValueConditionWriter> CreateUserDefinedValueConditionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IVehicleWriter> CreateVehicleWriter() override;
+            std::shared_ptr<IVehicleWriter> CreateVehicleWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IVehicleCatalogLocationWriter> CreateVehicleCatalogLocationWriter() override;
+            std::shared_ptr<IVehicleCatalogLocationWriter> CreateVehicleCatalogLocationWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IVehicleCategoryDistributionWriter> CreateVehicleCategoryDistributionWriter() override;
+            std::shared_ptr<IVehicleCategoryDistributionWriter> CreateVehicleCategoryDistributionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IVehicleCategoryDistributionEntryWriter> CreateVehicleCategoryDistributionEntryWriter() override;
+            std::shared_ptr<IVehicleCategoryDistributionEntryWriter> CreateVehicleCategoryDistributionEntryWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IVertexWriter> CreateVertexWriter() override;
+            std::shared_ptr<IVertexWriter> CreateVertexWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IVisibilityActionWriter> CreateVisibilityActionWriter() override;
+            std::shared_ptr<IVisibilityActionWriter> CreateVisibilityActionWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IWaypointWriter> CreateWaypointWriter() override;
+            std::shared_ptr<IWaypointWriter> CreateWaypointWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IWeatherWriter> CreateWeatherWriter() override;
+            std::shared_ptr<IWeatherWriter> CreateWeatherWriter() override;
 
-            OPENSCENARIOLIB_EXP std::shared_ptr<IWorldPositionWriter> CreateWorldPositionWriter() override;
+            std::shared_ptr<IWorldPositionWriter> CreateWorldPositionWriter() override;
         };
     }
 }

@@ -43,22 +43,22 @@ namespace NET_ASAM_OPENSCENARIO
          * @param errorLevel the error level of the message
          * @param textmarker the text marker that enables the user to trace the message back to a file location.
          */
-		OPENSCENARIOLIB_EXP FileContentMessage(const std::string message, const ErrorLevel errorLevel, const Textmarker textmarker);
+		FileContentMessage(const std::string message, const ErrorLevel errorLevel, const Textmarker textmarker);
 
-        OPENSCENARIOLIB_EXP ~FileContentMessage();
+        ~FileContentMessage();
 
         /**
          * The text marker that enables the user to trace the message back to a file location
          * @return the text marker
          */
-		OPENSCENARIOLIB_EXP Textmarker GetTextmarker() const;
+		Textmarker GetTextmarker() const;
 
-		OPENSCENARIOLIB_EXP bool operator==(FileContentMessage& rhs);
+		bool operator==(FileContentMessage& rhs);
 
-		OPENSCENARIOLIB_EXP size_t HashCode();
+		size_t HashCode();
 
-		OPENSCENARIOLIB_EXP std::string ToString();
+		std::string ToString();
 
-		OPENSCENARIOLIB_EXP int CompareTo(FileContentMessage& rhs);
+		int CompareTo(FileContentMessage& rhs);
     };
 }

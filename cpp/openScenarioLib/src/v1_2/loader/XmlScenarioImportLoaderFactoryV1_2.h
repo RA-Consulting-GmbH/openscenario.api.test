@@ -44,9 +44,9 @@ namespace NET_ASAM_OPENSCENARIO
             * @param filename
             *            base directory
             */
-			OPENSCENARIOLIB_EXP XmlScenarioImportLoaderFactory(const std::shared_ptr<IParserMessageLogger> catalogMessageLogger, const std::string filename);
+			XmlScenarioImportLoaderFactory(const std::shared_ptr<IParserMessageLogger> catalogMessageLogger, const std::string filename);
 
-			OPENSCENARIOLIB_EXP std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override;
+			std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override;
         };
     }
 }

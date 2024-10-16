@@ -39,8 +39,8 @@ namespace NET_ASAM_OPENSCENARIO
              * Constructor
              * @param filename for the created loader
              */
-			OPENSCENARIOLIB_EXP XmlScenarioLoaderFactory(const std::string filename, bool supressDeprecationWarnings = false);
-			OPENSCENARIOLIB_EXP std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override;
+			XmlScenarioLoaderFactory(const std::string filename, bool supressDeprecationWarnings = false);
+			std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override;
 
         };
     }

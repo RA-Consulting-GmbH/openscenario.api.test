@@ -41,22 +41,22 @@ namespace NET_ASAM_OPENSCENARIO
          * @param message the message text
          * @param errorLevel the error level of the message
          */
-		OPENSCENARIOLIB_EXP ContentMessage(const std::string message = "", const ErrorLevel errorLevel = INFO);
-		OPENSCENARIOLIB_EXP virtual ~ContentMessage();
+		ContentMessage(const std::string message = "", const ErrorLevel errorLevel = INFO);
+		virtual ~ContentMessage();
     	
         /**
          * The text of a message
          *
          * @return the message text
          */
-		OPENSCENARIOLIB_EXP std::string GetMsg();
+		std::string GetMsg();
 
         /**
          * The error level of the message.
          *
          * @return the error level
          */
-		OPENSCENARIOLIB_EXP ErrorLevel GetErrorLevel();
+		ErrorLevel GetErrorLevel();
 
     };
 }
