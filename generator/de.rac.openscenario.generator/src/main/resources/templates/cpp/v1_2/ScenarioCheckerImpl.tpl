@@ -37,7 +37,7 @@ namespace NET_ASAM_OPENSCENARIO
     namespace <%=versionNamespace%>
     {
 <%= helper.makeClassJavaDoc(oscVersion, "        ")%>
-        class OPENSCENARIOLIB_EXP ScenarioCheckerImpl: public IScenarioChecker
+        class ScenarioCheckerImpl: public IScenarioChecker
         {
         private:
             enum ContextMode { MODE_TREE, MODE_FILE };
