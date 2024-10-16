@@ -31,7 +31,7 @@ namespace NET_ASAM_OPENSCENARIO
      * that enables the user to trace the message back to a file location.
      *
      */
-    class OPENSCENARIOLIB_EXP FileContentMessage: public ContentMessage
+    class FileContentMessage: public ContentMessage
     {
     private:
         Textmarker _textmarker;
