@@ -27,7 +27,7 @@
 
 namespace NET_ASAM_OPENSCENARIO
 {
-    FileResourceLocator::~FileResourceLocator() = default;
+    FileResourceLocator::~FileResourceLocator() {}
 
     std::shared_ptr<std::ifstream> FileResourceLocator::GetInputStream(std::string& symbolicFilename)
     {
@@ -40,7 +40,7 @@ namespace NET_ASAM_OPENSCENARIO
             throw ResourceNotFoundException(msg);
         }
 
-        auto infile = std::make_shared<std::ifstream>(result, std::ios::binary);
+        auto infile = std::make_shared<std::ifstream>(result.c_str(), std::ios::binary);
 #elif defined (__linux__) || defined (__APPLE__)
     auto infile = std::make_shared<std::ifstream>(symbolicFilename, std::ios::binary);
 #else

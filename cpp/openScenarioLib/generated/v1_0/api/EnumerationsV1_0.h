@@ -23,6 +23,16 @@
 #include "DateTime.h"
 #include "MemLeakDetection.h"
 
+#ifdef ABSOLUTE
+    #define ABSOLUTE_WAS_SET ABSOLUTE
+    #undef ABSOLUTE
+#endif
+
+#ifdef RELATIVE
+    #define RELATIVE_WAS_SET RELATIVE
+    #undef RELATIVE
+#endif
+
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_0
@@ -1662,3 +1672,13 @@ namespace NET_ASAM_OPENSCENARIO
 
     }
 }
+
+#ifdef ABSOLUTE_WAS_SET
+    #define ABSOLUTE ABSOLUTE_WAS_SET
+    #undef ABSOLUTE_WAS_SET
+#endif
+
+#ifdef RELATIVE_WAS_SET
+    #define RELATIVE RELATIVE_WAS_SET
+    #undef RELATIVE_WAS_SET
+#endif
