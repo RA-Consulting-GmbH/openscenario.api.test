@@ -39,7 +39,7 @@ namespace NET_ASAM_OPENSCENARIO
          * 
          * @author RA Consulting OpenSCENARIO generation facility
         */
-        class OPENSCENARIOLIB_EXP ScenarioCheckerImpl: public IScenarioChecker
+        class ScenarioCheckerImpl: public IScenarioChecker
         {
         private:
             enum ContextMode { MODE_TREE, MODE_FILE };
