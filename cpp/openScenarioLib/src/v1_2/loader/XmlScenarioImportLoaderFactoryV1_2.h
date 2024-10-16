@@ -28,7 +28,7 @@ namespace NET_ASAM_OPENSCENARIO
         /**
         * A factory for creating catalog loaders
         */
-        class OPENSCENARIOLIB_EXP XmlScenarioImportLoaderFactory : public IScenarioLoaderFactory
+        class XmlScenarioImportLoaderFactory : public IScenarioLoaderFactory
         {
         private:
 
