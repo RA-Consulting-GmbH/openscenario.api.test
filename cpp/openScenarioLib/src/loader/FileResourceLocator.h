@@ -26,14 +26,14 @@ namespace NET_ASAM_OPENSCENARIO
 	/**
 	* Implements the resource locator in a file system
 	*/
-	class FileResourceLocator: public IResourceLocator 
+	class OPENSCENARIOLIB_EXP FileResourceLocator: public IResourceLocator 
 	{
 		public:
-			OPENSCENARIOLIB_EXP virtual ~FileResourceLocator();
+			virtual ~FileResourceLocator();
 
-			OPENSCENARIOLIB_EXP std::shared_ptr<std::ifstream> GetInputStream(std::string& symbolicFilename) override;
+			std::shared_ptr<std::ifstream> GetInputStream(std::string& symbolicFilename) override;
 
-			OPENSCENARIOLIB_EXP std::vector<std::string> GetSymbolicFilenamesInSymbolicDir(std::string& symbolicDirName) override;
+			std::vector<std::string> GetSymbolicFilenamesInSymbolicDir(std::string& symbolicDirName) override;
 
 		protected:
 			/**
@@ -44,21 +44,21 @@ namespace NET_ASAM_OPENSCENARIO
 			std::vector<std::string> GetFiles(ghc::filesystem::path& dir) const;
 
 		public:
-			OPENSCENARIOLIB_EXP std::string GetSymbolicDirname(std::string& symbolicBaseDir, std::string& symbolicDir) override;
+			std::string GetSymbolicDirname(std::string& symbolicBaseDir, std::string& symbolicDir) override;
 
 			/**
 			 * returns true if conversion was successful
 			 * @param str reference to string containing utf8 encoded string to convert to wstring
 			 * @param result reference to wstring variable to store the conversion in
 			 */
-			OPENSCENARIOLIB_EXP static bool Utf8ToWstring(const std::string& str, std::wstring& result);
+			static bool Utf8ToWstring(const std::string& str, std::wstring& result);
 
             /**
              * returns true if conversion was successful
              * @param str reference to wstring containing convert to string utf8 encoded
              * @param result reference to string variable to store the conversion in
              */
-            OPENSCENARIOLIB_EXP static bool WstringToUtf8(const std::wstring& str, std::string& result);
+            static bool WstringToUtf8(const std::wstring& str, std::string& result);
 	};
 
 }
