@@ -10,7 +10,7 @@
             "description": "Base preset for x64 architecture on Windows",
             "name": "x64Arch",
             "architecture": "x64",
-			"toolset": "host=x64",
+            "toolset": "host=x64",
             "environment": {
                 "PR_ENV_ARCH": "x64"
             },
@@ -450,6 +450,20 @@
                     "value": "TRUE"
                 }
             },
+            "warnings": { "dev": false },
+            "hidden": true
+        },
+        {
+            "name": "MSYS-Makefiles",
+            "description": "Base preset for MSYS Makefiles",
+            "generator": "MSYS Makefiles",
+            "binaryDir": "${sourceDir}/build/cg$env{PR_ENV_BUILD_TYPE}Make$env{PR_ENV_BINDING}",
+            "cacheVariables": {
+                "MASTER_PROJECT": {
+                    "type": "STRING",
+                    "value": "TRUE"
+                }
+            },
             "warnings": {"dev": false},
             "hidden": true
         },
@@ -499,6 +513,38 @@
             },
             "inherits": [
                 "Unix-Makefiles"
+            ],
+            "hidden": true
+        },
+        {
+            "name": "MSYS-shared",
+            "cacheVariables": {
+                "BUILD_SHARED_LIBS": {
+                    "type": "BOOL",
+                    "value": "ON"
+                }
+            },
+            "environment": {
+                "PR_ENV_BINDING": "Shared"
+            },
+            "inherits": [
+                "MSYS-Makefiles"
+            ],
+            "hidden": true
+        },
+        {
+            "name": "MSYS-static",
+            "cacheVariables": {
+                "BUILD_SHARED_LIBS": {
+                    "type": "BOOL",
+                    "value": "OFF"
+                }
+            },
+            "environment": {
+                "PR_ENV_BINDING": "Static"
+            },
+            "inherits": [
+                "MSYS-Makefiles"
             ],
             "hidden": true
         },
@@ -576,6 +622,65 @@
                 "Build-type-relWithDebInfo"
             ],
             "hidden": true
+        },
+        {
+            "name": "MSYS-shared-debug",
+            "displayName": "MSYS shared debug",
+            "description": "Build using MSYS Makefiles",
+            "inherits": [
+                "MSYS-shared",
+                "Build-type-debug"
+            ]
+        },
+        {
+            "name": "MSYS-static-debug",
+            "displayName": "MSYS static debug",
+            "description": "Build using MSYS Makefiles",
+            "inherits": [
+                "MSYS-static",
+                "Build-type-debug"
+            ]
+        },
+        {
+            "name": "MSYS-shared-release",
+            "displayName": "MSYS shared release",
+            "description": "Build using MSYS Makefiles",
+            "inherits": [
+                "MSYS-shared",
+                "Build-type-release"
+            ]
+        },
+        {
+            "name": "MSYS-static-release",
+            "displayName": "MSYS static release",
+            "description": "Build using MSYS Makefiles",
+            "inherits": [
+                "MSYS-static",
+                "Build-type-release"
+            ]
+        },
+        {
+            "name": "MSYS-shared-relWithDebInfo",
+            "displayName": "MSYS shared relWithDebInfo",
+            "description": "Build using MSYS Makefiles",
+            "inherits": [
+                "MSYS-shared",
+                "Build-type-relWithDebInfo"
+            ],
+            "hidden": true
+        },
+        {
+            "name": "MSYS-static-relWithDebInfo",
+            "displayName": "MSYS static relWithDebInfo",
+            "description": "Build using MSYS Makefiles",
+            "environment": {
+                "PR_ENV_BUILD_TYPE": "RelWithDebInfo"
+            },
+            "inherits": [
+                "MSYS-static",
+                "Build-type-relWithDebInfo"
+            ],
+            "hidden": true
         }
     ],
     "buildPresets": [
@@ -615,6 +720,44 @@
             "description": "Build static relWithDebInfo using Unix Makefiles",
             "displayName": "Build Linux static relWithDebInfo",
             "configurePreset": "Linux-static-relWithDebInfo",
+            "hidden": true
+        },
+        {
+            "name": "Build-MSYS-shared-release",
+            "description": "Build shared release using MSYS Makefiles",
+            "displayName": "Build MSYS shared release",
+            "configurePreset": "MSYS-shared-release"
+        },
+        {
+            "name": "Build-MSYS-shared-debug",
+            "description": "Build shared debug using MSYS Makefiles",
+            "displayName": "Build MSYS shared debug",
+            "configurePreset": "MSYS-shared-debug"
+        },
+        {
+            "name": "Build-MSYS-shared-relWithDebInfo",
+            "description": "Build shared relWithDebInfo using MSYS Makefiles",
+            "displayName": "Build MSYS shared relWithDebInfo",
+            "configurePreset": "MSYS-shared-relWithDebInfo",
+            "hidden": true
+        },
+        {
+            "name": "Build-MSYS-static-release",
+            "description": "Build static release using MSYS Makefiles",
+            "displayName": "Build MSYS static release",
+            "configurePreset": "MSYS-static-release"
+        },
+        {
+            "name": "Build-MSYS-static-debug",
+            "description": "Build static debug using MSYS Makefiles",
+            "displayName": "Build MSYS static debug",
+            "configurePreset": "MSYS-static-debug"
+        },
+        {
+            "name": "Build-MSYS-static-relWithDebInfo",
+            "description": "Build static relWithDebInfo using MSYS Makefiles",
+            "displayName": "Build MSYS static relWithDebInfo",
+            "configurePreset": "MSYS-static-relWithDebInfo",
             "hidden": true
         },
         {
@@ -797,3 +940,4 @@
         }
     ]
 }
+

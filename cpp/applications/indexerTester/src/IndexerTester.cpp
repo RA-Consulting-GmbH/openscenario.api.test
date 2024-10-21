@@ -15,14 +15,14 @@
  * limitations under the License.
  */
 
-#ifdef WIN32
-#   include <direct.h>
-#   define GETCWD _getcwd
-#   define OS_PATH_MAX _MAX_PATH
-#elif defined (__linux__) || defined (__APPLE__)
+#if defined (__linux__) || defined (__APPLE__) || defined (__MINGW32__) || defined (__MINGW64__)
 #   include <unistd.h>
 #   define GETCWD getcwd
 #   define OS_PATH_MAX PATH_MAX
+#elif defined (WIN32)
+#   include <direct.h>
+#   define GETCWD _getcwd
+#   define OS_PATH_MAX _MAX_PATH
 #else
 #   error "Operating system not supported."
 #endif

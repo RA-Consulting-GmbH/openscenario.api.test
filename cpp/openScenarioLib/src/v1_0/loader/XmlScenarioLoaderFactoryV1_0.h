@@ -27,7 +27,7 @@ namespace NET_ASAM_OPENSCENARIO
         /**
          * Factory for a XML loader
          */
-        class XmlScenarioLoaderFactory : public IScenarioLoaderFactory
+        class OPENSCENARIOLIB_EXP XmlScenarioLoaderFactory : public IScenarioLoaderFactory
         {
 
         private:
@@ -38,8 +38,8 @@ namespace NET_ASAM_OPENSCENARIO
              * Constructor
              * @param filename for the created loader
              */
-			OPENSCENARIOLIB_EXP XmlScenarioLoaderFactory(const std::string filename);
-			OPENSCENARIOLIB_EXP std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override;
+			XmlScenarioLoaderFactory(const std::string filename);
+			std::shared_ptr<IScenarioLoader> CreateLoader(std::shared_ptr<IResourceLocator> resourceLocator) override;
 
         };
     }

@@ -20,7 +20,9 @@
 namespace NET_ASAM_OPENSCENARIO
 {
 	    FileContentMessage::FileContentMessage(const std::string message, const ErrorLevel errorLevel, const Textmarker textmarker) : ContentMessage(message, errorLevel), _textmarker(textmarker) {}
-	
+
+        FileContentMessage::~FileContentMessage() {}
+
 		Textmarker FileContentMessage::GetTextmarker() const
         {
             return _textmarker;

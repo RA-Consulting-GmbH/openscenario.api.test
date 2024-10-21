@@ -31,6 +31,22 @@
 
 // helper.getTypeImportCpp(element,packageName).each{importedType->%>import =importedType%>
 
+#ifdef ABSOLUTE
+    #define ABSOLUTE_WAS_SET ABSOLUTE
+    #undef ABSOLUTE
+#endif
+
+#ifdef RELATIVE
+    #define RELATIVE_WAS_SET RELATIVE
+    #undef RELATIVE
+#endif
+
+#if defined(GetFreeSpace) || defined(GetFreeSpace)
+#   pragma push_macro("GetFreeSpace")
+#   undef GetFreeSpace
+#endif // __MINGW64__ or __MINGW32__
+
+
 namespace NET_ASAM_OPENSCENARIO
 {
     namespace v1_2
@@ -28971,3 +28987,17 @@ namespace NET_ASAM_OPENSCENARIO
     }
 }
 
+
+#ifdef ABSOLUTE_WAS_SET
+    #define ABSOLUTE ABSOLUTE_WAS_SET
+    #undef ABSOLUTE_WAS_SET
+#endif
+
+#ifdef RELATIVE_WAS_SET
+    #define RELATIVE RELATIVE_WAS_SET
+    #undef RELATIVE_WAS_SET
+#endif
+
+#if defined(GetFreeSpace) || defined(GetFreeSpace)
+#   pragma pop_macro("GetFreeSpace")
+#endif // __MINGW64__ or __MINGW32__
