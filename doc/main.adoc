@@ -743,6 +743,7 @@ In order to build OpenSCENARIO on your system the following requirements have to
 * Main memory >= 8 GB
 * cmake \<= 3.18 (build via command line and restricted cmake-gui)
 * cmake >= 3.19 (comfortable build via command line and cmake-gui)
+* Java Development Kit >= jdk-11
 * a working copy of the OpenSCENARIO sources
 
 ==== Linux
