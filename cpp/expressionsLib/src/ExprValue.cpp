@@ -430,9 +430,14 @@ namespace OscExpression
 				else if (IsTypeNumeric())
 				{
 					double doubleValue = getDoubleValue();
-					//if (doubleValue == std::ceil(doubleValue))
+					if (doubleValue == std::ceil(doubleValue))
 					{
-						//long long unambiguousValue = (long long)doubleValue;
+						long long unambiguousValue = (long long)doubleValue;
+						std::string longStringValue = std::to_string(unambiguousValue);
+						convertedType = CreateStringValue(longStringValue);
+					}
+					else 
+					{
 						std::string longStringValue = std::to_string(doubleValue);
 						convertedType = CreateStringValue(longStringValue);
 					}
