@@ -1598,9 +1598,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             // Add Attributes (Parameters)
             const auto kContent = customCommandActionWriter->GetContent();
+
+            //Modification: when parsing files with half tabs the format get mixed up
+            auto modifiedContent = kContent.substr(1, kContent.size());
+            modifiedContent = "\n\t\t" + modifiedContent;
+            modifiedContent.append("\t\t");
+
             if (!kContent.empty())
             {
-                elementNode->InsertEndChild(document->NewText(kContent.c_str()));
+                //elementNode->InsertEndChild(document->NewText(kContent.c_str())); 
+                elementNode->InsertEndChild(document->NewText(modifiedContent.c_str()));                
             }
             const auto kType = customCommandActionWriter->GetType();
             if (customCommandActionWriter->IsTypeParameterized())
@@ -1617,9 +1624,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             // Add Attributes (Parameters)
             const auto kContent = customContentWriter->GetContent();
+
+            //Modification: when parsing files with half tabs the format get mixed up
+            auto modifiedContent = kContent.substr(1, kContent.size());
+            modifiedContent = "\n\t\t" + modifiedContent;
+            modifiedContent.append("\t\t");
+
             if (!kContent.empty())
             {
-                elementNode->InsertEndChild(document->NewText(kContent.c_str()));
+                //elementNode->InsertEndChild(document->NewText(kContent.c_str())); 
+                elementNode->InsertEndChild(document->NewText(modifiedContent.c_str()));
             }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3177,9 +3191,26 @@ namespace NET_ASAM_OPENSCENARIO
         {
             // Add Attributes (Parameters)
             const auto kText = licenseWriter->GetText();
+
+            //Modification: when parsing files with half tabs the format get mixed up
+            std::string modifiedText;
+
+            if (kText.substr(0, 3) == "\n\t\t" || kText.substr(0, 3) == "\n\t  ")
+            {
+                modifiedText = kText.substr(3, kText.size());
+                modifiedText = "\n\t\t\t" + modifiedText;
+            }
+            else 
+            {
+                modifiedText = kText.substr(1, kText.size());
+                modifiedText = "\n\t" + modifiedText;
+            }
+            modifiedText.append("\t");
+
             if (!kText.empty())
             {
-                elementNode->InsertEndChild(document->NewText(kText.c_str()));
+                //elementNode->InsertEndChild(document->NewText(kText.c_str()));
+                elementNode->InsertEndChild(document->NewText(modifiedText.c_str()));
             }
             const auto kName = licenseWriter->GetName();
             if (licenseWriter->IsNameParameterized())
@@ -7780,9 +7811,16 @@ namespace NET_ASAM_OPENSCENARIO
         {
             // Add Attributes (Parameters)
             const auto kContent = userDefinedDistributionWriter->GetContent();
+
+            //Modification: when parsing files with half tabs the format get mixed up
+            auto modifiedContent = kContent.substr(1, kContent.size());
+            modifiedContent = "\n\t\t" + modifiedContent;
+            modifiedContent.append("\t\t");
+
             if (!kContent.empty())
             {
-                elementNode->InsertEndChild(document->NewText(kContent.c_str()));
+                //elementNode->InsertEndChild(document->NewText(kContent.c_str()));
+                elementNode->InsertEndChild(document->NewText(modifiedContent.c_str()));
             }
             const auto kType = userDefinedDistributionWriter->GetType();
             if (userDefinedDistributionWriter->IsTypeParameterized())
