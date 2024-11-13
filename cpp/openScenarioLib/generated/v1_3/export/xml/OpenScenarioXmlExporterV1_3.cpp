@@ -1600,9 +1600,41 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kContent = customCommandActionWriter->GetContent();
 
             //Modification: when parsing files with half tabs the format get mixed up
-            auto modifiedContent = kContent.substr(1, kContent.size());
-            modifiedContent = "\n\t\t" + modifiedContent;
-            modifiedContent.append("\t\t");
+            std::string modifiedContent; 
+
+            int countNewline = 0;
+            std::string substringNewLine = "\n";
+
+            for (size_t offset = kContent.find(substringNewLine); offset != std::string::npos; offset = kContent.find(substringNewLine, offset + substringNewLine.length()))
+            {
+                ++countNewline;
+            }
+
+            if (countNewline != 2)
+            {
+                //missing \n after CData
+                int countTabs = 0;
+                std::string substringTabs = "\t";
+
+                for (size_t offset = kContent.find(substringTabs); offset != std::string::npos; offset = kContent.find(substringTabs, offset + substringTabs.length()))
+                {
+                    ++countTabs;
+                }
+
+                modifiedContent = kContent.substr(1, kContent.size());
+                modifiedContent = "\n\t\t" + modifiedContent;
+                modifiedContent.append("\n");
+                for (int i = 0; i < countTabs + 1; i++)
+                {
+                    modifiedContent.append("\t");
+                }
+            }
+            else
+            {
+                modifiedContent = kContent.substr(1, kContent.size());
+                modifiedContent = "\n\t\t" + modifiedContent;
+                modifiedContent.append("\t\t");
+            }            
 
             if (!kContent.empty())
             {
@@ -1626,9 +1658,41 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kContent = customContentWriter->GetContent();
 
             //Modification: when parsing files with half tabs the format get mixed up
-            auto modifiedContent = kContent.substr(1, kContent.size());
-            modifiedContent = "\n\t\t" + modifiedContent;
-            modifiedContent.append("\t\t");
+            std::string modifiedContent;
+
+            int countNewline = 0;
+            std::string substringNewLine = "\n";
+
+            for (size_t offset = kContent.find(substringNewLine); offset != std::string::npos; offset = kContent.find(substringNewLine, offset + substringNewLine.length()))
+            {
+                ++countNewline;
+            }
+
+            if (countNewline != 2)
+            {
+                //missing \n after CData
+                int countTabs = 0;
+                std::string substringTabs = "\t";
+
+                for (size_t offset = kContent.find(substringTabs); offset != std::string::npos; offset = kContent.find(substringTabs, offset + substringTabs.length()))
+                {
+                    ++countTabs;
+                }
+
+                modifiedContent = kContent.substr(1, kContent.size());
+                modifiedContent = "\n\t\t" + modifiedContent;
+                modifiedContent.append("\n");
+                for (int i = 0; i < countTabs + 1; i++)
+                {
+                    modifiedContent.append("\t");
+                }
+            }
+            else
+            {
+                modifiedContent = kContent.substr(1, kContent.size());
+                modifiedContent = "\n\t\t" + modifiedContent;
+                modifiedContent.append("\t\t");
+            }
 
             if (!kContent.empty())
             {
@@ -7813,9 +7877,41 @@ namespace NET_ASAM_OPENSCENARIO
             const auto kContent = userDefinedDistributionWriter->GetContent();
 
             //Modification: when parsing files with half tabs the format get mixed up
-            auto modifiedContent = kContent.substr(1, kContent.size());
-            modifiedContent = "\n\t\t" + modifiedContent;
-            modifiedContent.append("\t\t");
+            std::string modifiedContent;
+
+            int countNewline = 0;
+            std::string substringNewLine = "\n";
+
+            for (size_t offset = kContent.find(substringNewLine); offset != std::string::npos; offset = kContent.find(substringNewLine, offset + substringNewLine.length()))
+            {
+                ++countNewline;
+            }
+
+            if (countNewline != 2)
+            {
+                //missing \n after CData
+                int countTabs = 0;
+                std::string substringTabs = "\t";
+
+                for (size_t offset = kContent.find(substringTabs); offset != std::string::npos; offset = kContent.find(substringTabs, offset + substringTabs.length()))
+                {
+                    ++countTabs;
+                }
+
+                modifiedContent = kContent.substr(1, kContent.size());
+                modifiedContent = "\n\t\t" + modifiedContent;
+                modifiedContent.append("\n");
+                for (int i = 0; i < countTabs + 1; i++)
+                {
+                    modifiedContent.append("\t");
+                }
+            }
+            else
+            {
+                modifiedContent = kContent.substr(1, kContent.size());
+                modifiedContent = "\n\t\t" + modifiedContent;
+                modifiedContent.append("\t\t");
+            }
 
             if (!kContent.empty())
             {
