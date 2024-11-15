@@ -1,7 +1,7 @@
 # OpenSCENARIO API
 
 ## Abstract
-* Extensive library for reading and checking scenarios.
+* Extensive library for reading, writing and checking scenarios.
 * Fully compliant to [OpenSCENARIO 1.3](https://www.asam.net/standards/detail/openscenario/)
 * Includes an executable checker (See [Getting Started](./doc/main.adoc#getting-started-on-c)).
 * Implementation platform is C++
