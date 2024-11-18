@@ -1597,49 +1597,11 @@ namespace NET_ASAM_OPENSCENARIO
         void OpenScenarioXmlExporter::FillCustomCommandActionNode(std::shared_ptr<tinyxml2::XMLDocument> document, tinyxml2::XMLNode* elementNode, std::shared_ptr<ICustomCommandActionWriter> customCommandActionWriter)
         {
             // Add Attributes (Parameters)
-            const auto kContent = customCommandActionWriter->GetContent();
-
-            //Modification: when parsing files with half tabs the format get mixed up
-            std::string modifiedContent; 
-
-            int countNewline = 0;
-            std::string substringNewLine = "\n";
-
-            for (size_t offset = kContent.find(substringNewLine); offset != std::string::npos; offset = kContent.find(substringNewLine, offset + substringNewLine.length()))
-            {
-                ++countNewline;
-            }
-
-            if (countNewline != 2)
-            {
-                //missing \n after CData
-                int countTabs = 0;
-                std::string substringTabs = "\t";
-
-                for (size_t offset = kContent.find(substringTabs); offset != std::string::npos; offset = kContent.find(substringTabs, offset + substringTabs.length()))
-                {
-                    ++countTabs;
-                }
-
-                modifiedContent = kContent.substr(1, kContent.size());
-                modifiedContent = "\n\t\t" + modifiedContent;
-                modifiedContent.append("\n");
-                for (int i = 0; i < countTabs + 1; i++)
-                {
-                    modifiedContent.append("\t");
-                }
-            }
-            else
-            {
-                modifiedContent = kContent.substr(1, kContent.size());
-                modifiedContent = "\n\t\t" + modifiedContent;
-                modifiedContent.append("\t\t");
-            }            
+            const auto kContent = customCommandActionWriter->GetContent();           
 
             if (!kContent.empty())
             {
-                //elementNode->InsertEndChild(document->NewText(kContent.c_str())); 
-                elementNode->InsertEndChild(document->NewText(modifiedContent.c_str()));                
+                elementNode->InsertEndChild(document->NewText(kContent.c_str()));
             }
             const auto kType = customCommandActionWriter->GetType();
             if (customCommandActionWriter->IsTypeParameterized())
@@ -1657,47 +1619,9 @@ namespace NET_ASAM_OPENSCENARIO
             // Add Attributes (Parameters)
             const auto kContent = customContentWriter->GetContent();
 
-            //Modification: when parsing files with half tabs the format get mixed up
-            std::string modifiedContent;
-
-            int countNewline = 0;
-            std::string substringNewLine = "\n";
-
-            for (size_t offset = kContent.find(substringNewLine); offset != std::string::npos; offset = kContent.find(substringNewLine, offset + substringNewLine.length()))
-            {
-                ++countNewline;
-            }
-
-            if (countNewline != 2)
-            {
-                //missing \n after CData
-                int countTabs = 0;
-                std::string substringTabs = "\t";
-
-                for (size_t offset = kContent.find(substringTabs); offset != std::string::npos; offset = kContent.find(substringTabs, offset + substringTabs.length()))
-                {
-                    ++countTabs;
-                }
-
-                modifiedContent = kContent.substr(1, kContent.size());
-                modifiedContent = "\n\t\t" + modifiedContent;
-                modifiedContent.append("\n");
-                for (int i = 0; i < countTabs + 1; i++)
-                {
-                    modifiedContent.append("\t");
-                }
-            }
-            else
-            {
-                modifiedContent = kContent.substr(1, kContent.size());
-                modifiedContent = "\n\t\t" + modifiedContent;
-                modifiedContent.append("\t\t");
-            }
-
             if (!kContent.empty())
-            {
-                //elementNode->InsertEndChild(document->NewText(kContent.c_str())); 
-                elementNode->InsertEndChild(document->NewText(modifiedContent.c_str()));
+            { 
+                elementNode->InsertEndChild(document->NewText(kContent.c_str()));
             }
                 // Add Children (Normal, Wrapped, Unwrapped, simpleContent);
             }
@@ -3256,25 +3180,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Add Attributes (Parameters)
             const auto kText = licenseWriter->GetText();
 
-            //Modification: when parsing files with half tabs the format get mixed up
-            std::string modifiedText;
-
-            if (kText.substr(0, 3) == "\n\t\t" || kText.substr(0, 3) == "\n\t  ")
-            {
-                modifiedText = kText.substr(3, kText.size());
-                modifiedText = "\n\t\t\t" + modifiedText;
-            }
-            else 
-            {
-                modifiedText = kText.substr(1, kText.size());
-                modifiedText = "\n\t" + modifiedText;
-            }
-            modifiedText.append("\t");
-
             if (!kText.empty())
             {
                 //elementNode->InsertEndChild(document->NewText(kText.c_str()));
-                elementNode->InsertEndChild(document->NewText(modifiedText.c_str()));
+                elementNode->InsertEndChild(document->NewText(kText.c_str()));
             }
             const auto kName = licenseWriter->GetName();
             if (licenseWriter->IsNameParameterized())
@@ -7876,47 +7785,10 @@ namespace NET_ASAM_OPENSCENARIO
             // Add Attributes (Parameters)
             const auto kContent = userDefinedDistributionWriter->GetContent();
 
-            //Modification: when parsing files with half tabs the format get mixed up
-            std::string modifiedContent;
-
-            int countNewline = 0;
-            std::string substringNewLine = "\n";
-
-            for (size_t offset = kContent.find(substringNewLine); offset != std::string::npos; offset = kContent.find(substringNewLine, offset + substringNewLine.length()))
-            {
-                ++countNewline;
-            }
-
-            if (countNewline != 2)
-            {
-                //missing \n after CData
-                int countTabs = 0;
-                std::string substringTabs = "\t";
-
-                for (size_t offset = kContent.find(substringTabs); offset != std::string::npos; offset = kContent.find(substringTabs, offset + substringTabs.length()))
-                {
-                    ++countTabs;
-                }
-
-                modifiedContent = kContent.substr(1, kContent.size());
-                modifiedContent = "\n\t\t" + modifiedContent;
-                modifiedContent.append("\n");
-                for (int i = 0; i < countTabs + 1; i++)
-                {
-                    modifiedContent.append("\t");
-                }
-            }
-            else
-            {
-                modifiedContent = kContent.substr(1, kContent.size());
-                modifiedContent = "\n\t\t" + modifiedContent;
-                modifiedContent.append("\t\t");
-            }
-
             if (!kContent.empty())
             {
                 //elementNode->InsertEndChild(document->NewText(kContent.c_str()));
-                elementNode->InsertEndChild(document->NewText(modifiedContent.c_str()));
+                elementNode->InsertEndChild(document->NewText(kContent.c_str()));
             }
             const auto kType = userDefinedDistributionWriter->GetType();
             if (userDefinedDistributionWriter->IsTypeParameterized())
