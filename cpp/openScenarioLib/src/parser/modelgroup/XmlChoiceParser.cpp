@@ -70,7 +70,7 @@ namespace NET_ASAM_OPENSCENARIO
                     }
                     it++;
                 }
-                if (currentOccurs < parser->GetMaxOccur())
+                if (currentOccurs < parser->GetMaxOccur() || parser->GetMaxOccur() == -1)
                 {
                     parser->Parse(indexedElement, parserContext, object);
                     currentListIndex = this->MoveForwardToLastElementParsed(indexedElements, currentListIndex, parserContext->GetLastElementParsed());
