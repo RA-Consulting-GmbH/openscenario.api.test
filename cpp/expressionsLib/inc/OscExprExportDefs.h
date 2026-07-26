@@ -35,6 +35,8 @@
 #   endif
 #elif defined(__APPLE__)
 #   define OSC_EXPR_EXP
+#elif defined(__EMSCRIPTEN__)
+#   define OSC_EXPR_EXP
 #else
 #   error "OPENSCENARIOLIB: Operating system not supported."
 #endif // _WIN32

@@ -41,7 +41,7 @@ namespace NET_ASAM_OPENSCENARIO
         }
 
         auto infile = std::make_shared<std::ifstream>(result.c_str(), std::ios::binary);
-#elif defined (__linux__) || defined (__APPLE__)
+#elif defined (__linux__) || defined (__APPLE__) || defined (__EMSCRIPTEN__)
     auto infile = std::make_shared<std::ifstream>(symbolicFilename, std::ios::binary);
 #else
 #   error "Operating system not supported."
