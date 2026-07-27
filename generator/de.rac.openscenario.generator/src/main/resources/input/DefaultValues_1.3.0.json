@@ -271,7 +271,7 @@
             "typeName": "double"
         },
         "type": {
-            "default": "absolute",
+            "default": "relative",
             "typeName": "ReferenceContext"
         }
     },

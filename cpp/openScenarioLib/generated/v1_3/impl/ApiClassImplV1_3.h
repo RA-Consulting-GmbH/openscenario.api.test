@@ -14064,7 +14064,7 @@ namespace NET_ASAM_OPENSCENARIO
             bool _isSetR = false;
             double _r {0};
             bool _isSetType = false;
-            ReferenceContext _type {ReferenceContext::ReferenceContextEnum::ABSOLUTE};
+            ReferenceContext _type {ReferenceContext::ReferenceContextEnum::RELATIVE};
 
         public:
 
