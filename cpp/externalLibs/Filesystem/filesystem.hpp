@@ -64,6 +64,8 @@
 #define GHC_OS_SYS5R4
 #elif defined(BSD)
 #define GHC_OS_BSD
+#elif defined(__EMSCRIPTEN__)
+#define GHC_OS_LINUX
 #else
 #error "Operating system currently not supported!"
 #endif
