@@ -52,7 +52,7 @@ namespace NET_ASAM_OPENSCENARIO
 
         std::shared_ptr<IOpenScenarioModelElement> XmlScenarioImportLoader::Load(std::shared_ptr<IParserMessageLogger> messageLogger, std::map<std::string, std::string>& injectedParameters)
         {
-            auto openScenario = std::static_pointer_cast<IOpenScenario>(_innerScenarioLoader->Load(messageLogger)->GetAdapter(typeid(IOpenScenario).name()));
+            auto openScenario = std::static_pointer_cast<IOpenScenario>(_innerScenarioLoader->Load(messageLogger, injectedParameters)->GetAdapter(typeid(IOpenScenario).name()));
 
             if (messageLogger->GetMessagesFilteredByWorseOrEqualToErrorLevel(ErrorLevel::ERROR).empty())
             {
